@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -45,7 +43,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+// 		_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
 // 			StorageAccountName:  exampleAccount.Name,
 // 			ContainerAccessType: pulumi.String("private"),
 // 		})
@@ -63,7 +61,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleEndpointStorageContainer, err := iot.NewEndpointStorageContainer(ctx, "exampleEndpointStorageContainer", &iot.EndpointStorageContainerArgs{
+// 		_, err = iot.NewEndpointStorageContainer(ctx, "exampleEndpointStorageContainer", &iot.EndpointStorageContainerArgs{
 // 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			IothubName:              exampleIoTHub.Name,
 // 			ContainerName:           pulumi.String("acctestcont"),

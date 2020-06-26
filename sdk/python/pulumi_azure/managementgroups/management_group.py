@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group", DeprecationWarning)
 
+
 class ManagementGroup(pulumi.CustomResource):
     display_name: pulumi.Output[str]
     """
@@ -33,13 +34,12 @@ class ManagementGroup(pulumi.CustomResource):
     A list of Subscription GUIDs which should be assigned to the Management Group.
     """
     warnings.warn("azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, display_name=None, group_id=None, name=None, parent_management_group_id=None, subscription_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Management Group.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

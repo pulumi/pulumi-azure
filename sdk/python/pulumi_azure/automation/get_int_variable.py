@@ -65,10 +65,7 @@ def get_int_variable(automation_account_name=None,name=None,resource_group_name=
     """
     Use this data source to access information about an existing Automation Int Variable.
 
-
     ## Example Usage
-
-
 
     ```python
     import pulumi

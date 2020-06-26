@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -49,7 +47,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleDatabase, err := postgresql.NewDatabase(ctx, "exampleDatabase", &postgresql.DatabaseArgs{
+// 		_, err = postgresql.NewDatabase(ctx, "exampleDatabase", &postgresql.DatabaseArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ServerName:        exampleServer.Name,
 // 			Charset:           pulumi.String("UTF8"),

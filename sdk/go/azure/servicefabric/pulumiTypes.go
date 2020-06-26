@@ -22,8 +22,7 @@ type ClusterAzureActiveDirectory struct {
 // ClusterAzureActiveDirectoryInput is an input type that accepts ClusterAzureActiveDirectoryArgs and ClusterAzureActiveDirectoryOutput values.
 // You can construct a concrete instance of `ClusterAzureActiveDirectoryInput` via:
 //
-// 		 ClusterAzureActiveDirectoryArgs{...}
-//
+//          ClusterAzureActiveDirectoryArgs{...}
 type ClusterAzureActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i ClusterAzureActiveDirectoryArgs) ToClusterAzureActiveDirectoryPtrOutputW
 // ClusterAzureActiveDirectoryPtrInput is an input type that accepts ClusterAzureActiveDirectoryArgs, ClusterAzureActiveDirectoryPtr and ClusterAzureActiveDirectoryPtrOutput values.
 // You can construct a concrete instance of `ClusterAzureActiveDirectoryPtrInput` via:
 //
-// 		 ClusterAzureActiveDirectoryArgs{...}
+//          ClusterAzureActiveDirectoryArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterAzureActiveDirectoryPtrInput interface {
 	pulumi.Input
 
@@ -193,8 +191,7 @@ type ClusterCertificate struct {
 // ClusterCertificateInput is an input type that accepts ClusterCertificateArgs and ClusterCertificateOutput values.
 // You can construct a concrete instance of `ClusterCertificateInput` via:
 //
-// 		 ClusterCertificateArgs{...}
-//
+//          ClusterCertificateArgs{...}
 type ClusterCertificateInput interface {
 	pulumi.Input
 
@@ -234,12 +231,11 @@ func (i ClusterCertificateArgs) ToClusterCertificatePtrOutputWithContext(ctx con
 // ClusterCertificatePtrInput is an input type that accepts ClusterCertificateArgs, ClusterCertificatePtr and ClusterCertificatePtrOutput values.
 // You can construct a concrete instance of `ClusterCertificatePtrInput` via:
 //
-// 		 ClusterCertificateArgs{...}
+//          ClusterCertificateArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCertificatePtrInput interface {
 	pulumi.Input
 
@@ -362,8 +358,7 @@ type ClusterCertificateCommonNames struct {
 // ClusterCertificateCommonNamesInput is an input type that accepts ClusterCertificateCommonNamesArgs and ClusterCertificateCommonNamesOutput values.
 // You can construct a concrete instance of `ClusterCertificateCommonNamesInput` via:
 //
-// 		 ClusterCertificateCommonNamesArgs{...}
-//
+//          ClusterCertificateCommonNamesArgs{...}
 type ClusterCertificateCommonNamesInput interface {
 	pulumi.Input
 
@@ -401,12 +396,11 @@ func (i ClusterCertificateCommonNamesArgs) ToClusterCertificateCommonNamesPtrOut
 // ClusterCertificateCommonNamesPtrInput is an input type that accepts ClusterCertificateCommonNamesArgs, ClusterCertificateCommonNamesPtr and ClusterCertificateCommonNamesPtrOutput values.
 // You can construct a concrete instance of `ClusterCertificateCommonNamesPtrInput` via:
 //
-// 		 ClusterCertificateCommonNamesArgs{...}
+//          ClusterCertificateCommonNamesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterCertificateCommonNamesPtrInput interface {
 	pulumi.Input
 
@@ -514,8 +508,7 @@ type ClusterCertificateCommonNamesCommonName struct {
 // ClusterCertificateCommonNamesCommonNameInput is an input type that accepts ClusterCertificateCommonNamesCommonNameArgs and ClusterCertificateCommonNamesCommonNameOutput values.
 // You can construct a concrete instance of `ClusterCertificateCommonNamesCommonNameInput` via:
 //
-// 		 ClusterCertificateCommonNamesCommonNameArgs{...}
-//
+//          ClusterCertificateCommonNamesCommonNameArgs{...}
 type ClusterCertificateCommonNamesCommonNameInput interface {
 	pulumi.Input
 
@@ -545,8 +538,7 @@ func (i ClusterCertificateCommonNamesCommonNameArgs) ToClusterCertificateCommonN
 // ClusterCertificateCommonNamesCommonNameArrayInput is an input type that accepts ClusterCertificateCommonNamesCommonNameArray and ClusterCertificateCommonNamesCommonNameArrayOutput values.
 // You can construct a concrete instance of `ClusterCertificateCommonNamesCommonNameArrayInput` via:
 //
-// 		 ClusterCertificateCommonNamesCommonNameArray{ ClusterCertificateCommonNamesCommonNameArgs{...} }
-//
+//          ClusterCertificateCommonNamesCommonNameArray{ ClusterCertificateCommonNamesCommonNameArgs{...} }
 type ClusterCertificateCommonNamesCommonNameArrayInput interface {
 	pulumi.Input
 
@@ -622,8 +614,7 @@ type ClusterClientCertificateCommonName struct {
 // ClusterClientCertificateCommonNameInput is an input type that accepts ClusterClientCertificateCommonNameArgs and ClusterClientCertificateCommonNameOutput values.
 // You can construct a concrete instance of `ClusterClientCertificateCommonNameInput` via:
 //
-// 		 ClusterClientCertificateCommonNameArgs{...}
-//
+//          ClusterClientCertificateCommonNameArgs{...}
 type ClusterClientCertificateCommonNameInput interface {
 	pulumi.Input
 
@@ -653,8 +644,7 @@ func (i ClusterClientCertificateCommonNameArgs) ToClusterClientCertificateCommon
 // ClusterClientCertificateCommonNameArrayInput is an input type that accepts ClusterClientCertificateCommonNameArray and ClusterClientCertificateCommonNameArrayOutput values.
 // You can construct a concrete instance of `ClusterClientCertificateCommonNameArrayInput` via:
 //
-// 		 ClusterClientCertificateCommonNameArray{ ClusterClientCertificateCommonNameArgs{...} }
-//
+//          ClusterClientCertificateCommonNameArray{ ClusterClientCertificateCommonNameArgs{...} }
 type ClusterClientCertificateCommonNameArrayInput interface {
 	pulumi.Input
 
@@ -733,8 +723,7 @@ type ClusterClientCertificateThumbprint struct {
 // ClusterClientCertificateThumbprintInput is an input type that accepts ClusterClientCertificateThumbprintArgs and ClusterClientCertificateThumbprintOutput values.
 // You can construct a concrete instance of `ClusterClientCertificateThumbprintInput` via:
 //
-// 		 ClusterClientCertificateThumbprintArgs{...}
-//
+//          ClusterClientCertificateThumbprintArgs{...}
 type ClusterClientCertificateThumbprintInput interface {
 	pulumi.Input
 
@@ -764,8 +753,7 @@ func (i ClusterClientCertificateThumbprintArgs) ToClusterClientCertificateThumbp
 // ClusterClientCertificateThumbprintArrayInput is an input type that accepts ClusterClientCertificateThumbprintArray and ClusterClientCertificateThumbprintArrayOutput values.
 // You can construct a concrete instance of `ClusterClientCertificateThumbprintArrayInput` via:
 //
-// 		 ClusterClientCertificateThumbprintArray{ ClusterClientCertificateThumbprintArgs{...} }
-//
+//          ClusterClientCertificateThumbprintArray{ ClusterClientCertificateThumbprintArgs{...} }
 type ClusterClientCertificateThumbprintArrayInput interface {
 	pulumi.Input
 
@@ -847,8 +835,7 @@ type ClusterDiagnosticsConfig struct {
 // ClusterDiagnosticsConfigInput is an input type that accepts ClusterDiagnosticsConfigArgs and ClusterDiagnosticsConfigOutput values.
 // You can construct a concrete instance of `ClusterDiagnosticsConfigInput` via:
 //
-// 		 ClusterDiagnosticsConfigArgs{...}
-//
+//          ClusterDiagnosticsConfigArgs{...}
 type ClusterDiagnosticsConfigInput interface {
 	pulumi.Input
 
@@ -892,12 +879,11 @@ func (i ClusterDiagnosticsConfigArgs) ToClusterDiagnosticsConfigPtrOutputWithCon
 // ClusterDiagnosticsConfigPtrInput is an input type that accepts ClusterDiagnosticsConfigArgs, ClusterDiagnosticsConfigPtr and ClusterDiagnosticsConfigPtrOutput values.
 // You can construct a concrete instance of `ClusterDiagnosticsConfigPtrInput` via:
 //
-// 		 ClusterDiagnosticsConfigArgs{...}
+//          ClusterDiagnosticsConfigArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterDiagnosticsConfigPtrInput interface {
 	pulumi.Input
 
@@ -1050,8 +1036,7 @@ type ClusterFabricSetting struct {
 // ClusterFabricSettingInput is an input type that accepts ClusterFabricSettingArgs and ClusterFabricSettingOutput values.
 // You can construct a concrete instance of `ClusterFabricSettingInput` via:
 //
-// 		 ClusterFabricSettingArgs{...}
-//
+//          ClusterFabricSettingArgs{...}
 type ClusterFabricSettingInput interface {
 	pulumi.Input
 
@@ -1081,8 +1066,7 @@ func (i ClusterFabricSettingArgs) ToClusterFabricSettingOutputWithContext(ctx co
 // ClusterFabricSettingArrayInput is an input type that accepts ClusterFabricSettingArray and ClusterFabricSettingArrayOutput values.
 // You can construct a concrete instance of `ClusterFabricSettingArrayInput` via:
 //
-// 		 ClusterFabricSettingArray{ ClusterFabricSettingArgs{...} }
-//
+//          ClusterFabricSettingArray{ ClusterFabricSettingArgs{...} }
 type ClusterFabricSettingArrayInput interface {
 	pulumi.Input
 
@@ -1176,8 +1160,7 @@ type ClusterNodeType struct {
 // ClusterNodeTypeInput is an input type that accepts ClusterNodeTypeArgs and ClusterNodeTypeOutput values.
 // You can construct a concrete instance of `ClusterNodeTypeInput` via:
 //
-// 		 ClusterNodeTypeArgs{...}
-//
+//          ClusterNodeTypeArgs{...}
 type ClusterNodeTypeInput interface {
 	pulumi.Input
 
@@ -1225,8 +1208,7 @@ func (i ClusterNodeTypeArgs) ToClusterNodeTypeOutputWithContext(ctx context.Cont
 // ClusterNodeTypeArrayInput is an input type that accepts ClusterNodeTypeArray and ClusterNodeTypeArrayOutput values.
 // You can construct a concrete instance of `ClusterNodeTypeArrayInput` via:
 //
-// 		 ClusterNodeTypeArray{ ClusterNodeTypeArgs{...} }
-//
+//          ClusterNodeTypeArray{ ClusterNodeTypeArgs{...} }
 type ClusterNodeTypeArrayInput interface {
 	pulumi.Input
 
@@ -1347,8 +1329,7 @@ type ClusterNodeTypeApplicationPorts struct {
 // ClusterNodeTypeApplicationPortsInput is an input type that accepts ClusterNodeTypeApplicationPortsArgs and ClusterNodeTypeApplicationPortsOutput values.
 // You can construct a concrete instance of `ClusterNodeTypeApplicationPortsInput` via:
 //
-// 		 ClusterNodeTypeApplicationPortsArgs{...}
-//
+//          ClusterNodeTypeApplicationPortsArgs{...}
 type ClusterNodeTypeApplicationPortsInput interface {
 	pulumi.Input
 
@@ -1386,12 +1367,11 @@ func (i ClusterNodeTypeApplicationPortsArgs) ToClusterNodeTypeApplicationPortsPt
 // ClusterNodeTypeApplicationPortsPtrInput is an input type that accepts ClusterNodeTypeApplicationPortsArgs, ClusterNodeTypeApplicationPortsPtr and ClusterNodeTypeApplicationPortsPtrOutput values.
 // You can construct a concrete instance of `ClusterNodeTypeApplicationPortsPtrInput` via:
 //
-// 		 ClusterNodeTypeApplicationPortsArgs{...}
+//          ClusterNodeTypeApplicationPortsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterNodeTypeApplicationPortsPtrInput interface {
 	pulumi.Input
 
@@ -1499,8 +1479,7 @@ type ClusterNodeTypeEphemeralPorts struct {
 // ClusterNodeTypeEphemeralPortsInput is an input type that accepts ClusterNodeTypeEphemeralPortsArgs and ClusterNodeTypeEphemeralPortsOutput values.
 // You can construct a concrete instance of `ClusterNodeTypeEphemeralPortsInput` via:
 //
-// 		 ClusterNodeTypeEphemeralPortsArgs{...}
-//
+//          ClusterNodeTypeEphemeralPortsArgs{...}
 type ClusterNodeTypeEphemeralPortsInput interface {
 	pulumi.Input
 
@@ -1538,12 +1517,11 @@ func (i ClusterNodeTypeEphemeralPortsArgs) ToClusterNodeTypeEphemeralPortsPtrOut
 // ClusterNodeTypeEphemeralPortsPtrInput is an input type that accepts ClusterNodeTypeEphemeralPortsArgs, ClusterNodeTypeEphemeralPortsPtr and ClusterNodeTypeEphemeralPortsPtrOutput values.
 // You can construct a concrete instance of `ClusterNodeTypeEphemeralPortsPtrInput` via:
 //
-// 		 ClusterNodeTypeEphemeralPortsArgs{...}
+//          ClusterNodeTypeEphemeralPortsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterNodeTypeEphemeralPortsPtrInput interface {
 	pulumi.Input
 
@@ -1653,8 +1631,7 @@ type ClusterReverseProxyCertificate struct {
 // ClusterReverseProxyCertificateInput is an input type that accepts ClusterReverseProxyCertificateArgs and ClusterReverseProxyCertificateOutput values.
 // You can construct a concrete instance of `ClusterReverseProxyCertificateInput` via:
 //
-// 		 ClusterReverseProxyCertificateArgs{...}
-//
+//          ClusterReverseProxyCertificateArgs{...}
 type ClusterReverseProxyCertificateInput interface {
 	pulumi.Input
 
@@ -1694,12 +1671,11 @@ func (i ClusterReverseProxyCertificateArgs) ToClusterReverseProxyCertificatePtrO
 // ClusterReverseProxyCertificatePtrInput is an input type that accepts ClusterReverseProxyCertificateArgs, ClusterReverseProxyCertificatePtr and ClusterReverseProxyCertificatePtrOutput values.
 // You can construct a concrete instance of `ClusterReverseProxyCertificatePtrInput` via:
 //
-// 		 ClusterReverseProxyCertificateArgs{...}
+//          ClusterReverseProxyCertificateArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ClusterReverseProxyCertificatePtrInput interface {
 	pulumi.Input
 

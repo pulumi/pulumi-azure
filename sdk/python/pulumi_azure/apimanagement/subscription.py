@@ -45,10 +45,7 @@ class Subscription(pulumi.CustomResource):
         """
         Manages a Subscription within a API Management Service.
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

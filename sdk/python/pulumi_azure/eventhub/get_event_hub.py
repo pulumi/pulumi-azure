@@ -60,8 +60,6 @@ def get_event_hub(name=None,namespace_name=None,resource_group_name=None,opts=No
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

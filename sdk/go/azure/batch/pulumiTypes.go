@@ -20,8 +20,7 @@ type AccountKeyVaultReference struct {
 // AccountKeyVaultReferenceInput is an input type that accepts AccountKeyVaultReferenceArgs and AccountKeyVaultReferenceOutput values.
 // You can construct a concrete instance of `AccountKeyVaultReferenceInput` via:
 //
-// 		 AccountKeyVaultReferenceArgs{...}
-//
+//          AccountKeyVaultReferenceArgs{...}
 type AccountKeyVaultReferenceInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i AccountKeyVaultReferenceArgs) ToAccountKeyVaultReferencePtrOutputWithCon
 // AccountKeyVaultReferencePtrInput is an input type that accepts AccountKeyVaultReferenceArgs, AccountKeyVaultReferencePtr and AccountKeyVaultReferencePtrOutput values.
 // You can construct a concrete instance of `AccountKeyVaultReferencePtrInput` via:
 //
-// 		 AccountKeyVaultReferenceArgs{...}
+//          AccountKeyVaultReferenceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountKeyVaultReferencePtrInput interface {
 	pulumi.Input
 
@@ -172,8 +170,7 @@ type PoolAutoScale struct {
 // PoolAutoScaleInput is an input type that accepts PoolAutoScaleArgs and PoolAutoScaleOutput values.
 // You can construct a concrete instance of `PoolAutoScaleInput` via:
 //
-// 		 PoolAutoScaleArgs{...}
-//
+//          PoolAutoScaleArgs{...}
 type PoolAutoScaleInput interface {
 	pulumi.Input
 
@@ -211,12 +208,11 @@ func (i PoolAutoScaleArgs) ToPoolAutoScalePtrOutputWithContext(ctx context.Conte
 // PoolAutoScalePtrInput is an input type that accepts PoolAutoScaleArgs, PoolAutoScalePtr and PoolAutoScalePtrOutput values.
 // You can construct a concrete instance of `PoolAutoScalePtrInput` via:
 //
-// 		 PoolAutoScaleArgs{...}
+//          PoolAutoScaleArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PoolAutoScalePtrInput interface {
 	pulumi.Input
 
@@ -328,8 +324,7 @@ type PoolCertificate struct {
 // PoolCertificateInput is an input type that accepts PoolCertificateArgs and PoolCertificateOutput values.
 // You can construct a concrete instance of `PoolCertificateInput` via:
 //
-// 		 PoolCertificateArgs{...}
-//
+//          PoolCertificateArgs{...}
 type PoolCertificateInput interface {
 	pulumi.Input
 
@@ -363,8 +358,7 @@ func (i PoolCertificateArgs) ToPoolCertificateOutputWithContext(ctx context.Cont
 // PoolCertificateArrayInput is an input type that accepts PoolCertificateArray and PoolCertificateArrayOutput values.
 // You can construct a concrete instance of `PoolCertificateArrayInput` via:
 //
-// 		 PoolCertificateArray{ PoolCertificateArgs{...} }
-//
+//          PoolCertificateArray{ PoolCertificateArgs{...} }
 type PoolCertificateArrayInput interface {
 	pulumi.Input
 
@@ -452,8 +446,7 @@ type PoolContainerConfiguration struct {
 // PoolContainerConfigurationInput is an input type that accepts PoolContainerConfigurationArgs and PoolContainerConfigurationOutput values.
 // You can construct a concrete instance of `PoolContainerConfigurationInput` via:
 //
-// 		 PoolContainerConfigurationArgs{...}
-//
+//          PoolContainerConfigurationArgs{...}
 type PoolContainerConfigurationInput interface {
 	pulumi.Input
 
@@ -493,12 +486,11 @@ func (i PoolContainerConfigurationArgs) ToPoolContainerConfigurationPtrOutputWit
 // PoolContainerConfigurationPtrInput is an input type that accepts PoolContainerConfigurationArgs, PoolContainerConfigurationPtr and PoolContainerConfigurationPtrOutput values.
 // You can construct a concrete instance of `PoolContainerConfigurationPtrInput` via:
 //
-// 		 PoolContainerConfigurationArgs{...}
+//          PoolContainerConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PoolContainerConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -625,8 +617,7 @@ type PoolContainerConfigurationContainerRegistry struct {
 // PoolContainerConfigurationContainerRegistryInput is an input type that accepts PoolContainerConfigurationContainerRegistryArgs and PoolContainerConfigurationContainerRegistryOutput values.
 // You can construct a concrete instance of `PoolContainerConfigurationContainerRegistryInput` via:
 //
-// 		 PoolContainerConfigurationContainerRegistryArgs{...}
-//
+//          PoolContainerConfigurationContainerRegistryArgs{...}
 type PoolContainerConfigurationContainerRegistryInput interface {
 	pulumi.Input
 
@@ -658,8 +649,7 @@ func (i PoolContainerConfigurationContainerRegistryArgs) ToPoolContainerConfigur
 // PoolContainerConfigurationContainerRegistryArrayInput is an input type that accepts PoolContainerConfigurationContainerRegistryArray and PoolContainerConfigurationContainerRegistryArrayOutput values.
 // You can construct a concrete instance of `PoolContainerConfigurationContainerRegistryArrayInput` via:
 //
-// 		 PoolContainerConfigurationContainerRegistryArray{ PoolContainerConfigurationContainerRegistryArgs{...} }
-//
+//          PoolContainerConfigurationContainerRegistryArray{ PoolContainerConfigurationContainerRegistryArgs{...} }
 type PoolContainerConfigurationContainerRegistryArrayInput interface {
 	pulumi.Input
 
@@ -742,8 +732,7 @@ type PoolFixedScale struct {
 // PoolFixedScaleInput is an input type that accepts PoolFixedScaleArgs and PoolFixedScaleOutput values.
 // You can construct a concrete instance of `PoolFixedScaleInput` via:
 //
-// 		 PoolFixedScaleArgs{...}
-//
+//          PoolFixedScaleArgs{...}
 type PoolFixedScaleInput interface {
 	pulumi.Input
 
@@ -783,12 +772,11 @@ func (i PoolFixedScaleArgs) ToPoolFixedScalePtrOutputWithContext(ctx context.Con
 // PoolFixedScalePtrInput is an input type that accepts PoolFixedScaleArgs, PoolFixedScalePtr and PoolFixedScalePtrOutput values.
 // You can construct a concrete instance of `PoolFixedScalePtrInput` via:
 //
-// 		 PoolFixedScaleArgs{...}
+//          PoolFixedScaleArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PoolFixedScalePtrInput interface {
 	pulumi.Input
 
@@ -913,8 +901,7 @@ type PoolNetworkConfiguration struct {
 // PoolNetworkConfigurationInput is an input type that accepts PoolNetworkConfigurationArgs and PoolNetworkConfigurationOutput values.
 // You can construct a concrete instance of `PoolNetworkConfigurationInput` via:
 //
-// 		 PoolNetworkConfigurationArgs{...}
-//
+//          PoolNetworkConfigurationArgs{...}
 type PoolNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -954,12 +941,11 @@ func (i PoolNetworkConfigurationArgs) ToPoolNetworkConfigurationPtrOutputWithCon
 // PoolNetworkConfigurationPtrInput is an input type that accepts PoolNetworkConfigurationArgs, PoolNetworkConfigurationPtr and PoolNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `PoolNetworkConfigurationPtrInput` via:
 //
-// 		 PoolNetworkConfigurationArgs{...}
+//          PoolNetworkConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PoolNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1090,8 +1076,7 @@ type PoolNetworkConfigurationEndpointConfiguration struct {
 // PoolNetworkConfigurationEndpointConfigurationInput is an input type that accepts PoolNetworkConfigurationEndpointConfigurationArgs and PoolNetworkConfigurationEndpointConfigurationOutput values.
 // You can construct a concrete instance of `PoolNetworkConfigurationEndpointConfigurationInput` via:
 //
-// 		 PoolNetworkConfigurationEndpointConfigurationArgs{...}
-//
+//          PoolNetworkConfigurationEndpointConfigurationArgs{...}
 type PoolNetworkConfigurationEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -1127,8 +1112,7 @@ func (i PoolNetworkConfigurationEndpointConfigurationArgs) ToPoolNetworkConfigur
 // PoolNetworkConfigurationEndpointConfigurationArrayInput is an input type that accepts PoolNetworkConfigurationEndpointConfigurationArray and PoolNetworkConfigurationEndpointConfigurationArrayOutput values.
 // You can construct a concrete instance of `PoolNetworkConfigurationEndpointConfigurationArrayInput` via:
 //
-// 		 PoolNetworkConfigurationEndpointConfigurationArray{ PoolNetworkConfigurationEndpointConfigurationArgs{...} }
-//
+//          PoolNetworkConfigurationEndpointConfigurationArray{ PoolNetworkConfigurationEndpointConfigurationArgs{...} }
 type PoolNetworkConfigurationEndpointConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1223,8 +1207,7 @@ type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule struc
 // PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput is an input type that accepts PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs and PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput values.
 // You can construct a concrete instance of `PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput` via:
 //
-// 		 PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{...}
-//
+//          PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{...}
 type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput interface {
 	pulumi.Input
 
@@ -1256,8 +1239,7 @@ func (i PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArg
 // PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput is an input type that accepts PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray and PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput values.
 // You can construct a concrete instance of `PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput` via:
 //
-// 		 PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{ PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{...} }
-//
+//          PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{ PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{...} }
 type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput interface {
 	pulumi.Input
 
@@ -1348,8 +1330,7 @@ type PoolStartTask struct {
 // PoolStartTaskInput is an input type that accepts PoolStartTaskArgs and PoolStartTaskOutput values.
 // You can construct a concrete instance of `PoolStartTaskInput` via:
 //
-// 		 PoolStartTaskArgs{...}
-//
+//          PoolStartTaskArgs{...}
 type PoolStartTaskInput interface {
 	pulumi.Input
 
@@ -1395,12 +1376,11 @@ func (i PoolStartTaskArgs) ToPoolStartTaskPtrOutputWithContext(ctx context.Conte
 // PoolStartTaskPtrInput is an input type that accepts PoolStartTaskArgs, PoolStartTaskPtr and PoolStartTaskPtrOutput values.
 // You can construct a concrete instance of `PoolStartTaskPtrInput` via:
 //
-// 		 PoolStartTaskArgs{...}
+//          PoolStartTaskArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PoolStartTaskPtrInput interface {
 	pulumi.Input
 
@@ -1576,8 +1556,7 @@ type PoolStartTaskResourceFile struct {
 // PoolStartTaskResourceFileInput is an input type that accepts PoolStartTaskResourceFileArgs and PoolStartTaskResourceFileOutput values.
 // You can construct a concrete instance of `PoolStartTaskResourceFileInput` via:
 //
-// 		 PoolStartTaskResourceFileArgs{...}
-//
+//          PoolStartTaskResourceFileArgs{...}
 type PoolStartTaskResourceFileInput interface {
 	pulumi.Input
 
@@ -1615,8 +1594,7 @@ func (i PoolStartTaskResourceFileArgs) ToPoolStartTaskResourceFileOutputWithCont
 // PoolStartTaskResourceFileArrayInput is an input type that accepts PoolStartTaskResourceFileArray and PoolStartTaskResourceFileArrayOutput values.
 // You can construct a concrete instance of `PoolStartTaskResourceFileArrayInput` via:
 //
-// 		 PoolStartTaskResourceFileArray{ PoolStartTaskResourceFileArgs{...} }
-//
+//          PoolStartTaskResourceFileArray{ PoolStartTaskResourceFileArgs{...} }
 type PoolStartTaskResourceFileArrayInput interface {
 	pulumi.Input
 
@@ -1712,8 +1690,7 @@ type PoolStartTaskUserIdentity struct {
 // PoolStartTaskUserIdentityInput is an input type that accepts PoolStartTaskUserIdentityArgs and PoolStartTaskUserIdentityOutput values.
 // You can construct a concrete instance of `PoolStartTaskUserIdentityInput` via:
 //
-// 		 PoolStartTaskUserIdentityArgs{...}
-//
+//          PoolStartTaskUserIdentityArgs{...}
 type PoolStartTaskUserIdentityInput interface {
 	pulumi.Input
 
@@ -1751,12 +1728,11 @@ func (i PoolStartTaskUserIdentityArgs) ToPoolStartTaskUserIdentityPtrOutputWithC
 // PoolStartTaskUserIdentityPtrInput is an input type that accepts PoolStartTaskUserIdentityArgs, PoolStartTaskUserIdentityPtr and PoolStartTaskUserIdentityPtrOutput values.
 // You can construct a concrete instance of `PoolStartTaskUserIdentityPtrInput` via:
 //
-// 		 PoolStartTaskUserIdentityArgs{...}
+//          PoolStartTaskUserIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PoolStartTaskUserIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1864,8 +1840,7 @@ type PoolStartTaskUserIdentityAutoUser struct {
 // PoolStartTaskUserIdentityAutoUserInput is an input type that accepts PoolStartTaskUserIdentityAutoUserArgs and PoolStartTaskUserIdentityAutoUserOutput values.
 // You can construct a concrete instance of `PoolStartTaskUserIdentityAutoUserInput` via:
 //
-// 		 PoolStartTaskUserIdentityAutoUserArgs{...}
-//
+//          PoolStartTaskUserIdentityAutoUserArgs{...}
 type PoolStartTaskUserIdentityAutoUserInput interface {
 	pulumi.Input
 
@@ -1903,12 +1878,11 @@ func (i PoolStartTaskUserIdentityAutoUserArgs) ToPoolStartTaskUserIdentityAutoUs
 // PoolStartTaskUserIdentityAutoUserPtrInput is an input type that accepts PoolStartTaskUserIdentityAutoUserArgs, PoolStartTaskUserIdentityAutoUserPtr and PoolStartTaskUserIdentityAutoUserPtrOutput values.
 // You can construct a concrete instance of `PoolStartTaskUserIdentityAutoUserPtrInput` via:
 //
-// 		 PoolStartTaskUserIdentityAutoUserArgs{...}
+//          PoolStartTaskUserIdentityAutoUserArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PoolStartTaskUserIdentityAutoUserPtrInput interface {
 	pulumi.Input
 
@@ -2023,8 +1997,7 @@ type PoolStorageImageReference struct {
 // PoolStorageImageReferenceInput is an input type that accepts PoolStorageImageReferenceArgs and PoolStorageImageReferenceOutput values.
 // You can construct a concrete instance of `PoolStorageImageReferenceInput` via:
 //
-// 		 PoolStorageImageReferenceArgs{...}
-//
+//          PoolStorageImageReferenceArgs{...}
 type PoolStorageImageReferenceInput interface {
 	pulumi.Input
 
@@ -2069,12 +2042,11 @@ func (i PoolStorageImageReferenceArgs) ToPoolStorageImageReferencePtrOutputWithC
 // PoolStorageImageReferencePtrInput is an input type that accepts PoolStorageImageReferenceArgs, PoolStorageImageReferencePtr and PoolStorageImageReferencePtrOutput values.
 // You can construct a concrete instance of `PoolStorageImageReferencePtrInput` via:
 //
-// 		 PoolStorageImageReferenceArgs{...}
+//          PoolStorageImageReferenceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PoolStorageImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -2229,8 +2201,7 @@ type GetAccountKeyVaultReference struct {
 // GetAccountKeyVaultReferenceInput is an input type that accepts GetAccountKeyVaultReferenceArgs and GetAccountKeyVaultReferenceOutput values.
 // You can construct a concrete instance of `GetAccountKeyVaultReferenceInput` via:
 //
-// 		 GetAccountKeyVaultReferenceArgs{...}
-//
+//          GetAccountKeyVaultReferenceArgs{...}
 type GetAccountKeyVaultReferenceInput interface {
 	pulumi.Input
 
@@ -2260,8 +2231,7 @@ func (i GetAccountKeyVaultReferenceArgs) ToGetAccountKeyVaultReferenceOutputWith
 // GetAccountKeyVaultReferenceArrayInput is an input type that accepts GetAccountKeyVaultReferenceArray and GetAccountKeyVaultReferenceArrayOutput values.
 // You can construct a concrete instance of `GetAccountKeyVaultReferenceArrayInput` via:
 //
-// 		 GetAccountKeyVaultReferenceArray{ GetAccountKeyVaultReferenceArgs{...} }
-//
+//          GetAccountKeyVaultReferenceArray{ GetAccountKeyVaultReferenceArgs{...} }
 type GetAccountKeyVaultReferenceArrayInput interface {
 	pulumi.Input
 
@@ -2337,8 +2307,7 @@ type GetPoolAutoScale struct {
 // GetPoolAutoScaleInput is an input type that accepts GetPoolAutoScaleArgs and GetPoolAutoScaleOutput values.
 // You can construct a concrete instance of `GetPoolAutoScaleInput` via:
 //
-// 		 GetPoolAutoScaleArgs{...}
-//
+//          GetPoolAutoScaleArgs{...}
 type GetPoolAutoScaleInput interface {
 	pulumi.Input
 
@@ -2368,8 +2337,7 @@ func (i GetPoolAutoScaleArgs) ToGetPoolAutoScaleOutputWithContext(ctx context.Co
 // GetPoolAutoScaleArrayInput is an input type that accepts GetPoolAutoScaleArray and GetPoolAutoScaleArrayOutput values.
 // You can construct a concrete instance of `GetPoolAutoScaleArrayInput` via:
 //
-// 		 GetPoolAutoScaleArray{ GetPoolAutoScaleArgs{...} }
-//
+//          GetPoolAutoScaleArray{ GetPoolAutoScaleArgs{...} }
 type GetPoolAutoScaleArrayInput interface {
 	pulumi.Input
 
@@ -2449,8 +2417,7 @@ type GetPoolCertificate struct {
 // GetPoolCertificateInput is an input type that accepts GetPoolCertificateArgs and GetPoolCertificateOutput values.
 // You can construct a concrete instance of `GetPoolCertificateInput` via:
 //
-// 		 GetPoolCertificateArgs{...}
-//
+//          GetPoolCertificateArgs{...}
 type GetPoolCertificateInput interface {
 	pulumi.Input
 
@@ -2484,8 +2451,7 @@ func (i GetPoolCertificateArgs) ToGetPoolCertificateOutputWithContext(ctx contex
 // GetPoolCertificateArrayInput is an input type that accepts GetPoolCertificateArray and GetPoolCertificateArrayOutput values.
 // You can construct a concrete instance of `GetPoolCertificateArrayInput` via:
 //
-// 		 GetPoolCertificateArray{ GetPoolCertificateArgs{...} }
-//
+//          GetPoolCertificateArray{ GetPoolCertificateArgs{...} }
 type GetPoolCertificateArrayInput interface {
 	pulumi.Input
 
@@ -2571,8 +2537,7 @@ type GetPoolContainerConfiguration struct {
 // GetPoolContainerConfigurationInput is an input type that accepts GetPoolContainerConfigurationArgs and GetPoolContainerConfigurationOutput values.
 // You can construct a concrete instance of `GetPoolContainerConfigurationInput` via:
 //
-// 		 GetPoolContainerConfigurationArgs{...}
-//
+//          GetPoolContainerConfigurationArgs{...}
 type GetPoolContainerConfigurationInput interface {
 	pulumi.Input
 
@@ -2602,8 +2567,7 @@ func (i GetPoolContainerConfigurationArgs) ToGetPoolContainerConfigurationOutput
 // GetPoolContainerConfigurationArrayInput is an input type that accepts GetPoolContainerConfigurationArray and GetPoolContainerConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetPoolContainerConfigurationArrayInput` via:
 //
-// 		 GetPoolContainerConfigurationArray{ GetPoolContainerConfigurationArgs{...} }
-//
+//          GetPoolContainerConfigurationArray{ GetPoolContainerConfigurationArgs{...} }
 type GetPoolContainerConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2683,8 +2647,7 @@ type GetPoolContainerConfigurationContainerRegistry struct {
 // GetPoolContainerConfigurationContainerRegistryInput is an input type that accepts GetPoolContainerConfigurationContainerRegistryArgs and GetPoolContainerConfigurationContainerRegistryOutput values.
 // You can construct a concrete instance of `GetPoolContainerConfigurationContainerRegistryInput` via:
 //
-// 		 GetPoolContainerConfigurationContainerRegistryArgs{...}
-//
+//          GetPoolContainerConfigurationContainerRegistryArgs{...}
 type GetPoolContainerConfigurationContainerRegistryInput interface {
 	pulumi.Input
 
@@ -2716,8 +2679,7 @@ func (i GetPoolContainerConfigurationContainerRegistryArgs) ToGetPoolContainerCo
 // GetPoolContainerConfigurationContainerRegistryArrayInput is an input type that accepts GetPoolContainerConfigurationContainerRegistryArray and GetPoolContainerConfigurationContainerRegistryArrayOutput values.
 // You can construct a concrete instance of `GetPoolContainerConfigurationContainerRegistryArrayInput` via:
 //
-// 		 GetPoolContainerConfigurationContainerRegistryArray{ GetPoolContainerConfigurationContainerRegistryArgs{...} }
-//
+//          GetPoolContainerConfigurationContainerRegistryArray{ GetPoolContainerConfigurationContainerRegistryArgs{...} }
 type GetPoolContainerConfigurationContainerRegistryArrayInput interface {
 	pulumi.Input
 
@@ -2800,8 +2762,7 @@ type GetPoolFixedScale struct {
 // GetPoolFixedScaleInput is an input type that accepts GetPoolFixedScaleArgs and GetPoolFixedScaleOutput values.
 // You can construct a concrete instance of `GetPoolFixedScaleInput` via:
 //
-// 		 GetPoolFixedScaleArgs{...}
-//
+//          GetPoolFixedScaleArgs{...}
 type GetPoolFixedScaleInput interface {
 	pulumi.Input
 
@@ -2833,8 +2794,7 @@ func (i GetPoolFixedScaleArgs) ToGetPoolFixedScaleOutputWithContext(ctx context.
 // GetPoolFixedScaleArrayInput is an input type that accepts GetPoolFixedScaleArray and GetPoolFixedScaleArrayOutput values.
 // You can construct a concrete instance of `GetPoolFixedScaleArrayInput` via:
 //
-// 		 GetPoolFixedScaleArray{ GetPoolFixedScaleArgs{...} }
-//
+//          GetPoolFixedScaleArray{ GetPoolFixedScaleArgs{...} }
 type GetPoolFixedScaleArrayInput interface {
 	pulumi.Input
 
@@ -2915,8 +2875,7 @@ type GetPoolNetworkConfiguration struct {
 // GetPoolNetworkConfigurationInput is an input type that accepts GetPoolNetworkConfigurationArgs and GetPoolNetworkConfigurationOutput values.
 // You can construct a concrete instance of `GetPoolNetworkConfigurationInput` via:
 //
-// 		 GetPoolNetworkConfigurationArgs{...}
-//
+//          GetPoolNetworkConfigurationArgs{...}
 type GetPoolNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -2985,8 +2944,7 @@ type GetPoolNetworkConfigurationEndpointConfiguration struct {
 // GetPoolNetworkConfigurationEndpointConfigurationInput is an input type that accepts GetPoolNetworkConfigurationEndpointConfigurationArgs and GetPoolNetworkConfigurationEndpointConfigurationOutput values.
 // You can construct a concrete instance of `GetPoolNetworkConfigurationEndpointConfigurationInput` via:
 //
-// 		 GetPoolNetworkConfigurationEndpointConfigurationArgs{...}
-//
+//          GetPoolNetworkConfigurationEndpointConfigurationArgs{...}
 type GetPoolNetworkConfigurationEndpointConfigurationInput interface {
 	pulumi.Input
 
@@ -3072,8 +3030,7 @@ type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule st
 // GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput is an input type that accepts GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs and GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput values.
 // You can construct a concrete instance of `GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput` via:
 //
-// 		 GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{...}
-//
+//          GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{...}
 type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput interface {
 	pulumi.Input
 
@@ -3105,8 +3062,7 @@ func (i GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 // GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput is an input type that accepts GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray and GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput values.
 // You can construct a concrete instance of `GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput` via:
 //
-// 		 GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{ GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{...} }
-//
+//          GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{ GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{...} }
 type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput interface {
 	pulumi.Input
 
@@ -3201,8 +3157,7 @@ type GetPoolStartTask struct {
 // GetPoolStartTaskInput is an input type that accepts GetPoolStartTaskArgs and GetPoolStartTaskOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskInput` via:
 //
-// 		 GetPoolStartTaskArgs{...}
-//
+//          GetPoolStartTaskArgs{...}
 type GetPoolStartTaskInput interface {
 	pulumi.Input
 
@@ -3299,8 +3254,7 @@ type GetPoolStartTaskResourceFile struct {
 // GetPoolStartTaskResourceFileInput is an input type that accepts GetPoolStartTaskResourceFileArgs and GetPoolStartTaskResourceFileOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskResourceFileInput` via:
 //
-// 		 GetPoolStartTaskResourceFileArgs{...}
-//
+//          GetPoolStartTaskResourceFileArgs{...}
 type GetPoolStartTaskResourceFileInput interface {
 	pulumi.Input
 
@@ -3338,8 +3292,7 @@ func (i GetPoolStartTaskResourceFileArgs) ToGetPoolStartTaskResourceFileOutputWi
 // GetPoolStartTaskResourceFileArrayInput is an input type that accepts GetPoolStartTaskResourceFileArray and GetPoolStartTaskResourceFileArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskResourceFileArrayInput` via:
 //
-// 		 GetPoolStartTaskResourceFileArray{ GetPoolStartTaskResourceFileArgs{...} }
-//
+//          GetPoolStartTaskResourceFileArray{ GetPoolStartTaskResourceFileArgs{...} }
 type GetPoolStartTaskResourceFileArrayInput interface {
 	pulumi.Input
 
@@ -3435,8 +3388,7 @@ type GetPoolStartTaskUserIdentity struct {
 // GetPoolStartTaskUserIdentityInput is an input type that accepts GetPoolStartTaskUserIdentityArgs and GetPoolStartTaskUserIdentityOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskUserIdentityInput` via:
 //
-// 		 GetPoolStartTaskUserIdentityArgs{...}
-//
+//          GetPoolStartTaskUserIdentityArgs{...}
 type GetPoolStartTaskUserIdentityInput interface {
 	pulumi.Input
 
@@ -3466,8 +3418,7 @@ func (i GetPoolStartTaskUserIdentityArgs) ToGetPoolStartTaskUserIdentityOutputWi
 // GetPoolStartTaskUserIdentityArrayInput is an input type that accepts GetPoolStartTaskUserIdentityArray and GetPoolStartTaskUserIdentityArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskUserIdentityArrayInput` via:
 //
-// 		 GetPoolStartTaskUserIdentityArray{ GetPoolStartTaskUserIdentityArgs{...} }
-//
+//          GetPoolStartTaskUserIdentityArray{ GetPoolStartTaskUserIdentityArgs{...} }
 type GetPoolStartTaskUserIdentityArrayInput interface {
 	pulumi.Input
 
@@ -3543,8 +3494,7 @@ type GetPoolStartTaskUserIdentityAutoUser struct {
 // GetPoolStartTaskUserIdentityAutoUserInput is an input type that accepts GetPoolStartTaskUserIdentityAutoUserArgs and GetPoolStartTaskUserIdentityAutoUserOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskUserIdentityAutoUserInput` via:
 //
-// 		 GetPoolStartTaskUserIdentityAutoUserArgs{...}
-//
+//          GetPoolStartTaskUserIdentityAutoUserArgs{...}
 type GetPoolStartTaskUserIdentityAutoUserInput interface {
 	pulumi.Input
 
@@ -3574,8 +3524,7 @@ func (i GetPoolStartTaskUserIdentityAutoUserArgs) ToGetPoolStartTaskUserIdentity
 // GetPoolStartTaskUserIdentityAutoUserArrayInput is an input type that accepts GetPoolStartTaskUserIdentityAutoUserArray and GetPoolStartTaskUserIdentityAutoUserArrayOutput values.
 // You can construct a concrete instance of `GetPoolStartTaskUserIdentityAutoUserArrayInput` via:
 //
-// 		 GetPoolStartTaskUserIdentityAutoUserArray{ GetPoolStartTaskUserIdentityAutoUserArgs{...} }
-//
+//          GetPoolStartTaskUserIdentityAutoUserArray{ GetPoolStartTaskUserIdentityAutoUserArgs{...} }
 type GetPoolStartTaskUserIdentityAutoUserArrayInput interface {
 	pulumi.Input
 
@@ -3653,8 +3602,7 @@ type GetPoolStorageImageReference struct {
 // GetPoolStorageImageReferenceInput is an input type that accepts GetPoolStorageImageReferenceArgs and GetPoolStorageImageReferenceOutput values.
 // You can construct a concrete instance of `GetPoolStorageImageReferenceInput` via:
 //
-// 		 GetPoolStorageImageReferenceArgs{...}
-//
+//          GetPoolStorageImageReferenceArgs{...}
 type GetPoolStorageImageReferenceInput interface {
 	pulumi.Input
 
@@ -3686,8 +3634,7 @@ func (i GetPoolStorageImageReferenceArgs) ToGetPoolStorageImageReferenceOutputWi
 // GetPoolStorageImageReferenceArrayInput is an input type that accepts GetPoolStorageImageReferenceArray and GetPoolStorageImageReferenceArrayOutput values.
 // You can construct a concrete instance of `GetPoolStorageImageReferenceArrayInput` via:
 //
-// 		 GetPoolStorageImageReferenceArray{ GetPoolStorageImageReferenceArgs{...} }
-//
+//          GetPoolStorageImageReferenceArray{ GetPoolStorageImageReferenceArgs{...} }
 type GetPoolStorageImageReferenceArrayInput interface {
 	pulumi.Input
 

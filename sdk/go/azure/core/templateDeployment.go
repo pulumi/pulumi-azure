@@ -16,6 +16,46 @@ import (
 // This means that when deleting the `core.TemplateDeployment` resource, this provider will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
 // One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
 //
+// ## Example Usage
+//
+// > **Note:** This example uses Storage Accounts and Public IP's which are natively supported by this provider - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTemplateDeployment, err := core.NewTemplateDeployment(ctx, "exampleTemplateDeployment", &core.TemplateDeploymentArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			TemplateBody:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"", "$", "schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n", "  \"contentVersion\": \"1.0.0.0\",\n", "  \"parameters\": {\n", "    \"storageAccountType\": {\n", "      \"type\": \"string\",\n", "      \"defaultValue\": \"Standard_LRS\",\n", "      \"allowedValues\": [\n", "        \"Standard_LRS\",\n", "        \"Standard_GRS\",\n", "        \"Standard_ZRS\"\n", "      ],\n", "      \"metadata\": {\n", "        \"description\": \"Storage Account type\"\n", "      }\n", "    }\n", "  },\n", "  \"variables\": {\n", "    \"location\": \"[resourceGroup().location]\",\n", "    \"storageAccountName\": \"[concat(uniquestring(resourceGroup().id), 'storage')]\",\n", "    \"publicIPAddressName\": \"[concat('myPublicIp', uniquestring(resourceGroup().id))]\",\n", "    \"publicIPAddressType\": \"Dynamic\",\n", "    \"apiVersion\": \"2015-06-15\",\n", "    \"dnsLabelPrefix\": \"example-acctest\"\n", "  },\n", "  \"resources\": [\n", "    {\n", "      \"type\": \"Microsoft.Storage/storageAccounts\",\n", "      \"name\": \"[variables('storageAccountName')]\",\n", "      \"apiVersion\": \"[variables('apiVersion')]\",\n", "      \"location\": \"[variables('location')]\",\n", "      \"properties\": {\n", "        \"accountType\": \"[parameters('storageAccountType')]\"\n", "      }\n", "    },\n", "    {\n", "      \"type\": \"Microsoft.Network/publicIPAddresses\",\n", "      \"apiVersion\": \"[variables('apiVersion')]\",\n", "      \"name\": \"[variables('publicIPAddressName')]\",\n", "      \"location\": \"[variables('location')]\",\n", "      \"properties\": {\n", "        \"publicIPAllocationMethod\": \"[variables('publicIPAddressType')]\",\n", "        \"dnsSettings\": {\n", "          \"domainNameLabel\": \"[variables('dnsLabelPrefix')]\"\n", "        }\n", "      }\n", "    }\n", "  ],\n", "  \"outputs\": {\n", "    \"storageAccountName\": {\n", "      \"type\": \"string\",\n", "      \"value\": \"[variables('storageAccountName')]\"\n", "    }\n", "  }\n", "}\n")),
+// 			Parameters: pulumi.Map{
+// 				"storageAccountType": pulumi.String("Standard_GRS"),
+// 			},
+// 			DeploymentMode: pulumi.String("Incremental"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("storageAccountName", exampleTemplateDeployment.Outputs.ApplyT(func(outputs map[string]string) (string, error) {
+// 			return outputs.StorageAccountName, nil
+// 		}).(pulumi.StringOutput))
+// 		return nil
+// 	})
+// }
+// ```
 // ## Note
 //
 // This provider does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).

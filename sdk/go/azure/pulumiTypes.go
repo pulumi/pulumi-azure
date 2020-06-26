@@ -19,8 +19,7 @@ type ProviderFeatures struct {
 // ProviderFeaturesInput is an input type that accepts ProviderFeaturesArgs and ProviderFeaturesOutput values.
 // You can construct a concrete instance of `ProviderFeaturesInput` via:
 //
-// 		 ProviderFeaturesArgs{...}
-//
+//          ProviderFeaturesArgs{...}
 type ProviderFeaturesInput interface {
 	pulumi.Input
 
@@ -57,12 +56,11 @@ func (i ProviderFeaturesArgs) ToProviderFeaturesPtrOutputWithContext(ctx context
 // ProviderFeaturesPtrInput is an input type that accepts ProviderFeaturesArgs, ProviderFeaturesPtr and ProviderFeaturesPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesPtrInput` via:
 //
-// 		 ProviderFeaturesArgs{...}
+//          ProviderFeaturesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProviderFeaturesPtrInput interface {
 	pulumi.Input
 
@@ -176,8 +174,7 @@ type ProviderFeaturesKeyVault struct {
 // ProviderFeaturesKeyVaultInput is an input type that accepts ProviderFeaturesKeyVaultArgs and ProviderFeaturesKeyVaultOutput values.
 // You can construct a concrete instance of `ProviderFeaturesKeyVaultInput` via:
 //
-// 		 ProviderFeaturesKeyVaultArgs{...}
-//
+//          ProviderFeaturesKeyVaultArgs{...}
 type ProviderFeaturesKeyVaultInput interface {
 	pulumi.Input
 
@@ -213,12 +210,11 @@ func (i ProviderFeaturesKeyVaultArgs) ToProviderFeaturesKeyVaultPtrOutputWithCon
 // ProviderFeaturesKeyVaultPtrInput is an input type that accepts ProviderFeaturesKeyVaultArgs, ProviderFeaturesKeyVaultPtr and ProviderFeaturesKeyVaultPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesKeyVaultPtrInput` via:
 //
-// 		 ProviderFeaturesKeyVaultArgs{...}
+//          ProviderFeaturesKeyVaultArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProviderFeaturesKeyVaultPtrInput interface {
 	pulumi.Input
 
@@ -318,8 +314,7 @@ type ProviderFeaturesVirtualMachine struct {
 // ProviderFeaturesVirtualMachineInput is an input type that accepts ProviderFeaturesVirtualMachineArgs and ProviderFeaturesVirtualMachineOutput values.
 // You can construct a concrete instance of `ProviderFeaturesVirtualMachineInput` via:
 //
-// 		 ProviderFeaturesVirtualMachineArgs{...}
-//
+//          ProviderFeaturesVirtualMachineArgs{...}
 type ProviderFeaturesVirtualMachineInput interface {
 	pulumi.Input
 
@@ -354,12 +349,11 @@ func (i ProviderFeaturesVirtualMachineArgs) ToProviderFeaturesVirtualMachinePtrO
 // ProviderFeaturesVirtualMachinePtrInput is an input type that accepts ProviderFeaturesVirtualMachineArgs, ProviderFeaturesVirtualMachinePtr and ProviderFeaturesVirtualMachinePtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesVirtualMachinePtrInput` via:
 //
-// 		 ProviderFeaturesVirtualMachineArgs{...}
+//          ProviderFeaturesVirtualMachineArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProviderFeaturesVirtualMachinePtrInput interface {
 	pulumi.Input
 
@@ -446,8 +440,7 @@ type ProviderFeaturesVirtualMachineScaleSet struct {
 // ProviderFeaturesVirtualMachineScaleSetInput is an input type that accepts ProviderFeaturesVirtualMachineScaleSetArgs and ProviderFeaturesVirtualMachineScaleSetOutput values.
 // You can construct a concrete instance of `ProviderFeaturesVirtualMachineScaleSetInput` via:
 //
-// 		 ProviderFeaturesVirtualMachineScaleSetArgs{...}
-//
+//          ProviderFeaturesVirtualMachineScaleSetArgs{...}
 type ProviderFeaturesVirtualMachineScaleSetInput interface {
 	pulumi.Input
 
@@ -482,12 +475,11 @@ func (i ProviderFeaturesVirtualMachineScaleSetArgs) ToProviderFeaturesVirtualMac
 // ProviderFeaturesVirtualMachineScaleSetPtrInput is an input type that accepts ProviderFeaturesVirtualMachineScaleSetArgs, ProviderFeaturesVirtualMachineScaleSetPtr and ProviderFeaturesVirtualMachineScaleSetPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesVirtualMachineScaleSetPtrInput` via:
 //
-// 		 ProviderFeaturesVirtualMachineScaleSetArgs{...}
+//          ProviderFeaturesVirtualMachineScaleSetArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ProviderFeaturesVirtualMachineScaleSetPtrInput interface {
 	pulumi.Input
 

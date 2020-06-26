@@ -67,8 +67,6 @@ def get_virtual_network(lab_name=None,name=None,resource_group_name=None,opts=No
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

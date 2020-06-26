@@ -22,8 +22,7 @@ type AssignmentIdentity struct {
 // AssignmentIdentityInput is an input type that accepts AssignmentIdentityArgs and AssignmentIdentityOutput values.
 // You can construct a concrete instance of `AssignmentIdentityInput` via:
 //
-// 		 AssignmentIdentityArgs{...}
-//
+//          AssignmentIdentityArgs{...}
 type AssignmentIdentityInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i AssignmentIdentityArgs) ToAssignmentIdentityPtrOutputWithContext(ctx con
 // AssignmentIdentityPtrInput is an input type that accepts AssignmentIdentityArgs, AssignmentIdentityPtr and AssignmentIdentityPtrOutput values.
 // You can construct a concrete instance of `AssignmentIdentityPtrInput` via:
 //
-// 		 AssignmentIdentityArgs{...}
+//          AssignmentIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AssignmentIdentityPtrInput interface {
 	pulumi.Input
 

@@ -43,14 +43,14 @@ class Provider(pulumi.ProviderResource):
 
         The **features** object supports the following:
 
-          * `keyVault` (`pulumi.Input[dict]`)
+          * `key_vault` (`pulumi.Input[dict]`)
             * `purgeSoftDeleteOnDestroy` (`pulumi.Input[bool]`)
             * `recoverSoftDeletedKeyVaults` (`pulumi.Input[bool]`)
 
-          * `virtualMachine` (`pulumi.Input[dict]`)
+          * `virtual_machine` (`pulumi.Input[dict]`)
             * `deleteOsDiskOnDeletion` (`pulumi.Input[bool]`)
 
-          * `virtualMachineScaleSet` (`pulumi.Input[dict]`)
+          * `virtual_machine_scale_set` (`pulumi.Input[dict]`)
             * `rollInstancesWhenRequired` (`pulumi.Input[bool]`)
         """
         if __name__ is not None:

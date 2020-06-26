@@ -18,8 +18,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -44,7 +42,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleNetworkSecurityRule, err := network.NewNetworkSecurityRule(ctx, "exampleNetworkSecurityRule", &network.NetworkSecurityRuleArgs{
+// 		_, err = network.NewNetworkSecurityRule(ctx, "exampleNetworkSecurityRule", &network.NetworkSecurityRuleArgs{
 // 			Priority:                 pulumi.Int(100),
 // 			Direction:                pulumi.String("Outbound"),
 // 			Access:                   pulumi.String("Allow"),

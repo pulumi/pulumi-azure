@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Firewall Rule for a MySQL Server
  *
  * ## Example Usage
- *
  * ### Single IP Address)
  *
  * ```typescript
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.8.12",
  * });
  * ```
- *
  * ### IP Range)
  *
  * ```typescript

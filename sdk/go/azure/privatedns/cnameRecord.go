@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -39,7 +37,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleCnameRecord, err := privatedns.NewCnameRecord(ctx, "exampleCnameRecord", &privatedns.CnameRecordArgs{
+// 		_, err = privatedns.NewCnameRecord(ctx, "exampleCnameRecord", &privatedns.CnameRecordArgs{
 // 			ZoneName:          exampleZone.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Ttl:               pulumi.Int(300),

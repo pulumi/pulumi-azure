@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Automation
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

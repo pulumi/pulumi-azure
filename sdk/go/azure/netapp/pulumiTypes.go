@@ -28,8 +28,7 @@ type AccountActiveDirectory struct {
 // AccountActiveDirectoryInput is an input type that accepts AccountActiveDirectoryArgs and AccountActiveDirectoryOutput values.
 // You can construct a concrete instance of `AccountActiveDirectoryInput` via:
 //
-// 		 AccountActiveDirectoryArgs{...}
-//
+//          AccountActiveDirectoryArgs{...}
 type AccountActiveDirectoryInput interface {
 	pulumi.Input
 
@@ -75,12 +74,11 @@ func (i AccountActiveDirectoryArgs) ToAccountActiveDirectoryPtrOutputWithContext
 // AccountActiveDirectoryPtrInput is an input type that accepts AccountActiveDirectoryArgs, AccountActiveDirectoryPtr and AccountActiveDirectoryPtrOutput values.
 // You can construct a concrete instance of `AccountActiveDirectoryPtrInput` via:
 //
-// 		 AccountActiveDirectoryArgs{...}
+//          AccountActiveDirectoryArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountActiveDirectoryPtrInput interface {
 	pulumi.Input
 
@@ -266,8 +264,7 @@ type VolumeExportPolicyRule struct {
 // VolumeExportPolicyRuleInput is an input type that accepts VolumeExportPolicyRuleArgs and VolumeExportPolicyRuleOutput values.
 // You can construct a concrete instance of `VolumeExportPolicyRuleInput` via:
 //
-// 		 VolumeExportPolicyRuleArgs{...}
-//
+//          VolumeExportPolicyRuleArgs{...}
 type VolumeExportPolicyRuleInput interface {
 	pulumi.Input
 
@@ -315,8 +312,7 @@ func (i VolumeExportPolicyRuleArgs) ToVolumeExportPolicyRuleOutputWithContext(ct
 // VolumeExportPolicyRuleArrayInput is an input type that accepts VolumeExportPolicyRuleArray and VolumeExportPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `VolumeExportPolicyRuleArrayInput` via:
 //
-// 		 VolumeExportPolicyRuleArray{ VolumeExportPolicyRuleArgs{...} }
-//
+//          VolumeExportPolicyRuleArray{ VolumeExportPolicyRuleArgs{...} }
 type VolumeExportPolicyRuleArrayInput interface {
 	pulumi.Input
 

@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -35,11 +33,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
+// 		_, err = eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: map[string]interface{}{
-// 				"environment": "Production",
+// 			Tags: pulumi.Map{
+// 				"environment": pulumi.String("Production"),
 // 			},
 // 		})
 // 		if err != nil {

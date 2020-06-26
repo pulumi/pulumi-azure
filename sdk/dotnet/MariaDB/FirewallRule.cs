@@ -13,7 +13,6 @@ namespace Pulumi.Azure.MariaDB
     /// Manages a Firewall Rule for a MariaDB Server
     /// 
     /// ## Example Usage
-    /// 
     /// ### Single IP Address)
     /// 
     /// ```csharp
@@ -35,7 +34,6 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// }
     /// ```
-    /// 
     /// ### IP Range)
     /// 
     /// ```csharp

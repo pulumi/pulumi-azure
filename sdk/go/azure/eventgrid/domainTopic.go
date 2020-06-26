@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -36,14 +34,14 @@ import (
 // 		exampleDomain, err := eventgrid.NewDomain(ctx, "exampleDomain", &eventgrid.DomainArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: map[string]interface{}{
-// 				"environment": "Production",
+// 			Tags: pulumi.Map{
+// 				"environment": pulumi.String("Production"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleDomainTopic, err := eventgrid.NewDomainTopic(ctx, "exampleDomainTopic", &eventgrid.DomainTopicArgs{
+// 		_, err = eventgrid.NewDomainTopic(ctx, "exampleDomainTopic", &eventgrid.DomainTopicArgs{
 // 			DomainName:        exampleDomain.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})

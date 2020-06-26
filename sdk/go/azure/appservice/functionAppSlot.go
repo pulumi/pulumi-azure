@@ -13,7 +13,6 @@ import (
 // Manages a Function App deployment Slot.
 //
 // ## Example Usage
-//
 // ### With App Service Plan)
 //
 // ```go
@@ -64,7 +63,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleFunctionAppSlot, err := appservice.NewFunctionAppSlot(ctx, "exampleFunctionAppSlot", &appservice.FunctionAppSlotArgs{
+// 		_, err = appservice.NewFunctionAppSlot(ctx, "exampleFunctionAppSlot", &appservice.FunctionAppSlotArgs{
 // 			Location:                exampleResourceGroup.Location,
 // 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			AppServicePlanId:        examplePlan.ID(),

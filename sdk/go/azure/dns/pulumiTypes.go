@@ -22,8 +22,7 @@ type CaaRecordRecord struct {
 // CaaRecordRecordInput is an input type that accepts CaaRecordRecordArgs and CaaRecordRecordOutput values.
 // You can construct a concrete instance of `CaaRecordRecordInput` via:
 //
-// 		 CaaRecordRecordArgs{...}
-//
+//          CaaRecordRecordArgs{...}
 type CaaRecordRecordInput interface {
 	pulumi.Input
 
@@ -55,8 +54,7 @@ func (i CaaRecordRecordArgs) ToCaaRecordRecordOutputWithContext(ctx context.Cont
 // CaaRecordRecordArrayInput is an input type that accepts CaaRecordRecordArray and CaaRecordRecordArrayOutput values.
 // You can construct a concrete instance of `CaaRecordRecordArrayInput` via:
 //
-// 		 CaaRecordRecordArray{ CaaRecordRecordArgs{...} }
-//
+//          CaaRecordRecordArray{ CaaRecordRecordArgs{...} }
 type CaaRecordRecordArrayInput interface {
 	pulumi.Input
 
@@ -137,8 +135,7 @@ type MxRecordRecord struct {
 // MxRecordRecordInput is an input type that accepts MxRecordRecordArgs and MxRecordRecordOutput values.
 // You can construct a concrete instance of `MxRecordRecordInput` via:
 //
-// 		 MxRecordRecordArgs{...}
-//
+//          MxRecordRecordArgs{...}
 type MxRecordRecordInput interface {
 	pulumi.Input
 
@@ -168,8 +165,7 @@ func (i MxRecordRecordArgs) ToMxRecordRecordOutputWithContext(ctx context.Contex
 // MxRecordRecordArrayInput is an input type that accepts MxRecordRecordArray and MxRecordRecordArrayOutput values.
 // You can construct a concrete instance of `MxRecordRecordArrayInput` via:
 //
-// 		 MxRecordRecordArray{ MxRecordRecordArgs{...} }
-//
+//          MxRecordRecordArray{ MxRecordRecordArgs{...} }
 type MxRecordRecordArrayInput interface {
 	pulumi.Input
 
@@ -249,8 +245,7 @@ type SrvRecordRecord struct {
 // SrvRecordRecordInput is an input type that accepts SrvRecordRecordArgs and SrvRecordRecordOutput values.
 // You can construct a concrete instance of `SrvRecordRecordInput` via:
 //
-// 		 SrvRecordRecordArgs{...}
-//
+//          SrvRecordRecordArgs{...}
 type SrvRecordRecordInput interface {
 	pulumi.Input
 
@@ -284,8 +279,7 @@ func (i SrvRecordRecordArgs) ToSrvRecordRecordOutputWithContext(ctx context.Cont
 // SrvRecordRecordArrayInput is an input type that accepts SrvRecordRecordArray and SrvRecordRecordArrayOutput values.
 // You can construct a concrete instance of `SrvRecordRecordArrayInput` via:
 //
-// 		 SrvRecordRecordArray{ SrvRecordRecordArgs{...} }
-//
+//          SrvRecordRecordArray{ SrvRecordRecordArgs{...} }
 type SrvRecordRecordArrayInput interface {
 	pulumi.Input
 
@@ -369,8 +363,7 @@ type TxtRecordRecord struct {
 // TxtRecordRecordInput is an input type that accepts TxtRecordRecordArgs and TxtRecordRecordOutput values.
 // You can construct a concrete instance of `TxtRecordRecordInput` via:
 //
-// 		 TxtRecordRecordArgs{...}
-//
+//          TxtRecordRecordArgs{...}
 type TxtRecordRecordInput interface {
 	pulumi.Input
 
@@ -398,8 +391,7 @@ func (i TxtRecordRecordArgs) ToTxtRecordRecordOutputWithContext(ctx context.Cont
 // TxtRecordRecordArrayInput is an input type that accepts TxtRecordRecordArray and TxtRecordRecordArrayOutput values.
 // You can construct a concrete instance of `TxtRecordRecordArrayInput` via:
 //
-// 		 TxtRecordRecordArray{ TxtRecordRecordArgs{...} }
-//
+//          TxtRecordRecordArray{ TxtRecordRecordArgs{...} }
 type TxtRecordRecordArrayInput interface {
 	pulumi.Input
 

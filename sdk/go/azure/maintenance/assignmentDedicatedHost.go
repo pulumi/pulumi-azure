@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -59,7 +57,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleAssignmentDedicatedHost, err := maintenance.NewAssignmentDedicatedHost(ctx, "exampleAssignmentDedicatedHost", &maintenance.AssignmentDedicatedHostArgs{
+// 		_, err = maintenance.NewAssignmentDedicatedHost(ctx, "exampleAssignmentDedicatedHost", &maintenance.AssignmentDedicatedHostArgs{
 // 			Location:                   exampleResourceGroup.Location,
 // 			MaintenanceConfigurationId: exampleConfiguration.ID(),
 // 			DedicatedHostId:            exampleDedicatedHost.ID(),

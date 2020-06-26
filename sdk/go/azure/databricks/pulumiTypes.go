@@ -24,8 +24,7 @@ type WorkspaceCustomParameters struct {
 // WorkspaceCustomParametersInput is an input type that accepts WorkspaceCustomParametersArgs and WorkspaceCustomParametersOutput values.
 // You can construct a concrete instance of `WorkspaceCustomParametersInput` via:
 //
-// 		 WorkspaceCustomParametersArgs{...}
-//
+//          WorkspaceCustomParametersArgs{...}
 type WorkspaceCustomParametersInput interface {
 	pulumi.Input
 
@@ -67,12 +66,11 @@ func (i WorkspaceCustomParametersArgs) ToWorkspaceCustomParametersPtrOutputWithC
 // WorkspaceCustomParametersPtrInput is an input type that accepts WorkspaceCustomParametersArgs, WorkspaceCustomParametersPtr and WorkspaceCustomParametersPtrOutput values.
 // You can construct a concrete instance of `WorkspaceCustomParametersPtrInput` via:
 //
-// 		 WorkspaceCustomParametersArgs{...}
+//          WorkspaceCustomParametersArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type WorkspaceCustomParametersPtrInput interface {
 	pulumi.Input
 

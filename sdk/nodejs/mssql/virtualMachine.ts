@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * This example provisions a brief Managed MsSql Virtual Machine.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

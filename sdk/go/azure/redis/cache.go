@@ -12,7 +12,6 @@ import (
 
 // Manages a Redis Cache.
 //
-//
 // ## Default Redis Configuration Values
 //
 // | Redis Value                     | Basic        | Standard     | Premium      |
@@ -25,7 +24,7 @@ import (
 //
 // > **NOTE:** The `maxmemoryReserved`, `maxmemoryDelta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
 //
-// ---
+// ***
 //
 // A `patchSchedule` block supports the following:
 //

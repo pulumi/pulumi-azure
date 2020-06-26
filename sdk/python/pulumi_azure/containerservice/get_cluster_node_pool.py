@@ -179,8 +179,6 @@ def get_cluster_node_pool(kubernetes_cluster_name=None,name=None,resource_group_
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

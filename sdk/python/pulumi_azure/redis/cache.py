@@ -125,7 +125,7 @@ class Cache(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        This example provisions a Standard Redis Cache.
 
         ```python
         import pulumi
@@ -143,7 +143,6 @@ class Cache(pulumi.CustomResource):
             minimum_tls_version="1.2",
             redis_configuration={})
         ```
-
         ## Default Redis Configuration Values
 
         | Redis Value                     | Basic        | Standard     | Premium      |
@@ -156,7 +155,7 @@ class Cache(pulumi.CustomResource):
 
         > **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
 
-        ---
+        ***
 
         A `patch_schedule` block supports the following:
 

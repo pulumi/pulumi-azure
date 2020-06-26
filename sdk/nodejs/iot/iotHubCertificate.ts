@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an IotHub Device Provisioning Service Certificate. 
+ * Manages an IotHub Device Provisioning Service Certificate.
  */
 export class IotHubCertificate extends pulumi.CustomResource {
     /**

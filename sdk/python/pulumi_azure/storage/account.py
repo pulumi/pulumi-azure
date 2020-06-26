@@ -264,8 +264,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -280,7 +278,6 @@ class Account(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-
         ### With Network Rules
 
         ```python

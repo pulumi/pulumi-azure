@@ -26,8 +26,7 @@ type ReplicatedVMManagedDisk struct {
 // ReplicatedVMManagedDiskInput is an input type that accepts ReplicatedVMManagedDiskArgs and ReplicatedVMManagedDiskOutput values.
 // You can construct a concrete instance of `ReplicatedVMManagedDiskInput` via:
 //
-// 		 ReplicatedVMManagedDiskArgs{...}
-//
+//          ReplicatedVMManagedDiskArgs{...}
 type ReplicatedVMManagedDiskInput interface {
 	pulumi.Input
 
@@ -63,8 +62,7 @@ func (i ReplicatedVMManagedDiskArgs) ToReplicatedVMManagedDiskOutputWithContext(
 // ReplicatedVMManagedDiskArrayInput is an input type that accepts ReplicatedVMManagedDiskArray and ReplicatedVMManagedDiskArrayOutput values.
 // You can construct a concrete instance of `ReplicatedVMManagedDiskArrayInput` via:
 //
-// 		 ReplicatedVMManagedDiskArray{ ReplicatedVMManagedDiskArgs{...} }
-//
+//          ReplicatedVMManagedDiskArray{ ReplicatedVMManagedDiskArgs{...} }
 type ReplicatedVMManagedDiskArrayInput interface {
 	pulumi.Input
 

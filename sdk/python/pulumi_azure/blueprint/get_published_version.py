@@ -82,10 +82,7 @@ def get_published_version(blueprint_name=None,scope_id=None,version=None,opts=No
 
     > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
-
     ## Example Usage
-
-
 
     ```python
     import pulumi

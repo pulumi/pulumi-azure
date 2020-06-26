@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace", DeprecationWarning)
 
+
 class Namespace(pulumi.CustomResource):
     capacity: pulumi.Output[float]
     """
@@ -61,13 +62,12 @@ class Namespace(pulumi.CustomResource):
     Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
     """
     warnings.warn("azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, capacity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Namespace.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

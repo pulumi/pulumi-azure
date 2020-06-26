@@ -53,8 +53,6 @@ def get_service_tags(location=None,location_filter=None,service=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -14,8 +14,6 @@ namespace Pulumi.Azure.Policy
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

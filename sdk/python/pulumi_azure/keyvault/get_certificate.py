@@ -78,8 +78,6 @@ def get_certificate(key_vault_id=None,name=None,version=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

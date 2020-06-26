@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Manages an ExpressRoute Circuit Peering.
  *
  * ## Example Usage
- *
  * ### Creating A Microsoft Peering)
  *
  * ```typescript

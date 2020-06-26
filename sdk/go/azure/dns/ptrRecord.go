@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -39,7 +37,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		examplePtrRecord, err := dns.NewPtrRecord(ctx, "examplePtrRecord", &dns.PtrRecordArgs{
+// 		_, err = dns.NewPtrRecord(ctx, "examplePtrRecord", &dns.PtrRecordArgs{
 // 			ZoneName:          exampleZone.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Ttl:               pulumi.Int(300),

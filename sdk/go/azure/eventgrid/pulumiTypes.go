@@ -22,8 +22,7 @@ type DomainInputMappingDefaultValues struct {
 // DomainInputMappingDefaultValuesInput is an input type that accepts DomainInputMappingDefaultValuesArgs and DomainInputMappingDefaultValuesOutput values.
 // You can construct a concrete instance of `DomainInputMappingDefaultValuesInput` via:
 //
-// 		 DomainInputMappingDefaultValuesArgs{...}
-//
+//          DomainInputMappingDefaultValuesArgs{...}
 type DomainInputMappingDefaultValuesInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i DomainInputMappingDefaultValuesArgs) ToDomainInputMappingDefaultValuesPt
 // DomainInputMappingDefaultValuesPtrInput is an input type that accepts DomainInputMappingDefaultValuesArgs, DomainInputMappingDefaultValuesPtr and DomainInputMappingDefaultValuesPtrOutput values.
 // You can construct a concrete instance of `DomainInputMappingDefaultValuesPtrInput` via:
 //
-// 		 DomainInputMappingDefaultValuesArgs{...}
+//          DomainInputMappingDefaultValuesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainInputMappingDefaultValuesPtrInput interface {
 	pulumi.Input
 
@@ -199,8 +197,7 @@ type DomainInputMappingFields struct {
 // DomainInputMappingFieldsInput is an input type that accepts DomainInputMappingFieldsArgs and DomainInputMappingFieldsOutput values.
 // You can construct a concrete instance of `DomainInputMappingFieldsInput` via:
 //
-// 		 DomainInputMappingFieldsArgs{...}
-//
+//          DomainInputMappingFieldsArgs{...}
 type DomainInputMappingFieldsInput interface {
 	pulumi.Input
 
@@ -246,12 +243,11 @@ func (i DomainInputMappingFieldsArgs) ToDomainInputMappingFieldsPtrOutputWithCon
 // DomainInputMappingFieldsPtrInput is an input type that accepts DomainInputMappingFieldsArgs, DomainInputMappingFieldsPtr and DomainInputMappingFieldsPtrOutput values.
 // You can construct a concrete instance of `DomainInputMappingFieldsPtrInput` via:
 //
-// 		 DomainInputMappingFieldsArgs{...}
+//          DomainInputMappingFieldsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DomainInputMappingFieldsPtrInput interface {
 	pulumi.Input
 
@@ -439,8 +435,7 @@ type EventSubscriptionAdvancedFilter struct {
 // EventSubscriptionAdvancedFilterInput is an input type that accepts EventSubscriptionAdvancedFilterArgs and EventSubscriptionAdvancedFilterOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterArgs{...}
-//
+//          EventSubscriptionAdvancedFilterArgs{...}
 type EventSubscriptionAdvancedFilterInput interface {
 	pulumi.Input
 
@@ -498,12 +493,11 @@ func (i EventSubscriptionAdvancedFilterArgs) ToEventSubscriptionAdvancedFilterPt
 // EventSubscriptionAdvancedFilterPtrInput is an input type that accepts EventSubscriptionAdvancedFilterArgs, EventSubscriptionAdvancedFilterPtr and EventSubscriptionAdvancedFilterPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterPtrInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterArgs{...}
+//          EventSubscriptionAdvancedFilterArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionAdvancedFilterPtrInput interface {
 	pulumi.Input
 
@@ -781,8 +775,7 @@ type EventSubscriptionAdvancedFilterBoolEqual struct {
 // EventSubscriptionAdvancedFilterBoolEqualInput is an input type that accepts EventSubscriptionAdvancedFilterBoolEqualArgs and EventSubscriptionAdvancedFilterBoolEqualOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterBoolEqualInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterBoolEqualArgs{...}
-//
+//          EventSubscriptionAdvancedFilterBoolEqualArgs{...}
 type EventSubscriptionAdvancedFilterBoolEqualInput interface {
 	pulumi.Input
 
@@ -812,8 +805,7 @@ func (i EventSubscriptionAdvancedFilterBoolEqualArgs) ToEventSubscriptionAdvance
 // EventSubscriptionAdvancedFilterBoolEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterBoolEqualArray and EventSubscriptionAdvancedFilterBoolEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterBoolEqualArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterBoolEqualArray{ EventSubscriptionAdvancedFilterBoolEqualArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterBoolEqualArray{ EventSubscriptionAdvancedFilterBoolEqualArgs{...} }
 type EventSubscriptionAdvancedFilterBoolEqualArrayInput interface {
 	pulumi.Input
 
@@ -889,8 +881,7 @@ type EventSubscriptionAdvancedFilterNumberGreaterThan struct {
 // EventSubscriptionAdvancedFilterNumberGreaterThanInput is an input type that accepts EventSubscriptionAdvancedFilterNumberGreaterThanArgs and EventSubscriptionAdvancedFilterNumberGreaterThanOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberGreaterThanInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberGreaterThanArgs{...}
-//
+//          EventSubscriptionAdvancedFilterNumberGreaterThanArgs{...}
 type EventSubscriptionAdvancedFilterNumberGreaterThanInput interface {
 	pulumi.Input
 
@@ -920,8 +911,7 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToEventSubscriptio
 // EventSubscriptionAdvancedFilterNumberGreaterThanArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberGreaterThanArray and EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberGreaterThanArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberGreaterThanArray{ EventSubscriptionAdvancedFilterNumberGreaterThanArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterNumberGreaterThanArray{ EventSubscriptionAdvancedFilterNumberGreaterThanArgs{...} }
 type EventSubscriptionAdvancedFilterNumberGreaterThanArrayInput interface {
 	pulumi.Input
 
@@ -997,8 +987,7 @@ type EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual struct {
 // EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualInput is an input type that accepts EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs and EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs{...}
-//
+//          EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs{...}
 type EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualInput interface {
 	pulumi.Input
 
@@ -1028,8 +1017,7 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ToEventSubs
 // EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray and EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray{ EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray{ EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs{...} }
 type EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput interface {
 	pulumi.Input
 
@@ -1105,8 +1093,7 @@ type EventSubscriptionAdvancedFilterNumberIn struct {
 // EventSubscriptionAdvancedFilterNumberInInput is an input type that accepts EventSubscriptionAdvancedFilterNumberInArgs and EventSubscriptionAdvancedFilterNumberInOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberInInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberInArgs{...}
-//
+//          EventSubscriptionAdvancedFilterNumberInArgs{...}
 type EventSubscriptionAdvancedFilterNumberInInput interface {
 	pulumi.Input
 
@@ -1136,8 +1123,7 @@ func (i EventSubscriptionAdvancedFilterNumberInArgs) ToEventSubscriptionAdvanced
 // EventSubscriptionAdvancedFilterNumberInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberInArray and EventSubscriptionAdvancedFilterNumberInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberInArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberInArray{ EventSubscriptionAdvancedFilterNumberInArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterNumberInArray{ EventSubscriptionAdvancedFilterNumberInArgs{...} }
 type EventSubscriptionAdvancedFilterNumberInArrayInput interface {
 	pulumi.Input
 
@@ -1213,8 +1199,7 @@ type EventSubscriptionAdvancedFilterNumberLessThan struct {
 // EventSubscriptionAdvancedFilterNumberLessThanInput is an input type that accepts EventSubscriptionAdvancedFilterNumberLessThanArgs and EventSubscriptionAdvancedFilterNumberLessThanOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberLessThanInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberLessThanArgs{...}
-//
+//          EventSubscriptionAdvancedFilterNumberLessThanArgs{...}
 type EventSubscriptionAdvancedFilterNumberLessThanInput interface {
 	pulumi.Input
 
@@ -1244,8 +1229,7 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanArgs) ToEventSubscriptionAd
 // EventSubscriptionAdvancedFilterNumberLessThanArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberLessThanArray and EventSubscriptionAdvancedFilterNumberLessThanArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberLessThanArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberLessThanArray{ EventSubscriptionAdvancedFilterNumberLessThanArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterNumberLessThanArray{ EventSubscriptionAdvancedFilterNumberLessThanArgs{...} }
 type EventSubscriptionAdvancedFilterNumberLessThanArrayInput interface {
 	pulumi.Input
 
@@ -1321,8 +1305,7 @@ type EventSubscriptionAdvancedFilterNumberLessThanOrEqual struct {
 // EventSubscriptionAdvancedFilterNumberLessThanOrEqualInput is an input type that accepts EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs and EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberLessThanOrEqualInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs{...}
-//
+//          EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs{...}
 type EventSubscriptionAdvancedFilterNumberLessThanOrEqualInput interface {
 	pulumi.Input
 
@@ -1352,8 +1335,7 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToEventSubscri
 // EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray and EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray{ EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray{ EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs{...} }
 type EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput interface {
 	pulumi.Input
 
@@ -1429,8 +1411,7 @@ type EventSubscriptionAdvancedFilterNumberNotIn struct {
 // EventSubscriptionAdvancedFilterNumberNotInInput is an input type that accepts EventSubscriptionAdvancedFilterNumberNotInArgs and EventSubscriptionAdvancedFilterNumberNotInOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberNotInInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberNotInArgs{...}
-//
+//          EventSubscriptionAdvancedFilterNumberNotInArgs{...}
 type EventSubscriptionAdvancedFilterNumberNotInInput interface {
 	pulumi.Input
 
@@ -1460,8 +1441,7 @@ func (i EventSubscriptionAdvancedFilterNumberNotInArgs) ToEventSubscriptionAdvan
 // EventSubscriptionAdvancedFilterNumberNotInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberNotInArray and EventSubscriptionAdvancedFilterNumberNotInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberNotInArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterNumberNotInArray{ EventSubscriptionAdvancedFilterNumberNotInArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterNumberNotInArray{ EventSubscriptionAdvancedFilterNumberNotInArgs{...} }
 type EventSubscriptionAdvancedFilterNumberNotInArrayInput interface {
 	pulumi.Input
 
@@ -1537,8 +1517,7 @@ type EventSubscriptionAdvancedFilterStringBeginsWith struct {
 // EventSubscriptionAdvancedFilterStringBeginsWithInput is an input type that accepts EventSubscriptionAdvancedFilterStringBeginsWithArgs and EventSubscriptionAdvancedFilterStringBeginsWithOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringBeginsWithInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringBeginsWithArgs{...}
-//
+//          EventSubscriptionAdvancedFilterStringBeginsWithArgs{...}
 type EventSubscriptionAdvancedFilterStringBeginsWithInput interface {
 	pulumi.Input
 
@@ -1568,8 +1547,7 @@ func (i EventSubscriptionAdvancedFilterStringBeginsWithArgs) ToEventSubscription
 // EventSubscriptionAdvancedFilterStringBeginsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringBeginsWithArray and EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringBeginsWithArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringBeginsWithArray{ EventSubscriptionAdvancedFilterStringBeginsWithArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterStringBeginsWithArray{ EventSubscriptionAdvancedFilterStringBeginsWithArgs{...} }
 type EventSubscriptionAdvancedFilterStringBeginsWithArrayInput interface {
 	pulumi.Input
 
@@ -1645,8 +1623,7 @@ type EventSubscriptionAdvancedFilterStringContain struct {
 // EventSubscriptionAdvancedFilterStringContainInput is an input type that accepts EventSubscriptionAdvancedFilterStringContainArgs and EventSubscriptionAdvancedFilterStringContainOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringContainInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringContainArgs{...}
-//
+//          EventSubscriptionAdvancedFilterStringContainArgs{...}
 type EventSubscriptionAdvancedFilterStringContainInput interface {
 	pulumi.Input
 
@@ -1676,8 +1653,7 @@ func (i EventSubscriptionAdvancedFilterStringContainArgs) ToEventSubscriptionAdv
 // EventSubscriptionAdvancedFilterStringContainArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringContainArray and EventSubscriptionAdvancedFilterStringContainArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringContainArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringContainArray{ EventSubscriptionAdvancedFilterStringContainArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterStringContainArray{ EventSubscriptionAdvancedFilterStringContainArgs{...} }
 type EventSubscriptionAdvancedFilterStringContainArrayInput interface {
 	pulumi.Input
 
@@ -1753,8 +1729,7 @@ type EventSubscriptionAdvancedFilterStringEndsWith struct {
 // EventSubscriptionAdvancedFilterStringEndsWithInput is an input type that accepts EventSubscriptionAdvancedFilterStringEndsWithArgs and EventSubscriptionAdvancedFilterStringEndsWithOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringEndsWithInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringEndsWithArgs{...}
-//
+//          EventSubscriptionAdvancedFilterStringEndsWithArgs{...}
 type EventSubscriptionAdvancedFilterStringEndsWithInput interface {
 	pulumi.Input
 
@@ -1784,8 +1759,7 @@ func (i EventSubscriptionAdvancedFilterStringEndsWithArgs) ToEventSubscriptionAd
 // EventSubscriptionAdvancedFilterStringEndsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringEndsWithArray and EventSubscriptionAdvancedFilterStringEndsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringEndsWithArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringEndsWithArray{ EventSubscriptionAdvancedFilterStringEndsWithArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterStringEndsWithArray{ EventSubscriptionAdvancedFilterStringEndsWithArgs{...} }
 type EventSubscriptionAdvancedFilterStringEndsWithArrayInput interface {
 	pulumi.Input
 
@@ -1861,8 +1835,7 @@ type EventSubscriptionAdvancedFilterStringIn struct {
 // EventSubscriptionAdvancedFilterStringInInput is an input type that accepts EventSubscriptionAdvancedFilterStringInArgs and EventSubscriptionAdvancedFilterStringInOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringInInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringInArgs{...}
-//
+//          EventSubscriptionAdvancedFilterStringInArgs{...}
 type EventSubscriptionAdvancedFilterStringInInput interface {
 	pulumi.Input
 
@@ -1892,8 +1865,7 @@ func (i EventSubscriptionAdvancedFilterStringInArgs) ToEventSubscriptionAdvanced
 // EventSubscriptionAdvancedFilterStringInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringInArray and EventSubscriptionAdvancedFilterStringInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringInArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringInArray{ EventSubscriptionAdvancedFilterStringInArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterStringInArray{ EventSubscriptionAdvancedFilterStringInArgs{...} }
 type EventSubscriptionAdvancedFilterStringInArrayInput interface {
 	pulumi.Input
 
@@ -1969,8 +1941,7 @@ type EventSubscriptionAdvancedFilterStringNotIn struct {
 // EventSubscriptionAdvancedFilterStringNotInInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotInArgs and EventSubscriptionAdvancedFilterStringNotInOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotInInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringNotInArgs{...}
-//
+//          EventSubscriptionAdvancedFilterStringNotInArgs{...}
 type EventSubscriptionAdvancedFilterStringNotInInput interface {
 	pulumi.Input
 
@@ -2000,8 +1971,7 @@ func (i EventSubscriptionAdvancedFilterStringNotInArgs) ToEventSubscriptionAdvan
 // EventSubscriptionAdvancedFilterStringNotInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotInArray and EventSubscriptionAdvancedFilterStringNotInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotInArrayInput` via:
 //
-// 		 EventSubscriptionAdvancedFilterStringNotInArray{ EventSubscriptionAdvancedFilterStringNotInArgs{...} }
-//
+//          EventSubscriptionAdvancedFilterStringNotInArray{ EventSubscriptionAdvancedFilterStringNotInArgs{...} }
 type EventSubscriptionAdvancedFilterStringNotInArrayInput interface {
 	pulumi.Input
 
@@ -2079,8 +2049,7 @@ type EventSubscriptionAzureFunctionEndpoint struct {
 // EventSubscriptionAzureFunctionEndpointInput is an input type that accepts EventSubscriptionAzureFunctionEndpointArgs and EventSubscriptionAzureFunctionEndpointOutput values.
 // You can construct a concrete instance of `EventSubscriptionAzureFunctionEndpointInput` via:
 //
-// 		 EventSubscriptionAzureFunctionEndpointArgs{...}
-//
+//          EventSubscriptionAzureFunctionEndpointArgs{...}
 type EventSubscriptionAzureFunctionEndpointInput interface {
 	pulumi.Input
 
@@ -2120,12 +2089,11 @@ func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunc
 // EventSubscriptionAzureFunctionEndpointPtrInput is an input type that accepts EventSubscriptionAzureFunctionEndpointArgs, EventSubscriptionAzureFunctionEndpointPtr and EventSubscriptionAzureFunctionEndpointPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionAzureFunctionEndpointPtrInput` via:
 //
-// 		 EventSubscriptionAzureFunctionEndpointArgs{...}
+//          EventSubscriptionAzureFunctionEndpointArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionAzureFunctionEndpointPtrInput interface {
 	pulumi.Input
 
@@ -2246,8 +2214,7 @@ type EventSubscriptionEventhubEndpoint struct {
 // EventSubscriptionEventhubEndpointInput is an input type that accepts EventSubscriptionEventhubEndpointArgs and EventSubscriptionEventhubEndpointOutput values.
 // You can construct a concrete instance of `EventSubscriptionEventhubEndpointInput` via:
 //
-// 		 EventSubscriptionEventhubEndpointArgs{...}
-//
+//          EventSubscriptionEventhubEndpointArgs{...}
 type EventSubscriptionEventhubEndpointInput interface {
 	pulumi.Input
 
@@ -2283,12 +2250,11 @@ func (i EventSubscriptionEventhubEndpointArgs) ToEventSubscriptionEventhubEndpoi
 // EventSubscriptionEventhubEndpointPtrInput is an input type that accepts EventSubscriptionEventhubEndpointArgs, EventSubscriptionEventhubEndpointPtr and EventSubscriptionEventhubEndpointPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionEventhubEndpointPtrInput` via:
 //
-// 		 EventSubscriptionEventhubEndpointArgs{...}
+//          EventSubscriptionEventhubEndpointArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionEventhubEndpointPtrInput interface {
 	pulumi.Input
 
@@ -2379,8 +2345,7 @@ type EventSubscriptionHybridConnectionEndpoint struct {
 // EventSubscriptionHybridConnectionEndpointInput is an input type that accepts EventSubscriptionHybridConnectionEndpointArgs and EventSubscriptionHybridConnectionEndpointOutput values.
 // You can construct a concrete instance of `EventSubscriptionHybridConnectionEndpointInput` via:
 //
-// 		 EventSubscriptionHybridConnectionEndpointArgs{...}
-//
+//          EventSubscriptionHybridConnectionEndpointArgs{...}
 type EventSubscriptionHybridConnectionEndpointInput interface {
 	pulumi.Input
 
@@ -2416,12 +2381,11 @@ func (i EventSubscriptionHybridConnectionEndpointArgs) ToEventSubscriptionHybrid
 // EventSubscriptionHybridConnectionEndpointPtrInput is an input type that accepts EventSubscriptionHybridConnectionEndpointArgs, EventSubscriptionHybridConnectionEndpointPtr and EventSubscriptionHybridConnectionEndpointPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionHybridConnectionEndpointPtrInput` via:
 //
-// 		 EventSubscriptionHybridConnectionEndpointArgs{...}
+//          EventSubscriptionHybridConnectionEndpointArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionHybridConnectionEndpointPtrInput interface {
 	pulumi.Input
 
@@ -2516,8 +2480,7 @@ type EventSubscriptionRetryPolicy struct {
 // EventSubscriptionRetryPolicyInput is an input type that accepts EventSubscriptionRetryPolicyArgs and EventSubscriptionRetryPolicyOutput values.
 // You can construct a concrete instance of `EventSubscriptionRetryPolicyInput` via:
 //
-// 		 EventSubscriptionRetryPolicyArgs{...}
-//
+//          EventSubscriptionRetryPolicyArgs{...}
 type EventSubscriptionRetryPolicyInput interface {
 	pulumi.Input
 
@@ -2555,12 +2518,11 @@ func (i EventSubscriptionRetryPolicyArgs) ToEventSubscriptionRetryPolicyPtrOutpu
 // EventSubscriptionRetryPolicyPtrInput is an input type that accepts EventSubscriptionRetryPolicyArgs, EventSubscriptionRetryPolicyPtr and EventSubscriptionRetryPolicyPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionRetryPolicyPtrInput` via:
 //
-// 		 EventSubscriptionRetryPolicyArgs{...}
+//          EventSubscriptionRetryPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionRetryPolicyPtrInput interface {
 	pulumi.Input
 
@@ -2668,8 +2630,7 @@ type EventSubscriptionStorageBlobDeadLetterDestination struct {
 // EventSubscriptionStorageBlobDeadLetterDestinationInput is an input type that accepts EventSubscriptionStorageBlobDeadLetterDestinationArgs and EventSubscriptionStorageBlobDeadLetterDestinationOutput values.
 // You can construct a concrete instance of `EventSubscriptionStorageBlobDeadLetterDestinationInput` via:
 //
-// 		 EventSubscriptionStorageBlobDeadLetterDestinationArgs{...}
-//
+//          EventSubscriptionStorageBlobDeadLetterDestinationArgs{...}
 type EventSubscriptionStorageBlobDeadLetterDestinationInput interface {
 	pulumi.Input
 
@@ -2707,12 +2668,11 @@ func (i EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToEventSubscripti
 // EventSubscriptionStorageBlobDeadLetterDestinationPtrInput is an input type that accepts EventSubscriptionStorageBlobDeadLetterDestinationArgs, EventSubscriptionStorageBlobDeadLetterDestinationPtr and EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionStorageBlobDeadLetterDestinationPtrInput` via:
 //
-// 		 EventSubscriptionStorageBlobDeadLetterDestinationArgs{...}
+//          EventSubscriptionStorageBlobDeadLetterDestinationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionStorageBlobDeadLetterDestinationPtrInput interface {
 	pulumi.Input
 
@@ -2822,8 +2782,7 @@ type EventSubscriptionStorageQueueEndpoint struct {
 // EventSubscriptionStorageQueueEndpointInput is an input type that accepts EventSubscriptionStorageQueueEndpointArgs and EventSubscriptionStorageQueueEndpointOutput values.
 // You can construct a concrete instance of `EventSubscriptionStorageQueueEndpointInput` via:
 //
-// 		 EventSubscriptionStorageQueueEndpointArgs{...}
-//
+//          EventSubscriptionStorageQueueEndpointArgs{...}
 type EventSubscriptionStorageQueueEndpointInput interface {
 	pulumi.Input
 
@@ -2861,12 +2820,11 @@ func (i EventSubscriptionStorageQueueEndpointArgs) ToEventSubscriptionStorageQue
 // EventSubscriptionStorageQueueEndpointPtrInput is an input type that accepts EventSubscriptionStorageQueueEndpointArgs, EventSubscriptionStorageQueueEndpointPtr and EventSubscriptionStorageQueueEndpointPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionStorageQueueEndpointPtrInput` via:
 //
-// 		 EventSubscriptionStorageQueueEndpointArgs{...}
+//          EventSubscriptionStorageQueueEndpointArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionStorageQueueEndpointPtrInput interface {
 	pulumi.Input
 
@@ -2976,8 +2934,7 @@ type EventSubscriptionSubjectFilter struct {
 // EventSubscriptionSubjectFilterInput is an input type that accepts EventSubscriptionSubjectFilterArgs and EventSubscriptionSubjectFilterOutput values.
 // You can construct a concrete instance of `EventSubscriptionSubjectFilterInput` via:
 //
-// 		 EventSubscriptionSubjectFilterArgs{...}
-//
+//          EventSubscriptionSubjectFilterArgs{...}
 type EventSubscriptionSubjectFilterInput interface {
 	pulumi.Input
 
@@ -3017,12 +2974,11 @@ func (i EventSubscriptionSubjectFilterArgs) ToEventSubscriptionSubjectFilterPtrO
 // EventSubscriptionSubjectFilterPtrInput is an input type that accepts EventSubscriptionSubjectFilterArgs, EventSubscriptionSubjectFilterPtr and EventSubscriptionSubjectFilterPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionSubjectFilterPtrInput` via:
 //
-// 		 EventSubscriptionSubjectFilterArgs{...}
+//          EventSubscriptionSubjectFilterArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionSubjectFilterPtrInput interface {
 	pulumi.Input
 
@@ -3153,8 +3109,7 @@ type EventSubscriptionWebhookEndpoint struct {
 // EventSubscriptionWebhookEndpointInput is an input type that accepts EventSubscriptionWebhookEndpointArgs and EventSubscriptionWebhookEndpointOutput values.
 // You can construct a concrete instance of `EventSubscriptionWebhookEndpointInput` via:
 //
-// 		 EventSubscriptionWebhookEndpointArgs{...}
-//
+//          EventSubscriptionWebhookEndpointArgs{...}
 type EventSubscriptionWebhookEndpointInput interface {
 	pulumi.Input
 
@@ -3200,12 +3155,11 @@ func (i EventSubscriptionWebhookEndpointArgs) ToEventSubscriptionWebhookEndpoint
 // EventSubscriptionWebhookEndpointPtrInput is an input type that accepts EventSubscriptionWebhookEndpointArgs, EventSubscriptionWebhookEndpointPtr and EventSubscriptionWebhookEndpointPtrOutput values.
 // You can construct a concrete instance of `EventSubscriptionWebhookEndpointPtrInput` via:
 //
-// 		 EventSubscriptionWebhookEndpointArgs{...}
+//          EventSubscriptionWebhookEndpointArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type EventSubscriptionWebhookEndpointPtrInput interface {
 	pulumi.Input
 
@@ -3375,8 +3329,7 @@ type TopicInputMappingDefaultValues struct {
 // TopicInputMappingDefaultValuesInput is an input type that accepts TopicInputMappingDefaultValuesArgs and TopicInputMappingDefaultValuesOutput values.
 // You can construct a concrete instance of `TopicInputMappingDefaultValuesInput` via:
 //
-// 		 TopicInputMappingDefaultValuesArgs{...}
-//
+//          TopicInputMappingDefaultValuesArgs{...}
 type TopicInputMappingDefaultValuesInput interface {
 	pulumi.Input
 
@@ -3416,12 +3369,11 @@ func (i TopicInputMappingDefaultValuesArgs) ToTopicInputMappingDefaultValuesPtrO
 // TopicInputMappingDefaultValuesPtrInput is an input type that accepts TopicInputMappingDefaultValuesArgs, TopicInputMappingDefaultValuesPtr and TopicInputMappingDefaultValuesPtrOutput values.
 // You can construct a concrete instance of `TopicInputMappingDefaultValuesPtrInput` via:
 //
-// 		 TopicInputMappingDefaultValuesArgs{...}
+//          TopicInputMappingDefaultValuesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type TopicInputMappingDefaultValuesPtrInput interface {
 	pulumi.Input
 
@@ -3552,8 +3504,7 @@ type TopicInputMappingFields struct {
 // TopicInputMappingFieldsInput is an input type that accepts TopicInputMappingFieldsArgs and TopicInputMappingFieldsOutput values.
 // You can construct a concrete instance of `TopicInputMappingFieldsInput` via:
 //
-// 		 TopicInputMappingFieldsArgs{...}
-//
+//          TopicInputMappingFieldsArgs{...}
 type TopicInputMappingFieldsInput interface {
 	pulumi.Input
 
@@ -3599,12 +3550,11 @@ func (i TopicInputMappingFieldsArgs) ToTopicInputMappingFieldsPtrOutputWithConte
 // TopicInputMappingFieldsPtrInput is an input type that accepts TopicInputMappingFieldsArgs, TopicInputMappingFieldsPtr and TopicInputMappingFieldsPtrOutput values.
 // You can construct a concrete instance of `TopicInputMappingFieldsPtrInput` via:
 //
-// 		 TopicInputMappingFieldsArgs{...}
+//          TopicInputMappingFieldsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type TopicInputMappingFieldsPtrInput interface {
 	pulumi.Input
 

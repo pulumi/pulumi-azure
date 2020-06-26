@@ -95,8 +95,6 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -33,8 +33,6 @@ class SqlDatabase(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure

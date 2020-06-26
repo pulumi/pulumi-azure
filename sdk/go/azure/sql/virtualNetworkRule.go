@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -65,7 +63,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		sqlvnetrule, err := sql.NewVirtualNetworkRule(ctx, "sqlvnetrule", &sql.VirtualNetworkRuleArgs{
+// 		_, err = sql.NewVirtualNetworkRule(ctx, "sqlvnetrule", &sql.VirtualNetworkRuleArgs{
 // 			ResourceGroupName: example.Name,
 // 			ServerName:        sqlserver.Name,
 // 			SubnetId:          subnet.ID(),

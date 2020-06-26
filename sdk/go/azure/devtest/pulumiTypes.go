@@ -22,8 +22,7 @@ type GlobalVMShutdownScheduleNotificationSettings struct {
 // GlobalVMShutdownScheduleNotificationSettingsInput is an input type that accepts GlobalVMShutdownScheduleNotificationSettingsArgs and GlobalVMShutdownScheduleNotificationSettingsOutput values.
 // You can construct a concrete instance of `GlobalVMShutdownScheduleNotificationSettingsInput` via:
 //
-// 		 GlobalVMShutdownScheduleNotificationSettingsArgs{...}
-//
+//          GlobalVMShutdownScheduleNotificationSettingsArgs{...}
 type GlobalVMShutdownScheduleNotificationSettingsInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i GlobalVMShutdownScheduleNotificationSettingsArgs) ToGlobalVMShutdownSche
 // GlobalVMShutdownScheduleNotificationSettingsPtrInput is an input type that accepts GlobalVMShutdownScheduleNotificationSettingsArgs, GlobalVMShutdownScheduleNotificationSettingsPtr and GlobalVMShutdownScheduleNotificationSettingsPtrOutput values.
 // You can construct a concrete instance of `GlobalVMShutdownScheduleNotificationSettingsPtrInput` via:
 //
-// 		 GlobalVMShutdownScheduleNotificationSettingsArgs{...}
+//          GlobalVMShutdownScheduleNotificationSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GlobalVMShutdownScheduleNotificationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -197,8 +195,7 @@ type LinuxVirtualMachineGalleryImageReference struct {
 // LinuxVirtualMachineGalleryImageReferenceInput is an input type that accepts LinuxVirtualMachineGalleryImageReferenceArgs and LinuxVirtualMachineGalleryImageReferenceOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineGalleryImageReferenceInput` via:
 //
-// 		 LinuxVirtualMachineGalleryImageReferenceArgs{...}
-//
+//          LinuxVirtualMachineGalleryImageReferenceArgs{...}
 type LinuxVirtualMachineGalleryImageReferenceInput interface {
 	pulumi.Input
 
@@ -240,12 +237,11 @@ func (i LinuxVirtualMachineGalleryImageReferenceArgs) ToLinuxVirtualMachineGalle
 // LinuxVirtualMachineGalleryImageReferencePtrInput is an input type that accepts LinuxVirtualMachineGalleryImageReferenceArgs, LinuxVirtualMachineGalleryImageReferencePtr and LinuxVirtualMachineGalleryImageReferencePtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineGalleryImageReferencePtrInput` via:
 //
-// 		 LinuxVirtualMachineGalleryImageReferenceArgs{...}
+//          LinuxVirtualMachineGalleryImageReferenceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type LinuxVirtualMachineGalleryImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -385,8 +381,7 @@ type LinuxVirtualMachineInboundNatRule struct {
 // LinuxVirtualMachineInboundNatRuleInput is an input type that accepts LinuxVirtualMachineInboundNatRuleArgs and LinuxVirtualMachineInboundNatRuleOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineInboundNatRuleInput` via:
 //
-// 		 LinuxVirtualMachineInboundNatRuleArgs{...}
-//
+//          LinuxVirtualMachineInboundNatRuleArgs{...}
 type LinuxVirtualMachineInboundNatRuleInput interface {
 	pulumi.Input
 
@@ -418,8 +413,7 @@ func (i LinuxVirtualMachineInboundNatRuleArgs) ToLinuxVirtualMachineInboundNatRu
 // LinuxVirtualMachineInboundNatRuleArrayInput is an input type that accepts LinuxVirtualMachineInboundNatRuleArray and LinuxVirtualMachineInboundNatRuleArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineInboundNatRuleArrayInput` via:
 //
-// 		 LinuxVirtualMachineInboundNatRuleArray{ LinuxVirtualMachineInboundNatRuleArgs{...} }
-//
+//          LinuxVirtualMachineInboundNatRuleArray{ LinuxVirtualMachineInboundNatRuleArgs{...} }
 type LinuxVirtualMachineInboundNatRuleArrayInput interface {
 	pulumi.Input
 
@@ -498,8 +492,7 @@ type ScheduleDailyRecurrence struct {
 // ScheduleDailyRecurrenceInput is an input type that accepts ScheduleDailyRecurrenceArgs and ScheduleDailyRecurrenceOutput values.
 // You can construct a concrete instance of `ScheduleDailyRecurrenceInput` via:
 //
-// 		 ScheduleDailyRecurrenceArgs{...}
-//
+//          ScheduleDailyRecurrenceArgs{...}
 type ScheduleDailyRecurrenceInput interface {
 	pulumi.Input
 
@@ -535,12 +528,11 @@ func (i ScheduleDailyRecurrenceArgs) ToScheduleDailyRecurrencePtrOutputWithConte
 // ScheduleDailyRecurrencePtrInput is an input type that accepts ScheduleDailyRecurrenceArgs, ScheduleDailyRecurrencePtr and ScheduleDailyRecurrencePtrOutput values.
 // You can construct a concrete instance of `ScheduleDailyRecurrencePtrInput` via:
 //
-// 		 ScheduleDailyRecurrenceArgs{...}
+//          ScheduleDailyRecurrenceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ScheduleDailyRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -630,8 +622,7 @@ type ScheduleHourlyRecurrence struct {
 // ScheduleHourlyRecurrenceInput is an input type that accepts ScheduleHourlyRecurrenceArgs and ScheduleHourlyRecurrenceOutput values.
 // You can construct a concrete instance of `ScheduleHourlyRecurrenceInput` via:
 //
-// 		 ScheduleHourlyRecurrenceArgs{...}
-//
+//          ScheduleHourlyRecurrenceArgs{...}
 type ScheduleHourlyRecurrenceInput interface {
 	pulumi.Input
 
@@ -666,12 +657,11 @@ func (i ScheduleHourlyRecurrenceArgs) ToScheduleHourlyRecurrencePtrOutputWithCon
 // ScheduleHourlyRecurrencePtrInput is an input type that accepts ScheduleHourlyRecurrenceArgs, ScheduleHourlyRecurrencePtr and ScheduleHourlyRecurrencePtrOutput values.
 // You can construct a concrete instance of `ScheduleHourlyRecurrencePtrInput` via:
 //
-// 		 ScheduleHourlyRecurrenceArgs{...}
+//          ScheduleHourlyRecurrenceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ScheduleHourlyRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -763,8 +753,7 @@ type ScheduleNotificationSettings struct {
 // ScheduleNotificationSettingsInput is an input type that accepts ScheduleNotificationSettingsArgs and ScheduleNotificationSettingsOutput values.
 // You can construct a concrete instance of `ScheduleNotificationSettingsInput` via:
 //
-// 		 ScheduleNotificationSettingsArgs{...}
-//
+//          ScheduleNotificationSettingsArgs{...}
 type ScheduleNotificationSettingsInput interface {
 	pulumi.Input
 
@@ -804,12 +793,11 @@ func (i ScheduleNotificationSettingsArgs) ToScheduleNotificationSettingsPtrOutpu
 // ScheduleNotificationSettingsPtrInput is an input type that accepts ScheduleNotificationSettingsArgs, ScheduleNotificationSettingsPtr and ScheduleNotificationSettingsPtrOutput values.
 // You can construct a concrete instance of `ScheduleNotificationSettingsPtrInput` via:
 //
-// 		 ScheduleNotificationSettingsArgs{...}
+//          ScheduleNotificationSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ScheduleNotificationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -932,8 +920,7 @@ type ScheduleWeeklyRecurrence struct {
 // ScheduleWeeklyRecurrenceInput is an input type that accepts ScheduleWeeklyRecurrenceArgs and ScheduleWeeklyRecurrenceOutput values.
 // You can construct a concrete instance of `ScheduleWeeklyRecurrenceInput` via:
 //
-// 		 ScheduleWeeklyRecurrenceArgs{...}
-//
+//          ScheduleWeeklyRecurrenceArgs{...}
 type ScheduleWeeklyRecurrenceInput interface {
 	pulumi.Input
 
@@ -971,12 +958,11 @@ func (i ScheduleWeeklyRecurrenceArgs) ToScheduleWeeklyRecurrencePtrOutputWithCon
 // ScheduleWeeklyRecurrencePtrInput is an input type that accepts ScheduleWeeklyRecurrenceArgs, ScheduleWeeklyRecurrencePtr and ScheduleWeeklyRecurrencePtrOutput values.
 // You can construct a concrete instance of `ScheduleWeeklyRecurrencePtrInput` via:
 //
-// 		 ScheduleWeeklyRecurrenceArgs{...}
+//          ScheduleWeeklyRecurrenceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ScheduleWeeklyRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -1086,8 +1072,7 @@ type VirtualNetworkSubnet struct {
 // VirtualNetworkSubnetInput is an input type that accepts VirtualNetworkSubnetArgs and VirtualNetworkSubnetOutput values.
 // You can construct a concrete instance of `VirtualNetworkSubnetInput` via:
 //
-// 		 VirtualNetworkSubnetArgs{...}
-//
+//          VirtualNetworkSubnetArgs{...}
 type VirtualNetworkSubnetInput interface {
 	pulumi.Input
 
@@ -1127,12 +1112,11 @@ func (i VirtualNetworkSubnetArgs) ToVirtualNetworkSubnetPtrOutputWithContext(ctx
 // VirtualNetworkSubnetPtrInput is an input type that accepts VirtualNetworkSubnetArgs, VirtualNetworkSubnetPtr and VirtualNetworkSubnetPtrOutput values.
 // You can construct a concrete instance of `VirtualNetworkSubnetPtrInput` via:
 //
-// 		 VirtualNetworkSubnetArgs{...}
+//          VirtualNetworkSubnetArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type VirtualNetworkSubnetPtrInput interface {
 	pulumi.Input
 
@@ -1259,8 +1243,7 @@ type WindowsVirtualMachineGalleryImageReference struct {
 // WindowsVirtualMachineGalleryImageReferenceInput is an input type that accepts WindowsVirtualMachineGalleryImageReferenceArgs and WindowsVirtualMachineGalleryImageReferenceOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineGalleryImageReferenceInput` via:
 //
-// 		 WindowsVirtualMachineGalleryImageReferenceArgs{...}
-//
+//          WindowsVirtualMachineGalleryImageReferenceArgs{...}
 type WindowsVirtualMachineGalleryImageReferenceInput interface {
 	pulumi.Input
 
@@ -1302,12 +1285,11 @@ func (i WindowsVirtualMachineGalleryImageReferenceArgs) ToWindowsVirtualMachineG
 // WindowsVirtualMachineGalleryImageReferencePtrInput is an input type that accepts WindowsVirtualMachineGalleryImageReferenceArgs, WindowsVirtualMachineGalleryImageReferencePtr and WindowsVirtualMachineGalleryImageReferencePtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineGalleryImageReferencePtrInput` via:
 //
-// 		 WindowsVirtualMachineGalleryImageReferenceArgs{...}
+//          WindowsVirtualMachineGalleryImageReferenceArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type WindowsVirtualMachineGalleryImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -1449,8 +1431,7 @@ type WindowsVirtualMachineInboundNatRule struct {
 // WindowsVirtualMachineInboundNatRuleInput is an input type that accepts WindowsVirtualMachineInboundNatRuleArgs and WindowsVirtualMachineInboundNatRuleOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineInboundNatRuleInput` via:
 //
-// 		 WindowsVirtualMachineInboundNatRuleArgs{...}
-//
+//          WindowsVirtualMachineInboundNatRuleArgs{...}
 type WindowsVirtualMachineInboundNatRuleInput interface {
 	pulumi.Input
 
@@ -1482,8 +1463,7 @@ func (i WindowsVirtualMachineInboundNatRuleArgs) ToWindowsVirtualMachineInboundN
 // WindowsVirtualMachineInboundNatRuleArrayInput is an input type that accepts WindowsVirtualMachineInboundNatRuleArray and WindowsVirtualMachineInboundNatRuleArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineInboundNatRuleArrayInput` via:
 //
-// 		 WindowsVirtualMachineInboundNatRuleArray{ WindowsVirtualMachineInboundNatRuleArgs{...} }
-//
+//          WindowsVirtualMachineInboundNatRuleArray{ WindowsVirtualMachineInboundNatRuleArgs{...} }
 type WindowsVirtualMachineInboundNatRuleArrayInput interface {
 	pulumi.Input
 
@@ -1566,8 +1546,7 @@ type GetVirtualNetworkAllowedSubnet struct {
 // GetVirtualNetworkAllowedSubnetInput is an input type that accepts GetVirtualNetworkAllowedSubnetArgs and GetVirtualNetworkAllowedSubnetOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkAllowedSubnetInput` via:
 //
-// 		 GetVirtualNetworkAllowedSubnetArgs{...}
-//
+//          GetVirtualNetworkAllowedSubnetArgs{...}
 type GetVirtualNetworkAllowedSubnetInput interface {
 	pulumi.Input
 
@@ -1599,8 +1578,7 @@ func (i GetVirtualNetworkAllowedSubnetArgs) ToGetVirtualNetworkAllowedSubnetOutp
 // GetVirtualNetworkAllowedSubnetArrayInput is an input type that accepts GetVirtualNetworkAllowedSubnetArray and GetVirtualNetworkAllowedSubnetArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkAllowedSubnetArrayInput` via:
 //
-// 		 GetVirtualNetworkAllowedSubnetArray{ GetVirtualNetworkAllowedSubnetArgs{...} }
-//
+//          GetVirtualNetworkAllowedSubnetArray{ GetVirtualNetworkAllowedSubnetArgs{...} }
 type GetVirtualNetworkAllowedSubnetArrayInput interface {
 	pulumi.Input
 
@@ -1686,8 +1664,7 @@ type GetVirtualNetworkSubnetOverride struct {
 // GetVirtualNetworkSubnetOverrideInput is an input type that accepts GetVirtualNetworkSubnetOverrideArgs and GetVirtualNetworkSubnetOverrideOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkSubnetOverrideInput` via:
 //
-// 		 GetVirtualNetworkSubnetOverrideArgs{...}
-//
+//          GetVirtualNetworkSubnetOverrideArgs{...}
 type GetVirtualNetworkSubnetOverrideInput interface {
 	pulumi.Input
 
@@ -1722,8 +1699,7 @@ func (i GetVirtualNetworkSubnetOverrideArgs) ToGetVirtualNetworkSubnetOverrideOu
 // GetVirtualNetworkSubnetOverrideArrayInput is an input type that accepts GetVirtualNetworkSubnetOverrideArray and GetVirtualNetworkSubnetOverrideArrayOutput values.
 // You can construct a concrete instance of `GetVirtualNetworkSubnetOverrideArrayInput` via:
 //
-// 		 GetVirtualNetworkSubnetOverrideArray{ GetVirtualNetworkSubnetOverrideArgs{...} }
-//
+//          GetVirtualNetworkSubnetOverrideArray{ GetVirtualNetworkSubnetOverrideArgs{...} }
 type GetVirtualNetworkSubnetOverrideArrayInput interface {
 	pulumi.Input
 

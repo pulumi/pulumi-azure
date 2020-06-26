@@ -92,8 +92,6 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -159,7 +157,6 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
             })
         ```
-
         ### Repeating On Weekends)
 
         ```python
@@ -237,7 +234,6 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
             })
         ```
-
         ### For Fixed Dates)
 
         ```python

@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,7 +31,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleEmbedded, err := powerbi.NewEmbedded(ctx, "exampleEmbedded", &powerbi.EmbeddedArgs{
+// 		_, err = powerbi.NewEmbedded(ctx, "exampleEmbedded", &powerbi.EmbeddedArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			SkuName:           pulumi.String("A1"),

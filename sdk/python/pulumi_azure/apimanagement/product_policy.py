@@ -35,10 +35,7 @@ class ProductPolicy(pulumi.CustomResource):
         """
         Manages an API Management Product Policy
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

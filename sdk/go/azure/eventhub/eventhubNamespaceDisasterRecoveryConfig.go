@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -49,7 +47,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleEventhubNamespaceDisasterRecoveryConfig, err := eventhub.NewEventhubNamespaceDisasterRecoveryConfig(ctx, "exampleEventhubNamespaceDisasterRecoveryConfig", &eventhub.EventhubNamespaceDisasterRecoveryConfigArgs{
+// 		_, err = eventhub.NewEventhubNamespaceDisasterRecoveryConfig(ctx, "exampleEventhubNamespaceDisasterRecoveryConfig", &eventhub.EventhubNamespaceDisasterRecoveryConfigArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			NamespaceName:      primary.Name,
 // 			PartnerNamespaceId: secondary.ID(),

@@ -61,8 +61,6 @@ def get_consume_group(eventhub_name=None,name=None,namespace_name=None,resource_
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

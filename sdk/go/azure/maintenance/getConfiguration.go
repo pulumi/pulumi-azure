@@ -11,18 +11,17 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/maintenance"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		existing, err := maintenance.LookupConfiguration(ctx, &maintenance.LookupConfigurationArgs{
+// 		_, err := maintenance.LookupConfiguration(ctx, &maintenance.LookupConfigurationArgs{
 // 			Name:              "example-mc",
 // 			ResourceGroupName: "example-resources",
 // 		}, nil)

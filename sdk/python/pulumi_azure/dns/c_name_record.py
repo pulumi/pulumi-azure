@@ -46,8 +46,6 @@ class CNameRecord(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -60,7 +58,6 @@ class CNameRecord(pulumi.CustomResource):
             ttl=300,
             record="contoso.com")
         ```
-
         ### Alias Record)
 
         ```python

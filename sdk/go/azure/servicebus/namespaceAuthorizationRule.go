@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -37,14 +35,14 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
-// 			Tags: map[string]interface{}{
-// 				"source": "example",
+// 			Tags: pulumi.Map{
+// 				"source": pulumi.String("example"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleNamespaceAuthorizationRule, err := servicebus.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &servicebus.NamespaceAuthorizationRuleArgs{
+// 		_, err = servicebus.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &servicebus.NamespaceAuthorizationRuleArgs{
 // 			NamespaceName:     exampleNamespace.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Listen:            pulumi.Bool(true),

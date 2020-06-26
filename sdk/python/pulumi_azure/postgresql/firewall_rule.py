@@ -37,7 +37,6 @@ class FirewallRule(pulumi.CustomResource):
         Manages a Firewall Rule for a PostgreSQL Server
 
         ## Example Usage
-
         ### Single IP Address)
 
         ```python
@@ -53,7 +52,6 @@ class FirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.8.12",
             end_ip_address="40.112.8.12")
         ```
-
         ### IP Range)
 
         ```python

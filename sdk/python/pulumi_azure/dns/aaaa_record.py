@@ -46,8 +46,6 @@ class AaaaRecord(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -59,7 +57,6 @@ class AaaaRecord(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ttl=300)
         ```
-
         ### Alias Record)
 
         ```python

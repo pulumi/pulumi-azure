@@ -88,8 +88,6 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

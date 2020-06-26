@@ -46,8 +46,6 @@ class ARecord(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -60,7 +58,6 @@ class ARecord(pulumi.CustomResource):
             ttl=300,
             records=["10.0.180.17"])
         ```
-
         ### Alias Record)
 
         ```python

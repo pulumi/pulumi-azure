@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -43,7 +41,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleApiVersionSet, err := apimanagement.NewApiVersionSet(ctx, "exampleApiVersionSet", &apimanagement.ApiVersionSetArgs{
+// 		_, err = apimanagement.NewApiVersionSet(ctx, "exampleApiVersionSet", &apimanagement.ApiVersionSetArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ApiManagementName: exampleService.Name,
 // 			DisplayName:       pulumi.String("ExampleAPIVersionSet"),

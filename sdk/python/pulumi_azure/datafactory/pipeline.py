@@ -49,8 +49,6 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -63,7 +61,6 @@ class Pipeline(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             data_factory_name=example_factory.name)
         ```
-
         ### With Activities
 
         ```python

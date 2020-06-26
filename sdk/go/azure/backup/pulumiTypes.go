@@ -19,8 +19,7 @@ type PolicyFileShareBackup struct {
 // PolicyFileShareBackupInput is an input type that accepts PolicyFileShareBackupArgs and PolicyFileShareBackupOutput values.
 // You can construct a concrete instance of `PolicyFileShareBackupInput` via:
 //
-// 		 PolicyFileShareBackupArgs{...}
-//
+//          PolicyFileShareBackupArgs{...}
 type PolicyFileShareBackupInput interface {
 	pulumi.Input
 
@@ -57,12 +56,11 @@ func (i PolicyFileShareBackupArgs) ToPolicyFileShareBackupPtrOutputWithContext(c
 // PolicyFileShareBackupPtrInput is an input type that accepts PolicyFileShareBackupArgs, PolicyFileShareBackupPtr and PolicyFileShareBackupPtrOutput values.
 // You can construct a concrete instance of `PolicyFileShareBackupPtrInput` via:
 //
-// 		 PolicyFileShareBackupArgs{...}
+//          PolicyFileShareBackupArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PolicyFileShareBackupPtrInput interface {
 	pulumi.Input
 
@@ -166,8 +164,7 @@ type PolicyFileShareRetentionDaily struct {
 // PolicyFileShareRetentionDailyInput is an input type that accepts PolicyFileShareRetentionDailyArgs and PolicyFileShareRetentionDailyOutput values.
 // You can construct a concrete instance of `PolicyFileShareRetentionDailyInput` via:
 //
-// 		 PolicyFileShareRetentionDailyArgs{...}
-//
+//          PolicyFileShareRetentionDailyArgs{...}
 type PolicyFileShareRetentionDailyInput interface {
 	pulumi.Input
 
@@ -203,12 +200,11 @@ func (i PolicyFileShareRetentionDailyArgs) ToPolicyFileShareRetentionDailyPtrOut
 // PolicyFileShareRetentionDailyPtrInput is an input type that accepts PolicyFileShareRetentionDailyArgs, PolicyFileShareRetentionDailyPtr and PolicyFileShareRetentionDailyPtrOutput values.
 // You can construct a concrete instance of `PolicyFileShareRetentionDailyPtrInput` via:
 //
-// 		 PolicyFileShareRetentionDailyArgs{...}
+//          PolicyFileShareRetentionDailyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PolicyFileShareRetentionDailyPtrInput interface {
 	pulumi.Input
 
@@ -303,8 +299,7 @@ type PolicyVMBackup struct {
 // PolicyVMBackupInput is an input type that accepts PolicyVMBackupArgs and PolicyVMBackupOutput values.
 // You can construct a concrete instance of `PolicyVMBackupInput` via:
 //
-// 		 PolicyVMBackupArgs{...}
-//
+//          PolicyVMBackupArgs{...}
 type PolicyVMBackupInput interface {
 	pulumi.Input
 
@@ -344,12 +339,11 @@ func (i PolicyVMBackupArgs) ToPolicyVMBackupPtrOutputWithContext(ctx context.Con
 // PolicyVMBackupPtrInput is an input type that accepts PolicyVMBackupArgs, PolicyVMBackupPtr and PolicyVMBackupPtrOutput values.
 // You can construct a concrete instance of `PolicyVMBackupPtrInput` via:
 //
-// 		 PolicyVMBackupArgs{...}
+//          PolicyVMBackupArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PolicyVMBackupPtrInput interface {
 	pulumi.Input
 
@@ -470,8 +464,7 @@ type PolicyVMRetentionDaily struct {
 // PolicyVMRetentionDailyInput is an input type that accepts PolicyVMRetentionDailyArgs and PolicyVMRetentionDailyOutput values.
 // You can construct a concrete instance of `PolicyVMRetentionDailyInput` via:
 //
-// 		 PolicyVMRetentionDailyArgs{...}
-//
+//          PolicyVMRetentionDailyArgs{...}
 type PolicyVMRetentionDailyInput interface {
 	pulumi.Input
 
@@ -507,12 +500,11 @@ func (i PolicyVMRetentionDailyArgs) ToPolicyVMRetentionDailyPtrOutputWithContext
 // PolicyVMRetentionDailyPtrInput is an input type that accepts PolicyVMRetentionDailyArgs, PolicyVMRetentionDailyPtr and PolicyVMRetentionDailyPtrOutput values.
 // You can construct a concrete instance of `PolicyVMRetentionDailyPtrInput` via:
 //
-// 		 PolicyVMRetentionDailyArgs{...}
+//          PolicyVMRetentionDailyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PolicyVMRetentionDailyPtrInput interface {
 	pulumi.Input
 
@@ -607,8 +599,7 @@ type PolicyVMRetentionMonthly struct {
 // PolicyVMRetentionMonthlyInput is an input type that accepts PolicyVMRetentionMonthlyArgs and PolicyVMRetentionMonthlyOutput values.
 // You can construct a concrete instance of `PolicyVMRetentionMonthlyInput` via:
 //
-// 		 PolicyVMRetentionMonthlyArgs{...}
-//
+//          PolicyVMRetentionMonthlyArgs{...}
 type PolicyVMRetentionMonthlyInput interface {
 	pulumi.Input
 
@@ -648,12 +639,11 @@ func (i PolicyVMRetentionMonthlyArgs) ToPolicyVMRetentionMonthlyPtrOutputWithCon
 // PolicyVMRetentionMonthlyPtrInput is an input type that accepts PolicyVMRetentionMonthlyArgs, PolicyVMRetentionMonthlyPtr and PolicyVMRetentionMonthlyPtrOutput values.
 // You can construct a concrete instance of `PolicyVMRetentionMonthlyPtrInput` via:
 //
-// 		 PolicyVMRetentionMonthlyArgs{...}
+//          PolicyVMRetentionMonthlyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PolicyVMRetentionMonthlyPtrInput interface {
 	pulumi.Input
 
@@ -776,8 +766,7 @@ type PolicyVMRetentionWeekly struct {
 // PolicyVMRetentionWeeklyInput is an input type that accepts PolicyVMRetentionWeeklyArgs and PolicyVMRetentionWeeklyOutput values.
 // You can construct a concrete instance of `PolicyVMRetentionWeeklyInput` via:
 //
-// 		 PolicyVMRetentionWeeklyArgs{...}
-//
+//          PolicyVMRetentionWeeklyArgs{...}
 type PolicyVMRetentionWeeklyInput interface {
 	pulumi.Input
 
@@ -815,12 +804,11 @@ func (i PolicyVMRetentionWeeklyArgs) ToPolicyVMRetentionWeeklyPtrOutputWithConte
 // PolicyVMRetentionWeeklyPtrInput is an input type that accepts PolicyVMRetentionWeeklyArgs, PolicyVMRetentionWeeklyPtr and PolicyVMRetentionWeeklyPtrOutput values.
 // You can construct a concrete instance of `PolicyVMRetentionWeeklyPtrInput` via:
 //
-// 		 PolicyVMRetentionWeeklyArgs{...}
+//          PolicyVMRetentionWeeklyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PolicyVMRetentionWeeklyPtrInput interface {
 	pulumi.Input
 
@@ -932,8 +920,7 @@ type PolicyVMRetentionYearly struct {
 // PolicyVMRetentionYearlyInput is an input type that accepts PolicyVMRetentionYearlyArgs and PolicyVMRetentionYearlyOutput values.
 // You can construct a concrete instance of `PolicyVMRetentionYearlyInput` via:
 //
-// 		 PolicyVMRetentionYearlyArgs{...}
-//
+//          PolicyVMRetentionYearlyArgs{...}
 type PolicyVMRetentionYearlyInput interface {
 	pulumi.Input
 
@@ -975,12 +962,11 @@ func (i PolicyVMRetentionYearlyArgs) ToPolicyVMRetentionYearlyPtrOutputWithConte
 // PolicyVMRetentionYearlyPtrInput is an input type that accepts PolicyVMRetentionYearlyArgs, PolicyVMRetentionYearlyPtr and PolicyVMRetentionYearlyPtrOutput values.
 // You can construct a concrete instance of `PolicyVMRetentionYearlyPtrInput` via:
 //
-// 		 PolicyVMRetentionYearlyArgs{...}
+//          PolicyVMRetentionYearlyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type PolicyVMRetentionYearlyPtrInput interface {
 	pulumi.Input
 

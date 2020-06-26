@@ -12,10 +12,7 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a Subscription within a API Management Service.
     /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;

@@ -13,7 +13,6 @@ namespace Pulumi.Azure.AppService
     /// Manages an App Service Plan component.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Dedicated)
     /// 
     /// ```csharp
@@ -42,7 +41,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
-    /// 
     /// ### Shared / Consumption Plan)
     /// 
     /// ```csharp
@@ -72,7 +70,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
-    /// 
     /// ### Linux)
     /// 
     /// ```csharp
@@ -103,7 +100,6 @@ namespace Pulumi.Azure.AppService
     /// 
     /// }
     /// ```
-    /// 
     /// ### Windows Container)
     /// 
     /// ```csharp

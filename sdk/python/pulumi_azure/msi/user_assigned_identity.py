@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity", DeprecationWarning)
 
+
 class UserAssignedIdentity(pulumi.CustomResource):
     client_id: pulumi.Output[str]
     """
@@ -40,13 +41,12 @@ class UserAssignedIdentity(pulumi.CustomResource):
     A mapping of tags to assign to the resource.
     """
     warnings.warn("azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a user assigned identity.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

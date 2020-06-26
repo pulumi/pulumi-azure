@@ -16,8 +16,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -54,7 +52,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		container, err := backup.NewContainerStorageAccount(ctx, "container", &backup.ContainerStorageAccountArgs{
+// 		_, err = backup.NewContainerStorageAccount(ctx, "container", &backup.ContainerStorageAccountArgs{
 // 			ResourceGroupName: rg.Name,
 // 			RecoveryVaultName: vault.Name,
 // 			StorageAccountId:  sa.ID(),

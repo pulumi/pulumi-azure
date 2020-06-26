@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing User Assigned Identity.
  *
  * ## Example Usage
- *
  * ### Reference An Existing)
  *
  * ```typescript

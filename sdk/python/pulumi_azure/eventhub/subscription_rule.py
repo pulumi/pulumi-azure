@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule", DeprecationWarning)
 
+
 class SubscriptionRule(pulumi.CustomResource):
     action: pulumi.Output[str]
     """
@@ -58,12 +59,12 @@ class SubscriptionRule(pulumi.CustomResource):
     The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
     """
     warnings.warn("azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, action=None, correlation_filter=None, filter_type=None, name=None, namespace_name=None, resource_group_name=None, sql_filter=None, subscription_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Subscription Rule.
 
         ## Example Usage
-
         ### SQL Filter)
 
         ```python
@@ -95,7 +96,6 @@ class SubscriptionRule(pulumi.CustomResource):
             filter_type="SqlFilter",
             sql_filter="colour = 'red'")
         ```
-
         ### Correlation Filter)
 
         ```python

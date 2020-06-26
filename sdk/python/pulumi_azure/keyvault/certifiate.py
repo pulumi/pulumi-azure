@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate", DeprecationWarning)
 
+
 class Certifiate(pulumi.CustomResource):
     certificate: pulumi.Output[dict]
     """
@@ -83,12 +84,12 @@ class Certifiate(pulumi.CustomResource):
     The current version of the Key Vault Certificate.
     """
     warnings.warn("azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, certificate=None, certificate_policy=None, key_vault_id=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Certificate.
 
         ## Example Usage
-
         ### Generating A New Certificate)
 
         ```python

@@ -18,8 +18,7 @@ type AccountCapability struct {
 // AccountCapabilityInput is an input type that accepts AccountCapabilityArgs and AccountCapabilityOutput values.
 // You can construct a concrete instance of `AccountCapabilityInput` via:
 //
-// 		 AccountCapabilityArgs{...}
-//
+//          AccountCapabilityArgs{...}
 type AccountCapabilityInput interface {
 	pulumi.Input
 
@@ -47,8 +46,7 @@ func (i AccountCapabilityArgs) ToAccountCapabilityOutputWithContext(ctx context.
 // AccountCapabilityArrayInput is an input type that accepts AccountCapabilityArray and AccountCapabilityArrayOutput values.
 // You can construct a concrete instance of `AccountCapabilityArrayInput` via:
 //
-// 		 AccountCapabilityArray{ AccountCapabilityArgs{...} }
-//
+//          AccountCapabilityArray{ AccountCapabilityArgs{...} }
 type AccountCapabilityArrayInput interface {
 	pulumi.Input
 
@@ -121,8 +119,7 @@ type AccountConsistencyPolicy struct {
 // AccountConsistencyPolicyInput is an input type that accepts AccountConsistencyPolicyArgs and AccountConsistencyPolicyOutput values.
 // You can construct a concrete instance of `AccountConsistencyPolicyInput` via:
 //
-// 		 AccountConsistencyPolicyArgs{...}
-//
+//          AccountConsistencyPolicyArgs{...}
 type AccountConsistencyPolicyInput interface {
 	pulumi.Input
 
@@ -162,12 +159,11 @@ func (i AccountConsistencyPolicyArgs) ToAccountConsistencyPolicyPtrOutputWithCon
 // AccountConsistencyPolicyPtrInput is an input type that accepts AccountConsistencyPolicyArgs, AccountConsistencyPolicyPtr and AccountConsistencyPolicyPtrOutput values.
 // You can construct a concrete instance of `AccountConsistencyPolicyPtrInput` via:
 //
-// 		 AccountConsistencyPolicyArgs{...}
+//          AccountConsistencyPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountConsistencyPolicyPtrInput interface {
 	pulumi.Input
 
@@ -294,8 +290,7 @@ type AccountGeoLocation struct {
 // AccountGeoLocationInput is an input type that accepts AccountGeoLocationArgs and AccountGeoLocationOutput values.
 // You can construct a concrete instance of `AccountGeoLocationInput` via:
 //
-// 		 AccountGeoLocationArgs{...}
-//
+//          AccountGeoLocationArgs{...}
 type AccountGeoLocationInput interface {
 	pulumi.Input
 
@@ -329,8 +324,7 @@ func (i AccountGeoLocationArgs) ToAccountGeoLocationOutputWithContext(ctx contex
 // AccountGeoLocationArrayInput is an input type that accepts AccountGeoLocationArray and AccountGeoLocationArrayOutput values.
 // You can construct a concrete instance of `AccountGeoLocationArrayInput` via:
 //
-// 		 AccountGeoLocationArray{ AccountGeoLocationArgs{...} }
-//
+//          AccountGeoLocationArray{ AccountGeoLocationArgs{...} }
 type AccountGeoLocationArrayInput interface {
 	pulumi.Input
 
@@ -414,8 +408,7 @@ type AccountVirtualNetworkRule struct {
 // AccountVirtualNetworkRuleInput is an input type that accepts AccountVirtualNetworkRuleArgs and AccountVirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `AccountVirtualNetworkRuleInput` via:
 //
-// 		 AccountVirtualNetworkRuleArgs{...}
-//
+//          AccountVirtualNetworkRuleArgs{...}
 type AccountVirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -443,8 +436,7 @@ func (i AccountVirtualNetworkRuleArgs) ToAccountVirtualNetworkRuleOutputWithCont
 // AccountVirtualNetworkRuleArrayInput is an input type that accepts AccountVirtualNetworkRuleArray and AccountVirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `AccountVirtualNetworkRuleArrayInput` via:
 //
-// 		 AccountVirtualNetworkRuleArray{ AccountVirtualNetworkRuleArgs{...} }
-//
+//          AccountVirtualNetworkRuleArray{ AccountVirtualNetworkRuleArgs{...} }
 type AccountVirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 
@@ -517,8 +509,7 @@ type GremlinGraphConflictResolutionPolicy struct {
 // GremlinGraphConflictResolutionPolicyInput is an input type that accepts GremlinGraphConflictResolutionPolicyArgs and GremlinGraphConflictResolutionPolicyOutput values.
 // You can construct a concrete instance of `GremlinGraphConflictResolutionPolicyInput` via:
 //
-// 		 GremlinGraphConflictResolutionPolicyArgs{...}
-//
+//          GremlinGraphConflictResolutionPolicyArgs{...}
 type GremlinGraphConflictResolutionPolicyInput interface {
 	pulumi.Input
 
@@ -550,8 +541,7 @@ func (i GremlinGraphConflictResolutionPolicyArgs) ToGremlinGraphConflictResoluti
 // GremlinGraphConflictResolutionPolicyArrayInput is an input type that accepts GremlinGraphConflictResolutionPolicyArray and GremlinGraphConflictResolutionPolicyArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphConflictResolutionPolicyArrayInput` via:
 //
-// 		 GremlinGraphConflictResolutionPolicyArray{ GremlinGraphConflictResolutionPolicyArgs{...} }
-//
+//          GremlinGraphConflictResolutionPolicyArray{ GremlinGraphConflictResolutionPolicyArgs{...} }
 type GremlinGraphConflictResolutionPolicyArrayInput interface {
 	pulumi.Input
 
@@ -636,8 +626,7 @@ type GremlinGraphIndexPolicy struct {
 // GremlinGraphIndexPolicyInput is an input type that accepts GremlinGraphIndexPolicyArgs and GremlinGraphIndexPolicyOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicyInput` via:
 //
-// 		 GremlinGraphIndexPolicyArgs{...}
-//
+//          GremlinGraphIndexPolicyArgs{...}
 type GremlinGraphIndexPolicyInput interface {
 	pulumi.Input
 
@@ -671,8 +660,7 @@ func (i GremlinGraphIndexPolicyArgs) ToGremlinGraphIndexPolicyOutputWithContext(
 // GremlinGraphIndexPolicyArrayInput is an input type that accepts GremlinGraphIndexPolicyArray and GremlinGraphIndexPolicyArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicyArrayInput` via:
 //
-// 		 GremlinGraphIndexPolicyArray{ GremlinGraphIndexPolicyArgs{...} }
-//
+//          GremlinGraphIndexPolicyArray{ GremlinGraphIndexPolicyArgs{...} }
 type GremlinGraphIndexPolicyArrayInput interface {
 	pulumi.Input
 
@@ -756,8 +744,7 @@ type GremlinGraphUniqueKey struct {
 // GremlinGraphUniqueKeyInput is an input type that accepts GremlinGraphUniqueKeyArgs and GremlinGraphUniqueKeyOutput values.
 // You can construct a concrete instance of `GremlinGraphUniqueKeyInput` via:
 //
-// 		 GremlinGraphUniqueKeyArgs{...}
-//
+//          GremlinGraphUniqueKeyArgs{...}
 type GremlinGraphUniqueKeyInput interface {
 	pulumi.Input
 
@@ -785,8 +772,7 @@ func (i GremlinGraphUniqueKeyArgs) ToGremlinGraphUniqueKeyOutputWithContext(ctx 
 // GremlinGraphUniqueKeyArrayInput is an input type that accepts GremlinGraphUniqueKeyArray and GremlinGraphUniqueKeyArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphUniqueKeyArrayInput` via:
 //
-// 		 GremlinGraphUniqueKeyArray{ GremlinGraphUniqueKeyArgs{...} }
-//
+//          GremlinGraphUniqueKeyArray{ GremlinGraphUniqueKeyArgs{...} }
 type GremlinGraphUniqueKeyArrayInput interface {
 	pulumi.Input
 
@@ -857,8 +843,7 @@ type MongoCollectionIndex struct {
 // MongoCollectionIndexInput is an input type that accepts MongoCollectionIndexArgs and MongoCollectionIndexOutput values.
 // You can construct a concrete instance of `MongoCollectionIndexInput` via:
 //
-// 		 MongoCollectionIndexArgs{...}
-//
+//          MongoCollectionIndexArgs{...}
 type MongoCollectionIndexInput interface {
 	pulumi.Input
 
@@ -888,8 +873,7 @@ func (i MongoCollectionIndexArgs) ToMongoCollectionIndexOutputWithContext(ctx co
 // MongoCollectionIndexArrayInput is an input type that accepts MongoCollectionIndexArray and MongoCollectionIndexArrayOutput values.
 // You can construct a concrete instance of `MongoCollectionIndexArrayInput` via:
 //
-// 		 MongoCollectionIndexArray{ MongoCollectionIndexArgs{...} }
-//
+//          MongoCollectionIndexArray{ MongoCollectionIndexArgs{...} }
 type MongoCollectionIndexArrayInput interface {
 	pulumi.Input
 
@@ -965,8 +949,7 @@ type MongoCollectionSystemIndex struct {
 // MongoCollectionSystemIndexInput is an input type that accepts MongoCollectionSystemIndexArgs and MongoCollectionSystemIndexOutput values.
 // You can construct a concrete instance of `MongoCollectionSystemIndexInput` via:
 //
-// 		 MongoCollectionSystemIndexArgs{...}
-//
+//          MongoCollectionSystemIndexArgs{...}
 type MongoCollectionSystemIndexInput interface {
 	pulumi.Input
 
@@ -996,8 +979,7 @@ func (i MongoCollectionSystemIndexArgs) ToMongoCollectionSystemIndexOutputWithCo
 // MongoCollectionSystemIndexArrayInput is an input type that accepts MongoCollectionSystemIndexArray and MongoCollectionSystemIndexArrayOutput values.
 // You can construct a concrete instance of `MongoCollectionSystemIndexArrayInput` via:
 //
-// 		 MongoCollectionSystemIndexArray{ MongoCollectionSystemIndexArgs{...} }
-//
+//          MongoCollectionSystemIndexArray{ MongoCollectionSystemIndexArgs{...} }
 type MongoCollectionSystemIndexArrayInput interface {
 	pulumi.Input
 
@@ -1071,8 +1053,7 @@ type SqlContainerUniqueKey struct {
 // SqlContainerUniqueKeyInput is an input type that accepts SqlContainerUniqueKeyArgs and SqlContainerUniqueKeyOutput values.
 // You can construct a concrete instance of `SqlContainerUniqueKeyInput` via:
 //
-// 		 SqlContainerUniqueKeyArgs{...}
-//
+//          SqlContainerUniqueKeyArgs{...}
 type SqlContainerUniqueKeyInput interface {
 	pulumi.Input
 
@@ -1100,8 +1081,7 @@ func (i SqlContainerUniqueKeyArgs) ToSqlContainerUniqueKeyOutputWithContext(ctx 
 // SqlContainerUniqueKeyArrayInput is an input type that accepts SqlContainerUniqueKeyArray and SqlContainerUniqueKeyArrayOutput values.
 // You can construct a concrete instance of `SqlContainerUniqueKeyArrayInput` via:
 //
-// 		 SqlContainerUniqueKeyArray{ SqlContainerUniqueKeyArgs{...} }
-//
+//          SqlContainerUniqueKeyArray{ SqlContainerUniqueKeyArgs{...} }
 type SqlContainerUniqueKeyArrayInput interface {
 	pulumi.Input
 
@@ -1170,8 +1150,7 @@ type GetAccountCapability struct {
 // GetAccountCapabilityInput is an input type that accepts GetAccountCapabilityArgs and GetAccountCapabilityOutput values.
 // You can construct a concrete instance of `GetAccountCapabilityInput` via:
 //
-// 		 GetAccountCapabilityArgs{...}
-//
+//          GetAccountCapabilityArgs{...}
 type GetAccountCapabilityInput interface {
 	pulumi.Input
 
@@ -1199,8 +1178,7 @@ func (i GetAccountCapabilityArgs) ToGetAccountCapabilityOutputWithContext(ctx co
 // GetAccountCapabilityArrayInput is an input type that accepts GetAccountCapabilityArray and GetAccountCapabilityArrayOutput values.
 // You can construct a concrete instance of `GetAccountCapabilityArrayInput` via:
 //
-// 		 GetAccountCapabilityArray{ GetAccountCapabilityArgs{...} }
-//
+//          GetAccountCapabilityArray{ GetAccountCapabilityArgs{...} }
 type GetAccountCapabilityArrayInput interface {
 	pulumi.Input
 
@@ -1273,8 +1251,7 @@ type GetAccountConsistencyPolicy struct {
 // GetAccountConsistencyPolicyInput is an input type that accepts GetAccountConsistencyPolicyArgs and GetAccountConsistencyPolicyOutput values.
 // You can construct a concrete instance of `GetAccountConsistencyPolicyInput` via:
 //
-// 		 GetAccountConsistencyPolicyArgs{...}
-//
+//          GetAccountConsistencyPolicyArgs{...}
 type GetAccountConsistencyPolicyInput interface {
 	pulumi.Input
 
@@ -1306,8 +1283,7 @@ func (i GetAccountConsistencyPolicyArgs) ToGetAccountConsistencyPolicyOutputWith
 // GetAccountConsistencyPolicyArrayInput is an input type that accepts GetAccountConsistencyPolicyArray and GetAccountConsistencyPolicyArrayOutput values.
 // You can construct a concrete instance of `GetAccountConsistencyPolicyArrayInput` via:
 //
-// 		 GetAccountConsistencyPolicyArray{ GetAccountConsistencyPolicyArgs{...} }
-//
+//          GetAccountConsistencyPolicyArray{ GetAccountConsistencyPolicyArgs{...} }
 type GetAccountConsistencyPolicyArrayInput interface {
 	pulumi.Input
 
@@ -1389,8 +1365,7 @@ type GetAccountGeoLocation struct {
 // GetAccountGeoLocationInput is an input type that accepts GetAccountGeoLocationArgs and GetAccountGeoLocationOutput values.
 // You can construct a concrete instance of `GetAccountGeoLocationInput` via:
 //
-// 		 GetAccountGeoLocationArgs{...}
-//
+//          GetAccountGeoLocationArgs{...}
 type GetAccountGeoLocationInput interface {
 	pulumi.Input
 
@@ -1421,8 +1396,7 @@ func (i GetAccountGeoLocationArgs) ToGetAccountGeoLocationOutputWithContext(ctx 
 // GetAccountGeoLocationArrayInput is an input type that accepts GetAccountGeoLocationArray and GetAccountGeoLocationArrayOutput values.
 // You can construct a concrete instance of `GetAccountGeoLocationArrayInput` via:
 //
-// 		 GetAccountGeoLocationArray{ GetAccountGeoLocationArgs{...} }
-//
+//          GetAccountGeoLocationArray{ GetAccountGeoLocationArgs{...} }
 type GetAccountGeoLocationArrayInput interface {
 	pulumi.Input
 
@@ -1500,8 +1474,7 @@ type GetAccountVirtualNetworkRule struct {
 // GetAccountVirtualNetworkRuleInput is an input type that accepts GetAccountVirtualNetworkRuleArgs and GetAccountVirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `GetAccountVirtualNetworkRuleInput` via:
 //
-// 		 GetAccountVirtualNetworkRuleArgs{...}
-//
+//          GetAccountVirtualNetworkRuleArgs{...}
 type GetAccountVirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -1529,8 +1502,7 @@ func (i GetAccountVirtualNetworkRuleArgs) ToGetAccountVirtualNetworkRuleOutputWi
 // GetAccountVirtualNetworkRuleArrayInput is an input type that accepts GetAccountVirtualNetworkRuleArray and GetAccountVirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `GetAccountVirtualNetworkRuleArrayInput` via:
 //
-// 		 GetAccountVirtualNetworkRuleArray{ GetAccountVirtualNetworkRuleArgs{...} }
-//
+//          GetAccountVirtualNetworkRuleArray{ GetAccountVirtualNetworkRuleArgs{...} }
 type GetAccountVirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 

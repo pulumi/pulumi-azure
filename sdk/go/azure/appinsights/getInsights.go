@@ -11,12 +11,11 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appinsights"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //

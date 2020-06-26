@@ -11,18 +11,17 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/iot"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := iot.LookupDps(ctx, &iot.LookupDpsArgs{
+// 		_, err := iot.GetDps(ctx, &iot.GetDpsArgs{
 // 			Name:              "iot_hub_dps_test",
 // 			ResourceGroupName: "iothub_dps_rg",
 // 		}, nil)

@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,12 +31,12 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+// 		_, err = servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
-// 			Tags: map[string]interface{}{
-// 				"source": "example",
+// 			Tags: pulumi.Map{
+// 				"source": pulumi.String("example"),
 // 			},
 // 		})
 // 		if err != nil {

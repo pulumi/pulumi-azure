@@ -13,18 +13,17 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/privatelink"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := privatelink.LookupEndpointConnection(ctx, &privatelink.LookupEndpointConnectionArgs{
+// 		example, err := privatelink.GetEndpointConnection(ctx, &privatelink.GetEndpointConnectionArgs{
 // 			Name:              "example-private-endpoint",
 // 			ResourceGroupName: "example-rg",
 // 		}, nil)

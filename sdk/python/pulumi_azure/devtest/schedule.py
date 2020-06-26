@@ -51,10 +51,7 @@ class Schedule(pulumi.CustomResource):
         """
         Manages automated startup and shutdown schedules for Azure Dev Test Lab.
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

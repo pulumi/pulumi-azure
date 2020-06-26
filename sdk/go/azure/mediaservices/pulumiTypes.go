@@ -20,8 +20,7 @@ type AccountStorageAccount struct {
 // AccountStorageAccountInput is an input type that accepts AccountStorageAccountArgs and AccountStorageAccountOutput values.
 // You can construct a concrete instance of `AccountStorageAccountInput` via:
 //
-// 		 AccountStorageAccountArgs{...}
-//
+//          AccountStorageAccountArgs{...}
 type AccountStorageAccountInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i AccountStorageAccountArgs) ToAccountStorageAccountOutputWithContext(ctx 
 // AccountStorageAccountArrayInput is an input type that accepts AccountStorageAccountArray and AccountStorageAccountArrayOutput values.
 // You can construct a concrete instance of `AccountStorageAccountArrayInput` via:
 //
-// 		 AccountStorageAccountArray{ AccountStorageAccountArgs{...} }
-//
+//          AccountStorageAccountArray{ AccountStorageAccountArgs{...} }
 type AccountStorageAccountArrayInput interface {
 	pulumi.Input
 

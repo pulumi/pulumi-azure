@@ -39,10 +39,7 @@ class IntVariable(pulumi.CustomResource):
         """
         Manages a integer variable in Azure Automation
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

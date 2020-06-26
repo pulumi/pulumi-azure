@@ -39,10 +39,7 @@ class StringVariable(pulumi.CustomResource):
         """
         Manages a string variable in Azure Automation
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

@@ -38,7 +38,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		examplePool, err := netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
+// 		_, err = netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
 // 			AccountName:       exampleAccount.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,

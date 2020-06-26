@@ -11,6 +11,52 @@ import (
 )
 
 // Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/datafactory"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("northeurope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datafactory.NewLinkedServiceDataLakeStorageGen2(ctx, "exampleLinkedServiceDataLakeStorageGen2", &datafactory.LinkedServiceDataLakeStorageGen2Args{
+// 			ResourceGroupName:   exampleResourceGroup.Name,
+// 			DataFactoryName:     exampleFactory.Name,
+// 			ServicePrincipalId:  pulumi.String(current.ClientId),
+// 			ServicePrincipalKey: pulumi.String("exampleKey"),
+// 			Tenant:              pulumi.String("11111111-1111-1111-1111-111111111111"),
+// 			Url:                 pulumi.String("https://datalakestoragegen2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LinkedServiceDataLakeStorageGen2 struct {
 	pulumi.CustomResourceState
 

@@ -65,10 +65,7 @@ def get_date_time_variable(automation_account_name=None,name=None,resource_group
     """
     Use this data source to access information about an existing Automation Datetime Variable.
 
-
     ## Example Usage
-
-
 
     ```python
     import pulumi

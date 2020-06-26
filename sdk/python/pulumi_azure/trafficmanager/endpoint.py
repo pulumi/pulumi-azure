@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint", DeprecationWarning)
 
+
 class Endpoint(pulumi.CustomResource):
     custom_headers: pulumi.Output[list]
     """
@@ -100,13 +101,12 @@ class Endpoint(pulumi.CustomResource):
     routing method. Supports values between 1 and 1000.
     """
     warnings.warn("azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, custom_headers=None, endpoint_location=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Endpoint.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

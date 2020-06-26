@@ -83,8 +83,6 @@ def get_subscription(subscription_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

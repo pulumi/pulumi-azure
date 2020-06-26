@@ -65,10 +65,7 @@ def get_string_variable(automation_account_name=None,name=None,resource_group_na
     """
     Use this data source to access information about an existing Automation String Variable.
 
-
     ## Example Usage
-
-
 
     ```python
     import pulumi

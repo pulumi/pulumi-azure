@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -42,7 +40,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleQueue, err := storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
+// 		_, err = storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
 // 			StorageAccountName: exampleAccount.Name,
 // 		})
 // 		if err != nil {

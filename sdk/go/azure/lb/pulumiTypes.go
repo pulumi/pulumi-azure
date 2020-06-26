@@ -40,8 +40,7 @@ type LoadBalancerFrontendIpConfiguration struct {
 // LoadBalancerFrontendIpConfigurationInput is an input type that accepts LoadBalancerFrontendIpConfigurationArgs and LoadBalancerFrontendIpConfigurationOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIpConfigurationInput` via:
 //
-// 		 LoadBalancerFrontendIpConfigurationArgs{...}
-//
+//          LoadBalancerFrontendIpConfigurationArgs{...}
 type LoadBalancerFrontendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -91,8 +90,7 @@ func (i LoadBalancerFrontendIpConfigurationArgs) ToLoadBalancerFrontendIpConfigu
 // LoadBalancerFrontendIpConfigurationArrayInput is an input type that accepts LoadBalancerFrontendIpConfigurationArray and LoadBalancerFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIpConfigurationArrayInput` via:
 //
-// 		 LoadBalancerFrontendIpConfigurationArray{ LoadBalancerFrontendIpConfigurationArgs{...} }
-//
+//          LoadBalancerFrontendIpConfigurationArray{ LoadBalancerFrontendIpConfigurationArgs{...} }
 type LoadBalancerFrontendIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -218,8 +216,7 @@ type OutboundRuleFrontendIpConfiguration struct {
 // OutboundRuleFrontendIpConfigurationInput is an input type that accepts OutboundRuleFrontendIpConfigurationArgs and OutboundRuleFrontendIpConfigurationOutput values.
 // You can construct a concrete instance of `OutboundRuleFrontendIpConfigurationInput` via:
 //
-// 		 OutboundRuleFrontendIpConfigurationArgs{...}
-//
+//          OutboundRuleFrontendIpConfigurationArgs{...}
 type OutboundRuleFrontendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -249,8 +246,7 @@ func (i OutboundRuleFrontendIpConfigurationArgs) ToOutboundRuleFrontendIpConfigu
 // OutboundRuleFrontendIpConfigurationArrayInput is an input type that accepts OutboundRuleFrontendIpConfigurationArray and OutboundRuleFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `OutboundRuleFrontendIpConfigurationArrayInput` via:
 //
-// 		 OutboundRuleFrontendIpConfigurationArray{ OutboundRuleFrontendIpConfigurationArgs{...} }
-//
+//          OutboundRuleFrontendIpConfigurationArray{ OutboundRuleFrontendIpConfigurationArgs{...} }
 type OutboundRuleFrontendIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -324,8 +320,7 @@ type GetBackendAddressPoolBackendIpConfiguration struct {
 // GetBackendAddressPoolBackendIpConfigurationInput is an input type that accepts GetBackendAddressPoolBackendIpConfigurationArgs and GetBackendAddressPoolBackendIpConfigurationOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendIpConfigurationInput` via:
 //
-// 		 GetBackendAddressPoolBackendIpConfigurationArgs{...}
-//
+//          GetBackendAddressPoolBackendIpConfigurationArgs{...}
 type GetBackendAddressPoolBackendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -353,8 +348,7 @@ func (i GetBackendAddressPoolBackendIpConfigurationArgs) ToGetBackendAddressPool
 // GetBackendAddressPoolBackendIpConfigurationArrayInput is an input type that accepts GetBackendAddressPoolBackendIpConfigurationArray and GetBackendAddressPoolBackendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendIpConfigurationArrayInput` via:
 //
-// 		 GetBackendAddressPoolBackendIpConfigurationArray{ GetBackendAddressPoolBackendIpConfigurationArgs{...} }
-//
+//          GetBackendAddressPoolBackendIpConfigurationArray{ GetBackendAddressPoolBackendIpConfigurationArgs{...} }
 type GetBackendAddressPoolBackendIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -437,8 +431,7 @@ type GetLBFrontendIpConfiguration struct {
 // GetLBFrontendIpConfigurationInput is an input type that accepts GetLBFrontendIpConfigurationArgs and GetLBFrontendIpConfigurationOutput values.
 // You can construct a concrete instance of `GetLBFrontendIpConfigurationInput` via:
 //
-// 		 GetLBFrontendIpConfigurationArgs{...}
-//
+//          GetLBFrontendIpConfigurationArgs{...}
 type GetLBFrontendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -480,8 +473,7 @@ func (i GetLBFrontendIpConfigurationArgs) ToGetLBFrontendIpConfigurationOutputWi
 // GetLBFrontendIpConfigurationArrayInput is an input type that accepts GetLBFrontendIpConfigurationArray and GetLBFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetLBFrontendIpConfigurationArrayInput` via:
 //
-// 		 GetLBFrontendIpConfigurationArray{ GetLBFrontendIpConfigurationArgs{...} }
-//
+//          GetLBFrontendIpConfigurationArray{ GetLBFrontendIpConfigurationArgs{...} }
 type GetLBFrontendIpConfigurationArrayInput interface {
 	pulumi.Input
 

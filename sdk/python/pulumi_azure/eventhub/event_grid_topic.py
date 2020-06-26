@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic", DeprecationWarning)
 
+
 class EventGridTopic(pulumi.CustomResource):
     endpoint: pulumi.Output[str]
     """
@@ -65,6 +66,7 @@ class EventGridTopic(pulumi.CustomResource):
     ---
     """
     warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Topic
@@ -72,8 +74,6 @@ class EventGridTopic(pulumi.CustomResource):
         > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

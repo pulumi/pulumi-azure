@@ -36,10 +36,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
         """
         Manages an API Management API Operation Policy
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

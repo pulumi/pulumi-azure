@@ -20,8 +20,7 @@ type AccountBlobProperties struct {
 // AccountBlobPropertiesInput is an input type that accepts AccountBlobPropertiesArgs and AccountBlobPropertiesOutput values.
 // You can construct a concrete instance of `AccountBlobPropertiesInput` via:
 //
-// 		 AccountBlobPropertiesArgs{...}
-//
+//          AccountBlobPropertiesArgs{...}
 type AccountBlobPropertiesInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i AccountBlobPropertiesArgs) ToAccountBlobPropertiesPtrOutputWithContext(c
 // AccountBlobPropertiesPtrInput is an input type that accepts AccountBlobPropertiesArgs, AccountBlobPropertiesPtr and AccountBlobPropertiesPtrOutput values.
 // You can construct a concrete instance of `AccountBlobPropertiesPtrInput` via:
 //
-// 		 AccountBlobPropertiesArgs{...}
+//          AccountBlobPropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountBlobPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -181,8 +179,7 @@ type AccountBlobPropertiesCorsRule struct {
 // AccountBlobPropertiesCorsRuleInput is an input type that accepts AccountBlobPropertiesCorsRuleArgs and AccountBlobPropertiesCorsRuleOutput values.
 // You can construct a concrete instance of `AccountBlobPropertiesCorsRuleInput` via:
 //
-// 		 AccountBlobPropertiesCorsRuleArgs{...}
-//
+//          AccountBlobPropertiesCorsRuleArgs{...}
 type AccountBlobPropertiesCorsRuleInput interface {
 	pulumi.Input
 
@@ -219,8 +216,7 @@ func (i AccountBlobPropertiesCorsRuleArgs) ToAccountBlobPropertiesCorsRuleOutput
 // AccountBlobPropertiesCorsRuleArrayInput is an input type that accepts AccountBlobPropertiesCorsRuleArray and AccountBlobPropertiesCorsRuleArrayOutput values.
 // You can construct a concrete instance of `AccountBlobPropertiesCorsRuleArrayInput` via:
 //
-// 		 AccountBlobPropertiesCorsRuleArray{ AccountBlobPropertiesCorsRuleArgs{...} }
-//
+//          AccountBlobPropertiesCorsRuleArray{ AccountBlobPropertiesCorsRuleArgs{...} }
 type AccountBlobPropertiesCorsRuleArrayInput interface {
 	pulumi.Input
 
@@ -310,8 +306,7 @@ type AccountBlobPropertiesDeleteRetentionPolicy struct {
 // AccountBlobPropertiesDeleteRetentionPolicyInput is an input type that accepts AccountBlobPropertiesDeleteRetentionPolicyArgs and AccountBlobPropertiesDeleteRetentionPolicyOutput values.
 // You can construct a concrete instance of `AccountBlobPropertiesDeleteRetentionPolicyInput` via:
 //
-// 		 AccountBlobPropertiesDeleteRetentionPolicyArgs{...}
-//
+//          AccountBlobPropertiesDeleteRetentionPolicyArgs{...}
 type AccountBlobPropertiesDeleteRetentionPolicyInput interface {
 	pulumi.Input
 
@@ -347,12 +342,11 @@ func (i AccountBlobPropertiesDeleteRetentionPolicyArgs) ToAccountBlobPropertiesD
 // AccountBlobPropertiesDeleteRetentionPolicyPtrInput is an input type that accepts AccountBlobPropertiesDeleteRetentionPolicyArgs, AccountBlobPropertiesDeleteRetentionPolicyPtr and AccountBlobPropertiesDeleteRetentionPolicyPtrOutput values.
 // You can construct a concrete instance of `AccountBlobPropertiesDeleteRetentionPolicyPtrInput` via:
 //
-// 		 AccountBlobPropertiesDeleteRetentionPolicyArgs{...}
+//          AccountBlobPropertiesDeleteRetentionPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountBlobPropertiesDeleteRetentionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -447,8 +441,7 @@ type AccountCustomDomain struct {
 // AccountCustomDomainInput is an input type that accepts AccountCustomDomainArgs and AccountCustomDomainOutput values.
 // You can construct a concrete instance of `AccountCustomDomainInput` via:
 //
-// 		 AccountCustomDomainArgs{...}
-//
+//          AccountCustomDomainArgs{...}
 type AccountCustomDomainInput interface {
 	pulumi.Input
 
@@ -486,12 +479,11 @@ func (i AccountCustomDomainArgs) ToAccountCustomDomainPtrOutputWithContext(ctx c
 // AccountCustomDomainPtrInput is an input type that accepts AccountCustomDomainArgs, AccountCustomDomainPtr and AccountCustomDomainPtrOutput values.
 // You can construct a concrete instance of `AccountCustomDomainPtrInput` via:
 //
-// 		 AccountCustomDomainArgs{...}
+//          AccountCustomDomainArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountCustomDomainPtrInput interface {
 	pulumi.Input
 
@@ -601,8 +593,7 @@ type AccountIdentity struct {
 // AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
 // You can construct a concrete instance of `AccountIdentityInput` via:
 //
-// 		 AccountIdentityArgs{...}
-//
+//          AccountIdentityArgs{...}
 type AccountIdentityInput interface {
 	pulumi.Input
 
@@ -642,12 +633,11 @@ func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.C
 // AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
 // You can construct a concrete instance of `AccountIdentityPtrInput` via:
 //
-// 		 AccountIdentityArgs{...}
+//          AccountIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountIdentityPtrInput interface {
 	pulumi.Input
 
@@ -775,8 +765,7 @@ type AccountNetworkRulesType struct {
 // AccountNetworkRulesTypeInput is an input type that accepts AccountNetworkRulesTypeArgs and AccountNetworkRulesTypeOutput values.
 // You can construct a concrete instance of `AccountNetworkRulesTypeInput` via:
 //
-// 		 AccountNetworkRulesTypeArgs{...}
-//
+//          AccountNetworkRulesTypeArgs{...}
 type AccountNetworkRulesTypeInput interface {
 	pulumi.Input
 
@@ -819,12 +808,11 @@ func (i AccountNetworkRulesTypeArgs) ToAccountNetworkRulesTypePtrOutputWithConte
 // AccountNetworkRulesTypePtrInput is an input type that accepts AccountNetworkRulesTypeArgs, AccountNetworkRulesTypePtr and AccountNetworkRulesTypePtrOutput values.
 // You can construct a concrete instance of `AccountNetworkRulesTypePtrInput` via:
 //
-// 		 AccountNetworkRulesTypeArgs{...}
+//          AccountNetworkRulesTypeArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountNetworkRulesTypePtrInput interface {
 	pulumi.Input
 
@@ -968,8 +956,7 @@ type AccountQueueProperties struct {
 // AccountQueuePropertiesInput is an input type that accepts AccountQueuePropertiesArgs and AccountQueuePropertiesOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesInput` via:
 //
-// 		 AccountQueuePropertiesArgs{...}
-//
+//          AccountQueuePropertiesArgs{...}
 type AccountQueuePropertiesInput interface {
 	pulumi.Input
 
@@ -1011,12 +998,11 @@ func (i AccountQueuePropertiesArgs) ToAccountQueuePropertiesPtrOutputWithContext
 // AccountQueuePropertiesPtrInput is an input type that accepts AccountQueuePropertiesArgs, AccountQueuePropertiesPtr and AccountQueuePropertiesPtrOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesPtrInput` via:
 //
-// 		 AccountQueuePropertiesArgs{...}
+//          AccountQueuePropertiesArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountQueuePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1161,8 +1147,7 @@ type AccountQueuePropertiesCorsRule struct {
 // AccountQueuePropertiesCorsRuleInput is an input type that accepts AccountQueuePropertiesCorsRuleArgs and AccountQueuePropertiesCorsRuleOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesCorsRuleInput` via:
 //
-// 		 AccountQueuePropertiesCorsRuleArgs{...}
-//
+//          AccountQueuePropertiesCorsRuleArgs{...}
 type AccountQueuePropertiesCorsRuleInput interface {
 	pulumi.Input
 
@@ -1199,8 +1184,7 @@ func (i AccountQueuePropertiesCorsRuleArgs) ToAccountQueuePropertiesCorsRuleOutp
 // AccountQueuePropertiesCorsRuleArrayInput is an input type that accepts AccountQueuePropertiesCorsRuleArray and AccountQueuePropertiesCorsRuleArrayOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesCorsRuleArrayInput` via:
 //
-// 		 AccountQueuePropertiesCorsRuleArray{ AccountQueuePropertiesCorsRuleArgs{...} }
-//
+//          AccountQueuePropertiesCorsRuleArray{ AccountQueuePropertiesCorsRuleArgs{...} }
 type AccountQueuePropertiesCorsRuleArrayInput interface {
 	pulumi.Input
 
@@ -1296,8 +1280,7 @@ type AccountQueuePropertiesHourMetrics struct {
 // AccountQueuePropertiesHourMetricsInput is an input type that accepts AccountQueuePropertiesHourMetricsArgs and AccountQueuePropertiesHourMetricsOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesHourMetricsInput` via:
 //
-// 		 AccountQueuePropertiesHourMetricsArgs{...}
-//
+//          AccountQueuePropertiesHourMetricsArgs{...}
 type AccountQueuePropertiesHourMetricsInput interface {
 	pulumi.Input
 
@@ -1339,12 +1322,11 @@ func (i AccountQueuePropertiesHourMetricsArgs) ToAccountQueuePropertiesHourMetri
 // AccountQueuePropertiesHourMetricsPtrInput is an input type that accepts AccountQueuePropertiesHourMetricsArgs, AccountQueuePropertiesHourMetricsPtr and AccountQueuePropertiesHourMetricsPtrOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesHourMetricsPtrInput` via:
 //
-// 		 AccountQueuePropertiesHourMetricsArgs{...}
+//          AccountQueuePropertiesHourMetricsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountQueuePropertiesHourMetricsPtrInput interface {
 	pulumi.Input
 
@@ -1488,8 +1470,7 @@ type AccountQueuePropertiesLogging struct {
 // AccountQueuePropertiesLoggingInput is an input type that accepts AccountQueuePropertiesLoggingArgs and AccountQueuePropertiesLoggingOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesLoggingInput` via:
 //
-// 		 AccountQueuePropertiesLoggingArgs{...}
-//
+//          AccountQueuePropertiesLoggingArgs{...}
 type AccountQueuePropertiesLoggingInput interface {
 	pulumi.Input
 
@@ -1533,12 +1514,11 @@ func (i AccountQueuePropertiesLoggingArgs) ToAccountQueuePropertiesLoggingPtrOut
 // AccountQueuePropertiesLoggingPtrInput is an input type that accepts AccountQueuePropertiesLoggingArgs, AccountQueuePropertiesLoggingPtr and AccountQueuePropertiesLoggingPtrOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesLoggingPtrInput` via:
 //
-// 		 AccountQueuePropertiesLoggingArgs{...}
+//          AccountQueuePropertiesLoggingArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountQueuePropertiesLoggingPtrInput interface {
 	pulumi.Input
 
@@ -1695,8 +1675,7 @@ type AccountQueuePropertiesMinuteMetrics struct {
 // AccountQueuePropertiesMinuteMetricsInput is an input type that accepts AccountQueuePropertiesMinuteMetricsArgs and AccountQueuePropertiesMinuteMetricsOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesMinuteMetricsInput` via:
 //
-// 		 AccountQueuePropertiesMinuteMetricsArgs{...}
-//
+//          AccountQueuePropertiesMinuteMetricsArgs{...}
 type AccountQueuePropertiesMinuteMetricsInput interface {
 	pulumi.Input
 
@@ -1738,12 +1717,11 @@ func (i AccountQueuePropertiesMinuteMetricsArgs) ToAccountQueuePropertiesMinuteM
 // AccountQueuePropertiesMinuteMetricsPtrInput is an input type that accepts AccountQueuePropertiesMinuteMetricsArgs, AccountQueuePropertiesMinuteMetricsPtr and AccountQueuePropertiesMinuteMetricsPtrOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesMinuteMetricsPtrInput` via:
 //
-// 		 AccountQueuePropertiesMinuteMetricsArgs{...}
+//          AccountQueuePropertiesMinuteMetricsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountQueuePropertiesMinuteMetricsPtrInput interface {
 	pulumi.Input
 
@@ -1881,8 +1859,7 @@ type AccountStaticWebsite struct {
 // AccountStaticWebsiteInput is an input type that accepts AccountStaticWebsiteArgs and AccountStaticWebsiteOutput values.
 // You can construct a concrete instance of `AccountStaticWebsiteInput` via:
 //
-// 		 AccountStaticWebsiteArgs{...}
-//
+//          AccountStaticWebsiteArgs{...}
 type AccountStaticWebsiteInput interface {
 	pulumi.Input
 
@@ -1920,12 +1897,11 @@ func (i AccountStaticWebsiteArgs) ToAccountStaticWebsitePtrOutputWithContext(ctx
 // AccountStaticWebsitePtrInput is an input type that accepts AccountStaticWebsiteArgs, AccountStaticWebsitePtr and AccountStaticWebsitePtrOutput values.
 // You can construct a concrete instance of `AccountStaticWebsitePtrInput` via:
 //
-// 		 AccountStaticWebsiteArgs{...}
+//          AccountStaticWebsiteArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AccountStaticWebsitePtrInput interface {
 	pulumi.Input
 
@@ -2037,8 +2013,7 @@ type ManagementPolicyRule struct {
 // ManagementPolicyRuleInput is an input type that accepts ManagementPolicyRuleArgs and ManagementPolicyRuleOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleInput` via:
 //
-// 		 ManagementPolicyRuleArgs{...}
-//
+//          ManagementPolicyRuleArgs{...}
 type ManagementPolicyRuleInput interface {
 	pulumi.Input
 
@@ -2072,8 +2047,7 @@ func (i ManagementPolicyRuleArgs) ToManagementPolicyRuleOutputWithContext(ctx co
 // ManagementPolicyRuleArrayInput is an input type that accepts ManagementPolicyRuleArray and ManagementPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleArrayInput` via:
 //
-// 		 ManagementPolicyRuleArray{ ManagementPolicyRuleArgs{...} }
-//
+//          ManagementPolicyRuleArray{ ManagementPolicyRuleArgs{...} }
 type ManagementPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -2159,8 +2133,7 @@ type ManagementPolicyRuleActions struct {
 // ManagementPolicyRuleActionsInput is an input type that accepts ManagementPolicyRuleActionsArgs and ManagementPolicyRuleActionsOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleActionsInput` via:
 //
-// 		 ManagementPolicyRuleActionsArgs{...}
-//
+//          ManagementPolicyRuleActionsArgs{...}
 type ManagementPolicyRuleActionsInput interface {
 	pulumi.Input
 
@@ -2223,8 +2196,7 @@ type ManagementPolicyRuleActionsBaseBlob struct {
 // ManagementPolicyRuleActionsBaseBlobInput is an input type that accepts ManagementPolicyRuleActionsBaseBlobArgs and ManagementPolicyRuleActionsBaseBlobOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleActionsBaseBlobInput` via:
 //
-// 		 ManagementPolicyRuleActionsBaseBlobArgs{...}
-//
+//          ManagementPolicyRuleActionsBaseBlobArgs{...}
 type ManagementPolicyRuleActionsBaseBlobInput interface {
 	pulumi.Input
 
@@ -2264,12 +2236,11 @@ func (i ManagementPolicyRuleActionsBaseBlobArgs) ToManagementPolicyRuleActionsBa
 // ManagementPolicyRuleActionsBaseBlobPtrInput is an input type that accepts ManagementPolicyRuleActionsBaseBlobArgs, ManagementPolicyRuleActionsBaseBlobPtr and ManagementPolicyRuleActionsBaseBlobPtrOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleActionsBaseBlobPtrInput` via:
 //
-// 		 ManagementPolicyRuleActionsBaseBlobArgs{...}
+//          ManagementPolicyRuleActionsBaseBlobArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ManagementPolicyRuleActionsBaseBlobPtrInput interface {
 	pulumi.Input
 
@@ -2394,8 +2365,7 @@ type ManagementPolicyRuleActionsSnapshot struct {
 // ManagementPolicyRuleActionsSnapshotInput is an input type that accepts ManagementPolicyRuleActionsSnapshotArgs and ManagementPolicyRuleActionsSnapshotOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleActionsSnapshotInput` via:
 //
-// 		 ManagementPolicyRuleActionsSnapshotArgs{...}
-//
+//          ManagementPolicyRuleActionsSnapshotArgs{...}
 type ManagementPolicyRuleActionsSnapshotInput interface {
 	pulumi.Input
 
@@ -2431,12 +2401,11 @@ func (i ManagementPolicyRuleActionsSnapshotArgs) ToManagementPolicyRuleActionsSn
 // ManagementPolicyRuleActionsSnapshotPtrInput is an input type that accepts ManagementPolicyRuleActionsSnapshotArgs, ManagementPolicyRuleActionsSnapshotPtr and ManagementPolicyRuleActionsSnapshotPtrOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleActionsSnapshotPtrInput` via:
 //
-// 		 ManagementPolicyRuleActionsSnapshotArgs{...}
+//          ManagementPolicyRuleActionsSnapshotArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ManagementPolicyRuleActionsSnapshotPtrInput interface {
 	pulumi.Input
 
@@ -2529,8 +2498,7 @@ type ManagementPolicyRuleFilters struct {
 // ManagementPolicyRuleFiltersInput is an input type that accepts ManagementPolicyRuleFiltersArgs and ManagementPolicyRuleFiltersOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleFiltersInput` via:
 //
-// 		 ManagementPolicyRuleFiltersArgs{...}
-//
+//          ManagementPolicyRuleFiltersArgs{...}
 type ManagementPolicyRuleFiltersInput interface {
 	pulumi.Input
 
@@ -2568,12 +2536,11 @@ func (i ManagementPolicyRuleFiltersArgs) ToManagementPolicyRuleFiltersPtrOutputW
 // ManagementPolicyRuleFiltersPtrInput is an input type that accepts ManagementPolicyRuleFiltersArgs, ManagementPolicyRuleFiltersPtr and ManagementPolicyRuleFiltersPtrOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleFiltersPtrInput` via:
 //
-// 		 ManagementPolicyRuleFiltersArgs{...}
+//          ManagementPolicyRuleFiltersArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ManagementPolicyRuleFiltersPtrInput interface {
 	pulumi.Input
 
@@ -2681,8 +2648,7 @@ type ShareAcl struct {
 // ShareAclInput is an input type that accepts ShareAclArgs and ShareAclOutput values.
 // You can construct a concrete instance of `ShareAclInput` via:
 //
-// 		 ShareAclArgs{...}
-//
+//          ShareAclArgs{...}
 type ShareAclInput interface {
 	pulumi.Input
 
@@ -2712,8 +2678,7 @@ func (i ShareAclArgs) ToShareAclOutputWithContext(ctx context.Context) ShareAclO
 // ShareAclArrayInput is an input type that accepts ShareAclArray and ShareAclArrayOutput values.
 // You can construct a concrete instance of `ShareAclArrayInput` via:
 //
-// 		 ShareAclArray{ ShareAclArgs{...} }
-//
+//          ShareAclArray{ ShareAclArgs{...} }
 type ShareAclArrayInput interface {
 	pulumi.Input
 
@@ -2791,8 +2756,7 @@ type ShareAclAccessPolicy struct {
 // ShareAclAccessPolicyInput is an input type that accepts ShareAclAccessPolicyArgs and ShareAclAccessPolicyOutput values.
 // You can construct a concrete instance of `ShareAclAccessPolicyInput` via:
 //
-// 		 ShareAclAccessPolicyArgs{...}
-//
+//          ShareAclAccessPolicyArgs{...}
 type ShareAclAccessPolicyInput interface {
 	pulumi.Input
 
@@ -2824,8 +2788,7 @@ func (i ShareAclAccessPolicyArgs) ToShareAclAccessPolicyOutputWithContext(ctx co
 // ShareAclAccessPolicyArrayInput is an input type that accepts ShareAclAccessPolicyArray and ShareAclAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `ShareAclAccessPolicyArrayInput` via:
 //
-// 		 ShareAclAccessPolicyArray{ ShareAclAccessPolicyArgs{...} }
-//
+//          ShareAclAccessPolicyArray{ ShareAclAccessPolicyArgs{...} }
 type ShareAclAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -2906,8 +2869,7 @@ type TableAcl struct {
 // TableAclInput is an input type that accepts TableAclArgs and TableAclOutput values.
 // You can construct a concrete instance of `TableAclInput` via:
 //
-// 		 TableAclArgs{...}
-//
+//          TableAclArgs{...}
 type TableAclInput interface {
 	pulumi.Input
 
@@ -2937,8 +2899,7 @@ func (i TableAclArgs) ToTableAclOutputWithContext(ctx context.Context) TableAclO
 // TableAclArrayInput is an input type that accepts TableAclArray and TableAclArrayOutput values.
 // You can construct a concrete instance of `TableAclArrayInput` via:
 //
-// 		 TableAclArray{ TableAclArgs{...} }
-//
+//          TableAclArray{ TableAclArgs{...} }
 type TableAclArrayInput interface {
 	pulumi.Input
 
@@ -3016,8 +2977,7 @@ type TableAclAccessPolicy struct {
 // TableAclAccessPolicyInput is an input type that accepts TableAclAccessPolicyArgs and TableAclAccessPolicyOutput values.
 // You can construct a concrete instance of `TableAclAccessPolicyInput` via:
 //
-// 		 TableAclAccessPolicyArgs{...}
-//
+//          TableAclAccessPolicyArgs{...}
 type TableAclAccessPolicyInput interface {
 	pulumi.Input
 
@@ -3049,8 +3009,7 @@ func (i TableAclAccessPolicyArgs) ToTableAclAccessPolicyOutputWithContext(ctx co
 // TableAclAccessPolicyArrayInput is an input type that accepts TableAclAccessPolicyArray and TableAclAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `TableAclAccessPolicyArrayInput` via:
 //
-// 		 TableAclAccessPolicyArray{ TableAclAccessPolicyArgs{...} }
-//
+//          TableAclAccessPolicyArray{ TableAclAccessPolicyArgs{...} }
 type TableAclAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -3139,8 +3098,7 @@ type GetAccountBlobContainerSASPermissions struct {
 // GetAccountBlobContainerSASPermissionsInput is an input type that accepts GetAccountBlobContainerSASPermissionsArgs and GetAccountBlobContainerSASPermissionsOutput values.
 // You can construct a concrete instance of `GetAccountBlobContainerSASPermissionsInput` via:
 //
-// 		 GetAccountBlobContainerSASPermissionsArgs{...}
-//
+//          GetAccountBlobContainerSASPermissionsArgs{...}
 type GetAccountBlobContainerSASPermissionsInput interface {
 	pulumi.Input
 
@@ -3227,8 +3185,7 @@ type GetAccountCustomDomain struct {
 // GetAccountCustomDomainInput is an input type that accepts GetAccountCustomDomainArgs and GetAccountCustomDomainOutput values.
 // You can construct a concrete instance of `GetAccountCustomDomainInput` via:
 //
-// 		 GetAccountCustomDomainArgs{...}
-//
+//          GetAccountCustomDomainArgs{...}
 type GetAccountCustomDomainInput interface {
 	pulumi.Input
 
@@ -3256,8 +3213,7 @@ func (i GetAccountCustomDomainArgs) ToGetAccountCustomDomainOutputWithContext(ct
 // GetAccountCustomDomainArrayInput is an input type that accepts GetAccountCustomDomainArray and GetAccountCustomDomainArrayOutput values.
 // You can construct a concrete instance of `GetAccountCustomDomainArrayInput` via:
 //
-// 		 GetAccountCustomDomainArray{ GetAccountCustomDomainArgs{...} }
-//
+//          GetAccountCustomDomainArray{ GetAccountCustomDomainArgs{...} }
 type GetAccountCustomDomainArrayInput interface {
 	pulumi.Input
 
@@ -3340,8 +3296,7 @@ type GetAccountSASPermissions struct {
 // GetAccountSASPermissionsInput is an input type that accepts GetAccountSASPermissionsArgs and GetAccountSASPermissionsOutput values.
 // You can construct a concrete instance of `GetAccountSASPermissionsInput` via:
 //
-// 		 GetAccountSASPermissionsArgs{...}
-//
+//          GetAccountSASPermissionsArgs{...}
 type GetAccountSASPermissionsInput interface {
 	pulumi.Input
 
@@ -3446,8 +3401,7 @@ type GetAccountSASResourceTypes struct {
 // GetAccountSASResourceTypesInput is an input type that accepts GetAccountSASResourceTypesArgs and GetAccountSASResourceTypesOutput values.
 // You can construct a concrete instance of `GetAccountSASResourceTypesInput` via:
 //
-// 		 GetAccountSASResourceTypesArgs{...}
-//
+//          GetAccountSASResourceTypesArgs{...}
 type GetAccountSASResourceTypesInput interface {
 	pulumi.Input
 
@@ -3519,8 +3473,7 @@ type GetAccountSASServices struct {
 // GetAccountSASServicesInput is an input type that accepts GetAccountSASServicesArgs and GetAccountSASServicesOutput values.
 // You can construct a concrete instance of `GetAccountSASServicesInput` via:
 //
-// 		 GetAccountSASServicesArgs{...}
-//
+//          GetAccountSASServicesArgs{...}
 type GetAccountSASServicesInput interface {
 	pulumi.Input
 
@@ -3599,8 +3552,7 @@ type GetPolicyRule struct {
 // GetPolicyRuleInput is an input type that accepts GetPolicyRuleArgs and GetPolicyRuleOutput values.
 // You can construct a concrete instance of `GetPolicyRuleInput` via:
 //
-// 		 GetPolicyRuleArgs{...}
-//
+//          GetPolicyRuleArgs{...}
 type GetPolicyRuleInput interface {
 	pulumi.Input
 
@@ -3634,8 +3586,7 @@ func (i GetPolicyRuleArgs) ToGetPolicyRuleOutputWithContext(ctx context.Context)
 // GetPolicyRuleArrayInput is an input type that accepts GetPolicyRuleArray and GetPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleArrayInput` via:
 //
-// 		 GetPolicyRuleArray{ GetPolicyRuleArgs{...} }
-//
+//          GetPolicyRuleArray{ GetPolicyRuleArgs{...} }
 type GetPolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -3721,8 +3672,7 @@ type GetPolicyRuleAction struct {
 // GetPolicyRuleActionInput is an input type that accepts GetPolicyRuleActionArgs and GetPolicyRuleActionOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionInput` via:
 //
-// 		 GetPolicyRuleActionArgs{...}
-//
+//          GetPolicyRuleActionArgs{...}
 type GetPolicyRuleActionInput interface {
 	pulumi.Input
 
@@ -3752,8 +3702,7 @@ func (i GetPolicyRuleActionArgs) ToGetPolicyRuleActionOutputWithContext(ctx cont
 // GetPolicyRuleActionArrayInput is an input type that accepts GetPolicyRuleActionArray and GetPolicyRuleActionArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionArrayInput` via:
 //
-// 		 GetPolicyRuleActionArray{ GetPolicyRuleActionArgs{...} }
-//
+//          GetPolicyRuleActionArray{ GetPolicyRuleActionArgs{...} }
 type GetPolicyRuleActionArrayInput interface {
 	pulumi.Input
 
@@ -3831,8 +3780,7 @@ type GetPolicyRuleActionBaseBlob struct {
 // GetPolicyRuleActionBaseBlobInput is an input type that accepts GetPolicyRuleActionBaseBlobArgs and GetPolicyRuleActionBaseBlobOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionBaseBlobInput` via:
 //
-// 		 GetPolicyRuleActionBaseBlobArgs{...}
-//
+//          GetPolicyRuleActionBaseBlobArgs{...}
 type GetPolicyRuleActionBaseBlobInput interface {
 	pulumi.Input
 
@@ -3864,8 +3812,7 @@ func (i GetPolicyRuleActionBaseBlobArgs) ToGetPolicyRuleActionBaseBlobOutputWith
 // GetPolicyRuleActionBaseBlobArrayInput is an input type that accepts GetPolicyRuleActionBaseBlobArray and GetPolicyRuleActionBaseBlobArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionBaseBlobArrayInput` via:
 //
-// 		 GetPolicyRuleActionBaseBlobArray{ GetPolicyRuleActionBaseBlobArgs{...} }
-//
+//          GetPolicyRuleActionBaseBlobArray{ GetPolicyRuleActionBaseBlobArgs{...} }
 type GetPolicyRuleActionBaseBlobArrayInput interface {
 	pulumi.Input
 
@@ -3944,8 +3891,7 @@ type GetPolicyRuleActionSnapshot struct {
 // GetPolicyRuleActionSnapshotInput is an input type that accepts GetPolicyRuleActionSnapshotArgs and GetPolicyRuleActionSnapshotOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionSnapshotInput` via:
 //
-// 		 GetPolicyRuleActionSnapshotArgs{...}
-//
+//          GetPolicyRuleActionSnapshotArgs{...}
 type GetPolicyRuleActionSnapshotInput interface {
 	pulumi.Input
 
@@ -3973,8 +3919,7 @@ func (i GetPolicyRuleActionSnapshotArgs) ToGetPolicyRuleActionSnapshotOutputWith
 // GetPolicyRuleActionSnapshotArrayInput is an input type that accepts GetPolicyRuleActionSnapshotArray and GetPolicyRuleActionSnapshotArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionSnapshotArrayInput` via:
 //
-// 		 GetPolicyRuleActionSnapshotArray{ GetPolicyRuleActionSnapshotArgs{...} }
-//
+//          GetPolicyRuleActionSnapshotArray{ GetPolicyRuleActionSnapshotArgs{...} }
 type GetPolicyRuleActionSnapshotArrayInput interface {
 	pulumi.Input
 
@@ -4045,8 +3990,7 @@ type GetPolicyRuleFilter struct {
 // GetPolicyRuleFilterInput is an input type that accepts GetPolicyRuleFilterArgs and GetPolicyRuleFilterOutput values.
 // You can construct a concrete instance of `GetPolicyRuleFilterInput` via:
 //
-// 		 GetPolicyRuleFilterArgs{...}
-//
+//          GetPolicyRuleFilterArgs{...}
 type GetPolicyRuleFilterInput interface {
 	pulumi.Input
 
@@ -4076,8 +4020,7 @@ func (i GetPolicyRuleFilterArgs) ToGetPolicyRuleFilterOutputWithContext(ctx cont
 // GetPolicyRuleFilterArrayInput is an input type that accepts GetPolicyRuleFilterArray and GetPolicyRuleFilterArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleFilterArrayInput` via:
 //
-// 		 GetPolicyRuleFilterArray{ GetPolicyRuleFilterArgs{...} }
-//
+//          GetPolicyRuleFilterArray{ GetPolicyRuleFilterArgs{...} }
 type GetPolicyRuleFilterArrayInput interface {
 	pulumi.Input
 

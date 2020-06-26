@@ -59,8 +59,6 @@ def get_service_endpoint_connections(resource_group_name=None,service_id=None,op
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

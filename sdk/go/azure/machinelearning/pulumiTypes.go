@@ -22,8 +22,7 @@ type WorkspaceIdentity struct {
 // WorkspaceIdentityInput is an input type that accepts WorkspaceIdentityArgs and WorkspaceIdentityOutput values.
 // You can construct a concrete instance of `WorkspaceIdentityInput` via:
 //
-// 		 WorkspaceIdentityArgs{...}
-//
+//          WorkspaceIdentityArgs{...}
 type WorkspaceIdentityInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutputWithContext(ctx conte
 // WorkspaceIdentityPtrInput is an input type that accepts WorkspaceIdentityArgs, WorkspaceIdentityPtr and WorkspaceIdentityPtrOutput values.
 // You can construct a concrete instance of `WorkspaceIdentityPtrInput` via:
 //
-// 		 WorkspaceIdentityArgs{...}
+//          WorkspaceIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type WorkspaceIdentityPtrInput interface {
 	pulumi.Input
 

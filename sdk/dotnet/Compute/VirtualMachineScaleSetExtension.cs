@@ -16,8 +16,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Text.Json;

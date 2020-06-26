@@ -19,8 +19,7 @@ type Features struct {
 // FeaturesInput is an input type that accepts FeaturesArgs and FeaturesOutput values.
 // You can construct a concrete instance of `FeaturesInput` via:
 //
-// 		 FeaturesArgs{...}
-//
+//          FeaturesArgs{...}
 type FeaturesInput interface {
 	pulumi.Input
 
@@ -80,8 +79,7 @@ type FeaturesKeyVault struct {
 // FeaturesKeyVaultInput is an input type that accepts FeaturesKeyVaultArgs and FeaturesKeyVaultOutput values.
 // You can construct a concrete instance of `FeaturesKeyVaultInput` via:
 //
-// 		 FeaturesKeyVaultArgs{...}
-//
+//          FeaturesKeyVaultArgs{...}
 type FeaturesKeyVaultInput interface {
 	pulumi.Input
 
@@ -117,12 +115,11 @@ func (i FeaturesKeyVaultArgs) ToFeaturesKeyVaultPtrOutputWithContext(ctx context
 // FeaturesKeyVaultPtrInput is an input type that accepts FeaturesKeyVaultArgs, FeaturesKeyVaultPtr and FeaturesKeyVaultPtrOutput values.
 // You can construct a concrete instance of `FeaturesKeyVaultPtrInput` via:
 //
-// 		 FeaturesKeyVaultArgs{...}
+//          FeaturesKeyVaultArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FeaturesKeyVaultPtrInput interface {
 	pulumi.Input
 
@@ -222,8 +219,7 @@ type FeaturesVirtualMachine struct {
 // FeaturesVirtualMachineInput is an input type that accepts FeaturesVirtualMachineArgs and FeaturesVirtualMachineOutput values.
 // You can construct a concrete instance of `FeaturesVirtualMachineInput` via:
 //
-// 		 FeaturesVirtualMachineArgs{...}
-//
+//          FeaturesVirtualMachineArgs{...}
 type FeaturesVirtualMachineInput interface {
 	pulumi.Input
 
@@ -258,12 +254,11 @@ func (i FeaturesVirtualMachineArgs) ToFeaturesVirtualMachinePtrOutputWithContext
 // FeaturesVirtualMachinePtrInput is an input type that accepts FeaturesVirtualMachineArgs, FeaturesVirtualMachinePtr and FeaturesVirtualMachinePtrOutput values.
 // You can construct a concrete instance of `FeaturesVirtualMachinePtrInput` via:
 //
-// 		 FeaturesVirtualMachineArgs{...}
+//          FeaturesVirtualMachineArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FeaturesVirtualMachinePtrInput interface {
 	pulumi.Input
 
@@ -350,8 +345,7 @@ type FeaturesVirtualMachineScaleSet struct {
 // FeaturesVirtualMachineScaleSetInput is an input type that accepts FeaturesVirtualMachineScaleSetArgs and FeaturesVirtualMachineScaleSetOutput values.
 // You can construct a concrete instance of `FeaturesVirtualMachineScaleSetInput` via:
 //
-// 		 FeaturesVirtualMachineScaleSetArgs{...}
-//
+//          FeaturesVirtualMachineScaleSetArgs{...}
 type FeaturesVirtualMachineScaleSetInput interface {
 	pulumi.Input
 
@@ -386,12 +380,11 @@ func (i FeaturesVirtualMachineScaleSetArgs) ToFeaturesVirtualMachineScaleSetPtrO
 // FeaturesVirtualMachineScaleSetPtrInput is an input type that accepts FeaturesVirtualMachineScaleSetArgs, FeaturesVirtualMachineScaleSetPtr and FeaturesVirtualMachineScaleSetPtrOutput values.
 // You can construct a concrete instance of `FeaturesVirtualMachineScaleSetPtrInput` via:
 //
-// 		 FeaturesVirtualMachineScaleSetArgs{...}
+//          FeaturesVirtualMachineScaleSetArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FeaturesVirtualMachineScaleSetPtrInput interface {
 	pulumi.Input
 

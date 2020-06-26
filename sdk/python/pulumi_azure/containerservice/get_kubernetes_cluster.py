@@ -145,6 +145,7 @@ class GetKubernetesClusterResult:
         if private_link_enabled is not None:
             warnings.warn("Deprecated in favor of `private_cluster_enabled`", DeprecationWarning)
             pulumi.log.warn("private_link_enabled is deprecated: Deprecated in favor of `private_cluster_enabled`")
+
         __self__.private_link_enabled = private_link_enabled
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -212,8 +213,6 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
 
     ## Example Usage
-
-
 
     ```python
     import pulumi

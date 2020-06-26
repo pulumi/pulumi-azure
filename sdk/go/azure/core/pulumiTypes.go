@@ -20,8 +20,7 @@ type CustomProviderAction struct {
 // CustomProviderActionInput is an input type that accepts CustomProviderActionArgs and CustomProviderActionOutput values.
 // You can construct a concrete instance of `CustomProviderActionInput` via:
 //
-// 		 CustomProviderActionArgs{...}
-//
+//          CustomProviderActionArgs{...}
 type CustomProviderActionInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i CustomProviderActionArgs) ToCustomProviderActionOutputWithContext(ctx co
 // CustomProviderActionArrayInput is an input type that accepts CustomProviderActionArray and CustomProviderActionArrayOutput values.
 // You can construct a concrete instance of `CustomProviderActionArrayInput` via:
 //
-// 		 CustomProviderActionArray{ CustomProviderActionArgs{...} }
-//
+//          CustomProviderActionArray{ CustomProviderActionArgs{...} }
 type CustomProviderActionArrayInput interface {
 	pulumi.Input
 
@@ -130,8 +128,7 @@ type CustomProviderResourceType struct {
 // CustomProviderResourceTypeInput is an input type that accepts CustomProviderResourceTypeArgs and CustomProviderResourceTypeOutput values.
 // You can construct a concrete instance of `CustomProviderResourceTypeInput` via:
 //
-// 		 CustomProviderResourceTypeArgs{...}
-//
+//          CustomProviderResourceTypeArgs{...}
 type CustomProviderResourceTypeInput interface {
 	pulumi.Input
 
@@ -163,8 +160,7 @@ func (i CustomProviderResourceTypeArgs) ToCustomProviderResourceTypeOutputWithCo
 // CustomProviderResourceTypeArrayInput is an input type that accepts CustomProviderResourceTypeArray and CustomProviderResourceTypeArrayOutput values.
 // You can construct a concrete instance of `CustomProviderResourceTypeArrayInput` via:
 //
-// 		 CustomProviderResourceTypeArray{ CustomProviderResourceTypeArgs{...} }
-//
+//          CustomProviderResourceTypeArray{ CustomProviderResourceTypeArgs{...} }
 type CustomProviderResourceTypeArrayInput interface {
 	pulumi.Input
 
@@ -243,8 +239,7 @@ type CustomProviderValidation struct {
 // CustomProviderValidationInput is an input type that accepts CustomProviderValidationArgs and CustomProviderValidationOutput values.
 // You can construct a concrete instance of `CustomProviderValidationInput` via:
 //
-// 		 CustomProviderValidationArgs{...}
-//
+//          CustomProviderValidationArgs{...}
 type CustomProviderValidationInput interface {
 	pulumi.Input
 
@@ -272,8 +267,7 @@ func (i CustomProviderValidationArgs) ToCustomProviderValidationOutputWithContex
 // CustomProviderValidationArrayInput is an input type that accepts CustomProviderValidationArray and CustomProviderValidationArrayOutput values.
 // You can construct a concrete instance of `CustomProviderValidationArrayInput` via:
 //
-// 		 CustomProviderValidationArray{ CustomProviderValidationArgs{...} }
-//
+//          CustomProviderValidationArray{ CustomProviderValidationArgs{...} }
 type CustomProviderValidationArrayInput interface {
 	pulumi.Input
 
@@ -350,8 +344,7 @@ type GetResourcesResource struct {
 // GetResourcesResourceInput is an input type that accepts GetResourcesResourceArgs and GetResourcesResourceOutput values.
 // You can construct a concrete instance of `GetResourcesResourceInput` via:
 //
-// 		 GetResourcesResourceArgs{...}
-//
+//          GetResourcesResourceArgs{...}
 type GetResourcesResourceInput interface {
 	pulumi.Input
 
@@ -387,8 +380,7 @@ func (i GetResourcesResourceArgs) ToGetResourcesResourceOutputWithContext(ctx co
 // GetResourcesResourceArrayInput is an input type that accepts GetResourcesResourceArray and GetResourcesResourceArrayOutput values.
 // You can construct a concrete instance of `GetResourcesResourceArrayInput` via:
 //
-// 		 GetResourcesResourceArray{ GetResourcesResourceArgs{...} }
-//
+//          GetResourcesResourceArray{ GetResourcesResourceArgs{...} }
 type GetResourcesResourceArrayInput interface {
 	pulumi.Input
 
@@ -489,8 +481,7 @@ type GetSubscriptionsSubscription struct {
 // GetSubscriptionsSubscriptionInput is an input type that accepts GetSubscriptionsSubscriptionArgs and GetSubscriptionsSubscriptionOutput values.
 // You can construct a concrete instance of `GetSubscriptionsSubscriptionInput` via:
 //
-// 		 GetSubscriptionsSubscriptionArgs{...}
-//
+//          GetSubscriptionsSubscriptionArgs{...}
 type GetSubscriptionsSubscriptionInput interface {
 	pulumi.Input
 
@@ -530,8 +521,7 @@ func (i GetSubscriptionsSubscriptionArgs) ToGetSubscriptionsSubscriptionOutputWi
 // GetSubscriptionsSubscriptionArrayInput is an input type that accepts GetSubscriptionsSubscriptionArray and GetSubscriptionsSubscriptionArrayOutput values.
 // You can construct a concrete instance of `GetSubscriptionsSubscriptionArrayInput` via:
 //
-// 		 GetSubscriptionsSubscriptionArray{ GetSubscriptionsSubscriptionArgs{...} }
-//
+//          GetSubscriptionsSubscriptionArray{ GetSubscriptionsSubscriptionArgs{...} }
 type GetSubscriptionsSubscriptionArrayInput interface {
 	pulumi.Input
 

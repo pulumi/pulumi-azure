@@ -13,7 +13,6 @@ import (
 // Manages a Firewall Rule for a MySQL Server
 //
 // ## Example Usage
-//
 // ### Single IP Address)
 //
 // ```go
@@ -37,7 +36,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleFirewallRule, err := mysql.NewFirewallRule(ctx, "exampleFirewallRule", &mysql.FirewallRuleArgs{
+// 		_, err = mysql.NewFirewallRule(ctx, "exampleFirewallRule", &mysql.FirewallRuleArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ServerName:        exampleServer.Name,
 // 			StartIpAddress:    pulumi.String("40.112.8.12"),
@@ -50,7 +49,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### IP Range)
 //
 // ```go
@@ -74,7 +72,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleFirewallRule, err := mysql.NewFirewallRule(ctx, "exampleFirewallRule", &mysql.FirewallRuleArgs{
+// 		_, err = mysql.NewFirewallRule(ctx, "exampleFirewallRule", &mysql.FirewallRuleArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ServerName:        exampleServer.Name,
 // 			StartIpAddress:    pulumi.String("40.112.0.0"),

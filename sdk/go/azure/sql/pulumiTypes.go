@@ -24,8 +24,7 @@ type DatabaseExtendedAuditingPolicy struct {
 // DatabaseExtendedAuditingPolicyInput is an input type that accepts DatabaseExtendedAuditingPolicyArgs and DatabaseExtendedAuditingPolicyOutput values.
 // You can construct a concrete instance of `DatabaseExtendedAuditingPolicyInput` via:
 //
-// 		 DatabaseExtendedAuditingPolicyArgs{...}
-//
+//          DatabaseExtendedAuditingPolicyArgs{...}
 type DatabaseExtendedAuditingPolicyInput interface {
 	pulumi.Input
 
@@ -67,12 +66,11 @@ func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyPtrO
 // DatabaseExtendedAuditingPolicyPtrInput is an input type that accepts DatabaseExtendedAuditingPolicyArgs, DatabaseExtendedAuditingPolicyPtr and DatabaseExtendedAuditingPolicyPtrOutput values.
 // You can construct a concrete instance of `DatabaseExtendedAuditingPolicyPtrInput` via:
 //
-// 		 DatabaseExtendedAuditingPolicyArgs{...}
+//          DatabaseExtendedAuditingPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DatabaseExtendedAuditingPolicyPtrInput interface {
 	pulumi.Input
 
@@ -220,8 +218,7 @@ type DatabaseImport struct {
 // DatabaseImportInput is an input type that accepts DatabaseImportArgs and DatabaseImportOutput values.
 // You can construct a concrete instance of `DatabaseImportInput` via:
 //
-// 		 DatabaseImportArgs{...}
-//
+//          DatabaseImportArgs{...}
 type DatabaseImportInput interface {
 	pulumi.Input
 
@@ -269,12 +266,11 @@ func (i DatabaseImportArgs) ToDatabaseImportPtrOutputWithContext(ctx context.Con
 // DatabaseImportPtrInput is an input type that accepts DatabaseImportArgs, DatabaseImportPtr and DatabaseImportPtrOutput values.
 // You can construct a concrete instance of `DatabaseImportPtrInput` via:
 //
-// 		 DatabaseImportArgs{...}
+//          DatabaseImportArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DatabaseImportPtrInput interface {
 	pulumi.Input
 
@@ -469,8 +465,7 @@ type DatabaseThreatDetectionPolicy struct {
 // DatabaseThreatDetectionPolicyInput is an input type that accepts DatabaseThreatDetectionPolicyArgs and DatabaseThreatDetectionPolicyOutput values.
 // You can construct a concrete instance of `DatabaseThreatDetectionPolicyInput` via:
 //
-// 		 DatabaseThreatDetectionPolicyArgs{...}
-//
+//          DatabaseThreatDetectionPolicyArgs{...}
 type DatabaseThreatDetectionPolicyInput interface {
 	pulumi.Input
 
@@ -520,12 +515,11 @@ func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyPtrOut
 // DatabaseThreatDetectionPolicyPtrInput is an input type that accepts DatabaseThreatDetectionPolicyArgs, DatabaseThreatDetectionPolicyPtr and DatabaseThreatDetectionPolicyPtrOutput values.
 // You can construct a concrete instance of `DatabaseThreatDetectionPolicyPtrInput` via:
 //
-// 		 DatabaseThreatDetectionPolicyArgs{...}
+//          DatabaseThreatDetectionPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type DatabaseThreatDetectionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -725,8 +719,7 @@ type FailoverGroupPartnerServer struct {
 // FailoverGroupPartnerServerInput is an input type that accepts FailoverGroupPartnerServerArgs and FailoverGroupPartnerServerOutput values.
 // You can construct a concrete instance of `FailoverGroupPartnerServerInput` via:
 //
-// 		 FailoverGroupPartnerServerArgs{...}
-//
+//          FailoverGroupPartnerServerArgs{...}
 type FailoverGroupPartnerServerInput interface {
 	pulumi.Input
 
@@ -758,8 +751,7 @@ func (i FailoverGroupPartnerServerArgs) ToFailoverGroupPartnerServerOutputWithCo
 // FailoverGroupPartnerServerArrayInput is an input type that accepts FailoverGroupPartnerServerArray and FailoverGroupPartnerServerArrayOutput values.
 // You can construct a concrete instance of `FailoverGroupPartnerServerArrayInput` via:
 //
-// 		 FailoverGroupPartnerServerArray{ FailoverGroupPartnerServerArgs{...} }
-//
+//          FailoverGroupPartnerServerArray{ FailoverGroupPartnerServerArgs{...} }
 type FailoverGroupPartnerServerArrayInput interface {
 	pulumi.Input
 
@@ -840,8 +832,7 @@ type FailoverGroupReadWriteEndpointFailoverPolicy struct {
 // FailoverGroupReadWriteEndpointFailoverPolicyInput is an input type that accepts FailoverGroupReadWriteEndpointFailoverPolicyArgs and FailoverGroupReadWriteEndpointFailoverPolicyOutput values.
 // You can construct a concrete instance of `FailoverGroupReadWriteEndpointFailoverPolicyInput` via:
 //
-// 		 FailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
-//
+//          FailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
 type FailoverGroupReadWriteEndpointFailoverPolicyInput interface {
 	pulumi.Input
 
@@ -879,12 +870,11 @@ func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWri
 // FailoverGroupReadWriteEndpointFailoverPolicyPtrInput is an input type that accepts FailoverGroupReadWriteEndpointFailoverPolicyArgs, FailoverGroupReadWriteEndpointFailoverPolicyPtr and FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput values.
 // You can construct a concrete instance of `FailoverGroupReadWriteEndpointFailoverPolicyPtrInput` via:
 //
-// 		 FailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
+//          FailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FailoverGroupReadWriteEndpointFailoverPolicyPtrInput interface {
 	pulumi.Input
 
@@ -992,8 +982,7 @@ type FailoverGroupReadonlyEndpointFailoverPolicy struct {
 // FailoverGroupReadonlyEndpointFailoverPolicyInput is an input type that accepts FailoverGroupReadonlyEndpointFailoverPolicyArgs and FailoverGroupReadonlyEndpointFailoverPolicyOutput values.
 // You can construct a concrete instance of `FailoverGroupReadonlyEndpointFailoverPolicyInput` via:
 //
-// 		 FailoverGroupReadonlyEndpointFailoverPolicyArgs{...}
-//
+//          FailoverGroupReadonlyEndpointFailoverPolicyArgs{...}
 type FailoverGroupReadonlyEndpointFailoverPolicyInput interface {
 	pulumi.Input
 
@@ -1029,12 +1018,11 @@ func (i FailoverGroupReadonlyEndpointFailoverPolicyArgs) ToFailoverGroupReadonly
 // FailoverGroupReadonlyEndpointFailoverPolicyPtrInput is an input type that accepts FailoverGroupReadonlyEndpointFailoverPolicyArgs, FailoverGroupReadonlyEndpointFailoverPolicyPtr and FailoverGroupReadonlyEndpointFailoverPolicyPtrOutput values.
 // You can construct a concrete instance of `FailoverGroupReadonlyEndpointFailoverPolicyPtrInput` via:
 //
-// 		 FailoverGroupReadonlyEndpointFailoverPolicyArgs{...}
+//          FailoverGroupReadonlyEndpointFailoverPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type FailoverGroupReadonlyEndpointFailoverPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1133,8 +1121,7 @@ type SqlServerExtendedAuditingPolicy struct {
 // SqlServerExtendedAuditingPolicyInput is an input type that accepts SqlServerExtendedAuditingPolicyArgs and SqlServerExtendedAuditingPolicyOutput values.
 // You can construct a concrete instance of `SqlServerExtendedAuditingPolicyInput` via:
 //
-// 		 SqlServerExtendedAuditingPolicyArgs{...}
-//
+//          SqlServerExtendedAuditingPolicyArgs{...}
 type SqlServerExtendedAuditingPolicyInput interface {
 	pulumi.Input
 
@@ -1176,12 +1163,11 @@ func (i SqlServerExtendedAuditingPolicyArgs) ToSqlServerExtendedAuditingPolicyPt
 // SqlServerExtendedAuditingPolicyPtrInput is an input type that accepts SqlServerExtendedAuditingPolicyArgs, SqlServerExtendedAuditingPolicyPtr and SqlServerExtendedAuditingPolicyPtrOutput values.
 // You can construct a concrete instance of `SqlServerExtendedAuditingPolicyPtrInput` via:
 //
-// 		 SqlServerExtendedAuditingPolicyArgs{...}
+//          SqlServerExtendedAuditingPolicyArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type SqlServerExtendedAuditingPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1321,8 +1307,7 @@ type SqlServerIdentity struct {
 // SqlServerIdentityInput is an input type that accepts SqlServerIdentityArgs and SqlServerIdentityOutput values.
 // You can construct a concrete instance of `SqlServerIdentityInput` via:
 //
-// 		 SqlServerIdentityArgs{...}
-//
+//          SqlServerIdentityArgs{...}
 type SqlServerIdentityInput interface {
 	pulumi.Input
 
@@ -1362,12 +1347,11 @@ func (i SqlServerIdentityArgs) ToSqlServerIdentityPtrOutputWithContext(ctx conte
 // SqlServerIdentityPtrInput is an input type that accepts SqlServerIdentityArgs, SqlServerIdentityPtr and SqlServerIdentityPtrOutput values.
 // You can construct a concrete instance of `SqlServerIdentityPtrInput` via:
 //
-// 		 SqlServerIdentityArgs{...}
+//          SqlServerIdentityArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type SqlServerIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1492,8 +1476,7 @@ type GetServerIdentity struct {
 // GetServerIdentityInput is an input type that accepts GetServerIdentityArgs and GetServerIdentityOutput values.
 // You can construct a concrete instance of `GetServerIdentityInput` via:
 //
-// 		 GetServerIdentityArgs{...}
-//
+//          GetServerIdentityArgs{...}
 type GetServerIdentityInput interface {
 	pulumi.Input
 
@@ -1525,8 +1508,7 @@ func (i GetServerIdentityArgs) ToGetServerIdentityOutputWithContext(ctx context.
 // GetServerIdentityArrayInput is an input type that accepts GetServerIdentityArray and GetServerIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServerIdentityArrayInput` via:
 //
-// 		 GetServerIdentityArray{ GetServerIdentityArgs{...} }
-//
+//          GetServerIdentityArray{ GetServerIdentityArgs{...} }
 type GetServerIdentityArrayInput interface {
 	pulumi.Input
 

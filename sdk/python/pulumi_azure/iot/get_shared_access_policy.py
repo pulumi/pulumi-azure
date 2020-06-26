@@ -74,8 +74,6 @@ def get_shared_access_policy(iothub_name=None,name=None,resource_group_name=None
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

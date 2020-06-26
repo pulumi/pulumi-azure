@@ -47,7 +47,7 @@ class BastionHost(pulumi.CustomResource):
 
         ## Example Usage
 
-
+        This example deploys an Azure Bastion Host Instance to a target virtual network.
 
         ```python
         import pulumi

@@ -20,8 +20,7 @@ type ServiceQueryKey struct {
 // ServiceQueryKeyInput is an input type that accepts ServiceQueryKeyArgs and ServiceQueryKeyOutput values.
 // You can construct a concrete instance of `ServiceQueryKeyInput` via:
 //
-// 		 ServiceQueryKeyArgs{...}
-//
+//          ServiceQueryKeyArgs{...}
 type ServiceQueryKeyInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i ServiceQueryKeyArgs) ToServiceQueryKeyOutputWithContext(ctx context.Cont
 // ServiceQueryKeyArrayInput is an input type that accepts ServiceQueryKeyArray and ServiceQueryKeyArrayOutput values.
 // You can construct a concrete instance of `ServiceQueryKeyArrayInput` via:
 //
-// 		 ServiceQueryKeyArray{ ServiceQueryKeyArgs{...} }
-//
+//          ServiceQueryKeyArray{ ServiceQueryKeyArgs{...} }
 type ServiceQueryKeyArrayInput interface {
 	pulumi.Input
 

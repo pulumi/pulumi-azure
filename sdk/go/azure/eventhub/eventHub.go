@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -38,14 +36,14 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 			Capacity:          pulumi.Int(1),
-// 			Tags: map[string]interface{}{
-// 				"environment": "Production",
+// 			Tags: pulumi.Map{
+// 				"environment": pulumi.String("Production"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+// 		_, err = eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
 // 			NamespaceName:     exampleEventHubNamespace.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			PartitionCount:    pulumi.Int(2),

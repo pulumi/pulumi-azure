@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,15 +31,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		example, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+// 		_, err = kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
 // 			Location:          rg.Location,
 // 			ResourceGroupName: rg.Name,
 // 			Sku: &kusto.ClusterSkuArgs{
 // 				Name:     pulumi.String("Standard_D13_v2"),
 // 				Capacity: pulumi.Int(2),
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"Environment": "Production",
+// 			Tags: pulumi.Map{
+// 				"Environment": pulumi.String("Production"),
 // 			},
 // 		})
 // 		if err != nil {

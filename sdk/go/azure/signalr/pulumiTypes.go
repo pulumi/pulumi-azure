@@ -18,8 +18,7 @@ type ServiceCor struct {
 // ServiceCorInput is an input type that accepts ServiceCorArgs and ServiceCorOutput values.
 // You can construct a concrete instance of `ServiceCorInput` via:
 //
-// 		 ServiceCorArgs{...}
-//
+//          ServiceCorArgs{...}
 type ServiceCorInput interface {
 	pulumi.Input
 
@@ -47,8 +46,7 @@ func (i ServiceCorArgs) ToServiceCorOutputWithContext(ctx context.Context) Servi
 // ServiceCorArrayInput is an input type that accepts ServiceCorArray and ServiceCorArrayOutput values.
 // You can construct a concrete instance of `ServiceCorArrayInput` via:
 //
-// 		 ServiceCorArray{ ServiceCorArgs{...} }
-//
+//          ServiceCorArray{ ServiceCorArgs{...} }
 type ServiceCorArrayInput interface {
 	pulumi.Input
 
@@ -119,8 +117,7 @@ type ServiceFeature struct {
 // ServiceFeatureInput is an input type that accepts ServiceFeatureArgs and ServiceFeatureOutput values.
 // You can construct a concrete instance of `ServiceFeatureInput` via:
 //
-// 		 ServiceFeatureArgs{...}
-//
+//          ServiceFeatureArgs{...}
 type ServiceFeatureInput interface {
 	pulumi.Input
 
@@ -150,8 +147,7 @@ func (i ServiceFeatureArgs) ToServiceFeatureOutputWithContext(ctx context.Contex
 // ServiceFeatureArrayInput is an input type that accepts ServiceFeatureArray and ServiceFeatureArrayOutput values.
 // You can construct a concrete instance of `ServiceFeatureArrayInput` via:
 //
-// 		 ServiceFeatureArray{ ServiceFeatureArgs{...} }
-//
+//          ServiceFeatureArray{ ServiceFeatureArgs{...} }
 type ServiceFeatureArrayInput interface {
 	pulumi.Input
 
@@ -227,8 +223,7 @@ type ServiceSku struct {
 // ServiceSkuInput is an input type that accepts ServiceSkuArgs and ServiceSkuOutput values.
 // You can construct a concrete instance of `ServiceSkuInput` via:
 //
-// 		 ServiceSkuArgs{...}
-//
+//          ServiceSkuArgs{...}
 type ServiceSkuInput interface {
 	pulumi.Input
 
@@ -266,12 +261,11 @@ func (i ServiceSkuArgs) ToServiceSkuPtrOutputWithContext(ctx context.Context) Se
 // ServiceSkuPtrInput is an input type that accepts ServiceSkuArgs, ServiceSkuPtr and ServiceSkuPtrOutput values.
 // You can construct a concrete instance of `ServiceSkuPtrInput` via:
 //
-// 		 ServiceSkuArgs{...}
+//          ServiceSkuArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServiceSkuPtrInput interface {
 	pulumi.Input
 

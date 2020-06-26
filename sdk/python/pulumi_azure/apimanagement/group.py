@@ -43,10 +43,7 @@ class Group(pulumi.CustomResource):
         """
         Manages an API Management Group.
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

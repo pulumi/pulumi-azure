@@ -39,10 +39,7 @@ class DateTimeVariable(pulumi.CustomResource):
         """
         Manages a DateTime variable in Azure Automation
 
-
         ## Example Usage
-
-
 
         ```python
         import pulumi

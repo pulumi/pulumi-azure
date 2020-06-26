@@ -103,7 +103,6 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
     Use this data source to access information about an existing Public IP Address.
 
     ## Example Usage
-
     ### Reference An Existing)
 
     ```python
@@ -115,7 +114,6 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
     pulumi.export("domainNameLabel", example.domain_name_label)
     pulumi.export("publicIpAddress", example.ip_address)
     ```
-
     ### Retrieve The Dynamic Public IP Of A New VM)
 
     ```python

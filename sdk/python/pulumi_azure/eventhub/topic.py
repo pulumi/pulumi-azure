@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic", DeprecationWarning)
 
+
 class Topic(pulumi.CustomResource):
     auto_delete_on_idle: pulumi.Output[str]
     """
@@ -81,6 +82,7 @@ class Topic(pulumi.CustomResource):
     supports ordering. Defaults to false.
     """
     warnings.warn("azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Topic.
@@ -88,8 +90,6 @@ class Topic(pulumi.CustomResource):
         **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

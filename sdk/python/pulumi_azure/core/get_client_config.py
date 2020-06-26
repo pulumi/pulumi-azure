@@ -50,8 +50,6 @@ def get_client_config(opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -90,8 +90,6 @@ def get_topic_authorization_rule(name=None,namespace_name=None,resource_group_na
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
+ * This example deploys an Azure Bastion Host Instance to a target virtual network.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

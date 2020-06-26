@@ -52,8 +52,6 @@ def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain", DeprecationWarning)
 
+
 class Domain(pulumi.CustomResource):
     endpoint: pulumi.Output[str]
     """
@@ -64,13 +65,12 @@ class Domain(pulumi.CustomResource):
     A mapping of tags to assign to the resource.
     """
     warnings.warn("azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, input_mapping_default_values=None, input_mapping_fields=None, input_schema=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Domain
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

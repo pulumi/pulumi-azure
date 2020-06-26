@@ -11,6 +11,7 @@ from .. import utilities, tables
 
 warnings.warn("azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule", DeprecationWarning)
 
+
 class EventHubAuthorizationRule(pulumi.CustomResource):
     eventhub_name: pulumi.Output[str]
     """
@@ -65,13 +66,12 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
     Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
     """
     warnings.warn("azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule", DeprecationWarning)
+
     def __init__(__self__, resource_name, opts=None, eventhub_name=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
 
         ## Example Usage
-
-
 
         ```python
         import pulumi

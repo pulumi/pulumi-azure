@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -38,14 +36,14 @@ import (
 // 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: map[string]interface{}{
-// 				"environment": "staging",
+// 			Tags: pulumi.Map{
+// 				"environment": pulumi.String("staging"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+// 		_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
 // 			StorageAccountName:  exampleAccount.Name,
 // 			ContainerAccessType: pulumi.String("private"),
 // 		})

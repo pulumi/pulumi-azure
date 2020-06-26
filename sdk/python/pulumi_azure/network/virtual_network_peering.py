@@ -64,8 +64,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         ## Example Usage
 
-
-
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -88,7 +86,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             virtual_network_name=example_2_virtual_network.name,
             remote_virtual_network_id=example_1_virtual_network.id)
         ```
-
         ## Note
 
         Virtual Network peerings cannot be created, updated or deleted concurrently.

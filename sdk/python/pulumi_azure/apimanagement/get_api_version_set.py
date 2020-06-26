@@ -78,8 +78,6 @@ def get_api_version_set(api_management_name=None,name=None,resource_group_name=N
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

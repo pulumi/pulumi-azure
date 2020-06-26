@@ -23,8 +23,7 @@ type ServiceAuthenticationConfiguration struct {
 // ServiceAuthenticationConfigurationInput is an input type that accepts ServiceAuthenticationConfigurationArgs and ServiceAuthenticationConfigurationOutput values.
 // You can construct a concrete instance of `ServiceAuthenticationConfigurationInput` via:
 //
-// 		 ServiceAuthenticationConfigurationArgs{...}
-//
+//          ServiceAuthenticationConfigurationArgs{...}
 type ServiceAuthenticationConfigurationInput interface {
 	pulumi.Input
 
@@ -65,12 +64,11 @@ func (i ServiceAuthenticationConfigurationArgs) ToServiceAuthenticationConfigura
 // ServiceAuthenticationConfigurationPtrInput is an input type that accepts ServiceAuthenticationConfigurationArgs, ServiceAuthenticationConfigurationPtr and ServiceAuthenticationConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceAuthenticationConfigurationPtrInput` via:
 //
-// 		 ServiceAuthenticationConfigurationArgs{...}
+//          ServiceAuthenticationConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServiceAuthenticationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -201,8 +199,7 @@ type ServiceCorsConfiguration struct {
 // ServiceCorsConfigurationInput is an input type that accepts ServiceCorsConfigurationArgs and ServiceCorsConfigurationOutput values.
 // You can construct a concrete instance of `ServiceCorsConfigurationInput` via:
 //
-// 		 ServiceCorsConfigurationArgs{...}
-//
+//          ServiceCorsConfigurationArgs{...}
 type ServiceCorsConfigurationInput interface {
 	pulumi.Input
 
@@ -246,12 +243,11 @@ func (i ServiceCorsConfigurationArgs) ToServiceCorsConfigurationPtrOutputWithCon
 // ServiceCorsConfigurationPtrInput is an input type that accepts ServiceCorsConfigurationArgs, ServiceCorsConfigurationPtr and ServiceCorsConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceCorsConfigurationPtrInput` via:
 //
-// 		 ServiceCorsConfigurationArgs{...}
+//          ServiceCorsConfigurationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type ServiceCorsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -406,8 +402,7 @@ type GetServiceAuthenticationConfiguration struct {
 // GetServiceAuthenticationConfigurationInput is an input type that accepts GetServiceAuthenticationConfigurationArgs and GetServiceAuthenticationConfigurationOutput values.
 // You can construct a concrete instance of `GetServiceAuthenticationConfigurationInput` via:
 //
-// 		 GetServiceAuthenticationConfigurationArgs{...}
-//
+//          GetServiceAuthenticationConfigurationArgs{...}
 type GetServiceAuthenticationConfigurationInput interface {
 	pulumi.Input
 
@@ -439,8 +434,7 @@ func (i GetServiceAuthenticationConfigurationArgs) ToGetServiceAuthenticationCon
 // GetServiceAuthenticationConfigurationArrayInput is an input type that accepts GetServiceAuthenticationConfigurationArray and GetServiceAuthenticationConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceAuthenticationConfigurationArrayInput` via:
 //
-// 		 GetServiceAuthenticationConfigurationArray{ GetServiceAuthenticationConfigurationArgs{...} }
-//
+//          GetServiceAuthenticationConfigurationArray{ GetServiceAuthenticationConfigurationArgs{...} }
 type GetServiceAuthenticationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -527,8 +521,7 @@ type GetServiceCorsConfiguration struct {
 // GetServiceCorsConfigurationInput is an input type that accepts GetServiceCorsConfigurationArgs and GetServiceCorsConfigurationOutput values.
 // You can construct a concrete instance of `GetServiceCorsConfigurationInput` via:
 //
-// 		 GetServiceCorsConfigurationArgs{...}
-//
+//          GetServiceCorsConfigurationArgs{...}
 type GetServiceCorsConfigurationInput interface {
 	pulumi.Input
 
@@ -564,8 +557,7 @@ func (i GetServiceCorsConfigurationArgs) ToGetServiceCorsConfigurationOutputWith
 // GetServiceCorsConfigurationArrayInput is an input type that accepts GetServiceCorsConfigurationArray and GetServiceCorsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceCorsConfigurationArrayInput` via:
 //
-// 		 GetServiceCorsConfigurationArray{ GetServiceCorsConfigurationArgs{...} }
-//
+//          GetServiceCorsConfigurationArray{ GetServiceCorsConfigurationArgs{...} }
 type GetServiceCorsConfigurationArrayInput interface {
 	pulumi.Input
 

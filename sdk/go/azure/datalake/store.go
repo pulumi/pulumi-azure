@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,7 +31,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleStore, err := datalake.NewStore(ctx, "exampleStore", &datalake.StoreArgs{
+// 		_, err = datalake.NewStore(ctx, "exampleStore", &datalake.StoreArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			EncryptionState:   pulumi.String("Enabled"),

@@ -20,8 +20,7 @@ type ActionHttpRunAfter struct {
 // ActionHttpRunAfterInput is an input type that accepts ActionHttpRunAfterArgs and ActionHttpRunAfterOutput values.
 // You can construct a concrete instance of `ActionHttpRunAfterInput` via:
 //
-// 		 ActionHttpRunAfterArgs{...}
-//
+//          ActionHttpRunAfterArgs{...}
 type ActionHttpRunAfterInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i ActionHttpRunAfterArgs) ToActionHttpRunAfterOutputWithContext(ctx contex
 // ActionHttpRunAfterArrayInput is an input type that accepts ActionHttpRunAfterArray and ActionHttpRunAfterArrayOutput values.
 // You can construct a concrete instance of `ActionHttpRunAfterArrayInput` via:
 //
-// 		 ActionHttpRunAfterArray{ ActionHttpRunAfterArgs{...} }
-//
+//          ActionHttpRunAfterArray{ ActionHttpRunAfterArgs{...} }
 type ActionHttpRunAfterArrayInput interface {
 	pulumi.Input
 

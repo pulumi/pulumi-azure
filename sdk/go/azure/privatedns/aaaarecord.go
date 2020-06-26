@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -39,7 +37,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testAAAARecord, err := privatedns.NewAAAARecord(ctx, "testAAAARecord", &privatedns.AAAARecordArgs{
+// 		_, err = privatedns.NewAAAARecord(ctx, "testAAAARecord", &privatedns.AAAARecordArgs{
 // 			ZoneName:          testZone.Name,
 // 			ResourceGroupName: testResourceGroup.Name,
 // 			Ttl:               pulumi.Int(300),

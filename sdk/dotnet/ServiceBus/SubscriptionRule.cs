@@ -13,7 +13,6 @@ namespace Pulumi.Azure.ServiceBus
     /// Manages a ServiceBus Subscription Rule.
     /// 
     /// ## Example Usage
-    /// 
     /// ### SQL Filter)
     /// 
     /// ```csharp

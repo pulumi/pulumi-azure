@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -40,7 +38,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleActionRuleActionGroup, err := monitoring.NewActionRuleActionGroup(ctx, "exampleActionRuleActionGroup", &monitoring.ActionRuleActionGroupArgs{
+// 		_, err = monitoring.NewActionRuleActionGroup(ctx, "exampleActionRuleActionGroup", &monitoring.ActionRuleActionGroupArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ActionGroupId:     exampleActionGroup.ID(),
 // 			Scope: &monitoring.ActionRuleActionGroupScopeArgs{
@@ -49,8 +47,8 @@ import (
 // 					exampleResourceGroup.ID(),
 // 				},
 // 			},
-// 			Tags: map[string]interface{}{
-// 				"foo": "bar",
+// 			Tags: pulumi.Map{
+// 				"foo": pulumi.String("bar"),
 // 			},
 // 		})
 // 		if err != nil {

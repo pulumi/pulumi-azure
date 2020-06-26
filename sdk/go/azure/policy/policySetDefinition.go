@@ -13,6 +13,34 @@ import (
 // Manages a policy set definition.
 //
 // > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/policy"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err = policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
+// 			DisplayName:       pulumi.String("Test Policy Set"),
+// 			Parameters:        pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "    {\n", "        \"allowedLocations\": {\n", "            \"type\": \"Array\",\n", "            \"metadata\": {\n", "                \"description\": \"The list of allowed locations for resources.\",\n", "                \"displayName\": \"Allowed locations\",\n", "                \"strongType\": \"location\"\n", "            }\n", "        }\n", "    }\n", "\n")),
+// 			PolicyDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "    [\n", "        {\n", "            \"parameters\": {\n", "                \"listOfAllowedLocations\": {\n", "                    \"value\": \"[parameters('allowedLocations')]\"\n", "                }\n", "            },\n", "            \"policyDefinitionId\": \"/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988\"\n", "        }\n", "    ]\n", "\n")),
+// 			PolicyType:        pulumi.String("Custom"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 

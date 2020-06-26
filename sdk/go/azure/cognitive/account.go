@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -33,13 +31,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleAccount, err := cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
+// 		_, err = cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Kind:              pulumi.String("Face"),
 // 			SkuName:           pulumi.String("S0"),
-// 			Tags: map[string]interface{}{
-// 				"Acceptance": "Test",
+// 			Tags: pulumi.Map{
+// 				"Acceptance": pulumi.String("Test"),
 // 			},
 // 		})
 // 		if err != nil {

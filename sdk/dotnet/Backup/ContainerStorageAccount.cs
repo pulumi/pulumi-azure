@@ -16,8 +16,6 @@ namespace Pulumi.Azure.Backup
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

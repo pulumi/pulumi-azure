@@ -74,8 +74,6 @@ def get_namespace_authorization_rule(name=None,namespace_name=None,resource_grou
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

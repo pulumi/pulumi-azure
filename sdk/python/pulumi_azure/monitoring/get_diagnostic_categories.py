@@ -52,8 +52,6 @@ def get_diagnostic_categories(resource_id=None,opts=None):
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure

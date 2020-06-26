@@ -57,8 +57,6 @@ def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource
 
     ## Example Usage
 
-
-
     ```python
     import pulumi
     import pulumi_azure as azure
