@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     clusterVersion: "3.6",
  *     tier: "Standard",
- *     component_version: {
+ *     componentVersion: {
  *         interactiveHive: "2.1",
  *     },
  *     gateway: {
@@ -39,24 +39,24 @@ import * as utilities from "../utilities";
  *         username: "acctestusrgw",
  *         password: "Password!",
  *     },
- *     storage_account: [{
+ *     storageAccounts: [{
  *         storageContainerId: exampleContainer.id,
  *         storageAccountKey: exampleAccount.primaryAccessKey,
  *         isDefault: true,
  *     }],
  *     roles: {
- *         head_node: {
+ *         headNode: {
  *             vmSize: "Standard_D13_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *         },
- *         worker_node: {
+ *         workerNode: {
  *             vmSize: "Standard_D14_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *             targetInstanceCount: 3,
  *         },
- *         zookeeper_node: {
+ *         zookeeperNode: {
  *             vmSize: "Standard_A4_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",

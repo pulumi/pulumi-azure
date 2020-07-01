@@ -11,6 +11,98 @@ namespace Pulumi.Azure.Maintenance
 {
     /// <summary>
     /// Manages a maintenance assignment to virtual machine.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.2.0/24",
+    ///         });
+    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///                 {
+    ///                     Name = "internal",
+    ///                     SubnetId = exampleSubnet.Id,
+    ///                     PrivateIpAddressAllocation = "Dynamic",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", new Azure.Compute.LinuxVirtualMachineArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Size = "Standard_F2",
+    ///             AdminUsername = "adminuser",
+    ///             NetworkInterfaceIds = 
+    ///             {
+    ///                 exampleNetworkInterface.Id,
+    ///             },
+    ///             AdminSshKeys = 
+    ///             {
+    ///                 new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
+    ///                 {
+    ///                     Username = "adminuser",
+    ///                     PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///                 },
+    ///             },
+    ///             OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///             {
+    ///                 Caching = "ReadWrite",
+    ///                 StorageAccountType = "Standard_LRS",
+    ///             },
+    ///             SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///             {
+    ///                 Publisher = "Canonical",
+    ///                 Offer = "UbuntuServer",
+    ///                 Sku = "16.04-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///         });
+    ///         var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new Azure.Maintenance.ConfigurationArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Scope = "All",
+    ///         });
+    ///         var exampleAssignmentVirtualMachine = new Azure.Maintenance.AssignmentVirtualMachine("exampleAssignmentVirtualMachine", new Azure.Maintenance.AssignmentVirtualMachineArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             MaintenanceConfigurationId = exampleConfiguration.Id,
+    ///             VirtualMachineId = exampleLinuxVirtualMachine.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AssignmentVirtualMachine : Pulumi.CustomResource
     {

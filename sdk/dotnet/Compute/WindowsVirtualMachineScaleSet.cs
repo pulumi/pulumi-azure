@@ -17,6 +17,80 @@ namespace Pulumi.Azure.Compute
     /// &gt; **Note** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` configuration within the Provider configuration block.
     /// 
     /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
+    /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         });
+    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.2.0/24",
+    ///         });
+    ///         var exampleWindowsVirtualMachineScaleSet = new Azure.Compute.WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", new Azure.Compute.WindowsVirtualMachineScaleSetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Sku = "Standard_F2",
+    ///             Instances = 1,
+    ///             AdminPassword = "P@55w0rd1234!",
+    ///             AdminUsername = "adminuser",
+    ///             SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs
+    ///             {
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Offer = "WindowsServer",
+    ///                 Sku = "2016-Datacenter-Server-Core",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetOsDiskArgs
+    ///             {
+    ///                 StorageAccountType = "Standard_LRS",
+    ///                 Caching = "ReadWrite",
+    ///             },
+    ///             NetworkInterfaces = 
+    ///             {
+    ///                 new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                     Primary = true,
+    ///                     IpConfigurations = 
+    ///                     {
+    ///                         new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                         {
+    ///                             Name = "internal",
+    ///                             Primary = true,
+    ///                             SubnetId = @internal.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class WindowsVirtualMachineScaleSet : Pulumi.CustomResource
     {

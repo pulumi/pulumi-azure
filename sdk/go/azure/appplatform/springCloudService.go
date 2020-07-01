@@ -11,6 +11,48 @@ import (
 )
 
 // Manages an Azure Spring Cloud Service.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appplatform"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("Southeast Asia"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ConfigServerGitSetting: &appplatform.SpringCloudServiceConfigServerGitSettingArgs{
+// 				Uri:   pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
+// 				Label: pulumi.String("config"),
+// 				SearchPaths: pulumi.StringArray{
+// 					pulumi.String("dir1"),
+// 					pulumi.String("dir2"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Env": pulumi.String("staging"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SpringCloudService struct {
 	pulumi.CustomResourceState
 

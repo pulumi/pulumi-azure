@@ -11,6 +11,44 @@ namespace Pulumi.Azure.MSSql
 {
     /// <summary>
     /// Manages a Microsoft SQL Virtual Machine
+    /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a brief Managed MsSql Virtual Machine.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleVirtualMachine = Output.Create(Azure.Compute.GetVirtualMachine.InvokeAsync(new Azure.Compute.GetVirtualMachineArgs
+    ///         {
+    ///             Name = "example-vm",
+    ///             ResourceGroupName = "example-resources",
+    ///         }));
+    ///         var exampleMssql_virtualMachineVirtualMachine = new Azure.MSSql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", new Azure.MSSql.VirtualMachineArgs
+    ///         {
+    ///             VirtualMachineId = exampleVirtualMachine.Apply(exampleVirtualMachine =&gt; exampleVirtualMachine.Id),
+    ///             SqlLicenseType = "PAYG",
+    ///             RServicesEnabled = true,
+    ///             SqlConnectivityPort = 1433,
+    ///             SqlConnectivityType = "PRIVATE",
+    ///             SqlConnectivityUpdatePassword = "Password1234!",
+    ///             SqlConnectivityUpdateUsername = "sqllogin",
+    ///             AutoPatching = new Azure.MSSql.Inputs.VirtualMachineAutoPatchingArgs
+    ///             {
+    ///                 DayOfWeek = "Sunday",
+    ///                 MaintenanceWindowDurationInMinutes = 60,
+    ///                 MaintenanceWindowStartingHour = 2,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualMachine : Pulumi.CustomResource
     {

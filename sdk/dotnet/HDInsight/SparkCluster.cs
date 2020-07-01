@@ -11,6 +11,85 @@ namespace Pulumi.Azure.HDInsight
 {
     /// <summary>
     /// Manages a HDInsight Spark Cluster.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
+    ///         });
+    ///         var exampleSparkCluster = new Azure.HDInsight.SparkCluster("exampleSparkCluster", new Azure.HDInsight.SparkClusterArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterVersion = "3.6",
+    ///             Tier = "Standard",
+    ///             ComponentVersion = new Azure.HDInsight.Inputs.SparkClusterComponentVersionArgs
+    ///             {
+    ///                 Spark = "2.3",
+    ///             },
+    ///             Gateway = new Azure.HDInsight.Inputs.SparkClusterGatewayArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Username = "acctestusrgw",
+    ///                 Password = "Password123!",
+    ///             },
+    ///             StorageAccounts = 
+    ///             {
+    ///                 new Azure.HDInsight.Inputs.SparkClusterStorageAccountArgs
+    ///                 {
+    ///                     StorageContainerId = exampleContainer.Id,
+    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                     IsDefault = true,
+    ///                 },
+    ///             },
+    ///             Roles = new Azure.HDInsight.Inputs.SparkClusterRolesArgs
+    ///             {
+    ///                 HeadNode = new Azure.HDInsight.Inputs.SparkClusterRolesHeadNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_A3",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///                 WorkerNode = new Azure.HDInsight.Inputs.SparkClusterRolesWorkerNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_A3",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                     TargetInstanceCount = 3,
+    ///                 },
+    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.SparkClusterRolesZookeeperNodeArgs
+    ///                 {
+    ///                     VmSize = "Medium",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SparkCluster : Pulumi.CustomResource
     {

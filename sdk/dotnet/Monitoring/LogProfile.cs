@@ -13,6 +13,60 @@ namespace Pulumi.Azure.Monitoring
     /// Manages a [Log Profile](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.
     /// 
     /// &gt; **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "eastus",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///         });
+    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard",
+    ///             Capacity = 2,
+    ///         });
+    ///         var exampleLogProfile = new Azure.Monitoring.LogProfile("exampleLogProfile", new Azure.Monitoring.LogProfileArgs
+    ///         {
+    ///             Categories = 
+    ///             {
+    ///                 "Action",
+    ///                 "Delete",
+    ///                 "Write",
+    ///             },
+    ///             Locations = 
+    ///             {
+    ///                 "westus",
+    ///                 "global",
+    ///             },
+    ///             ServicebusRuleId = exampleEventHubNamespace.Id.Apply(id =&gt; $"{id}/authorizationrules/RootManageSharedAccessKey"),
+    ///             StorageAccountId = exampleAccount.Id,
+    ///             RetentionPolicy = new Azure.Monitoring.Inputs.LogProfileRetentionPolicyArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Days = 7,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LogProfile : Pulumi.CustomResource
     {

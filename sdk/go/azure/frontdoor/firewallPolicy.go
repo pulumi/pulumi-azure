@@ -11,6 +11,147 @@ import (
 )
 
 // Manages an Azure Front Door Web Application Firewall Policy instance.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/frontdoor"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US 2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = frontdoor.NewFirewallPolicy(ctx, "exampleFirewallPolicy", &frontdoor.FirewallPolicyArgs{
+// 			ResourceGroupName:             exampleResourceGroup.Name,
+// 			Enabled:                       pulumi.Bool(true),
+// 			Mode:                          pulumi.String("Prevention"),
+// 			RedirectUrl:                   pulumi.String("https://www.contoso.com"),
+// 			CustomBlockResponseStatusCode: pulumi.Int(403),
+// 			CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
+// 			CustomRules: frontdoor.FirewallPolicyCustomRuleArray{
+// 				&frontdoor.FirewallPolicyCustomRuleArgs{
+// 					Name:                       pulumi.String("Rule1"),
+// 					Enabled:                    pulumi.Bool(true),
+// 					Priority:                   pulumi.Int(1),
+// 					RateLimitDurationInMinutes: pulumi.Int(1),
+// 					RateLimitThreshold:         pulumi.Int(10),
+// 					Type:                       pulumi.String("MatchRule"),
+// 					Action:                     pulumi.String("Block"),
+// 					MatchConditions: frontdoor.FirewallPolicyCustomRuleMatchConditionArray{
+// 						&frontdoor.FirewallPolicyCustomRuleMatchConditionArgs{
+// 							MatchVariable:     pulumi.String("RemoteAddr"),
+// 							Operator:          pulumi.String("IPMatch"),
+// 							NegationCondition: pulumi.Bool(false),
+// 							MatchValues: pulumi.StringArray{
+// 								pulumi.String("192.168.1.0/24"),
+// 								pulumi.String("10.0.0.0/24"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 				&frontdoor.FirewallPolicyCustomRuleArgs{
+// 					Name:                       pulumi.String("Rule2"),
+// 					Enabled:                    pulumi.Bool(true),
+// 					Priority:                   pulumi.Int(2),
+// 					RateLimitDurationInMinutes: pulumi.Int(1),
+// 					RateLimitThreshold:         pulumi.Int(10),
+// 					Type:                       pulumi.String("MatchRule"),
+// 					Action:                     pulumi.String("Block"),
+// 					MatchConditions: frontdoor.FirewallPolicyCustomRuleMatchConditionArray{
+// 						&frontdoor.FirewallPolicyCustomRuleMatchConditionArgs{
+// 							MatchVariable:     pulumi.String("RemoteAddr"),
+// 							Operator:          pulumi.String("IPMatch"),
+// 							NegationCondition: pulumi.Bool(false),
+// 							MatchValues: pulumi.StringArray{
+// 								pulumi.String("192.168.1.0/24"),
+// 							},
+// 						},
+// 						&frontdoor.FirewallPolicyCustomRuleMatchConditionArgs{
+// 							MatchVariable:     pulumi.String("RequestHeader"),
+// 							Selector:          pulumi.String("UserAgent"),
+// 							Operator:          pulumi.String("Contains"),
+// 							NegationCondition: pulumi.Bool(false),
+// 							MatchValues: pulumi.StringArray{
+// 								pulumi.String("windows"),
+// 							},
+// 							Transforms: pulumi.StringArray{
+// 								pulumi.String("Lowercase"),
+// 								pulumi.String("Trim"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 			ManagedRules: frontdoor.FirewallPolicyManagedRuleArray{
+// 				&frontdoor.FirewallPolicyManagedRuleArgs{
+// 					Type:    pulumi.String("DefaultRuleSet"),
+// 					Version: pulumi.String("1.0"),
+// 					Exclusions: frontdoor.FirewallPolicyManagedRuleExclusionArray{
+// 						&frontdoor.FirewallPolicyManagedRuleExclusionArgs{
+// 							MatchVariable: pulumi.String("QueryStringArgNames"),
+// 							Operator:      pulumi.String("Equals"),
+// 							Selector:      pulumi.String("not_suspicious"),
+// 						},
+// 					},
+// 					Overrides: frontdoor.FirewallPolicyManagedRuleOverrideArray{
+// 						&frontdoor.FirewallPolicyManagedRuleOverrideArgs{
+// 							RuleGroupName: pulumi.String("PHP"),
+// 							Rules: frontdoor.FirewallPolicyManagedRuleOverrideRuleArray{
+// 								&frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs{
+// 									RuleId:  pulumi.String("933100"),
+// 									Enabled: pulumi.Bool(false),
+// 									Action:  pulumi.String("Block"),
+// 								},
+// 							},
+// 						},
+// 						&frontdoor.FirewallPolicyManagedRuleOverrideArgs{
+// 							RuleGroupName: pulumi.String("SQLI"),
+// 							Exclusions: frontdoor.FirewallPolicyManagedRuleOverrideExclusionArray{
+// 								&frontdoor.FirewallPolicyManagedRuleOverrideExclusionArgs{
+// 									MatchVariable: pulumi.String("QueryStringArgNames"),
+// 									Operator:      pulumi.String("Equals"),
+// 									Selector:      pulumi.String("really_not_suspicious"),
+// 								},
+// 							},
+// 							Rules: frontdoor.FirewallPolicyManagedRuleOverrideRuleArray{
+// 								&frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs{
+// 									RuleId: pulumi.String("942200"),
+// 									Action: pulumi.String("Block"),
+// 									Exclusions: frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusionArray{
+// 										&frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusionArgs{
+// 											MatchVariable: pulumi.String("QueryStringArgNames"),
+// 											Operator:      pulumi.String("Equals"),
+// 											Selector:      pulumi.String("innocent"),
+// 										},
+// 									},
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 				&frontdoor.FirewallPolicyManagedRuleArgs{
+// 					Type:    pulumi.String("Microsoft_BotManagerRuleSet"),
+// 					Version: pulumi.String("1.0"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 

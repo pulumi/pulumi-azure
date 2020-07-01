@@ -11,6 +11,58 @@ import (
 )
 
 // Manages an Azure Cost Management Export for a Resource Group.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/costmanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("northeurope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = costmanagement.NewResourceGroupExport(ctx, "exampleResourceGroupExport", &costmanagement.ResourceGroupExportArgs{
+// 			ResourceGroupId:       exampleResourceGroup.ID(),
+// 			RecurrenceType:        pulumi.String("Monthly"),
+// 			RecurrencePeriodStart: pulumi.String("2020-08-18T00:00:00Z"),
+// 			RecurrencePeriodEnd:   pulumi.String("2020-09-18T00:00:00Z"),
+// 			DeliveryInfo: &costmanagement.ResourceGroupExportDeliveryInfoArgs{
+// 				StorageAccountId: exampleAccount.ID(),
+// 				ContainerName:    pulumi.String("examplecontainer"),
+// 				RootFolderPath:   pulumi.String("/root/updated"),
+// 			},
+// 			Query: &costmanagement.ResourceGroupExportQueryArgs{
+// 				Type:      pulumi.String("Usage"),
+// 				TimeFrame: pulumi.String("WeekToDate"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ResourceGroupExport struct {
 	pulumi.CustomResourceState
 

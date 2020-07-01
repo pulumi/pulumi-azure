@@ -11,6 +11,71 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages an Activity Log Alert within Azure Monitor.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainResourceGroup = new Azure.Core.ResourceGroup("mainResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var mainActionGroup = new Azure.Monitoring.ActionGroup("mainActionGroup", new Azure.Monitoring.ActionGroupArgs
+    ///         {
+    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             ShortName = "p0action",
+    ///             WebhookReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///                 {
+    ///                     Name = "callmyapi",
+    ///                     ServiceUri = "http://example.com/alert",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var toMonitor = new Azure.Storage.Account("toMonitor", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             Location = mainResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "GRS",
+    ///         });
+    ///         var mainActivityLogAlert = new Azure.Monitoring.ActivityLogAlert("mainActivityLogAlert", new Azure.Monitoring.ActivityLogAlertArgs
+    ///         {
+    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             Scopes = 
+    ///             {
+    ///                 mainResourceGroup.Id,
+    ///             },
+    ///             Description = "This alert will monitor a specific storage account updates.",
+    ///             Criteria = new Azure.Monitoring.Inputs.ActivityLogAlertCriteriaArgs
+    ///             {
+    ///                 ResourceId = toMonitor.Id,
+    ///                 OperationName = "Microsoft.Storage/storageAccounts/write",
+    ///                 Category = "Recommendation",
+    ///             },
+    ///             Actions = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActivityLogAlertActionArgs
+    ///                 {
+    ///                     ActionGroupId = mainActionGroup.Id,
+    ///                     WebhookProperties = 
+    ///                     {
+    ///                         { "from", "source" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ActivityLogAlert : Pulumi.CustomResource
     {

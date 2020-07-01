@@ -42,7 +42,7 @@ import (
 // 				Family: pulumi.String("MeteredData"),
 // 			},
 // 			AllowClassicOperations: pulumi.Bool(false),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Production"),
 // 			},
 // 		})

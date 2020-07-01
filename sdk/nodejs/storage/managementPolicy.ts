@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleManagementPolicy = new azure.storage.ManagementPolicy("exampleManagementPolicy", {
  *     storageAccountId: exampleAccount.id,
- *     rule: [
+ *     rules: [
  *         {
  *             name: "rule1",
  *             enabled: true,
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *                 blobTypes: ["blockBlob"],
  *             },
  *             actions: {
- *                 base_blob: {
+ *                 baseBlob: {
  *                     tierToCoolAfterDaysSinceModificationGreaterThan: 10,
  *                     tierToArchiveAfterDaysSinceModificationGreaterThan: 50,
  *                     deleteAfterDaysSinceModificationGreaterThan: 100,
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *                 blobTypes: ["blockBlob"],
  *             },
  *             actions: {
- *                 base_blob: {
+ *                 baseBlob: {
  *                     tierToCoolAfterDaysSinceModificationGreaterThan: 11,
  *                     tierToArchiveAfterDaysSinceModificationGreaterThan: 51,
  *                     deleteAfterDaysSinceModificationGreaterThan: 101,

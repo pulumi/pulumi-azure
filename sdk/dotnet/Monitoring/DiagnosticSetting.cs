@@ -11,6 +11,63 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages a Diagnostic Setting for an existing Resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = exampleResourceGroup.Name.Apply(name =&gt; Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
+    ///         {
+    ///             Name = "examplestoracc",
+    ///             ResourceGroupName = name,
+    ///         }));
+    ///         var exampleKeyVault = exampleResourceGroup.Name.Apply(name =&gt; Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
+    ///         {
+    ///             Name = "example-vault",
+    ///             ResourceGroupName = name,
+    ///         }));
+    ///         var exampleDiagnosticSetting = new Azure.Monitoring.DiagnosticSetting("exampleDiagnosticSetting", new Azure.Monitoring.DiagnosticSettingArgs
+    ///         {
+    ///             TargetResourceId = exampleKeyVault.Apply(exampleKeyVault =&gt; exampleKeyVault.Id),
+    ///             StorageAccountId = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Id),
+    ///             Logs = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DiagnosticSettingLogArgs
+    ///                 {
+    ///                     Category = "AuditEvent",
+    ///                     Enabled = false,
+    ///                     RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingLogRetentionPolicyArgs
+    ///                     {
+    ///                         Enabled = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Metrics = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DiagnosticSettingMetricArgs
+    ///                 {
+    ///                     Category = "AllMetrics",
+    ///                     RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingMetricRetentionPolicyArgs
+    ///                     {
+    ///                         Enabled = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DiagnosticSetting : Pulumi.CustomResource
     {

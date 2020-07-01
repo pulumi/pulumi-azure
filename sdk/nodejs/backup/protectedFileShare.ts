@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         frequency: "Daily",
  *         time: "23:00",
  *     },
- *     retention_daily: {
+ *     retentionDaily: {
  *         count: 10,
  *     },
  * });

@@ -41,24 +41,24 @@ import * as utilities from "../utilities";
  *     sku: "Standard_F2",
  *     instances: 1,
  *     adminUsername: "adminuser",
- *     admin_ssh_key: [{
+ *     adminSshKeys: [{
  *         username: "adminuser",
  *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
  *     }],
- *     source_image_reference: {
+ *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
  *         sku: "16.04-LTS",
  *         version: "latest",
  *     },
- *     os_disk: {
+ *     osDisk: {
  *         storageAccountType: "Standard_LRS",
  *         caching: "ReadWrite",
  *     },
- *     network_interface: [{
+ *     networkInterfaces: [{
  *         name: "example",
  *         primary: true,
- *         ip_configuration: [{
+ *         ipConfigurations: [{
  *             name: "internal",
  *             primary: true,
  *             subnetId: internal.id,

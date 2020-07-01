@@ -37,7 +37,7 @@ import (
 // 			Identity: &datashare.AccountIdentityArgs{
 // 				Type: pulumi.String("SystemAssigned"),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"foo": pulumi.String("bar"),
 // 			},
 // 		})

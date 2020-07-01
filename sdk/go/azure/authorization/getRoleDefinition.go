@@ -8,8 +8,6 @@ import (
 )
 
 // Use this data source to access information about an existing Role Definition.
-//
-// ## Example Usage
 func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRoleDefinitionResult, error) {
 	var rv LookupRoleDefinitionResult
 	err := ctx.Invoke("azure:authorization/getRoleDefinition:getRoleDefinition", args, &rv, opts...)

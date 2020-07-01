@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     size: "Standard_B2s",
- *     source_image_reference: {
+ *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
  *         sku: "16.04-LTS",
  *         version: "latest",
  *     },
- *     os_disk: {
+ *     osDisk: {
  *         name: `myosdisk-%d`,
  *         caching: "ReadWrite",
  *         managedDiskType: "Standard_LRS",
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  *     enabled: true,
  *     dailyRecurrenceTime: "1100",
  *     timezone: "Pacific Standard Time",
- *     notification_settings: {
+ *     notificationSettings: {
  *         enabled: true,
  *         timeInMinutes: "60",
  *         webhookUrl: "https://sample-webhook-url.example.com",

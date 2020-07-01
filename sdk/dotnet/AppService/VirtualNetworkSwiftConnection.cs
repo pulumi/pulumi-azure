@@ -11,6 +11,76 @@ namespace Pulumi.Azure.AppService
 {
     /// <summary>
     /// Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "uksouth",
+    ///         });
+    ///         var testVirtualNetwork = new Azure.Network.VirtualNetwork("testVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///         });
+    ///         var test1 = new Azure.Network.Subnet("test1", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             VirtualNetworkName = testVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.1.0/24",
+    ///             Delegations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 {
+    ///                     Name = "acctestdelegation",
+    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     {
+    ///                         Name = "Microsoft.Web/serverFarms",
+    ///                         Actions = 
+    ///                         {
+    ///                             "Microsoft.Network/virtualNetworks/subnets/action",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var testPlan = new Azure.AppService.Plan("testPlan", new Azure.AppService.PlanArgs
+    ///         {
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///             {
+    ///                 Tier = "Standard",
+    ///                 Size = "S1",
+    ///             },
+    ///         });
+    ///         var testAppService = new Azure.AppService.AppService("testAppService", new Azure.AppService.AppServiceArgs
+    ///         {
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             AppServicePlanId = testPlan.Id,
+    ///         });
+    ///         var testVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("testVirtualNetworkSwiftConnection", new Azure.AppService.VirtualNetworkSwiftConnectionArgs
+    ///         {
+    ///             AppServiceId = testAppService.Id,
+    ///             SubnetId = test1.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualNetworkSwiftConnection : Pulumi.CustomResource
     {

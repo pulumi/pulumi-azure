@@ -38,7 +38,7 @@ import (
 // 			StorageAccountType: pulumi.String("Standard_LRS"),
 // 			CreateOption:       pulumi.String("Empty"),
 // 			DiskSizeGb:         pulumi.Int(1),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("staging"),
 // 			},
 // 		})
@@ -74,7 +74,7 @@ import (
 // 			StorageAccountType: pulumi.String("Standard_LRS"),
 // 			CreateOption:       pulumi.String("Empty"),
 // 			DiskSizeGb:         pulumi.Int(1),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("staging"),
 // 			},
 // 		})
@@ -88,7 +88,7 @@ import (
 // 			CreateOption:       pulumi.String("Copy"),
 // 			SourceResourceId:   source.ID(),
 // 			DiskSizeGb:         pulumi.Int(1),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("staging"),
 // 			},
 // 		})

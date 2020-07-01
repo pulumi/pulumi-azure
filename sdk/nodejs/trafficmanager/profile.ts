@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("exampleTrafficManagerProfile", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     trafficRoutingMethod: "Weighted",
- *     dns_config: {
+ *     dnsConfig: {
  *         relativeName: server.hex,
  *         ttl: 100,
  *     },
- *     monitor_config: {
+ *     monitorConfig: {
  *         protocol: "http",
  *         port: 80,
  *         path: "/",

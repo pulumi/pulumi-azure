@@ -27,16 +27,16 @@ import * as utilities from "../utilities";
  * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
  *     targetResourceId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
- *     log: [{
+ *     logs: [{
  *         category: "AuditEvent",
  *         enabled: false,
- *         retention_policy: {
+ *         retentionPolicy: {
  *             enabled: false,
  *         },
  *     }],
- *     metric: [{
+ *     metrics: [{
  *         category: "AllMetrics",
- *         retention_policy: {
+ *         retentionPolicy: {
  *             enabled: false,
  *         },
  *     }],

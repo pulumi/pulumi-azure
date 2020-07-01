@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
- *     access_policy: [{
+ *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
  *         keyPermissions: [

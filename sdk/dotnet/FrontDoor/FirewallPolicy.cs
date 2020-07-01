@@ -11,6 +11,168 @@ namespace Pulumi.Azure.FrontDoor
 {
     /// <summary>
     /// Manages an Azure Front Door Web Application Firewall Policy instance.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US 2",
+    ///         });
+    ///         var exampleFirewallPolicy = new Azure.FrontDoor.FirewallPolicy("exampleFirewallPolicy", new Azure.FrontDoor.FirewallPolicyArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Enabled = true,
+    ///             Mode = "Prevention",
+    ///             RedirectUrl = "https://www.contoso.com",
+    ///             CustomBlockResponseStatusCode = 403,
+    ///             CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+    ///             CustomRules = 
+    ///             {
+    ///                 new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleArgs
+    ///                 {
+    ///                     Name = "Rule1",
+    ///                     Enabled = true,
+    ///                     Priority = 1,
+    ///                     RateLimitDurationInMinutes = 1,
+    ///                     RateLimitThreshold = 10,
+    ///                     Type = "MatchRule",
+    ///                     Action = "Block",
+    ///                     MatchConditions = 
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleMatchConditionArgs
+    ///                         {
+    ///                             MatchVariable = "RemoteAddr",
+    ///                             Operator = "IPMatch",
+    ///                             NegationCondition = false,
+    ///                             MatchValues = 
+    ///                             {
+    ///                                 "192.168.1.0/24",
+    ///                                 "10.0.0.0/24",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleArgs
+    ///                 {
+    ///                     Name = "Rule2",
+    ///                     Enabled = true,
+    ///                     Priority = 2,
+    ///                     RateLimitDurationInMinutes = 1,
+    ///                     RateLimitThreshold = 10,
+    ///                     Type = "MatchRule",
+    ///                     Action = "Block",
+    ///                     MatchConditions = 
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleMatchConditionArgs
+    ///                         {
+    ///                             MatchVariable = "RemoteAddr",
+    ///                             Operator = "IPMatch",
+    ///                             NegationCondition = false,
+    ///                             MatchValues = 
+    ///                             {
+    ///                                 "192.168.1.0/24",
+    ///                             },
+    ///                         },
+    ///                         new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleMatchConditionArgs
+    ///                         {
+    ///                             MatchVariable = "RequestHeader",
+    ///                             Selector = "UserAgent",
+    ///                             Operator = "Contains",
+    ///                             NegationCondition = false,
+    ///                             MatchValues = 
+    ///                             {
+    ///                                 "windows",
+    ///                             },
+    ///                             Transforms = 
+    ///                             {
+    ///                                 "Lowercase",
+    ///                                 "Trim",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ManagedRules = 
+    ///             {
+    ///                 new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleArgs
+    ///                 {
+    ///                     Type = "DefaultRuleSet",
+    ///                     Version = "1.0",
+    ///                     Exclusions = 
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleExclusionArgs
+    ///                         {
+    ///                             MatchVariable = "QueryStringArgNames",
+    ///                             Operator = "Equals",
+    ///                             Selector = "not_suspicious",
+    ///                         },
+    ///                     },
+    ///                     Overrides = 
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideArgs
+    ///                         {
+    ///                             RuleGroupName = "PHP",
+    ///                             Rules = 
+    ///                             {
+    ///                                 new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideRuleArgs
+    ///                                 {
+    ///                                     RuleId = "933100",
+    ///                                     Enabled = false,
+    ///                                     Action = "Block",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideArgs
+    ///                         {
+    ///                             RuleGroupName = "SQLI",
+    ///                             Exclusions = 
+    ///                             {
+    ///                                 new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideExclusionArgs
+    ///                                 {
+    ///                                     MatchVariable = "QueryStringArgNames",
+    ///                                     Operator = "Equals",
+    ///                                     Selector = "really_not_suspicious",
+    ///                                 },
+    ///                             },
+    ///                             Rules = 
+    ///                             {
+    ///                                 new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideRuleArgs
+    ///                                 {
+    ///                                     RuleId = "942200",
+    ///                                     Action = "Block",
+    ///                                     Exclusions = 
+    ///                                     {
+    ///                                         new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideRuleExclusionArgs
+    ///                                         {
+    ///                                             MatchVariable = "QueryStringArgNames",
+    ///                                             Operator = "Equals",
+    ///                                             Selector = "innocent",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleArgs
+    ///                 {
+    ///                     Type = "Microsoft_BotManagerRuleSet",
+    ///                     Version = "1.0",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FirewallPolicy : Pulumi.CustomResource
     {

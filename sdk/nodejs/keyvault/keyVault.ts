@@ -31,14 +31,14 @@ import * as utilities from "../utilities";
  *     softDeleteEnabled: true,
  *     purgeProtectionEnabled: false,
  *     skuName: "standard",
- *     access_policy: [{
+ *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
  *         keyPermissions: ["get"],
  *         secretPermissions: ["get"],
  *         storagePermissions: ["get"],
  *     }],
- *     network_acls: {
+ *     networkAcls: {
  *         defaultAction: "Deny",
  *         bypass: "AzureServices",
  *     },

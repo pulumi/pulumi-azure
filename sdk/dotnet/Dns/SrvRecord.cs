@@ -11,6 +11,49 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS SRV Records within Azure DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSrvRecord = new Azure.Dns.SrvRecord("exampleSrvRecord", new Azure.Dns.SrvRecordArgs
+    ///         {
+    ///             ZoneName = exampleZone.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 new Azure.Dns.Inputs.SrvRecordRecordArgs
+    ///                 {
+    ///                     Priority = 1,
+    ///                     Weight = 5,
+    ///                     Port = 8080,
+    ///                     Target = "target1.contoso.com",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SrvRecord : Pulumi.CustomResource
     {

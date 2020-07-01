@@ -13,6 +13,60 @@ import (
 // Manages a LoadBalancer Probe Resource.
 //
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/lb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AllocationMethod:  pulumi.String("Static"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
+// 				&lb.LoadBalancerFrontendIpConfigurationArgs{
+// 					Name:              pulumi.String("PublicIPAddress"),
+// 					PublicIpAddressId: examplePublicIp.ID(),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lb.NewProbe(ctx, "exampleProbe", &lb.ProbeArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			LoadbalancerId:    exampleLoadBalancer.ID(),
+// 			Port:              pulumi.Int(22),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Probe struct {
 	pulumi.CustomResourceState
 

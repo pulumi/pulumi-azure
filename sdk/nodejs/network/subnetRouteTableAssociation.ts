@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * const exampleRouteTable = new azure.network.RouteTable("exampleRouteTable", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     route: [{
+ *     routes: [{
  *         name: "example",
  *         addressPrefix: "10.100.0.0/14",
  *         nextHopType: "VirtualAppliance",

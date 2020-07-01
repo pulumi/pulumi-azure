@@ -32,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+// 		_, err = streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
 // 			Name:              "example-job",
 // 			ResourceGroupName: azurerm_resource_group.Example.Name,
 // 		}, nil)

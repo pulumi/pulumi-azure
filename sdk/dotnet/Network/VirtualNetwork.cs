@@ -16,6 +16,77 @@ namespace Pulumi.Azure.Network
     /// &gt; **NOTE on Virtual Networks and Subnet's:** This provider currently
     /// provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
     /// At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleDdosProtectionPlan = new Azure.Network.DdosProtectionPlan("exampleDdosProtectionPlan", new Azure.Network.DdosProtectionPlanArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             DnsServers = 
+    ///             {
+    ///                 "10.0.0.4",
+    ///                 "10.0.0.5",
+    ///             },
+    ///             DdosProtectionPlan = new Azure.Network.Inputs.VirtualNetworkDdosProtectionPlanArgs
+    ///             {
+    ///                 Id = exampleDdosProtectionPlan.Id,
+    ///                 Enable = true,
+    ///             },
+    ///             Subnets = 
+    ///             {
+    ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///                 {
+    ///                     Name = "subnet1",
+    ///                     AddressPrefix = "10.0.1.0/24",
+    ///                 },
+    ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///                 {
+    ///                     Name = "subnet2",
+    ///                     AddressPrefix = "10.0.2.0/24",
+    ///                 },
+    ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///                 {
+    ///                     Name = "subnet3",
+    ///                     AddressPrefix = "10.0.3.0/24",
+    ///                     SecurityGroup = exampleNetworkSecurityGroup.Id,
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualNetwork : Pulumi.CustomResource
     {

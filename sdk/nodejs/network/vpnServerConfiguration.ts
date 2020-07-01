@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     vpnAuthenticationTypes: ["Certificate"],
- *     client_root_certificate: [{
+ *     clientRootCertificates: [{
  *         name: "DigiCert-Federated-ID-Root-CA",
  *         publicCertData: `MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
  * MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3

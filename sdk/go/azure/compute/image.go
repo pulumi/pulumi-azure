@@ -13,6 +13,42 @@ import (
 // Manages a custom virtual machine image that can be used to create virtual machines.
 //
 // ## Example Usage
+// ### Creating From VHD
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = compute.NewImage(ctx, "exampleImage", &compute.ImageArgs{
+// 			Location:          pulumi.String("West US"),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			OsDisk: &compute.ImageOsDiskArgs{
+// 				OsType:  pulumi.String("Linux"),
+// 				OsState: pulumi.String("Generalized"),
+// 				BlobUri: pulumi.String("{blob_uri}"),
+// 				SizeGb:  pulumi.Int(30),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
 //
 // ```go

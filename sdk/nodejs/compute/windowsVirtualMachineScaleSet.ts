@@ -41,20 +41,20 @@ import * as utilities from "../utilities";
  *     instances: 1,
  *     adminPassword: "P@55w0rd1234!",
  *     adminUsername: "adminuser",
- *     source_image_reference: {
+ *     sourceImageReference: {
  *         publisher: "MicrosoftWindowsServer",
  *         offer: "WindowsServer",
  *         sku: "2016-Datacenter-Server-Core",
  *         version: "latest",
  *     },
- *     os_disk: {
+ *     osDisk: {
  *         storageAccountType: "Standard_LRS",
  *         caching: "ReadWrite",
  *     },
- *     network_interface: [{
+ *     networkInterfaces: [{
  *         name: "example",
  *         primary: true,
- *         ip_configuration: [{
+ *         ipConfigurations: [{
  *             name: "internal",
  *             primary: true,
  *             subnetId: internal.id,

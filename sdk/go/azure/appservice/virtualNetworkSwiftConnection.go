@@ -11,6 +11,86 @@ import (
 )
 
 // Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("uksouth"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testVirtualNetwork, err := network.NewVirtualNetwork(ctx, "testVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          testResourceGroup.Location,
+// 			ResourceGroupName: testResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test1, err := network.NewSubnet(ctx, "test1", &network.SubnetArgs{
+// 			ResourceGroupName:  testResourceGroup.Name,
+// 			VirtualNetworkName: testVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.0.1.0/24"),
+// 			Delegations: network.SubnetDelegationArray{
+// 				&network.SubnetDelegationArgs{
+// 					Name: pulumi.String("acctestdelegation"),
+// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+// 						Name: pulumi.String("Microsoft.Web/serverFarms"),
+// 						Actions: pulumi.StringArray{
+// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testPlan, err := appservice.NewPlan(ctx, "testPlan", &appservice.PlanArgs{
+// 			Location:          testResourceGroup.Location,
+// 			ResourceGroupName: testResourceGroup.Name,
+// 			Sku: &appservice.PlanSkuArgs{
+// 				Tier: pulumi.String("Standard"),
+// 				Size: pulumi.String("S1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testAppService, err := appservice.NewAppService(ctx, "testAppService", &appservice.AppServiceArgs{
+// 			Location:          testResourceGroup.Location,
+// 			ResourceGroupName: testResourceGroup.Name,
+// 			AppServicePlanId:  testPlan.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appservice.NewVirtualNetworkSwiftConnection(ctx, "testVirtualNetworkSwiftConnection", &appservice.VirtualNetworkSwiftConnectionArgs{
+// 			AppServiceId: testAppService.ID(),
+// 			SubnetId:     test1.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VirtualNetworkSwiftConnection struct {
 	pulumi.CustomResourceState
 

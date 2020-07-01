@@ -16,6 +16,80 @@ import (
 // > **NOTE on Virtual Networks and Subnet's:** This provider currently
 // provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
 // At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDdosProtectionPlan, err := network.NewDdosProtectionPlan(ctx, "exampleDdosProtectionPlan", &network.DdosProtectionPlanArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			DnsServers: pulumi.StringArray{
+// 				pulumi.String("10.0.0.4"),
+// 				pulumi.String("10.0.0.5"),
+// 			},
+// 			DdosProtectionPlan: &network.VirtualNetworkDdosProtectionPlanArgs{
+// 				Id:     exampleDdosProtectionPlan.ID(),
+// 				Enable: pulumi.Bool(true),
+// 			},
+// 			Subnets: network.VirtualNetworkSubnetArray{
+// 				&network.VirtualNetworkSubnetArgs{
+// 					Name:          pulumi.String("subnet1"),
+// 					AddressPrefix: pulumi.String("10.0.1.0/24"),
+// 				},
+// 				&network.VirtualNetworkSubnetArgs{
+// 					Name:          pulumi.String("subnet2"),
+// 					AddressPrefix: pulumi.String("10.0.2.0/24"),
+// 				},
+// 				&network.VirtualNetworkSubnetArgs{
+// 					Name:          pulumi.String("subnet3"),
+// 					AddressPrefix: pulumi.String("10.0.3.0/24"),
+// 					SecurityGroup: exampleNetworkSecurityGroup.ID(),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 

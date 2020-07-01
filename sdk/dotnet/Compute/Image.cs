@@ -13,6 +13,36 @@ namespace Pulumi.Azure.Compute
     /// Manages a custom virtual machine image that can be used to create virtual machines.
     /// 
     /// ## Example Usage
+    /// ### Creating From VHD
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleImage = new Azure.Compute.Image("exampleImage", new Azure.Compute.ImageArgs
+    ///         {
+    ///             Location = "West US",
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             OsDisk = new Azure.Compute.Inputs.ImageOsDiskArgs
+    ///             {
+    ///                 OsType = "Linux",
+    ///                 OsState = "Generalized",
+    ///                 BlobUri = "{blob_uri}",
+    ///                 SizeGb = 30,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
     /// 
     /// ```csharp

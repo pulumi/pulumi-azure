@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
+// 		_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
 // 			DisplayName: pulumi.String("acceptance test policy definition"),
 // 			Metadata:    pulumi.String(fmt.Sprintf("%v%v%v%v%v", "    {\n", "    \"category\": \"General\"\n", "    }\n", "  \n", "\n")),
 // 			Mode:        pulumi.String("Indexed"),

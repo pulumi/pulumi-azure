@@ -49,12 +49,14 @@ import * as utilities from "../utilities";
  * const exampleDatasetBlobStorage = new azure.datashare.DatasetBlobStorage("exampleDatasetBlobStorage", {
  *     dataShareId: exampleShare.id,
  *     containerName: exampleContainer.name,
- *     storage_account: {
+ *     storageAccount: {
  *         name: exampleStorage / accountAccount.name,
  *         resourceGroupName: exampleStorage / accountAccount.resourceGroupName,
  *         subscriptionId: "00000000-0000-0000-0000-000000000000",
  *     },
  *     filePath: "myfile.txt",
+ * }, {
+ *     dependsOn: [exampleAssignment],
  * });
  * ```
  */

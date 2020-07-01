@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     security_rule: [{
+ *     securityRules: [{
  *         name: "test123",
  *         priority: 100,
  *         direction: "Inbound",

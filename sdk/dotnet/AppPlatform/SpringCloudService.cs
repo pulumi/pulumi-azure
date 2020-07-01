@@ -11,6 +11,44 @@ namespace Pulumi.Azure.AppPlatform
 {
     /// <summary>
     /// Manages an Azure Spring Cloud Service.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "Southeast Asia",
+    ///         });
+    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ConfigServerGitSetting = new Azure.AppPlatform.Inputs.SpringCloudServiceConfigServerGitSettingArgs
+    ///             {
+    ///                 Uri = "https://github.com/Azure-Samples/piggymetrics",
+    ///                 Label = "config",
+    ///                 SearchPaths = 
+    ///                 {
+    ///                     "dir1",
+    ///                     "dir2",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Env", "staging" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SpringCloudService : Pulumi.CustomResource
     {

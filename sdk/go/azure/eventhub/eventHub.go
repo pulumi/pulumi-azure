@@ -36,7 +36,7 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 			Capacity:          pulumi.Int(1),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Production"),
 // 			},
 // 		})

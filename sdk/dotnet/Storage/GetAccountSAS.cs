@@ -18,6 +18,74 @@ namespace Pulumi.Azure.Storage
         /// 
         /// Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
         /// and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+        ///         {
+        ///             Location = "westus",
+        ///         });
+        ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+        ///         {
+        ///             ResourceGroupName = exampleResourceGroup.Name,
+        ///             Location = "westus",
+        ///             AccountTier = "Standard",
+        ///             AccountReplicationType = "GRS",
+        ///             Tags = 
+        ///             {
+        ///                 { "environment", "staging" },
+        ///             },
+        ///         });
+        ///         var exampleAccountSAS = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; Azure.Storage.GetAccountSAS.InvokeAsync(new Azure.Storage.GetAccountSASArgs
+        ///         {
+        ///             ConnectionString = primaryConnectionString,
+        ///             HttpsOnly = true,
+        ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesArgs
+        ///             {
+        ///                 Service = true,
+        ///                 Container = false,
+        ///                 Object = false,
+        ///             },
+        ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesArgs
+        ///             {
+        ///                 Blob = true,
+        ///                 Queue = false,
+        ///                 Table = false,
+        ///                 File = false,
+        ///             },
+        ///             Start = "2018-03-21",
+        ///             Expiry = "2020-03-21",
+        ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsArgs
+        ///             {
+        ///                 Read = true,
+        ///                 Write = true,
+        ///                 Delete = false,
+        ///                 List = false,
+        ///                 Add = true,
+        ///                 Create = true,
+        ///                 Update = false,
+        ///                 Process = false,
+        ///             },
+        ///         }));
+        ///         this.SasUrlQueryString = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas);
+        ///     }
+        /// 
+        ///     [Output("sasUrlQueryString")]
+        ///     public Output&lt;string&gt; SasUrlQueryString { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountSASResult> InvokeAsync(GetAccountSASArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountSASResult>("azure:storage/getAccountSAS:getAccountSAS", args ?? new GetAccountSASArgs(), options.WithVersion());

@@ -11,6 +11,61 @@ namespace Pulumi.Azure.MSSql
 {
     /// <summary>
     /// Manages a MS SQL Database.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Version = "12.0",
+    ///             AdministratorLogin = "4dm1n157r470r",
+    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///         });
+    ///         var test = new Azure.MSSql.Database("test", new Azure.MSSql.DatabaseArgs
+    ///         {
+    ///             ServerId = exampleSqlServer.Id,
+    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///             LicenseType = "LicenseIncluded",
+    ///             MaxSizeGb = 4,
+    ///             ReadScale = true,
+    ///             SkuName = "BC_Gen5_2",
+    ///             ZoneRedundant = true,
+    ///             ExtendedAuditingPolicy = new Azure.MSSql.Inputs.DatabaseExtendedAuditingPolicyArgs
+    ///             {
+    ///                 StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///                 StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///                 StorageAccountAccessKeyIsSecondary = true,
+    ///                 RetentionInDays = 6,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "foo", "bar" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Database : Pulumi.CustomResource
     {

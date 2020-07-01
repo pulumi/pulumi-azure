@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *     activeActive: false,
  *     enableBgp: false,
  *     sku: "Basic",
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         publicIpAddressId: examplePublicIp.id,
  *         privateIpAddressAllocation: "Dynamic",
  *         subnetId: exampleSubnet.id,
@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     sku: "Basic",
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         publicIpAddressId: usPublicIp.id,
  *         privateIpAddressAllocation: "Dynamic",
  *         subnetId: usGateway.id,
@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     sku: "Basic",
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         publicIpAddressId: europePublicIp.id,
  *         privateIpAddressAllocation: "Dynamic",
  *         subnetId: europeGateway.id,

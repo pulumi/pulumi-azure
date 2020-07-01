@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
- *     azuread_administrator: {
+ *     azureadAdministrator: {
  *         loginUsername: "AzureAD Admin",
  *         objectId: "00000000-0000-0000-0000-000000000000",
  *     },
- *     extended_auditing_policy: {
+ *     extendedAuditingPolicy: {
  *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *         storageAccountAccessKeyIsSecondary: true,

@@ -11,6 +11,47 @@ namespace Pulumi.Azure.MariaDB
 {
     /// <summary>
     /// Sets a MariaDB Configuration value on a MariaDB Server.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleServer = new Azure.MariaDB.Server("exampleServer", new Azure.MariaDB.ServerArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "B_Gen5_2",
+    ///             StorageProfile = new Azure.MariaDB.Inputs.ServerStorageProfileArgs
+    ///             {
+    ///                 StorageMb = 5120,
+    ///                 BackupRetentionDays = 7,
+    ///                 GeoRedundantBackup = "Disabled",
+    ///             },
+    ///             AdministratorLogin = "mariadbadmin",
+    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             Version = "10.2",
+    ///             SslEnforcement = "Enabled",
+    ///         });
+    ///         var exampleConfiguration = new Azure.MariaDB.Configuration("exampleConfiguration", new Azure.MariaDB.ConfigurationArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             Value = "600",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Configuration : Pulumi.CustomResource
     {

@@ -11,6 +11,79 @@ import (
 )
 
 // Create a failover group of databases on a collection of Azure SQL servers.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/sql"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("uksouth"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		primary, err := sql.NewSqlServer(ctx, "primary", &sql.SqlServerArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   exampleResourceGroup.Location,
+// 			Version:                    pulumi.String("12.0"),
+// 			AdministratorLogin:         pulumi.String("sqladmin"),
+// 			AdministratorLoginPassword: pulumi.String(fmt.Sprintf("%v%v%v%v", "pa", "$", "$", "w0rd")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		secondary, err := sql.NewSqlServer(ctx, "secondary", &sql.SqlServerArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   pulumi.String("northeurope"),
+// 			Version:                    pulumi.String("12.0"),
+// 			AdministratorLogin:         pulumi.String("sqladmin"),
+// 			AdministratorLoginPassword: pulumi.String(fmt.Sprintf("%v%v%v%v", "pa", "$", "$", "w0rd")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		db1, err := sql.NewDatabase(ctx, "db1", &sql.DatabaseArgs{
+// 			ResourceGroupName: primary.ResourceGroupName,
+// 			Location:          primary.Location,
+// 			ServerName:        primary.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sql.NewFailoverGroup(ctx, "exampleFailoverGroup", &sql.FailoverGroupArgs{
+// 			ResourceGroupName: primary.ResourceGroupName,
+// 			ServerName:        primary.Name,
+// 			Databases: pulumi.StringArray{
+// 				db1.ID(),
+// 			},
+// 			PartnerServers: sql.FailoverGroupPartnerServerArray{
+// 				&sql.FailoverGroupPartnerServerArgs{
+// 					Id: secondary.ID(),
+// 				},
+// 			},
+// 			ReadWriteEndpointFailoverPolicy: &sql.FailoverGroupReadWriteEndpointFailoverPolicyArgs{
+// 				Mode:         pulumi.String("Automatic"),
+// 				GraceMinutes: pulumi.Int(60),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type FailoverGroup struct {
 	pulumi.CustomResourceState
 

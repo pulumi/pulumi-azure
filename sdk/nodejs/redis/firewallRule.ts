@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     family: "P",
  *     skuName: "Premium",
  *     enableNonSslPort: false,
- *     redis_configuration: {
+ *     redisConfiguration: {
  *         maxclients: 256,
  *         maxmemoryReserved: 2,
  *         maxmemoryDelta: 2,

@@ -11,6 +11,58 @@ import (
 )
 
 // Manages automated startup and shutdown schedules for Azure Dev Test Lab.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/devtest"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = devtest.NewSchedule(ctx, "exampleSchedule", &devtest.ScheduleArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			LabName:           exampleLab.Name,
+// 			WeeklyRecurrence: &devtest.ScheduleWeeklyRecurrenceArgs{
+// 				Time: pulumi.String("1100"),
+// 				WeekDays: pulumi.StringArray{
+// 					pulumi.String("Monday"),
+// 					pulumi.String("Tuesday"),
+// 				},
+// 			},
+// 			TimeZoneId:           pulumi.String("Pacific Standard Time"),
+// 			TaskType:             pulumi.String("LabVmsStartupTask"),
+// 			NotificationSettings: nil,
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Schedule struct {
 	pulumi.CustomResourceState
 

@@ -29,7 +29,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err := storage.GetPolicy(ctx, &storage.GetPolicyArgs{
+// 		_, err = storage.GetPolicy(ctx, &storage.GetPolicyArgs{
 // 			StorageAccountId: azurerm_storage_account.Example.Id,
 // 		}, nil)
 // 		if err != nil {

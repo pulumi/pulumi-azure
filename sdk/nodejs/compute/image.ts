@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const exampleImage = new azure.compute.Image("exampleImage", {
  *     location: "West US",
  *     resourceGroupName: exampleResourceGroup.name,
- *     os_disk: {
+ *     osDisk: {
  *         osType: "Linux",
  *         osState: "Generalized",
  *         blobUri: "{blob_uri}",

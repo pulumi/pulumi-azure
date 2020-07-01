@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     redirectUrl: "https://www.contoso.com",
  *     customBlockResponseStatusCode: 403,
  *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
- *     custom_rule: [
+ *     customRules: [
  *         {
  *             name: "Rule1",
  *             enabled: true,
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *             rateLimitThreshold: 10,
  *             type: "MatchRule",
  *             action: "Block",
- *             match_condition: [{
+ *             matchConditions: [{
  *                 matchVariable: "RemoteAddr",
  *                 operator: "IPMatch",
  *                 negationCondition: false,
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *             rateLimitThreshold: 10,
  *             type: "MatchRule",
  *             action: "Block",
- *             match_condition: [
+ *             matchConditions: [
  *                 {
  *                     matchVariable: "RemoteAddr",
  *                     operator: "IPMatch",
@@ -71,19 +71,19 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
- *     managed_rule: [
+ *     managedRules: [
  *         {
  *             type: "DefaultRuleSet",
  *             version: "1.0",
- *             exclusion: [{
+ *             exclusions: [{
  *                 matchVariable: "QueryStringArgNames",
  *                 operator: "Equals",
  *                 selector: "not_suspicious",
  *             }],
- *             override: [
+ *             overrides: [
  *                 {
  *                     ruleGroupName: "PHP",
- *                     rule: [{
+ *                     rules: [{
  *                         ruleId: "933100",
  *                         enabled: false,
  *                         action: "Block",
@@ -91,15 +91,15 @@ import * as utilities from "../utilities";
  *                 },
  *                 {
  *                     ruleGroupName: "SQLI",
- *                     exclusion: [{
+ *                     exclusions: [{
  *                         matchVariable: "QueryStringArgNames",
  *                         operator: "Equals",
  *                         selector: "really_not_suspicious",
  *                     }],
- *                     rule: [{
+ *                     rules: [{
  *                         ruleId: "942200",
  *                         action: "Block",
- *                         exclusion: [{
+ *                         exclusions: [{
  *                             matchVariable: "QueryStringArgNames",
  *                             operator: "Equals",
  *                             selector: "innocent",

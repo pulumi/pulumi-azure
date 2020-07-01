@@ -11,6 +11,56 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a Cassandra KeySpace within a Cosmos DB Account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         {
+    ///             Name = "tflex-cosmosdb-account-rg",
+    ///         }));
+    ///         var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new Azure.CosmosDB.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Name),
+    ///             Location = exampleResourceGroup.Apply(exampleResourceGroup =&gt; exampleResourceGroup.Location),
+    ///             OfferType = "Standard",
+    ///             Capabilities = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///                 {
+    ///                     Name = "EnableCassandra",
+    ///                 },
+    ///             },
+    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///             {
+    ///                 ConsistencyLevel = "Strong",
+    ///             },
+    ///             GeoLocations = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///                 {
+    ///                     Location = "West US",
+    ///                     FailoverPriority = 0,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("exampleCassandraKeyspace", new Azure.CosmosDB.CassandraKeyspaceArgs
+    ///         {
+    ///             ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///             AccountName = exampleAccount.Name,
+    ///             Throughput = 400,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CassandraKeyspace : Pulumi.CustomResource
     {

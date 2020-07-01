@@ -11,6 +11,306 @@ import (
 )
 
 // Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			TargetResourceId:  exampleScaleSet.ID(),
+// 			Profiles: monitoring.AutoscaleSettingProfileArray{
+// 				&monitoring.AutoscaleSettingProfileArgs{
+// 					Name: pulumi.String("defaultProfile"),
+// 					Capacity: &monitoring.AutoscaleSettingProfileCapacityArgs{
+// 						Default: pulumi.Int(1),
+// 						Minimum: pulumi.Int(1),
+// 						Maximum: pulumi.Int(10),
+// 					},
+// 					Rules: monitoring.AutoscaleSettingProfileRuleArray{
+// 						&monitoring.AutoscaleSettingProfileRuleArgs{
+// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+// 								MetricName:       pulumi.String("Percentage CPU"),
+// 								MetricResourceId: exampleScaleSet.ID(),
+// 								TimeGrain:        pulumi.String("PT1M"),
+// 								Statistic:        pulumi.String("Average"),
+// 								TimeWindow:       pulumi.String("PT5M"),
+// 								TimeAggregation:  pulumi.String("Average"),
+// 								Operator:         pulumi.String("GreaterThan"),
+// 								Threshold:        pulumi.Float64(75),
+// 							},
+// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+// 								Direction: pulumi.String("Increase"),
+// 								Type:      pulumi.String("ChangeCount"),
+// 								Value:     pulumi.Int(1),
+// 								Cooldown:  pulumi.String("PT1M"),
+// 							},
+// 						},
+// 						&monitoring.AutoscaleSettingProfileRuleArgs{
+// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+// 								MetricName:       pulumi.String("Percentage CPU"),
+// 								MetricResourceId: exampleScaleSet.ID(),
+// 								TimeGrain:        pulumi.String("PT1M"),
+// 								Statistic:        pulumi.String("Average"),
+// 								TimeWindow:       pulumi.String("PT5M"),
+// 								TimeAggregation:  pulumi.String("Average"),
+// 								Operator:         pulumi.String("LessThan"),
+// 								Threshold:        pulumi.Float64(25),
+// 							},
+// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+// 								Direction: pulumi.String("Decrease"),
+// 								Type:      pulumi.String("ChangeCount"),
+// 								Value:     pulumi.Int(1),
+// 								Cooldown:  pulumi.String("PT1M"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Notification: &monitoring.AutoscaleSettingNotificationArgs{
+// 				Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
+// 					SendToSubscriptionAdministrator:   pulumi.Bool(true),
+// 					SendToSubscriptionCoAdministrator: pulumi.Bool(true),
+// 					CustomEmails: pulumi.StringArray{
+// 						pulumi.String("admin@contoso.com"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Repeating On Weekends)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			TargetResourceId:  exampleScaleSet.ID(),
+// 			Profiles: monitoring.AutoscaleSettingProfileArray{
+// 				&monitoring.AutoscaleSettingProfileArgs{
+// 					Name: pulumi.String("Weekends"),
+// 					Capacity: &monitoring.AutoscaleSettingProfileCapacityArgs{
+// 						Default: pulumi.Int(1),
+// 						Minimum: pulumi.Int(1),
+// 						Maximum: pulumi.Int(10),
+// 					},
+// 					Rules: monitoring.AutoscaleSettingProfileRuleArray{
+// 						&monitoring.AutoscaleSettingProfileRuleArgs{
+// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+// 								MetricName:       pulumi.String("Percentage CPU"),
+// 								MetricResourceId: exampleScaleSet.ID(),
+// 								TimeGrain:        pulumi.String("PT1M"),
+// 								Statistic:        pulumi.String("Average"),
+// 								TimeWindow:       pulumi.String("PT5M"),
+// 								TimeAggregation:  pulumi.String("Average"),
+// 								Operator:         pulumi.String("GreaterThan"),
+// 								Threshold:        pulumi.Float64(90),
+// 							},
+// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+// 								Direction: pulumi.String("Increase"),
+// 								Type:      pulumi.String("ChangeCount"),
+// 								Value:     pulumi.Int(2),
+// 								Cooldown:  pulumi.String("PT1M"),
+// 							},
+// 						},
+// 						&monitoring.AutoscaleSettingProfileRuleArgs{
+// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+// 								MetricName:       pulumi.String("Percentage CPU"),
+// 								MetricResourceId: exampleScaleSet.ID(),
+// 								TimeGrain:        pulumi.String("PT1M"),
+// 								Statistic:        pulumi.String("Average"),
+// 								TimeWindow:       pulumi.String("PT5M"),
+// 								TimeAggregation:  pulumi.String("Average"),
+// 								Operator:         pulumi.String("LessThan"),
+// 								Threshold:        pulumi.Float64(10),
+// 							},
+// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+// 								Direction: pulumi.String("Decrease"),
+// 								Type:      pulumi.String("ChangeCount"),
+// 								Value:     pulumi.Int(2),
+// 								Cooldown:  pulumi.String("PT1M"),
+// 							},
+// 						},
+// 					},
+// 					Recurrence: &monitoring.AutoscaleSettingProfileRecurrenceArgs{
+// 						Frequency: pulumi.String("Week"),
+// 						Timezone:  pulumi.String("Pacific Standard Time"),
+// 						Days: pulumi.StringArray{
+// 							pulumi.String("Saturday"),
+// 							pulumi.String("Sunday"),
+// 						},
+// 						Hours: pulumi.Int(pulumi.Int{
+// 							pulumi.Float64(12),
+// 						}),
+// 						Minutes: pulumi.Int(pulumi.Int{
+// 							pulumi.Float64(0),
+// 						}),
+// 					},
+// 				},
+// 			},
+// 			Notification: &monitoring.AutoscaleSettingNotificationArgs{
+// 				Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
+// 					SendToSubscriptionAdministrator:   pulumi.Bool(true),
+// 					SendToSubscriptionCoAdministrator: pulumi.Bool(true),
+// 					CustomEmails: pulumi.StringArray{
+// 						pulumi.String("admin@contoso.com"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### For Fixed Dates)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
+// 			Enabled:           pulumi.Bool(true),
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			TargetResourceId:  exampleScaleSet.ID(),
+// 			Profiles: monitoring.AutoscaleSettingProfileArray{
+// 				&monitoring.AutoscaleSettingProfileArgs{
+// 					Name: pulumi.String("forJuly"),
+// 					Capacity: &monitoring.AutoscaleSettingProfileCapacityArgs{
+// 						Default: pulumi.Int(1),
+// 						Minimum: pulumi.Int(1),
+// 						Maximum: pulumi.Int(10),
+// 					},
+// 					Rules: monitoring.AutoscaleSettingProfileRuleArray{
+// 						&monitoring.AutoscaleSettingProfileRuleArgs{
+// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+// 								MetricName:       pulumi.String("Percentage CPU"),
+// 								MetricResourceId: exampleScaleSet.ID(),
+// 								TimeGrain:        pulumi.String("PT1M"),
+// 								Statistic:        pulumi.String("Average"),
+// 								TimeWindow:       pulumi.String("PT5M"),
+// 								TimeAggregation:  pulumi.String("Average"),
+// 								Operator:         pulumi.String("GreaterThan"),
+// 								Threshold:        pulumi.Float64(90),
+// 							},
+// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+// 								Direction: pulumi.String("Increase"),
+// 								Type:      pulumi.String("ChangeCount"),
+// 								Value:     pulumi.Int(2),
+// 								Cooldown:  pulumi.String("PT1M"),
+// 							},
+// 						},
+// 						&monitoring.AutoscaleSettingProfileRuleArgs{
+// 							MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+// 								MetricName:       pulumi.String("Percentage CPU"),
+// 								MetricResourceId: exampleScaleSet.ID(),
+// 								TimeGrain:        pulumi.String("PT1M"),
+// 								Statistic:        pulumi.String("Average"),
+// 								TimeWindow:       pulumi.String("PT5M"),
+// 								TimeAggregation:  pulumi.String("Average"),
+// 								Operator:         pulumi.String("LessThan"),
+// 								Threshold:        pulumi.Float64(10),
+// 							},
+// 							ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+// 								Direction: pulumi.String("Decrease"),
+// 								Type:      pulumi.String("ChangeCount"),
+// 								Value:     pulumi.Int(2),
+// 								Cooldown:  pulumi.String("PT1M"),
+// 							},
+// 						},
+// 					},
+// 					FixedDate: &monitoring.AutoscaleSettingProfileFixedDateArgs{
+// 						Timezone: pulumi.String("Pacific Standard Time"),
+// 						Start:    pulumi.String("2020-07-01T00:00:00Z"),
+// 						End:      pulumi.String("2020-07-31T23:59:59Z"),
+// 					},
+// 				},
+// 			},
+// 			Notification: &monitoring.AutoscaleSettingNotificationArgs{
+// 				Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
+// 					SendToSubscriptionAdministrator:   pulumi.Bool(true),
+// 					SendToSubscriptionCoAdministrator: pulumi.Bool(true),
+// 					CustomEmails: pulumi.StringArray{
+// 						pulumi.String("admin@contoso.com"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 

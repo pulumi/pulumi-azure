@@ -11,6 +11,88 @@ namespace Pulumi.Azure.HDInsight
 {
     /// <summary>
     /// Manages a HDInsight RServer Cluster.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
+    ///         });
+    ///         var exampleRServerCluster = new Azure.HDInsight.RServerCluster("exampleRServerCluster", new Azure.HDInsight.RServerClusterArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterVersion = "3.6",
+    ///             Tier = "Standard",
+    ///             Rstudio = true,
+    ///             Gateway = new Azure.HDInsight.Inputs.RServerClusterGatewayArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Username = "acctestusrgw",
+    ///                 Password = "Password123!",
+    ///             },
+    ///             StorageAccounts = 
+    ///             {
+    ///                 new Azure.HDInsight.Inputs.RServerClusterStorageAccountArgs
+    ///                 {
+    ///                     StorageContainerId = exampleContainer.Id,
+    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                     IsDefault = true,
+    ///                 },
+    ///             },
+    ///             Roles = new Azure.HDInsight.Inputs.RServerClusterRolesArgs
+    ///             {
+    ///                 HeadNode = new Azure.HDInsight.Inputs.RServerClusterRolesHeadNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D3_v2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///                 WorkerNode = new Azure.HDInsight.Inputs.RServerClusterRolesWorkerNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D4_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                     TargetInstanceCount = 3,
+    ///                 },
+    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.RServerClusterRolesZookeeperNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D3_v2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///                 EdgeNode = new Azure.HDInsight.Inputs.RServerClusterRolesEdgeNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D3_v2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RServerCluster : Pulumi.CustomResource
     {

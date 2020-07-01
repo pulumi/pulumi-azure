@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *         "10.0.0.4",
  *         "10.0.0.5",
  *     ],
- *     ddos_protection_plan: {
+ *     ddosProtectionPlan: {
  *         id: exampleDdosProtectionPlan.id,
  *         enable: true,
  *     },
- *     subnet: [
+ *     subnets: [
  *         {
  *             name: "subnet1",
  *             addressPrefix: "10.0.1.0/24",

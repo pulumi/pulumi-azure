@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     method: "DELETE",
  *     urlTemplate: "/users/{id}/delete",
  *     description: "This can only be done by the logged in user.",
- *     response: [{
+ *     responses: [{
  *         statusCode: 200,
  *     }],
  * });

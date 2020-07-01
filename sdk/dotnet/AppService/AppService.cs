@@ -13,6 +13,61 @@ namespace Pulumi.Azure.AppService
     /// Manages an App Service (within an App Service Plan).
     /// 
     /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a Windows App Service.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///             {
+    ///                 Tier = "Standard",
+    ///                 Size = "S1",
+    ///             },
+    ///         });
+    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AppServicePlanId = examplePlan.Id,
+    ///             SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///             {
+    ///                 DotnetFrameworkVersion = "v4.0",
+    ///                 ScmType = "LocalGit",
+    ///             },
+    ///             AppSettings = 
+    ///             {
+    ///                 { "SOME_KEY", "some-value" },
+    ///             },
+    ///             ConnectionStrings = 
+    ///             {
+    ///                 new Azure.AppService.Inputs.AppServiceConnectionStringArgs
+    ///                 {
+    ///                     Name = "Database",
+    ///                     Type = "SQLServer",
+    ///                     Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AppService : Pulumi.CustomResource
     {

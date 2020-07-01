@@ -8,8 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Role Definition.
- *
- * ## Example Usage
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};

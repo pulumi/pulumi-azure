@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     frontend_ip_configuration: [{
+ *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * const exampleLinkService = new azure.privatedns.LinkService("exampleLinkService", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     nat_ip_configuration: [{
+ *     natIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         primary: true,
  *         subnetId: service.id,
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     subnetId: endpoint.id,
- *     private_service_connection: {
+ *     privateServiceConnection: {
  *         name: "example-privateserviceconnection",
  *         privateConnectionResourceId: exampleLinkService.id,
  *         isManualConnection: false,

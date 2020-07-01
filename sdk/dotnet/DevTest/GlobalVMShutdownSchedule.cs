@@ -13,6 +13,94 @@ namespace Pulumi.Azure.DevTest
     /// Manages automated shutdown schedules for Azure VMs that are not within an Azure DevTest Lab. While this is part of the DevTest Labs service in Azure,
     /// this resource applies only to standard VMs, not DevTest Lab VMs. To manage automated shutdown schedules for DevTest Lab VMs, reference the
     /// `azure.devtest.Schedule` resource
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "eastus",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.2.0/24",
+    ///         });
+    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///                 {
+    ///                     Name = "testconfiguration1",
+    ///                     SubnetId = exampleSubnet.Id,
+    ///                     PrivateIpAddressAllocation = "Dynamic",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", new Azure.Compute.LinuxVirtualMachineArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NetworkInterfaceIds = 
+    ///             {
+    ///                 exampleNetworkInterface.Id,
+    ///             },
+    ///             Size = "Standard_B2s",
+    ///             SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///             {
+    ///                 Publisher = "Canonical",
+    ///                 Offer = "UbuntuServer",
+    ///                 Sku = "16.04-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///             {
+    ///                 Name = "myosdisk-%d",
+    ///                 Caching = "ReadWrite",
+    ///                 ManagedDiskType = "Standard_LRS",
+    ///             },
+    ///             AdminUsername = "testadmin",
+    ///             AdminPassword = "Password1234!",
+    ///             DisablePasswordAuthentication = false,
+    ///         });
+    ///         var exampleGlobalVMShutdownSchedule = new Azure.DevTest.GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule", new Azure.DevTest.GlobalVMShutdownScheduleArgs
+    ///         {
+    ///             VirtualMachineId = azurerm_virtual_machine.Example.Id,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Enabled = true,
+    ///             DailyRecurrenceTime = "1100",
+    ///             Timezone = "Pacific Standard Time",
+    ///             NotificationSettings = new Azure.DevTest.Inputs.GlobalVMShutdownScheduleNotificationSettingsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 TimeInMinutes = 60,
+    ///                 WebhookUrl = "https://sample-webhook-url.example.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GlobalVMShutdownSchedule : Pulumi.CustomResource
     {

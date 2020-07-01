@@ -13,6 +13,54 @@ import (
 // Manages an Azure File Share Backup Policy within a Recovery Services vault.
 //
 // > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+// 			Location:          rg.Location,
+// 			ResourceGroupName: rg.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = backup.NewPolicyFileShare(ctx, "policy", &backup.PolicyFileShareArgs{
+// 			ResourceGroupName: rg.Name,
+// 			RecoveryVaultName: vault.Name,
+// 			Timezone:          pulumi.String("UTC"),
+// 			Backup: &backup.PolicyFileShareBackupArgs{
+// 				Frequency: pulumi.String("Daily"),
+// 				Time:      pulumi.String("23:00"),
+// 			},
+// 			RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
+// 				Count: pulumi.Int(10),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type PolicyFileShare struct {
 	pulumi.CustomResourceState
 

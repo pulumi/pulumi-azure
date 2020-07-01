@@ -35,7 +35,7 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			Description:       pulumi.String("Shared images and things."),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Hello": pulumi.String("There"),
 // 				"World": pulumi.String("Example"),
 // 			},

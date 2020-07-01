@@ -11,6 +11,85 @@ namespace Pulumi.Azure.HDInsight
 {
     /// <summary>
     /// Manages a HDInsight Storm Cluster.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
+    ///         });
+    ///         var exampleStormCluster = new Azure.HDInsight.StormCluster("exampleStormCluster", new Azure.HDInsight.StormClusterArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterVersion = "3.6",
+    ///             Tier = "Standard",
+    ///             ComponentVersion = new Azure.HDInsight.Inputs.StormClusterComponentVersionArgs
+    ///             {
+    ///                 Storm = "1.1",
+    ///             },
+    ///             Gateway = new Azure.HDInsight.Inputs.StormClusterGatewayArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Username = "acctestusrgw",
+    ///                 Password = "Password123!",
+    ///             },
+    ///             StorageAccounts = 
+    ///             {
+    ///                 new Azure.HDInsight.Inputs.StormClusterStorageAccountArgs
+    ///                 {
+    ///                     StorageContainerId = exampleContainer.Id,
+    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                     IsDefault = true,
+    ///                 },
+    ///             },
+    ///             Roles = new Azure.HDInsight.Inputs.StormClusterRolesArgs
+    ///             {
+    ///                 HeadNode = new Azure.HDInsight.Inputs.StormClusterRolesHeadNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_A3",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///                 WorkerNode = new Azure.HDInsight.Inputs.StormClusterRolesWorkerNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D3_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                     TargetInstanceCount = 3,
+    ///                 },
+    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.StormClusterRolesZookeeperNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_A4_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class StormCluster : Pulumi.CustomResource
     {

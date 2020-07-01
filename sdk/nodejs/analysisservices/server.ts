@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     sku: "S0",
  *     adminUsers: ["myuser@domain.tld"],
  *     enablePowerBiService: true,
- *     ipv4_firewall_rule: [{
+ *     ipv4FirewallRules: [{
  *         name: "myRule1",
  *         rangeStart: "210.117.252.0",
  *         rangeEnd: "210.117.252.255",

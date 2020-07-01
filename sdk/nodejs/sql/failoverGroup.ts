@@ -39,10 +39,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: primary.resourceGroupName,
  *     serverName: primary.name,
  *     databases: [db1.id],
- *     partner_servers: [{
+ *     partnerServers: [{
  *         id: secondary.id,
  *     }],
- *     read_write_endpoint_failover_policy: {
+ *     readWriteEndpointFailoverPolicy: {
  *         mode: "Automatic",
  *         graceMinutes: 60,
  *     },

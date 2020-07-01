@@ -11,6 +11,59 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a CosmosDB (formally DocumentDB) Account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = @var.Resource_group_location,
+    ///         });
+    ///         var ri = new Random.RandomInteger("ri", new Random.RandomIntegerArgs
+    ///         {
+    ///             Min = 10000,
+    ///             Max = 99999,
+    ///         });
+    ///         var db = new Azure.CosmosDB.Account("db", new Azure.CosmosDB.AccountArgs
+    ///         {
+    ///             Location = rg.Location,
+    ///             ResourceGroupName = rg.Name,
+    ///             OfferType = "Standard",
+    ///             Kind = "GlobalDocumentDB",
+    ///             EnableAutomaticFailover = true,
+    ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///             {
+    ///                 ConsistencyLevel = "BoundedStaleness",
+    ///                 MaxIntervalInSeconds = 10,
+    ///                 MaxStalenessPrefix = 200,
+    ///             },
+    ///             GeoLocations = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///                 {
+    ///                     Location = @var.Failover_location,
+    ///                     FailoverPriority = 1,
+    ///                 },
+    ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///                 {
+    ///                     Prefix = ri.Result.Apply(result =&gt; $"tfex-cosmos-db-{result}-customid"),
+    ///                     Location = rg.Location,
+    ///                     FailoverPriority = 0,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Account : Pulumi.CustomResource
     {

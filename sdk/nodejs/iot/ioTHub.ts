@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *         name: "S1",
  *         capacity: "1",
  *     },
- *     endpoint: [
+ *     endpoints: [
  *         {
  *             type: "AzureIotHub.StorageContainer",
  *             connectionString: exampleAccount.primaryBlobConnectionString,
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *             name: "export2",
  *         },
  *     ],
- *     route: [
+ *     routes: [
  *         {
  *             name: "export",
  *             source: "DeviceMessages",

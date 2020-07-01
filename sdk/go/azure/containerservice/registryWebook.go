@@ -50,7 +50,7 @@ import (
 // 			Actions: pulumi.StringArray{
 // 				pulumi.String("push"),
 // 			},
-// 			CustomHeaders: pulumi.Map{
+// 			CustomHeaders: pulumi.StringMap{
 // 				"Content-Type": pulumi.String("application/json"),
 // 			},
 // 		})

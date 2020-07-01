@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     config_server_git_setting: {
+ *     configServerGitSetting: {
  *         uri: "https://github.com/Azure-Samples/piggymetrics",
  *         label: "config",
  *         searchPaths: [

@@ -38,7 +38,7 @@ import (
 // 				Name:     pulumi.String("S1"),
 // 				Capacity: pulumi.Int(1),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"purpose": pulumi.String("testing"),
 // 			},
 // 		})

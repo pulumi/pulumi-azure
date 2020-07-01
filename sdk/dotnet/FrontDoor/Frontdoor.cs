@@ -18,6 +18,97 @@ namespace Pulumi.Azure.FrontDoor
     /// * Use Front Door to improve application scale and availability with instant multi-region failover
     /// * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
     /// * Use Front Door for application layer security and DDoS protection for your application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "EastUS2",
+    ///         });
+    ///         var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new Azure.FrontDoor.FrontdoorArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             EnforceBackendPoolsCertificateNameCheck = false,
+    ///             RoutingRules = 
+    ///             {
+    ///                 new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
+    ///                 {
+    ///                     Name = "exampleRoutingRule1",
+    ///                     AcceptedProtocols = 
+    ///                     {
+    ///                         "Http",
+    ///                         "Https",
+    ///                     },
+    ///                     PatternsToMatches = 
+    ///                     {
+    ///                         "/*",
+    ///                     },
+    ///                     FrontendEndpoints = 
+    ///                     {
+    ///                         "exampleFrontendEndpoint1",
+    ///                     },
+    ///                     ForwardingConfiguration = new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleForwardingConfigurationArgs
+    ///                     {
+    ///                         ForwardingProtocol = "MatchRequest",
+    ///                         BackendPoolName = "exampleBackendBing",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             BackendPoolLoadBalancings = 
+    ///             {
+    ///                 new Azure.FrontDoor.Inputs.FrontdoorBackendPoolLoadBalancingArgs
+    ///                 {
+    ///                     Name = "exampleLoadBalancingSettings1",
+    ///                 },
+    ///             },
+    ///             BackendPoolHealthProbes = 
+    ///             {
+    ///                 new Azure.FrontDoor.Inputs.FrontdoorBackendPoolHealthProbeArgs
+    ///                 {
+    ///                     Name = "exampleHealthProbeSetting1",
+    ///                 },
+    ///             },
+    ///             BackendPools = 
+    ///             {
+    ///                 new Azure.FrontDoor.Inputs.FrontdoorBackendPoolArgs
+    ///                 {
+    ///                     Name = "exampleBackendBing",
+    ///                     Backends = 
+    ///                     {
+    ///                         new Azure.FrontDoor.Inputs.FrontdoorBackendPoolBackendArgs
+    ///                         {
+    ///                             HostHeader = "www.bing.com",
+    ///                             Address = "www.bing.com",
+    ///                             HttpPort = 80,
+    ///                             HttpsPort = 443,
+    ///                         },
+    ///                     },
+    ///                     LoadBalancingName = "exampleLoadBalancingSettings1",
+    ///                     HealthProbeName = "exampleHealthProbeSetting1",
+    ///                 },
+    ///             },
+    ///             FrontendEndpoints = 
+    ///             {
+    ///                 new Azure.FrontDoor.Inputs.FrontdoorFrontendEndpointArgs
+    ///                 {
+    ///                     Name = "exampleFrontendEndpoint1",
+    ///                     HostName = "example-FrontDoor.azurefd.net",
+    ///                     CustomHttpsProvisioningEnabled = false,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Frontdoor : Pulumi.CustomResource
     {

@@ -28,7 +28,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err := blueprint.GetPublishedVersion(ctx, &blueprint.GetPublishedVersionArgs{
+// 		_, err = blueprint.GetPublishedVersion(ctx, &blueprint.GetPublishedVersionArgs{
 // 			ScopeId:       current.Id,
 // 			BlueprintName: "exampleBluePrint",
 // 			Version:       "dev_v2.3",

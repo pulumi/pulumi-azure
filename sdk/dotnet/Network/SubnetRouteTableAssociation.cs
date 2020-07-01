@@ -11,6 +11,60 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Associates a Route Table with a Subnet within a Virtual Network.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.2.0/24",
+    ///         });
+    ///         var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new Azure.Network.RouteTableArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Routes = 
+    ///             {
+    ///                 new Azure.Network.Inputs.RouteTableRouteArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                     AddressPrefix = "10.100.0.0/14",
+    ///                     NextHopType = "VirtualAppliance",
+    ///                     NextHopInIpAddress = "10.10.1.1",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", new Azure.Network.SubnetRouteTableAssociationArgs
+    ///         {
+    ///             SubnetId = exampleSubnet.Id,
+    ///             RouteTableId = exampleRouteTable.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SubnetRouteTableAssociation : Pulumi.CustomResource
     {

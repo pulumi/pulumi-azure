@@ -11,6 +11,70 @@ import (
 )
 
 // Allows you to manage an Azure SQL Database
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/sql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   pulumi.String("West US"),
+// 			Version:                    pulumi.String("12.0"),
+// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sql.NewDatabase(ctx, "exampleDatabase", &sql.DatabaseArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          pulumi.String("West US"),
+// 			ServerName:        exampleSqlServer.Name,
+// 			ExtendedAuditingPolicy: &sql.DatabaseExtendedAuditingPolicyArgs{
+// 				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
+// 				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
+// 				StorageAccountAccessKeyIsSecondary: pulumi.Bool(true),
+// 				RetentionInDays:                    pulumi.Int(6),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

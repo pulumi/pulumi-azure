@@ -11,6 +11,66 @@ namespace Pulumi.Azure.ManagedApplication
 {
     /// <summary>
     /// Manages a Managed Application.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var builtin = Output.Create(Azure.Authorization.GetRoleDefinition.InvokeAsync(new Azure.Authorization.GetRoleDefinitionArgs
+    ///         {
+    ///             Name = "Contributor",
+    ///         }));
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new Azure.ManagedApplication.DefinitionArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             LockLevel = "ReadOnly",
+    ///             PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+    ///             DisplayName = "TestManagedAppDefinition",
+    ///             Description = "Test Managed App Definition",
+    ///             Authorizations = 
+    ///             {
+    ///                 new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
+    ///                 {
+    ///                     ServicePrincipalId = current.Apply(current =&gt; current.ObjectId),
+    ///                     RoleDefinitionId = Output.Tuple(builtin, builtin.Apply(builtin =&gt; builtin.Id.Split("/")).Length).Apply(values =&gt;
+    ///                     {
+    ///                         var builtin = values.Item1;
+    ///                         var length = values.Item2;
+    ///                         return builtin.Id.Split("/")[length - 1];
+    ///                     }),
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleApplication = new Azure.ManagedApplication.Application("exampleApplication", new Azure.ManagedApplication.ApplicationArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Kind = "ServiceCatalog",
+    ///             ManagedResourceGroupName = "infrastructureGroup",
+    ///             ApplicationDefinitionId = exampleDefinition.Id,
+    ///             Parameters = 
+    ///             {
+    ///                 { "location", exampleResourceGroup.Location },
+    ///                 { "storageAccountNamePrefix", "storeNamePrefix" },
+    ///                 { "storageAccountType", "Standard_LRS" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Application : Pulumi.CustomResource
     {

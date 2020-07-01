@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * const exampleFirewall = new azure.network.Firewall("exampleFirewall", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         name: "configuration",
  *         subnetId: exampleSubnet.id,
  *         publicIpAddressId: examplePublicIp.id,
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     priority: 100,
  *     action: "Dnat",
- *     rule: [{
+ *     rules: [{
  *         name: "testrule",
  *         sourceAddresses: ["10.0.0.0/16"],
  *         destinationPorts: ["53"],

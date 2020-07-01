@@ -36,7 +36,7 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Kind:              pulumi.String("Face"),
 // 			SkuName:           pulumi.String("S0"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Acceptance": pulumi.String("Test"),
 // 			},
 // 		})

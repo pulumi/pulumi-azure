@@ -11,6 +11,64 @@ namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
     /// Manages as an Azure Container Group instance.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a Basic Container.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleGroup = new Azure.ContainerService.Group("exampleGroup", new Azure.ContainerService.GroupArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IpAddressType = "public",
+    ///             DnsNameLabel = "aci-label",
+    ///             OsType = "Linux",
+    ///             Containers = 
+    ///             {
+    ///                 new Azure.ContainerService.Inputs.GroupContainerArgs
+    ///                 {
+    ///                     Name = "hello-world",
+    ///                     Image = "microsoft/aci-helloworld:latest",
+    ///                     Cpu = 0.5,
+    ///                     Memory = 1.5,
+    ///                     Ports = 
+    ///                     {
+    ///                         new Azure.ContainerService.Inputs.GroupContainerPortArgs
+    ///                         {
+    ///                             Port = 443,
+    ///                             Protocol = "TCP",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Azure.ContainerService.Inputs.GroupContainerArgs
+    ///                 {
+    ///                     Name = "sidecar",
+    ///                     Image = "microsoft/aci-tutorial-sidecar",
+    ///                     Cpu = 0.5,
+    ///                     Memory = 1.5,
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "testing" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Group : Pulumi.CustomResource
     {

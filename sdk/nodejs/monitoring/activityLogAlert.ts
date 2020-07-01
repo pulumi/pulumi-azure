@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
  *     resourceGroupName: mainResourceGroup.name,
  *     shortName: "p0action",
- *     webhook_receiver: [{
+ *     webhookReceivers: [{
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *         operationName: "Microsoft.Storage/storageAccounts/write",
  *         category: "Recommendation",
  *     },
- *     action: [{
+ *     actions: [{
  *         actionGroupId: mainActionGroup.id,
  *         webhookProperties: {
  *             from: "source",

@@ -29,10 +29,10 @@ import * as utilities from "../utilities";
  *         frequency: "Daily",
  *         time: "23:00",
  *     },
- *     retention_daily: {
+ *     retentionDaily: {
  *         count: 10,
  *     },
- *     retention_weekly: {
+ *     retentionWeekly: {
  *         count: 42,
  *         weekdays: [
  *             "Sunday",
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *             "Saturday",
  *         ],
  *     },
- *     retention_monthly: {
+ *     retentionMonthly: {
  *         count: 7,
  *         weekdays: [
  *             "Sunday",
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *             "Last",
  *         ],
  *     },
- *     retention_yearly: {
+ *     retentionYearly: {
  *         count: 77,
  *         weekdays: ["Sunday"],
  *         weeks: ["Last"],

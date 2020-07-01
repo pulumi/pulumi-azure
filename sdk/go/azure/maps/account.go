@@ -34,7 +34,7 @@ import (
 // 		_, err = maps.NewAccount(ctx, "exampleAccount", &maps.AccountArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			SkuName:           pulumi.String("S1"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Test"),
 // 			},
 // 		})

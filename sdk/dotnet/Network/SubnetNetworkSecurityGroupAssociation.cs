@@ -11,6 +11,65 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Associates a Network Security Group with a Subnet within a Virtual Network.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.2.0/24",
+    ///         });
+    ///         var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SecurityRules = 
+    ///             {
+    ///                 new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///                 {
+    ///                     Name = "test123",
+    ///                     Priority = 100,
+    ///                     Direction = "Inbound",
+    ///                     Access = "Allow",
+    ///                     Protocol = "Tcp",
+    ///                     SourcePortRange = "*",
+    ///                     DestinationPortRange = "*",
+    ///                     SourceAddressPrefix = "*",
+    ///                     DestinationAddressPrefix = "*",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", new Azure.Network.SubnetNetworkSecurityGroupAssociationArgs
+    ///         {
+    ///             SubnetId = exampleSubnet.Id,
+    ///             NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SubnetNetworkSecurityGroupAssociation : Pulumi.CustomResource
     {

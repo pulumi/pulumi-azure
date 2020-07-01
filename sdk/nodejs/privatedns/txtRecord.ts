@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group.test.name,
  *     zoneName: testZone.name,
  *     ttl: 300,
- *     record: [{
+ *     records: [{
  *         value: "v=spf1 mx ~all",
  *     }],
  * });

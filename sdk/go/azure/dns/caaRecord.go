@@ -11,6 +11,69 @@ import (
 )
 
 // Enables you to manage DNS CAA Records within Azure DNS.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/dns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = dns.NewCaaRecord(ctx, "exampleCaaRecord", &dns.CaaRecordArgs{
+// 			ZoneName:          exampleZone.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Ttl:               pulumi.Int(300),
+// 			Records: dns.CaaRecordRecordArray{
+// 				&dns.CaaRecordRecordArgs{
+// 					Flags: pulumi.Int(0),
+// 					Tag:   pulumi.String("issue"),
+// 					Value: pulumi.String("example.com"),
+// 				},
+// 				&dns.CaaRecordRecordArgs{
+// 					Flags: pulumi.Int(0),
+// 					Tag:   pulumi.String("issue"),
+// 					Value: pulumi.String("example.net"),
+// 				},
+// 				&dns.CaaRecordRecordArgs{
+// 					Flags: pulumi.Int(0),
+// 					Tag:   pulumi.String("issuewild"),
+// 					Value: pulumi.String(";"),
+// 				},
+// 				&dns.CaaRecordRecordArgs{
+// 					Flags: pulumi.Int(0),
+// 					Tag:   pulumi.String("iodef"),
+// 					Value: pulumi.String("mailto:user@nonexisting.tld"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CaaRecord struct {
 	pulumi.CustomResourceState
 

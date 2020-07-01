@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     version: "5.7",
  *     sslEnforcement: "Enabled",
  *     skuName: "GP_Gen5_2",
- *     storage_profile: {
+ *     storageProfile: {
  *         storageMb: 5120,
  *         backupRetentionDays: 7,
  *         geoRedundantBackup: "Disabled",

@@ -11,6 +11,84 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages a Metric Alert within Azure Monitor.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var mainResourceGroup = new Azure.Core.ResourceGroup("mainResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var toMonitor = new Azure.Storage.Account("toMonitor", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             Location = mainResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var mainActionGroup = new Azure.Monitoring.ActionGroup("mainActionGroup", new Azure.Monitoring.ActionGroupArgs
+    ///         {
+    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             ShortName = "exampleact",
+    ///             WebhookReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///                 {
+    ///                     Name = "callmyapi",
+    ///                     ServiceUri = "http://example.com/alert",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var example = new Azure.Monitoring.MetricAlert("example", new Azure.Monitoring.MetricAlertArgs
+    ///         {
+    ///             ResourceGroupName = mainResourceGroup.Name,
+    ///             Scopes = 
+    ///             {
+    ///                 toMonitor.Id,
+    ///             },
+    ///             Description = "Action will be triggered when Transactions count is greater than 50.",
+    ///             Criterias = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
+    ///                 {
+    ///                     MetricNamespace = "Microsoft.Storage/storageAccounts",
+    ///                     MetricName = "Transactions",
+    ///                     Aggregation = "Total",
+    ///                     Operator = "GreaterThan",
+    ///                     Threshold = 50,
+    ///                     Dimensions = 
+    ///                     {
+    ///                         new Azure.Monitoring.Inputs.MetricAlertCriteriaDimensionArgs
+    ///                         {
+    ///                             Name = "ApiName",
+    ///                             Operator = "Include",
+    ///                             Values = 
+    ///                             {
+    ///                                 "*",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Actions = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.MetricAlertActionArgs
+    ///                 {
+    ///                     ActionGroupId = mainActionGroup.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class MetricAlert : Pulumi.CustomResource
     {

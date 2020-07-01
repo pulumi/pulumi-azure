@@ -11,6 +11,74 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a Gremlin Graph within a Cosmos DB Account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
+    ///         {
+    ///             Name = "tfex-cosmosdb-account",
+    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///         }));
+    ///         var exampleGremlinDatabase = new Azure.CosmosDB.GremlinDatabase("exampleGremlinDatabase", new Azure.CosmosDB.GremlinDatabaseArgs
+    ///         {
+    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
+    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
+    ///         });
+    ///         var exampleGremlinGraph = new Azure.CosmosDB.GremlinGraph("exampleGremlinGraph", new Azure.CosmosDB.GremlinGraphArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_cosmosdb_account.Example.Resource_group_name,
+    ///             AccountName = azurerm_cosmosdb_account.Example.Name,
+    ///             DatabaseName = exampleGremlinDatabase.Name,
+    ///             PartitionKeyPath = "/Example",
+    ///             Throughput = 400,
+    ///             IndexPolicies = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.GremlinGraphIndexPolicyArgs
+    ///                 {
+    ///                     Automatic = true,
+    ///                     IndexingMode = "Consistent",
+    ///                     IncludedPaths = 
+    ///                     {
+    ///                         "/*",
+    ///                     },
+    ///                     ExcludedPaths = 
+    ///                     {
+    ///                         "/\"_etag\"/?",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ConflictResolutionPolicies = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.GremlinGraphConflictResolutionPolicyArgs
+    ///                 {
+    ///                     Mode = "LastWriterWins",
+    ///                     ConflictResolutionPath = "/_ts",
+    ///                 },
+    ///             },
+    ///             UniqueKeys = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.GremlinGraphUniqueKeyArgs
+    ///                 {
+    ///                     Paths = 
+    ///                     {
+    ///                         "/definition/id1",
+    ///                         "/definition/id2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class GremlinGraph : Pulumi.CustomResource
     {

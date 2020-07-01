@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     zoneName: exampleZone.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     ttl: 300,
- *     record: [
+ *     records: [
  *         {
  *             preference: 10,
  *             exchange: "mail1.contoso.com",

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     kind: "CopyBased",
  *     description: "example desc",
  *     terms: "example terms",
- *     snapshot_schedule: {
+ *     snapshotSchedule: {
  *         name: "example-ss",
  *         recurrence: "Day",
  *         startTime: "2020-04-17T04:47:52.9614956Z",

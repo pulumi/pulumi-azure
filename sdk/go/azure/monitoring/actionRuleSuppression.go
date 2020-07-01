@@ -52,7 +52,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"foo": pulumi.String("bar"),
 // 			},
 // 		})

@@ -63,6 +63,60 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// }
     /// ```
+    /// ### Correlation Filter)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard",
+    ///             Tags = 
+    ///             {
+    ///                 { "source", "example" },
+    ///             },
+    ///         });
+    ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NamespaceName = exampleNamespace.Name,
+    ///             EnablePartitioning = true,
+    ///         });
+    ///         var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new Azure.ServiceBus.SubscriptionArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NamespaceName = exampleNamespace.Name,
+    ///             TopicName = exampleTopic.Name,
+    ///             MaxDeliveryCount = 1,
+    ///         });
+    ///         var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new Azure.ServiceBus.SubscriptionRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             NamespaceName = exampleNamespace.Name,
+    ///             TopicName = exampleTopic.Name,
+    ///             SubscriptionName = exampleSubscription.Name,
+    ///             FilterType = "CorrelationFilter",
+    ///             CorrelationFilter = new Azure.ServiceBus.Inputs.SubscriptionRuleCorrelationFilterArgs
+    ///             {
+    ///                 CorrelationId = "high",
+    ///                 Label = "red",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [Obsolete(@"azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule")]
     public partial class SubscriptionRule : Pulumi.CustomResource

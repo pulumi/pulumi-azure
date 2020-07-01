@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     profileName: exampleProfile.name,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     origin: [{
+ *     origins: [{
  *         name: "example",
  *         hostName: "www.example.com",
  *     }],

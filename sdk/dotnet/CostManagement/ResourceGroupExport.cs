@@ -11,6 +11,50 @@ namespace Pulumi.Azure.CostManagement
 {
     /// <summary>
     /// Manages an Azure Cost Management Export for a Resource Group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleResourceGroupExport = new Azure.CostManagement.ResourceGroupExport("exampleResourceGroupExport", new Azure.CostManagement.ResourceGroupExportArgs
+    ///         {
+    ///             ResourceGroupId = exampleResourceGroup.Id,
+    ///             RecurrenceType = "Monthly",
+    ///             RecurrencePeriodStart = "2020-08-18T00:00:00Z",
+    ///             RecurrencePeriodEnd = "2020-09-18T00:00:00Z",
+    ///             DeliveryInfo = new Azure.CostManagement.Inputs.ResourceGroupExportDeliveryInfoArgs
+    ///             {
+    ///                 StorageAccountId = exampleAccount.Id,
+    ///                 ContainerName = "examplecontainer",
+    ///                 RootFolderPath = "/root/updated",
+    ///             },
+    ///             Query = new Azure.CostManagement.Inputs.ResourceGroupExportQueryArgs
+    ///             {
+    ///                 Type = "Usage",
+    ///                 TimeFrame = "WeekToDate",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ResourceGroupExport : Pulumi.CustomResource
     {

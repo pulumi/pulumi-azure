@@ -11,6 +11,66 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS CAA Records within Azure DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleCaaRecord = new Azure.Dns.CaaRecord("exampleCaaRecord", new Azure.Dns.CaaRecordArgs
+    ///         {
+    ///             ZoneName = exampleZone.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///                 {
+    ///                     Flags = 0,
+    ///                     Tag = "issue",
+    ///                     Value = "example.com",
+    ///                 },
+    ///                 new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///                 {
+    ///                     Flags = 0,
+    ///                     Tag = "issue",
+    ///                     Value = "example.net",
+    ///                 },
+    ///                 new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///                 {
+    ///                     Flags = 0,
+    ///                     Tag = "issuewild",
+    ///                     Value = ";",
+    ///                 },
+    ///                 new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///                 {
+    ///                     Flags = 0,
+    ///                     Tag = "iodef",
+    ///                     Value = "mailto:user@nonexisting.tld",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CaaRecord : Pulumi.CustomResource
     {

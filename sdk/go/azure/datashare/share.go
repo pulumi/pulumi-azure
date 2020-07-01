@@ -11,6 +11,54 @@ import (
 )
 
 // Manages a Data Share.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/datashare"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Tags: pulumi.StringMap{
+// 				"foo": pulumi.String("bar"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
+// 			AccountId:   exampleAccount.ID(),
+// 			Kind:        pulumi.String("CopyBased"),
+// 			Description: pulumi.String("example desc"),
+// 			Terms:       pulumi.String("example terms"),
+// 			SnapshotSchedule: &datashare.ShareSnapshotScheduleArgs{
+// 				Name:       pulumi.String("example-ss"),
+// 				Recurrence: pulumi.String("Day"),
+// 				StartTime:  pulumi.String("2020-04-17T04:47:52.9614956Z"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Share struct {
 	pulumi.CustomResourceState
 

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     version: "12.0",
  *     administratorLogin: "mradministrator",
  *     administratorLoginPassword: "thisIsDog11",
- *     extended_auditing_policy: {
+ *     extendedAuditingPolicy: {
  *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *         storageAccountAccessKeyIsSecondary: true,

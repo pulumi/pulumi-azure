@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
- *     access_policy: [{
+ *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
  *         certificatePermissions: [
@@ -75,17 +75,17 @@ import * as utilities from "../utilities";
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
  *     keyVaultId: exampleKeyVault.id,
- *     certificate_policy: {
- *         issuer_parameters: {
+ *     certificatePolicy: {
+ *         issuerParameters: {
  *             name: "Self",
  *         },
- *         key_properties: {
+ *         keyProperties: {
  *             exportable: true,
  *             keySize: 2048,
  *             keyType: "RSA",
  *             reuseKey: true,
  *         },
- *         lifetime_action: [{
+ *         lifetimeActions: [{
  *             action: {
  *                 actionType: "AutoRenew",
  *             },
@@ -93,10 +93,10 @@ import * as utilities from "../utilities";
  *                 daysBeforeExpiry: 30,
  *             },
  *         }],
- *         secret_properties: {
+ *         secretProperties: {
  *             contentType: "application/x-pkcs12",
  *         },
- *         x509_certificate_properties: {
+ *         x509CertificateProperties: {
  *             extendedKeyUsages: ["1.3.6.1.5.5.7.3.1"],
  *             keyUsages: [
  *                 "cRLSign",
@@ -106,7 +106,7 @@ import * as utilities from "../utilities";
  *                 "keyCertSign",
  *                 "keyEncipherment",
  *             ],
- *             subject_alternative_names: {
+ *             subjectAlternativeNames: {
  *                 dnsNames: [
  *                     "internal.contoso.com",
  *                     "domain.hello.world",

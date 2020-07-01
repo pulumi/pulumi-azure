@@ -11,6 +11,80 @@ namespace Pulumi.Azure.DataShare
 {
     /// <summary>
     /// Manages a Data Share Blob Storage Dataset.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using AzureAD = Pulumi.AzureAD;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.DataShare.Account("exampleAccount", new Azure.DataShare.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///         });
+    ///         var exampleShare = new Azure.DataShare.Share("exampleShare", new Azure.DataShare.ShareArgs
+    ///         {
+    ///             AccountId = exampleAccount.Id,
+    ///             Kind = "CopyBased",
+    ///         });
+    ///         var exampleStorage_accountAccount = new Azure.Storage.Account("exampleStorage/accountAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "RAGRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleStorage / accountAccount.Name,
+    ///             ContainerAccessType = "container",
+    ///         });
+    ///         var exampleServicePrincipal = exampleAccount.Name.Apply(name =&gt; AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
+    ///         {
+    ///             DisplayName = name,
+    ///         }));
+    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
+    ///         {
+    ///             Scope = exampleStorage / accountAccount.Id,
+    ///             RoleDefinitionName = "Storage Blob Data Reader",
+    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.ObjectId),
+    ///         });
+    ///         var exampleDatasetBlobStorage = new Azure.DataShare.DatasetBlobStorage("exampleDatasetBlobStorage", new Azure.DataShare.DatasetBlobStorageArgs
+    ///         {
+    ///             DataShareId = exampleShare.Id,
+    ///             ContainerName = exampleContainer.Name,
+    ///             StorageAccount = new Azure.DataShare.Inputs.DatasetBlobStorageStorageAccountArgs
+    ///             {
+    ///                 Name = exampleStorage / accountAccount.Name,
+    ///                 ResourceGroupName = exampleStorage / accountAccount.ResourceGroupName,
+    ///                 SubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///             FilePath = "myfile.txt",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleAssignment,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DatasetBlobStorage : Pulumi.CustomResource
     {

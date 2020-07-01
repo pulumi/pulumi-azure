@@ -34,7 +34,7 @@ import (
 // 		_, err = network.NewApplicationSecurityGroup(ctx, "exampleApplicationSecurityGroup", &network.ApplicationSecurityGroupArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Hello": pulumi.String("World"),
 // 			},
 // 		})

@@ -22,16 +22,16 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     targetResourceId: exampleScaleSet.id,
- *     profile: [{
+ *     profiles: [{
  *         name: "defaultProfile",
  *         capacity: {
  *             "default": 1,
  *             minimum: 1,
  *             maximum: 10,
  *         },
- *         rule: [
+ *         rules: [
  *             {
- *                 metric_trigger: {
+ *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
  *                     metricResourceId: exampleScaleSet.id,
  *                     timeGrain: "PT1M",
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *                     operator: "GreaterThan",
  *                     threshold: 75,
  *                 },
- *                 scale_action: {
+ *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
  *                     value: "1",
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *             {
- *                 metric_trigger: {
+ *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
  *                     metricResourceId: exampleScaleSet.id,
  *                     timeGrain: "PT1M",
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *                     operator: "LessThan",
  *                     threshold: 25,
  *                 },
- *                 scale_action: {
+ *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
  *                     value: "1",
@@ -90,16 +90,16 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     targetResourceId: exampleScaleSet.id,
- *     profile: [{
+ *     profiles: [{
  *         name: "Weekends",
  *         capacity: {
  *             "default": 1,
  *             minimum: 1,
  *             maximum: 10,
  *         },
- *         rule: [
+ *         rules: [
  *             {
- *                 metric_trigger: {
+ *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
  *                     metricResourceId: exampleScaleSet.id,
  *                     timeGrain: "PT1M",
@@ -109,7 +109,7 @@ import * as utilities from "../utilities";
  *                     operator: "GreaterThan",
  *                     threshold: 90,
  *                 },
- *                 scale_action: {
+ *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
  *                     value: "2",
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *             {
- *                 metric_trigger: {
+ *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
  *                     metricResourceId: exampleScaleSet.id,
  *                     timeGrain: "PT1M",
@@ -127,7 +127,7 @@ import * as utilities from "../utilities";
  *                     operator: "LessThan",
  *                     threshold: 10,
  *                 },
- *                 scale_action: {
+ *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
  *                     value: "2",
@@ -169,16 +169,16 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     targetResourceId: exampleScaleSet.id,
- *     profile: [{
+ *     profiles: [{
  *         name: "forJuly",
  *         capacity: {
  *             "default": 1,
  *             minimum: 1,
  *             maximum: 10,
  *         },
- *         rule: [
+ *         rules: [
  *             {
- *                 metric_trigger: {
+ *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
  *                     metricResourceId: exampleScaleSet.id,
  *                     timeGrain: "PT1M",
@@ -188,7 +188,7 @@ import * as utilities from "../utilities";
  *                     operator: "GreaterThan",
  *                     threshold: 90,
  *                 },
- *                 scale_action: {
+ *                 scaleAction: {
  *                     direction: "Increase",
  *                     type: "ChangeCount",
  *                     value: "2",
@@ -196,7 +196,7 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *             {
- *                 metric_trigger: {
+ *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
  *                     metricResourceId: exampleScaleSet.id,
  *                     timeGrain: "PT1M",
@@ -206,7 +206,7 @@ import * as utilities from "../utilities";
  *                     operator: "LessThan",
  *                     threshold: 10,
  *                 },
- *                 scale_action: {
+ *                 scaleAction: {
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
  *                     value: "2",
@@ -214,7 +214,7 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         ],
- *         fixed_date: {
+ *         fixedDate: {
  *             timezone: "Pacific Standard Time",
  *             start: "2020-07-01T00:00:00Z",
  *             end: "2020-07-31T23:59:59Z",

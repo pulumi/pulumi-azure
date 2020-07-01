@@ -11,6 +11,82 @@ import (
 )
 
 // Manages a ServiceBus Namespace Network Rule Set Set.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/servicebus"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("Premium"),
+// 			Capacity:          pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("172.17.0.0/16"),
+// 			},
+// 			DnsServers: pulumi.StringArray{
+// 				pulumi.String("10.0.0.4"),
+// 				pulumi.String("10.0.0.5"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("172.17.0.0/24"),
+// 			ServiceEndpoints: pulumi.StringArray{
+// 				pulumi.String("Microsoft.ServiceBus"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = servicebus.NewNamespaceNetworkRuleSet(ctx, "exampleNamespaceNetworkRuleSet", &servicebus.NamespaceNetworkRuleSetArgs{
+// 			NamespaceName:     exampleNamespace.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			DefaultAction:     pulumi.String("Deny"),
+// 			NetworkRules: servicebus.NamespaceNetworkRuleSetNetworkRuleArray{
+// 				&servicebus.NamespaceNetworkRuleSetNetworkRuleArgs{
+// 					SubnetId:                         exampleSubnet.ID(),
+// 					IgnoreMissingVnetServiceEndpoint: pulumi.Bool(false),
+// 				},
+// 			},
+// 			IpRules: pulumi.StringArray{
+// 				pulumi.String("1.1.1.1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type NamespaceNetworkRuleSet struct {
 	pulumi.CustomResourceState
 

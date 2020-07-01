@@ -11,6 +11,53 @@ namespace Pulumi.Azure.MSSql
 {
     /// <summary>
     /// Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "westeurope",
+    ///         });
+    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Version = "12.0",
+    ///             AdministratorLogin = "4dm1n157r470r",
+    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///         });
+    ///         var exampleElasticPool = new Azure.MSSql.ElasticPool("exampleElasticPool", new Azure.MSSql.ElasticPoolArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ServerName = exampleSqlServer.Name,
+    ///             LicenseType = "LicenseIncluded",
+    ///             MaxSizeGb = 756,
+    ///             Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs
+    ///             {
+    ///                 Name = "GP_Gen5",
+    ///                 Tier = "GeneralPurpose",
+    ///                 Family = "Gen5",
+    ///                 Capacity = 4,
+    ///             },
+    ///             PerDatabaseSettings = new Azure.MSSql.Inputs.ElasticPoolPerDatabaseSettingsArgs
+    ///             {
+    ///                 MinCapacity = 0.25,
+    ///                 MaxCapacity = 4,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ElasticPool : Pulumi.CustomResource
     {

@@ -38,7 +38,7 @@ import (
 // 			DisplayName:       pulumi.String("example-iotcentral-app-display-name"),
 // 			Sku:               pulumi.String("S1"),
 // 			Template:          pulumi.String("iotc-default@1.0.0"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Foo": pulumi.String("Bar"),
 // 			},
 // 		})

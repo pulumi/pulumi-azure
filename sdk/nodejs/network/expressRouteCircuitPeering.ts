@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     primaryPeerAddressPrefix: "123.0.0.0/30",
  *     secondaryPeerAddressPrefix: "123.0.0.4/30",
  *     vlanId: 300,
- *     microsoft_peering_config: {
+ *     microsoftPeeringConfig: {
  *         advertisedPublicPrefixes: ["123.1.0.0/24"],
  *     },
  * });

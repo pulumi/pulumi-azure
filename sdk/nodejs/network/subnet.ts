@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
- *     delegation: [{
+ *     delegations: [{
  *         name: "acctestdelegation",
- *         service_delegation: {
+ *         serviceDelegation: {
  *             name: "Microsoft.ContainerInstance/containerGroups",
  *             actions: [
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",

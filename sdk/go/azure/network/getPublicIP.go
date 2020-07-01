@@ -35,6 +35,87 @@ import (
 // 	})
 // }
 // ```
+// ### Retrieve The Dynamic Public IP Of A New VM)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US 2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.0.2.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+// 			Location:             exampleResourceGroup.Location,
+// 			ResourceGroupName:    exampleResourceGroup.Name,
+// 			AllocationMethod:     pulumi.String("Dynamic"),
+// 			IdleTimeoutInMinutes: pulumi.Int(30),
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("test"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+// 				&network.NetworkInterfaceIpConfigurationArgs{
+// 					Name:                       pulumi.String("testconfiguration1"),
+// 					SubnetId:                   exampleSubnet.ID(),
+// 					PrivateIpAddressAllocation: pulumi.String("Static"),
+// 					PrivateIpAddress:           pulumi.String("10.0.2.5"),
+// 					PublicIpAddressId:          examplePublicIp.ID(),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			NetworkInterfaceIds: pulumi.StringArray{
+// 				exampleNetworkInterface.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("publicIpAddress", examplePublicIp.IpAddress)
+// 		return nil
+// 	})
+// }
+// ```
 func GetPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs, opts ...pulumi.InvokeOption) (*GetPublicIPResult, error) {
 	var rv GetPublicIPResult
 	err := ctx.Invoke("azure:network/getPublicIP:getPublicIP", args, &rv, opts...)

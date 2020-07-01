@@ -13,6 +13,78 @@ import (
 // Manages a PostgreSQL Virtual Network Rule.
 //
 // > **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-vnet)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/postgresql"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.7.29.0/29"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.7.29.0/29"),
+// 			ServiceEndpoints: pulumi.StringArray{
+// 				pulumi.String("Microsoft.Sql"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SkuName:           pulumi.String("B_Gen5_2"),
+// 			StorageProfile: &postgresql.ServerStorageProfileArgs{
+// 				StorageMb:           pulumi.Int(5120),
+// 				BackupRetentionDays: pulumi.Int(7),
+// 				GeoRedundantBackup:  pulumi.String("Disabled"),
+// 			},
+// 			AdministratorLogin:         pulumi.String("psqladminun"),
+// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+// 			Version:                    pulumi.String("9.5"),
+// 			SslEnforcement:             pulumi.String("Enabled"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = postgresql.NewVirtualNetworkRule(ctx, "exampleVirtualNetworkRule", &postgresql.VirtualNetworkRuleArgs{
+// 			ResourceGroupName:                exampleResourceGroup.Name,
+// 			ServerName:                       exampleServer.Name,
+// 			SubnetId:                         internal.ID(),
+// 			IgnoreMissingVnetServiceEndpoint: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 

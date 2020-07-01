@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  *     capabilities: [{
  *         name: "EnableCassandra",
  *     }],
- *     consistency_policy: {
+ *     consistencyPolicy: {
  *         consistencyLevel: "Strong",
  *     },
- *     geo_location: [{
+ *     geoLocations: [{
  *         location: "West US",
  *         failoverPriority: 0,
  *     }],

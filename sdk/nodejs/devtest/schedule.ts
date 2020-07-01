@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     labName: exampleLab.name,
- *     weekly_recurrence: {
+ *     weeklyRecurrence: {
  *         time: "1100",
  *         weekDays: [
  *             "Monday",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     },
  *     timeZoneId: "Pacific Standard Time",
  *     taskType: "LabVmsStartupTask",
- *     notification_settings: {},
+ *     notificationSettings: {},
  *     tags: {
  *         environment: "Production",
  *     },

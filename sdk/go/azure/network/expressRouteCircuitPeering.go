@@ -13,6 +13,64 @@ import (
 // Manages an ExpressRoute Circuit Peering.
 //
 // ## Example Usage
+// ### Creating A Microsoft Peering)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
+// 			ResourceGroupName:   exampleResourceGroup.Name,
+// 			Location:            exampleResourceGroup.Location,
+// 			ServiceProviderName: pulumi.String("Equinix"),
+// 			PeeringLocation:     pulumi.String("Silicon Valley"),
+// 			BandwidthInMbps:     pulumi.Int(50),
+// 			Sku: &network.ExpressRouteCircuitSkuArgs{
+// 				Tier:   pulumi.String("Standard"),
+// 				Family: pulumi.String("MeteredData"),
+// 			},
+// 			AllowClassicOperations: pulumi.Bool(false),
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewExpressRouteCircuitPeering(ctx, "exampleExpressRouteCircuitPeering", &network.ExpressRouteCircuitPeeringArgs{
+// 			PeeringType:                pulumi.String("MicrosoftPeering"),
+// 			ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			PeerAsn:                    pulumi.Int(100),
+// 			PrimaryPeerAddressPrefix:   pulumi.String("123.0.0.0/30"),
+// 			SecondaryPeerAddressPrefix: pulumi.String("123.0.0.4/30"),
+// 			VlanId:                     pulumi.Int(300),
+// 			MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
+// 				AdvertisedPublicPrefixes: pulumi.StringArray{
+// 					pulumi.String("123.1.0.0/24"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ExpressRouteCircuitPeering struct {
 	pulumi.CustomResourceState
 

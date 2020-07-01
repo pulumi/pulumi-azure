@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * const examplePolicy = new azure.waf.Policy("examplePolicy", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     custom_rules: [
+ *     customRules: [
  *         {
  *             name: "Rule1",
  *             priority: 1,
  *             ruleType: "MatchRule",
- *             match_conditions: [{
- *                 match_variables: [{
+ *             matchConditions: [{
+ *                 matchVariables: [{
  *                     variableName: "RemoteAddr",
  *                 }],
  *                 operator: "IPMatch",
@@ -41,9 +41,9 @@ import * as utilities from "../utilities";
  *             name: "Rule2",
  *             priority: 2,
  *             ruleType: "MatchRule",
- *             match_conditions: [
+ *             matchConditions: [
  *                 {
- *                     match_variables: [{
+ *                     matchVariables: [{
  *                         variableName: "RemoteAddr",
  *                     }],
  *                     operator: "IPMatch",
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *                     matchValues: ["192.168.1.0/24"],
  *                 },
  *                 {
- *                     match_variables: [{
+ *                     matchVariables: [{
  *                         variableName: "RequestHeaders",
  *                         selector: "UserAgent",
  *                     }],
@@ -63,12 +63,12 @@ import * as utilities from "../utilities";
  *             action: "Block",
  *         },
  *     ],
- *     policy_settings: {
+ *     policySettings: {
  *         enabled: true,
  *         mode: "Prevention",
  *     },
- *     managed_rules: {
- *         exclusion: [
+ *     managedRules: {
+ *         exclusions: [
  *             {
  *                 matchVariable: "RequestHeaderNames",
  *                 selector: "x-company-secret-header",
@@ -80,10 +80,10 @@ import * as utilities from "../utilities";
  *                 selectorMatchOperator: "EndsWith",
  *             },
  *         ],
- *         managed_rule_set: [{
+ *         managedRuleSets: [{
  *             type: "OWASP",
  *             version: "3.1",
- *             rule_group_override: [{
+ *             ruleGroupOverrides: [{
  *                 ruleGroupName: "REQUEST-920-PROTOCOL-ENFORCEMENT",
  *                 disabledRules: [
  *                     "920300",

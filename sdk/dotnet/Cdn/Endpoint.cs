@@ -11,6 +11,45 @@ namespace Pulumi.Azure.Cdn
 {
     /// <summary>
     /// A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviours and origins. The CDN Endpoint is exposed using the URL format &lt;endpointname&gt;.azureedge.net.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new Azure.Cdn.ProfileArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Standard_Verizon",
+    ///         });
+    ///         var exampleEndpoint = new Azure.Cdn.Endpoint("exampleEndpoint", new Azure.Cdn.EndpointArgs
+    ///         {
+    ///             ProfileName = exampleProfile.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Origins = 
+    ///             {
+    ///                 new Azure.Cdn.Inputs.EndpointOriginArgs
+    ///                 {
+    ///                     Name = "example",
+    ///                     HostName = "www.example.com",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Endpoint : Pulumi.CustomResource
     {

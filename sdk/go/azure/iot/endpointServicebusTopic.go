@@ -68,7 +68,7 @@ import (
 // 				Tier:     pulumi.String("Basic"),
 // 				Capacity: pulumi.Int(1),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"purpose": pulumi.String("example"),
 // 			},
 // 		})

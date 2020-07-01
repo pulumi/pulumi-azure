@@ -11,6 +11,47 @@ namespace Pulumi.Azure.DataShare
 {
     /// <summary>
     /// Manages a Data Share.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.DataShare.Account("exampleAccount", new Azure.DataShare.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Tags = 
+    ///             {
+    ///                 { "foo", "bar" },
+    ///             },
+    ///         });
+    ///         var exampleShare = new Azure.DataShare.Share("exampleShare", new Azure.DataShare.ShareArgs
+    ///         {
+    ///             AccountId = exampleAccount.Id,
+    ///             Kind = "CopyBased",
+    ///             Description = "example desc",
+    ///             Terms = "example terms",
+    ///             SnapshotSchedule = new Azure.DataShare.Inputs.ShareSnapshotScheduleArgs
+    ///             {
+    ///                 Name = "example-ss",
+    ///                 Recurrence = "Day",
+    ///                 StartTime = "2020-04-17T04:47:52.9614956Z",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Share : Pulumi.CustomResource
     {

@@ -13,6 +13,67 @@ namespace Pulumi.Azure.PostgreSql
     /// Manages a PostgreSQL Virtual Network Rule.
     /// 
     /// &gt; **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-vnet)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.7.29.0/29",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.7.29.0/29",
+    ///             ServiceEndpoints = 
+    ///             {
+    ///                 "Microsoft.Sql",
+    ///             },
+    ///         });
+    ///         var exampleServer = new Azure.PostgreSql.Server("exampleServer", new Azure.PostgreSql.ServerArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "B_Gen5_2",
+    ///             StorageProfile = new Azure.PostgreSql.Inputs.ServerStorageProfileArgs
+    ///             {
+    ///                 StorageMb = 5120,
+    ///                 BackupRetentionDays = 7,
+    ///                 GeoRedundantBackup = "Disabled",
+    ///             },
+    ///             AdministratorLogin = "psqladminun",
+    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///             Version = "9.5",
+    ///             SslEnforcement = "Enabled",
+    ///         });
+    ///         var exampleVirtualNetworkRule = new Azure.PostgreSql.VirtualNetworkRule("exampleVirtualNetworkRule", new Azure.PostgreSql.VirtualNetworkRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             SubnetId = @internal.Id,
+    ///             IgnoreMissingVnetServiceEndpoint = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {

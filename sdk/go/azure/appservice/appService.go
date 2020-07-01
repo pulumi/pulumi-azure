@@ -13,6 +13,65 @@ import (
 // Manages an App Service (within an App Service Plan).
 //
 // > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
+//
+// ## Example Usage
+//
+// This example provisions a Windows App Service.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku: &appservice.PlanSkuArgs{
+// 				Tier: pulumi.String("Standard"),
+// 				Size: pulumi.String("S1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AppServicePlanId:  examplePlan.ID(),
+// 			SiteConfig: &appservice.AppServiceSiteConfigArgs{
+// 				DotnetFrameworkVersion: pulumi.String("v4.0"),
+// 				ScmType:                pulumi.String("LocalGit"),
+// 			},
+// 			AppSettings: pulumi.StringMap{
+// 				"SOME_KEY": pulumi.String("some-value"),
+// 			},
+// 			ConnectionStrings: appservice.AppServiceConnectionStringArray{
+// 				&appservice.AppServiceConnectionStringArgs{
+// 					Name:  pulumi.String("Database"),
+// 					Type:  pulumi.String("SQLServer"),
+// 					Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AppService struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,49 @@ namespace Pulumi.Azure.EventGrid
 {
     /// <summary>
     /// Manages an EventGrid Event Subscription
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var defaultResourceGroup = new Azure.Core.ResourceGroup("defaultResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US 2",
+    ///         });
+    ///         var defaultAccount = new Azure.Storage.Account("defaultAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = defaultResourceGroup.Name,
+    ///             Location = defaultResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "staging" },
+    ///             },
+    ///         });
+    ///         var defaultQueue = new Azure.Storage.Queue("defaultQueue", new Azure.Storage.QueueArgs
+    ///         {
+    ///             StorageAccountName = defaultAccount.Name,
+    ///         });
+    ///         var defaultEventSubscription = new Azure.EventGrid.EventSubscription("defaultEventSubscription", new Azure.EventGrid.EventSubscriptionArgs
+    ///         {
+    ///             Scope = defaultResourceGroup.Id,
+    ///             StorageQueueEndpoint = new Azure.EventGrid.Inputs.EventSubscriptionStorageQueueEndpointArgs
+    ///             {
+    ///                 StorageAccountId = defaultAccount.Id,
+    ///                 QueueName = defaultQueue.Name,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class EventSubscription : Pulumi.CustomResource
     {

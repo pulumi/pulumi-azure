@@ -11,6 +11,59 @@ import (
 )
 
 // Manages an EventGrid Event Subscription
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/eventgrid"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		defaultResourceGroup, err := core.NewResourceGroup(ctx, "defaultResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US 2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		defaultAccount, err := storage.NewAccount(ctx, "defaultAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      defaultResourceGroup.Name,
+// 			Location:               defaultResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("staging"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		defaultQueue, err := storage.NewQueue(ctx, "defaultQueue", &storage.QueueArgs{
+// 			StorageAccountName: defaultAccount.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = eventgrid.NewEventSubscription(ctx, "defaultEventSubscription", &eventgrid.EventSubscriptionArgs{
+// 			Scope: defaultResourceGroup.ID(),
+// 			StorageQueueEndpoint: &eventgrid.EventSubscriptionStorageQueueEndpointArgs{
+// 				StorageAccountId: defaultAccount.ID(),
+// 				QueueName:        defaultQueue.Name,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

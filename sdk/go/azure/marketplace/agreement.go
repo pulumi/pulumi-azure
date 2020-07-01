@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = marketplace.NewAgreement(ctx, "barracuda", &marketplace.AgreementArgs{
+// 		_, err := marketplace.NewAgreement(ctx, "barracuda", &marketplace.AgreementArgs{
 // 			Offer:     pulumi.String("waf"),
 // 			Plan:      pulumi.String("hourly"),
 // 			Publisher: pulumi.String("barracudanetworks"),

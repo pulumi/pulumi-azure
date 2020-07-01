@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
@@ -40,15 +40,15 @@ import * as utilities from "../utilities";
  *     size: "Standard_F2",
  *     adminUsername: "adminuser",
  *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     admin_ssh_key: [{
+ *     adminSshKeys: [{
  *         username: "adminuser",
  *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
  *     }],
- *     os_disk: {
+ *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
  *     },
- *     source_image_reference: {
+ *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
  *         sku: "16.04-LTS",

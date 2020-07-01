@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: existingSharedImage.then(existingSharedImage => existingSharedImage.resourceGroupName),
  *     location: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
  *     managedImageId: existingImage.then(existingImage => existingImage.id),
- *     target_region: [{
+ *     targetRegions: [{
  *         name: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
  *         regionalReplicaCount: "5",
  *         storageAccountType: "Standard_LRS",

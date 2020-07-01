@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * const exampleTimeSeriesInsightsReferenceDataSet = new azure.iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet", {
  *     timeSeriesInsightsEnvironmentId: exampleTimeSeriesInsightsStandardEnvironment.id,
  *     location: exampleResourceGroup.location,
- *     key_property: [{
+ *     keyProperties: [{
  *         name: "keyProperty1",
  *         type: "String",
  *     }],

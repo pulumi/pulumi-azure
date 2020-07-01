@@ -11,6 +11,85 @@ namespace Pulumi.Azure.HDInsight
 {
     /// <summary>
     /// Manages a HDInsight Interactive Query Cluster.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
+    ///         });
+    ///         var exampleInteractiveQueryCluster = new Azure.HDInsight.InteractiveQueryCluster("exampleInteractiveQueryCluster", new Azure.HDInsight.InteractiveQueryClusterArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterVersion = "3.6",
+    ///             Tier = "Standard",
+    ///             ComponentVersion = new Azure.HDInsight.Inputs.InteractiveQueryClusterComponentVersionArgs
+    ///             {
+    ///                 InteractiveHive = "2.1",
+    ///             },
+    ///             Gateway = new Azure.HDInsight.Inputs.InteractiveQueryClusterGatewayArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Username = "acctestusrgw",
+    ///                 Password = "Password!",
+    ///             },
+    ///             StorageAccounts = 
+    ///             {
+    ///                 new Azure.HDInsight.Inputs.InteractiveQueryClusterStorageAccountArgs
+    ///                 {
+    ///                     StorageContainerId = exampleContainer.Id,
+    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                     IsDefault = true,
+    ///                 },
+    ///             },
+    ///             Roles = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesArgs
+    ///             {
+    ///                 HeadNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesHeadNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D13_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///                 WorkerNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesWorkerNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D14_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                     TargetInstanceCount = 3,
+    ///                 },
+    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesZookeeperNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_A4_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class InteractiveQueryCluster : Pulumi.CustomResource
     {

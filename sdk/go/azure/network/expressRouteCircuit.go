@@ -41,7 +41,7 @@ import (
 // 				Tier:   pulumi.String("Standard"),
 // 				Family: pulumi.String("MeteredData"),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Production"),
 // 			},
 // 		})

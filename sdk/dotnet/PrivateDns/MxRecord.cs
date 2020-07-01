@@ -11,6 +11,52 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS MX Records within Azure Private DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleMxRecord = new Azure.PrivateDns.MxRecord("exampleMxRecord", new Azure.PrivateDns.MxRecordArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ZoneName = exampleZone.Name,
+    ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 new Azure.PrivateDns.Inputs.MxRecordRecordArgs
+    ///                 {
+    ///                     Preference = 10,
+    ///                     Exchange = "mx1.contoso.com",
+    ///                 },
+    ///                 new Azure.PrivateDns.Inputs.MxRecordRecordArgs
+    ///                 {
+    ///                     Preference = 20,
+    ///                     Exchange = "backupmx.contoso.com",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class MxRecord : Pulumi.CustomResource
     {

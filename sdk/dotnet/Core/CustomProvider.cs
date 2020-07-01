@@ -11,6 +11,38 @@ namespace Pulumi.Azure.Core
 {
     /// <summary>
     /// Manages an Azure Custom Provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleCustomProvider = new Azure.Core.CustomProvider("exampleCustomProvider", new Azure.Core.CustomProviderArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ResourceTypes = 
+    ///             {
+    ///                 new Azure.Core.Inputs.CustomProviderResourceTypeArgs
+    ///                 {
+    ///                     Name = "dEf1",
+    ///                     Endpoint = "https://testendpoint.com/",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class CustomProvider : Pulumi.CustomResource
     {

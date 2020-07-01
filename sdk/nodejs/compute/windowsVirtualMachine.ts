@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
@@ -54,11 +54,11 @@ import * as utilities from "../utilities";
  *     adminUsername: "adminuser",
  *     adminPassword: `P@$$w0rd1234!`,
  *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     os_disk: {
+ *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
  *     },
- *     source_image_reference: {
+ *     sourceImageReference: {
  *         publisher: "MicrosoftWindowsServer",
  *         offer: "WindowsServer",
  *         sku: "2016-Datacenter",

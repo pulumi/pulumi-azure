@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * const mainNetworkInterface = new azure.network.NetworkInterface("mainNetworkInterface", {
  *     location: mainResourceGroup.location,
  *     resourceGroupName: mainResourceGroup.name,
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: internal.id,
  *         privateIpAddressAllocation: "Dynamic",
@@ -51,24 +51,24 @@ import * as utilities from "../utilities";
  *     resourceGroupName: mainResourceGroup.name,
  *     networkInterfaceIds: [mainNetworkInterface.id],
  *     vmSize: "Standard_DS1_v2",
- *     storage_image_reference: {
+ *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
  *         sku: "16.04-LTS",
  *         version: "latest",
  *     },
- *     storage_os_disk: {
+ *     storageOsDisk: {
  *         name: "myosdisk1",
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         managedDiskType: "Standard_LRS",
  *     },
- *     os_profile: {
+ *     osProfile: {
  *         computerName: "hostname",
  *         adminUsername: "testadmin",
  *         adminPassword: "Password1234!",
  *     },
- *     os_profile_linux_config: {
+ *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
  *     tags: {

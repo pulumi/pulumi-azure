@@ -11,6 +11,86 @@ import (
 )
 
 // Manages an Azure Backup VM Backup Policy.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = backup.NewPolicyVM(ctx, "examplePolicyVM", &backup.PolicyVMArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			RecoveryVaultName: exampleVault.Name,
+// 			Timezone:          pulumi.String("UTC"),
+// 			Backup: &backup.PolicyVMBackupArgs{
+// 				Frequency: pulumi.String("Daily"),
+// 				Time:      pulumi.String("23:00"),
+// 			},
+// 			RetentionDaily: &backup.PolicyVMRetentionDailyArgs{
+// 				Count: pulumi.Int(10),
+// 			},
+// 			RetentionWeekly: &backup.PolicyVMRetentionWeeklyArgs{
+// 				Count: pulumi.Int(42),
+// 				Weekdays: pulumi.StringArray{
+// 					pulumi.String("Sunday"),
+// 					pulumi.String("Wednesday"),
+// 					pulumi.String("Friday"),
+// 					pulumi.String("Saturday"),
+// 				},
+// 			},
+// 			RetentionMonthly: &backup.PolicyVMRetentionMonthlyArgs{
+// 				Count: pulumi.Int(7),
+// 				Weekdays: pulumi.StringArray{
+// 					pulumi.String("Sunday"),
+// 					pulumi.String("Wednesday"),
+// 				},
+// 				Weeks: pulumi.StringArray{
+// 					pulumi.String("First"),
+// 					pulumi.String("Last"),
+// 				},
+// 			},
+// 			RetentionYearly: &backup.PolicyVMRetentionYearlyArgs{
+// 				Count: pulumi.Int(77),
+// 				Weekdays: pulumi.StringArray{
+// 					pulumi.String("Sunday"),
+// 				},
+// 				Weeks: pulumi.StringArray{
+// 					pulumi.String("Last"),
+// 				},
+// 				Months: pulumi.StringArray{
+// 					pulumi.String("January"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type PolicyVM struct {
 	pulumi.CustomResourceState
 

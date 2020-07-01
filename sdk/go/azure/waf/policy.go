@@ -11,6 +11,126 @@ import (
 )
 
 // Manages a Azure Web Application Firewall Policy instance.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/waf"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US 2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = waf.NewPolicy(ctx, "examplePolicy", &waf.PolicyArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			CustomRules: waf.PolicyCustomRuleArray{
+// 				&waf.PolicyCustomRuleArgs{
+// 					Name:     pulumi.String("Rule1"),
+// 					Priority: pulumi.Int(1),
+// 					RuleType: pulumi.String("MatchRule"),
+// 					MatchConditions: waf.PolicyCustomRuleMatchConditionArray{
+// 						&waf.PolicyCustomRuleMatchConditionArgs{
+// 							MatchVariables: waf.PolicyCustomRuleMatchConditionMatchVariableArray{
+// 								&waf.PolicyCustomRuleMatchConditionMatchVariableArgs{
+// 									VariableName: pulumi.String("RemoteAddr"),
+// 								},
+// 							},
+// 							Operator:          pulumi.String("IPMatch"),
+// 							NegationCondition: pulumi.Bool(false),
+// 							MatchValues: pulumi.StringArray{
+// 								pulumi.String("192.168.1.0/24"),
+// 								pulumi.String("10.0.0.0/24"),
+// 							},
+// 						},
+// 					},
+// 					Action: pulumi.String("Block"),
+// 				},
+// 				&waf.PolicyCustomRuleArgs{
+// 					Name:     pulumi.String("Rule2"),
+// 					Priority: pulumi.Int(2),
+// 					RuleType: pulumi.String("MatchRule"),
+// 					MatchConditions: waf.PolicyCustomRuleMatchConditionArray{
+// 						&waf.PolicyCustomRuleMatchConditionArgs{
+// 							MatchVariables: waf.PolicyCustomRuleMatchConditionMatchVariableArray{
+// 								&waf.PolicyCustomRuleMatchConditionMatchVariableArgs{
+// 									VariableName: pulumi.String("RemoteAddr"),
+// 								},
+// 							},
+// 							Operator:          pulumi.String("IPMatch"),
+// 							NegationCondition: pulumi.Bool(false),
+// 							MatchValues: pulumi.StringArray{
+// 								pulumi.String("192.168.1.0/24"),
+// 							},
+// 						},
+// 						&waf.PolicyCustomRuleMatchConditionArgs{
+// 							MatchVariables: waf.PolicyCustomRuleMatchConditionMatchVariableArray{
+// 								&waf.PolicyCustomRuleMatchConditionMatchVariableArgs{
+// 									VariableName: pulumi.String("RequestHeaders"),
+// 									Selector:     pulumi.String("UserAgent"),
+// 								},
+// 							},
+// 							Operator:          pulumi.String("Contains"),
+// 							NegationCondition: pulumi.Bool(false),
+// 							MatchValues: pulumi.StringArray{
+// 								pulumi.String("Windows"),
+// 							},
+// 						},
+// 					},
+// 					Action: pulumi.String("Block"),
+// 				},
+// 			},
+// 			PolicySettings: &waf.PolicyPolicySettingsArgs{
+// 				Enabled: pulumi.Bool(true),
+// 				Mode:    pulumi.String("Prevention"),
+// 			},
+// 			ManagedRules: &waf.PolicyManagedRulesArgs{
+// 				Exclusions: waf.PolicyManagedRulesExclusionArray{
+// 					&waf.PolicyManagedRulesExclusionArgs{
+// 						MatchVariable:         pulumi.String("RequestHeaderNames"),
+// 						Selector:              pulumi.String("x-company-secret-header"),
+// 						SelectorMatchOperator: pulumi.String("Equals"),
+// 					},
+// 					&waf.PolicyManagedRulesExclusionArgs{
+// 						MatchVariable:         pulumi.String("RequestCookieNames"),
+// 						Selector:              pulumi.String("too-tasty"),
+// 						SelectorMatchOperator: pulumi.String("EndsWith"),
+// 					},
+// 				},
+// 				ManagedRuleSets: waf.PolicyManagedRulesManagedRuleSetArray{
+// 					&waf.PolicyManagedRulesManagedRuleSetArgs{
+// 						Type:    pulumi.String("OWASP"),
+// 						Version: pulumi.String("3.1"),
+// 						RuleGroupOverrides: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{
+// 							&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{
+// 								RuleGroupName: pulumi.String("REQUEST-920-PROTOCOL-ENFORCEMENT"),
+// 								DisabledRules: pulumi.StringArray{
+// 									pulumi.String("920300"),
+// 									pulumi.String("920440"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 
