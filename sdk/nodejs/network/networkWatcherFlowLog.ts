@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  *     networkSecurityGroupId: testNetworkSecurityGroup.id,
  *     storageAccountId: testAccount.id,
  *     enabled: true,
- *     retention_policy: {
+ *     retentionPolicy: {
  *         enabled: true,
  *         days: 7,
  *     },
- *     traffic_analytics: {
+ *     trafficAnalytics: {
  *         enabled: true,
  *         workspaceId: testAnalyticsWorkspace.workspaceId,
  *         workspaceRegion: testAnalyticsWorkspace.location,

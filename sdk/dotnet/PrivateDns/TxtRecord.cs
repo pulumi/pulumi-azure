@@ -11,6 +11,42 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS TXT Records within Azure Private DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var testZone = new Azure.PrivateDns.Zone("testZone", new Azure.PrivateDns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         });
+    ///         var testTxtRecord = new Azure.PrivateDns.TxtRecord("testTxtRecord", new Azure.PrivateDns.TxtRecordArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///             ZoneName = testZone.Name,
+    ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 new Azure.PrivateDns.Inputs.TxtRecordRecordArgs
+    ///                 {
+    ///                     Value = "v=spf1 mx ~all",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TxtRecord : Pulumi.CustomResource
     {

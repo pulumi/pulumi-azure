@@ -11,6 +11,43 @@ namespace Pulumi.Azure.ManagedApplication
 {
     /// <summary>
     /// Manages a Managed Application Definition.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new Azure.ManagedApplication.DefinitionArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             LockLevel = "ReadOnly",
+    ///             PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+    ///             DisplayName = "TestManagedApplicationDefinition",
+    ///             Description = "Test Managed Application Definition",
+    ///             Authorizations = 
+    ///             {
+    ///                 new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
+    ///                 {
+    ///                     ServicePrincipalId = current.Apply(current =&gt; current.ObjectId),
+    ///                     RoleDefinitionId = "a094b430-dad3-424d-ae58-13f72fd72591",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Definition : Pulumi.CustomResource
     {

@@ -11,6 +11,73 @@ import (
 )
 
 // Manages a Gremlin Graph within a Cosmos DB Account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+// 			Name:              "tfex-cosmosdb-account",
+// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleGremlinDatabase, err := cosmosdb.NewGremlinDatabase(ctx, "exampleGremlinDatabase", &cosmosdb.GremlinDatabaseArgs{
+// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+// 			AccountName:       pulumi.String(exampleAccount.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cosmosdb.NewGremlinGraph(ctx, "exampleGremlinGraph", &cosmosdb.GremlinGraphArgs{
+// 			ResourceGroupName: pulumi.String(azurerm_cosmosdb_account.Example.Resource_group_name),
+// 			AccountName:       pulumi.String(azurerm_cosmosdb_account.Example.Name),
+// 			DatabaseName:      exampleGremlinDatabase.Name,
+// 			PartitionKeyPath:  pulumi.String("/Example"),
+// 			Throughput:        pulumi.Int(400),
+// 			IndexPolicies: cosmosdb.GremlinGraphIndexPolicyArray{
+// 				&cosmosdb.GremlinGraphIndexPolicyArgs{
+// 					Automatic:    pulumi.Bool(true),
+// 					IndexingMode: pulumi.String("Consistent"),
+// 					IncludedPaths: pulumi.StringArray{
+// 						pulumi.String("/*"),
+// 					},
+// 					ExcludedPaths: pulumi.StringArray{
+// 						pulumi.String("/\"_etag\"/?"),
+// 					},
+// 				},
+// 			},
+// 			ConflictResolutionPolicies: cosmosdb.GremlinGraphConflictResolutionPolicyArray{
+// 				&cosmosdb.GremlinGraphConflictResolutionPolicyArgs{
+// 					Mode:                   pulumi.String("LastWriterWins"),
+// 					ConflictResolutionPath: pulumi.String("/_ts"),
+// 				},
+// 			},
+// 			UniqueKeys: cosmosdb.GremlinGraphUniqueKeyArray{
+// 				&cosmosdb.GremlinGraphUniqueKeyArgs{
+// 					Paths: pulumi.StringArray{
+// 						pulumi.String("/definition/id1"),
+// 						pulumi.String("/definition/id2"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type GremlinGraph struct {
 	pulumi.CustomResourceState
 

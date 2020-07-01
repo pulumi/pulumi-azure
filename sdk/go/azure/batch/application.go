@@ -41,7 +41,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = batch.NewAccount(ctx, "exampleBatch/accountAccount", &batch.AccountArgs{
+// 		_, err = batch.NewAccount(ctx, "exampleBatch_accountAccount", &batch.AccountArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			Location:           exampleResourceGroup.Location,
 // 			PoolAllocationMode: pulumi.String("BatchService"),

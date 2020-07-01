@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		_, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("northeurope"),
 // 		})
 // 		if err != nil {
@@ -37,7 +37,7 @@ import (
 // 			Location:               pulumi.String(azurerm_resource_group.Example.Location),
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("example"),
 // 			},
 // 		})

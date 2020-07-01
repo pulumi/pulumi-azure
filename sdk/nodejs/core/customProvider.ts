@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const exampleCustomProvider = new azure.core.CustomProvider("exampleCustomProvider", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     resource_type: [{
+ *     resourceTypes: [{
  *         name: "dEf1",
  *         endpoint: "https://testendpoint.com/",
  *     }],

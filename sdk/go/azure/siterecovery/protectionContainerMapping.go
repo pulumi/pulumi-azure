@@ -87,7 +87,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = siterecovery.NewProtectionContainerMapping(ctx, "container-mapping", &siterecovery.ProtectionContainerMappingArgs{
+// 		_, err = siterecovery.NewProtectionContainerMapping(ctx, "container_mapping", &siterecovery.ProtectionContainerMappingArgs{
 // 			ResourceGroupName:                     secondaryResourceGroup.Name,
 // 			RecoveryVaultName:                     vault.Name,
 // 			RecoveryFabricName:                    primaryFabric.Name,

@@ -11,6 +11,59 @@ import (
 )
 
 // Manages a Microsoft SQL Azure Database Server.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/sql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   exampleResourceGroup.Location,
+// 			Version:                    pulumi.String("12.0"),
+// 			AdministratorLogin:         pulumi.String("mradministrator"),
+// 			AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+// 			ExtendedAuditingPolicy: &sql.SqlServerExtendedAuditingPolicyArgs{
+// 				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
+// 				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
+// 				StorageAccountAccessKeyIsSecondary: pulumi.Bool(true),
+// 				RetentionInDays:                    pulumi.Int(6),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SqlServer struct {
 	pulumi.CustomResourceState
 

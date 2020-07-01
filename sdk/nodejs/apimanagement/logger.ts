@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * const exampleLogger = new azure.apimanagement.Logger("exampleLogger", {
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: exampleResourceGroup.name,
- *     application_insights: {
+ *     applicationInsights: {
  *         instrumentationKey: exampleInsights.instrumentationKey,
  *     },
  * });

@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     defaultAction: "Deny",
- *     network_rules: [{
+ *     networkRules: [{
  *         subnetId: exampleSubnet.id,
  *         ignoreMissingVnetServiceEndpoint: false,
  *     }],

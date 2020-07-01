@@ -13,6 +13,66 @@ import (
 // Manages a CosmosDB (formally DocumentDB) Account.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 			Location: pulumi.String(_var.Resource_group_location),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ri, err := random.NewRandomInteger(ctx, "ri", &random.RandomIntegerArgs{
+// 			Min: pulumi.Int(10000),
+// 			Max: pulumi.Int(99999),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cosmosdb.NewAccount(ctx, "db", &cosmosdb.AccountArgs{
+// 			Location:                rg.Location,
+// 			ResourceGroupName:       rg.Name,
+// 			OfferType:               pulumi.String("Standard"),
+// 			Kind:                    pulumi.String("GlobalDocumentDB"),
+// 			EnableAutomaticFailover: pulumi.Bool(true),
+// 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+// 				ConsistencyLevel:     pulumi.String("BoundedStaleness"),
+// 				MaxIntervalInSeconds: pulumi.Int(10),
+// 				MaxStalenessPrefix:   pulumi.Int(200),
+// 			},
+// 			GeoLocations: cosmosdb.AccountGeoLocationArray{
+// 				&cosmosdb.AccountGeoLocationArgs{
+// 					Location:         pulumi.String(_var.Failover_location),
+// 					FailoverPriority: pulumi.Int(1),
+// 				},
+// 				&cosmosdb.AccountGeoLocationArgs{
+// 					Prefix: ri.Result.ApplyT(func(result int) (string, error) {
+// 						return fmt.Sprintf("%v%v%v", "tfex-cosmos-db-", result, "-customid"), nil
+// 					}).(pulumi.StringOutput),
+// 					Location:         rg.Location,
+// 					FailoverPriority: pulumi.Int(0),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

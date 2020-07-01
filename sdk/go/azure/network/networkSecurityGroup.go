@@ -15,6 +15,53 @@ import (
 // > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
 // provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
 // At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
+// 				&network.NetworkSecurityGroupSecurityRuleArgs{
+// 					Name:                     pulumi.String("test123"),
+// 					Priority:                 pulumi.Int(100),
+// 					Direction:                pulumi.String("Inbound"),
+// 					Access:                   pulumi.String("Allow"),
+// 					Protocol:                 pulumi.String("Tcp"),
+// 					SourcePortRange:          pulumi.String("*"),
+// 					DestinationPortRange:     pulumi.String("*"),
+// 					SourceAddressPrefix:      pulumi.String("*"),
+// 					DestinationAddressPrefix: pulumi.String("*"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type NetworkSecurityGroup struct {
 	pulumi.CustomResourceState
 

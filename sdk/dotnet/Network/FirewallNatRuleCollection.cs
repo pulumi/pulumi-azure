@@ -11,6 +11,94 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a NAT Rule Collection within an Azure Firewall.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "North Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.1.0/24",
+    ///         });
+    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AllocationMethod = "Static",
+    ///             Sku = "Standard",
+    ///         });
+    ///         var exampleFirewall = new Azure.Network.Firewall("exampleFirewall", new Azure.Network.FirewallArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.FirewallIpConfigurationArgs
+    ///                 {
+    ///                     Name = "configuration",
+    ///                     SubnetId = exampleSubnet.Id,
+    ///                     PublicIpAddressId = examplePublicIp.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleFirewallNatRuleCollection = new Azure.Network.FirewallNatRuleCollection("exampleFirewallNatRuleCollection", new Azure.Network.FirewallNatRuleCollectionArgs
+    ///         {
+    ///             AzureFirewallName = exampleFirewall.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Priority = 100,
+    ///             Action = "Dnat",
+    ///             Rules = 
+    ///             {
+    ///                 new Azure.Network.Inputs.FirewallNatRuleCollectionRuleArgs
+    ///                 {
+    ///                     Name = "testrule",
+    ///                     SourceAddresses = 
+    ///                     {
+    ///                         "10.0.0.0/16",
+    ///                     },
+    ///                     DestinationPorts = 
+    ///                     {
+    ///                         "53",
+    ///                     },
+    ///                     DestinationAddresses = 
+    ///                     {
+    ///                         examplePublicIp.IpAddress,
+    ///                     },
+    ///                     TranslatedPort = "53",
+    ///                     TranslatedAddress = "8.8.8.8",
+    ///                     Protocols = 
+    ///                     {
+    ///                         "TCP",
+    ///                         "UDP",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FirewallNatRuleCollection : Pulumi.CustomResource
     {

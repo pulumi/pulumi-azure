@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     zoneName: exampleZone.name,
  *     ttl: 300,
- *     record: [
+ *     records: [
  *         {
  *             preference: 10,
  *             exchange: "mx1.contoso.com",

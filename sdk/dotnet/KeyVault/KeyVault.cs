@@ -17,6 +17,65 @@ namespace Pulumi.Azure.KeyVault
     /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
     /// 
     /// &gt; **Note:** This provi will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             EnabledForDiskEncryption = true,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SoftDeleteEnabled = true,
+    ///             PurgeProtectionEnabled = false,
+    ///             SkuName = "standard",
+    ///             AccessPolicies = 
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 {
+    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
+    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///                     KeyPermissions = 
+    ///                     {
+    ///                         "get",
+    ///                     },
+    ///                     SecretPermissions = 
+    ///                     {
+    ///                         "get",
+    ///                     },
+    ///                     StoragePermissions = 
+    ///                     {
+    ///                         "get",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             NetworkAcls = new Azure.KeyVault.Inputs.KeyVaultNetworkAclsArgs
+    ///             {
+    ///                 DefaultAction = "Deny",
+    ///                 Bypass = "AzureServices",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Testing" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class KeyVault : Pulumi.CustomResource
     {

@@ -11,6 +11,86 @@ import (
 )
 
 // Manages a Network Watcher Flow Log.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/operationalinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("eastus"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "testNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+// 			Location:          testResourceGroup.Location,
+// 			ResourceGroupName: testResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testNetworkWatcher, err := network.NewNetworkWatcher(ctx, "testNetworkWatcher", &network.NetworkWatcherArgs{
+// 			Location:          testResourceGroup.Location,
+// 			ResourceGroupName: testResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testAccount, err := storage.NewAccount(ctx, "testAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      testResourceGroup.Name,
+// 			Location:               testResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountKind:            pulumi.String("StorageV2"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 			EnableHttpsTrafficOnly: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "testAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+// 			Location:          testResourceGroup.Location,
+// 			ResourceGroupName: testResourceGroup.Name,
+// 			Sku:               pulumi.String("PerGB2018"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewNetworkWatcherFlowLog(ctx, "testNetworkWatcherFlowLog", &network.NetworkWatcherFlowLogArgs{
+// 			NetworkWatcherName:     testNetworkWatcher.Name,
+// 			ResourceGroupName:      testResourceGroup.Name,
+// 			NetworkSecurityGroupId: testNetworkSecurityGroup.ID(),
+// 			StorageAccountId:       testAccount.ID(),
+// 			Enabled:                pulumi.Bool(true),
+// 			RetentionPolicy: &network.NetworkWatcherFlowLogRetentionPolicyArgs{
+// 				Enabled: pulumi.Bool(true),
+// 				Days:    pulumi.Int(7),
+// 			},
+// 			TrafficAnalytics: &network.NetworkWatcherFlowLogTrafficAnalyticsArgs{
+// 				Enabled:             pulumi.Bool(true),
+// 				WorkspaceId:         testAnalyticsWorkspace.WorkspaceId,
+// 				WorkspaceRegion:     testAnalyticsWorkspace.Location,
+// 				WorkspaceResourceId: testAnalyticsWorkspace.ID(),
+// 				IntervalInMinutes:   pulumi.Int(10),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type NetworkWatcherFlowLog struct {
 	pulumi.CustomResourceState
 

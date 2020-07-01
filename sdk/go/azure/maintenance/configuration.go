@@ -35,7 +35,7 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			Scope:             pulumi.String("All"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Env": pulumi.String("prod"),
 // 			},
 // 		})

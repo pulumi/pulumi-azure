@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group.test.name,
  *     zoneName: testZone.name,
  *     ttl: 300,
- *     record: [
+ *     records: [
  *         {
  *             priority: 1,
  *             weight: 5,

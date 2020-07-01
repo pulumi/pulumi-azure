@@ -43,7 +43,7 @@ import (
 // 			EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
 // 			OutputErrorPolicy:                  pulumi.String("Drop"),
 // 			StreamingUnits:                     pulumi.Int(3),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Example"),
 // 			},
 // 			TransformationQuery: pulumi.String(fmt.Sprintf("%v%v%v", "    SELECT *\n", "    INTO [YourOutputAlias]\n", "    FROM [YourInputAlias]\n")),

@@ -38,7 +38,7 @@ import (
 // 				Name:     pulumi.String("Standard_D13_v2"),
 // 				Capacity: pulumi.Int(2),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Environment": pulumi.String("Production"),
 // 			},
 // 		})

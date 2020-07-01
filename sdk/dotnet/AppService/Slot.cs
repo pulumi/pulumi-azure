@@ -15,6 +15,152 @@ namespace Pulumi.Azure.AppService
     /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
     /// 
     /// ## Example Usage
+    /// ### Net 4.X)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
+    ///         {
+    ///             Keepers = 
+    ///             {
+    ///                 { "azi_id", 1 },
+    ///             },
+    ///             ByteLength = 8,
+    ///         });
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///             {
+    ///                 Tier = "Standard",
+    ///                 Size = "S1",
+    ///             },
+    ///         });
+    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AppServicePlanId = examplePlan.Id,
+    ///             SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///             {
+    ///                 DotnetFrameworkVersion = "v4.0",
+    ///             },
+    ///             AppSettings = 
+    ///             {
+    ///                 { "SOME_KEY", "some-value" },
+    ///             },
+    ///             ConnectionStrings = 
+    ///             {
+    ///                 new Azure.AppService.Inputs.AppServiceConnectionStringArgs
+    ///                 {
+    ///                     Name = "Database",
+    ///                     Type = "SQLServer",
+    ///                     Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleSlot = new Azure.AppService.Slot("exampleSlot", new Azure.AppService.SlotArgs
+    ///         {
+    ///             AppServiceName = exampleAppService.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AppServicePlanId = examplePlan.Id,
+    ///             SiteConfig = new Azure.AppService.Inputs.SlotSiteConfigArgs
+    ///             {
+    ///                 DotnetFrameworkVersion = "v4.0",
+    ///             },
+    ///             AppSettings = 
+    ///             {
+    ///                 { "SOME_KEY", "some-value" },
+    ///             },
+    ///             ConnectionStrings = 
+    ///             {
+    ///                 new Azure.AppService.Inputs.SlotConnectionStringArgs
+    ///                 {
+    ///                     Name = "Database",
+    ///                     Type = "SQLServer",
+    ///                     Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Java 1.8)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
+    ///         {
+    ///             Keepers = 
+    ///             {
+    ///                 { "azi_id", 1 },
+    ///             },
+    ///             ByteLength = 8,
+    ///         });
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///             {
+    ///                 Tier = "Standard",
+    ///                 Size = "S1",
+    ///             },
+    ///         });
+    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AppServicePlanId = examplePlan.Id,
+    ///             SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
+    ///             {
+    ///                 JavaVersion = "1.8",
+    ///                 JavaContainer = "JETTY",
+    ///                 JavaContainerVersion = "9.3",
+    ///             },
+    ///         });
+    ///         var exampleSlot = new Azure.AppService.Slot("exampleSlot", new Azure.AppService.SlotArgs
+    ///         {
+    ///             AppServiceName = exampleAppService.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AppServicePlanId = examplePlan.Id,
+    ///             SiteConfig = new Azure.AppService.Inputs.SlotSiteConfigArgs
+    ///             {
+    ///                 JavaVersion = "1.8",
+    ///                 JavaContainer = "JETTY",
+    ///                 JavaContainerVersion = "9.3",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Slot : Pulumi.CustomResource
     {

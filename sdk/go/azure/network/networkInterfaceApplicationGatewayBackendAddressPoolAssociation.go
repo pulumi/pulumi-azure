@@ -11,6 +11,151 @@ import (
 )
 
 // Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		frontend, err := network.NewSubnet(ctx, "frontend", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.0.1.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewSubnet(ctx, "backend", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.0.2.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AllocationMethod:  pulumi.String("Dynamic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		network, err := network.NewApplicationGateway(ctx, "network", &network.ApplicationGatewayArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			Sku: &network.ApplicationGatewaySkuArgs{
+// 				Name:     pulumi.String("Standard_Small"),
+// 				Tier:     pulumi.String("Standard"),
+// 				Capacity: pulumi.Int(2),
+// 			},
+// 			GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
+// 				&network.ApplicationGatewayGatewayIpConfigurationArgs{
+// 					Name:     pulumi.String("my-gateway-ip-configuration"),
+// 					SubnetId: frontend.ID(),
+// 				},
+// 			},
+// 			FrontendPorts: network.ApplicationGatewayFrontendPortArray{
+// 				&network.ApplicationGatewayFrontendPortArgs{
+// 					Name: pulumi.String(frontendPortName),
+// 					Port: pulumi.Int(80),
+// 				},
+// 			},
+// 			FrontendIpConfigurations: network.ApplicationGatewayFrontendIpConfigurationArray{
+// 				&network.ApplicationGatewayFrontendIpConfigurationArgs{
+// 					Name:              pulumi.String(frontendIpConfigurationName),
+// 					PublicIpAddressId: examplePublicIp.ID(),
+// 				},
+// 			},
+// 			BackendAddressPools: network.ApplicationGatewayBackendAddressPoolArray{
+// 				&network.ApplicationGatewayBackendAddressPoolArgs{
+// 					Name: pulumi.String(backendAddressPoolName),
+// 				},
+// 			},
+// 			BackendHttpSettings: network.ApplicationGatewayBackendHttpSettingArray{
+// 				&network.ApplicationGatewayBackendHttpSettingArgs{
+// 					Name:                pulumi.String(httpSettingName),
+// 					CookieBasedAffinity: pulumi.String("Disabled"),
+// 					Port:                pulumi.Int(80),
+// 					Protocol:            pulumi.String("Http"),
+// 					RequestTimeout:      pulumi.Int(1),
+// 				},
+// 			},
+// 			HttpListeners: network.ApplicationGatewayHttpListenerArray{
+// 				&network.ApplicationGatewayHttpListenerArgs{
+// 					Name:                        pulumi.String(listenerName),
+// 					FrontendIpConfigurationName: pulumi.String(frontendIpConfigurationName),
+// 					FrontendPortName:            pulumi.String(frontendPortName),
+// 					Protocol:                    pulumi.String("Http"),
+// 				},
+// 			},
+// 			RequestRoutingRules: network.ApplicationGatewayRequestRoutingRuleArray{
+// 				&network.ApplicationGatewayRequestRoutingRuleArgs{
+// 					Name:                    pulumi.String(requestRoutingRuleName),
+// 					RuleType:                pulumi.String("Basic"),
+// 					HttpListenerName:        pulumi.String(listenerName),
+// 					BackendAddressPoolName:  pulumi.String(backendAddressPoolName),
+// 					BackendHttpSettingsName: pulumi.String(httpSettingName),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+// 				&network.NetworkInterfaceIpConfigurationArgs{
+// 					Name:                       pulumi.String("testconfiguration1"),
+// 					SubnetId:                   frontend.ID(),
+// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx, "exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", &network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{
+// 			NetworkInterfaceId:  exampleNetworkInterface.ID(),
+// 			IpConfigurationName: pulumi.String("testconfiguration1"),
+// 			BackendAddressPoolId: pulumi.String(network.BackendAddressPools.ApplyT(func(backendAddressPools []network.ApplicationGatewayBackendAddressPool) (string, error) {
+// 				return backendAddressPools[0].Id, nil
+// 			}).(pulumi.StringOutput)),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation struct {
 	pulumi.CustomResourceState
 

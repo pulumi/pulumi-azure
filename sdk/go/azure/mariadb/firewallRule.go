@@ -25,7 +25,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
+// 		_, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
 // 			EndIpAddress:      pulumi.String("40.112.8.12"),
 // 			ResourceGroupName: pulumi.String("test-rg"),
 // 			ServerName:        pulumi.String("test-server"),
@@ -50,7 +50,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
+// 		_, err := mariadb.NewFirewallRule(ctx, "example", &mariadb.FirewallRuleArgs{
 // 			EndIpAddress:      pulumi.String("40.112.255.255"),
 // 			ResourceGroupName: pulumi.String("test-rg"),
 // 			ServerName:        pulumi.String("test-server"),

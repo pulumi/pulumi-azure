@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const exampleAccount = new azure.netapp.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     active_directory: {
+ *     activeDirectory: {
  *         username: "aduser",
  *         password: "aduserpwd",
  *         smbServerName: "SMBSERVER",

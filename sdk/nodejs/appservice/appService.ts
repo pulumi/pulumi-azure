@@ -32,14 +32,14 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     site_config: {
+ *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
  *         scmType: "LocalGit",
  *     },
  *     appSettings: {
  *         SOME_KEY: "some-value",
  *     },
- *     connection_string: [{
+ *     connectionStrings: [{
  *         name: "Database",
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",

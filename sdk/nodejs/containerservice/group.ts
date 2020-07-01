@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     ipAddressType: "public",
  *     dnsNameLabel: "aci-label",
  *     osType: "Linux",
- *     container: [
+ *     containers: [
  *         {
  *             name: "hello-world",
  *             image: "microsoft/aci-helloworld:latest",

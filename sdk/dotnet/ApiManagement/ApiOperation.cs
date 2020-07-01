@@ -11,6 +11,46 @@ namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
     /// Manages an API Operation within an API Management Service.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleApi = Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
+    ///         {
+    ///             Name = "search-api",
+    ///             ApiManagementName = "search-api-management",
+    ///             ResourceGroupName = "search-service",
+    ///             Revision = "2",
+    ///         }));
+    ///         var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new Azure.ApiManagement.ApiOperationArgs
+    ///         {
+    ///             OperationId = "user-delete",
+    ///             ApiName = exampleApi.Apply(exampleApi =&gt; exampleApi.Name),
+    ///             ApiManagementName = exampleApi.Apply(exampleApi =&gt; exampleApi.ApiManagementName),
+    ///             ResourceGroupName = exampleApi.Apply(exampleApi =&gt; exampleApi.ResourceGroupName),
+    ///             DisplayName = "Delete User Operation",
+    ///             Method = "DELETE",
+    ///             UrlTemplate = "/users/{id}/delete",
+    ///             Description = "This can only be done by the logged in user.",
+    ///             Responses = 
+    ///             {
+    ///                 new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
+    ///                 {
+    ///                     StatusCode = 200,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ApiOperation : Pulumi.CustomResource
     {

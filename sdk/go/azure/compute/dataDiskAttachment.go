@@ -15,6 +15,116 @@ import (
 // > **NOTE:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 //
 // > **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storageDataDisk` block in the `compute.VirtualMachine` resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		vmName := fmt.Sprintf("%v%v", prefix, "-vm")
+// 		mainResourceGroup, err := core.NewResourceGroup(ctx, "mainResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		mainVirtualNetwork, err := network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          mainResourceGroup.Location,
+// 			ResourceGroupName: mainResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+// 			ResourceGroupName:  mainResourceGroup.Name,
+// 			VirtualNetworkName: mainVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.0.2.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		mainNetworkInterface, err := network.NewNetworkInterface(ctx, "mainNetworkInterface", &network.NetworkInterfaceArgs{
+// 			Location:          mainResourceGroup.Location,
+// 			ResourceGroupName: mainResourceGroup.Name,
+// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+// 				&network.NetworkInterfaceIpConfigurationArgs{
+// 					Name:                       pulumi.String("internal"),
+// 					SubnetId:                   internal.ID(),
+// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
+// 			Location:          mainResourceGroup.Location,
+// 			ResourceGroupName: mainResourceGroup.Name,
+// 			NetworkInterfaceIds: pulumi.StringArray{
+// 				mainNetworkInterface.ID(),
+// 			},
+// 			VmSize: pulumi.String("Standard_F2"),
+// 			StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
+// 				Publisher: pulumi.String("Canonical"),
+// 				Offer:     pulumi.String("UbuntuServer"),
+// 				Sku:       pulumi.String("16.04-LTS"),
+// 				Version:   pulumi.String("latest"),
+// 			},
+// 			StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
+// 				Name:            pulumi.String("myosdisk1"),
+// 				Caching:         pulumi.String("ReadWrite"),
+// 				CreateOption:    pulumi.String("FromImage"),
+// 				ManagedDiskType: pulumi.String("Standard_LRS"),
+// 			},
+// 			OsProfile: &compute.VirtualMachineOsProfileArgs{
+// 				ComputerName:  pulumi.String(vmName),
+// 				AdminUsername: pulumi.String("testadmin"),
+// 				AdminPassword: pulumi.String("Password1234!"),
+// 			},
+// 			OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
+// 				DisablePasswordAuthentication: pulumi.Bool(false),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
+// 			Location:           mainResourceGroup.Location,
+// 			ResourceGroupName:  mainResourceGroup.Name,
+// 			StorageAccountType: pulumi.String("Standard_LRS"),
+// 			CreateOption:       pulumi.String("Empty"),
+// 			DiskSizeGb:         pulumi.Int(10),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = compute.NewDataDiskAttachment(ctx, "exampleDataDiskAttachment", &compute.DataDiskAttachmentArgs{
+// 			ManagedDiskId:    exampleManagedDisk.ID(),
+// 			VirtualMachineId: exampleVirtualMachine.ID(),
+// 			Lun:              pulumi.Int(10),
+// 			Caching:          pulumi.String("ReadWrite"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DataDiskAttachment struct {
 	pulumi.CustomResourceState
 

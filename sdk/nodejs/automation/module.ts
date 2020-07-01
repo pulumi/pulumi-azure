@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const exampleModule = new azure.automation.Module("exampleModule", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
- *     module_link: {
+ *     moduleLink: {
  *         uri: "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
  *     },
  * });

@@ -11,6 +11,85 @@ namespace Pulumi.Azure.HDInsight
 {
     /// <summary>
     /// Manages a HDInsight Hadoop Cluster.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             ContainerAccessType = "private",
+    ///         });
+    ///         var exampleHadoopCluster = new Azure.HDInsight.HadoopCluster("exampleHadoopCluster", new Azure.HDInsight.HadoopClusterArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ClusterVersion = "3.6",
+    ///             Tier = "Standard",
+    ///             ComponentVersion = new Azure.HDInsight.Inputs.HadoopClusterComponentVersionArgs
+    ///             {
+    ///                 Hadoop = "2.7",
+    ///             },
+    ///             Gateway = new Azure.HDInsight.Inputs.HadoopClusterGatewayArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Username = "acctestusrgw",
+    ///                 Password = "PAssword123!",
+    ///             },
+    ///             StorageAccounts = 
+    ///             {
+    ///                 new Azure.HDInsight.Inputs.HadoopClusterStorageAccountArgs
+    ///                 {
+    ///                     StorageContainerId = exampleContainer.Id,
+    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                     IsDefault = true,
+    ///                 },
+    ///             },
+    ///             Roles = new Azure.HDInsight.Inputs.HadoopClusterRolesArgs
+    ///             {
+    ///                 HeadNode = new Azure.HDInsight.Inputs.HadoopClusterRolesHeadNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D3_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///                 WorkerNode = new Azure.HDInsight.Inputs.HadoopClusterRolesWorkerNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D4_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                     TargetInstanceCount = 3,
+    ///                 },
+    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.HadoopClusterRolesZookeeperNodeArgs
+    ///                 {
+    ///                     VmSize = "Standard_D3_V2",
+    ///                     Username = "acctestusrvm",
+    ///                     Password = "AccTestvdSC4daf986!",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class HadoopCluster : Pulumi.CustomResource
     {

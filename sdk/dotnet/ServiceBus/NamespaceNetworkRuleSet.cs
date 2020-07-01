@@ -11,6 +11,74 @@ namespace Pulumi.Azure.ServiceBus
 {
     /// <summary>
     /// Manages a ServiceBus Namespace Network Rule Set Set.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "Premium",
+    ///             Capacity = 1,
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "172.17.0.0/16",
+    ///             },
+    ///             DnsServers = 
+    ///             {
+    ///                 "10.0.0.4",
+    ///                 "10.0.0.5",
+    ///             },
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "172.17.0.0/24",
+    ///             ServiceEndpoints = 
+    ///             {
+    ///                 "Microsoft.ServiceBus",
+    ///             },
+    ///         });
+    ///         var exampleNamespaceNetworkRuleSet = new Azure.ServiceBus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", new Azure.ServiceBus.NamespaceNetworkRuleSetArgs
+    ///         {
+    ///             NamespaceName = exampleNamespace.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DefaultAction = "Deny",
+    ///             NetworkRules = 
+    ///             {
+    ///                 new Azure.ServiceBus.Inputs.NamespaceNetworkRuleSetNetworkRuleArgs
+    ///                 {
+    ///                     SubnetId = exampleSubnet.Id,
+    ///                     IgnoreMissingVnetServiceEndpoint = false,
+    ///                 },
+    ///             },
+    ///             IpRules = 
+    ///             {
+    ///                 "1.1.1.1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NamespaceNetworkRuleSet : Pulumi.CustomResource
     {

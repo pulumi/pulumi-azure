@@ -52,7 +52,7 @@ import (
 // 			Location:          exampleResourceGroup.Location,
 // 			VirtualHubId:      exampleVirtualHub.ID(),
 // 			ScaleUnits:        pulumi.Int(1),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Production"),
 // 			},
 // 		})

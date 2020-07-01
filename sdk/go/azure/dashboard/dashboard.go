@@ -13,6 +13,48 @@ import (
 // Manages a shared dashboard in the Azure Portal.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/dashboard"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetSubscription(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = core.NewResourceGroup(ctx, "my_group", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("uksouth"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = dashboard.NewDashboard(ctx, "my_board", &dashboard.DashboardArgs{
+// 			ResourceGroupName: my_group.Name,
+// 			Location:          my_group.Location,
+// 			Tags: pulumi.StringMap{
+// 				"source": pulumi.String("managed"),
+// 			},
+// 			DashboardProperties: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "   \"lenses\": {\n", "        \"0\": {\n", "            \"order\": 0,\n", "            \"parts\": {\n", "                \"0\": {\n", "                    \"position\": {\n", "                        \"x\": 0,\n", "                        \"y\": 0,\n", "                        \"rowSpan\": 2,\n", "                        \"colSpan\": 3\n", "                    },\n", "                    \"metadata\": {\n", "                        \"inputs\": [],\n", "                        \"type\": \"Extension/HubsExtension/PartType/MarkdownPart\",\n", "                        \"settings\": {\n", "                            \"content\": {\n", "                                \"settings\": {\n", "                                    \"content\": \"", mdContent, "\",\n", "                                    \"subtitle\": \"\",\n", "                                    \"title\": \"\"\n", "                                }\n", "                            }\n", "                        }\n", "                    }\n", "                },               \n", "                \"1\": {\n", "                    \"position\": {\n", "                        \"x\": 5,\n", "                        \"y\": 0,\n", "                        \"rowSpan\": 4,\n", "                        \"colSpan\": 6\n", "                    },\n", "                    \"metadata\": {\n", "                        \"inputs\": [],\n", "                        \"type\": \"Extension/HubsExtension/PartType/VideoPart\",\n", "                        \"settings\": {\n", "                            \"content\": {\n", "                                \"settings\": {\n", "                                    \"title\": \"Important Information\",\n", "                                    \"subtitle\": \"\",\n", "                                    \"src\": \"", videoLink, "\",\n", "                                    \"autoplay\": true\n", "                                }\n", "                            }\n", "                        }\n", "                    }\n", "                },\n", "                \"2\": {\n", "                    \"position\": {\n", "                        \"x\": 0,\n", "                        \"y\": 4,\n", "                        \"rowSpan\": 4,\n", "                        \"colSpan\": 6\n", "                    },\n", "                    \"metadata\": {\n", "                        \"inputs\": [\n", "                            {\n", "                                \"name\": \"ComponentId\",\n", "                                \"value\": \"/subscriptions/", current.SubscriptionId, "/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp\"\n", "                            }\n", "                        ],\n", "                        \"type\": \"Extension/AppInsightsExtension/PartType/AppMapGalPt\",\n", "                        \"settings\": {},\n", "                        \"asset\": {\n", "                            \"idInputName\": \"ComponentId\",\n", "                            \"type\": \"ApplicationInsights\"\n", "                        }\n", "                    }\n", "                }              \n", "            }\n", "        }\n", "    },\n", "    \"metadata\": {\n", "        \"model\": {\n", "            \"timeRange\": {\n", "                \"value\": {\n", "                    \"relative\": {\n", "                        \"duration\": 24,\n", "                        \"timeUnit\": 1\n", "                    }\n", "                },\n", "                \"type\": \"MsPortalFx.Composition.Configuration.ValueTypes.TimeRange\"\n", "            },\n", "            \"filterLocale\": {\n", "                \"value\": \"en-us\"\n", "            },\n", "            \"filters\": {\n", "                \"value\": {\n", "                    \"MsPortalFx_TimeRange\": {\n", "                        \"model\": {\n", "                            \"format\": \"utc\",\n", "                            \"granularity\": \"auto\",\n", "                            \"relative\": \"24h\"\n", "                        },\n", "                        \"displayCache\": {\n", "                            \"name\": \"UTC Time\",\n", "                            \"value\": \"Past 24 hours\"\n", "                        },\n", "                        \"filteredPartIds\": [\n", "                            \"StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7\"\n", "                        ]\n", "                    }\n", "                }\n", "            }\n", "        }\n", "    }\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// It is recommended to follow the steps outlined
+// [here](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
 type Dashboard struct {
 	pulumi.CustomResourceState
 

@@ -13,6 +13,46 @@ namespace Pulumi.Azure.Backup
     /// Manages an Azure File Share Backup Policy within a Recovery Services vault.
     /// 
     /// &gt; **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
+    ///         {
+    ///             Location = rg.Location,
+    ///             ResourceGroupName = rg.Name,
+    ///             Sku = "Standard",
+    ///         });
+    ///         var policy = new Azure.Backup.PolicyFileShare("policy", new Azure.Backup.PolicyFileShareArgs
+    ///         {
+    ///             ResourceGroupName = rg.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             Timezone = "UTC",
+    ///             Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
+    ///             {
+    ///                 Frequency = "Daily",
+    ///                 Time = "23:00",
+    ///             },
+    ///             RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
+    ///             {
+    ///                 Count = 10,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class PolicyFileShare : Pulumi.CustomResource
     {

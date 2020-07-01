@@ -13,6 +13,59 @@ namespace Pulumi.Azure.Network
     /// Manages an ExpressRoute Circuit Peering.
     /// 
     /// ## Example Usage
+    /// ### Creating A Microsoft Peering)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new Azure.Network.ExpressRouteCircuitArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ServiceProviderName = "Equinix",
+    ///             PeeringLocation = "Silicon Valley",
+    ///             BandwidthInMbps = 50,
+    ///             Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///             {
+    ///                 Tier = "Standard",
+    ///                 Family = "MeteredData",
+    ///             },
+    ///             AllowClassicOperations = false,
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///         var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new Azure.Network.ExpressRouteCircuitPeeringArgs
+    ///         {
+    ///             PeeringType = "MicrosoftPeering",
+    ///             ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PeerAsn = 100,
+    ///             PrimaryPeerAddressPrefix = "123.0.0.0/30",
+    ///             SecondaryPeerAddressPrefix = "123.0.0.4/30",
+    ///             VlanId = 300,
+    ///             MicrosoftPeeringConfig = new Azure.Network.Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs
+    ///             {
+    ///                 AdvertisedPublicPrefixes = 
+    ///                 {
+    ///                     "123.1.0.0/24",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ExpressRouteCircuitPeering : Pulumi.CustomResource
     {

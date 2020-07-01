@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  *     offerType: "Standard",
  *     kind: "GlobalDocumentDB",
  *     enableAutomaticFailover: true,
- *     consistency_policy: {
+ *     consistencyPolicy: {
  *         consistencyLevel: "BoundedStaleness",
  *         maxIntervalInSeconds: 10,
  *         maxStalenessPrefix: 200,
  *     },
- *     geo_location: [
+ *     geoLocations: [
  *         {
  *             location: _var.failover_location,
  *             failoverPriority: 1,

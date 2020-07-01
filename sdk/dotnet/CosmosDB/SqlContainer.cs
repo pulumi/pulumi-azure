@@ -11,6 +11,40 @@ namespace Pulumi.Azure.CosmosDB
 {
     /// <summary>
     /// Manages a SQL Container within a Cosmos DB Account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.CosmosDB.SqlContainer("example", new Azure.CosmosDB.SqlContainerArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_cosmosdb_account.Example.Resource_group_name,
+    ///             AccountName = azurerm_cosmosdb_account.Example.Name,
+    ///             DatabaseName = azurerm_cosmosdb_sql_database.Example.Name,
+    ///             PartitionKeyPath = "/definition/id",
+    ///             Throughput = 400,
+    ///             UniqueKeys = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.SqlContainerUniqueKeyArgs
+    ///                 {
+    ///                     Paths = 
+    ///                     {
+    ///                         "/definition/idlong",
+    ///                         "/definition/idshort",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SqlContainer : Pulumi.CustomResource
     {

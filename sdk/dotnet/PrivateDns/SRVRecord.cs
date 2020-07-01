@@ -11,6 +11,56 @@ namespace Pulumi.Azure.PrivateDns
 {
     /// <summary>
     /// Enables you to manage DNS SRV Records within Azure Private DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var testZone = new Azure.PrivateDns.Zone("testZone", new Azure.PrivateDns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         });
+    ///         var testSRVRecord = new Azure.PrivateDns.SRVRecord("testSRVRecord", new Azure.PrivateDns.SRVRecordArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///             ZoneName = testZone.Name,
+    ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
+    ///                 {
+    ///                     Priority = 1,
+    ///                     Weight = 5,
+    ///                     Port = 8080,
+    ///                     Target = "target1.contoso.com",
+    ///                 },
+    ///                 new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
+    ///                 {
+    ///                     Priority = 10,
+    ///                     Weight = 10,
+    ///                     Port = 8080,
+    ///                     Target = "target2.contoso.com",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SRVRecord : Pulumi.CustomResource
     {

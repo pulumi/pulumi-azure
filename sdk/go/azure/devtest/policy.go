@@ -34,7 +34,7 @@ import (
 // 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Sydney": pulumi.String("Australia"),
 // 			},
 // 		})
@@ -48,7 +48,7 @@ import (
 // 			FactData:          pulumi.String(""),
 // 			Threshold:         pulumi.String("999"),
 // 			EvaluatorType:     pulumi.String("MaxValuePolicy"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Acceptance": pulumi.String("Test"),
 // 			},
 // 		})

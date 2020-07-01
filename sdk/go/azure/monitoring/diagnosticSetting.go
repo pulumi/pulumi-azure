@@ -11,6 +11,60 @@ import (
 )
 
 // Manages a Diagnostic Setting for an existing Resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewDiagnosticSetting(ctx, "exampleDiagnosticSetting", &monitoring.DiagnosticSettingArgs{
+// 			TargetResourceId: exampleKeyVault.ApplyT(func(exampleKeyVault keyvault.LookupKeyVaultResult) (string, error) {
+// 				return exampleKeyVault.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			StorageAccountId: exampleAccount.ApplyT(func(exampleAccount storage.LookupAccountResult) (string, error) {
+// 				return exampleAccount.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			Logs: monitoring.DiagnosticSettingLogArray{
+// 				&monitoring.DiagnosticSettingLogArgs{
+// 					Category: pulumi.String("AuditEvent"),
+// 					Enabled:  pulumi.Bool(false),
+// 					RetentionPolicy: &monitoring.DiagnosticSettingLogRetentionPolicyArgs{
+// 						Enabled: pulumi.Bool(false),
+// 					},
+// 				},
+// 			},
+// 			Metrics: monitoring.DiagnosticSettingMetricArray{
+// 				&monitoring.DiagnosticSettingMetricArgs{
+// 					Category: pulumi.String("AllMetrics"),
+// 					RetentionPolicy: &monitoring.DiagnosticSettingMetricRetentionPolicyArgs{
+// 						Enabled: pulumi.Bool(false),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState
 

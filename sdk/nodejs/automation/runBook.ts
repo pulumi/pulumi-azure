@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     logProgress: "true",
  *     description: "This is an example runbook",
  *     runbookType: "PowerShellWorkflow",
- *     publish_content_link: {
+ *     publishContentLink: {
  *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
  *     },
  * });

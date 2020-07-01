@@ -172,7 +172,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err := management.LookupGroup(ctx, nil, nil)
+// 		_, err = management.LookupGroup(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}

@@ -11,6 +11,49 @@ import (
 )
 
 // Enables you to manage DNS TXT Records within Azure Private DNS.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/privatedns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testZone, err := privatedns.NewZone(ctx, "testZone", &privatedns.ZoneArgs{
+// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = privatedns.NewTxtRecord(ctx, "testTxtRecord", &privatedns.TxtRecordArgs{
+// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
+// 			ZoneName:          testZone.Name,
+// 			Ttl:               pulumi.Int(300),
+// 			Records: privatedns.TxtRecordRecordArray{
+// 				&privatedns.TxtRecordRecordArgs{
+// 					Value: pulumi.String("v=spf1 mx ~all"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TxtRecord struct {
 	pulumi.CustomResourceState
 

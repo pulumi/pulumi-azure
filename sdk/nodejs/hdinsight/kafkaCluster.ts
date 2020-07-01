@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     clusterVersion: "4.0",
  *     tier: "Standard",
- *     component_version: {
+ *     componentVersion: {
  *         kafka: "2.1",
  *     },
  *     gateway: {
@@ -39,25 +39,25 @@ import * as utilities from "../utilities";
  *         username: "acctestusrgw",
  *         password: "Password123!",
  *     },
- *     storage_account: [{
+ *     storageAccounts: [{
  *         storageContainerId: exampleContainer.id,
  *         storageAccountKey: exampleAccount.primaryAccessKey,
  *         isDefault: true,
  *     }],
  *     roles: {
- *         head_node: {
+ *         headNode: {
  *             vmSize: "Standard_D3_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *         },
- *         worker_node: {
+ *         workerNode: {
  *             vmSize: "Standard_D3_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *             numberOfDisksPerNode: 3,
  *             targetInstanceCount: 3,
  *         },
- *         zookeeper_node: {
+ *         zookeeperNode: {
  *             vmSize: "Standard_D3_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",

@@ -17,6 +17,85 @@ import (
 // > **NOTE** Azure Backup for Azure File Shares does not support Soft Delete at this time. Deleting this resource will also delete all associated backup data. Please exercise caution. Consider using [`protect`](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to guard against accidental deletion.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/backup"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/recoveryservices"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+// 			Location:          rg.Location,
+// 			ResourceGroupName: rg.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
+// 			Location:               rg.Location,
+// 			ResourceGroupName:      rg.Name,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
+// 			StorageAccountName: sa.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = backup.NewContainerStorageAccount(ctx, "protection_container", &backup.ContainerStorageAccountArgs{
+// 			ResourceGroupName: rg.Name,
+// 			RecoveryVaultName: vault.Name,
+// 			StorageAccountId:  sa.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePolicyFileShare, err := backup.NewPolicyFileShare(ctx, "examplePolicyFileShare", &backup.PolicyFileShareArgs{
+// 			ResourceGroupName: rg.Name,
+// 			RecoveryVaultName: vault.Name,
+// 			Backup: &backup.PolicyFileShareBackupArgs{
+// 				Frequency: pulumi.String("Daily"),
+// 				Time:      pulumi.String("23:00"),
+// 			},
+// 			RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
+// 				Count: pulumi.Int(10),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = backup.NewProtectedFileShare(ctx, "share1", &backup.ProtectedFileShareArgs{
+// 			ResourceGroupName:      rg.Name,
+// 			RecoveryVaultName:      vault.Name,
+// 			SourceStorageAccountId: protection_container.StorageAccountId,
+// 			SourceFileShareName:    exampleShare.Name,
+// 			BackupPolicyId:         examplePolicyFileShare.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProtectedFileShare struct {
 	pulumi.CustomResourceState
 

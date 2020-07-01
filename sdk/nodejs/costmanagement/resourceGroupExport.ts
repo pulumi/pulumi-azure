@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     recurrenceType: "Monthly",
  *     recurrencePeriodStart: "2020-08-18T00:00:00Z",
  *     recurrencePeriodEnd: "2020-09-18T00:00:00Z",
- *     delivery_info: {
+ *     deliveryInfo: {
  *         storageAccountId: exampleAccount.id,
  *         containerName: "examplecontainer",
  *         rootFolderPath: "/root/updated",

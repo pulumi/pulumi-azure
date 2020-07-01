@@ -11,6 +11,68 @@ import (
 )
 
 // Manages an API Management Service Diagnostic.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appinsights"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApplicationType:   pulumi.String("web"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			PublisherName:     pulumi.String("My Company"),
+// 			PublisherEmail:    pulumi.String("company@mycompany.io"),
+// 			SkuName:           pulumi.String("Developer_1"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLogger, err := apimanagement.NewLogger(ctx, "exampleLogger", &apimanagement.LoggerArgs{
+// 			ApiManagementName: exampleService.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
+// 				InstrumentationKey: exampleInsights.InstrumentationKey,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apimanagement.NewDiagnostic(ctx, "exampleDiagnostic", &apimanagement.DiagnosticArgs{
+// 			Identifier:            pulumi.String("applicationinsights"),
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			ApiManagementName:     exampleService.Name,
+// 			ApiManagementLoggerId: exampleLogger.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Diagnostic struct {
 	pulumi.CustomResourceState
 

@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     ],
  *     servicebusRuleId: pulumi.interpolate`${exampleEventHubNamespace.id}/authorizationrules/RootManageSharedAccessKey`,
  *     storageAccountId: exampleAccount.id,
- *     retention_policy: {
+ *     retentionPolicy: {
  *         enabled: true,
  *         days: 7,
  *     },

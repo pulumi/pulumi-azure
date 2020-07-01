@@ -32,13 +32,13 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = dns.NewZone(ctx, "example-public", &dns.ZoneArgs{
+// 		_, err = dns.NewZone(ctx, "example_public", &dns.ZoneArgs{
 // 			ResourceGroupName: example.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = privatedns.NewZone(ctx, "example-private", &privatedns.ZoneArgs{
+// 		_, err = privatedns.NewZone(ctx, "example_private", &privatedns.ZoneArgs{
 // 			ResourceGroupName: example.Name,
 // 		})
 // 		if err != nil {

@@ -13,6 +13,144 @@ import (
 // Manages a Key Vault Certificate.
 //
 // ## Example Usage
+// ### Generating A New Certificate)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			TenantId:          pulumi.String(current.TenantId),
+// 			SkuName:           pulumi.String("standard"),
+// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+// 				&keyvault.KeyVaultAccessPolicyArgs{
+// 					TenantId: pulumi.String(current.TenantId),
+// 					ObjectId: pulumi.String(current.ObjectId),
+// 					CertificatePermissions: pulumi.StringArray{
+// 						pulumi.String("create"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("deleteissuers"),
+// 						pulumi.String("get"),
+// 						pulumi.String("getissuers"),
+// 						pulumi.String("import"),
+// 						pulumi.String("list"),
+// 						pulumi.String("listissuers"),
+// 						pulumi.String("managecontacts"),
+// 						pulumi.String("manageissuers"),
+// 						pulumi.String("setissuers"),
+// 						pulumi.String("update"),
+// 					},
+// 					KeyPermissions: pulumi.StringArray{
+// 						pulumi.String("backup"),
+// 						pulumi.String("create"),
+// 						pulumi.String("decrypt"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("encrypt"),
+// 						pulumi.String("get"),
+// 						pulumi.String("import"),
+// 						pulumi.String("list"),
+// 						pulumi.String("purge"),
+// 						pulumi.String("recover"),
+// 						pulumi.String("restore"),
+// 						pulumi.String("sign"),
+// 						pulumi.String("unwrapKey"),
+// 						pulumi.String("update"),
+// 						pulumi.String("verify"),
+// 						pulumi.String("wrapKey"),
+// 					},
+// 					SecretPermissions: pulumi.StringArray{
+// 						pulumi.String("backup"),
+// 						pulumi.String("delete"),
+// 						pulumi.String("get"),
+// 						pulumi.String("list"),
+// 						pulumi.String("purge"),
+// 						pulumi.String("recover"),
+// 						pulumi.String("restore"),
+// 						pulumi.String("set"),
+// 					},
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+// 			KeyVaultId: exampleKeyVault.ID(),
+// 			CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
+// 				IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
+// 					Name: pulumi.String("Self"),
+// 				},
+// 				KeyProperties: &keyvault.CertificateCertificatePolicyKeyPropertiesArgs{
+// 					Exportable: pulumi.Bool(true),
+// 					KeySize:    pulumi.Int(2048),
+// 					KeyType:    pulumi.String("RSA"),
+// 					ReuseKey:   pulumi.Bool(true),
+// 				},
+// 				LifetimeActions: keyvault.CertificateCertificatePolicyLifetimeActionArray{
+// 					&keyvault.CertificateCertificatePolicyLifetimeActionArgs{
+// 						Action: &keyvault.CertificateCertificatePolicyLifetimeActionActionArgs{
+// 							ActionType: pulumi.String("AutoRenew"),
+// 						},
+// 						Trigger: &keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs{
+// 							DaysBeforeExpiry: pulumi.Int(30),
+// 						},
+// 					},
+// 				},
+// 				SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
+// 					ContentType: pulumi.String("application/x-pkcs12"),
+// 				},
+// 				X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
+// 					ExtendedKeyUsages: pulumi.StringArray{
+// 						pulumi.String("1.3.6.1.5.5.7.3.1"),
+// 					},
+// 					KeyUsages: pulumi.StringArray{
+// 						pulumi.String("cRLSign"),
+// 						pulumi.String("dataEncipherment"),
+// 						pulumi.String("digitalSignature"),
+// 						pulumi.String("keyAgreement"),
+// 						pulumi.String("keyCertSign"),
+// 						pulumi.String("keyEncipherment"),
+// 					},
+// 					SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
+// 						DnsNames: pulumi.StringArray{
+// 							pulumi.String("internal.contoso.com"),
+// 							pulumi.String("domain.hello.world"),
+// 						},
+// 					},
+// 					Subject:          pulumi.String("CN=hello-world"),
+// 					ValidityInMonths: pulumi.Int(12),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // Deprecated: azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate
 type Certifiate struct {

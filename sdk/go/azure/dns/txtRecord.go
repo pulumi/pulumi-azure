@@ -11,6 +11,55 @@ import (
 )
 
 // Enables you to manage DNS TXT Records within Azure DNS.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/dns"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = dns.NewTxtRecord(ctx, "exampleTxtRecord", &dns.TxtRecordArgs{
+// 			ZoneName:          exampleZone.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Ttl:               pulumi.Int(300),
+// 			Records: dns.TxtRecordRecordArray{
+// 				&dns.TxtRecordRecordArgs{
+// 					Value: pulumi.String("google-site-authenticator"),
+// 				},
+// 				&dns.TxtRecordRecordArgs{
+// 					Value: pulumi.String("more site information here"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type TxtRecord struct {
 	pulumi.CustomResourceState
 

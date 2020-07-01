@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
  *     resourceGroupName: mainResourceGroup.name,
  *     shortName: "exampleact",
- *     webhook_receiver: [{
+ *     webhookReceivers: [{
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
@@ -34,19 +34,19 @@ import * as utilities from "../utilities";
  *     resourceGroupName: mainResourceGroup.name,
  *     scopes: [toMonitor.id],
  *     description: "Action will be triggered when Transactions count is greater than 50.",
- *     criteria: [{
+ *     criterias: [{
  *         metricNamespace: "Microsoft.Storage/storageAccounts",
  *         metricName: "Transactions",
  *         aggregation: "Total",
  *         operator: "GreaterThan",
  *         threshold: 50,
- *         dimension: [{
+ *         dimensions: [{
  *             name: "ApiName",
  *             operator: "Include",
  *             values: ["*"],
  *         }],
  *     }],
- *     action: [{
+ *     actions: [{
  *         actionGroupId: mainActionGroup.id,
  *     }],
  * });

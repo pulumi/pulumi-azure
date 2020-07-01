@@ -11,6 +11,86 @@ import (
 )
 
 // Manages a Metric Alert within Azure Monitor.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		mainResourceGroup, err := core.NewResourceGroup(ctx, "mainResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		toMonitor, err := storage.NewAccount(ctx, "toMonitor", &storage.AccountArgs{
+// 			ResourceGroupName:      mainResourceGroup.Name,
+// 			Location:               mainResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		mainActionGroup, err := monitoring.NewActionGroup(ctx, "mainActionGroup", &monitoring.ActionGroupArgs{
+// 			ResourceGroupName: mainResourceGroup.Name,
+// 			ShortName:         pulumi.String("exampleact"),
+// 			WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
+// 				&monitoring.ActionGroupWebhookReceiverArgs{
+// 					Name:       pulumi.String("callmyapi"),
+// 					ServiceUri: pulumi.String("http://example.com/alert"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewMetricAlert(ctx, "example", &monitoring.MetricAlertArgs{
+// 			ResourceGroupName: mainResourceGroup.Name,
+// 			Scopes: pulumi.String(pulumi.String{
+// 				toMonitor.ID(),
+// 			}),
+// 			Description: pulumi.String("Action will be triggered when Transactions count is greater than 50."),
+// 			Criterias: monitoring.MetricAlertCriteriaArray{
+// 				&monitoring.MetricAlertCriteriaArgs{
+// 					MetricNamespace: pulumi.String("Microsoft.Storage/storageAccounts"),
+// 					MetricName:      pulumi.String("Transactions"),
+// 					Aggregation:     pulumi.String("Total"),
+// 					Operator:        pulumi.String("GreaterThan"),
+// 					Threshold:       pulumi.Float64(50),
+// 					Dimensions: monitoring.MetricAlertCriteriaDimensionArray{
+// 						&monitoring.MetricAlertCriteriaDimensionArgs{
+// 							Name:     pulumi.String("ApiName"),
+// 							Operator: pulumi.String("Include"),
+// 							Values: pulumi.StringArray{
+// 								pulumi.String("*"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 			Actions: monitoring.MetricAlertActionArray{
+// 				&monitoring.MetricAlertActionArgs{
+// 					ActionGroupId: mainActionGroup.ID(),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type MetricAlert struct {
 	pulumi.CustomResourceState
 

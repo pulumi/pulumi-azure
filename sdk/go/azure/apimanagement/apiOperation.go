@@ -11,6 +11,50 @@ import (
 )
 
 // Manages an API Operation within an API Management Service.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/apimanagement"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+// 			Name:              "search-api",
+// 			ApiManagementName: "search-api-management",
+// 			ResourceGroupName: "search-service",
+// 			Revision:          "2",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
+// 			OperationId:       pulumi.String("user-delete"),
+// 			ApiName:           pulumi.String(exampleApi.Name),
+// 			ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
+// 			ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
+// 			DisplayName:       pulumi.String("Delete User Operation"),
+// 			Method:            pulumi.String("DELETE"),
+// 			UrlTemplate:       pulumi.String("/users/{id}/delete"),
+// 			Description:       pulumi.String("This can only be done by the logged in user."),
+// 			Responses: apimanagement.ApiOperationResponseArray{
+// 				&apimanagement.ApiOperationResponseArgs{
+// 					StatusCode: pulumi.Int(200),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ApiOperation struct {
 	pulumi.CustomResourceState
 

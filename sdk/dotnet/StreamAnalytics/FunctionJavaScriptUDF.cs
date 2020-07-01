@@ -11,6 +11,50 @@ namespace Pulumi.Azure.StreamAnalytics
 {
     /// <summary>
     /// Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         {
+    ///             Name = "example-resources",
+    ///         }));
+    ///         var exampleJob = Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
+    ///         {
+    ///             Name = "example-job",
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///         }));
+    ///         var exampleFunctionJavaScriptUDF = new Azure.StreamAnalytics.FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", new Azure.StreamAnalytics.FunctionJavaScriptUDFArgs
+    ///         {
+    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
+    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
+    ///             Script = @"function getRandomNumber(in) {
+    ///   return in;
+    /// }
+    /// ",
+    ///             Inputs = 
+    ///             {
+    ///                 new Azure.StreamAnalytics.Inputs.FunctionJavaScriptUDFInputArgs
+    ///                 {
+    ///                     Type = "bigint",
+    ///                 },
+    ///             },
+    ///             Output = new Azure.StreamAnalytics.Inputs.FunctionJavaScriptUDFOutputArgs
+    ///             {
+    ///                 Type = "bigint",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FunctionJavaScriptUDF : Pulumi.CustomResource
     {

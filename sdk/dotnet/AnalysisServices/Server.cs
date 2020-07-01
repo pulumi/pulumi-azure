@@ -11,6 +11,51 @@ namespace Pulumi.Azure.AnalysisServices
 {
     /// <summary>
     /// Manages an Analysis Services Server.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var server = new Azure.AnalysisServices.Server("server", new Azure.AnalysisServices.ServerArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///             ResourceGroupName = rg.Name,
+    ///             Sku = "S0",
+    ///             AdminUsers = 
+    ///             {
+    ///                 "myuser@domain.tld",
+    ///             },
+    ///             EnablePowerBiService = true,
+    ///             Ipv4FirewallRules = 
+    ///             {
+    ///                 new Azure.AnalysisServices.Inputs.ServerIpv4FirewallRuleArgs
+    ///                 {
+    ///                     Name = "myRule1",
+    ///                     RangeStart = "210.117.252.0",
+    ///                     RangeEnd = "210.117.252.255",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "abc", "123" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **NOTE:** The server resource will automatically be started and stopped during an update if it is in `paused` state.
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

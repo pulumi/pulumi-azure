@@ -11,6 +11,71 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Network Watcher Flow Log.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "eastus",
+    ///         });
+    ///         var testNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("testNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
+    ///         {
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///         });
+    ///         var testNetworkWatcher = new Azure.Network.NetworkWatcher("testNetworkWatcher", new Azure.Network.NetworkWatcherArgs
+    ///         {
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///         });
+    ///         var testAccount = new Azure.Storage.Account("testAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = testResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountKind = "StorageV2",
+    ///             AccountReplicationType = "LRS",
+    ///             EnableHttpsTrafficOnly = true,
+    ///         });
+    ///         var testAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("testAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
+    ///         {
+    ///             Location = testResourceGroup.Location,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Sku = "PerGB2018",
+    ///         });
+    ///         var testNetworkWatcherFlowLog = new Azure.Network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog", new Azure.Network.NetworkWatcherFlowLogArgs
+    ///         {
+    ///             NetworkWatcherName = testNetworkWatcher.Name,
+    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             NetworkSecurityGroupId = testNetworkSecurityGroup.Id,
+    ///             StorageAccountId = testAccount.Id,
+    ///             Enabled = true,
+    ///             RetentionPolicy = new Azure.Network.Inputs.NetworkWatcherFlowLogRetentionPolicyArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Days = 7,
+    ///             },
+    ///             TrafficAnalytics = new Azure.Network.Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 WorkspaceId = testAnalyticsWorkspace.WorkspaceId,
+    ///                 WorkspaceRegion = testAnalyticsWorkspace.Location,
+    ///                 WorkspaceResourceId = testAnalyticsWorkspace.Id,
+    ///                 IntervalInMinutes = 10,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NetworkWatcherFlowLog : Pulumi.CustomResource
     {

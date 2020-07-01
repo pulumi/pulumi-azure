@@ -11,6 +11,60 @@ import (
 )
 
 // Manages a Cassandra KeySpace within a Cosmos DB Account.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/cosmosdb"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+// 			Name: "tflex-cosmosdb-account-rg",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 			Location:          pulumi.String(exampleResourceGroup.Location),
+// 			OfferType:         pulumi.String("Standard"),
+// 			Capabilities: cosmosdb.AccountCapabilityArray{
+// 				&cosmosdb.AccountCapabilityArgs{
+// 					Name: pulumi.String("EnableCassandra"),
+// 				},
+// 			},
+// 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+// 				ConsistencyLevel: pulumi.String("Strong"),
+// 			},
+// 			GeoLocations: cosmosdb.AccountGeoLocationArray{
+// 				&cosmosdb.AccountGeoLocationArgs{
+// 					Location:         pulumi.String("West US"),
+// 					FailoverPriority: pulumi.Int(0),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cosmosdb.NewCassandraKeyspace(ctx, "exampleCassandraKeyspace", &cosmosdb.CassandraKeyspaceArgs{
+// 			ResourceGroupName: exampleAccount.ResourceGroupName,
+// 			AccountName:       exampleAccount.Name,
+// 			Throughput:        pulumi.Int(400),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type CassandraKeyspace struct {
 	pulumi.CustomResourceState
 

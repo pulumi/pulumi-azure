@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     skuName: "Standard",
  *     enableNonSslPort: false,
  *     minimumTlsVersion: "1.2",
- *     redis_configuration: {},
+ *     redisConfiguration: {},
  * });
  * ```
  * ## Default Redis Configuration Values

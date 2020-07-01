@@ -11,6 +11,45 @@ namespace Pulumi.Azure.Iot
 {
     /// <summary>
     /// Manages an Azure IoT Time Series Insights Reference Data Set.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new Azure.Iot.TimeSeriesInsightsStandardEnvironmentArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "S1_1",
+    ///             DataRetentionTime = "P30D",
+    ///         });
+    ///         var exampleTimeSeriesInsightsReferenceDataSet = new Azure.Iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet", new Azure.Iot.TimeSeriesInsightsReferenceDataSetArgs
+    ///         {
+    ///             TimeSeriesInsightsEnvironmentId = exampleTimeSeriesInsightsStandardEnvironment.Id,
+    ///             Location = exampleResourceGroup.Location,
+    ///             KeyProperties = 
+    ///             {
+    ///                 new Azure.Iot.Inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs
+    ///                 {
+    ///                     Name = "keyProperty1",
+    ///                     Type = "String",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TimeSeriesInsightsReferenceDataSet : Pulumi.CustomResource
     {

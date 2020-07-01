@@ -13,6 +13,151 @@ namespace Pulumi.Azure.KeyVault
     /// Manages a Key Vault Certificate.
     /// 
     /// ## Example Usage
+    /// ### Generating A New Certificate)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TenantId = current.Apply(current =&gt; current.TenantId),
+    ///             SkuName = "standard",
+    ///             AccessPolicies = 
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 {
+    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
+    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
+    ///                     CertificatePermissions = 
+    ///                     {
+    ///                         "create",
+    ///                         "delete",
+    ///                         "deleteissuers",
+    ///                         "get",
+    ///                         "getissuers",
+    ///                         "import",
+    ///                         "list",
+    ///                         "listissuers",
+    ///                         "managecontacts",
+    ///                         "manageissuers",
+    ///                         "setissuers",
+    ///                         "update",
+    ///                     },
+    ///                     KeyPermissions = 
+    ///                     {
+    ///                         "backup",
+    ///                         "create",
+    ///                         "decrypt",
+    ///                         "delete",
+    ///                         "encrypt",
+    ///                         "get",
+    ///                         "import",
+    ///                         "list",
+    ///                         "purge",
+    ///                         "recover",
+    ///                         "restore",
+    ///                         "sign",
+    ///                         "unwrapKey",
+    ///                         "update",
+    ///                         "verify",
+    ///                         "wrapKey",
+    ///                     },
+    ///                     SecretPermissions = 
+    ///                     {
+    ///                         "backup",
+    ///                         "delete",
+    ///                         "get",
+    ///                         "list",
+    ///                         "purge",
+    ///                         "recover",
+    ///                         "restore",
+    ///                         "set",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
+    ///         {
+    ///             KeyVaultId = exampleKeyVault.Id,
+    ///             CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
+    ///             {
+    ///                 IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
+    ///                 {
+    ///                     Name = "Self",
+    ///                 },
+    ///                 KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
+    ///                 {
+    ///                     Exportable = true,
+    ///                     KeySize = 2048,
+    ///                     KeyType = "RSA",
+    ///                     ReuseKey = true,
+    ///                 },
+    ///                 LifetimeActions = 
+    ///                 {
+    ///                     new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionArgs
+    ///                     {
+    ///                         Action = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionActionArgs
+    ///                         {
+    ///                             ActionType = "AutoRenew",
+    ///                         },
+    ///                         Trigger = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs
+    ///                         {
+    ///                             DaysBeforeExpiry = 30,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///                 {
+    ///                     ContentType = "application/x-pkcs12",
+    ///                 },
+    ///                 X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
+    ///                 {
+    ///                     ExtendedKeyUsages = 
+    ///                     {
+    ///                         "1.3.6.1.5.5.7.3.1",
+    ///                     },
+    ///                     KeyUsages = 
+    ///                     {
+    ///                         "cRLSign",
+    ///                         "dataEncipherment",
+    ///                         "digitalSignature",
+    ///                         "keyAgreement",
+    ///                         "keyCertSign",
+    ///                         "keyEncipherment",
+    ///                     },
+    ///                     SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
+    ///                     {
+    ///                         DnsNames = 
+    ///                         {
+    ///                             "internal.contoso.com",
+    ///                             "domain.hello.world",
+    ///                         },
+    ///                     },
+    ///                     Subject = "CN=hello-world",
+    ///                     ValidityInMonths = 12,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {

@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     frontend_ip_configuration: [{
+ *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     automaticOsUpgrade: true,
  *     upgradePolicyMode: "Rolling",
- *     rolling_upgrade_policy: {
+ *     rollingUpgradePolicy: {
  *         maxBatchInstancePercent: 20,
  *         maxUnhealthyInstancePercent: 20,
  *         maxUnhealthyUpgradedInstancePercent: 5,
@@ -86,39 +86,39 @@ import * as utilities from "../utilities";
  *         tier: "Standard",
  *         capacity: 2,
  *     },
- *     storage_profile_image_reference: {
+ *     storageProfileImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
  *         sku: "16.04-LTS",
  *         version: "latest",
  *     },
- *     storage_profile_os_disk: {
+ *     storageProfileOsDisk: {
  *         name: "",
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         managedDiskType: "Standard_LRS",
  *     },
- *     storage_profile_data_disk: [{
+ *     storageProfileDataDisks: [{
  *         lun: 0,
  *         caching: "ReadWrite",
  *         createOption: "Empty",
  *         diskSizeGb: 10,
  *     }],
- *     os_profile: {
+ *     osProfile: {
  *         computerNamePrefix: "testvm",
  *         adminUsername: "myadmin",
  *     },
- *     os_profile_linux_config: {
+ *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: true,
- *         ssh_keys: [{
+ *         sshKeys: [{
  *             path: "/home/myadmin/.ssh/authorized_keys",
  *             keyData: fs.readFileSync("~/.ssh/demo_key.pub"),
  *         }],
  *     },
- *     network_profile: [{
+ *     networkProfiles: [{
  *         name: "mynetworkprofile",
  *         primary: true,
- *         ip_configuration: [{
+ *         ipConfigurations: [{
  *             name: "TestIPConfiguration",
  *             primary: true,
  *             subnetId: exampleSubnet.id,
@@ -171,33 +171,33 @@ import * as utilities from "../utilities";
  *         tier: "Standard",
  *         capacity: 2,
  *     },
- *     os_profile: {
+ *     osProfile: {
  *         computerNamePrefix: "testvm",
  *         adminUsername: "myadmin",
  *     },
- *     os_profile_linux_config: {
+ *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: true,
- *         ssh_keys: [{
+ *         sshKeys: [{
  *             path: "/home/myadmin/.ssh/authorized_keys",
  *             keyData: fs.readFileSync("~/.ssh/demo_key.pub"),
  *         }],
  *     },
- *     network_profile: [{
+ *     networkProfiles: [{
  *         name: "TestNetworkProfile",
  *         primary: true,
- *         ip_configuration: [{
+ *         ipConfigurations: [{
  *             name: "TestIPConfiguration",
  *             primary: true,
  *             subnetId: exampleSubnet.id,
  *         }],
  *     }],
- *     storage_profile_os_disk: {
+ *     storageProfileOsDisk: {
  *         name: "osDiskProfile",
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         vhdContainers: [pulumi.interpolate`${exampleAccount.primaryBlobEndpoint}${exampleContainer.name}`],
  *     },
- *     storage_profile_image_reference: {
+ *     storageProfileImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
  *         sku: "16.04-LTS",
@@ -213,7 +213,7 @@ import * as utilities from "../utilities";
  *
  * const exampleImage = new azure.compute.Image("exampleImage", {});
  * // ...
- * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {storage_profile_image_reference: {
+ * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {storageProfileImageReference: {
  *     id: exampleImage.id,
  * }});
  * // ...

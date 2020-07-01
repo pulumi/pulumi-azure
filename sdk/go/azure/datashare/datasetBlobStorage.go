@@ -11,6 +11,91 @@ import (
 )
 
 // Manages a Data Share Blob Storage Dataset.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/datashare"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi-azuread/sdk/v2/go/azuread"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Identity: &datashare.AccountIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleShare, err := datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
+// 			AccountId: exampleAccount.ID(),
+// 			Kind:      pulumi.String("CopyBased"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = storage.NewAccount(ctx, "exampleStorage_accountAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("RAGRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+// 			StorageAccountName:  pulumi.String(exampleStorage / accountAccount.Name),
+// 			ContainerAccessType: pulumi.String("container"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+// 			Scope:              pulumi.String(exampleStorage / accountAccount.Id),
+// 			RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
+// 			PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal azuread.LookupServicePrincipalResult) (string, error) {
+// 				return exampleServicePrincipal.ObjectId, nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = datashare.NewDatasetBlobStorage(ctx, "exampleDatasetBlobStorage", &datashare.DatasetBlobStorageArgs{
+// 			DataShareId:   exampleShare.ID(),
+// 			ContainerName: exampleContainer.Name,
+// 			StorageAccount: &datashare.DatasetBlobStorageStorageAccountArgs{
+// 				Name:              pulumi.String(exampleStorage / accountAccount.Name),
+// 				ResourceGroupName: pulumi.String(exampleStorage / accountAccount.ResourceGroupName),
+// 				SubscriptionId:    pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			},
+// 			FilePath: pulumi.String("myfile.txt"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleAssignment,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DatasetBlobStorage struct {
 	pulumi.CustomResourceState
 

@@ -14,6 +14,69 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+// 			Keepers: pulumi.Float64Map{
+// 				"azi_id": pulumi.Float64(1),
+// 			},
+// 			ByteLength: pulumi.Int(8),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
+// 			ResourceGroupName:    exampleResourceGroup.Name,
+// 			TrafficRoutingMethod: pulumi.String("Weighted"),
+// 			DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
+// 				RelativeName: server.Hex,
+// 				Ttl:          pulumi.Int(100),
+// 			},
+// 			MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
+// 				Protocol:                  pulumi.String("http"),
+// 				Port:                      pulumi.Int(80),
+// 				Path:                      pulumi.String("/"),
+// 				IntervalInSeconds:         pulumi.Int(30),
+// 				TimeoutInSeconds:          pulumi.Int(9),
+// 				ToleratedNumberOfFailures: pulumi.Int(3),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"environment": pulumi.String("Production"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewTrafficManagerEndpoint(ctx, "exampleTrafficManagerEndpoint", &network.TrafficManagerEndpointArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ProfileName:       exampleTrafficManagerProfile.Name,
+// 			Type:              pulumi.String("externalEndpoints"),
+// 			Weight:            pulumi.Int(100),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // Deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint
 type Endpoint struct {
 	pulumi.CustomResourceState

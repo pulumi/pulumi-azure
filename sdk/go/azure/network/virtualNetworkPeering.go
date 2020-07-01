@@ -14,6 +14,64 @@ import (
 // resources in the linked virtual network.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewVirtualNetwork(ctx, "example_1VirtualNetwork", &network.VirtualNetworkArgs{
+// 			ResourceGroupName: example.Name,
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.1.0/24"),
+// 			},
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewVirtualNetwork(ctx, "example_2VirtualNetwork", &network.VirtualNetworkArgs{
+// 			ResourceGroupName: example.Name,
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
+// 			Location: pulumi.String("West US"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewVirtualNetworkPeering(ctx, "example_1VirtualNetworkPeering", &network.VirtualNetworkPeeringArgs{
+// 			ResourceGroupName:      example.Name,
+// 			VirtualNetworkName:     example_1VirtualNetwork.Name,
+// 			RemoteVirtualNetworkId: example_2VirtualNetwork.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewVirtualNetworkPeering(ctx, "example_2VirtualNetworkPeering", &network.VirtualNetworkPeeringArgs{
+// 			ResourceGroupName:      example.Name,
+// 			VirtualNetworkName:     example_2VirtualNetwork.Name,
+// 			RemoteVirtualNetworkId: example_1VirtualNetwork.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Note
 //
 // Virtual Network peerings cannot be created, updated or deleted concurrently.

@@ -47,6 +47,12 @@ namespace Pulumi.Azure.SiteRecovery
     ///             ResourceGroupName = secondaryResourceGroup.Name,
     ///             RecoveryVaultName = vault.Name,
     ///             Location = secondaryResourceGroup.Location,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 primaryFabric,
+    ///             },
     ///         });
     ///         // Avoids issues with crearing fabrics simultainusly
     ///         var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new Azure.Network.VirtualNetworkArgs

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     ip_configuration: [{
+ *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
@@ -44,24 +44,24 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     vmSize: "Standard_F2",
- *     storage_image_reference: {
+ *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
  *         sku: "16.04-LTS",
  *         version: "latest",
  *     },
- *     storage_os_disk: {
+ *     storageOsDisk: {
  *         name: "osdisk",
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         managedDiskType: "Standard_LRS",
  *     },
- *     os_profile: {
+ *     osProfile: {
  *         computerName: "cmtest-vm",
  *         adminUsername: "testadmin",
  *         adminPassword: "Password1234!",
  *     },
- *     os_profile_linux_config: {
+ *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
  * });
@@ -85,6 +85,8 @@ import * as utilities from "../utilities";
  *         address: "exmaple.com",
  *         port: 80,
  *     },
+ * }, {
+ *     dependsOn: [exampleExtension],
  * });
  * ```
  *

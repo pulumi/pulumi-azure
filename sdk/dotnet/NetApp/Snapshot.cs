@@ -11,6 +11,88 @@ namespace Pulumi.Azure.NetApp
 {
     /// <summary>
     /// Manages a NetApp Snapshot.
+    /// 
+    /// ## NetApp Snapshot Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefix = "10.0.2.0/24",
+    ///             Delegations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 {
+    ///                     Name = "netapp",
+    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     {
+    ///                         Name = "Microsoft.Netapp/volumes",
+    ///                         Actions = 
+    ///                         {
+    ///                             "Microsoft.Network/networkinterfaces/*",
+    ///                             "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleAccount = new Azure.NetApp.Account("exampleAccount", new Azure.NetApp.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var examplePool = new Azure.NetApp.Pool("examplePool", new Azure.NetApp.PoolArgs
+    ///         {
+    ///             AccountName = exampleAccount.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServiceLevel = "Premium",
+    ///             SizeInTb = 4,
+    ///         });
+    ///         var exampleVolume = new Azure.NetApp.Volume("exampleVolume", new Azure.NetApp.VolumeArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AccountName = exampleAccount.Name,
+    ///             PoolName = examplePool.Name,
+    ///             VolumePath = "my-unique-file-path",
+    ///             ServiceLevel = "Premium",
+    ///             SubnetId = azurerm_subnet.Test.Id,
+    ///             StorageQuotaInGb = 100,
+    ///         });
+    ///         var exampleSnapshot = new Azure.NetApp.Snapshot("exampleSnapshot", new Azure.NetApp.SnapshotArgs
+    ///         {
+    ///             AccountName = exampleAccount.Name,
+    ///             PoolName = examplePool.Name,
+    ///             VolumeName = exampleVolume.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Snapshot : Pulumi.CustomResource
     {

@@ -11,6 +11,133 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages an Action Group within Azure Monitor.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new Azure.Monitoring.ActionGroupArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ShortName = "p0action",
+    ///             ArmRoleReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupArmRoleReceiverArgs
+    ///                 {
+    ///                     Name = "armroleaction",
+    ///                     RoleId = "de139f84-1756-47ae-9be6-808fbbe84772",
+    ///                     UseCommonAlertSchema = true,
+    ///                 },
+    ///             },
+    ///             AutomationRunbookReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupAutomationRunbookReceiverArgs
+    ///                 {
+    ///                     Name = "action_name_1",
+    ///                     AutomationAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001",
+    ///                     RunbookName = "my runbook",
+    ///                     WebhookResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert",
+    ///                     IsGlobalRunbook = true,
+    ///                     ServiceUri = "https://s13events.azure-automation.net/webhooks?token=randomtoken",
+    ///                     UseCommonAlertSchema = true,
+    ///                 },
+    ///             },
+    ///             AzureAppPushReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupAzureAppPushReceiverArgs
+    ///                 {
+    ///                     Name = "pushtoadmin",
+    ///                     EmailAddress = "admin@contoso.com",
+    ///                 },
+    ///             },
+    ///             AzureFunctionReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupAzureFunctionReceiverArgs
+    ///                 {
+    ///                     Name = "funcaction",
+    ///                     FunctionAppResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-funcapp/providers/Microsoft.Web/sites/funcapp",
+    ///                     FunctionName = "myfunc",
+    ///                     HttpTriggerUrl = "https://example.com/trigger",
+    ///                     UseCommonAlertSchema = true,
+    ///                 },
+    ///             },
+    ///             EmailReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupEmailReceiverArgs
+    ///                 {
+    ///                     Name = "sendtoadmin",
+    ///                     EmailAddress = "admin@contoso.com",
+    ///                 },
+    ///                 new Azure.Monitoring.Inputs.ActionGroupEmailReceiverArgs
+    ///                 {
+    ///                     Name = "sendtodevops",
+    ///                     EmailAddress = "devops@contoso.com",
+    ///                     UseCommonAlertSchema = true,
+    ///                 },
+    ///             },
+    ///             ItsmReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupItsmReceiverArgs
+    ///                 {
+    ///                     Name = "createorupdateticket",
+    ///                     WorkspaceId = "6eee3a18-aac3-40e4-b98e-1f309f329816",
+    ///                     ConnectionId = "53de6956-42b4-41ba-be3c-b154cdf17b13",
+    ///                     TicketConfiguration = "{}",
+    ///                     Region = "southcentralus",
+    ///                 },
+    ///             },
+    ///             LogicAppReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupLogicAppReceiverArgs
+    ///                 {
+    ///                     Name = "logicappaction",
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-logicapp/providers/Microsoft.Logic/workflows/logicapp",
+    ///                     CallbackUrl = "https://logicapptriggerurl/...",
+    ///                     UseCommonAlertSchema = true,
+    ///                 },
+    ///             },
+    ///             SmsReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupSmsReceiverArgs
+    ///                 {
+    ///                     Name = "oncallmsg",
+    ///                     CountryCode = "1",
+    ///                     PhoneNumber = "1231231234",
+    ///                 },
+    ///             },
+    ///             VoiceReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupVoiceReceiverArgs
+    ///                 {
+    ///                     Name = "remotesupport",
+    ///                     CountryCode = "86",
+    ///                     PhoneNumber = "13888888888",
+    ///                 },
+    ///             },
+    ///             WebhookReceivers = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
+    ///                 {
+    ///                     Name = "callmyapiaswell",
+    ///                     ServiceUri = "http://example.com/alert",
+    ///                     UseCommonAlertSchema = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ActionGroup : Pulumi.CustomResource
     {

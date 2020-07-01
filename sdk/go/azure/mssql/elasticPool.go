@@ -11,6 +11,61 @@ import (
 )
 
 // Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mssql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/sql"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("westeurope"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   exampleResourceGroup.Location,
+// 			Version:                    pulumi.String("12.0"),
+// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = mssql.NewElasticPool(ctx, "exampleElasticPool", &mssql.ElasticPoolArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ServerName:        exampleSqlServer.Name,
+// 			LicenseType:       pulumi.String("LicenseIncluded"),
+// 			MaxSizeGb:         pulumi.Float64(756),
+// 			Sku: &mssql.ElasticPoolSkuArgs{
+// 				Name:     pulumi.String("GP_Gen5"),
+// 				Tier:     pulumi.String("GeneralPurpose"),
+// 				Family:   pulumi.String("Gen5"),
+// 				Capacity: pulumi.Int(4),
+// 			},
+// 			PerDatabaseSettings: &mssql.ElasticPoolPerDatabaseSettingsArgs{
+// 				MinCapacity: pulumi.Float64(0.25),
+// 				MaxCapacity: pulumi.Float64(4),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ElasticPool struct {
 	pulumi.CustomResourceState
 

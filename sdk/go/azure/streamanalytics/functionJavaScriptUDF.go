@@ -11,6 +11,55 @@ import (
 )
 
 // Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/streamanalytics"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+// 			Name: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+// 			Name:              "example-job",
+// 			ResourceGroupName: azurerm_resource_group.Example.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = streamanalytics.NewFunctionJavaScriptUDF(ctx, "exampleFunctionJavaScriptUDF", &streamanalytics.FunctionJavaScriptUDFArgs{
+// 			StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
+// 			ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
+// 			Script:                 pulumi.String(fmt.Sprintf("%v%v%v", "function getRandomNumber(in) {\n", "  return in;\n", "}\n")),
+// 			Inputs: streamanalytics.FunctionJavaScriptUDFInputArray{
+// 				&streamanalytics.FunctionJavaScriptUDFInputArgs{
+// 					Type: pulumi.String("bigint"),
+// 				},
+// 			},
+// 			Output: &streamanalytics.FunctionJavaScriptUDFOutputArgs{
+// 				Type: pulumi.String("bigint"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type FunctionJavaScriptUDF struct {
 	pulumi.CustomResourceState
 

@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     frontend_ip_configuration: [{
+ *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     autoApprovalSubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
  *     visibilitySubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
  *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations[0].id)],
- *     nat_ip_configuration: [
+ *     natIpConfigurations: [
  *         {
  *             name: "primary",
  *             privateIpAddress: "10.5.1.17",

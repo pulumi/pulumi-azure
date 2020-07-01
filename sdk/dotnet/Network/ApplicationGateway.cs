@@ -11,6 +11,140 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages an Application Gateway.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.254.0.0/16",
+    ///             },
+    ///         });
+    ///         var frontend = new Azure.Network.Subnet("frontend", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.254.0.0/24",
+    ///             },
+    ///         });
+    ///         var backend = new Azure.Network.Subnet("backend", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.254.2.0/24",
+    ///             },
+    ///         });
+    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AllocationMethod = "Dynamic",
+    ///         });
+    ///         var backendAddressPoolName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-beap");
+    ///         var frontendPortName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-feport");
+    ///         var frontendIpConfigurationName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-feip");
+    ///         var httpSettingName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-be-htst");
+    ///         var listenerName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-httplstn");
+    ///         var requestRoutingRuleName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-rqrt");
+    ///         var redirectConfigurationName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-rdrcfg");
+    ///         var network = new Azure.Network.ApplicationGateway("network", new Azure.Network.ApplicationGatewayArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Sku = new Azure.Network.Inputs.ApplicationGatewaySkuArgs
+    ///             {
+    ///                 Name = "Standard_Small",
+    ///                 Tier = "Standard",
+    ///                 Capacity = 2,
+    ///             },
+    ///             GatewayIpConfigurations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.ApplicationGatewayGatewayIpConfigurationArgs
+    ///                 {
+    ///                     Name = "my-gateway-ip-configuration",
+    ///                     SubnetId = frontend.Id,
+    ///                 },
+    ///             },
+    ///             FrontendPorts = 
+    ///             {
+    ///                 new Azure.Network.Inputs.ApplicationGatewayFrontendPortArgs
+    ///                 {
+    ///                     Name = frontendPortName,
+    ///                     Port = 80,
+    ///                 },
+    ///             },
+    ///             FrontendIpConfigurations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.ApplicationGatewayFrontendIpConfigurationArgs
+    ///                 {
+    ///                     Name = frontendIpConfigurationName,
+    ///                     PublicIpAddressId = examplePublicIp.Id,
+    ///                 },
+    ///             },
+    ///             BackendAddressPools = 
+    ///             {
+    ///                 new Azure.Network.Inputs.ApplicationGatewayBackendAddressPoolArgs
+    ///                 {
+    ///                     Name = backendAddressPoolName,
+    ///                 },
+    ///             },
+    ///             BackendHttpSettings = 
+    ///             {
+    ///                 new Azure.Network.Inputs.ApplicationGatewayBackendHttpSettingArgs
+    ///                 {
+    ///                     Name = httpSettingName,
+    ///                     CookieBasedAffinity = "Disabled",
+    ///                     Path = "/path1/",
+    ///                     Port = 80,
+    ///                     Protocol = "Http",
+    ///                     RequestTimeout = 1,
+    ///                 },
+    ///             },
+    ///             HttpListeners = 
+    ///             {
+    ///                 new Azure.Network.Inputs.ApplicationGatewayHttpListenerArgs
+    ///                 {
+    ///                     Name = listenerName,
+    ///                     FrontendIpConfigurationName = frontendIpConfigurationName,
+    ///                     FrontendPortName = frontendPortName,
+    ///                     Protocol = "Http",
+    ///                 },
+    ///             },
+    ///             RequestRoutingRules = 
+    ///             {
+    ///                 new Azure.Network.Inputs.ApplicationGatewayRequestRoutingRuleArgs
+    ///                 {
+    ///                     Name = requestRoutingRuleName,
+    ///                     RuleType = "Basic",
+    ///                     HttpListenerName = listenerName,
+    ///                     BackendAddressPoolName = backendAddressPoolName,
+    ///                     BackendHttpSettingsName = httpSettingName,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ApplicationGateway : Pulumi.CustomResource
     {

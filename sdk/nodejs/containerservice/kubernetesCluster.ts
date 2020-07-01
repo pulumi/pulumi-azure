@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     dnsPrefix: "exampleaks1",
- *     default_node_pool: {
+ *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 1,
  *         vmSize: "Standard_D2_v2",

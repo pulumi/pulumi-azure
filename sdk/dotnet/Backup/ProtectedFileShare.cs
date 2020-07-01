@@ -15,6 +15,70 @@ namespace Pulumi.Azure.Backup
     /// &gt; **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
     /// 
     /// &gt; **NOTE** Azure Backup for Azure File Shares does not support Soft Delete at this time. Deleting this resource will also delete all associated backup data. Please exercise caution. Consider using [`protect`](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to guard against accidental deletion.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
+    ///         {
+    ///             Location = rg.Location,
+    ///             ResourceGroupName = rg.Name,
+    ///             Sku = "Standard",
+    ///         });
+    ///         var sa = new Azure.Storage.Account("sa", new Azure.Storage.AccountArgs
+    ///         {
+    ///             Location = rg.Location,
+    ///             ResourceGroupName = rg.Name,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleShare = new Azure.Storage.Share("exampleShare", new Azure.Storage.ShareArgs
+    ///         {
+    ///             StorageAccountName = sa.Name,
+    ///         });
+    ///         var protection_container = new Azure.Backup.ContainerStorageAccount("protection-container", new Azure.Backup.ContainerStorageAccountArgs
+    ///         {
+    ///             ResourceGroupName = rg.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             StorageAccountId = sa.Id,
+    ///         });
+    ///         var examplePolicyFileShare = new Azure.Backup.PolicyFileShare("examplePolicyFileShare", new Azure.Backup.PolicyFileShareArgs
+    ///         {
+    ///             ResourceGroupName = rg.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
+    ///             {
+    ///                 Frequency = "Daily",
+    ///                 Time = "23:00",
+    ///             },
+    ///             RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
+    ///             {
+    ///                 Count = 10,
+    ///             },
+    ///         });
+    ///         var share1 = new Azure.Backup.ProtectedFileShare("share1", new Azure.Backup.ProtectedFileShareArgs
+    ///         {
+    ///             ResourceGroupName = rg.Name,
+    ///             RecoveryVaultName = vault.Name,
+    ///             SourceStorageAccountId = protection_container.StorageAccountId,
+    ///             SourceFileShareName = exampleShare.Name,
+    ///             BackupPolicyId = examplePolicyFileShare.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProtectedFileShare : Pulumi.CustomResource
     {

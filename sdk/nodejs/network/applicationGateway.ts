@@ -51,22 +51,22 @@ import * as utilities from "../utilities";
  *         tier: "Standard",
  *         capacity: 2,
  *     },
- *     gateway_ip_configuration: [{
+ *     gatewayIpConfigurations: [{
  *         name: "my-gateway-ip-configuration",
  *         subnetId: frontend.id,
  *     }],
- *     frontend_port: [{
+ *     frontendPorts: [{
  *         name: frontendPortName,
  *         port: 80,
  *     }],
- *     frontend_ip_configuration: [{
+ *     frontendIpConfigurations: [{
  *         name: frontendIpConfigurationName,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
- *     backend_address_pool: [{
+ *     backendAddressPools: [{
  *         name: backendAddressPoolName,
  *     }],
- *     backend_http_settings: [{
+ *     backendHttpSettings: [{
  *         name: httpSettingName,
  *         cookieBasedAffinity: "Disabled",
  *         path: "/path1/",
@@ -74,13 +74,13 @@ import * as utilities from "../utilities";
  *         protocol: "Http",
  *         requestTimeout: 1,
  *     }],
- *     http_listener: [{
+ *     httpListeners: [{
  *         name: listenerName,
  *         frontendIpConfigurationName: frontendIpConfigurationName,
  *         frontendPortName: frontendPortName,
  *         protocol: "Http",
  *     }],
- *     request_routing_rule: [{
+ *     requestRoutingRules: [{
  *         name: requestRoutingRuleName,
  *         ruleType: "Basic",
  *         httpListenerName: listenerName,

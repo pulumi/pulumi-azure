@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: "West US",
  *     serverName: exampleSqlServer.name,
- *     extended_auditing_policy: {
+ *     extendedAuditingPolicy: {
  *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *         storageAccountAccessKeyIsSecondary: true,

@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *         family: "Gen5",
  *         capacity: 4,
  *     },
- *     per_database_settings: {
+ *     perDatabaseSettings: {
  *         minCapacity: 0.25,
  *         maxCapacity: 4,
  *     },

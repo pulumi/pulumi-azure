@@ -12,6 +12,38 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Redis Cache.
     /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a Standard Redis Cache.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         // NOTE: the Name used for Redis needs to be globally unique
+    ///         var exampleCache = new Azure.Redis.Cache("exampleCache", new Azure.Redis.CacheArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Capacity = 2,
+    ///             Family = "C",
+    ///             SkuName = "Standard",
+    ///             EnableNonSslPort = false,
+    ///             MinimumTlsVersion = "1.2",
+    ///             RedisConfiguration = ,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Default Redis Configuration Values
     /// 
     /// | Redis Value                     | Basic        | Standard     | Premium      |

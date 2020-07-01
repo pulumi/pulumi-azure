@@ -15,6 +15,49 @@ namespace Pulumi.Azure.Network
     /// &gt; **NOTE on Network Security Groups and Network Security Rules:** This provider currently
     /// provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
     /// At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SecurityRules = 
+    ///             {
+    ///                 new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///                 {
+    ///                     Name = "test123",
+    ///                     Priority = 100,
+    ///                     Direction = "Inbound",
+    ///                     Access = "Allow",
+    ///                     Protocol = "Tcp",
+    ///                     SourcePortRange = "*",
+    ///                     DestinationPortRange = "*",
+    ///                     SourceAddressPrefix = "*",
+    ///                     DestinationAddressPrefix = "*",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class NetworkSecurityGroup : Pulumi.CustomResource
     {

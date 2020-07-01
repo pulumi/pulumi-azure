@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     disableBgpRoutePropagation: false,
- *     route: [{
+ *     routes: [{
  *         name: "route1",
  *         addressPrefix: "10.1.0.0/16",
  *         nextHopType: "vnetlocal",

@@ -45,7 +45,7 @@ import (
 // 				pulumi.String("ns1.contoso.com"),
 // 				pulumi.String("ns2.contoso.com"),
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"Environment": pulumi.String("Production"),
 // 			},
 // 		})

@@ -63,10 +63,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err = datafactory.NewPipeline(ctx, "test", &datafactory.PipelineArgs{
+// 		_, err := datafactory.NewPipeline(ctx, "test", &datafactory.PipelineArgs{
 // 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
 // 			DataFactoryName:   pulumi.String(azurerm_data_factory.Test.Name),
-// 			Variables: pulumi.Map{
+// 			Variables: pulumi.StringMap{
 // 				"bob": pulumi.String("item1"),
 // 			},
 // 			ActivitiesJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "[\n", "	{\n", "		\"name\": \"Append variable1\",\n", "		\"type\": \"AppendVariable\",\n", "		\"dependsOn\": [],\n", "		\"userProperties\": [],\n", "		\"typeProperties\": {\n", "			\"variableName\": \"bob\",\n", "			\"value\": \"something\"\n", "		}\n", "	}\n", "]\n")),

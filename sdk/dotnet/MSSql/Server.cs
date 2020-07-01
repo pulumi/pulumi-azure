@@ -14,6 +14,56 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
     /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Version = "12.0",
+    ///             AdministratorLogin = "missadministrator",
+    ///             AdministratorLoginPassword = "thisIsKat11",
+    ///             AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///             {
+    ///                 LoginUsername = "AzureAD Admin",
+    ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///             ExtendedAuditingPolicy = new Azure.MSSql.Inputs.ServerExtendedAuditingPolicyArgs
+    ///             {
+    ///                 StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///                 StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///                 StorageAccountAccessKeyIsSecondary = true,
+    ///                 RetentionInDays = 6,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Server : Pulumi.CustomResource
     {

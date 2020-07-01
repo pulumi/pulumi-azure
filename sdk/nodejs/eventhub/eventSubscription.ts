@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const defaultQueue = new azure.storage.Queue("defaultQueue", {storageAccountName: defaultAccount.name});
  * const defaultEventSubscription = new azure.eventgrid.EventSubscription("defaultEventSubscription", {
  *     scope: defaultResourceGroup.id,
- *     storage_queue_endpoint: {
+ *     storageQueueEndpoint: {
  *         storageAccountId: defaultAccount.id,
  *         queueName: defaultQueue.name,
  *     },

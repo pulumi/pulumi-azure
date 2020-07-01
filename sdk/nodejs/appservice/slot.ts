@@ -38,13 +38,13 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     site_config: {
+ *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
  *     },
  *     appSettings: {
  *         SOME_KEY: "some-value",
  *     },
- *     connection_string: [{
+ *     connectionStrings: [{
  *         name: "Database",
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
@@ -55,13 +55,13 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     site_config: {
+ *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
  *     },
  *     appSettings: {
  *         SOME_KEY: "some-value",
  *     },
- *     connection_string: [{
+ *     connectionStrings: [{
  *         name: "Database",
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     site_config: {
+ *     siteConfig: {
  *         javaVersion: "1.8",
  *         javaContainer: "JETTY",
  *         javaContainerVersion: "9.3",
@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     site_config: {
+ *     siteConfig: {
  *         javaVersion: "1.8",
  *         javaContainer: "JETTY",
  *         javaContainerVersion: "9.3",

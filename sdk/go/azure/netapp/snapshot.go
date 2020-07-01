@@ -11,6 +11,101 @@ import (
 )
 
 // Manages a NetApp Snapshot.
+//
+// ## NetApp Snapshot Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/netapp"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.0.2.0/24"),
+// 			Delegations: network.SubnetDelegationArray{
+// 				&network.SubnetDelegationArgs{
+// 					Name: pulumi.String("netapp"),
+// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+// 						Name: pulumi.String("Microsoft.Netapp/volumes"),
+// 						Actions: pulumi.StringArray{
+// 							pulumi.String("Microsoft.Network/networkinterfaces/*"),
+// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePool, err := netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
+// 			AccountName:       exampleAccount.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServiceLevel:      pulumi.String("Premium"),
+// 			SizeInTb:          pulumi.Int(4),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVolume, err := netapp.NewVolume(ctx, "exampleVolume", &netapp.VolumeArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AccountName:       exampleAccount.Name,
+// 			PoolName:          examplePool.Name,
+// 			VolumePath:        pulumi.String("my-unique-file-path"),
+// 			ServiceLevel:      pulumi.String("Premium"),
+// 			SubnetId:          pulumi.String(azurerm_subnet.Test.Id),
+// 			StorageQuotaInGb:  pulumi.Int(100),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = netapp.NewSnapshot(ctx, "exampleSnapshot", &netapp.SnapshotArgs{
+// 			AccountName:       exampleAccount.Name,
+// 			PoolName:          examplePool.Name,
+// 			VolumeName:        exampleVolume.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 

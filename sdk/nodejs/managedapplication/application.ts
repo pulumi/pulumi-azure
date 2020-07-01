@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
  *     displayName: "TestManagedAppDefinition",
  *     description: "Test Managed App Definition",
- *     authorization: [{
+ *     authorizations: [{
  *         servicePrincipalId: current.then(current => current.objectId),
  *         roleDefinitionId: Promise.all([builtin, builtin.then(builtin => builtin.id.split("/")).length]).then(([builtin, length]) => builtin.id.split("/")[length - 1]),
  *     }],

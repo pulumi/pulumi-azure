@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     readScale: true,
  *     skuName: "BC_Gen5_2",
  *     zoneRedundant: true,
- *     extended_auditing_policy: {
+ *     extendedAuditingPolicy: {
  *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *         storageAccountAccessKeyIsSecondary: true,

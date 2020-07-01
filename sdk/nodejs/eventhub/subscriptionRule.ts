@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *     topicName: exampleTopic.name,
  *     subscriptionName: exampleSubscription.name,
  *     filterType: "CorrelationFilter",
- *     correlation_filter: {
+ *     correlationFilter: {
  *         correlationId: "high",
  *         label: "red",
  *     },

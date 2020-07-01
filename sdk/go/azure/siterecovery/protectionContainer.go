@@ -54,7 +54,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = siterecovery.NewProtectionContainer(ctx, "protection-container", &siterecovery.ProtectionContainerArgs{
+// 		_, err = siterecovery.NewProtectionContainer(ctx, "protection_container", &siterecovery.ProtectionContainerArgs{
 // 			ResourceGroupName:  secondary.Name,
 // 			RecoveryVaultName:  vault.Name,
 // 			RecoveryFabricName: fabric.Name,

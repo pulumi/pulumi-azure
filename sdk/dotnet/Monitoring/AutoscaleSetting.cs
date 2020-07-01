@@ -11,6 +11,326 @@ namespace Pulumi.Azure.Monitoring
 {
     /// <summary>
     /// Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             TargetResourceId = exampleScaleSet.Id,
+    ///             Profiles = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///                 {
+    ///                     Name = "defaultProfile",
+    ///                     Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                     {
+    ///                         Default = 1,
+    ///                         Minimum = 1,
+    ///                         Maximum = 10,
+    ///                     },
+    ///                     Rules = 
+    ///                     {
+    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceId = exampleScaleSet.Id,
+    ///                                 TimeGrain = "PT1M",
+    ///                                 Statistic = "Average",
+    ///                                 TimeWindow = "PT5M",
+    ///                                 TimeAggregation = "Average",
+    ///                                 Operator = "GreaterThan",
+    ///                                 Threshold = 75,
+    ///                             },
+    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             {
+    ///                                 Direction = "Increase",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = 1,
+    ///                                 Cooldown = "PT1M",
+    ///                             },
+    ///                         },
+    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceId = exampleScaleSet.Id,
+    ///                                 TimeGrain = "PT1M",
+    ///                                 Statistic = "Average",
+    ///                                 TimeWindow = "PT5M",
+    ///                                 TimeAggregation = "Average",
+    ///                                 Operator = "LessThan",
+    ///                                 Threshold = 25,
+    ///                             },
+    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             {
+    ///                                 Direction = "Decrease",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = 1,
+    ///                                 Cooldown = "PT1M",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///             {
+    ///                 Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///                 {
+    ///                     SendToSubscriptionAdministrator = true,
+    ///                     SendToSubscriptionCoAdministrator = true,
+    ///                     CustomEmails = 
+    ///                     {
+    ///                         "admin@contoso.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Repeating On Weekends)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             TargetResourceId = exampleScaleSet.Id,
+    ///             Profiles = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///                 {
+    ///                     Name = "Weekends",
+    ///                     Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                     {
+    ///                         Default = 1,
+    ///                         Minimum = 1,
+    ///                         Maximum = 10,
+    ///                     },
+    ///                     Rules = 
+    ///                     {
+    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceId = exampleScaleSet.Id,
+    ///                                 TimeGrain = "PT1M",
+    ///                                 Statistic = "Average",
+    ///                                 TimeWindow = "PT5M",
+    ///                                 TimeAggregation = "Average",
+    ///                                 Operator = "GreaterThan",
+    ///                                 Threshold = 90,
+    ///                             },
+    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             {
+    ///                                 Direction = "Increase",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = 2,
+    ///                                 Cooldown = "PT1M",
+    ///                             },
+    ///                         },
+    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceId = exampleScaleSet.Id,
+    ///                                 TimeGrain = "PT1M",
+    ///                                 Statistic = "Average",
+    ///                                 TimeWindow = "PT5M",
+    ///                                 TimeAggregation = "Average",
+    ///                                 Operator = "LessThan",
+    ///                                 Threshold = 10,
+    ///                             },
+    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             {
+    ///                                 Direction = "Decrease",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = 2,
+    ///                                 Cooldown = "PT1M",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Recurrence = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRecurrenceArgs
+    ///                     {
+    ///                         Frequency = "Week",
+    ///                         Timezone = "Pacific Standard Time",
+    ///                         Days = 
+    ///                         {
+    ///                             "Saturday",
+    ///                             "Sunday",
+    ///                         },
+    ///                         Hours = 
+    ///                         {
+    ///                             12,
+    ///                         },
+    ///                         Minutes = 
+    ///                         {
+    ///                             0,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///             {
+    ///                 Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///                 {
+    ///                     SendToSubscriptionAdministrator = true,
+    ///                     SendToSubscriptionCoAdministrator = true,
+    ///                     CustomEmails = 
+    ///                     {
+    ///                         "admin@contoso.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### For Fixed Dates)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
+    ///         {
+    ///             Enabled = true,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             TargetResourceId = exampleScaleSet.Id,
+    ///             Profiles = 
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///                 {
+    ///                     Name = "forJuly",
+    ///                     Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                     {
+    ///                         Default = 1,
+    ///                         Minimum = 1,
+    ///                         Maximum = 10,
+    ///                     },
+    ///                     Rules = 
+    ///                     {
+    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceId = exampleScaleSet.Id,
+    ///                                 TimeGrain = "PT1M",
+    ///                                 Statistic = "Average",
+    ///                                 TimeWindow = "PT5M",
+    ///                                 TimeAggregation = "Average",
+    ///                                 Operator = "GreaterThan",
+    ///                                 Threshold = 90,
+    ///                             },
+    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             {
+    ///                                 Direction = "Increase",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = 2,
+    ///                                 Cooldown = "PT1M",
+    ///                             },
+    ///                         },
+    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                         {
+    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                             {
+    ///                                 MetricName = "Percentage CPU",
+    ///                                 MetricResourceId = exampleScaleSet.Id,
+    ///                                 TimeGrain = "PT1M",
+    ///                                 Statistic = "Average",
+    ///                                 TimeWindow = "PT5M",
+    ///                                 TimeAggregation = "Average",
+    ///                                 Operator = "LessThan",
+    ///                                 Threshold = 10,
+    ///                             },
+    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                             {
+    ///                                 Direction = "Decrease",
+    ///                                 Type = "ChangeCount",
+    ///                                 Value = 2,
+    ///                                 Cooldown = "PT1M",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     FixedDate = new Azure.Monitoring.Inputs.AutoscaleSettingProfileFixedDateArgs
+    ///                     {
+    ///                         Timezone = "Pacific Standard Time",
+    ///                         Start = "2020-07-01T00:00:00Z",
+    ///                         End = "2020-07-31T23:59:59Z",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///             {
+    ///                 Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///                 {
+    ///                     SendToSubscriptionAdministrator = true,
+    ///                     SendToSubscriptionCoAdministrator = true,
+    ///                     CustomEmails = 
+    ///                     {
+    ///                         "admin@contoso.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {

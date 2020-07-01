@@ -47,7 +47,7 @@ import (
 // 					exampleResourceGroup.ID(),
 // 				},
 // 			},
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"foo": pulumi.String("bar"),
 // 			},
 // 		})

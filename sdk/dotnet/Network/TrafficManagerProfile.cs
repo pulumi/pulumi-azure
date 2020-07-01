@@ -11,6 +11,57 @@ namespace Pulumi.Azure.Network
 {
     /// <summary>
     /// Manages a Traffic Manager Profile to which multiple endpoints can be attached.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
+    ///         {
+    ///             Keepers = 
+    ///             {
+    ///                 { "azi_id", 1 },
+    ///             },
+    ///             ByteLength = 8,
+    ///         });
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new Azure.Network.TrafficManagerProfileArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             TrafficRoutingMethod = "Weighted",
+    ///             DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///             {
+    ///                 RelativeName = server.Hex,
+    ///                 Ttl = 100,
+    ///             },
+    ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///             {
+    ///                 Protocol = "http",
+    ///                 Port = 80,
+    ///                 Path = "/",
+    ///                 IntervalInSeconds = 30,
+    ///                 TimeoutInSeconds = 9,
+    ///                 ToleratedNumberOfFailures = 3,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class TrafficManagerProfile : Pulumi.CustomResource
     {

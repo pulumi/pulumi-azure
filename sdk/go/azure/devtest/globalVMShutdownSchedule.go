@@ -13,6 +13,106 @@ import (
 // Manages automated shutdown schedules for Azure VMs that are not within an Azure DevTest Lab. While this is part of the DevTest Labs service in Azure,
 // this resource applies only to standard VMs, not DevTest Lab VMs. To manage automated shutdown schedules for DevTest Lab VMs, reference the
 // `devtest.Schedule` resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/devtest"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("eastus"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/16"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.0.2.0/24"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+// 				&network.NetworkInterfaceIpConfigurationArgs{
+// 					Name:                       pulumi.String("testconfiguration1"),
+// 					SubnetId:                   exampleSubnet.ID(),
+// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			NetworkInterfaceIds: pulumi.StringArray{
+// 				exampleNetworkInterface.ID(),
+// 			},
+// 			Size: pulumi.String("Standard_B2s"),
+// 			SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
+// 				Publisher: pulumi.String("Canonical"),
+// 				Offer:     pulumi.String("UbuntuServer"),
+// 				Sku:       pulumi.String("16.04-LTS"),
+// 				Version:   pulumi.String("latest"),
+// 			},
+// 			OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
+// 				Name:            pulumi.String(fmt.Sprintf("%v%v%v", "myosdisk-", "%", "d")),
+// 				Caching:         pulumi.String("ReadWrite"),
+// 				ManagedDiskType: pulumi.String("Standard_LRS"),
+// 			},
+// 			AdminUsername:                 pulumi.String("testadmin"),
+// 			AdminPassword:                 pulumi.String("Password1234!"),
+// 			DisablePasswordAuthentication: pulumi.Bool(false),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = devtest.NewGlobalVMShutdownSchedule(ctx, "exampleGlobalVMShutdownSchedule", &devtest.GlobalVMShutdownScheduleArgs{
+// 			VirtualMachineId:    pulumi.String(azurerm_virtual_machine.Example.Id),
+// 			Location:            exampleResourceGroup.Location,
+// 			Enabled:             pulumi.Bool(true),
+// 			DailyRecurrenceTime: pulumi.String("1100"),
+// 			Timezone:            pulumi.String("Pacific Standard Time"),
+// 			NotificationSettings: &devtest.GlobalVMShutdownScheduleNotificationSettingsArgs{
+// 				Enabled:       pulumi.Bool(true),
+// 				TimeInMinutes: pulumi.Int(60),
+// 				WebhookUrl:    pulumi.String("https://sample-webhook-url.example.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type GlobalVMShutdownSchedule struct {
 	pulumi.CustomResourceState
 

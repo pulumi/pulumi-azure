@@ -13,6 +13,74 @@ import (
 // Manages a [Log Profile](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.
 //
 // > **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/eventhub"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/monitoring"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("eastus"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("GRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Sku:               pulumi.String("Standard"),
+// 			Capacity:          pulumi.Int(2),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = monitoring.NewLogProfile(ctx, "exampleLogProfile", &monitoring.LogProfileArgs{
+// 			Categories: pulumi.StringArray{
+// 				pulumi.String("Action"),
+// 				pulumi.String("Delete"),
+// 				pulumi.String("Write"),
+// 			},
+// 			Locations: pulumi.StringArray{
+// 				pulumi.String("westus"),
+// 				pulumi.String("global"),
+// 			},
+// 			ServicebusRuleId: exampleEventHubNamespace.ID().ApplyT(func(id string) (string, error) {
+// 				return fmt.Sprintf("%v%v", id, "/authorizationrules/RootManageSharedAccessKey"), nil
+// 			}).(pulumi.StringOutput),
+// 			StorageAccountId: exampleAccount.ID(),
+// 			RetentionPolicy: &monitoring.LogProfileRetentionPolicyArgs{
+// 				Enabled: pulumi.Bool(true),
+// 				Days:    pulumi.Int(7),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LogProfile struct {
 	pulumi.CustomResourceState
 

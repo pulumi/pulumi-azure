@@ -25,9 +25,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefix: "10.1.0.0/24",
- *     delegation: [{
+ *     delegations: [{
  *         name: "delegation",
- *         service_delegation: {
+ *         serviceDelegation: {
  *             name: "Microsoft.ContainerInstance/containerGroups",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
  *         },
@@ -36,9 +36,9 @@ import * as utilities from "../utilities";
  * const exampleProfile = new azure.network.Profile("exampleProfile", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     container_network_interface: {
+ *     containerNetworkInterface: {
  *         name: "examplecnic",
- *         ip_configuration: [{
+ *         ipConfigurations: [{
  *             name: "exampleipconfig",
  *             subnetId: exampleSubnet.id,
  *         }],

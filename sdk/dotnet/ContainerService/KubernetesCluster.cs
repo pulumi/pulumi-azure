@@ -11,6 +11,53 @@ namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
     /// Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions a basic Managed Kubernetes Cluster.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new Azure.ContainerService.KubernetesClusterArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DnsPrefix = "exampleaks1",
+    ///             DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///             {
+    ///                 Name = "default",
+    ///                 NodeCount = 1,
+    ///                 VmSize = "Standard_D2_v2",
+    ///             },
+    ///             Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Production" },
+    ///             },
+    ///         });
+    ///         this.ClientCertificate = exampleKubernetesCluster.KubeConfigs.Apply(kubeConfigs =&gt; kubeConfigs[0].ClientCertificate);
+    ///         this.KubeConfig = exampleKubernetesCluster.KubeConfigRaw;
+    ///     }
+    /// 
+    ///     [Output("clientCertificate")]
+    ///     public Output&lt;string&gt; ClientCertificate { get; set; }
+    ///     [Output("kubeConfig")]
+    ///     public Output&lt;string&gt; KubeConfig { get; set; }
+    /// }
+    /// ```
     /// </summary>
     public partial class KubernetesCluster : Pulumi.CustomResource
     {

@@ -35,7 +35,7 @@ import (
 // 			Location:          pulumi.String("West US"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard_Verizon"),
-// 			Tags: pulumi.Map{
+// 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Production"),
 // 				"cost_center": pulumi.String("MSFT"),
 // 			},

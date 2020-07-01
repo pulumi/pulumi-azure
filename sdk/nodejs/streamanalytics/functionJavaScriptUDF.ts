@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *   return in;
  * }
  * `,
- *     input: [{
+ *     inputs: [{
  *         type: "bigint",
  *     }],
  *     output: {

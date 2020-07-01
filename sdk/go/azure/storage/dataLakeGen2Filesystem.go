@@ -46,7 +46,7 @@ import (
 // 		}
 // 		_, err = storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
 // 			StorageAccountId: exampleAccount.ID(),
-// 			Properties: pulumi.Map{
+// 			Properties: pulumi.StringMap{
 // 				"hello": pulumi.String("aGVsbG8="),
 // 			},
 // 		})

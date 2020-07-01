@@ -11,6 +11,49 @@ namespace Pulumi.Azure.Compute
 {
     /// <summary>
     /// Manages a Version of a Shared Image within a Shared Image Gallery.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var existingImage = Output.Create(Azure.Compute.GetImage.InvokeAsync(new Azure.Compute.GetImageArgs
+    ///         {
+    ///             Name = "search-api",
+    ///             ResourceGroupName = "packerimages",
+    ///         }));
+    ///         var existingSharedImage = Output.Create(Azure.Compute.GetSharedImage.InvokeAsync(new Azure.Compute.GetSharedImageArgs
+    ///         {
+    ///             Name = "existing-image",
+    ///             GalleryName = "existing_gallery",
+    ///             ResourceGroupName = "existing-resources",
+    ///         }));
+    ///         var example = new Azure.Compute.SharedImageVersion("example", new Azure.Compute.SharedImageVersionArgs
+    ///         {
+    ///             GalleryName = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.GalleryName),
+    ///             ImageName = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.Name),
+    ///             ResourceGroupName = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.ResourceGroupName),
+    ///             Location = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.Location),
+    ///             ManagedImageId = existingImage.Apply(existingImage =&gt; existingImage.Id),
+    ///             TargetRegions = 
+    ///             {
+    ///                 new Azure.Compute.Inputs.SharedImageVersionTargetRegionArgs
+    ///                 {
+    ///                     Name = existingSharedImage.Apply(existingSharedImage =&gt; existingSharedImage.Location),
+    ///                     RegionalReplicaCount = 5,
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SharedImageVersion : Pulumi.CustomResource
     {

@@ -11,6 +11,68 @@ namespace Pulumi.Azure.Sql
 {
     /// <summary>
     /// Create a failover group of databases on a collection of Azure SQL servers.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "uksouth",
+    ///         });
+    ///         var primary = new Azure.Sql.SqlServer("primary", new Azure.Sql.SqlServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Version = "12.0",
+    ///             AdministratorLogin = "sqladmin",
+    ///             AdministratorLoginPassword = "pa$$w0rd",
+    ///         });
+    ///         var secondary = new Azure.Sql.SqlServer("secondary", new Azure.Sql.SqlServerArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = "northeurope",
+    ///             Version = "12.0",
+    ///             AdministratorLogin = "sqladmin",
+    ///             AdministratorLoginPassword = "pa$$w0rd",
+    ///         });
+    ///         var db1 = new Azure.Sql.Database("db1", new Azure.Sql.DatabaseArgs
+    ///         {
+    ///             ResourceGroupName = primary.ResourceGroupName,
+    ///             Location = primary.Location,
+    ///             ServerName = primary.Name,
+    ///         });
+    ///         var exampleFailoverGroup = new Azure.Sql.FailoverGroup("exampleFailoverGroup", new Azure.Sql.FailoverGroupArgs
+    ///         {
+    ///             ResourceGroupName = primary.ResourceGroupName,
+    ///             ServerName = primary.Name,
+    ///             Databases = 
+    ///             {
+    ///                 db1.Id,
+    ///             },
+    ///             PartnerServers = 
+    ///             {
+    ///                 new Azure.Sql.Inputs.FailoverGroupPartnerServerArgs
+    ///                 {
+    ///                     Id = secondary.Id,
+    ///                 },
+    ///             },
+    ///             ReadWriteEndpointFailoverPolicy = new Azure.Sql.Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///             {
+    ///                 Mode = "Automatic",
+    ///                 GraceMinutes = 60,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class FailoverGroup : Pulumi.CustomResource
     {

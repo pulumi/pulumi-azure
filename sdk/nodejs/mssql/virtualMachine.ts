@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     sqlConnectivityType: "PRIVATE",
  *     sqlConnectivityUpdatePassword: "Password1234!",
  *     sqlConnectivityUpdateUsername: "sqllogin",
- *     auto_patching: {
+ *     autoPatching: {
  *         dayOfWeek: "Sunday",
  *         maintenanceWindowDurationInMinutes: 60,
  *         maintenanceWindowStartingHour: 2,

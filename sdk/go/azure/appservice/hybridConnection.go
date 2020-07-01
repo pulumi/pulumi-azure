@@ -69,7 +69,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = appservice.NewHybridConnection(ctx, "exampleAppservice/hybridConnectionHybridConnection", &appservice.HybridConnectionArgs{
+// 		_, err = appservice.NewHybridConnection(ctx, "exampleAppservice_hybridConnectionHybridConnection", &appservice.HybridConnectionArgs{
 // 			AppServiceName:    exampleAppService.Name,
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			RelayId:           exampleHybridConnection.ID(),

@@ -11,6 +11,72 @@ import (
 )
 
 // Manages a MS SQL Database.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mssql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/sql"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			Location:                   exampleResourceGroup.Location,
+// 			Version:                    pulumi.String("12.0"),
+// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = mssql.NewDatabase(ctx, "test", &mssql.DatabaseArgs{
+// 			ServerId:      exampleSqlServer.ID(),
+// 			Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
+// 			LicenseType:   pulumi.String("LicenseIncluded"),
+// 			MaxSizeGb:     pulumi.Int(4),
+// 			ReadScale:     pulumi.Bool(true),
+// 			SkuName:       pulumi.String("BC_Gen5_2"),
+// 			ZoneRedundant: pulumi.Bool(true),
+// 			ExtendedAuditingPolicy: &mssql.DatabaseExtendedAuditingPolicyArgs{
+// 				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
+// 				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
+// 				StorageAccountAccessKeyIsSecondary: pulumi.Bool(true),
+// 				RetentionInDays:                    pulumi.Int(6),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"foo": pulumi.String("bar"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

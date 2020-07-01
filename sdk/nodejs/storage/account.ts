@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
- *     network_rules: {
+ *     networkRules: {
  *         defaultAction: "Deny",
  *         ipRules: ["100.0.0.1"],
  *         virtualNetworkSubnetIds: [exampleSubnet.id],

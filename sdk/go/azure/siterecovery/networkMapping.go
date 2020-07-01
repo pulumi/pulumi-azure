@@ -59,7 +59,9 @@ import (
 // 			ResourceGroupName: secondaryResourceGroup.Name,
 // 			RecoveryVaultName: vault.Name,
 // 			Location:          secondaryResourceGroup.Location,
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			primaryFabric,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -83,7 +85,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = siterecovery.NewNetworkMapping(ctx, "recovery-mapping", &siterecovery.NetworkMappingArgs{
+// 		_, err = siterecovery.NewNetworkMapping(ctx, "recovery_mapping", &siterecovery.NetworkMappingArgs{
 // 			ResourceGroupName:        secondaryResourceGroup.Name,
 // 			RecoveryVaultName:        vault.Name,
 // 			SourceRecoveryFabricName: pulumi.String("primary-fabric"),

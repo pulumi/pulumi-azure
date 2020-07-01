@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "B_Gen5_2",
- *     storage_profile: {
+ *     storageProfile: {
  *         storageMb: 5120,
  *         backupRetentionDays: 7,
  *         geoRedundantBackup: "Disabled",

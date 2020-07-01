@@ -13,6 +13,77 @@ import (
 // Manages a MariaDB Virtual Network Rule.
 //
 // > **NOTE:** MariaDB Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/mariadb/concepts-data-access-security-vnet)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/mariadb"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+// 			AddressSpaces: pulumi.StringArray{
+// 				pulumi.String("10.7.29.0/29"),
+// 			},
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
+// 			AddressPrefix:      pulumi.String("10.7.29.0/29"),
+// 			ServiceEndpoints: pulumi.StringArray{
+// 				pulumi.String("Microsoft.Sql"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServer, err := mariadb.NewServer(ctx, "exampleServer", &mariadb.ServerArgs{
+// 			Location:                   exampleResourceGroup.Location,
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			AdministratorLogin:         pulumi.String("mariadbadminun"),
+// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+// 			Version:                    pulumi.String("5.7"),
+// 			SslEnforcement:             pulumi.String("Enabled"),
+// 			SkuName:                    pulumi.String("GP_Gen5_2"),
+// 			StorageProfile: &mariadb.ServerStorageProfileArgs{
+// 				StorageMb:           pulumi.Int(5120),
+// 				BackupRetentionDays: pulumi.Int(7),
+// 				GeoRedundantBackup:  pulumi.String("Disabled"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = mariadb.NewVirtualNetworkRule(ctx, "exampleVirtualNetworkRule", &mariadb.VirtualNetworkRuleArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ServerName:        exampleServer.Name,
+// 			SubnetId:          internal.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 

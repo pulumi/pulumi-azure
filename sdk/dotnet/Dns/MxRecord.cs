@@ -11,6 +11,52 @@ namespace Pulumi.Azure.Dns
 {
     /// <summary>
     /// Enables you to manage DNS MX Records within Azure DNS.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West US",
+    ///         });
+    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleMxRecord = new Azure.Dns.MxRecord("exampleMxRecord", new Azure.Dns.MxRecordArgs
+    ///         {
+    ///             ZoneName = exampleZone.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Ttl = 300,
+    ///             Records = 
+    ///             {
+    ///                 new Azure.Dns.Inputs.MxRecordRecordArgs
+    ///                 {
+    ///                     Preference = "10",
+    ///                     Exchange = "mail1.contoso.com",
+    ///                 },
+    ///                 new Azure.Dns.Inputs.MxRecordRecordArgs
+    ///                 {
+    ///                     Preference = "20",
+    ///                     Exchange = "mail2.contoso.com",
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "Production" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class MxRecord : Pulumi.CustomResource
     {

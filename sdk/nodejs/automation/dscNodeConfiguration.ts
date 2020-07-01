@@ -52,6 +52,8 @@ import * as utilities from "../utilities";
  *   Name="test";
  * };
  * `,
+ * }, {
+ *     dependsOn: [exampleDscConfiguration],
  * });
  * ```
  */
