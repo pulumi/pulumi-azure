@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  *         path: "/path1/",
  *         port: 80,
  *         protocol: "Http",
- *         requestTimeout: 1,
+ *         requestTimeout: 60,
  *     }],
  *     httpListeners: [{
  *         name: listenerName,

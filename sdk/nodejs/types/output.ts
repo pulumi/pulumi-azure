@@ -1270,6 +1270,13 @@ export namespace appplatform {
          */
         strictHostKeyCheckingEnabled?: boolean;
     }
+
+    export interface SpringCloudServiceTrace {
+        /**
+         * The Instrumentation Key used for Application Insights.
+         */
+        instrumentationKey: string;
+    }
 }
 
 export namespace appservice {
@@ -6168,11 +6175,11 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterIdentity {
         /**
-         * The principal id of the system assigned identity which is used by master components.
+         * The principal id of the system assigned identity which is used by primary components.
          */
         principalId: string;
         /**
-         * The tenant id of the system assigned identity which is used by master components.
+         * The tenant id of the system assigned identity which is used by primary components.
          */
         tenantId: string;
         /**
@@ -6325,7 +6332,7 @@ export namespace containerservice {
          */
         serverAppId: string;
         /**
-         * The tenant id of the system assigned identity which is used by master components.
+         * The tenant id of the system assigned identity which is used by primary components.
          */
         tenantId: string;
     }
@@ -9206,11 +9213,13 @@ export namespace hdinsight {
 
     export interface HBaseClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: string;
         /**
@@ -9368,11 +9377,13 @@ export namespace hdinsight {
 
     export interface HadoopClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: string;
         /**
@@ -9629,11 +9640,13 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: string;
         /**
@@ -9791,11 +9804,13 @@ export namespace hdinsight {
 
     export interface KafkaClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: string;
         /**
@@ -9950,11 +9965,13 @@ export namespace hdinsight {
 
     export interface MLServicesClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: string;
         /**
@@ -10117,11 +10134,13 @@ export namespace hdinsight {
 
     export interface RServerClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: string;
         /**
@@ -10291,11 +10310,13 @@ export namespace hdinsight {
 
     export interface SparkClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: string;
         /**
@@ -10453,11 +10474,13 @@ export namespace hdinsight {
 
     export interface StormClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: string;
         /**
@@ -10896,6 +10919,33 @@ export namespace keyvault {
         password?: string;
     }
 
+    export interface CertifiateCertificateAttribute {
+        /**
+         * The create time of the Key Vault Certificate.
+         */
+        created: string;
+        /**
+         * whether the Key Vault Certificate is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The expires time of the Key Vault Certificate.
+         */
+        expires: string;
+        /**
+         * The not before valid time of the Key Vault Certificate.
+         */
+        notBefore: string;
+        /**
+         * The deletion recovery level of the Key Vault Certificate.
+         */
+        recoveryLevel: string;
+        /**
+         * The recent update time of the Key Vault Certificate.
+         */
+        updated: string;
+    }
+
     export interface CertifiateCertificatePolicy {
         /**
          * A `issuerParameters` block as defined below.
@@ -11028,6 +11078,33 @@ export namespace keyvault {
          * The password associated with the certificate. Changing this forces a new resource to be created.
          */
         password?: string;
+    }
+
+    export interface CertificateCertificateAttribute {
+        /**
+         * The create time of the Key Vault Certificate.
+         */
+        created: string;
+        /**
+         * whether the Key Vault Certificate is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The expires time of the Key Vault Certificate.
+         */
+        expires: string;
+        /**
+         * The not before valid time of the Key Vault Certificate.
+         */
+        notBefore: string;
+        /**
+         * The deletion recovery level of the Key Vault Certificate.
+         */
+        recoveryLevel: string;
+        /**
+         * The recent update time of the Key Vault Certificate.
+         */
+        updated: string;
     }
 
     export interface CertificateCertificatePolicy {

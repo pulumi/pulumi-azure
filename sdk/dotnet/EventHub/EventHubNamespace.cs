@@ -138,6 +138,12 @@ namespace Pulumi.Azure.EventHub
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EventHubNamespace resource with the given unique name, arguments, and options.
@@ -243,6 +249,12 @@ namespace Pulumi.Azure.EventHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public EventHubNamespaceArgs()
         {
@@ -350,6 +362,12 @@ namespace Pulumi.Azure.EventHub
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public EventHubNamespaceState()
         {

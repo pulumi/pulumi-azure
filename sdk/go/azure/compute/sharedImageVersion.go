@@ -72,10 +72,12 @@ type SharedImageVersion struct {
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
 	// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
-	ManagedImageId pulumi.StringOutput `pulumi:"managedImageId"`
+	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	ManagedImageId pulumi.StringPtrOutput `pulumi:"managedImageId"`
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	OsDiskSnapshotId pulumi.StringPtrOutput `pulumi:"osDiskSnapshotId"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A collection of tags which should be applied to this resource.
@@ -92,9 +94,6 @@ func NewSharedImageVersion(ctx *pulumi.Context,
 	}
 	if args == nil || args.ImageName == nil {
 		return nil, errors.New("missing required argument 'ImageName'")
-	}
-	if args == nil || args.ManagedImageId == nil {
-		return nil, errors.New("missing required argument 'ManagedImageId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -135,10 +134,12 @@ type sharedImageVersionState struct {
 	ImageName *string `pulumi:"imageName"`
 	// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	ManagedImageId *string `pulumi:"managedImageId"`
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	OsDiskSnapshotId *string `pulumi:"osDiskSnapshotId"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A collection of tags which should be applied to this resource.
@@ -156,10 +157,12 @@ type SharedImageVersionState struct {
 	ImageName pulumi.StringPtrInput
 	// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
 	ManagedImageId pulumi.StringPtrInput
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	OsDiskSnapshotId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A collection of tags which should be applied to this resource.
@@ -181,10 +184,12 @@ type sharedImageVersionArgs struct {
 	ImageName string `pulumi:"imageName"`
 	// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
-	ManagedImageId string `pulumi:"managedImageId"`
+	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	ManagedImageId *string `pulumi:"managedImageId"`
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	OsDiskSnapshotId *string `pulumi:"osDiskSnapshotId"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A collection of tags which should be applied to this resource.
@@ -203,10 +208,12 @@ type SharedImageVersionArgs struct {
 	ImageName pulumi.StringInput
 	// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
-	ManagedImageId pulumi.StringInput
+	// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	ManagedImageId pulumi.StringPtrInput
 	// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+	OsDiskSnapshotId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A collection of tags which should be applied to this resource.

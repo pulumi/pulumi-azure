@@ -18,6 +18,10 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     """
     The friendly name of this Sentinel MS Security Incident Alert Rule.
     """
+    display_name_filters: pulumi.Output[list]
+    """
+    Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+    """
     enabled: pulumi.Output[bool]
     """
     Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
@@ -39,10 +43,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
     Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
     """
     text_whitelists: pulumi.Output[list]
-    """
-    Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, enabled=None, log_analytics_workspace_id=None, name=None, product_filter=None, severity_filters=None, text_whitelists=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, display_name_filters=None, enabled=None, log_analytics_workspace_id=None, name=None, product_filter=None, severity_filters=None, text_whitelists=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Sentinel MS Security Incident Alert Rule.
 
@@ -68,12 +69,12 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
+        :param pulumi.Input[list] display_name_filters: Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         :param pulumi.Input[bool] enabled: Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT` and `Microsoft Cloud App Security`.
         :param pulumi.Input[list] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
-        :param pulumi.Input[list] text_whitelists: Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,6 +97,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             if display_name is None:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
+            __props__['display_name_filters'] = display_name_filters
             __props__['enabled'] = enabled
             if log_analytics_workspace_id is None:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
@@ -107,6 +109,9 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             if severity_filters is None:
                 raise TypeError("Missing required property 'severity_filters'")
             __props__['severity_filters'] = severity_filters
+            if text_whitelists is not None:
+                warnings.warn("this property has been renamed to display_name_filter to better match the SDK & API", DeprecationWarning)
+                pulumi.log.warn("text_whitelists is deprecated: this property has been renamed to display_name_filter to better match the SDK & API")
             __props__['text_whitelists'] = text_whitelists
         super(AlertRuleMsSecurityIncident, __self__).__init__(
             'azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident',
@@ -115,7 +120,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, display_name=None, enabled=None, log_analytics_workspace_id=None, name=None, product_filter=None, severity_filters=None, text_whitelists=None):
+    def get(resource_name, id, opts=None, description=None, display_name=None, display_name_filters=None, enabled=None, log_analytics_workspace_id=None, name=None, product_filter=None, severity_filters=None, text_whitelists=None):
         """
         Get an existing AlertRuleMsSecurityIncident resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -125,12 +130,12 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
+        :param pulumi.Input[list] display_name_filters: Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         :param pulumi.Input[bool] enabled: Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT` and `Microsoft Cloud App Security`.
         :param pulumi.Input[list] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
-        :param pulumi.Input[list] text_whitelists: Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -138,6 +143,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
         __props__["description"] = description
         __props__["display_name"] = display_name
+        __props__["display_name_filters"] = display_name_filters
         __props__["enabled"] = enabled
         __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__["name"] = name

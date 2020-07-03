@@ -62,6 +62,8 @@ type AlertRuleMsSecurityIncident struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+	DisplayNameFilters pulumi.StringArrayOutput `pulumi:"displayNameFilters"`
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -72,7 +74,7 @@ type AlertRuleMsSecurityIncident struct {
 	ProductFilter pulumi.StringOutput `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters pulumi.StringArrayOutput `pulumi:"severityFilters"`
-	// Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
+	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
 	TextWhitelists pulumi.StringArrayOutput `pulumi:"textWhitelists"`
 }
 
@@ -120,6 +122,8 @@ type alertRuleMsSecurityIncidentState struct {
 	Description *string `pulumi:"description"`
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName *string `pulumi:"displayName"`
+	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+	DisplayNameFilters []string `pulumi:"displayNameFilters"`
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -130,7 +134,7 @@ type alertRuleMsSecurityIncidentState struct {
 	ProductFilter *string `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters []string `pulumi:"severityFilters"`
-	// Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
+	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
 	TextWhitelists []string `pulumi:"textWhitelists"`
 }
 
@@ -139,6 +143,8 @@ type AlertRuleMsSecurityIncidentState struct {
 	Description pulumi.StringPtrInput
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName pulumi.StringPtrInput
+	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+	DisplayNameFilters pulumi.StringArrayInput
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -149,7 +155,7 @@ type AlertRuleMsSecurityIncidentState struct {
 	ProductFilter pulumi.StringPtrInput
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters pulumi.StringArrayInput
-	// Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
+	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
 	TextWhitelists pulumi.StringArrayInput
 }
 
@@ -162,6 +168,8 @@ type alertRuleMsSecurityIncidentArgs struct {
 	Description *string `pulumi:"description"`
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName string `pulumi:"displayName"`
+	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+	DisplayNameFilters []string `pulumi:"displayNameFilters"`
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -172,7 +180,7 @@ type alertRuleMsSecurityIncidentArgs struct {
 	ProductFilter string `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters []string `pulumi:"severityFilters"`
-	// Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
+	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
 	TextWhitelists []string `pulumi:"textWhitelists"`
 }
 
@@ -182,6 +190,8 @@ type AlertRuleMsSecurityIncidentArgs struct {
 	Description pulumi.StringPtrInput
 	// The friendly name of this Sentinel MS Security Incident Alert Rule.
 	DisplayName pulumi.StringInput
+	// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+	DisplayNameFilters pulumi.StringArrayInput
 	// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -192,7 +202,7 @@ type AlertRuleMsSecurityIncidentArgs struct {
 	ProductFilter pulumi.StringInput
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	SeverityFilters pulumi.StringArrayInput
-	// Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
+	// Deprecated: this property has been renamed to display_name_filter to better match the SDK & API
 	TextWhitelists pulumi.StringArrayInput
 }
 

@@ -102,6 +102,10 @@ namespace Pulumi.Azure.Compute
         /// The Azure Region in which this Image Version exists.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID of the OS disk snapshot which was the source of this Shared Image Version.
+        /// </summary>
+        public readonly string OsDiskSnapshotId;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A mapping of tags assigned to the Shared Image.
@@ -128,6 +132,8 @@ namespace Pulumi.Azure.Compute
 
             string name,
 
+            string osDiskSnapshotId,
+
             string resourceGroupName,
 
             ImmutableDictionary<string, string> tags,
@@ -141,6 +147,7 @@ namespace Pulumi.Azure.Compute
             Location = location;
             ManagedImageId = managedImageId;
             Name = name;
+            OsDiskSnapshotId = osDiskSnapshotId;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
             TargetRegions = targetRegions;

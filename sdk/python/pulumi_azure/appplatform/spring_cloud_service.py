@@ -57,11 +57,21 @@ class SpringCloudService(pulumi.CustomResource):
     """
     Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
     """
+    sku_name: pulumi.Output[str]
+    """
+    Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, config_server_git_setting=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    trace: pulumi.Output[dict]
+    """
+    A `trace` block as defined below.
+
+      * `instrumentation_key` (`str`) - The Instrumentation Key used for Application Insights.
+    """
+    def __init__(__self__, resource_name, opts=None, config_server_git_setting=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, trace=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Spring Cloud Service.
 
@@ -72,9 +82,14 @@ class SpringCloudService(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="Southeast Asia")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
         example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
+            sku_name="S0",
             config_server_git_setting={
                 "uri": "https://github.com/Azure-Samples/piggymetrics",
                 "label": "config",
@@ -82,6 +97,9 @@ class SpringCloudService(pulumi.CustomResource):
                     "dir1",
                     "dir2",
                 ],
+            },
+            trace={
+                "instrumentation_key": example_insights.instrumentation_key,
             },
             tags={
                 "Env": "staging",
@@ -94,7 +112,9 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] trace: A `trace` block as defined below.
 
         The **config_server_git_setting** object supports the following:
 
@@ -128,6 +148,10 @@ class SpringCloudService(pulumi.CustomResource):
             * `strictHostKeyCheckingEnabled` (`pulumi.Input[bool]`) - Indicates whether the Config Server instance will fail to start if the host_key does not match.
 
           * `uri` (`pulumi.Input[str]`) - The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
+
+        The **trace** object supports the following:
+
+          * `instrumentation_key` (`pulumi.Input[str]`) - The Instrumentation Key used for Application Insights.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -152,7 +176,9 @@ class SpringCloudService(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku_name'] = sku_name
             __props__['tags'] = tags
+            __props__['trace'] = trace
         super(SpringCloudService, __self__).__init__(
             'azure:appplatform/springCloudService:SpringCloudService',
             resource_name,
@@ -160,7 +186,7 @@ class SpringCloudService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, config_server_git_setting=None, location=None, name=None, resource_group_name=None, tags=None):
+    def get(resource_name, id, opts=None, config_server_git_setting=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, trace=None):
         """
         Get an existing SpringCloudService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -172,7 +198,9 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] trace: A `trace` block as defined below.
 
         The **config_server_git_setting** object supports the following:
 
@@ -206,6 +234,10 @@ class SpringCloudService(pulumi.CustomResource):
             * `strictHostKeyCheckingEnabled` (`pulumi.Input[bool]`) - Indicates whether the Config Server instance will fail to start if the host_key does not match.
 
           * `uri` (`pulumi.Input[str]`) - The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
+
+        The **trace** object supports the following:
+
+          * `instrumentation_key` (`pulumi.Input[str]`) - The Instrumentation Key used for Application Insights.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -215,7 +247,9 @@ class SpringCloudService(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
+        __props__["sku_name"] = sku_name
         __props__["tags"] = tags
+        __props__["trace"] = trace
         return SpringCloudService(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

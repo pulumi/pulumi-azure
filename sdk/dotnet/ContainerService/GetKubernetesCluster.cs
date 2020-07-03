@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAgentPoolProfileResult> AgentPoolProfiles;
         /// <summary>
-        /// The IP ranges to whitelist for incoming traffic to the masters.
+        /// The IP ranges to whitelist for incoming traffic to the primaries.
         /// </summary>
         public readonly ImmutableArray<string> ApiServerAuthorizedIpRanges;
         /// <summary>

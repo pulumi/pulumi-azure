@@ -109,7 +109,7 @@ import (
 // 					Path:                pulumi.String("/path1/"),
 // 					Port:                pulumi.Int(80),
 // 					Protocol:            pulumi.String("Http"),
-// 					RequestTimeout:      pulumi.Int(1),
+// 					RequestTimeout:      pulumi.Int(60),
 // 				},
 // 			},
 // 			HttpListeners: network.ApplicationGatewayHttpListenerArray{

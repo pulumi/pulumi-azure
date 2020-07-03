@@ -1083,6 +1083,137 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) StrictHostKeyC
 	}).(pulumi.BoolPtrOutput)
 }
 
+type SpringCloudServiceTrace struct {
+	// The Instrumentation Key used for Application Insights.
+	InstrumentationKey string `pulumi:"instrumentationKey"`
+}
+
+// SpringCloudServiceTraceInput is an input type that accepts SpringCloudServiceTraceArgs and SpringCloudServiceTraceOutput values.
+// You can construct a concrete instance of `SpringCloudServiceTraceInput` via:
+//
+//          SpringCloudServiceTraceArgs{...}
+type SpringCloudServiceTraceInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceTraceOutput() SpringCloudServiceTraceOutput
+	ToSpringCloudServiceTraceOutputWithContext(context.Context) SpringCloudServiceTraceOutput
+}
+
+type SpringCloudServiceTraceArgs struct {
+	// The Instrumentation Key used for Application Insights.
+	InstrumentationKey pulumi.StringInput `pulumi:"instrumentationKey"`
+}
+
+func (SpringCloudServiceTraceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceTrace)(nil)).Elem()
+}
+
+func (i SpringCloudServiceTraceArgs) ToSpringCloudServiceTraceOutput() SpringCloudServiceTraceOutput {
+	return i.ToSpringCloudServiceTraceOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceTraceArgs) ToSpringCloudServiceTraceOutputWithContext(ctx context.Context) SpringCloudServiceTraceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceTraceOutput)
+}
+
+func (i SpringCloudServiceTraceArgs) ToSpringCloudServiceTracePtrOutput() SpringCloudServiceTracePtrOutput {
+	return i.ToSpringCloudServiceTracePtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceTraceArgs) ToSpringCloudServiceTracePtrOutputWithContext(ctx context.Context) SpringCloudServiceTracePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceTraceOutput).ToSpringCloudServiceTracePtrOutputWithContext(ctx)
+}
+
+// SpringCloudServiceTracePtrInput is an input type that accepts SpringCloudServiceTraceArgs, SpringCloudServiceTracePtr and SpringCloudServiceTracePtrOutput values.
+// You can construct a concrete instance of `SpringCloudServiceTracePtrInput` via:
+//
+//          SpringCloudServiceTraceArgs{...}
+//
+//  or:
+//
+//          nil
+type SpringCloudServiceTracePtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceTracePtrOutput() SpringCloudServiceTracePtrOutput
+	ToSpringCloudServiceTracePtrOutputWithContext(context.Context) SpringCloudServiceTracePtrOutput
+}
+
+type springCloudServiceTracePtrType SpringCloudServiceTraceArgs
+
+func SpringCloudServiceTracePtr(v *SpringCloudServiceTraceArgs) SpringCloudServiceTracePtrInput {
+	return (*springCloudServiceTracePtrType)(v)
+}
+
+func (*springCloudServiceTracePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudServiceTrace)(nil)).Elem()
+}
+
+func (i *springCloudServiceTracePtrType) ToSpringCloudServiceTracePtrOutput() SpringCloudServiceTracePtrOutput {
+	return i.ToSpringCloudServiceTracePtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudServiceTracePtrType) ToSpringCloudServiceTracePtrOutputWithContext(ctx context.Context) SpringCloudServiceTracePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceTracePtrOutput)
+}
+
+type SpringCloudServiceTraceOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceTraceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceTrace)(nil)).Elem()
+}
+
+func (o SpringCloudServiceTraceOutput) ToSpringCloudServiceTraceOutput() SpringCloudServiceTraceOutput {
+	return o
+}
+
+func (o SpringCloudServiceTraceOutput) ToSpringCloudServiceTraceOutputWithContext(ctx context.Context) SpringCloudServiceTraceOutput {
+	return o
+}
+
+func (o SpringCloudServiceTraceOutput) ToSpringCloudServiceTracePtrOutput() SpringCloudServiceTracePtrOutput {
+	return o.ToSpringCloudServiceTracePtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudServiceTraceOutput) ToSpringCloudServiceTracePtrOutputWithContext(ctx context.Context) SpringCloudServiceTracePtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceTrace) *SpringCloudServiceTrace {
+		return &v
+	}).(SpringCloudServiceTracePtrOutput)
+}
+
+// The Instrumentation Key used for Application Insights.
+func (o SpringCloudServiceTraceOutput) InstrumentationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceTrace) string { return v.InstrumentationKey }).(pulumi.StringOutput)
+}
+
+type SpringCloudServiceTracePtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceTracePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudServiceTrace)(nil)).Elem()
+}
+
+func (o SpringCloudServiceTracePtrOutput) ToSpringCloudServiceTracePtrOutput() SpringCloudServiceTracePtrOutput {
+	return o
+}
+
+func (o SpringCloudServiceTracePtrOutput) ToSpringCloudServiceTracePtrOutputWithContext(ctx context.Context) SpringCloudServiceTracePtrOutput {
+	return o
+}
+
+func (o SpringCloudServiceTracePtrOutput) Elem() SpringCloudServiceTraceOutput {
+	return o.ApplyT(func(v *SpringCloudServiceTrace) SpringCloudServiceTrace { return *v }).(SpringCloudServiceTraceOutput)
+}
+
+// The Instrumentation Key used for Application Insights.
+func (o SpringCloudServiceTracePtrOutput) InstrumentationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceTrace) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstrumentationKey
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSpringCloudServiceConfigServerGitSetting struct {
 	// A `httpBasicAuth` block as defined below.
 	HttpBasicAuths []GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth `pulumi:"httpBasicAuths"`
@@ -1861,6 +1992,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceTraceOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceTracePtrOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput{})

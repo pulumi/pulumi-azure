@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string ServerAppId;
         /// <summary>
-        /// The tenant id of the system assigned identity which is used by master components.
+        /// The tenant id of the system assigned identity which is used by primary components.
         /// </summary>
         public readonly string TenantId;
 

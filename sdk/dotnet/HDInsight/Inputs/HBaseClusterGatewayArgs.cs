@@ -13,13 +13,13 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class HBaseClusterGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+        /// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// The password used for the Ambari Portal.
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;

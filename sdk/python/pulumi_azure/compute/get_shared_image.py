@@ -12,7 +12,7 @@ class GetSharedImageResult:
     """
     A collection of values returned by getSharedImage.
     """
-    def __init__(__self__, description=None, eula=None, gallery_name=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None):
+    def __init__(__self__, description=None, eula=None, gallery_name=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, specialized=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
@@ -76,6 +76,12 @@ class GetSharedImageResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
+        if specialized and not isinstance(specialized, bool):
+            raise TypeError("Expected argument 'specialized' to be a bool")
+        __self__.specialized = specialized
+        """
+        Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run).
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -100,6 +106,7 @@ class AwaitableGetSharedImageResult(GetSharedImageResult):
             privacy_statement_uri=self.privacy_statement_uri,
             release_note_uri=self.release_note_uri,
             resource_group_name=self.resource_group_name,
+            specialized=self.specialized,
             tags=self.tags)
 
 def get_shared_image(gallery_name=None,name=None,resource_group_name=None,opts=None):
@@ -147,4 +154,5 @@ def get_shared_image(gallery_name=None,name=None,resource_group_name=None,opts=N
         privacy_statement_uri=__ret__.get('privacyStatementUri'),
         release_note_uri=__ret__.get('releaseNoteUri'),
         resource_group_name=__ret__.get('resourceGroupName'),
+        specialized=__ret__.get('specialized'),
         tags=__ret__.get('tags'))

@@ -12,7 +12,7 @@ class GetSharedImageVersionResult:
     """
     A collection of values returned by getSharedImageVersion.
     """
-    def __init__(__self__, exclude_from_latest=None, gallery_name=None, id=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None):
+    def __init__(__self__, exclude_from_latest=None, gallery_name=None, id=None, image_name=None, location=None, managed_image_id=None, name=None, os_disk_snapshot_id=None, resource_group_name=None, tags=None, target_regions=None):
         if exclude_from_latest and not isinstance(exclude_from_latest, bool):
             raise TypeError("Expected argument 'exclude_from_latest' to be a bool")
         __self__.exclude_from_latest = exclude_from_latest
@@ -49,6 +49,12 @@ class GetSharedImageVersionResult:
         """
         The Azure Region in which this Image Version exists.
         """
+        if os_disk_snapshot_id and not isinstance(os_disk_snapshot_id, str):
+            raise TypeError("Expected argument 'os_disk_snapshot_id' to be a str")
+        __self__.os_disk_snapshot_id = os_disk_snapshot_id
+        """
+        The ID of the OS disk snapshot which was the source of this Shared Image Version.
+        """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
@@ -77,6 +83,7 @@ class AwaitableGetSharedImageVersionResult(GetSharedImageVersionResult):
             location=self.location,
             managed_image_id=self.managed_image_id,
             name=self.name,
+            os_disk_snapshot_id=self.os_disk_snapshot_id,
             resource_group_name=self.resource_group_name,
             tags=self.tags,
             target_regions=self.target_regions)
@@ -124,6 +131,7 @@ def get_shared_image_version(gallery_name=None,image_name=None,name=None,resourc
         location=__ret__.get('location'),
         managed_image_id=__ret__.get('managedImageId'),
         name=__ret__.get('name'),
+        os_disk_snapshot_id=__ret__.get('osDiskSnapshotId'),
         resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         target_regions=__ret__.get('targetRegions'))

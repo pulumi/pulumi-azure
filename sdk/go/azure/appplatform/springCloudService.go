@@ -18,6 +18,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appinsights"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/appplatform"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -31,9 +32,18 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			ApplicationType:   pulumi.String("web"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
+// 			SkuName:           pulumi.String("S0"),
 // 			ConfigServerGitSetting: &appplatform.SpringCloudServiceConfigServerGitSettingArgs{
 // 				Uri:   pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
 // 				Label: pulumi.String("config"),
@@ -41,6 +51,9 @@ import (
 // 					pulumi.String("dir1"),
 // 					pulumi.String("dir2"),
 // 				},
+// 			},
+// 			Trace: &appplatform.SpringCloudServiceTraceArgs{
+// 				InstrumentationKey: exampleInsights.InstrumentationKey,
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"Env": pulumi.String("staging"),
@@ -64,8 +77,12 @@ type SpringCloudService struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `trace` block as defined below.
+	Trace SpringCloudServiceTracePtrOutput `pulumi:"trace"`
 }
 
 // NewSpringCloudService registers a new resource with the given unique name, arguments, and options.
@@ -107,8 +124,12 @@ type springCloudServiceState struct {
 	Name *string `pulumi:"name"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `trace` block as defined below.
+	Trace *SpringCloudServiceTrace `pulumi:"trace"`
 }
 
 type SpringCloudServiceState struct {
@@ -120,8 +141,12 @@ type SpringCloudServiceState struct {
 	Name pulumi.StringPtrInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `trace` block as defined below.
+	Trace SpringCloudServiceTracePtrInput
 }
 
 func (SpringCloudServiceState) ElementType() reflect.Type {
@@ -137,8 +162,12 @@ type springCloudServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `trace` block as defined below.
+	Trace *SpringCloudServiceTrace `pulumi:"trace"`
 }
 
 // The set of arguments for constructing a SpringCloudService resource.
@@ -151,8 +180,12 @@ type SpringCloudServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `trace` block as defined below.
+	Trace SpringCloudServiceTracePtrInput
 }
 
 func (SpringCloudServiceArgs) ElementType() reflect.Type {

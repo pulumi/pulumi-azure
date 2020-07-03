@@ -377,7 +377,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 "path": "/path1/",
                 "port": 80,
                 "protocol": "Http",
-                "requestTimeout": 1,
+                "requestTimeout": 60,
             }],
             http_listeners=[{
                 "name": listener_name,

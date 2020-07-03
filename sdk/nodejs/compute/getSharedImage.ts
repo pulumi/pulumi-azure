@@ -99,6 +99,10 @@ export interface GetSharedImageResult {
     readonly releaseNoteUri: string;
     readonly resourceGroupName: string;
     /**
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run).
+     */
+    readonly specialized: boolean;
+    /**
      * A mapping of tags assigned to the Shared Image.
      */
     readonly tags: {[key: string]: string};

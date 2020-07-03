@@ -7020,9 +7020,9 @@ func (o GetKubernetesClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetKubernetesClusterIdentity struct {
-	// The principal id of the system assigned identity which is used by master components.
+	// The principal id of the system assigned identity which is used by primary components.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by master components.
+	// The tenant id of the system assigned identity which is used by primary components.
 	TenantId string `pulumi:"tenantId"`
 	// The type of identity used for the managed cluster.
 	Type string `pulumi:"type"`
@@ -7040,9 +7040,9 @@ type GetKubernetesClusterIdentityInput interface {
 }
 
 type GetKubernetesClusterIdentityArgs struct {
-	// The principal id of the system assigned identity which is used by master components.
+	// The principal id of the system assigned identity which is used by primary components.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by master components.
+	// The tenant id of the system assigned identity which is used by primary components.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The type of identity used for the managed cluster.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -7099,12 +7099,12 @@ func (o GetKubernetesClusterIdentityOutput) ToGetKubernetesClusterIdentityOutput
 	return o
 }
 
-// The principal id of the system assigned identity which is used by master components.
+// The principal id of the system assigned identity which is used by primary components.
 func (o GetKubernetesClusterIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
+// The tenant id of the system assigned identity which is used by primary components.
 func (o GetKubernetesClusterIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -8001,7 +8001,7 @@ type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
 	Managed bool `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId string `pulumi:"serverAppId"`
-	// The tenant id of the system assigned identity which is used by master components.
+	// The tenant id of the system assigned identity which is used by primary components.
 	TenantId string `pulumi:"tenantId"`
 }
 
@@ -8025,7 +8025,7 @@ type GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
 	Managed pulumi.BoolInput `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
-	// The tenant id of the system assigned identity which is used by master components.
+	// The tenant id of the system assigned identity which is used by primary components.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
 
@@ -8102,7 +8102,7 @@ func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) Se
 	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
+// The tenant id of the system assigned identity which is used by primary components.
 func (o GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterRoleBasedAccessControlAzureActiveDirectory) string { return v.TenantId }).(pulumi.StringOutput)
 }

@@ -62,7 +62,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly agentPoolProfiles: outputs.containerservice.GetKubernetesClusterAgentPoolProfile[];
     /**
-     * The IP ranges to whitelist for incoming traffic to the masters.
+     * The IP ranges to whitelist for incoming traffic to the primaries.
      */
     readonly apiServerAuthorizedIpRanges: string[];
     /**

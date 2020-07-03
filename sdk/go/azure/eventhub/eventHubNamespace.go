@@ -84,6 +84,8 @@ type EventHubNamespace struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewEventHubNamespace registers a new resource with the given unique name, arguments, and options.
@@ -154,6 +156,8 @@ type eventHubNamespaceState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type EventHubNamespaceState struct {
@@ -191,6 +195,8 @@ type EventHubNamespaceState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (EventHubNamespaceState) ElementType() reflect.Type {
@@ -216,6 +222,8 @@ type eventHubNamespaceArgs struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a EventHubNamespace resource.
@@ -238,6 +246,8 @@ type EventHubNamespaceArgs struct {
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (EventHubNamespaceArgs) ElementType() reflect.Type {

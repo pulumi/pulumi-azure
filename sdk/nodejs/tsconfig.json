@@ -376,6 +376,7 @@
         "keyvault/keyVault.ts",
         "keyvault/secret.ts",
         "kusto/cluster.ts",
+        "kusto/clusterPrincipalAssignment.ts",
         "kusto/database.ts",
         "kusto/databasePrincipal.ts",
         "kusto/eventhubDataConnection.ts",

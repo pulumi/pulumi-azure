@@ -16,9 +16,15 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "Southeast Asia"});
+ * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     applicationType: "web",
+ * });
  * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
+ *     skuName: "S0",
  *     configServerGitSetting: {
  *         uri: "https://github.com/Azure-Samples/piggymetrics",
  *         label: "config",
@@ -26,6 +32,9 @@ import * as utilities from "../utilities";
  *             "dir1",
  *             "dir2",
  *         ],
+ *     },
+ *     trace: {
+ *         instrumentationKey: exampleInsights.instrumentationKey,
  *     },
  *     tags: {
  *         Env: "staging",
@@ -78,9 +87,17 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+     */
+    public readonly skuName!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A `trace` block as defined below.
+     */
+    public readonly trace!: pulumi.Output<outputs.appplatform.SpringCloudServiceTrace | undefined>;
 
     /**
      * Create a SpringCloudService resource with the given unique name, arguments, and options.
@@ -98,7 +115,9 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trace"] = state ? state.trace : undefined;
         } else {
             const args = argsOrState as SpringCloudServiceArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -108,7 +127,9 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trace"] = args ? args.trace : undefined;
         }
         if (!opts) {
             opts = {}
@@ -142,9 +163,17 @@ export interface SpringCloudServiceState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+     */
+    readonly skuName?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `trace` block as defined below.
+     */
+    readonly trace?: pulumi.Input<inputs.appplatform.SpringCloudServiceTrace>;
 }
 
 /**
@@ -168,7 +197,15 @@ export interface SpringCloudServiceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+     */
+    readonly skuName?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `trace` block as defined below.
+     */
+    readonly trace?: pulumi.Input<inputs.appplatform.SpringCloudServiceTrace>;
 }

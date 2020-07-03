@@ -82,16 +82,22 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managedImageId")]
-        public Output<string> ManagedImageId { get; private set; } = null!;
+        public Output<string?> ManagedImageId { get; private set; } = null!;
 
         /// <summary>
         /// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("osDiskSnapshotId")]
+        public Output<string?> OsDiskSnapshotId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -182,16 +188,22 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("managedImageId", required: true)]
-        public Input<string> ManagedImageId { get; set; } = null!;
+        [Input("managedImageId")]
+        public Input<string>? ManagedImageId { get; set; }
 
         /// <summary>
         /// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("osDiskSnapshotId")]
+        public Input<string>? OsDiskSnapshotId { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -255,7 +267,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedImageId")]
         public Input<string>? ManagedImageId { get; set; }
@@ -265,6 +277,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("osDiskSnapshotId")]
+        public Input<string>? OsDiskSnapshotId { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.

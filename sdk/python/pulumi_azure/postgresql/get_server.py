@@ -12,7 +12,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, administrator_login=None, fqdn=None, id=None, location=None, name=None, resource_group_name=None, tags=None, version=None):
+    def __init__(__self__, administrator_login=None, fqdn=None, id=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         __self__.administrator_login = administrator_login
@@ -43,6 +43,12 @@ class GetServerResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
+        if sku_name and not isinstance(sku_name, str):
+            raise TypeError("Expected argument 'sku_name' to be a str")
+        __self__.sku_name = sku_name
+        """
+        The SKU name of the PostgreSQL Server.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -67,6 +73,7 @@ class AwaitableGetServerResult(GetServerResult):
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
+            sku_name=self.sku_name,
             tags=self.tags,
             version=self.version)
 
@@ -107,5 +114,6 @@ def get_server(name=None,resource_group_name=None,opts=None):
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
+        sku_name=__ret__.get('skuName'),
         tags=__ret__.get('tags'),
         version=__ret__.get('version'))

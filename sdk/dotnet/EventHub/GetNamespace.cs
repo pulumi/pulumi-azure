@@ -128,6 +128,10 @@ namespace Pulumi.Azure.EventHub
         /// A mapping of tags to assign to the EventHub Namespace.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Is this EventHub Namespace deployed across Availability Zones?
+        /// </summary>
+        public readonly bool ZoneRedundant;
 
         [OutputConstructor]
         private GetNamespaceResult(
@@ -161,7 +165,9 @@ namespace Pulumi.Azure.EventHub
 
             string sku,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            bool zoneRedundant)
         {
             AutoInflateEnabled = autoInflateEnabled;
             Capacity = capacity;
@@ -179,6 +185,7 @@ namespace Pulumi.Azure.EventHub
             ResourceGroupName = resourceGroupName;
             Sku = sku;
             Tags = tags;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

@@ -113,6 +113,10 @@ namespace Pulumi.Azure.Compute
         public readonly string ReleaseNoteUri;
         public readonly string ResourceGroupName;
         /// <summary>
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run).
+        /// </summary>
+        public readonly bool Specialized;
+        /// <summary>
         /// A mapping of tags assigned to the Shared Image.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -143,6 +147,8 @@ namespace Pulumi.Azure.Compute
 
             string resourceGroupName,
 
+            bool specialized,
+
             ImmutableDictionary<string, string> tags)
         {
             Description = description;
@@ -157,6 +163,7 @@ namespace Pulumi.Azure.Compute
             PrivacyStatementUri = privacyStatementUri;
             ReleaseNoteUri = releaseNoteUri;
             ResourceGroupName = resourceGroupName;
+            Specialized = specialized;
             Tags = tags;
         }
     }

@@ -62,6 +62,12 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+        /// </summary>
+        [Output("displayNameFilters")]
+        public Output<ImmutableArray<string>> DisplayNameFilters { get; private set; } = null!;
+
+        /// <summary>
         /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         /// </summary>
         [Output("enabled")]
@@ -91,9 +97,6 @@ namespace Pulumi.Azure.Sentinel
         [Output("severityFilters")]
         public Output<ImmutableArray<string>> SeverityFilters { get; private set; } = null!;
 
-        /// <summary>
-        /// Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
-        /// </summary>
         [Output("textWhitelists")]
         public Output<ImmutableArray<string>> TextWhitelists { get; private set; } = null!;
 
@@ -155,6 +158,18 @@ namespace Pulumi.Azure.Sentinel
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        [Input("displayNameFilters")]
+        private InputList<string>? _displayNameFilters;
+
+        /// <summary>
+        /// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+        /// </summary>
+        public InputList<string> DisplayNameFilters
+        {
+            get => _displayNameFilters ?? (_displayNameFilters = new InputList<string>());
+            set => _displayNameFilters = value;
+        }
+
         /// <summary>
         /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         /// </summary>
@@ -193,10 +208,7 @@ namespace Pulumi.Azure.Sentinel
 
         [Input("textWhitelists")]
         private InputList<string>? _textWhitelists;
-
-        /// <summary>
-        /// Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
-        /// </summary>
+        [Obsolete(@"this property has been renamed to display_name_filter to better match the SDK & API")]
         public InputList<string> TextWhitelists
         {
             get => _textWhitelists ?? (_textWhitelists = new InputList<string>());
@@ -221,6 +233,18 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("displayNameFilters")]
+        private InputList<string>? _displayNameFilters;
+
+        /// <summary>
+        /// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+        /// </summary>
+        public InputList<string> DisplayNameFilters
+        {
+            get => _displayNameFilters ?? (_displayNameFilters = new InputList<string>());
+            set => _displayNameFilters = value;
+        }
 
         /// <summary>
         /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
@@ -260,10 +284,7 @@ namespace Pulumi.Azure.Sentinel
 
         [Input("textWhitelists")]
         private InputList<string>? _textWhitelists;
-
-        /// <summary>
-        /// Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
-        /// </summary>
+        [Obsolete(@"this property has been renamed to display_name_filter to better match the SDK & API")]
         public InputList<string> TextWhitelists
         {
             get => _textWhitelists ?? (_textWhitelists = new InputList<string>());

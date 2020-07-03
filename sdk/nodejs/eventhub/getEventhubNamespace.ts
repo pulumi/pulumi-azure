@@ -115,4 +115,8 @@ export interface GetEventhubNamespaceResult {
      * A mapping of tags to assign to the EventHub Namespace.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Is this EventHub Namespace deployed across Availability Zones?
+     */
+    readonly zoneRedundant: boolean;
 }

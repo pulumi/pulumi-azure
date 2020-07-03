@@ -88,6 +88,10 @@ namespace Pulumi.Azure.PostgreSql
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
+        /// The SKU name of the PostgreSQL Server.
+        /// </summary>
+        public readonly string SkuName;
+        /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -110,6 +114,8 @@ namespace Pulumi.Azure.PostgreSql
 
             string resourceGroupName,
 
+            string skuName,
+
             ImmutableDictionary<string, string> tags,
 
             string version)
@@ -120,6 +126,7 @@ namespace Pulumi.Azure.PostgreSql
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            SkuName = skuName;
             Tags = tags;
             Version = version;
         }

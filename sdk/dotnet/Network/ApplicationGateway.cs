@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Network
     ///                     Path = "/path1/",
     ///                     Port = 80,
     ///                     Protocol = "Http",
-    ///                     RequestTimeout = 1,
+    ///                     RequestTimeout = 60,
     ///                 },
     ///             },
     ///             HttpListeners = 

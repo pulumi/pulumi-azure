@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./cluster";
+export * from "./clusterPrincipalAssignment";
 export * from "./database";
 export * from "./databasePrincipal";
 export * from "./eventhubDataConnection";
