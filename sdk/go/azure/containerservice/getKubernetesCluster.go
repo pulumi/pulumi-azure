@@ -55,7 +55,7 @@ type LookupKubernetesClusterResult struct {
 	AddonProfiles []GetKubernetesClusterAddonProfile `pulumi:"addonProfiles"`
 	// An `agentPoolProfile` block as documented below.
 	AgentPoolProfiles []GetKubernetesClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
-	// The IP ranges to whitelist for incoming traffic to the masters.
+	// The IP ranges to whitelist for incoming traffic to the primaries.
 	ApiServerAuthorizedIpRanges []string `pulumi:"apiServerAuthorizedIpRanges"`
 	// The ID of the Disk Encryption Set used for the Nodes and Volumes.
 	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`

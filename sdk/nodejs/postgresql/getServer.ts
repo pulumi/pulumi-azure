@@ -73,6 +73,10 @@ export interface GetServerResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
+     * The SKU name of the PostgreSQL Server.
+     */
+    readonly skuName: string;
+    /**
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};

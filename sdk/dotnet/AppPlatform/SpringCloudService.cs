@@ -26,10 +26,17 @@ namespace Pulumi.Azure.AppPlatform
     ///         {
     ///             Location = "Southeast Asia",
     ///         });
+    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ApplicationType = "web",
+    ///         });
     ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
+    ///             SkuName = "S0",
     ///             ConfigServerGitSetting = new Azure.AppPlatform.Inputs.SpringCloudServiceConfigServerGitSettingArgs
     ///             {
     ///                 Uri = "https://github.com/Azure-Samples/piggymetrics",
@@ -39,6 +46,10 @@ namespace Pulumi.Azure.AppPlatform
     ///                     "dir1",
     ///                     "dir2",
     ///                 },
+    ///             },
+    ///             Trace = new Azure.AppPlatform.Inputs.SpringCloudServiceTraceArgs
+    ///             {
+    ///                 InstrumentationKey = exampleInsights.InstrumentationKey,
     ///             },
     ///             Tags = 
     ///             {
@@ -77,10 +88,22 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+        /// </summary>
+        [Output("skuName")]
+        public Output<string?> SkuName { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A `trace` block as defined below.
+        /// </summary>
+        [Output("trace")]
+        public Output<Outputs.SpringCloudServiceTrace?> Trace { get; private set; } = null!;
 
 
         /// <summary>
@@ -152,6 +175,12 @@ namespace Pulumi.Azure.AppPlatform
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -163,6 +192,12 @@ namespace Pulumi.Azure.AppPlatform
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `trace` block as defined below.
+        /// </summary>
+        [Input("trace")]
+        public Input<Inputs.SpringCloudServiceTraceArgs>? Trace { get; set; }
 
         public SpringCloudServiceArgs()
         {
@@ -195,6 +230,12 @@ namespace Pulumi.Azure.AppPlatform
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -206,6 +247,12 @@ namespace Pulumi.Azure.AppPlatform
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `trace` block as defined below.
+        /// </summary>
+        [Input("trace")]
+        public Input<Inputs.SpringCloudServiceTraceGetArgs>? Trace { get; set; }
 
         public SpringCloudServiceState()
         {

@@ -28,11 +28,15 @@ class SharedImageVersion(pulumi.CustomResource):
     """
     managed_image_id: pulumi.Output[str]
     """
-    The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+    The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
     """
     name: pulumi.Output[str]
     """
     The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+    """
+    os_disk_snapshot_id: pulumi.Output[str]
+    """
+    The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -50,7 +54,7 @@ class SharedImageVersion(pulumi.CustomResource):
       * `regionalReplicaCount` (`float`) - The number of replicas of the Image Version to be created per region.
       * `storage_account_type` (`str`) - The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
     """
-    def __init__(__self__, resource_name, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, os_disk_snapshot_id=None, resource_group_name=None, tags=None, target_regions=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
 
@@ -73,7 +77,7 @@ class SharedImageVersion(pulumi.CustomResource):
             managed_image_id=existing_image.id,
             target_regions=[{
                 "name": existing_shared_image.location,
-                "regionalReplicaCount": "5",
+                "regionalReplicaCount": 5,
                 "storage_account_type": "Standard_LRS",
             }])
         ```
@@ -84,8 +88,9 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_image_id: The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[list] target_regions: One or more `target_region` blocks as documented below.
@@ -121,10 +126,9 @@ class SharedImageVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'image_name'")
             __props__['image_name'] = image_name
             __props__['location'] = location
-            if managed_image_id is None:
-                raise TypeError("Missing required property 'managed_image_id'")
             __props__['managed_image_id'] = managed_image_id
             __props__['name'] = name
+            __props__['os_disk_snapshot_id'] = os_disk_snapshot_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -139,7 +143,7 @@ class SharedImageVersion(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None):
+    def get(resource_name, id, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, os_disk_snapshot_id=None, resource_group_name=None, tags=None, target_regions=None):
         """
         Get an existing SharedImageVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -151,8 +155,9 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] managed_image_id: The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[list] target_regions: One or more `target_region` blocks as documented below.
@@ -173,6 +178,7 @@ class SharedImageVersion(pulumi.CustomResource):
         __props__["location"] = location
         __props__["managed_image_id"] = managed_image_id
         __props__["name"] = name
+        __props__["os_disk_snapshot_id"] = os_disk_snapshot_id
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
         __props__["target_regions"] = target_regions

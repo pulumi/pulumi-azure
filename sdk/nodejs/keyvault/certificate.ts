@@ -152,6 +152,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificate!: pulumi.Output<outputs.keyvault.CertificateCertificate | undefined>;
     /**
+     * A `certificateAttribute` block as defined below.
+     */
+    public /*out*/ readonly certificateAttributes!: pulumi.Output<outputs.keyvault.CertificateCertificateAttribute[]>;
+    /**
      * The raw Key Vault Certificate data represented as a hexadecimal string.
      */
     public /*out*/ readonly certificateData!: pulumi.Output<string>;
@@ -197,6 +201,7 @@ export class Certificate extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as CertificateState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
+            inputs["certificateAttributes"] = state ? state.certificateAttributes : undefined;
             inputs["certificateData"] = state ? state.certificateData : undefined;
             inputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
@@ -218,6 +223,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["certificateAttributes"] = undefined /*out*/;
             inputs["certificateData"] = undefined /*out*/;
             inputs["secretId"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
@@ -244,6 +250,10 @@ export interface CertificateState {
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
     readonly certificate?: pulumi.Input<inputs.keyvault.CertificateCertificate>;
+    /**
+     * A `certificateAttribute` block as defined below.
+     */
+    readonly certificateAttributes?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateCertificateAttribute>[]>;
     /**
      * The raw Key Vault Certificate data represented as a hexadecimal string.
      */

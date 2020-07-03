@@ -29,7 +29,7 @@ class GetKubernetesClusterResult:
             raise TypeError("Expected argument 'api_server_authorized_ip_ranges' to be a list")
         __self__.api_server_authorized_ip_ranges = api_server_authorized_ip_ranges
         """
-        The IP ranges to whitelist for incoming traffic to the masters.
+        The IP ranges to whitelist for incoming traffic to the primaries.
         """
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")

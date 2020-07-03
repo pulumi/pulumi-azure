@@ -908,6 +908,13 @@ export namespace appplatform {
          */
         strictHostKeyCheckingEnabled?: pulumi.Input<boolean>;
     }
+
+    export interface SpringCloudServiceTrace {
+        /**
+         * The Instrumentation Key used for Application Insights.
+         */
+        instrumentationKey: pulumi.Input<string>;
+    }
 }
 
 export namespace appservice {
@@ -7747,11 +7754,13 @@ export namespace hdinsight {
 
     export interface HBaseClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
         /**
@@ -7909,11 +7918,13 @@ export namespace hdinsight {
 
     export interface HadoopClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
         /**
@@ -8170,11 +8181,13 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
         /**
@@ -8332,11 +8345,13 @@ export namespace hdinsight {
 
     export interface KafkaClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
         /**
@@ -8491,11 +8506,13 @@ export namespace hdinsight {
 
     export interface MLServicesClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
         /**
@@ -8658,11 +8675,13 @@ export namespace hdinsight {
 
     export interface RServerClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
         /**
@@ -8832,11 +8851,13 @@ export namespace hdinsight {
 
     export interface SparkClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
         /**
@@ -8994,11 +9015,13 @@ export namespace hdinsight {
 
     export interface StormClusterGateway {
         /**
-         * Is the Ambari portal enabled? Changing this forces a new resource to be created.
+         * Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+         *
+         * @deprecated HDInsight doesn't support disabling gateway anymore
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
-         * The password used for the Ambari Portal. Changing this forces a new resource to be created.
+         * The password used for the Ambari Portal.
          */
         password: pulumi.Input<string>;
         /**
@@ -9399,6 +9422,33 @@ export namespace keyvault {
         password?: pulumi.Input<string>;
     }
 
+    export interface CertifiateCertificateAttribute {
+        /**
+         * The create time of the Key Vault Certificate.
+         */
+        created?: pulumi.Input<string>;
+        /**
+         * whether the Key Vault Certificate is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The expires time of the Key Vault Certificate.
+         */
+        expires?: pulumi.Input<string>;
+        /**
+         * The not before valid time of the Key Vault Certificate.
+         */
+        notBefore?: pulumi.Input<string>;
+        /**
+         * The deletion recovery level of the Key Vault Certificate.
+         */
+        recoveryLevel?: pulumi.Input<string>;
+        /**
+         * The recent update time of the Key Vault Certificate.
+         */
+        updated?: pulumi.Input<string>;
+    }
+
     export interface CertifiateCertificatePolicy {
         /**
          * A `issuerParameters` block as defined below.
@@ -9531,6 +9581,33 @@ export namespace keyvault {
          * The password associated with the certificate. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+    }
+
+    export interface CertificateCertificateAttribute {
+        /**
+         * The create time of the Key Vault Certificate.
+         */
+        created?: pulumi.Input<string>;
+        /**
+         * whether the Key Vault Certificate is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The expires time of the Key Vault Certificate.
+         */
+        expires?: pulumi.Input<string>;
+        /**
+         * The not before valid time of the Key Vault Certificate.
+         */
+        notBefore?: pulumi.Input<string>;
+        /**
+         * The deletion recovery level of the Key Vault Certificate.
+         */
+        recoveryLevel?: pulumi.Input<string>;
+        /**
+         * The recent update time of the Key Vault Certificate.
+         */
+        updated?: pulumi.Input<string>;
     }
 
     export interface CertificateCertificatePolicy {

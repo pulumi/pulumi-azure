@@ -12,7 +12,7 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, id=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, id=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'auto_inflate_enabled' to be a bool")
         __self__.auto_inflate_enabled = auto_inflate_enabled
@@ -104,6 +104,12 @@ class GetNamespaceResult:
         """
         A mapping of tags to assign to the EventHub Namespace.
         """
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        __self__.zone_redundant = zone_redundant
+        """
+        Is this EventHub Namespace deployed across Availability Zones?
+        """
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -125,7 +131,8 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             name=self.name,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            tags=self.tags)
+            tags=self.tags,
+            zone_redundant=self.zone_redundant)
 
 def get_namespace(name=None,resource_group_name=None,opts=None):
     """
@@ -173,4 +180,5 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        zone_redundant=__ret__.get('zoneRedundant'))

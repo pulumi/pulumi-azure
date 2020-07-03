@@ -53,7 +53,7 @@ namespace Pulumi.Azure.AppService
     ///             PricingTier = "I2",
     ///             FrontEndScaleFactor = 10,
     ///             InternalLoadBalancingMode = "Web, Publishing",
-    ///             UserWhitelistedIpRanges = 
+    ///             AllowedUserIpCidrs = 
     ///             {
     ///                 "11.22.33.44/32",
     ///                 "55.66.77.0/24",
@@ -66,6 +66,12 @@ namespace Pulumi.Azure.AppService
     /// </summary>
     public partial class Environment : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+        /// </summary>
+        [Output("allowedUserIpCidrs")]
+        public Output<ImmutableArray<string>> AllowedUserIpCidrs { get; private set; } = null!;
+
         /// <summary>
         /// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         /// </summary>
@@ -114,9 +120,6 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
-        /// </summary>
         [Output("userWhitelistedIpRanges")]
         public Output<ImmutableArray<string>> UserWhitelistedIpRanges { get; private set; } = null!;
 
@@ -166,6 +169,18 @@ namespace Pulumi.Azure.AppService
 
     public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
+        [Input("allowedUserIpCidrs")]
+        private InputList<string>? _allowedUserIpCidrs;
+
+        /// <summary>
+        /// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+        /// </summary>
+        public InputList<string> AllowedUserIpCidrs
+        {
+            get => _allowedUserIpCidrs ?? (_allowedUserIpCidrs = new InputList<string>());
+            set => _allowedUserIpCidrs = value;
+        }
+
         /// <summary>
         /// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         /// </summary>
@@ -216,10 +231,7 @@ namespace Pulumi.Azure.AppService
 
         [Input("userWhitelistedIpRanges")]
         private InputList<string>? _userWhitelistedIpRanges;
-
-        /// <summary>
-        /// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
-        /// </summary>
+        [Obsolete(@"this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format")]
         public InputList<string> UserWhitelistedIpRanges
         {
             get => _userWhitelistedIpRanges ?? (_userWhitelistedIpRanges = new InputList<string>());
@@ -233,6 +245,18 @@ namespace Pulumi.Azure.AppService
 
     public sealed class EnvironmentState : Pulumi.ResourceArgs
     {
+        [Input("allowedUserIpCidrs")]
+        private InputList<string>? _allowedUserIpCidrs;
+
+        /// <summary>
+        /// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+        /// </summary>
+        public InputList<string> AllowedUserIpCidrs
+        {
+            get => _allowedUserIpCidrs ?? (_allowedUserIpCidrs = new InputList<string>());
+            set => _allowedUserIpCidrs = value;
+        }
+
         /// <summary>
         /// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         /// </summary>
@@ -289,10 +313,7 @@ namespace Pulumi.Azure.AppService
 
         [Input("userWhitelistedIpRanges")]
         private InputList<string>? _userWhitelistedIpRanges;
-
-        /// <summary>
-        /// User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
-        /// </summary>
+        [Obsolete(@"this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format")]
         public InputList<string> UserWhitelistedIpRanges
         {
             get => _userWhitelistedIpRanges ?? (_userWhitelistedIpRanges = new InputList<string>());

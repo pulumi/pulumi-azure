@@ -24,8 +24,8 @@ class HBaseCluster(pulumi.CustomResource):
     """
     A `gateway` block as defined below.
 
-      * `enabled` (`bool`) - Is the Ambari portal enabled? Changing this forces a new resource to be created.
-      * `password` (`str`) - The password used for the Ambari Portal. Changing this forces a new resource to be created.
+      * `enabled` (`bool`) - Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+      * `password` (`str`) - The password used for the Ambari Portal.
       * `username` (`str`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
     """
     https_endpoint: pulumi.Output[str]
@@ -181,8 +181,8 @@ class HBaseCluster(pulumi.CustomResource):
 
         The **gateway** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? Changing this forces a new resource to be created.
-          * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal. Changing this forces a new resource to be created.
+          * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+          * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal.
           * `username` (`pulumi.Input[str]`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
 
         The **roles** object supports the following:
@@ -304,8 +304,8 @@ class HBaseCluster(pulumi.CustomResource):
 
         The **gateway** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? Changing this forces a new resource to be created.
-          * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal. Changing this forces a new resource to be created.
+          * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+          * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal.
           * `username` (`pulumi.Input[str]`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
 
         The **roles** object supports the following:

@@ -64,6 +64,10 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+     */
+    public readonly displayNameFilters!: pulumi.Output<string[]>;
+    /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
@@ -84,9 +88,9 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
      */
     public readonly severityFilters!: pulumi.Output<string[]>;
     /**
-     * Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
+     * @deprecated this property has been renamed to display_name_filter to better match the SDK & API
      */
-    public readonly textWhitelists!: pulumi.Output<string[] | undefined>;
+    public readonly textWhitelists!: pulumi.Output<string[]>;
 
     /**
      * Create a AlertRuleMsSecurityIncident resource with the given unique name, arguments, and options.
@@ -102,6 +106,7 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             const state = argsOrState as AlertRuleMsSecurityIncidentState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
+            inputs["displayNameFilters"] = state ? state.displayNameFilters : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -124,6 +129,7 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["displayNameFilters"] = args ? args.displayNameFilters : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -155,6 +161,10 @@ export interface AlertRuleMsSecurityIncidentState {
      */
     readonly displayName?: pulumi.Input<string>;
     /**
+     * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+     */
+    readonly displayNameFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */
     readonly enabled?: pulumi.Input<boolean>;
@@ -175,7 +185,7 @@ export interface AlertRuleMsSecurityIncidentState {
      */
     readonly severityFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
+     * @deprecated this property has been renamed to display_name_filter to better match the SDK & API
      */
     readonly textWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -192,6 +202,10 @@ export interface AlertRuleMsSecurityIncidentArgs {
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
     readonly displayName: pulumi.Input<string>;
+    /**
+     * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+     */
+    readonly displayNameFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */
@@ -213,7 +227,7 @@ export interface AlertRuleMsSecurityIncidentArgs {
      */
     readonly severityFilters: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Only create incidents from alerts when alert name contain text in this list. No filter will happen if this field is absent.
+     * @deprecated this property has been renamed to display_name_filter to better match the SDK & API
      */
     readonly textWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }

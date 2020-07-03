@@ -78,7 +78,7 @@ type SharedImage struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri pulumi.StringPtrOutput `pulumi:"privacyStatementUri"`
@@ -86,6 +86,8 @@ type SharedImage struct {
 	ReleaseNoteUri pulumi.StringPtrOutput `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	Specialized pulumi.BoolPtrOutput `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -144,7 +146,7 @@ type sharedImageState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
@@ -152,6 +154,8 @@ type sharedImageState struct {
 	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -171,7 +175,7 @@ type SharedImageState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri pulumi.StringPtrInput
@@ -179,6 +183,8 @@ type SharedImageState struct {
 	ReleaseNoteUri pulumi.StringPtrInput
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
 }
@@ -202,7 +208,7 @@ type sharedImageArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType string `pulumi:"osType"`
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
@@ -210,6 +216,8 @@ type sharedImageArgs struct {
 	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -230,7 +238,7 @@ type SharedImageArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+	// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringInput
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri pulumi.StringPtrInput
@@ -238,6 +246,8 @@ type SharedImageArgs struct {
 	ReleaseNoteUri pulumi.StringPtrInput
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
 }

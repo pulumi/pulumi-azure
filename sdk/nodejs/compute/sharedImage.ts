@@ -95,7 +95,7 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+     * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
     public readonly osType!: pulumi.Output<string>;
     /**
@@ -110,6 +110,10 @@ export class SharedImage extends pulumi.CustomResource {
      * The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly specialized!: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the Shared Image.
      */
@@ -138,6 +142,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["privacyStatementUri"] = state ? state.privacyStatementUri : undefined;
             inputs["releaseNoteUri"] = state ? state.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["specialized"] = state ? state.specialized : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SharedImageArgs | undefined;
@@ -164,6 +169,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
             inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["specialized"] = args ? args.specialized : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
@@ -210,7 +216,7 @@ export interface SharedImageState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+     * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
     readonly osType?: pulumi.Input<string>;
     /**
@@ -225,6 +231,10 @@ export interface SharedImageState {
      * The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly specialized?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the Shared Image.
      */
@@ -264,7 +274,7 @@ export interface SharedImageArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+     * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
     readonly osType: pulumi.Input<string>;
     /**
@@ -279,6 +289,10 @@ export interface SharedImageArgs {
      * The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly specialized?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the Shared Image.
      */

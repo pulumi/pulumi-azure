@@ -83,7 +83,11 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    zone_redundant: pulumi.Output[bool]
+    """
+    Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+    """
+    def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventHub Namespace.
 
@@ -115,6 +119,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic` and `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
 
         The **network_rulesets** object supports the following:
 
@@ -157,6 +162,7 @@ class EventHubNamespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['zone_redundant'] = zone_redundant
             __props__['default_primary_connection_string'] = None
             __props__['default_primary_connection_string_alias'] = None
             __props__['default_primary_key'] = None
@@ -170,7 +176,7 @@ class EventHubNamespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         """
         Get an existing EventHubNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -197,6 +203,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic` and `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
 
         The **network_rulesets** object supports the following:
 
@@ -228,6 +235,7 @@ class EventHubNamespace(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku
         __props__["tags"] = tags
+        __props__["zone_redundant"] = zone_redundant
         return EventHubNamespace(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

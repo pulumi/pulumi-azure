@@ -142,9 +142,11 @@ func (o HBaseClusterComponentVersionPtrOutput) Hbase() pulumi.StringPtrOutput {
 }
 
 type HBaseClusterGateway struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled *bool `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -162,9 +164,11 @@ type HBaseClusterGatewayInput interface {
 }
 
 type HBaseClusterGatewayArgs struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -247,12 +251,14 @@ func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayPtrOutputWithContext(ctx
 	}).(HBaseClusterGatewayPtrOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-func (o HBaseClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v HBaseClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
+func (o HBaseClusterGatewayOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HBaseClusterGateway) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o HBaseClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -280,17 +286,19 @@ func (o HBaseClusterGatewayPtrOutput) Elem() HBaseClusterGatewayOutput {
 	return o.ApplyT(func(v *HBaseClusterGateway) HBaseClusterGateway { return *v }).(HBaseClusterGatewayOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
 func (o HBaseClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterGateway) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o HBaseClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterGateway) *string {
 		if v == nil {
@@ -1638,9 +1646,11 @@ func (o HadoopClusterComponentVersionPtrOutput) Hadoop() pulumi.StringPtrOutput 
 }
 
 type HadoopClusterGateway struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled *bool `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -1658,9 +1668,11 @@ type HadoopClusterGatewayInput interface {
 }
 
 type HadoopClusterGatewayArgs struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -1743,12 +1755,14 @@ func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayPtrOutputWithContext(c
 	}).(HadoopClusterGatewayPtrOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-func (o HadoopClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v HadoopClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
+func (o HadoopClusterGatewayOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HadoopClusterGateway) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o HadoopClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -1776,17 +1790,19 @@ func (o HadoopClusterGatewayPtrOutput) Elem() HadoopClusterGatewayOutput {
 	return o.ApplyT(func(v *HadoopClusterGateway) HadoopClusterGateway { return *v }).(HadoopClusterGatewayOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
 func (o HadoopClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterGateway) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o HadoopClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterGateway) *string {
 		if v == nil {
@@ -4158,9 +4174,11 @@ func (o InteractiveQueryClusterComponentVersionPtrOutput) InteractiveHive() pulu
 }
 
 type InteractiveQueryClusterGateway struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled *bool `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -4178,9 +4196,11 @@ type InteractiveQueryClusterGatewayInput interface {
 }
 
 type InteractiveQueryClusterGatewayArgs struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -4263,12 +4283,14 @@ func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayPt
 	}).(InteractiveQueryClusterGatewayPtrOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
+func (o InteractiveQueryClusterGatewayOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterGateway) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o InteractiveQueryClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -4296,17 +4318,19 @@ func (o InteractiveQueryClusterGatewayPtrOutput) Elem() InteractiveQueryClusterG
 	return o.ApplyT(func(v *InteractiveQueryClusterGateway) InteractiveQueryClusterGateway { return *v }).(InteractiveQueryClusterGatewayOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
 func (o InteractiveQueryClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterGateway) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o InteractiveQueryClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterGateway) *string {
 		if v == nil {
@@ -5658,9 +5682,11 @@ func (o KafkaClusterComponentVersionPtrOutput) Kafka() pulumi.StringPtrOutput {
 }
 
 type KafkaClusterGateway struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled *bool `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -5678,9 +5704,11 @@ type KafkaClusterGatewayInput interface {
 }
 
 type KafkaClusterGatewayArgs struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -5763,12 +5791,14 @@ func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayPtrOutputWithContext(ctx
 	}).(KafkaClusterGatewayPtrOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-func (o KafkaClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v KafkaClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
+func (o KafkaClusterGatewayOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KafkaClusterGateway) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o KafkaClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -5796,17 +5826,19 @@ func (o KafkaClusterGatewayPtrOutput) Elem() KafkaClusterGatewayOutput {
 	return o.ApplyT(func(v *KafkaClusterGateway) KafkaClusterGateway { return *v }).(KafkaClusterGatewayOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
 func (o KafkaClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterGateway) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o KafkaClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterGateway) *string {
 		if v == nil {
@@ -7042,9 +7074,11 @@ func (o KafkaClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.Stri
 }
 
 type MLServicesClusterGateway struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled *bool `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -7062,9 +7096,11 @@ type MLServicesClusterGatewayInput interface {
 }
 
 type MLServicesClusterGatewayArgs struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -7147,12 +7183,14 @@ func (o MLServicesClusterGatewayOutput) ToMLServicesClusterGatewayPtrOutputWithC
 	}).(MLServicesClusterGatewayPtrOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-func (o MLServicesClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v MLServicesClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
+func (o MLServicesClusterGatewayOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MLServicesClusterGateway) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o MLServicesClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v MLServicesClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -7180,17 +7218,19 @@ func (o MLServicesClusterGatewayPtrOutput) Elem() MLServicesClusterGatewayOutput
 	return o.ApplyT(func(v *MLServicesClusterGateway) MLServicesClusterGateway { return *v }).(MLServicesClusterGatewayOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
 func (o MLServicesClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MLServicesClusterGateway) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o MLServicesClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MLServicesClusterGateway) *string {
 		if v == nil {
@@ -8464,9 +8504,11 @@ func (o MLServicesClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) MLS
 }
 
 type RServerClusterGateway struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled *bool `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -8484,9 +8526,11 @@ type RServerClusterGatewayInput interface {
 }
 
 type RServerClusterGatewayArgs struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -8569,12 +8613,14 @@ func (o RServerClusterGatewayOutput) ToRServerClusterGatewayPtrOutputWithContext
 	}).(RServerClusterGatewayPtrOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-func (o RServerClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v RServerClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
+func (o RServerClusterGatewayOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RServerClusterGateway) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o RServerClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v RServerClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -8602,17 +8648,19 @@ func (o RServerClusterGatewayPtrOutput) Elem() RServerClusterGatewayOutput {
 	return o.ApplyT(func(v *RServerClusterGateway) RServerClusterGateway { return *v }).(RServerClusterGatewayOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
 func (o RServerClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RServerClusterGateway) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o RServerClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RServerClusterGateway) *string {
 		if v == nil {
@@ -10017,9 +10065,11 @@ func (o SparkClusterComponentVersionPtrOutput) Spark() pulumi.StringPtrOutput {
 }
 
 type SparkClusterGateway struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled *bool `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -10037,9 +10087,11 @@ type SparkClusterGatewayInput interface {
 }
 
 type SparkClusterGatewayArgs struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -10122,12 +10174,14 @@ func (o SparkClusterGatewayOutput) ToSparkClusterGatewayPtrOutputWithContext(ctx
 	}).(SparkClusterGatewayPtrOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-func (o SparkClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v SparkClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
+func (o SparkClusterGatewayOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SparkClusterGateway) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o SparkClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -10155,17 +10209,19 @@ func (o SparkClusterGatewayPtrOutput) Elem() SparkClusterGatewayOutput {
 	return o.ApplyT(func(v *SparkClusterGateway) SparkClusterGateway { return *v }).(SparkClusterGatewayOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
 func (o SparkClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SparkClusterGateway) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o SparkClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterGateway) *string {
 		if v == nil {
@@ -11513,9 +11569,11 @@ func (o StormClusterComponentVersionPtrOutput) Storm() pulumi.StringPtrOutput {
 }
 
 type StormClusterGateway struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled bool `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled *bool `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -11533,9 +11591,11 @@ type StormClusterGatewayInput interface {
 }
 
 type StormClusterGatewayArgs struct {
-	// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+	// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+	//
+	// Deprecated: HDInsight doesn't support disabling gateway anymore
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The password used for the Ambari Portal.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -11618,12 +11678,14 @@ func (o StormClusterGatewayOutput) ToStormClusterGatewayPtrOutputWithContext(ctx
 	}).(StormClusterGatewayPtrOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
-func (o StormClusterGatewayOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v StormClusterGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
+func (o StormClusterGatewayOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StormClusterGateway) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o StormClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v StormClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -11651,17 +11713,19 @@ func (o StormClusterGatewayPtrOutput) Elem() StormClusterGatewayOutput {
 	return o.ApplyT(func(v *StormClusterGateway) StormClusterGateway { return *v }).(StormClusterGatewayOutput)
 }
 
-// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
+//
+// Deprecated: HDInsight doesn't support disabling gateway anymore
 func (o StormClusterGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StormClusterGateway) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.Enabled
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+// The password used for the Ambari Portal.
 func (o StormClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StormClusterGateway) *string {
 		if v == nil {

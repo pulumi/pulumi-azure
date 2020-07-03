@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     managedImageId: existingImage.then(existingImage => existingImage.id),
  *     targetRegions: [{
  *         name: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
- *         regionalReplicaCount: "5",
+ *         regionalReplicaCount: 5,
  *         storageAccountType: "Standard_LRS",
  *     }],
  * });
@@ -83,13 +83,17 @@ export class SharedImageVersion extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
-    public readonly managedImageId!: pulumi.Output<string>;
+    public readonly managedImageId!: pulumi.Output<string | undefined>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     */
+    public readonly osDiskSnapshotId!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
@@ -121,6 +125,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["managedImageId"] = state ? state.managedImageId : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["osDiskSnapshotId"] = state ? state.osDiskSnapshotId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["targetRegions"] = state ? state.targetRegions : undefined;
@@ -131,9 +136,6 @@ export class SharedImageVersion extends pulumi.CustomResource {
             }
             if (!args || args.imageName === undefined) {
                 throw new Error("Missing required property 'imageName'");
-            }
-            if (!args || args.managedImageId === undefined) {
-                throw new Error("Missing required property 'managedImageId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -147,6 +149,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["managedImageId"] = args ? args.managedImageId : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["osDiskSnapshotId"] = args ? args.osDiskSnapshotId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetRegions"] = args ? args.targetRegions : undefined;
@@ -183,13 +186,17 @@ export interface SharedImageVersionState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
     readonly managedImageId?: pulumi.Input<string>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     */
+    readonly osDiskSnapshotId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
@@ -225,13 +232,17 @@ export interface SharedImageVersionArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
-    readonly managedImageId: pulumi.Input<string>;
+    readonly managedImageId?: pulumi.Input<string>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+     */
+    readonly osDiskSnapshotId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */

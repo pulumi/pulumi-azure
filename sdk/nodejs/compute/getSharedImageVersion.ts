@@ -87,6 +87,10 @@ export interface GetSharedImageVersionResult {
      * The Azure Region in which this Image Version exists.
      */
     readonly name: string;
+    /**
+     * The ID of the OS disk snapshot which was the source of this Shared Image Version.
+     */
+    readonly osDiskSnapshotId: string;
     readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the Shared Image.

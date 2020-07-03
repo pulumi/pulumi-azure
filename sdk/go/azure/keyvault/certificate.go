@@ -156,6 +156,8 @@ type Certificate struct {
 
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate CertificateCertificatePtrOutput `pulumi:"certificate"`
+	// A `certificateAttribute` block as defined below.
+	CertificateAttributes CertificateCertificateAttributeArrayOutput `pulumi:"certificateAttributes"`
 	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData pulumi.StringOutput `pulumi:"certificateData"`
 	// A `certificatePolicy` block as defined below.
@@ -216,6 +218,8 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate *CertificateCertificate `pulumi:"certificate"`
+	// A `certificateAttribute` block as defined below.
+	CertificateAttributes []CertificateCertificateAttribute `pulumi:"certificateAttributes"`
 	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData *string `pulumi:"certificateData"`
 	// A `certificatePolicy` block as defined below.
@@ -237,6 +241,8 @@ type certificateState struct {
 type CertificateState struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate CertificateCertificatePtrInput
+	// A `certificateAttribute` block as defined below.
+	CertificateAttributes CertificateCertificateAttributeArrayInput
 	// The raw Key Vault Certificate data represented as a hexadecimal string.
 	CertificateData pulumi.StringPtrInput
 	// A `certificatePolicy` block as defined below.

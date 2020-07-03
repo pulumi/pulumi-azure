@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+        /// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("osType")]
         public Output<string> OsType { get; private set; } = null!;
@@ -122,6 +122,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("specialized")]
+        public Output<bool?> Specialized { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the Shared Image.
@@ -218,7 +224,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+        /// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osType", required: true)]
         public Input<string> OsType { get; set; } = null!;
@@ -240,6 +246,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("specialized")]
+        public Input<bool>? Specialized { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -303,7 +315,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
+        /// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -325,6 +337,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("specialized")]
+        public Input<bool>? Specialized { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

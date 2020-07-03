@@ -168,6 +168,12 @@ namespace Pulumi.Azure.KeyVault
         public Output<Outputs.CertificateCertificate?> KeyVaultCertificate { get; private set; } = null!;
 
         /// <summary>
+        /// A `certificate_attribute` block as defined below.
+        /// </summary>
+        [Output("certificateAttributes")]
+        public Output<ImmutableArray<Outputs.CertificateCertificateAttribute>> CertificateAttributes { get; private set; } = null!;
+
+        /// <summary>
         /// The raw Key Vault Certificate data represented as a hexadecimal string.
         /// </summary>
         [Output("certificateData")]
@@ -313,6 +319,18 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.CertificateCertificateGetArgs>? KeyVaultCertificate { get; set; }
+
+        [Input("certificateAttributes")]
+        private InputList<Inputs.CertificateCertificateAttributeGetArgs>? _certificateAttributes;
+
+        /// <summary>
+        /// A `certificate_attribute` block as defined below.
+        /// </summary>
+        public InputList<Inputs.CertificateCertificateAttributeGetArgs> CertificateAttributes
+        {
+            get => _certificateAttributes ?? (_certificateAttributes = new InputList<Inputs.CertificateCertificateAttributeGetArgs>());
+            set => _certificateAttributes = value;
+        }
 
         /// <summary>
         /// The raw Key Vault Certificate data represented as a hexadecimal string.

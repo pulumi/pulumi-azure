@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     pricingTier: "I2",
  *     frontEndScaleFactor: 10,
  *     internalLoadBalancingMode: "Web, Publishing",
- *     userWhitelistedIpRanges: [
+ *     allowedUserIpCidrs: [
  *         "11.22.33.44/32",
  *         "55.66.77.0/24",
  *     ],
@@ -70,6 +70,10 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
+     * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+     */
+    public readonly allowedUserIpCidrs!: pulumi.Output<string[]>;
+    /**
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
     public readonly frontEndScaleFactor!: pulumi.Output<number | undefined>;
@@ -102,9 +106,9 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+     * @deprecated this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
      */
-    public readonly userWhitelistedIpRanges!: pulumi.Output<string[] | undefined>;
+    public readonly userWhitelistedIpRanges!: pulumi.Output<string[]>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -118,6 +122,7 @@ export class Environment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
+            inputs["allowedUserIpCidrs"] = state ? state.allowedUserIpCidrs : undefined;
             inputs["frontEndScaleFactor"] = state ? state.frontEndScaleFactor : undefined;
             inputs["internalLoadBalancingMode"] = state ? state.internalLoadBalancingMode : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -132,6 +137,7 @@ export class Environment extends pulumi.CustomResource {
             if (!args || args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
+            inputs["allowedUserIpCidrs"] = args ? args.allowedUserIpCidrs : undefined;
             inputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
             inputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -157,6 +163,10 @@ export class Environment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Environment resources.
  */
 export interface EnvironmentState {
+    /**
+     * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+     */
+    readonly allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
@@ -190,7 +200,7 @@ export interface EnvironmentState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+     * @deprecated this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
      */
     readonly userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -199,6 +209,10 @@ export interface EnvironmentState {
  * The set of arguments for constructing a Environment resource.
  */
 export interface EnvironmentArgs {
+    /**
+     * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+     */
+    readonly allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
@@ -228,7 +242,7 @@ export interface EnvironmentArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * User added IP ranges to whitelist on ASE db. Use the addresses you want to set as the explicit egress address ranges.  Use CIDR format.
+     * @deprecated this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
      */
     readonly userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }

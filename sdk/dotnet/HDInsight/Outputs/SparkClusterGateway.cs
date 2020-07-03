@@ -14,11 +14,11 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class SparkClusterGateway
     {
         /// <summary>
-        /// Is the Ambari portal enabled? Changing this forces a new resource to be created.
+        /// Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
-        /// The password used for the Ambari Portal. Changing this forces a new resource to be created.
+        /// The password used for the Ambari Portal.
         /// </summary>
         public readonly string Password;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
         [OutputConstructor]
         private SparkClusterGateway(
-            bool enabled,
+            bool? enabled,
 
             string password,
 

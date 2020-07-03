@@ -1201,10 +1201,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
 
 			// Kusto
-			"azurerm_kusto_cluster":                  {Tok: azureResource(azureKusto, "Cluster")},
-			"azurerm_kusto_database":                 {Tok: azureResource(azureKusto, "Database")},
-			"azurerm_kusto_eventhub_data_connection": {Tok: azureResource(azureKusto, "EventhubDataConnection")},
-			"azurerm_kusto_database_principal":       {Tok: azureResource(azureKusto, "DatabasePrincipal")},
+			"azurerm_kusto_cluster":                      {Tok: azureResource(azureKusto, "Cluster")},
+			"azurerm_kusto_database":                     {Tok: azureResource(azureKusto, "Database")},
+			"azurerm_kusto_eventhub_data_connection":     {Tok: azureResource(azureKusto, "EventhubDataConnection")},
+			"azurerm_kusto_database_principal":           {Tok: azureResource(azureKusto, "DatabasePrincipal")},
+			"azurerm_kusto_cluster_principal_assignment": {Tok: azureResource(azureKusto, "ClusterPrincipalAssignment")},
 
 			// Frontdoor
 			"azurerm_frontdoor": {

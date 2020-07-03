@@ -75,6 +75,8 @@ type LookupSharedImageResult struct {
 	// The URI containing the Release Notes for this Shared Image.
 	ReleaseNoteUri    string `pulumi:"releaseNoteUri"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run).
+	Specialized bool `pulumi:"specialized"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
 }

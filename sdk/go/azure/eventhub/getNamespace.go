@@ -85,4 +85,6 @@ type LookupNamespaceResult struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags map[string]string `pulumi:"tags"`
+	// Is this EventHub Namespace deployed across Availability Zones?
+	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }

@@ -160,6 +160,148 @@ func (o CertifiateCertificatePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CertifiateCertificateAttribute struct {
+	// The create time of the Key Vault Certificate.
+	Created *string `pulumi:"created"`
+	// whether the Key Vault Certificate is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The expires time of the Key Vault Certificate.
+	Expires *string `pulumi:"expires"`
+	// The not before valid time of the Key Vault Certificate.
+	NotBefore *string `pulumi:"notBefore"`
+	// The deletion recovery level of the Key Vault Certificate.
+	RecoveryLevel *string `pulumi:"recoveryLevel"`
+	// The recent update time of the Key Vault Certificate.
+	Updated *string `pulumi:"updated"`
+}
+
+// CertifiateCertificateAttributeInput is an input type that accepts CertifiateCertificateAttributeArgs and CertifiateCertificateAttributeOutput values.
+// You can construct a concrete instance of `CertifiateCertificateAttributeInput` via:
+//
+//          CertifiateCertificateAttributeArgs{...}
+type CertifiateCertificateAttributeInput interface {
+	pulumi.Input
+
+	ToCertifiateCertificateAttributeOutput() CertifiateCertificateAttributeOutput
+	ToCertifiateCertificateAttributeOutputWithContext(context.Context) CertifiateCertificateAttributeOutput
+}
+
+type CertifiateCertificateAttributeArgs struct {
+	// The create time of the Key Vault Certificate.
+	Created pulumi.StringPtrInput `pulumi:"created"`
+	// whether the Key Vault Certificate is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The expires time of the Key Vault Certificate.
+	Expires pulumi.StringPtrInput `pulumi:"expires"`
+	// The not before valid time of the Key Vault Certificate.
+	NotBefore pulumi.StringPtrInput `pulumi:"notBefore"`
+	// The deletion recovery level of the Key Vault Certificate.
+	RecoveryLevel pulumi.StringPtrInput `pulumi:"recoveryLevel"`
+	// The recent update time of the Key Vault Certificate.
+	Updated pulumi.StringPtrInput `pulumi:"updated"`
+}
+
+func (CertifiateCertificateAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertifiateCertificateAttribute)(nil)).Elem()
+}
+
+func (i CertifiateCertificateAttributeArgs) ToCertifiateCertificateAttributeOutput() CertifiateCertificateAttributeOutput {
+	return i.ToCertifiateCertificateAttributeOutputWithContext(context.Background())
+}
+
+func (i CertifiateCertificateAttributeArgs) ToCertifiateCertificateAttributeOutputWithContext(ctx context.Context) CertifiateCertificateAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificateAttributeOutput)
+}
+
+// CertifiateCertificateAttributeArrayInput is an input type that accepts CertifiateCertificateAttributeArray and CertifiateCertificateAttributeArrayOutput values.
+// You can construct a concrete instance of `CertifiateCertificateAttributeArrayInput` via:
+//
+//          CertifiateCertificateAttributeArray{ CertifiateCertificateAttributeArgs{...} }
+type CertifiateCertificateAttributeArrayInput interface {
+	pulumi.Input
+
+	ToCertifiateCertificateAttributeArrayOutput() CertifiateCertificateAttributeArrayOutput
+	ToCertifiateCertificateAttributeArrayOutputWithContext(context.Context) CertifiateCertificateAttributeArrayOutput
+}
+
+type CertifiateCertificateAttributeArray []CertifiateCertificateAttributeInput
+
+func (CertifiateCertificateAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertifiateCertificateAttribute)(nil)).Elem()
+}
+
+func (i CertifiateCertificateAttributeArray) ToCertifiateCertificateAttributeArrayOutput() CertifiateCertificateAttributeArrayOutput {
+	return i.ToCertifiateCertificateAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i CertifiateCertificateAttributeArray) ToCertifiateCertificateAttributeArrayOutputWithContext(ctx context.Context) CertifiateCertificateAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificateAttributeArrayOutput)
+}
+
+type CertifiateCertificateAttributeOutput struct{ *pulumi.OutputState }
+
+func (CertifiateCertificateAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertifiateCertificateAttribute)(nil)).Elem()
+}
+
+func (o CertifiateCertificateAttributeOutput) ToCertifiateCertificateAttributeOutput() CertifiateCertificateAttributeOutput {
+	return o
+}
+
+func (o CertifiateCertificateAttributeOutput) ToCertifiateCertificateAttributeOutputWithContext(ctx context.Context) CertifiateCertificateAttributeOutput {
+	return o
+}
+
+// The create time of the Key Vault Certificate.
+func (o CertifiateCertificateAttributeOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificateAttribute) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// whether the Key Vault Certificate is enabled.
+func (o CertifiateCertificateAttributeOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificateAttribute) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The expires time of the Key Vault Certificate.
+func (o CertifiateCertificateAttributeOutput) Expires() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificateAttribute) *string { return v.Expires }).(pulumi.StringPtrOutput)
+}
+
+// The not before valid time of the Key Vault Certificate.
+func (o CertifiateCertificateAttributeOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificateAttribute) *string { return v.NotBefore }).(pulumi.StringPtrOutput)
+}
+
+// The deletion recovery level of the Key Vault Certificate.
+func (o CertifiateCertificateAttributeOutput) RecoveryLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificateAttribute) *string { return v.RecoveryLevel }).(pulumi.StringPtrOutput)
+}
+
+// The recent update time of the Key Vault Certificate.
+func (o CertifiateCertificateAttributeOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificateAttribute) *string { return v.Updated }).(pulumi.StringPtrOutput)
+}
+
+type CertifiateCertificateAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (CertifiateCertificateAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertifiateCertificateAttribute)(nil)).Elem()
+}
+
+func (o CertifiateCertificateAttributeArrayOutput) ToCertifiateCertificateAttributeArrayOutput() CertifiateCertificateAttributeArrayOutput {
+	return o
+}
+
+func (o CertifiateCertificateAttributeArrayOutput) ToCertifiateCertificateAttributeArrayOutputWithContext(ctx context.Context) CertifiateCertificateAttributeArrayOutput {
+	return o
+}
+
+func (o CertifiateCertificateAttributeArrayOutput) Index(i pulumi.IntInput) CertifiateCertificateAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertifiateCertificateAttribute {
+		return vs[0].([]CertifiateCertificateAttribute)[vs[1].(int)]
+	}).(CertifiateCertificateAttributeOutput)
+}
+
 type CertifiateCertificatePolicy struct {
 	// A `issuerParameters` block as defined below.
 	IssuerParameters CertifiateCertificatePolicyIssuerParameters `pulumi:"issuerParameters"`
@@ -1588,6 +1730,148 @@ func (o CertificateCertificatePtrOutput) Password() pulumi.StringPtrOutput {
 		}
 		return v.Password
 	}).(pulumi.StringPtrOutput)
+}
+
+type CertificateCertificateAttribute struct {
+	// The create time of the Key Vault Certificate.
+	Created *string `pulumi:"created"`
+	// whether the Key Vault Certificate is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The expires time of the Key Vault Certificate.
+	Expires *string `pulumi:"expires"`
+	// The not before valid time of the Key Vault Certificate.
+	NotBefore *string `pulumi:"notBefore"`
+	// The deletion recovery level of the Key Vault Certificate.
+	RecoveryLevel *string `pulumi:"recoveryLevel"`
+	// The recent update time of the Key Vault Certificate.
+	Updated *string `pulumi:"updated"`
+}
+
+// CertificateCertificateAttributeInput is an input type that accepts CertificateCertificateAttributeArgs and CertificateCertificateAttributeOutput values.
+// You can construct a concrete instance of `CertificateCertificateAttributeInput` via:
+//
+//          CertificateCertificateAttributeArgs{...}
+type CertificateCertificateAttributeInput interface {
+	pulumi.Input
+
+	ToCertificateCertificateAttributeOutput() CertificateCertificateAttributeOutput
+	ToCertificateCertificateAttributeOutputWithContext(context.Context) CertificateCertificateAttributeOutput
+}
+
+type CertificateCertificateAttributeArgs struct {
+	// The create time of the Key Vault Certificate.
+	Created pulumi.StringPtrInput `pulumi:"created"`
+	// whether the Key Vault Certificate is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The expires time of the Key Vault Certificate.
+	Expires pulumi.StringPtrInput `pulumi:"expires"`
+	// The not before valid time of the Key Vault Certificate.
+	NotBefore pulumi.StringPtrInput `pulumi:"notBefore"`
+	// The deletion recovery level of the Key Vault Certificate.
+	RecoveryLevel pulumi.StringPtrInput `pulumi:"recoveryLevel"`
+	// The recent update time of the Key Vault Certificate.
+	Updated pulumi.StringPtrInput `pulumi:"updated"`
+}
+
+func (CertificateCertificateAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCertificateAttribute)(nil)).Elem()
+}
+
+func (i CertificateCertificateAttributeArgs) ToCertificateCertificateAttributeOutput() CertificateCertificateAttributeOutput {
+	return i.ToCertificateCertificateAttributeOutputWithContext(context.Background())
+}
+
+func (i CertificateCertificateAttributeArgs) ToCertificateCertificateAttributeOutputWithContext(ctx context.Context) CertificateCertificateAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificateAttributeOutput)
+}
+
+// CertificateCertificateAttributeArrayInput is an input type that accepts CertificateCertificateAttributeArray and CertificateCertificateAttributeArrayOutput values.
+// You can construct a concrete instance of `CertificateCertificateAttributeArrayInput` via:
+//
+//          CertificateCertificateAttributeArray{ CertificateCertificateAttributeArgs{...} }
+type CertificateCertificateAttributeArrayInput interface {
+	pulumi.Input
+
+	ToCertificateCertificateAttributeArrayOutput() CertificateCertificateAttributeArrayOutput
+	ToCertificateCertificateAttributeArrayOutputWithContext(context.Context) CertificateCertificateAttributeArrayOutput
+}
+
+type CertificateCertificateAttributeArray []CertificateCertificateAttributeInput
+
+func (CertificateCertificateAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateCertificateAttribute)(nil)).Elem()
+}
+
+func (i CertificateCertificateAttributeArray) ToCertificateCertificateAttributeArrayOutput() CertificateCertificateAttributeArrayOutput {
+	return i.ToCertificateCertificateAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateCertificateAttributeArray) ToCertificateCertificateAttributeArrayOutputWithContext(ctx context.Context) CertificateCertificateAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificateAttributeArrayOutput)
+}
+
+type CertificateCertificateAttributeOutput struct{ *pulumi.OutputState }
+
+func (CertificateCertificateAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateCertificateAttribute)(nil)).Elem()
+}
+
+func (o CertificateCertificateAttributeOutput) ToCertificateCertificateAttributeOutput() CertificateCertificateAttributeOutput {
+	return o
+}
+
+func (o CertificateCertificateAttributeOutput) ToCertificateCertificateAttributeOutputWithContext(ctx context.Context) CertificateCertificateAttributeOutput {
+	return o
+}
+
+// The create time of the Key Vault Certificate.
+func (o CertificateCertificateAttributeOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateCertificateAttribute) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// whether the Key Vault Certificate is enabled.
+func (o CertificateCertificateAttributeOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateCertificateAttribute) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The expires time of the Key Vault Certificate.
+func (o CertificateCertificateAttributeOutput) Expires() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateCertificateAttribute) *string { return v.Expires }).(pulumi.StringPtrOutput)
+}
+
+// The not before valid time of the Key Vault Certificate.
+func (o CertificateCertificateAttributeOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateCertificateAttribute) *string { return v.NotBefore }).(pulumi.StringPtrOutput)
+}
+
+// The deletion recovery level of the Key Vault Certificate.
+func (o CertificateCertificateAttributeOutput) RecoveryLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateCertificateAttribute) *string { return v.RecoveryLevel }).(pulumi.StringPtrOutput)
+}
+
+// The recent update time of the Key Vault Certificate.
+func (o CertificateCertificateAttributeOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateCertificateAttribute) *string { return v.Updated }).(pulumi.StringPtrOutput)
+}
+
+type CertificateCertificateAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateCertificateAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateCertificateAttribute)(nil)).Elem()
+}
+
+func (o CertificateCertificateAttributeArrayOutput) ToCertificateCertificateAttributeArrayOutput() CertificateCertificateAttributeArrayOutput {
+	return o
+}
+
+func (o CertificateCertificateAttributeArrayOutput) ToCertificateCertificateAttributeArrayOutputWithContext(ctx context.Context) CertificateCertificateAttributeArrayOutput {
+	return o
+}
+
+func (o CertificateCertificateAttributeArrayOutput) Index(i pulumi.IntInput) CertificateCertificateAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateCertificateAttribute {
+		return vs[0].([]CertificateCertificateAttribute)[vs[1].(int)]
+	}).(CertificateCertificateAttributeOutput)
 }
 
 type CertificateCertificatePolicy struct {
@@ -4507,6 +4791,8 @@ func (o GetKeyVaultNetworkAclArrayOutput) Index(i pulumi.IntInput) GetKeyVaultNe
 func init() {
 	pulumi.RegisterOutputType(CertifiateCertificateOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePtrOutput{})
+	pulumi.RegisterOutputType(CertifiateCertificateAttributeOutput{})
+	pulumi.RegisterOutputType(CertifiateCertificateAttributeArrayOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyIssuerParametersOutput{})
@@ -4525,6 +4811,8 @@ func init() {
 	pulumi.RegisterOutputType(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificateOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePtrOutput{})
+	pulumi.RegisterOutputType(CertificateCertificateAttributeOutput{})
+	pulumi.RegisterOutputType(CertificateCertificateAttributeArrayOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyIssuerParametersOutput{})

@@ -19,6 +19,17 @@ class Certifiate(pulumi.CustomResource):
       * `contents` (`str`) - The base64-encoded certificate contents. Changing this forces a new resource to be created.
       * `password` (`str`) - The password associated with the certificate. Changing this forces a new resource to be created.
     """
+    certificate_attributes: pulumi.Output[list]
+    """
+    A `certificate_attribute` block as defined below.
+
+      * `created` (`str`) - The create time of the Key Vault Certificate.
+      * `enabled` (`bool`) - whether the Key Vault Certificate is enabled.
+      * `expires` (`str`) - The expires time of the Key Vault Certificate.
+      * `notBefore` (`str`) - The not before valid time of the Key Vault Certificate.
+      * `recoveryLevel` (`str`) - The deletion recovery level of the Key Vault Certificate.
+      * `updated` (`str`) - The recent update time of the Key Vault Certificate.
+    """
     certificate_data: pulumi.Output[str]
     """
     The raw Key Vault Certificate data represented as a hexadecimal string.
@@ -269,6 +280,7 @@ class Certifiate(pulumi.CustomResource):
             __props__['key_vault_id'] = key_vault_id
             __props__['name'] = name
             __props__['tags'] = tags
+            __props__['certificate_attributes'] = None
             __props__['certificate_data'] = None
             __props__['secret_id'] = None
             __props__['thumbprint'] = None
@@ -280,7 +292,7 @@ class Certifiate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, certificate=None, certificate_data=None, certificate_policy=None, key_vault_id=None, name=None, secret_id=None, tags=None, thumbprint=None, version=None):
+    def get(resource_name, id, opts=None, certificate=None, certificate_attributes=None, certificate_data=None, certificate_policy=None, key_vault_id=None, name=None, secret_id=None, tags=None, thumbprint=None, version=None):
         """
         Get an existing Certifiate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -289,6 +301,7 @@ class Certifiate(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below, used to Import an existing certificate.
+        :param pulumi.Input[list] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[dict] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
@@ -302,6 +315,15 @@ class Certifiate(pulumi.CustomResource):
 
           * `contents` (`pulumi.Input[str]`) - The base64-encoded certificate contents. Changing this forces a new resource to be created.
           * `password` (`pulumi.Input[str]`) - The password associated with the certificate. Changing this forces a new resource to be created.
+
+        The **certificate_attributes** object supports the following:
+
+          * `created` (`pulumi.Input[str]`) - The create time of the Key Vault Certificate.
+          * `enabled` (`pulumi.Input[bool]`) - whether the Key Vault Certificate is enabled.
+          * `expires` (`pulumi.Input[str]`) - The expires time of the Key Vault Certificate.
+          * `notBefore` (`pulumi.Input[str]`) - The not before valid time of the Key Vault Certificate.
+          * `recoveryLevel` (`pulumi.Input[str]`) - The deletion recovery level of the Key Vault Certificate.
+          * `updated` (`pulumi.Input[str]`) - The recent update time of the Key Vault Certificate.
 
         The **certificate_policy** object supports the following:
 
@@ -341,6 +363,7 @@ class Certifiate(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["certificate"] = certificate
+        __props__["certificate_attributes"] = certificate_attributes
         __props__["certificate_data"] = certificate_data
         __props__["certificate_policy"] = certificate_policy
         __props__["key_vault_id"] = key_vault_id

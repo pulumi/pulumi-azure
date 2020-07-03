@@ -68,7 +68,9 @@ type LookupSharedImageVersionResult struct {
 	// The ID of the Managed Image which was the source of this Shared Image Version.
 	ManagedImageId string `pulumi:"managedImageId"`
 	// The Azure Region in which this Image Version exists.
-	Name              string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The ID of the OS disk snapshot which was the source of this Shared Image Version.
+	OsDiskSnapshotId  string `pulumi:"osDiskSnapshotId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
