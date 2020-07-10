@@ -78,6 +78,10 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         public readonly int Capacity;
         /// <summary>
+        /// The ID of the EventHub Dedicated Cluster where this Namespace exists.
+        /// </summary>
+        public readonly string DedicatedClusterId;
+        /// <summary>
         /// The primary connection string for the authorization
         /// rule `RootManageSharedAccessKey`.
         /// </summary>
@@ -139,6 +143,8 @@ namespace Pulumi.Azure.EventHub
 
             int capacity,
 
+            string dedicatedClusterId,
+
             string defaultPrimaryConnectionString,
 
             string defaultPrimaryConnectionStringAlias,
@@ -171,6 +177,7 @@ namespace Pulumi.Azure.EventHub
         {
             AutoInflateEnabled = autoInflateEnabled;
             Capacity = capacity;
+            DedicatedClusterId = dedicatedClusterId;
             DefaultPrimaryConnectionString = defaultPrimaryConnectionString;
             DefaultPrimaryConnectionStringAlias = defaultPrimaryConnectionStringAlias;
             DefaultPrimaryKey = defaultPrimaryKey;

@@ -50,6 +50,8 @@ type Definition struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the policy definition.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	//
 	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -118,6 +120,8 @@ type definitionState struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	//
 	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -150,6 +154,8 @@ type DefinitionState struct {
 	Description pulumi.StringPtrInput
 	// The display name of the policy definition.
 	DisplayName pulumi.StringPtrInput
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	//
 	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId pulumi.StringPtrInput
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -186,6 +192,8 @@ type definitionArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy definition.
 	DisplayName string `pulumi:"displayName"`
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	//
 	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -219,6 +227,8 @@ type DefinitionArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of the policy definition.
 	DisplayName pulumi.StringInput
+	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	//
 	// Deprecated: Deprecated in favour of `management_group_name`
 	ManagementGroupId pulumi.StringPtrInput
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.

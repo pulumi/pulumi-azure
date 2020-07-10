@@ -58,6 +58,8 @@ type GetEventhubNamespaceResult struct {
 	AutoInflateEnabled bool `pulumi:"autoInflateEnabled"`
 	// The Capacity / Throughput Units for a `Standard` SKU namespace.
 	Capacity int `pulumi:"capacity"`
+	// The ID of the EventHub Dedicated Cluster where this Namespace exists.
+	DedicatedClusterId string `pulumi:"dedicatedClusterId"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString string `pulumi:"defaultPrimaryConnectionString"`

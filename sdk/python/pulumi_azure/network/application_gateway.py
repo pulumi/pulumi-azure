@@ -74,7 +74,7 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     firewall_policy_id: pulumi.Output[str]
     """
-    The resource ID of a firewall policy.
+    The ID of the Web Application Firewall Policy.
     """
     frontend_ip_configurations: pulumi.Output[list]
     """
@@ -112,6 +112,7 @@ class ApplicationGateway(pulumi.CustomResource):
         * `id` (`str`) - The ID of the Rewrite Rule Set
         * `statusCode` (`str`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
 
+      * `firewall_policy_id` (`str`) - The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
       * `frontend_ip_configuration_id` (`str`) - The ID of the associated Frontend Configuration.
       * `frontend_ip_configuration_name` (`str`) - The Name of the Frontend IP Configuration used for this HTTP Listener.
       * `frontendPortId` (`str`) - The ID of the associated Frontend Port.
@@ -402,7 +403,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-        :param pulumi.Input[str] firewall_policy_id: The resource ID of a firewall policy.
+        :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
@@ -500,6 +501,7 @@ class ApplicationGateway(pulumi.CustomResource):
             * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
             * `statusCode` (`pulumi.Input[str]`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
 
+          * `firewall_policy_id` (`pulumi.Input[str]`) - The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
           * `frontend_ip_configuration_id` (`pulumi.Input[str]`) - The ID of the associated Frontend Configuration.
           * `frontend_ip_configuration_name` (`pulumi.Input[str]`) - The Name of the Frontend IP Configuration used for this HTTP Listener.
           * `frontendPortId` (`pulumi.Input[str]`) - The ID of the associated Frontend Port.
@@ -743,7 +745,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-        :param pulumi.Input[str] firewall_policy_id: The resource ID of a firewall policy.
+        :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
@@ -841,6 +843,7 @@ class ApplicationGateway(pulumi.CustomResource):
             * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
             * `statusCode` (`pulumi.Input[str]`) - Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
 
+          * `firewall_policy_id` (`pulumi.Input[str]`) - The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
           * `frontend_ip_configuration_id` (`pulumi.Input[str]`) - The ID of the associated Frontend Configuration.
           * `frontend_ip_configuration_name` (`pulumi.Input[str]`) - The Name of the Frontend IP Configuration used for this HTTP Listener.
           * `frontendPortId` (`pulumi.Input[str]`) - The ID of the associated Frontend Port.

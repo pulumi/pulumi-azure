@@ -107,6 +107,10 @@ type InteractiveQueryCluster struct {
 	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores InteractiveQueryClusterMetastoresPtrOutput `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor InteractiveQueryClusterMonitorPtrOutput `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -182,6 +186,10 @@ type interactiveQueryClusterState struct {
 	HttpsEndpoint *string `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *InteractiveQueryClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *InteractiveQueryClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -212,6 +220,10 @@ type InteractiveQueryClusterState struct {
 	HttpsEndpoint pulumi.StringPtrInput
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores InteractiveQueryClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor InteractiveQueryClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -244,6 +256,10 @@ type interactiveQueryClusterArgs struct {
 	Gateway InteractiveQueryClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *InteractiveQueryClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *InteractiveQueryClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -271,6 +287,10 @@ type InteractiveQueryClusterArgs struct {
 	Gateway InteractiveQueryClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores InteractiveQueryClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor InteractiveQueryClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.

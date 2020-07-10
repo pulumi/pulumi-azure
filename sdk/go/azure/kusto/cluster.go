@@ -62,16 +62,22 @@ type Cluster struct {
 	EnableStreamingIngest pulumi.BoolPtrOutput `pulumi:"enableStreamingIngest"`
 	// A identity block.
 	Identity ClusterIdentityOutput `pulumi:"identity"`
+	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+	LanguageExtensions pulumi.StringArrayOutput `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An `optimizedAutoScale` block as defined below.
+	OptimizedAutoScale ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
 	Sku ClusterSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies a list of tenant IDs that are trusted by the cluster.
+	TrustedExternalTenants pulumi.StringArrayOutput `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringOutput `pulumi:"uri"`
 	// A `virtualNetworkConfiguration` block as defined below.
@@ -124,16 +130,22 @@ type clusterState struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// A identity block.
 	Identity *ClusterIdentity `pulumi:"identity"`
+	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+	LanguageExtensions []string `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An `optimizedAutoScale` block as defined below.
+	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
 	Sku *ClusterSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies a list of tenant IDs that are trusted by the cluster.
+	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri *string `pulumi:"uri"`
 	// A `virtualNetworkConfiguration` block as defined below.
@@ -153,16 +165,22 @@ type ClusterState struct {
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// A identity block.
 	Identity ClusterIdentityPtrInput
+	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+	LanguageExtensions pulumi.StringArrayInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An `optimizedAutoScale` block as defined below.
+	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `sku` block as defined below.
 	Sku ClusterSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies a list of tenant IDs that are trusted by the cluster.
+	TrustedExternalTenants pulumi.StringArrayInput
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringPtrInput
 	// A `virtualNetworkConfiguration` block as defined below.
@@ -184,16 +202,22 @@ type clusterArgs struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// A identity block.
 	Identity *ClusterIdentity `pulumi:"identity"`
+	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+	LanguageExtensions []string `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An `optimizedAutoScale` block as defined below.
+	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` block as defined below.
 	Sku ClusterSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies a list of tenant IDs that are trusted by the cluster.
+	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
 	// A `virtualNetworkConfiguration` block as defined below.
 	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
@@ -210,16 +234,22 @@ type ClusterArgs struct {
 	EnableStreamingIngest pulumi.BoolPtrInput
 	// A identity block.
 	Identity ClusterIdentityPtrInput
+	// An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+	LanguageExtensions pulumi.StringArrayInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An `optimizedAutoScale` block as defined below.
+	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
 	// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `sku` block as defined below.
 	Sku ClusterSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Specifies a list of tenant IDs that are trusted by the cluster.
+	TrustedExternalTenants pulumi.StringArrayInput
 	// A `virtualNetworkConfiguration` block as defined below.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
 	// A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.

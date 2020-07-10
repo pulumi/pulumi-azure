@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class EventSubscriptionAzureFunctionEndpoint
     {
         /// <summary>
-        /// Specifies the ID of the Function where the Event Subscription will receive events.
+        /// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
         /// </summary>
         public readonly string FunctionId;
         /// <summary>

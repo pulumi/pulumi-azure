@@ -53,6 +53,11 @@ namespace Pulumi.Azure
         public static string? Location { get; set; } = __config.Get("location") ?? Utilities.GetEnv("ARM_LOCATION");
 
         /// <summary>
+        /// The Metadata URL which will be used to obtain the Cloud Environment.
+        /// </summary>
+        public static string? MetadataUrl { get; set; } = __config.Get("metadataUrl");
+
+        /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
         /// automatically.
         /// </summary>

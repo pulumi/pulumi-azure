@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineScaleSetOsDisk> OsDisk { get; private set; } = null!;
 
         /// <summary>
-        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         /// </summary>
         [Output("overprovision")]
         public Output<bool?> Overprovision { get; private set; } = null!;
@@ -530,7 +530,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineScaleSetOsDiskArgs> OsDisk { get; set; } = null!;
 
         /// <summary>
-        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         /// </summary>
         [Input("overprovision")]
         public Input<bool>? Overprovision { get; set; }
@@ -804,7 +804,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineScaleSetOsDiskGetArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+        /// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         /// </summary>
         [Input("overprovision")]
         public Input<bool>? Overprovision { get; set; }

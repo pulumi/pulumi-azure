@@ -57,6 +57,12 @@ namespace Pulumi.Azure.EventHub
         public Output<int?> Capacity { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("dedicatedClusterId")]
+        public Output<string?> DedicatedClusterId { get; private set; } = null!;
+
+        /// <summary>
         /// The primary connection string for the authorization
         /// rule `RootManageSharedAccessKey`.
         /// </summary>
@@ -203,6 +209,12 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
+        /// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dedicatedClusterId")]
+        public Input<string>? DedicatedClusterId { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -274,6 +286,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dedicatedClusterId")]
+        public Input<string>? DedicatedClusterId { get; set; }
 
         /// <summary>
         /// The primary connection string for the authorization

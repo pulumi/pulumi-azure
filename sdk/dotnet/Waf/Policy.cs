@@ -107,6 +107,9 @@ namespace Pulumi.Azure.Waf
     ///             {
     ///                 Enabled = true,
     ///                 Mode = "Prevention",
+    ///                 RequestBodyCheck = true,
+    ///                 FileUploadLimitInMb = 100,
+    ///                 MaxRequestBodySizeInKb = 128,
     ///             },
     ///             ManagedRules = new Azure.Waf.Inputs.PolicyManagedRulesArgs
     ///             {

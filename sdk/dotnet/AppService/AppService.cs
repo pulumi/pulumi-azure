@@ -99,7 +99,7 @@ namespace Pulumi.Azure.AppService
         /// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         /// </summary>
         [Output("clientAffinityEnabled")]
-        public Output<bool> ClientAffinityEnabled { get; private set; } = null!;
+        public Output<bool?> ClientAffinityEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Does the App Service require client certificates for incoming requests? Defaults to `false`.

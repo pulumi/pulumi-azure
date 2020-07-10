@@ -139,7 +139,7 @@ namespace Pulumi.Azure.MariaDB
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         /// </summary>
         [Output("sslEnforcementEnabled")]
-        public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
+        public Output<bool?> SslEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).

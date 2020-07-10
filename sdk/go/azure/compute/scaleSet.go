@@ -75,7 +75,7 @@ type ScaleSet struct {
 	OsProfileSecrets ScaleSetOsProfileSecretArrayOutput `pulumi:"osProfileSecrets"`
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrOutput `pulumi:"osProfileWindowsConfig"`
-	// Specifies whether the virtual machine scale set should be overprovisioned.
+	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrOutput `pulumi:"plan"`
@@ -178,7 +178,7 @@ type scaleSetState struct {
 	OsProfileSecrets []ScaleSetOsProfileSecret `pulumi:"osProfileSecrets"`
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig *ScaleSetOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
-	// Specifies whether the virtual machine scale set should be overprovisioned.
+	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
@@ -236,7 +236,7 @@ type ScaleSetState struct {
 	OsProfileSecrets ScaleSetOsProfileSecretArrayInput
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrInput
-	// Specifies whether the virtual machine scale set should be overprovisioned.
+	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrInput
@@ -298,7 +298,7 @@ type scaleSetArgs struct {
 	OsProfileSecrets []ScaleSetOsProfileSecret `pulumi:"osProfileSecrets"`
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig *ScaleSetOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
-	// Specifies whether the virtual machine scale set should be overprovisioned.
+	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
 	// A plan block as documented below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
@@ -357,7 +357,7 @@ type ScaleSetArgs struct {
 	OsProfileSecrets ScaleSetOsProfileSecretArrayInput
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrInput
-	// Specifies whether the virtual machine scale set should be overprovisioned.
+	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
 	// A plan block as documented below.
 	Plan ScaleSetPlanPtrInput

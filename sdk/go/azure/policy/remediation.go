@@ -76,7 +76,7 @@ type Remediation struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringOutput `pulumi:"policyAssignmentId"`
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
 	// The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
 	Scope pulumi.StringOutput `pulumi:"scope"`
@@ -122,7 +122,7 @@ type remediationState struct {
 	Name *string `pulumi:"name"`
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
 	Scope *string `pulumi:"scope"`
@@ -135,7 +135,7 @@ type RemediationState struct {
 	Name pulumi.StringPtrInput
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringPtrInput
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
 	Scope pulumi.StringPtrInput
@@ -152,7 +152,7 @@ type remediationArgs struct {
 	Name *string `pulumi:"name"`
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
 	// The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
 	Scope string `pulumi:"scope"`
@@ -166,7 +166,7 @@ type RemediationArgs struct {
 	Name pulumi.StringPtrInput
 	// The resource ID of the policy assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringInput
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
 	// The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
 	Scope pulumi.StringInput

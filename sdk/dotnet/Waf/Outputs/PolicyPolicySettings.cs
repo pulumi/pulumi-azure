@@ -14,22 +14,37 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyPolicySettings
     {
         /// <summary>
-        /// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
         /// </summary>
         public readonly bool? Enabled;
+        public readonly int? FileUploadLimitInMb;
+        public readonly int? MaxRequestBodySizeInKb;
         /// <summary>
-        /// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+        /// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
         /// </summary>
         public readonly string? Mode;
+        /// <summary>
+        /// Is Request Body Inspection enabled? Defaults to `true`.
+        /// </summary>
+        public readonly bool? RequestBodyCheck;
 
         [OutputConstructor]
         private PolicyPolicySettings(
             bool? enabled,
 
-            string? mode)
+            int? fileUploadLimitInMb,
+
+            int? maxRequestBodySizeInKb,
+
+            string? mode,
+
+            bool? requestBodyCheck)
         {
             Enabled = enabled;
+            FileUploadLimitInMb = fileUploadLimitInMb;
+            MaxRequestBodySizeInKb = maxRequestBodySizeInKb;
             Mode = mode;
+            RequestBodyCheck = requestBodyCheck;
         }
     }
 }

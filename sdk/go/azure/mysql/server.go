@@ -90,7 +90,7 @@ type Server struct {
 	// Deprecated: this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringOutput `pulumi:"sslEnforcement"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
-	SslEnforcementEnabled pulumi.BoolOutput `pulumi:"sslEnforcementEnabled"`
+	SslEnforcementEnabled pulumi.BoolPtrOutput `pulumi:"sslEnforcementEnabled"`
 	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrOutput `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
@@ -99,6 +99,8 @@ type Server struct {
 	StorageProfile ServerStorageProfileOutput `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrOutput `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -182,6 +184,8 @@ type serverState struct {
 	StorageProfile *ServerStorageProfile `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *ServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
@@ -229,6 +233,8 @@ type ServerState struct {
 	StorageProfile ServerStorageProfilePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrInput
 	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput
 }
@@ -278,6 +284,8 @@ type serverArgs struct {
 	StorageProfile *ServerStorageProfile `pulumi:"storageProfile"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy *ServerThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
@@ -324,6 +332,8 @@ type ServerArgs struct {
 	StorageProfile ServerStorageProfilePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+	ThreatDetectionPolicy ServerThreatDetectionPolicyPtrInput
 	// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
 	Version pulumi.StringInput
 }

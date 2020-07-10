@@ -1374,6 +1374,8 @@ func (o ApplicationGatewayGatewayIpConfigurationArrayOutput) Index(i pulumi.IntI
 type ApplicationGatewayHttpListener struct {
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayHttpListenerCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
+	// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// The ID of the associated Frontend Configuration.
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
 	// The Name of the Frontend IP Configuration used for this HTTP Listener.
@@ -1414,6 +1416,8 @@ type ApplicationGatewayHttpListenerInput interface {
 type ApplicationGatewayHttpListenerArgs struct {
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput `pulumi:"customErrorConfigurations"`
+	// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+	FirewallPolicyId pulumi.StringPtrInput `pulumi:"firewallPolicyId"`
 	// The ID of the associated Frontend Configuration.
 	FrontendIpConfigurationId pulumi.StringPtrInput `pulumi:"frontendIpConfigurationId"`
 	// The Name of the Frontend IP Configuration used for this HTTP Listener.
@@ -1496,6 +1500,11 @@ func (o ApplicationGatewayHttpListenerOutput) CustomErrorConfigurations() Applic
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) []ApplicationGatewayHttpListenerCustomErrorConfiguration {
 		return v.CustomErrorConfigurations
 	}).(ApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput)
+}
+
+// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+func (o ApplicationGatewayHttpListenerOutput) FirewallPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.FirewallPolicyId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the associated Frontend Configuration.

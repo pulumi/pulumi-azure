@@ -403,6 +403,8 @@ func (o AccountGeoLocationArrayOutput) Index(i pulumi.IntInput) AccountGeoLocati
 type AccountVirtualNetworkRule struct {
 	// The ID of the virtual network subnet.
 	Id string `pulumi:"id"`
+	// If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 // AccountVirtualNetworkRuleInput is an input type that accepts AccountVirtualNetworkRuleArgs and AccountVirtualNetworkRuleOutput values.
@@ -419,6 +421,8 @@ type AccountVirtualNetworkRuleInput interface {
 type AccountVirtualNetworkRuleArgs struct {
 	// The ID of the virtual network subnet.
 	Id pulumi.StringInput `pulumi:"id"`
+	// If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 }
 
 func (AccountVirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -475,6 +479,11 @@ func (o AccountVirtualNetworkRuleOutput) ToAccountVirtualNetworkRuleOutputWithCo
 // The ID of the virtual network subnet.
 func (o AccountVirtualNetworkRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountVirtualNetworkRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
+func (o AccountVirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountVirtualNetworkRule) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
 type AccountVirtualNetworkRuleArrayOutput struct{ *pulumi.OutputState }

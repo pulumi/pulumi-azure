@@ -146,7 +146,7 @@ namespace Pulumi.Azure.PostgreSql
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         /// </summary>
         [Output("sslEnforcementEnabled")]
-        public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
+        public Output<bool?> SslEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.

@@ -73,10 +73,16 @@ namespace Pulumi.Azure.Policy
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managementGroupId")]
-        public Output<string?> ManagementGroupId { get; private set; } = null!;
+        public Output<string> ManagementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("managementGroupName")]
+        public Output<string> ManagementGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
@@ -167,10 +173,16 @@ namespace Pulumi.Azure.Policy
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
+
+        /// <summary>
+        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("managementGroupName")]
+        public Input<string>? ManagementGroupName { get; set; }
 
         /// <summary>
         /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
@@ -222,10 +234,16 @@ namespace Pulumi.Azure.Policy
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
+
+        /// <summary>
+        /// The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("managementGroupName")]
+        public Input<string>? ManagementGroupName { get; set; }
 
         /// <summary>
         /// The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.

@@ -20,7 +20,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
     """
     destination_address_prefix: pulumi.Output[str]
     """
-    CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+    CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the cli: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
     """
     destination_address_prefixes: pulumi.Output[list]
     """
@@ -117,7 +117,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 characters.
-        :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+        :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the cli: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
         :param pulumi.Input[list] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         :param pulumi.Input[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
         :param pulumi.Input[str] destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
@@ -198,7 +198,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 characters.
-        :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+        :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the cli: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
         :param pulumi.Input[list] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         :param pulumi.Input[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
         :param pulumi.Input[str] destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.

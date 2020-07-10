@@ -78,6 +78,12 @@ namespace Pulumi.Azure.Kusto
         public Output<Outputs.ClusterIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        /// </summary>
+        [Output("languageExtensions")]
+        public Output<ImmutableArray<string>> LanguageExtensions { get; private set; } = null!;
+
+        /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -88,6 +94,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// An `optimized_auto_scale` block as defined below.
+        /// </summary>
+        [Output("optimizedAutoScale")]
+        public Output<Outputs.ClusterOptimizedAutoScale?> OptimizedAutoScale { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -106,6 +118,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a list of tenant IDs that are trusted by the cluster.
+        /// </summary>
+        [Output("trustedExternalTenants")]
+        public Output<ImmutableArray<string>> TrustedExternalTenants { get; private set; } = null!;
 
         /// <summary>
         /// The FQDN of the Azure Kusto Cluster.
@@ -195,6 +213,18 @@ namespace Pulumi.Azure.Kusto
         [Input("identity")]
         public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
 
+        [Input("languageExtensions")]
+        private InputList<string>? _languageExtensions;
+
+        /// <summary>
+        /// An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        /// </summary>
+        public InputList<string> LanguageExtensions
+        {
+            get => _languageExtensions ?? (_languageExtensions = new InputList<string>());
+            set => _languageExtensions = value;
+        }
+
         /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
@@ -206,6 +236,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An `optimized_auto_scale` block as defined below.
+        /// </summary>
+        [Input("optimizedAutoScale")]
+        public Input<Inputs.ClusterOptimizedAutoScaleArgs>? OptimizedAutoScale { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -229,6 +265,18 @@ namespace Pulumi.Azure.Kusto
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("trustedExternalTenants")]
+        private InputList<string>? _trustedExternalTenants;
+
+        /// <summary>
+        /// Specifies a list of tenant IDs that are trusted by the cluster.
+        /// </summary>
+        public InputList<string> TrustedExternalTenants
+        {
+            get => _trustedExternalTenants ?? (_trustedExternalTenants = new InputList<string>());
+            set => _trustedExternalTenants = value;
         }
 
         /// <summary>
@@ -286,6 +334,18 @@ namespace Pulumi.Azure.Kusto
         [Input("identity")]
         public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }
 
+        [Input("languageExtensions")]
+        private InputList<string>? _languageExtensions;
+
+        /// <summary>
+        /// An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        /// </summary>
+        public InputList<string> LanguageExtensions
+        {
+            get => _languageExtensions ?? (_languageExtensions = new InputList<string>());
+            set => _languageExtensions = value;
+        }
+
         /// <summary>
         /// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
@@ -297,6 +357,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An `optimized_auto_scale` block as defined below.
+        /// </summary>
+        [Input("optimizedAutoScale")]
+        public Input<Inputs.ClusterOptimizedAutoScaleGetArgs>? OptimizedAutoScale { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -320,6 +386,18 @@ namespace Pulumi.Azure.Kusto
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("trustedExternalTenants")]
+        private InputList<string>? _trustedExternalTenants;
+
+        /// <summary>
+        /// Specifies a list of tenant IDs that are trusted by the cluster.
+        /// </summary>
+        public InputList<string> TrustedExternalTenants
+        {
+            get => _trustedExternalTenants ?? (_trustedExternalTenants = new InputList<string>());
+            set => _trustedExternalTenants = value;
         }
 
         /// <summary>

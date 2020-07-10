@@ -26,29 +26,29 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("uksouth"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testVirtualNetwork, err := network.NewVirtualNetwork(ctx, "testVirtualNetwork", &network.VirtualNetworkArgs{
+// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
 // 			AddressSpaces: pulumi.StringArray{
 // 				pulumi.String("10.0.0.0/16"),
 // 			},
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		test1, err := network.NewSubnet(ctx, "test1", &network.SubnetArgs{
-// 			ResourceGroupName:  testResourceGroup.Name,
-// 			VirtualNetworkName: testVirtualNetwork.Name,
+// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+// 			ResourceGroupName:  exampleResourceGroup.Name,
+// 			VirtualNetworkName: exampleVirtualNetwork.Name,
 // 			AddressPrefix:      pulumi.String("10.0.1.0/24"),
 // 			Delegations: network.SubnetDelegationArray{
 // 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("acctestdelegation"),
+// 					Name: pulumi.String("example-delegation"),
 // 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 // 						Name: pulumi.String("Microsoft.Web/serverFarms"),
 // 						Actions: pulumi.StringArray{
@@ -61,9 +61,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testPlan, err := appservice.NewPlan(ctx, "testPlan", &appservice.PlanArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
+// 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku: &appservice.PlanSkuArgs{
 // 				Tier: pulumi.String("Standard"),
 // 				Size: pulumi.String("S1"),
@@ -72,17 +72,17 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		testAppService, err := appservice.NewAppService(ctx, "testAppService", &appservice.AppServiceArgs{
-// 			Location:          testResourceGroup.Location,
-// 			ResourceGroupName: testResourceGroup.Name,
-// 			AppServicePlanId:  testPlan.ID(),
+// 		exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			AppServicePlanId:  examplePlan.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = appservice.NewVirtualNetworkSwiftConnection(ctx, "testVirtualNetworkSwiftConnection", &appservice.VirtualNetworkSwiftConnectionArgs{
-// 			AppServiceId: testAppService.ID(),
-// 			SubnetId:     test1.ID(),
+// 		_, err = appservice.NewVirtualNetworkSwiftConnection(ctx, "exampleVirtualNetworkSwiftConnection", &appservice.VirtualNetworkSwiftConnectionArgs{
+// 			AppServiceId: exampleAppService.ID(),
+// 			SubnetId:     exampleSubnet.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

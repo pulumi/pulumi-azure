@@ -13,7 +13,7 @@ class GetEventhubNamespaceResult:
     """
     A collection of values returned by getEventhubNamespace.
     """
-    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, id=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
+    def __init__(__self__, auto_inflate_enabled=None, capacity=None, dedicated_cluster_id=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, id=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'auto_inflate_enabled' to be a bool")
         __self__.auto_inflate_enabled = auto_inflate_enabled
@@ -25,6 +25,12 @@ class GetEventhubNamespaceResult:
         __self__.capacity = capacity
         """
         The Capacity / Throughput Units for a `Standard` SKU namespace.
+        """
+        if dedicated_cluster_id and not isinstance(dedicated_cluster_id, str):
+            raise TypeError("Expected argument 'dedicated_cluster_id' to be a str")
+        __self__.dedicated_cluster_id = dedicated_cluster_id
+        """
+        The ID of the EventHub Dedicated Cluster where this Namespace exists.
         """
         if default_primary_connection_string and not isinstance(default_primary_connection_string, str):
             raise TypeError("Expected argument 'default_primary_connection_string' to be a str")
@@ -119,6 +125,7 @@ class AwaitableGetEventhubNamespaceResult(GetEventhubNamespaceResult):
         return GetEventhubNamespaceResult(
             auto_inflate_enabled=self.auto_inflate_enabled,
             capacity=self.capacity,
+            dedicated_cluster_id=self.dedicated_cluster_id,
             default_primary_connection_string=self.default_primary_connection_string,
             default_primary_connection_string_alias=self.default_primary_connection_string_alias,
             default_primary_key=self.default_primary_key,
@@ -169,6 +176,7 @@ def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
     return AwaitableGetEventhubNamespaceResult(
         auto_inflate_enabled=__ret__.get('autoInflateEnabled'),
         capacity=__ret__.get('capacity'),
+        dedicated_cluster_id=__ret__.get('dedicatedClusterId'),
         default_primary_connection_string=__ret__.get('defaultPrimaryConnectionString'),
         default_primary_connection_string_alias=__ret__.get('defaultPrimaryConnectionStringAlias'),
         default_primary_key=__ret__.get('defaultPrimaryKey'),

@@ -17,11 +17,19 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// The ID of the virtual network subnet.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
+        /// </summary>
+        public readonly bool? IgnoreMissingVnetServiceEndpoint;
 
         [OutputConstructor]
-        private AccountVirtualNetworkRule(string id)
+        private AccountVirtualNetworkRule(
+            string id,
+
+            bool? ignoreMissingVnetServiceEndpoint)
         {
             Id = id;
+            IgnoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
         }
     }
 }

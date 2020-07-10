@@ -143,7 +143,7 @@ type WindowsVirtualMachineScaleSet struct {
 	NetworkInterfaces WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// An `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineScaleSetOsDiskOutput `pulumi:"osDisk"`
-	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrOutput                       `pulumi:"overprovision"`
 	Plan          WindowsVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
@@ -279,7 +279,7 @@ type windowsVirtualMachineScaleSetState struct {
 	NetworkInterfaces []WindowsVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
 	// An `osDisk` block as defined below.
 	OsDisk *WindowsVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
-	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision *bool                              `pulumi:"overprovision"`
 	Plan          *WindowsVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
@@ -367,7 +367,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	NetworkInterfaces WindowsVirtualMachineScaleSetNetworkInterfaceArrayInput
 	// An `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineScaleSetOsDiskPtrInput
-	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
 	Plan          WindowsVirtualMachineScaleSetPlanPtrInput
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
@@ -459,7 +459,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	NetworkInterfaces []WindowsVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
 	// An `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
-	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision *bool                              `pulumi:"overprovision"`
 	Plan          *WindowsVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
@@ -546,7 +546,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	NetworkInterfaces WindowsVirtualMachineScaleSetNetworkInterfaceArrayInput
 	// An `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineScaleSetOsDiskInput
-	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
 	Plan          WindowsVirtualMachineScaleSetPlanPtrInput
 	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.

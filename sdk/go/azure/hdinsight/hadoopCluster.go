@@ -109,6 +109,8 @@ type HadoopCluster struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `metastores` block as defined below.
 	Metastores HadoopClusterMetastoresPtrOutput `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor HadoopClusterMonitorPtrOutput `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -186,6 +188,8 @@ type hadoopClusterState struct {
 	Location *string `pulumi:"location"`
 	// A `metastores` block as defined below.
 	Metastores *HadoopClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *HadoopClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -218,6 +222,8 @@ type HadoopClusterState struct {
 	Location pulumi.StringPtrInput
 	// A `metastores` block as defined below.
 	Metastores HadoopClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor HadoopClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -252,6 +258,8 @@ type hadoopClusterArgs struct {
 	Location *string `pulumi:"location"`
 	// A `metastores` block as defined below.
 	Metastores *HadoopClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *HadoopClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -281,6 +289,8 @@ type HadoopClusterArgs struct {
 	Location pulumi.StringPtrInput
 	// A `metastores` block as defined below.
 	Metastores HadoopClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor HadoopClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.

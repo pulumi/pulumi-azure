@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Waf.Inputs
         }
 
         /// <summary>
-        /// The rule set type.
+        /// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The rule set version.
+        /// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;

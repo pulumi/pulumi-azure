@@ -35,6 +35,10 @@ class Cluster(pulumi.CustomResource):
       * `tenant_id` (`str`) - Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
       * `type` (`str`) - Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
     """
+    language_extensions: pulumi.Output[list]
+    """
+    An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+    """
     location: pulumi.Output[str]
     """
     The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -42,6 +46,13 @@ class Cluster(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+    """
+    optimized_auto_scale: pulumi.Output[dict]
+    """
+    An `optimized_auto_scale` block as defined below.
+
+      * `maximumInstances` (`float`) - The maximum number of allowed instances. Must between `0` and `1000`.
+      * `minimumInstances` (`float`) - The minimum number of allowed instances. Must between `0` and `1000`.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -57,6 +68,10 @@ class Cluster(pulumi.CustomResource):
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
+    """
+    trusted_external_tenants: pulumi.Output[list]
+    """
+    Specifies a list of tenant IDs that are trusted by the cluster.
     """
     uri: pulumi.Output[str]
     """
@@ -74,7 +89,7 @@ class Cluster(pulumi.CustomResource):
     """
     A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, enable_disk_encryption=None, enable_purge=None, enable_streaming_ingest=None, identity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, virtual_network_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enable_disk_encryption=None, enable_purge=None, enable_streaming_ingest=None, identity=None, language_extensions=None, location=None, name=None, optimized_auto_scale=None, resource_group_name=None, sku=None, tags=None, trusted_external_tenants=None, virtual_network_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Cluster
 
@@ -103,11 +118,14 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[dict] identity: A identity block.
+        :param pulumi.Input[list] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster.
         :param pulumi.Input[dict] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
         :param pulumi.Input[list] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
 
@@ -117,6 +135,11 @@ class Cluster(pulumi.CustomResource):
           * `principal_id` (`pulumi.Input[str]`) - Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
           * `tenant_id` (`pulumi.Input[str]`) - Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
           * `type` (`pulumi.Input[str]`) - Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+
+        The **optimized_auto_scale** object supports the following:
+
+          * `maximumInstances` (`pulumi.Input[float]`) - The maximum number of allowed instances. Must between `0` and `1000`.
+          * `minimumInstances` (`pulumi.Input[float]`) - The minimum number of allowed instances. Must between `0` and `1000`.
 
         The **sku** object supports the following:
 
@@ -150,8 +173,10 @@ class Cluster(pulumi.CustomResource):
             __props__['enable_purge'] = enable_purge
             __props__['enable_streaming_ingest'] = enable_streaming_ingest
             __props__['identity'] = identity
+            __props__['language_extensions'] = language_extensions
             __props__['location'] = location
             __props__['name'] = name
+            __props__['optimized_auto_scale'] = optimized_auto_scale
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -159,6 +184,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['trusted_external_tenants'] = trusted_external_tenants
             __props__['virtual_network_configuration'] = virtual_network_configuration
             __props__['zones'] = zones
             __props__['data_ingestion_uri'] = None
@@ -170,7 +196,7 @@ class Cluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, data_ingestion_uri=None, enable_disk_encryption=None, enable_purge=None, enable_streaming_ingest=None, identity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, uri=None, virtual_network_configuration=None, zones=None):
+    def get(resource_name, id, opts=None, data_ingestion_uri=None, enable_disk_encryption=None, enable_purge=None, enable_streaming_ingest=None, identity=None, language_extensions=None, location=None, name=None, optimized_auto_scale=None, resource_group_name=None, sku=None, tags=None, trusted_external_tenants=None, uri=None, virtual_network_configuration=None, zones=None):
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -183,11 +209,14 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[dict] identity: A identity block.
+        :param pulumi.Input[list] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster.
         :param pulumi.Input[str] uri: The FQDN of the Azure Kusto Cluster.
         :param pulumi.Input[dict] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
         :param pulumi.Input[list] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
@@ -198,6 +227,11 @@ class Cluster(pulumi.CustomResource):
           * `principal_id` (`pulumi.Input[str]`) - Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
           * `tenant_id` (`pulumi.Input[str]`) - Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
           * `type` (`pulumi.Input[str]`) - Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
+
+        The **optimized_auto_scale** object supports the following:
+
+          * `maximumInstances` (`pulumi.Input[float]`) - The maximum number of allowed instances. Must between `0` and `1000`.
+          * `minimumInstances` (`pulumi.Input[float]`) - The minimum number of allowed instances. Must between `0` and `1000`.
 
         The **sku** object supports the following:
 
@@ -219,11 +253,14 @@ class Cluster(pulumi.CustomResource):
         __props__["enable_purge"] = enable_purge
         __props__["enable_streaming_ingest"] = enable_streaming_ingest
         __props__["identity"] = identity
+        __props__["language_extensions"] = language_extensions
         __props__["location"] = location
         __props__["name"] = name
+        __props__["optimized_auto_scale"] = optimized_auto_scale
         __props__["resource_group_name"] = resource_group_name
         __props__["sku"] = sku
         __props__["tags"] = tags
+        __props__["trusted_external_tenants"] = trusted_external_tenants
         __props__["uri"] = uri
         __props__["virtual_network_configuration"] = virtual_network_configuration
         __props__["zones"] = zones

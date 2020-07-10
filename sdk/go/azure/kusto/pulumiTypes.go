@@ -198,9 +198,159 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterOptimizedAutoScale struct {
+	// The maximum number of allowed instances. Must between `0` and `1000`.
+	MaximumInstances int `pulumi:"maximumInstances"`
+	// The minimum number of allowed instances. Must between `0` and `1000`.
+	MinimumInstances int `pulumi:"minimumInstances"`
+}
+
+// ClusterOptimizedAutoScaleInput is an input type that accepts ClusterOptimizedAutoScaleArgs and ClusterOptimizedAutoScaleOutput values.
+// You can construct a concrete instance of `ClusterOptimizedAutoScaleInput` via:
+//
+//          ClusterOptimizedAutoScaleArgs{...}
+type ClusterOptimizedAutoScaleInput interface {
+	pulumi.Input
+
+	ToClusterOptimizedAutoScaleOutput() ClusterOptimizedAutoScaleOutput
+	ToClusterOptimizedAutoScaleOutputWithContext(context.Context) ClusterOptimizedAutoScaleOutput
+}
+
+type ClusterOptimizedAutoScaleArgs struct {
+	// The maximum number of allowed instances. Must between `0` and `1000`.
+	MaximumInstances pulumi.IntInput `pulumi:"maximumInstances"`
+	// The minimum number of allowed instances. Must between `0` and `1000`.
+	MinimumInstances pulumi.IntInput `pulumi:"minimumInstances"`
+}
+
+func (ClusterOptimizedAutoScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOptimizedAutoScale)(nil)).Elem()
+}
+
+func (i ClusterOptimizedAutoScaleArgs) ToClusterOptimizedAutoScaleOutput() ClusterOptimizedAutoScaleOutput {
+	return i.ToClusterOptimizedAutoScaleOutputWithContext(context.Background())
+}
+
+func (i ClusterOptimizedAutoScaleArgs) ToClusterOptimizedAutoScaleOutputWithContext(ctx context.Context) ClusterOptimizedAutoScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOptimizedAutoScaleOutput)
+}
+
+func (i ClusterOptimizedAutoScaleArgs) ToClusterOptimizedAutoScalePtrOutput() ClusterOptimizedAutoScalePtrOutput {
+	return i.ToClusterOptimizedAutoScalePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOptimizedAutoScaleArgs) ToClusterOptimizedAutoScalePtrOutputWithContext(ctx context.Context) ClusterOptimizedAutoScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOptimizedAutoScaleOutput).ToClusterOptimizedAutoScalePtrOutputWithContext(ctx)
+}
+
+// ClusterOptimizedAutoScalePtrInput is an input type that accepts ClusterOptimizedAutoScaleArgs, ClusterOptimizedAutoScalePtr and ClusterOptimizedAutoScalePtrOutput values.
+// You can construct a concrete instance of `ClusterOptimizedAutoScalePtrInput` via:
+//
+//          ClusterOptimizedAutoScaleArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterOptimizedAutoScalePtrInput interface {
+	pulumi.Input
+
+	ToClusterOptimizedAutoScalePtrOutput() ClusterOptimizedAutoScalePtrOutput
+	ToClusterOptimizedAutoScalePtrOutputWithContext(context.Context) ClusterOptimizedAutoScalePtrOutput
+}
+
+type clusterOptimizedAutoScalePtrType ClusterOptimizedAutoScaleArgs
+
+func ClusterOptimizedAutoScalePtr(v *ClusterOptimizedAutoScaleArgs) ClusterOptimizedAutoScalePtrInput {
+	return (*clusterOptimizedAutoScalePtrType)(v)
+}
+
+func (*clusterOptimizedAutoScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOptimizedAutoScale)(nil)).Elem()
+}
+
+func (i *clusterOptimizedAutoScalePtrType) ToClusterOptimizedAutoScalePtrOutput() ClusterOptimizedAutoScalePtrOutput {
+	return i.ToClusterOptimizedAutoScalePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOptimizedAutoScalePtrType) ToClusterOptimizedAutoScalePtrOutputWithContext(ctx context.Context) ClusterOptimizedAutoScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOptimizedAutoScalePtrOutput)
+}
+
+type ClusterOptimizedAutoScaleOutput struct{ *pulumi.OutputState }
+
+func (ClusterOptimizedAutoScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOptimizedAutoScale)(nil)).Elem()
+}
+
+func (o ClusterOptimizedAutoScaleOutput) ToClusterOptimizedAutoScaleOutput() ClusterOptimizedAutoScaleOutput {
+	return o
+}
+
+func (o ClusterOptimizedAutoScaleOutput) ToClusterOptimizedAutoScaleOutputWithContext(ctx context.Context) ClusterOptimizedAutoScaleOutput {
+	return o
+}
+
+func (o ClusterOptimizedAutoScaleOutput) ToClusterOptimizedAutoScalePtrOutput() ClusterOptimizedAutoScalePtrOutput {
+	return o.ToClusterOptimizedAutoScalePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOptimizedAutoScaleOutput) ToClusterOptimizedAutoScalePtrOutputWithContext(ctx context.Context) ClusterOptimizedAutoScalePtrOutput {
+	return o.ApplyT(func(v ClusterOptimizedAutoScale) *ClusterOptimizedAutoScale {
+		return &v
+	}).(ClusterOptimizedAutoScalePtrOutput)
+}
+
+// The maximum number of allowed instances. Must between `0` and `1000`.
+func (o ClusterOptimizedAutoScaleOutput) MaximumInstances() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterOptimizedAutoScale) int { return v.MaximumInstances }).(pulumi.IntOutput)
+}
+
+// The minimum number of allowed instances. Must between `0` and `1000`.
+func (o ClusterOptimizedAutoScaleOutput) MinimumInstances() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterOptimizedAutoScale) int { return v.MinimumInstances }).(pulumi.IntOutput)
+}
+
+type ClusterOptimizedAutoScalePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOptimizedAutoScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOptimizedAutoScale)(nil)).Elem()
+}
+
+func (o ClusterOptimizedAutoScalePtrOutput) ToClusterOptimizedAutoScalePtrOutput() ClusterOptimizedAutoScalePtrOutput {
+	return o
+}
+
+func (o ClusterOptimizedAutoScalePtrOutput) ToClusterOptimizedAutoScalePtrOutputWithContext(ctx context.Context) ClusterOptimizedAutoScalePtrOutput {
+	return o
+}
+
+func (o ClusterOptimizedAutoScalePtrOutput) Elem() ClusterOptimizedAutoScaleOutput {
+	return o.ApplyT(func(v *ClusterOptimizedAutoScale) ClusterOptimizedAutoScale { return *v }).(ClusterOptimizedAutoScaleOutput)
+}
+
+// The maximum number of allowed instances. Must between `0` and `1000`.
+func (o ClusterOptimizedAutoScalePtrOutput) MaximumInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterOptimizedAutoScale) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumInstances
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of allowed instances. Must between `0` and `1000`.
+func (o ClusterOptimizedAutoScalePtrOutput) MinimumInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterOptimizedAutoScale) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumInstances
+	}).(pulumi.IntPtrOutput)
+}
+
 type ClusterSku struct {
 	// Specifies the node count for the cluster. Boundaries depend on the sku name.
-	Capacity int `pulumi:"capacity"`
+	Capacity *int `pulumi:"capacity"`
 	// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
 	Name string `pulumi:"name"`
 }
@@ -218,7 +368,7 @@ type ClusterSkuInput interface {
 
 type ClusterSkuArgs struct {
 	// Specifies the node count for the cluster. Boundaries depend on the sku name.
-	Capacity pulumi.IntInput `pulumi:"capacity"`
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -301,8 +451,8 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) 
 }
 
 // Specifies the node count for the cluster. Boundaries depend on the sku name.
-func (o ClusterSkuOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterSku) int { return v.Capacity }).(pulumi.IntOutput)
+func (o ClusterSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
 // The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
@@ -334,7 +484,7 @@ func (o ClusterSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Capacity
+		return v.Capacity
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -520,6 +670,8 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtr
 func init() {
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOptimizedAutoScaleOutput{})
+	pulumi.RegisterOutputType(ClusterOptimizedAutoScalePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationOutput{})

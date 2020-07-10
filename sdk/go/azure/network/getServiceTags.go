@@ -23,7 +23,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "northeurope"
 // 		_, err := network.GetServiceTags(ctx, &network.GetServiceTagsArgs{
-// 			Location:       "West Europe",
+// 			Location:       "westcentralus",
 // 			Service:        "AzureKeyVault",
 // 			LocationFilter: &opt0,
 // 		}, nil)

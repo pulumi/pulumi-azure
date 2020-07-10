@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverride> RuleGroupOverrides;
         /// <summary>
-        /// The rule set type.
+        /// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The rule set version.
+        /// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
         /// </summary>
         public readonly string Version;
 

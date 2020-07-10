@@ -115,6 +115,14 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A `metastores` block as defined below.
+     */
+    public readonly metastores!: pulumi.Output<outputs.hdinsight.KafkaClusterMetastores | undefined>;
+    /**
+     * A `monitor` block as defined below.
+     */
+    public readonly monitor!: pulumi.Output<outputs.hdinsight.KafkaClusterMonitor | undefined>;
+    /**
      * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -165,6 +173,8 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["gateway"] = state ? state.gateway : undefined;
             inputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["metastores"] = state ? state.metastores : undefined;
+            inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roles"] = state ? state.roles : undefined;
@@ -198,6 +208,8 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["componentVersion"] = args ? args.componentVersion : undefined;
             inputs["gateway"] = args ? args.gateway : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metastores"] = args ? args.metastores : undefined;
+            inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
@@ -244,6 +256,14 @@ export interface KafkaClusterState {
      * Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `metastores` block as defined below.
+     */
+    readonly metastores?: pulumi.Input<inputs.hdinsight.KafkaClusterMetastores>;
+    /**
+     * A `monitor` block as defined below.
+     */
+    readonly monitor?: pulumi.Input<inputs.hdinsight.KafkaClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
@@ -299,6 +319,14 @@ export interface KafkaClusterArgs {
      * Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `metastores` block as defined below.
+     */
+    readonly metastores?: pulumi.Input<inputs.hdinsight.KafkaClusterMetastores>;
+    /**
+     * A `monitor` block as defined below.
+     */
+    readonly monitor?: pulumi.Input<inputs.hdinsight.KafkaClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */

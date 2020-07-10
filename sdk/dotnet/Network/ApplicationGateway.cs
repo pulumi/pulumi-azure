@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> EnableHttp2 { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of a firewall policy.
+        /// The ID of the Web Application Firewall Policy.
         /// </summary>
         [Output("firewallPolicyId")]
         public Output<string?> FirewallPolicyId { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Network
         /// A `identity` block.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ApplicationGatewayIdentity> Identity { get; private set; } = null!;
+        public Output<Outputs.ApplicationGatewayIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -417,7 +417,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
-        /// The resource ID of a firewall policy.
+        /// The ID of the Web Application Firewall Policy.
         /// </summary>
         [Input("firewallPolicyId")]
         public Input<string>? FirewallPolicyId { get; set; }
@@ -694,7 +694,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
-        /// The resource ID of a firewall policy.
+        /// The ID of the Web Application Firewall Policy.
         /// </summary>
         [Input("firewallPolicyId")]
         public Input<string>? FirewallPolicyId { get; set; }

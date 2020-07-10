@@ -124,6 +124,18 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Output("metastores")]
+        public Output<Outputs.HBaseClusterMetastores?> Metastores { get; private set; } = null!;
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Output("monitor")]
+        public Output<Outputs.HBaseClusterMonitor?> Monitor { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -245,6 +257,18 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Input("metastores")]
+        public Input<Inputs.HBaseClusterMetastoresArgs>? Metastores { get; set; }
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.HBaseClusterMonitorArgs>? Monitor { get; set; }
+
+        /// <summary>
         /// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -337,6 +361,18 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Input("metastores")]
+        public Input<Inputs.HBaseClusterMetastoresGetArgs>? Metastores { get; set; }
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.HBaseClusterMonitorGetArgs>? Monitor { get; set; }
 
         /// <summary>
         /// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.

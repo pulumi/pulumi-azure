@@ -17,9 +17,7 @@ import * as utilities from "../utilities";
  * const exampleAccount = new azure.automation.Account("exampleAccount", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: [{
- *         name: "Basic",
- *     }],
+ *     skuName: "Basic",
  * });
  * const exampleCredential = new azure.automation.Credential("exampleCredential", {
  *     resourceGroupName: exampleResourceGroup.name,

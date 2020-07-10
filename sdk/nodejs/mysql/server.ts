@@ -129,7 +129,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
-    public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
+    public readonly sslEnforcementEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
      */
@@ -146,6 +146,10 @@ export class Server extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    public readonly threatDetectionPolicy!: pulumi.Output<outputs.mysql.ServerThreatDetectionPolicy | undefined>;
     /**
      * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
      */
@@ -184,6 +188,7 @@ export class Server extends pulumi.CustomResource {
             inputs["storageMb"] = state ? state.storageMb : undefined;
             inputs["storageProfile"] = state ? state.storageProfile : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
@@ -216,6 +221,7 @@ export class Server extends pulumi.CustomResource {
             inputs["storageMb"] = args ? args.storageMb : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["fqdn"] = undefined /*out*/;
         }
@@ -319,6 +325,10 @@ export interface ServerState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    readonly threatDetectionPolicy?: pulumi.Input<inputs.mysql.ServerThreatDetectionPolicy>;
+    /**
      * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
      */
     readonly version?: pulumi.Input<string>;
@@ -408,6 +418,10 @@ export interface ServerArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
+     */
+    readonly threatDetectionPolicy?: pulumi.Input<inputs.mysql.ServerThreatDetectionPolicy>;
     /**
      * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
      */

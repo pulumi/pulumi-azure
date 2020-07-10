@@ -114,6 +114,14 @@ export class SparkCluster extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A `metastores` block as defined below.
+     */
+    public readonly metastores!: pulumi.Output<outputs.hdinsight.SparkClusterMetastores | undefined>;
+    /**
+     * A `monitor` block as defined below.
+     */
+    public readonly monitor!: pulumi.Output<outputs.hdinsight.SparkClusterMonitor | undefined>;
+    /**
      * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -164,6 +172,8 @@ export class SparkCluster extends pulumi.CustomResource {
             inputs["gateway"] = state ? state.gateway : undefined;
             inputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["metastores"] = state ? state.metastores : undefined;
+            inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roles"] = state ? state.roles : undefined;
@@ -197,6 +207,8 @@ export class SparkCluster extends pulumi.CustomResource {
             inputs["componentVersion"] = args ? args.componentVersion : undefined;
             inputs["gateway"] = args ? args.gateway : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metastores"] = args ? args.metastores : undefined;
+            inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
@@ -243,6 +255,14 @@ export interface SparkClusterState {
      * Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `metastores` block as defined below.
+     */
+    readonly metastores?: pulumi.Input<inputs.hdinsight.SparkClusterMetastores>;
+    /**
+     * A `monitor` block as defined below.
+     */
+    readonly monitor?: pulumi.Input<inputs.hdinsight.SparkClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */
@@ -298,6 +318,14 @@ export interface SparkClusterArgs {
      * Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `metastores` block as defined below.
+     */
+    readonly metastores?: pulumi.Input<inputs.hdinsight.SparkClusterMetastores>;
+    /**
+     * A `monitor` block as defined below.
+     */
+    readonly monitor?: pulumi.Input<inputs.hdinsight.SparkClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */

@@ -89,7 +89,7 @@ type Server struct {
 	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringOutput `pulumi:"sslEnforcement"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
-	SslEnforcementEnabled pulumi.BoolOutput `pulumi:"sslEnforcementEnabled"`
+	SslEnforcementEnabled pulumi.BoolPtrOutput `pulumi:"sslEnforcementEnabled"`
 	// The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrOutput `pulumi:"sslMinimalTlsVersionEnforced"`
 	// Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).

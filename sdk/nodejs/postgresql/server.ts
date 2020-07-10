@@ -128,7 +128,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
-    public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
+    public readonly sslEnforcementEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The mimimun TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
      */

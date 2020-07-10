@@ -66,7 +66,7 @@ export class EventHub extends pulumi.CustomResource {
      */
     public readonly captureDescription!: pulumi.Output<outputs.eventhub.EventHubCaptureDescription | undefined>;
     /**
-     * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
+     * Specifies the number of days to retain the events for this Event Hub.
      */
     public readonly messageRetention!: pulumi.Output<number>;
     /**
@@ -151,7 +151,7 @@ export interface EventHubState {
      */
     readonly captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
     /**
-     * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
+     * Specifies the number of days to retain the events for this Event Hub.
      */
     readonly messageRetention?: pulumi.Input<number>;
     /**
@@ -185,7 +185,7 @@ export interface EventHubArgs {
      */
     readonly captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
     /**
-     * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
+     * Specifies the number of days to retain the events for this Event Hub.
      */
     readonly messageRetention: pulumi.Input<number>;
     /**

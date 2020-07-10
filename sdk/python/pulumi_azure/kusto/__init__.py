@@ -3,9 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .attached_database_configuration import *
 from .cluster import *
 from .cluster_principal_assignment import *
 from .database import *
 from .database_principal import *
+from .database_principal_assignment import *
 from .eventhub_data_connection import *
 from .get_cluster import *

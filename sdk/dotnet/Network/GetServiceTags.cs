@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network
         ///     {
         ///         var example = Output.Create(Azure.Network.GetServiceTags.InvokeAsync(new Azure.Network.GetServiceTagsArgs
         ///         {
-        ///             Location = "West Europe",
+        ///             Location = "westcentralus",
         ///             Service = "AzureKeyVault",
         ///             LocationFilter = "northeurope",
         ///         }));

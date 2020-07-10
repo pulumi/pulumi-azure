@@ -3156,6 +3156,130 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	}).(pulumi.StringArrayOutput)
 }
 
+type CertificateIssuerAdmin struct {
+	// E-mail address of the admin.
+	EmailAddress string `pulumi:"emailAddress"`
+	// First name of the admin.
+	FirstName *string `pulumi:"firstName"`
+	// Last name of the admin.
+	LastName *string `pulumi:"lastName"`
+	// Phone number of the admin.
+	Phone *string `pulumi:"phone"`
+}
+
+// CertificateIssuerAdminInput is an input type that accepts CertificateIssuerAdminArgs and CertificateIssuerAdminOutput values.
+// You can construct a concrete instance of `CertificateIssuerAdminInput` via:
+//
+//          CertificateIssuerAdminArgs{...}
+type CertificateIssuerAdminInput interface {
+	pulumi.Input
+
+	ToCertificateIssuerAdminOutput() CertificateIssuerAdminOutput
+	ToCertificateIssuerAdminOutputWithContext(context.Context) CertificateIssuerAdminOutput
+}
+
+type CertificateIssuerAdminArgs struct {
+	// E-mail address of the admin.
+	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
+	// First name of the admin.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// Last name of the admin.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// Phone number of the admin.
+	Phone pulumi.StringPtrInput `pulumi:"phone"`
+}
+
+func (CertificateIssuerAdminArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateIssuerAdmin)(nil)).Elem()
+}
+
+func (i CertificateIssuerAdminArgs) ToCertificateIssuerAdminOutput() CertificateIssuerAdminOutput {
+	return i.ToCertificateIssuerAdminOutputWithContext(context.Background())
+}
+
+func (i CertificateIssuerAdminArgs) ToCertificateIssuerAdminOutputWithContext(ctx context.Context) CertificateIssuerAdminOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerAdminOutput)
+}
+
+// CertificateIssuerAdminArrayInput is an input type that accepts CertificateIssuerAdminArray and CertificateIssuerAdminArrayOutput values.
+// You can construct a concrete instance of `CertificateIssuerAdminArrayInput` via:
+//
+//          CertificateIssuerAdminArray{ CertificateIssuerAdminArgs{...} }
+type CertificateIssuerAdminArrayInput interface {
+	pulumi.Input
+
+	ToCertificateIssuerAdminArrayOutput() CertificateIssuerAdminArrayOutput
+	ToCertificateIssuerAdminArrayOutputWithContext(context.Context) CertificateIssuerAdminArrayOutput
+}
+
+type CertificateIssuerAdminArray []CertificateIssuerAdminInput
+
+func (CertificateIssuerAdminArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateIssuerAdmin)(nil)).Elem()
+}
+
+func (i CertificateIssuerAdminArray) ToCertificateIssuerAdminArrayOutput() CertificateIssuerAdminArrayOutput {
+	return i.ToCertificateIssuerAdminArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateIssuerAdminArray) ToCertificateIssuerAdminArrayOutputWithContext(ctx context.Context) CertificateIssuerAdminArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerAdminArrayOutput)
+}
+
+type CertificateIssuerAdminOutput struct{ *pulumi.OutputState }
+
+func (CertificateIssuerAdminOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateIssuerAdmin)(nil)).Elem()
+}
+
+func (o CertificateIssuerAdminOutput) ToCertificateIssuerAdminOutput() CertificateIssuerAdminOutput {
+	return o
+}
+
+func (o CertificateIssuerAdminOutput) ToCertificateIssuerAdminOutputWithContext(ctx context.Context) CertificateIssuerAdminOutput {
+	return o
+}
+
+// E-mail address of the admin.
+func (o CertificateIssuerAdminOutput) EmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateIssuerAdmin) string { return v.EmailAddress }).(pulumi.StringOutput)
+}
+
+// First name of the admin.
+func (o CertificateIssuerAdminOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateIssuerAdmin) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Last name of the admin.
+func (o CertificateIssuerAdminOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateIssuerAdmin) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Phone number of the admin.
+func (o CertificateIssuerAdminOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateIssuerAdmin) *string { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+type CertificateIssuerAdminArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateIssuerAdminArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateIssuerAdmin)(nil)).Elem()
+}
+
+func (o CertificateIssuerAdminArrayOutput) ToCertificateIssuerAdminArrayOutput() CertificateIssuerAdminArrayOutput {
+	return o
+}
+
+func (o CertificateIssuerAdminArrayOutput) ToCertificateIssuerAdminArrayOutputWithContext(ctx context.Context) CertificateIssuerAdminArrayOutput {
+	return o
+}
+
+func (o CertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) CertificateIssuerAdminOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateIssuerAdmin {
+		return vs[0].([]CertificateIssuerAdmin)[vs[1].(int)]
+	}).(CertificateIssuerAdminOutput)
+}
+
 type KeyVaultAccessPolicy struct {
 	// The object ID of an Application in Azure Active Directory.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -4525,6 +4649,130 @@ func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternative
 	}).(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput)
 }
 
+type GetCertificateIssuerAdmin struct {
+	// E-mail address of the admin.
+	EmailAddress string `pulumi:"emailAddress"`
+	// First name of the admin.
+	FirstName string `pulumi:"firstName"`
+	// Last name of the admin.
+	LastName string `pulumi:"lastName"`
+	// Phone number of the admin.
+	Phone string `pulumi:"phone"`
+}
+
+// GetCertificateIssuerAdminInput is an input type that accepts GetCertificateIssuerAdminArgs and GetCertificateIssuerAdminOutput values.
+// You can construct a concrete instance of `GetCertificateIssuerAdminInput` via:
+//
+//          GetCertificateIssuerAdminArgs{...}
+type GetCertificateIssuerAdminInput interface {
+	pulumi.Input
+
+	ToGetCertificateIssuerAdminOutput() GetCertificateIssuerAdminOutput
+	ToGetCertificateIssuerAdminOutputWithContext(context.Context) GetCertificateIssuerAdminOutput
+}
+
+type GetCertificateIssuerAdminArgs struct {
+	// E-mail address of the admin.
+	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
+	// First name of the admin.
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// Last name of the admin.
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	// Phone number of the admin.
+	Phone pulumi.StringInput `pulumi:"phone"`
+}
+
+func (GetCertificateIssuerAdminArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateIssuerAdmin)(nil)).Elem()
+}
+
+func (i GetCertificateIssuerAdminArgs) ToGetCertificateIssuerAdminOutput() GetCertificateIssuerAdminOutput {
+	return i.ToGetCertificateIssuerAdminOutputWithContext(context.Background())
+}
+
+func (i GetCertificateIssuerAdminArgs) ToGetCertificateIssuerAdminOutputWithContext(ctx context.Context) GetCertificateIssuerAdminOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateIssuerAdminOutput)
+}
+
+// GetCertificateIssuerAdminArrayInput is an input type that accepts GetCertificateIssuerAdminArray and GetCertificateIssuerAdminArrayOutput values.
+// You can construct a concrete instance of `GetCertificateIssuerAdminArrayInput` via:
+//
+//          GetCertificateIssuerAdminArray{ GetCertificateIssuerAdminArgs{...} }
+type GetCertificateIssuerAdminArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateIssuerAdminArrayOutput() GetCertificateIssuerAdminArrayOutput
+	ToGetCertificateIssuerAdminArrayOutputWithContext(context.Context) GetCertificateIssuerAdminArrayOutput
+}
+
+type GetCertificateIssuerAdminArray []GetCertificateIssuerAdminInput
+
+func (GetCertificateIssuerAdminArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateIssuerAdmin)(nil)).Elem()
+}
+
+func (i GetCertificateIssuerAdminArray) ToGetCertificateIssuerAdminArrayOutput() GetCertificateIssuerAdminArrayOutput {
+	return i.ToGetCertificateIssuerAdminArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateIssuerAdminArray) ToGetCertificateIssuerAdminArrayOutputWithContext(ctx context.Context) GetCertificateIssuerAdminArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateIssuerAdminArrayOutput)
+}
+
+type GetCertificateIssuerAdminOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateIssuerAdminOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateIssuerAdmin)(nil)).Elem()
+}
+
+func (o GetCertificateIssuerAdminOutput) ToGetCertificateIssuerAdminOutput() GetCertificateIssuerAdminOutput {
+	return o
+}
+
+func (o GetCertificateIssuerAdminOutput) ToGetCertificateIssuerAdminOutputWithContext(ctx context.Context) GetCertificateIssuerAdminOutput {
+	return o
+}
+
+// E-mail address of the admin.
+func (o GetCertificateIssuerAdminOutput) EmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateIssuerAdmin) string { return v.EmailAddress }).(pulumi.StringOutput)
+}
+
+// First name of the admin.
+func (o GetCertificateIssuerAdminOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateIssuerAdmin) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// Last name of the admin.
+func (o GetCertificateIssuerAdminOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateIssuerAdmin) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+// Phone number of the admin.
+func (o GetCertificateIssuerAdminOutput) Phone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateIssuerAdmin) string { return v.Phone }).(pulumi.StringOutput)
+}
+
+type GetCertificateIssuerAdminArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateIssuerAdminArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateIssuerAdmin)(nil)).Elem()
+}
+
+func (o GetCertificateIssuerAdminArrayOutput) ToGetCertificateIssuerAdminArrayOutput() GetCertificateIssuerAdminArrayOutput {
+	return o
+}
+
+func (o GetCertificateIssuerAdminArrayOutput) ToGetCertificateIssuerAdminArrayOutputWithContext(ctx context.Context) GetCertificateIssuerAdminArrayOutput {
+	return o
+}
+
+func (o GetCertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) GetCertificateIssuerAdminOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateIssuerAdmin {
+		return vs[0].([]GetCertificateIssuerAdmin)[vs[1].(int)]
+	}).(GetCertificateIssuerAdminOutput)
+}
+
 type GetKeyVaultAccessPolicy struct {
 	// The Object ID of a Azure Active Directory Application.
 	ApplicationId string `pulumi:"applicationId"`
@@ -4829,6 +5077,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput{})
 	pulumi.RegisterOutputType(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput{})
+	pulumi.RegisterOutputType(CertificateIssuerAdminOutput{})
+	pulumi.RegisterOutputType(CertificateIssuerAdminArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsOutput{})
@@ -4851,6 +5101,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateIssuerAdminOutput{})
+	pulumi.RegisterOutputType(GetCertificateIssuerAdminArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultNetworkAclOutput{})

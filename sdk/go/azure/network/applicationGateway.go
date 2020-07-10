@@ -152,7 +152,7 @@ type ApplicationGateway struct {
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayOutput `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrOutput `pulumi:"enableHttp2"`
-	// The resource ID of a firewall policy.
+	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId pulumi.StringPtrOutput `pulumi:"firewallPolicyId"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
@@ -163,7 +163,7 @@ type ApplicationGateway struct {
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners ApplicationGatewayHttpListenerArrayOutput `pulumi:"httpListeners"`
 	// A `identity` block.
-	Identity ApplicationGatewayIdentityOutput `pulumi:"identity"`
+	Identity ApplicationGatewayIdentityPtrOutput `pulumi:"identity"`
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -263,7 +263,7 @@ type applicationGatewayState struct {
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
-	// The resource ID of a firewall policy.
+	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations []ApplicationGatewayFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
@@ -320,7 +320,7 @@ type ApplicationGatewayState struct {
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput
-	// The resource ID of a firewall policy.
+	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId pulumi.StringPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationArrayInput
@@ -381,7 +381,7 @@ type applicationGatewayArgs struct {
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
-	// The resource ID of a firewall policy.
+	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations []ApplicationGatewayFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
@@ -439,7 +439,7 @@ type ApplicationGatewayArgs struct {
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput
-	// The resource ID of a firewall policy.
+	// The ID of the Web Application Firewall Policy.
 	FirewallPolicyId pulumi.StringPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations ApplicationGatewayFrontendIpConfigurationArrayInput

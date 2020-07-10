@@ -124,6 +124,18 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Output("metastores")]
+        public Output<Outputs.SparkClusterMetastores?> Metastores { get; private set; } = null!;
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Output("monitor")]
+        public Output<Outputs.SparkClusterMonitor?> Monitor { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -245,6 +257,18 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Input("metastores")]
+        public Input<Inputs.SparkClusterMetastoresArgs>? Metastores { get; set; }
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.SparkClusterMonitorArgs>? Monitor { get; set; }
+
+        /// <summary>
         /// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -337,6 +361,18 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Input("metastores")]
+        public Input<Inputs.SparkClusterMetastoresGetArgs>? Metastores { get; set; }
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.SparkClusterMonitorGetArgs>? Monitor { get; set; }
 
         /// <summary>
         /// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.

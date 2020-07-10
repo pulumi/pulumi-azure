@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getServiceTags({
- *     location: "West Europe",
+ *     location: "westcentralus",
  *     service: "AzureKeyVault",
  *     locationFilter: "northeurope",
  * });

@@ -94,7 +94,7 @@ export class AppService extends pulumi.CustomResource {
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
+    public readonly clientAffinityEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Does the App Service require client certificates for incoming requests? Defaults to `false`.
      */

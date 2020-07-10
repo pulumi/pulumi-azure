@@ -86,7 +86,7 @@ type Server struct {
 	// Deprecated: this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringOutput `pulumi:"sslEnforcement"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
-	SslEnforcementEnabled pulumi.BoolOutput `pulumi:"sslEnforcementEnabled"`
+	SslEnforcementEnabled pulumi.BoolPtrOutput `pulumi:"sslEnforcementEnabled"`
 	// Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
 	// Deprecated: all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.

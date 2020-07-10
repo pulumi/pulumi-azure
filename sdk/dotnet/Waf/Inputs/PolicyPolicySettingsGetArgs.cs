@@ -13,16 +13,28 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyPolicySettingsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("fileUploadLimitInMb")]
+        public Input<int>? FileUploadLimitInMb { get; set; }
+
+        [Input("maxRequestBodySizeInKb")]
+        public Input<int>? MaxRequestBodySizeInKb { get; set; }
+
         /// <summary>
-        /// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+        /// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
+
+        /// <summary>
+        /// Is Request Body Inspection enabled? Defaults to `true`.
+        /// </summary>
+        [Input("requestBodyCheck")]
+        public Input<bool>? RequestBodyCheck { get; set; }
 
         public PolicyPolicySettingsGetArgs()
         {

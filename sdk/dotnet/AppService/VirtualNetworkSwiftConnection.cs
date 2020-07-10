@@ -22,29 +22,29 @@ namespace Pulumi.Azure.AppService
     /// {
     ///     public MyStack()
     ///     {
-    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "uksouth",
     ///         });
-    ///         var testVirtualNetwork = new Azure.Network.VirtualNetwork("testVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
     ///         {
     ///             AddressSpaces = 
     ///             {
     ///                 "10.0.0.0/16",
     ///             },
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///         });
-    ///         var test1 = new Azure.Network.Subnet("test1", new Azure.Network.SubnetArgs
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
     ///         {
-    ///             ResourceGroupName = testResourceGroup.Name,
-    ///             VirtualNetworkName = testVirtualNetwork.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
     ///             AddressPrefix = "10.0.1.0/24",
     ///             Delegations = 
     ///             {
     ///                 new Azure.Network.Inputs.SubnetDelegationArgs
     ///                 {
-    ///                     Name = "acctestdelegation",
+    ///                     Name = "example-delegation",
     ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                     {
     ///                         Name = "Microsoft.Web/serverFarms",
@@ -56,26 +56,26 @@ namespace Pulumi.Azure.AppService
     ///                 },
     ///             },
     ///         });
-    ///         var testPlan = new Azure.AppService.Plan("testPlan", new Azure.AppService.PlanArgs
+    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
     ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///             {
     ///                 Tier = "Standard",
     ///                 Size = "S1",
     ///             },
     ///         });
-    ///         var testAppService = new Azure.AppService.AppService("testAppService", new Azure.AppService.AppServiceArgs
+    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
     ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
-    ///             AppServicePlanId = testPlan.Id,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AppServicePlanId = examplePlan.Id,
     ///         });
-    ///         var testVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("testVirtualNetworkSwiftConnection", new Azure.AppService.VirtualNetworkSwiftConnectionArgs
+    ///         var exampleVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", new Azure.AppService.VirtualNetworkSwiftConnectionArgs
     ///         {
-    ///             AppServiceId = testAppService.Id,
-    ///             SubnetId = test1.Id,
+    ///             AppServiceId = exampleAppService.Id,
+    ///             SubnetId = exampleSubnet.Id,
     ///         });
     ///     }
     /// 

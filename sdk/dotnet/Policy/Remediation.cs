@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> PolicyAssignmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         /// </summary>
         [Output("policyDefinitionReferenceId")]
         public Output<string?> PolicyDefinitionReferenceId { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Policy
         public Input<string> PolicyAssignmentId { get; set; } = null!;
 
         /// <summary>
-        /// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         /// </summary>
         [Input("policyDefinitionReferenceId")]
         public Input<string>? PolicyDefinitionReferenceId { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? PolicyAssignmentId { get; set; }
 
         /// <summary>
-        /// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         /// </summary>
         [Input("policyDefinitionReferenceId")]
         public Input<string>? PolicyDefinitionReferenceId { get; set; }
