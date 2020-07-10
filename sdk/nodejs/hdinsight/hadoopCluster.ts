@@ -118,6 +118,10 @@ export class HadoopCluster extends pulumi.CustomResource {
      */
     public readonly metastores!: pulumi.Output<outputs.hdinsight.HadoopClusterMetastores | undefined>;
     /**
+     * A `monitor` block as defined below.
+     */
+    public readonly monitor!: pulumi.Output<outputs.hdinsight.HadoopClusterMonitor | undefined>;
+    /**
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -169,6 +173,7 @@ export class HadoopCluster extends pulumi.CustomResource {
             inputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["metastores"] = state ? state.metastores : undefined;
+            inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roles"] = state ? state.roles : undefined;
@@ -203,6 +208,7 @@ export class HadoopCluster extends pulumi.CustomResource {
             inputs["gateway"] = args ? args.gateway : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["metastores"] = args ? args.metastores : undefined;
+            inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
@@ -253,6 +259,10 @@ export interface HadoopClusterState {
      * A `metastores` block as defined below.
      */
     readonly metastores?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastores>;
+    /**
+     * A `monitor` block as defined below.
+     */
+    readonly monitor?: pulumi.Input<inputs.hdinsight.HadoopClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      */
@@ -312,6 +322,10 @@ export interface HadoopClusterArgs {
      * A `metastores` block as defined below.
      */
     readonly metastores?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastores>;
+    /**
+     * A `monitor` block as defined below.
+     */
+    readonly monitor?: pulumi.Input<inputs.hdinsight.HadoopClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      */

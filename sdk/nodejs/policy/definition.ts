@@ -87,6 +87,8 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     *
      * @deprecated Deprecated in favour of `management_group_name`
      */
     public readonly managementGroupId!: pulumi.Output<string>;
@@ -196,6 +198,8 @@ export interface DefinitionState {
      */
     readonly displayName?: pulumi.Input<string>;
     /**
+     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     *
      * @deprecated Deprecated in favour of `management_group_name`
      */
     readonly managementGroupId?: pulumi.Input<string>;
@@ -251,6 +255,8 @@ export interface DefinitionArgs {
      */
     readonly displayName: pulumi.Input<string>;
     /**
+     * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     *
      * @deprecated Deprecated in favour of `management_group_name`
      */
     readonly managementGroupId?: pulumi.Input<string>;

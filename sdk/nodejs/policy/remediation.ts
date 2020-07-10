@@ -102,7 +102,7 @@ export class Remediation extends pulumi.CustomResource {
      */
     public readonly policyAssignmentId!: pulumi.Output<string>;
     /**
-     * The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
     public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface RemediationState {
      */
     readonly policyAssignmentId?: pulumi.Input<string>;
     /**
-     * The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
     readonly policyDefinitionReferenceId?: pulumi.Input<string>;
     /**
@@ -195,7 +195,7 @@ export interface RemediationArgs {
      */
     readonly policyAssignmentId: pulumi.Input<string>;
     /**
-     * The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
     readonly policyDefinitionReferenceId?: pulumi.Input<string>;
     /**

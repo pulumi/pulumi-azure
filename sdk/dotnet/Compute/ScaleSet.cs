@@ -418,7 +418,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ScaleSetOsProfileWindowsConfig?> OsProfileWindowsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the virtual machine scale set should be overprovisioned.
+        /// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         /// </summary>
         [Output("overprovision")]
         public Output<bool?> Overprovision { get; private set; } = null!;
@@ -647,7 +647,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetOsProfileWindowsConfigArgs>? OsProfileWindowsConfig { get; set; }
 
         /// <summary>
-        /// Specifies whether the virtual machine scale set should be overprovisioned.
+        /// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         /// </summary>
         [Input("overprovision")]
         public Input<bool>? Overprovision { get; set; }
@@ -855,7 +855,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetOsProfileWindowsConfigGetArgs>? OsProfileWindowsConfig { get; set; }
 
         /// <summary>
-        /// Specifies whether the virtual machine scale set should be overprovisioned.
+        /// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         /// </summary>
         [Input("overprovision")]
         public Input<bool>? Overprovision { get; set; }

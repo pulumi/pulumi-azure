@@ -23,6 +23,7 @@ class Policy(pulumi.CustomResource):
 
         * `negationCondition` (`bool`) - Describes if this is negate condition or not
         * `operator` (`str`) - Describes operator to be matched.
+        * `transforms` (`list`) - A list of transformations to do before the match is attempted.
 
       * `name` (`str`) - Gets name of the resource that is unique within a policy. This name can be used to access the resource.
       * `priority` (`float`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
@@ -46,8 +47,8 @@ class Policy(pulumi.CustomResource):
           * `disabledRules` (`list`) - One or more Rule ID's
           * `ruleGroupName` (`str`) - The name of the Rule Group
 
-        * `type` (`str`) - The rule set type.
-        * `version` (`str`) - The rule set version.
+        * `type` (`str`) - The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+        * `version` (`str`) - The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
     """
     name: pulumi.Output[str]
     """
@@ -57,8 +58,11 @@ class Policy(pulumi.CustomResource):
     """
     A `policy_settings` block as defined below.
 
-      * `enabled` (`bool`) - Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
-      * `mode` (`str`) - Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+      * `enabled` (`bool`) - Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+      * `fileUploadLimitInMb` (`float`)
+      * `maxRequestBodySizeInKb` (`float`)
+      * `mode` (`str`) - Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+      * `requestBodyCheck` (`bool`) - Is Request Body Inspection enabled? Defaults to `true`.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -129,6 +133,9 @@ class Policy(pulumi.CustomResource):
             policy_settings={
                 "enabled": True,
                 "mode": "Prevention",
+                "requestBodyCheck": True,
+                "fileUploadLimitInMb": 100,
+                "maxRequestBodySizeInKb": 128,
             },
             managed_rules={
                 "exclusions": [
@@ -178,6 +185,7 @@ class Policy(pulumi.CustomResource):
 
             * `negationCondition` (`pulumi.Input[bool]`) - Describes if this is negate condition or not
             * `operator` (`pulumi.Input[str]`) - Describes operator to be matched.
+            * `transforms` (`pulumi.Input[list]`) - A list of transformations to do before the match is attempted.
 
           * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a policy. This name can be used to access the resource.
           * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
@@ -195,13 +203,16 @@ class Policy(pulumi.CustomResource):
               * `disabledRules` (`pulumi.Input[list]`) - One or more Rule ID's
               * `ruleGroupName` (`pulumi.Input[str]`) - The name of the Rule Group
 
-            * `type` (`pulumi.Input[str]`) - The rule set type.
-            * `version` (`pulumi.Input[str]`) - The rule set version.
+            * `type` (`pulumi.Input[str]`) - The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+            * `version` (`pulumi.Input[str]`) - The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
 
         The **policy_settings** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
-          * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+          * `enabled` (`pulumi.Input[bool]`) - Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+          * `fileUploadLimitInMb` (`pulumi.Input[float]`)
+          * `maxRequestBodySizeInKb` (`pulumi.Input[float]`)
+          * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+          * `requestBodyCheck` (`pulumi.Input[bool]`) - Is Request Body Inspection enabled? Defaults to `true`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -265,6 +276,7 @@ class Policy(pulumi.CustomResource):
 
             * `negationCondition` (`pulumi.Input[bool]`) - Describes if this is negate condition or not
             * `operator` (`pulumi.Input[str]`) - Describes operator to be matched.
+            * `transforms` (`pulumi.Input[list]`) - A list of transformations to do before the match is attempted.
 
           * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a policy. This name can be used to access the resource.
           * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
@@ -282,13 +294,16 @@ class Policy(pulumi.CustomResource):
               * `disabledRules` (`pulumi.Input[list]`) - One or more Rule ID's
               * `ruleGroupName` (`pulumi.Input[str]`) - The name of the Rule Group
 
-            * `type` (`pulumi.Input[str]`) - The rule set type.
-            * `version` (`pulumi.Input[str]`) - The rule set version.
+            * `type` (`pulumi.Input[str]`) - The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+            * `version` (`pulumi.Input[str]`) - The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
 
         The **policy_settings** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
-          * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+          * `enabled` (`pulumi.Input[bool]`) - Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+          * `fileUploadLimitInMb` (`pulumi.Input[float]`)
+          * `maxRequestBodySizeInKb` (`pulumi.Input[float]`)
+          * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
+          * `requestBodyCheck` (`pulumi.Input[bool]`) - Is Request Body Inspection enabled? Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

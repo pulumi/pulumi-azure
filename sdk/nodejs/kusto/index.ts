@@ -2,9 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./attachedDatabaseConfiguration";
 export * from "./cluster";
 export * from "./clusterPrincipalAssignment";
 export * from "./database";
 export * from "./databasePrincipal";
+export * from "./databasePrincipalAssignment";
 export * from "./eventhubDataConnection";
 export * from "./getCluster";

@@ -107,6 +107,10 @@ type StormCluster struct {
 	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores StormClusterMetastoresPtrOutput `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor StormClusterMonitorPtrOutput `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
@@ -180,6 +184,10 @@ type stormClusterState struct {
 	HttpsEndpoint *string `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *StormClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *StormClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
@@ -208,6 +216,10 @@ type StormClusterState struct {
 	HttpsEndpoint pulumi.StringPtrInput
 	// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores StormClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor StormClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
@@ -238,6 +250,10 @@ type stormClusterArgs struct {
 	Gateway StormClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *StormClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *StormClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
@@ -263,6 +279,10 @@ type StormClusterArgs struct {
 	Gateway StormClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores StormClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor StormClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.

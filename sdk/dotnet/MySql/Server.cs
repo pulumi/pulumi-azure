@@ -147,7 +147,7 @@ namespace Pulumi.Azure.MySql
         /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         /// </summary>
         [Output("sslEnforcementEnabled")]
-        public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
+        public Output<bool?> SslEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
@@ -169,6 +169,12 @@ namespace Pulumi.Azure.MySql
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Output("threatDetectionPolicy")]
+        public Output<Outputs.ServerThreatDetectionPolicy?> ThreatDetectionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
@@ -343,6 +349,12 @@ namespace Pulumi.Azure.MySql
         }
 
         /// <summary>
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Input("threatDetectionPolicy")]
+        public Input<Inputs.ServerThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
+
+        /// <summary>
         /// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version", required: true)]
@@ -480,6 +492,12 @@ namespace Pulumi.Azure.MySql
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// </summary>
+        [Input("threatDetectionPolicy")]
+        public Input<Inputs.ServerThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }
 
         /// <summary>
         /// Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.

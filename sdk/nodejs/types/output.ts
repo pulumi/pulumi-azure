@@ -7193,6 +7193,10 @@ export namespace cosmosdb {
          * The ID of the virtual network subnet.
          */
         id: string;
+        /**
+         * If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
+         */
+        ignoreMissingVnetServiceEndpoint?: boolean;
     }
 
     export interface GetAccountCapability {
@@ -7357,6 +7361,138 @@ export namespace databricks {
 }
 
 export namespace datafactory {
+    export interface DatasetAzureBlobSchemaColumn {
+        /**
+         * The description of the column.
+         */
+        description?: string;
+        /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
+        type?: string;
+    }
+
+    export interface DatasetCosmosDBApiSchemaColumn {
+        /**
+         * The description of the column.
+         */
+        description?: string;
+        /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
+        type?: string;
+    }
+
+    export interface DatasetDelimitedTextAzureBlobStorageLocation {
+        /**
+         * The container on the Azure Blob Storage Account hosting the file.
+         */
+        container: string;
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: string;
+    }
+
+    export interface DatasetDelimitedTextHttpServerLocation {
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: string;
+        /**
+         * The base URL to the web server hosting the file.
+         */
+        relativeUrl: string;
+    }
+
+    export interface DatasetDelimitedTextSchemaColumn {
+        /**
+         * The description of the column.
+         */
+        description?: string;
+        /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
+        type?: string;
+    }
+
+    export interface DatasetHttpSchemaColumn {
+        /**
+         * The description of the column.
+         */
+        description?: string;
+        /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
+        type?: string;
+    }
+
+    export interface DatasetJsonAzureBlobStorageLocation {
+        container: string;
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: string;
+    }
+
+    export interface DatasetJsonHttpServerLocation {
+        /**
+         * The filename of the file on the web server.
+         */
+        filename: string;
+        /**
+         * The folder path to the file on the web server.
+         */
+        path: string;
+        /**
+         * The base URL to the web server hosting the file.
+         */
+        relativeUrl: string;
+    }
+
+    export interface DatasetJsonSchemaColumn {
+        /**
+         * The description of the column.
+         */
+        description?: string;
+        /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
+        type?: string;
+    }
+
     export interface DatasetMysqlSchemaColumn {
         /**
          * The description of the column.
@@ -8127,7 +8263,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionAzureFunctionEndpoint {
         /**
-         * Specifies the ID of the Function where the Event Subscription will receive events.
+         * Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
          */
         functionId: string;
         /**
@@ -8625,7 +8761,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionAzureFunctionEndpoint {
         /**
-         * Specifies the ID of the Function where the Event Subscription will receive events.
+         * Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
          */
         functionId: string;
         /**
@@ -9228,6 +9364,89 @@ export namespace hdinsight {
         username: string;
     }
 
+    export interface HBaseClusterMetastores {
+        /**
+         * An `ambari` block as defined below.
+         */
+        ambari?: outputs.hdinsight.HBaseClusterMetastoresAmbari;
+        /**
+         * A `hive` block as defined below.
+         */
+        hive?: outputs.hdinsight.HBaseClusterMetastoresHive;
+        /**
+         * An `oozie` block as defined below.
+         */
+        oozie?: outputs.hdinsight.HBaseClusterMetastoresOozie;
+    }
+
+    export interface HBaseClusterMetastoresAmbari {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface HBaseClusterMetastoresHive {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface HBaseClusterMetastoresOozie {
+        /**
+         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface HBaseClusterMonitor {
+        /**
+         * The Operations Management Suite (OMS) workspace ID.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The Operations Management Suite (OMS) workspace key.
+         */
+        primaryKey: string;
+    }
+
     export interface HBaseClusterRoles {
         /**
          * A `headNode` block as defined above.
@@ -9464,6 +9683,17 @@ export namespace hdinsight {
         username: string;
     }
 
+    export interface HadoopClusterMonitor {
+        /**
+         * The Operations Management Suite (OMS) workspace ID.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The Operations Management Suite (OMS) workspace key.
+         */
+        primaryKey: string;
+    }
+
     export interface HadoopClusterRoles {
         /**
          * A `edgeNode` block as defined below.
@@ -9655,6 +9885,89 @@ export namespace hdinsight {
         username: string;
     }
 
+    export interface InteractiveQueryClusterMetastores {
+        /**
+         * An `ambari` block as defined below.
+         */
+        ambari?: outputs.hdinsight.InteractiveQueryClusterMetastoresAmbari;
+        /**
+         * A `hive` block as defined below.
+         */
+        hive?: outputs.hdinsight.InteractiveQueryClusterMetastoresHive;
+        /**
+         * An `oozie` block as defined below.
+         */
+        oozie?: outputs.hdinsight.InteractiveQueryClusterMetastoresOozie;
+    }
+
+    export interface InteractiveQueryClusterMetastoresAmbari {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface InteractiveQueryClusterMetastoresHive {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface InteractiveQueryClusterMetastoresOozie {
+        /**
+         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface InteractiveQueryClusterMonitor {
+        /**
+         * The Operations Management Suite (OMS) workspace ID.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The Operations Management Suite (OMS) workspace key.
+         */
+        primaryKey: string;
+    }
+
     export interface InteractiveQueryClusterRoles {
         /**
          * A `headNode` block as defined above.
@@ -9817,6 +10130,89 @@ export namespace hdinsight {
          * The username used for the Ambari Portal. Changing this forces a new resource to be created.
          */
         username: string;
+    }
+
+    export interface KafkaClusterMetastores {
+        /**
+         * An `ambari` block as defined below.
+         */
+        ambari?: outputs.hdinsight.KafkaClusterMetastoresAmbari;
+        /**
+         * A `hive` block as defined below.
+         */
+        hive?: outputs.hdinsight.KafkaClusterMetastoresHive;
+        /**
+         * An `oozie` block as defined below.
+         */
+        oozie?: outputs.hdinsight.KafkaClusterMetastoresOozie;
+    }
+
+    export interface KafkaClusterMetastoresAmbari {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface KafkaClusterMetastoresHive {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface KafkaClusterMetastoresOozie {
+        /**
+         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface KafkaClusterMonitor {
+        /**
+         * The Operations Management Suite (OMS) workspace ID.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The Operations Management Suite (OMS) workspace key.
+         */
+        primaryKey: string;
     }
 
     export interface KafkaClusterRoles {
@@ -10325,6 +10721,89 @@ export namespace hdinsight {
         username: string;
     }
 
+    export interface SparkClusterMetastores {
+        /**
+         * An `ambari` block as defined below.
+         */
+        ambari?: outputs.hdinsight.SparkClusterMetastoresAmbari;
+        /**
+         * A `hive` block as defined below.
+         */
+        hive?: outputs.hdinsight.SparkClusterMetastoresHive;
+        /**
+         * An `oozie` block as defined below.
+         */
+        oozie?: outputs.hdinsight.SparkClusterMetastoresOozie;
+    }
+
+    export interface SparkClusterMetastoresAmbari {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface SparkClusterMetastoresHive {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface SparkClusterMetastoresOozie {
+        /**
+         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface SparkClusterMonitor {
+        /**
+         * The Operations Management Suite (OMS) workspace ID.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The Operations Management Suite (OMS) workspace key.
+         */
+        primaryKey: string;
+    }
+
     export interface SparkClusterRoles {
         /**
          * A `headNode` block as defined above.
@@ -10487,6 +10966,89 @@ export namespace hdinsight {
          * The username used for the Ambari Portal. Changing this forces a new resource to be created.
          */
         username: string;
+    }
+
+    export interface StormClusterMetastores {
+        /**
+         * An `ambari` block as defined below.
+         */
+        ambari?: outputs.hdinsight.StormClusterMetastoresAmbari;
+        /**
+         * A `hive` block as defined below.
+         */
+        hive?: outputs.hdinsight.StormClusterMetastoresHive;
+        /**
+         * An `oozie` block as defined below.
+         */
+        oozie?: outputs.hdinsight.StormClusterMetastoresOozie;
+    }
+
+    export interface StormClusterMetastoresAmbari {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface StormClusterMetastoresHive {
+        /**
+         * The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface StormClusterMetastoresOozie {
+        /**
+         * The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
+         */
+        databaseName: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
+         */
+        password: string;
+        /**
+         * The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
+         */
+        server: string;
+        /**
+         * The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+         */
+        username: string;
+    }
+
+    export interface StormClusterMonitor {
+        /**
+         * The Operations Management Suite (OMS) workspace ID.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The Operations Management Suite (OMS) workspace key.
+         */
+        primaryKey: string;
     }
 
     export interface StormClusterRoles {
@@ -11230,6 +11792,25 @@ export namespace keyvault {
         upns?: string[];
     }
 
+    export interface CertificateIssuerAdmin {
+        /**
+         * E-mail address of the admin.
+         */
+        emailAddress: string;
+        /**
+         * First name of the admin.
+         */
+        firstName?: string;
+        /**
+         * Last name of the admin.
+         */
+        lastName?: string;
+        /**
+         * Phone number of the admin.
+         */
+        phone?: string;
+    }
+
     export interface GetCertificateCertificatePolicy {
         /**
          * A `issuerParameters` block as defined below.
@@ -11353,6 +11934,25 @@ export namespace keyvault {
         upns: string[];
     }
 
+    export interface GetCertificateIssuerAdmin {
+        /**
+         * E-mail address of the admin.
+         */
+        emailAddress: string;
+        /**
+         * First name of the admin.
+         */
+        firstName: string;
+        /**
+         * Last name of the admin.
+         */
+        lastName: string;
+        /**
+         * Phone number of the admin.
+         */
+        phone: string;
+    }
+
     export interface GetKeyVaultAccessPolicy {
         /**
          * The Object ID of a Azure Active Directory Application.
@@ -11460,6 +12060,17 @@ export namespace kusto {
          * Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
          */
         type: string;
+    }
+
+    export interface ClusterOptimizedAutoScale {
+        /**
+         * The maximum number of allowed instances. Must between `0` and `1000`.
+         */
+        maximumInstances: number;
+        /**
+         * The minimum number of allowed instances. Must between `0` and `1000`.
+         */
+        minimumInstances: number;
     }
 
     export interface ClusterSku {
@@ -13062,6 +13673,37 @@ export namespace mysql {
          */
         storageMb?: number;
     }
+
+    export interface ServerThreatDetectionPolicy {
+        /**
+         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         */
+        disabledAlerts?: string[];
+        /**
+         * Should the account administrators be emailed when this alert is triggered?
+         */
+        emailAccountAdmins?: boolean;
+        /**
+         * A list of email addresses which alerts should be sent to.
+         */
+        emailAddresses?: string[];
+        /**
+         * Is the policy enabled?
+         */
+        enabled?: boolean;
+        /**
+         * Specifies the number of days to keep in the Threat Detection audit logs.
+         */
+        retentionDays?: number;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account.
+         */
+        storageAccountAccessKey?: string;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         */
+        storageEndpoint?: string;
+    }
 }
 
 export namespace netapp {
@@ -13342,6 +13984,10 @@ export namespace network {
          * One or more `customErrorConfiguration` blocks as defined below.
          */
         customErrorConfigurations?: outputs.network.ApplicationGatewayHttpListenerCustomErrorConfiguration[];
+        /**
+         * The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+         */
+        firewallPolicyId?: string;
         /**
          * The ID of the associated Frontend Configuration.
          */
@@ -16900,6 +17546,10 @@ export namespace waf {
          * Describes operator to be matched.
          */
         operator: string;
+        /**
+         * A list of transformations to do before the match is attempted.
+         */
+        transforms?: string[];
     }
 
     export interface PolicyCustomRuleMatchConditionMatchVariable {
@@ -16942,11 +17592,11 @@ export namespace waf {
          */
         ruleGroupOverrides?: outputs.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverride[];
         /**
-         * The rule set type.
+         * The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
          */
         type?: string;
         /**
-         * The rule set version.
+         * The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
          */
         version: string;
     }
@@ -16964,13 +17614,19 @@ export namespace waf {
 
     export interface PolicyPolicySettings {
         /**
-         * Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+         * Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
          */
         enabled?: boolean;
+        fileUploadLimitInMb?: number;
+        maxRequestBodySizeInKb?: number;
         /**
-         * Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+         * Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
          */
         mode?: string;
+        /**
+         * Is Request Body Inspection enabled? Defaults to `true`.
+         */
+        requestBodyCheck?: boolean;
     }
 }
 

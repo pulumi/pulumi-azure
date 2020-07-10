@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration> CustomErrorConfigurations;
         /// <summary>
+        /// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        /// </summary>
+        public readonly string? FirewallPolicyId;
+        /// <summary>
         /// The ID of the associated Frontend Configuration.
         /// </summary>
         public readonly string? FrontendIpConfigurationId;
@@ -70,6 +74,8 @@ namespace Pulumi.Azure.Network.Outputs
         private ApplicationGatewayHttpListener(
             ImmutableArray<Outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations,
 
+            string? firewallPolicyId,
+
             string? frontendIpConfigurationId,
 
             string frontendIpConfigurationName,
@@ -95,6 +101,7 @@ namespace Pulumi.Azure.Network.Outputs
             string? sslCertificateName)
         {
             CustomErrorConfigurations = customErrorConfigurations;
+            FirewallPolicyId = firewallPolicyId;
             FrontendIpConfigurationId = frontendIpConfigurationId;
             FrontendIpConfigurationName = frontendIpConfigurationName;
             FrontendPortId = frontendPortId;

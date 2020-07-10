@@ -50,7 +50,7 @@ class Database(pulumi.CustomResource):
 
       * `administrator_login` (`str`) - Specifies the name of the SQL administrator.
       * `administrator_login_password` (`str`) - Specifies the password of the SQL administrator.
-      * `authenticationType` (`str`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+      * `authentication_type` (`str`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
       * `operationMode` (`str`) - Specifies the type of import operation being performed. The only allowable value is `Import`.
       * `storageKey` (`str`) - Specifies the access key for the storage account.
       * `storageKeyType` (`str`) - Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
@@ -198,7 +198,7 @@ class Database(pulumi.CustomResource):
 
           * `administrator_login` (`pulumi.Input[str]`) - Specifies the name of the SQL administrator.
           * `administrator_login_password` (`pulumi.Input[str]`) - Specifies the password of the SQL administrator.
-          * `authenticationType` (`pulumi.Input[str]`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+          * `authentication_type` (`pulumi.Input[str]`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
           * `operationMode` (`pulumi.Input[str]`) - Specifies the type of import operation being performed. The only allowable value is `Import`.
           * `storageKey` (`pulumi.Input[str]`) - Specifies the access key for the storage account.
           * `storageKeyType` (`pulumi.Input[str]`) - Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
@@ -310,7 +310,7 @@ class Database(pulumi.CustomResource):
 
           * `administrator_login` (`pulumi.Input[str]`) - Specifies the name of the SQL administrator.
           * `administrator_login_password` (`pulumi.Input[str]`) - Specifies the password of the SQL administrator.
-          * `authenticationType` (`pulumi.Input[str]`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+          * `authentication_type` (`pulumi.Input[str]`) - Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
           * `operationMode` (`pulumi.Input[str]`) - Specifies the type of import operation being performed. The only allowable value is `Import`.
           * `storageKey` (`pulumi.Input[str]`) - Specifies the access key for the storage account.
           * `storageKeyType` (`pulumi.Input[str]`) - Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.

@@ -91,8 +91,11 @@ import (
 // 				},
 // 			},
 // 			PolicySettings: &waf.PolicyPolicySettingsArgs{
-// 				Enabled: pulumi.Bool(true),
-// 				Mode:    pulumi.String("Prevention"),
+// 				Enabled:                pulumi.Bool(true),
+// 				Mode:                   pulumi.String("Prevention"),
+// 				RequestBodyCheck:       pulumi.Bool(true),
+// 				FileUploadLimitInMb:    pulumi.Int(100),
+// 				MaxRequestBodySizeInKb: pulumi.Int(128),
 // 			},
 // 			ManagedRules: &waf.PolicyManagedRulesArgs{
 // 				Exclusions: waf.PolicyManagedRulesExclusionArray{

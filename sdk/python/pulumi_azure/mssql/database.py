@@ -77,7 +77,7 @@ class Database(pulumi.CustomResource):
     """
     sku_name: pulumi.Output[str]
     """
-    Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+    Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
     """
     tags: pulumi.Output[dict]
     """
@@ -158,7 +158,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -249,7 +249,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.

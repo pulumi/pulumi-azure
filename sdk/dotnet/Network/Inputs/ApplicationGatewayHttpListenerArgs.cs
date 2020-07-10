@@ -25,6 +25,12 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
+        /// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        /// </summary>
+        [Input("firewallPolicyId")]
+        public Input<string>? FirewallPolicyId { get; set; }
+
+        /// <summary>
         /// The ID of the associated Frontend Configuration.
         /// </summary>
         [Input("frontendIpConfigurationId")]

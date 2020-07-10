@@ -160,7 +160,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> ServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        /// Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> ServerId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        /// Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -447,7 +447,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ServerId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        /// Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

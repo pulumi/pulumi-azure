@@ -2,6 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./datasetAzureBlob";
+export * from "./datasetCosmosDBApi";
+export * from "./datasetDelimitedText";
+export * from "./datasetHttp";
+export * from "./datasetJson";
 export * from "./datasetMysql";
 export * from "./datasetPostgresql";
 export * from "./datasetSqlServerTable";
@@ -9,10 +14,16 @@ export * from "./factory";
 export * from "./getFactory";
 export * from "./integrationRuntimeManaged";
 export * from "./integrationRuntimeSelfHosted";
+export * from "./linkedServiceAzureBlobStorage";
+export * from "./linkedServiceAzureFileStorage";
+export * from "./linkedServiceAzureFunction";
+export * from "./linkedServiceCosmosDb";
 export * from "./linkedServiceDataLakeStorageGen2";
 export * from "./linkedServiceKeyVault";
 export * from "./linkedServiceMysql";
 export * from "./linkedServicePostgresql";
+export * from "./linkedServiceSftp";
 export * from "./linkedServiceSqlServer";
+export * from "./linkedServiceWeb";
 export * from "./pipeline";
 export * from "./triggerSchedule";

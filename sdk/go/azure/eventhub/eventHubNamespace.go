@@ -54,6 +54,8 @@ type EventHubNamespace struct {
 	AutoInflateEnabled pulumi.BoolPtrOutput `pulumi:"autoInflateEnabled"`
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
+	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+	DedicatedClusterId pulumi.StringPtrOutput `pulumi:"dedicatedClusterId"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringOutput `pulumi:"defaultPrimaryConnectionString"`
@@ -126,6 +128,8 @@ type eventHubNamespaceState struct {
 	AutoInflateEnabled *bool `pulumi:"autoInflateEnabled"`
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity *int `pulumi:"capacity"`
+	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString *string `pulumi:"defaultPrimaryConnectionString"`
@@ -165,6 +169,8 @@ type EventHubNamespaceState struct {
 	AutoInflateEnabled pulumi.BoolPtrInput
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity pulumi.IntPtrInput
+	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+	DedicatedClusterId pulumi.StringPtrInput
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
 	DefaultPrimaryConnectionString pulumi.StringPtrInput
@@ -208,6 +214,8 @@ type eventHubNamespaceArgs struct {
 	AutoInflateEnabled *bool `pulumi:"autoInflateEnabled"`
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity *int `pulumi:"capacity"`
+	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -232,6 +240,8 @@ type EventHubNamespaceArgs struct {
 	AutoInflateEnabled pulumi.BoolPtrInput
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
 	Capacity pulumi.IntPtrInput
+	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+	DedicatedClusterId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.

@@ -64,6 +64,10 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
+     * Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+     */
+    public readonly dedicatedClusterId!: pulumi.Output<string | undefined>;
+    /**
      * The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      */
@@ -138,6 +142,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             const state = argsOrState as EventHubNamespaceState | undefined;
             inputs["autoInflateEnabled"] = state ? state.autoInflateEnabled : undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
+            inputs["dedicatedClusterId"] = state ? state.dedicatedClusterId : undefined;
             inputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
             inputs["defaultPrimaryConnectionStringAlias"] = state ? state.defaultPrimaryConnectionStringAlias : undefined;
             inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
@@ -162,6 +167,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             }
             inputs["autoInflateEnabled"] = args ? args.autoInflateEnabled : undefined;
             inputs["capacity"] = args ? args.capacity : undefined;
+            inputs["dedicatedClusterId"] = args ? args.dedicatedClusterId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -200,6 +206,10 @@ export interface EventHubNamespaceState {
      * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
      */
     readonly capacity?: pulumi.Input<number>;
+    /**
+     * Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+     */
+    readonly dedicatedClusterId?: pulumi.Input<string>;
     /**
      * The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
@@ -274,6 +284,10 @@ export interface EventHubNamespaceArgs {
      * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
      */
     readonly capacity?: pulumi.Input<number>;
+    /**
+     * Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+     */
+    readonly dedicatedClusterId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -180,7 +180,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
     /**
-     * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+     * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
     public readonly overprovision!: pulumi.Output<boolean | undefined>;
     public readonly plan!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetPlan | undefined>;
@@ -487,7 +487,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     readonly osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
     /**
-     * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+     * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
     readonly overprovision?: pulumi.Input<boolean>;
     readonly plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
@@ -662,7 +662,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     readonly osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
     /**
-     * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+     * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
     readonly overprovision?: pulumi.Input<boolean>;
     readonly plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;

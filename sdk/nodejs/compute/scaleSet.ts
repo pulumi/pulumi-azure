@@ -301,7 +301,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly osProfileWindowsConfig!: pulumi.Output<outputs.compute.ScaleSetOsProfileWindowsConfig | undefined>;
     /**
-     * Specifies whether the virtual machine scale set should be overprovisioned.
+     * Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
      */
     public readonly overprovision!: pulumi.Output<boolean | undefined>;
     /**
@@ -515,7 +515,7 @@ export interface ScaleSetState {
      */
     readonly osProfileWindowsConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileWindowsConfig>;
     /**
-     * Specifies whether the virtual machine scale set should be overprovisioned.
+     * Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
      */
     readonly overprovision?: pulumi.Input<boolean>;
     /**
@@ -630,7 +630,7 @@ export interface ScaleSetArgs {
      */
     readonly osProfileWindowsConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileWindowsConfig>;
     /**
-     * Specifies whether the virtual machine scale set should be overprovisioned.
+     * Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
      */
     readonly overprovision?: pulumi.Input<boolean>;
     /**

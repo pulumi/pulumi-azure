@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Kusto
     /// <summary>
     /// Manages a Kusto (also known as Azure Data Explorer) Database Principal
     /// 
+    /// &gt; **NOTE:** This resource is being **deprecated** due to API updates and should no longer be used.  Please use azure.kusto.DatabasePrincipalAssignment instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -48,9 +48,7 @@ class Credential(pulumi.CustomResource):
         example_account = azure.automation.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=[{
-                "name": "Basic",
-            }])
+            sku_name="Basic")
         example_credential = azure.automation.Credential("exampleCredential",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,

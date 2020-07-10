@@ -80,9 +80,15 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `management_group_name`
      */
-    public readonly managementGroupId!: pulumi.Output<string | undefined>;
+    public readonly managementGroupId!: pulumi.Output<string>;
+    /**
+     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     */
+    public readonly managementGroupName!: pulumi.Output<string>;
     /**
      * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
      */
@@ -119,6 +125,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["managementGroupId"] = state ? state.managementGroupId : undefined;
+            inputs["managementGroupName"] = state ? state.managementGroupName : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
@@ -135,6 +142,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            inputs["managementGroupName"] = args ? args.managementGroupName : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
@@ -165,9 +173,15 @@ export interface PolicySetDefinitionState {
      */
     readonly displayName?: pulumi.Input<string>;
     /**
-     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `management_group_name`
      */
     readonly managementGroupId?: pulumi.Input<string>;
+    /**
+     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     */
+    readonly managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
      */
@@ -203,9 +217,15 @@ export interface PolicySetDefinitionArgs {
      */
     readonly displayName: pulumi.Input<string>;
     /**
-     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     *
+     * @deprecated Deprecated in favour of `management_group_name`
      */
     readonly managementGroupId?: pulumi.Input<string>;
+    /**
+     * The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     */
+    readonly managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
      */

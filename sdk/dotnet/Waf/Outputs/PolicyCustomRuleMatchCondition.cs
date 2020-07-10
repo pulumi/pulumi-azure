@@ -29,6 +29,10 @@ namespace Pulumi.Azure.Waf.Outputs
         /// Describes operator to be matched.
         /// </summary>
         public readonly string Operator;
+        /// <summary>
+        /// A list of transformations to do before the match is attempted.
+        /// </summary>
+        public readonly ImmutableArray<string> Transforms;
 
         [OutputConstructor]
         private PolicyCustomRuleMatchCondition(
@@ -38,12 +42,15 @@ namespace Pulumi.Azure.Waf.Outputs
 
             bool? negationCondition,
 
-            string @operator)
+            string @operator,
+
+            ImmutableArray<string> transforms)
         {
             MatchValues = matchValues;
             MatchVariables = matchVariables;
             NegationCondition = negationCondition;
             Operator = @operator;
+            Transforms = transforms;
         }
     }
 }

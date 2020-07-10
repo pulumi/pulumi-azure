@@ -68,7 +68,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     An `azure_function_endpoint` block as defined below.
 
-      * `functionId` (`str`) - Specifies the ID of the Function where the Event Subscription will receive events.
+      * `functionId` (`str`) - Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
       * `maxEventsPerBatch` (`float`) - Maximum number of events per batch.
       * `preferredBatchSizeInKilobytes` (`float`) - Preferred batch size in Kilobytes.
     """
@@ -273,7 +273,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **azure_function_endpoint** object supports the following:
 
-          * `functionId` (`pulumi.Input[str]`) - Specifies the ID of the Function where the Event Subscription will receive events.
+          * `functionId` (`pulumi.Input[str]`) - Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
           * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
           * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
 
@@ -449,7 +449,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **azure_function_endpoint** object supports the following:
 
-          * `functionId` (`pulumi.Input[str]`) - Specifies the ID of the Function where the Event Subscription will receive events.
+          * `functionId` (`pulumi.Input[str]`) - Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
           * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
           * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
 

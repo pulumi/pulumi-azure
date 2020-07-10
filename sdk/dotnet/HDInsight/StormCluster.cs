@@ -124,6 +124,18 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Output("metastores")]
+        public Output<Outputs.StormClusterMetastores?> Metastores { get; private set; } = null!;
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Output("monitor")]
+        public Output<Outputs.StormClusterMonitor?> Monitor { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -239,6 +251,18 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Input("metastores")]
+        public Input<Inputs.StormClusterMetastoresArgs>? Metastores { get; set; }
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.StormClusterMonitorArgs>? Monitor { get; set; }
+
+        /// <summary>
         /// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -325,6 +349,18 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `metastores` block as defined below.
+        /// </summary>
+        [Input("metastores")]
+        public Input<Inputs.StormClusterMetastoresGetArgs>? Metastores { get; set; }
+
+        /// <summary>
+        /// A `monitor` block as defined below.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.StormClusterMonitorGetArgs>? Monitor { get; set; }
 
         /// <summary>
         /// Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.

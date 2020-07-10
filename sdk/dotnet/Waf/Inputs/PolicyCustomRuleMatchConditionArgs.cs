@@ -48,6 +48,18 @@ namespace Pulumi.Azure.Waf.Inputs
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
+        [Input("transforms")]
+        private InputList<string>? _transforms;
+
+        /// <summary>
+        /// A list of transformations to do before the match is attempted.
+        /// </summary>
+        public InputList<string> Transforms
+        {
+            get => _transforms ?? (_transforms = new InputList<string>());
+            set => _transforms = value;
+        }
+
         public PolicyCustomRuleMatchConditionArgs()
         {
         }

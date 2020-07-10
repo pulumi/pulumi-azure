@@ -106,6 +106,7 @@ class Account(pulumi.CustomResource):
     Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
 
       * `id` (`str`) - The ID of the virtual network subnet.
+      * `ignore_missing_vnet_service_endpoint` (`bool`) - If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
     """
     write_endpoints: pulumi.Output[list]
     """
@@ -187,6 +188,7 @@ class Account(pulumi.CustomResource):
         The **virtual_network_rules** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the virtual network subnet.
+          * `ignore_missing_vnet_service_endpoint` (`pulumi.Input[bool]`) - If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -293,6 +295,7 @@ class Account(pulumi.CustomResource):
         The **virtual_network_rules** object supports the following:
 
           * `id` (`pulumi.Input[str]`) - The ID of the virtual network subnet.
+          * `ignore_missing_vnet_service_endpoint` (`pulumi.Input[bool]`) - If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

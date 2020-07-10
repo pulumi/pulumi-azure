@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class EventSubscriptionAzureFunctionEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the ID of the Function where the Event Subscription will receive events.
+        /// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
         /// </summary>
         [Input("functionId", required: true)]
         public Input<string> FunctionId { get; set; } = null!;

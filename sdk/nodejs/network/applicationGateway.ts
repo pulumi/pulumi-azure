@@ -143,7 +143,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
     /**
-     * The resource ID of a firewall policy.
+     * The ID of the Web Application Firewall Policy.
      */
     public readonly firewallPolicyId!: pulumi.Output<string | undefined>;
     /**
@@ -165,7 +165,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A `identity` block.
      */
-    public readonly identity!: pulumi.Output<outputs.network.ApplicationGatewayIdentity>;
+    public readonly identity!: pulumi.Output<outputs.network.ApplicationGatewayIdentity | undefined>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -363,7 +363,7 @@ export interface ApplicationGatewayState {
      */
     readonly enableHttp2?: pulumi.Input<boolean>;
     /**
-     * The resource ID of a firewall policy.
+     * The ID of the Web Application Firewall Policy.
      */
     readonly firewallPolicyId?: pulumi.Input<string>;
     /**
@@ -477,7 +477,7 @@ export interface ApplicationGatewayArgs {
      */
     readonly enableHttp2?: pulumi.Input<boolean>;
     /**
-     * The resource ID of a firewall policy.
+     * The ID of the Web Application Firewall Policy.
      */
     readonly firewallPolicyId?: pulumi.Input<string>;
     /**

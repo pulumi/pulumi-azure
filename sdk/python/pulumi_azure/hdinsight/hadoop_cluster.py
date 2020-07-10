@@ -58,6 +58,13 @@ class HadoopCluster(pulumi.CustomResource):
         * `server` (`str`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
         * `username` (`str`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
     """
+    monitor: pulumi.Output[dict]
+    """
+    A `monitor` block as defined below.
+
+      * `log_analytics_workspace_id` (`str`) - The Operations Management Suite (OMS) workspace ID.
+      * `primary_key` (`str`) - The Operations Management Suite (OMS) workspace key.
+    """
     name: pulumi.Output[str]
     """
     Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
@@ -134,7 +141,7 @@ class HadoopCluster(pulumi.CustomResource):
     Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
     """
     tls_min_version: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, metastores=None, name=None, resource_group_name=None, roles=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, metastores=None, monitor=None, name=None, resource_group_name=None, roles=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a HDInsight Hadoop Cluster.
 
@@ -198,6 +205,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[dict] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] roles: A `roles` block as defined below.
@@ -235,6 +243,11 @@ class HadoopCluster(pulumi.CustomResource):
             * `password` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
             * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
             * `username` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+
+        The **monitor** object supports the following:
+
+          * `log_analytics_workspace_id` (`pulumi.Input[str]`) - The Operations Management Suite (OMS) workspace ID.
+          * `primary_key` (`pulumi.Input[str]`) - The Operations Management Suite (OMS) workspace key.
 
         The **roles** object supports the following:
 
@@ -313,6 +326,7 @@ class HadoopCluster(pulumi.CustomResource):
             __props__['gateway'] = gateway
             __props__['location'] = location
             __props__['metastores'] = metastores
+            __props__['monitor'] = monitor
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -336,7 +350,7 @@ class HadoopCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, metastores=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None):
+    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, metastores=None, monitor=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None):
         """
         Get an existing HadoopCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -350,6 +364,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[dict] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] roles: A `roles` block as defined below.
@@ -388,6 +403,11 @@ class HadoopCluster(pulumi.CustomResource):
             * `password` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
             * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
             * `username` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
+
+        The **monitor** object supports the following:
+
+          * `log_analytics_workspace_id` (`pulumi.Input[str]`) - The Operations Management Suite (OMS) workspace ID.
+          * `primary_key` (`pulumi.Input[str]`) - The Operations Management Suite (OMS) workspace key.
 
         The **roles** object supports the following:
 
@@ -448,6 +468,7 @@ class HadoopCluster(pulumi.CustomResource):
         __props__["https_endpoint"] = https_endpoint
         __props__["location"] = location
         __props__["metastores"] = metastores
+        __props__["monitor"] = monitor
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["roles"] = roles

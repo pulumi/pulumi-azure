@@ -108,6 +108,10 @@ type KafkaCluster struct {
 	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores KafkaClusterMetastoresPtrOutput `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor KafkaClusterMonitorPtrOutput `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -183,6 +187,10 @@ type kafkaClusterState struct {
 	HttpsEndpoint *string `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *KafkaClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *KafkaClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -213,6 +221,10 @@ type KafkaClusterState struct {
 	HttpsEndpoint pulumi.StringPtrInput
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores KafkaClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor KafkaClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -245,6 +257,10 @@ type kafkaClusterArgs struct {
 	Gateway KafkaClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *KafkaClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *KafkaClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -272,6 +288,10 @@ type KafkaClusterArgs struct {
 	Gateway KafkaClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores KafkaClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor KafkaClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.

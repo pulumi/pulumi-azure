@@ -43,6 +43,10 @@ export let environment: string | undefined = __config.get("environment") || (uti
 export let features: outputs.config.Features | undefined = __config.getObject<outputs.config.Features>("features");
 export let location: string | undefined = __config.get("location") || utilities.getEnv("ARM_LOCATION");
 /**
+ * The Metadata URL which will be used to obtain the Cloud Environment.
+ */
+export let metadataUrl: string | undefined = __config.get("metadataUrl");
+/**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
  * automatically.
  */

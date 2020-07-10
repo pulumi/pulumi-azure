@@ -3232,7 +3232,7 @@ func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) Index(i pulumi.In
 }
 
 type EventSubscriptionAzureFunctionEndpoint struct {
-	// Specifies the ID of the Function where the Event Subscription will receive events.
+	// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
 	FunctionId string `pulumi:"functionId"`
 	// Maximum number of events per batch.
 	MaxEventsPerBatch *int `pulumi:"maxEventsPerBatch"`
@@ -3252,7 +3252,7 @@ type EventSubscriptionAzureFunctionEndpointInput interface {
 }
 
 type EventSubscriptionAzureFunctionEndpointArgs struct {
-	// Specifies the ID of the Function where the Event Subscription will receive events.
+	// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
 	FunctionId pulumi.StringInput `pulumi:"functionId"`
 	// Maximum number of events per batch.
 	MaxEventsPerBatch pulumi.IntPtrInput `pulumi:"maxEventsPerBatch"`
@@ -3337,7 +3337,7 @@ func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFu
 	}).(EventSubscriptionAzureFunctionEndpointPtrOutput)
 }
 
-// Specifies the ID of the Function where the Event Subscription will receive events.
+// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
 func (o EventSubscriptionAzureFunctionEndpointOutput) FunctionId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAzureFunctionEndpoint) string { return v.FunctionId }).(pulumi.StringOutput)
 }
@@ -3370,7 +3370,7 @@ func (o EventSubscriptionAzureFunctionEndpointPtrOutput) Elem() EventSubscriptio
 	return o.ApplyT(func(v *EventSubscriptionAzureFunctionEndpoint) EventSubscriptionAzureFunctionEndpoint { return *v }).(EventSubscriptionAzureFunctionEndpointOutput)
 }
 
-// Specifies the ID of the Function where the Event Subscription will receive events.
+// Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
 func (o EventSubscriptionAzureFunctionEndpointPtrOutput) FunctionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionAzureFunctionEndpoint) *string {
 		if v == nil {

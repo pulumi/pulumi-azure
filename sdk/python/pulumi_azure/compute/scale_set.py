@@ -127,7 +127,7 @@ class ScaleSet(pulumi.CustomResource):
     """
     overprovision: pulumi.Output[bool]
     """
-    Specifies whether the virtual machine scale set should be overprovisioned.
+    Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
     """
     plan: pulumi.Output[dict]
     """
@@ -431,7 +431,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[dict] os_profile_linux_config: A Linux config block as documented below.
         :param pulumi.Input[list] os_profile_secrets: A collection of Secret blocks as documented below.
         :param pulumi.Input[dict] os_profile_windows_config: A Windows config block as documented below.
-        :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned.
+        :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         :param pulumi.Input[dict] plan: A plan block as documented below.
         :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
@@ -661,7 +661,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[dict] os_profile_linux_config: A Linux config block as documented below.
         :param pulumi.Input[list] os_profile_secrets: A collection of Secret blocks as documented below.
         :param pulumi.Input[dict] os_profile_windows_config: A Windows config block as documented below.
-        :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned.
+        :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         :param pulumi.Input[dict] plan: A plan block as documented below.
         :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created

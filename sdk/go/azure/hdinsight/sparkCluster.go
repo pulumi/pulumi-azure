@@ -107,6 +107,10 @@ type SparkCluster struct {
 	HttpsEndpoint pulumi.StringOutput `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores SparkClusterMetastoresPtrOutput `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor SparkClusterMonitorPtrOutput `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
@@ -182,6 +186,10 @@ type sparkClusterState struct {
 	HttpsEndpoint *string `pulumi:"httpsEndpoint"`
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *SparkClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *SparkClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
@@ -212,6 +220,10 @@ type SparkClusterState struct {
 	HttpsEndpoint pulumi.StringPtrInput
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores SparkClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor SparkClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
@@ -244,6 +256,10 @@ type sparkClusterArgs struct {
 	Gateway SparkClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `metastores` block as defined below.
+	Metastores *SparkClusterMetastores `pulumi:"metastores"`
+	// A `monitor` block as defined below.
+	Monitor *SparkClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
@@ -271,6 +287,10 @@ type SparkClusterArgs struct {
 	Gateway SparkClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `metastores` block as defined below.
+	Metastores SparkClusterMetastoresPtrInput
+	// A `monitor` block as defined below.
+	Monitor SparkClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.

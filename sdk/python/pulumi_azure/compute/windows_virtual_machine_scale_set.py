@@ -161,7 +161,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     """
     overprovision: pulumi.Output[bool]
     """
-    Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+    Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
     """
     plan: pulumi.Output[dict]
     priority: pulumi.Output[str]
@@ -341,7 +341,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[list] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[dict] os_disk: An `os_disk` block as defined below.
-        :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+        :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
@@ -589,7 +589,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[list] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[dict] os_disk: An `os_disk` block as defined below.
-        :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `false`.
+        :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.

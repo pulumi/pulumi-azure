@@ -63,6 +63,10 @@ export interface GetNamespaceResult {
      */
     readonly capacity: number;
     /**
+     * The ID of the EventHub Dedicated Cluster where this Namespace exists.
+     */
+    readonly dedicatedClusterId: string;
+    /**
      * The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      */

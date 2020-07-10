@@ -84,7 +84,7 @@ type AppService struct {
 	// A `backup` block as defined below.
 	Backup AppServiceBackupPtrOutput `pulumi:"backup"`
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
-	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
+	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled pulumi.BoolPtrOutput `pulumi:"clientCertEnabled"`
 	// One or more `connectionString` blocks as defined below.

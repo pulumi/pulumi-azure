@@ -58,7 +58,7 @@ namespace Pulumi.Azure.EventHub
         public Output<Outputs.EventHubCaptureDescription?> CaptureDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
+        /// Specifies the number of days to retain the events for this Event Hub.
         /// </summary>
         [Output("messageRetention")]
         public Output<int> MessageRetention { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventHubCaptureDescriptionArgs>? CaptureDescription { get; set; }
 
         /// <summary>
-        /// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
+        /// Specifies the number of days to retain the events for this Event Hub.
         /// </summary>
         [Input("messageRetention", required: true)]
         public Input<int> MessageRetention { get; set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventHubCaptureDescriptionGetArgs>? CaptureDescription { get; set; }
 
         /// <summary>
-        /// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
+        /// Specifies the number of days to retain the events for this Event Hub.
         /// </summary>
         [Input("messageRetention")]
         public Input<int>? MessageRetention { get; set; }

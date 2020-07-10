@@ -152,6 +152,8 @@ type PolicyCustomRuleMatchCondition struct {
 	NegationCondition *bool `pulumi:"negationCondition"`
 	// Describes operator to be matched.
 	Operator string `pulumi:"operator"`
+	// A list of transformations to do before the match is attempted.
+	Transforms []string `pulumi:"transforms"`
 }
 
 // PolicyCustomRuleMatchConditionInput is an input type that accepts PolicyCustomRuleMatchConditionArgs and PolicyCustomRuleMatchConditionOutput values.
@@ -174,6 +176,8 @@ type PolicyCustomRuleMatchConditionArgs struct {
 	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
 	// Describes operator to be matched.
 	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of transformations to do before the match is attempted.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
 func (PolicyCustomRuleMatchConditionArgs) ElementType() reflect.Type {
@@ -247,6 +251,11 @@ func (o PolicyCustomRuleMatchConditionOutput) NegationCondition() pulumi.BoolPtr
 // Describes operator to be matched.
 func (o PolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of transformations to do before the match is attempted.
+func (o PolicyCustomRuleMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
 type PolicyCustomRuleMatchConditionArrayOutput struct{ *pulumi.OutputState }
@@ -640,9 +649,9 @@ func (o PolicyManagedRulesExclusionArrayOutput) Index(i pulumi.IntInput) PolicyM
 type PolicyManagedRulesManagedRuleSet struct {
 	// One or more `ruleGroupOverride` block defined below.
 	RuleGroupOverrides []PolicyManagedRulesManagedRuleSetRuleGroupOverride `pulumi:"ruleGroupOverrides"`
-	// The rule set type.
+	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
 	Type *string `pulumi:"type"`
-	// The rule set version.
+	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
 	Version string `pulumi:"version"`
 }
 
@@ -660,9 +669,9 @@ type PolicyManagedRulesManagedRuleSetInput interface {
 type PolicyManagedRulesManagedRuleSetArgs struct {
 	// One or more `ruleGroupOverride` block defined below.
 	RuleGroupOverrides PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput `pulumi:"ruleGroupOverrides"`
-	// The rule set type.
+	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The rule set version.
+	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -724,12 +733,12 @@ func (o PolicyManagedRulesManagedRuleSetOutput) RuleGroupOverrides() PolicyManag
 	}).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput)
 }
 
-// The rule set type.
+// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
 func (o PolicyManagedRulesManagedRuleSetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The rule set version.
+// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
 func (o PolicyManagedRulesManagedRuleSetOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -861,10 +870,14 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pu
 }
 
 type PolicyPolicySettings struct {
-	// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
-	Enabled *bool `pulumi:"enabled"`
-	// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+	// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+	Enabled                *bool `pulumi:"enabled"`
+	FileUploadLimitInMb    *int  `pulumi:"fileUploadLimitInMb"`
+	MaxRequestBodySizeInKb *int  `pulumi:"maxRequestBodySizeInKb"`
+	// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
 	Mode *string `pulumi:"mode"`
+	// Is Request Body Inspection enabled? Defaults to `true`.
+	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
 }
 
 // PolicyPolicySettingsInput is an input type that accepts PolicyPolicySettingsArgs and PolicyPolicySettingsOutput values.
@@ -879,10 +892,14 @@ type PolicyPolicySettingsInput interface {
 }
 
 type PolicyPolicySettingsArgs struct {
-	// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+	// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
+	Enabled                pulumi.BoolPtrInput `pulumi:"enabled"`
+	FileUploadLimitInMb    pulumi.IntPtrInput  `pulumi:"fileUploadLimitInMb"`
+	MaxRequestBodySizeInKb pulumi.IntPtrInput  `pulumi:"maxRequestBodySizeInKb"`
+	// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// Is Request Body Inspection enabled? Defaults to `true`.
+	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
 }
 
 func (PolicyPolicySettingsArgs) ElementType() reflect.Type {
@@ -962,14 +979,27 @@ func (o PolicyPolicySettingsOutput) ToPolicyPolicySettingsPtrOutputWithContext(c
 	}).(PolicyPolicySettingsPtrOutput)
 }
 
-// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
 func (o PolicyPolicySettingsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+func (o PolicyPolicySettingsOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.FileUploadLimitInMb }).(pulumi.IntPtrOutput)
+}
+
+func (o PolicyPolicySettingsOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettings) *int { return v.MaxRequestBodySizeInKb }).(pulumi.IntPtrOutput)
+}
+
+// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
 func (o PolicyPolicySettingsOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Is Request Body Inspection enabled? Defaults to `true`.
+func (o PolicyPolicySettingsOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
 }
 
 type PolicyPolicySettingsPtrOutput struct{ *pulumi.OutputState }
@@ -990,7 +1020,7 @@ func (o PolicyPolicySettingsPtrOutput) Elem() PolicyPolicySettingsOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) PolicyPolicySettings { return *v }).(PolicyPolicySettingsOutput)
 }
 
-// Describes if the policy is in enabled state or disabled state Defaults to `Enabled`.
+// Describes if the policy is in enabled state or disabled state. Defaults to `Enabled`.
 func (o PolicyPolicySettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *bool {
 		if v == nil {
@@ -1000,7 +1030,25 @@ func (o PolicyPolicySettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes if it is in detection mode  or prevention mode at the policy level Defaults to `Prevention`.
+func (o PolicyPolicySettingsPtrOutput) FileUploadLimitInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FileUploadLimitInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o PolicyPolicySettingsPtrOutput) MaxRequestBodySizeInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRequestBodySizeInKb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Describes if it is in detection mode or prevention mode at the policy level. Defaults to `Prevention`.
 func (o PolicyPolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *string {
 		if v == nil {
@@ -1008,6 +1056,16 @@ func (o PolicyPolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 		}
 		return v.Mode
 	}).(pulumi.StringPtrOutput)
+}
+
+// Is Request Body Inspection enabled? Defaults to `true`.
+func (o PolicyPolicySettingsPtrOutput) RequestBodyCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyPolicySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequestBodyCheck
+	}).(pulumi.BoolPtrOutput)
 }
 
 func init() {

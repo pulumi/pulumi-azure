@@ -78,6 +78,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity>;
     /**
+     * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+     */
+    public readonly languageExtensions!: pulumi.Output<string[] | undefined>;
+    /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -85,6 +89,10 @@ export class Cluster extends pulumi.CustomResource {
      * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An `optimizedAutoScale` block as defined below.
+     */
+    public readonly optimizedAutoScale!: pulumi.Output<outputs.kusto.ClusterOptimizedAutoScale | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -97,6 +105,10 @@ export class Cluster extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies a list of tenant IDs that are trusted by the cluster.
+     */
+    public readonly trustedExternalTenants!: pulumi.Output<string[]>;
     /**
      * The FQDN of the Azure Kusto Cluster.
      */
@@ -127,11 +139,14 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enablePurge"] = state ? state.enablePurge : undefined;
             inputs["enableStreamingIngest"] = state ? state.enableStreamingIngest : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["languageExtensions"] = state ? state.languageExtensions : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["optimizedAutoScale"] = state ? state.optimizedAutoScale : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trustedExternalTenants"] = state ? state.trustedExternalTenants : undefined;
             inputs["uri"] = state ? state.uri : undefined;
             inputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
             inputs["zones"] = state ? state.zones : undefined;
@@ -147,11 +162,14 @@ export class Cluster extends pulumi.CustomResource {
             inputs["enablePurge"] = args ? args.enablePurge : undefined;
             inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["languageExtensions"] = args ? args.languageExtensions : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["optimizedAutoScale"] = args ? args.optimizedAutoScale : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
             inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["dataIngestionUri"] = undefined /*out*/;
@@ -193,6 +211,10 @@ export interface ClusterState {
      */
     readonly identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
+     * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+     */
+    readonly languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -200,6 +222,10 @@ export interface ClusterState {
      * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * An `optimizedAutoScale` block as defined below.
+     */
+    readonly optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -212,6 +238,10 @@ export interface ClusterState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies a list of tenant IDs that are trusted by the cluster.
+     */
+    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The FQDN of the Azure Kusto Cluster.
      */
@@ -247,6 +277,10 @@ export interface ClusterArgs {
      */
     readonly identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
+     * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
+     */
+    readonly languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -254,6 +288,10 @@ export interface ClusterArgs {
      * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * An `optimizedAutoScale` block as defined below.
+     */
+    readonly optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -266,6 +304,10 @@ export interface ClusterArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies a list of tenant IDs that are trusted by the cluster.
+     */
+    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `virtualNetworkConfiguration` block as defined below.
      */

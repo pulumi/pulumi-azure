@@ -66,6 +66,9 @@ import * as utilities from "../utilities";
  *     policySettings: {
  *         enabled: true,
  *         mode: "Prevention",
+ *         requestBodyCheck: true,
+ *         fileUploadLimitInMb: 100,
+ *         maxRequestBodySizeInKb: 128,
  *     },
  *     managedRules: {
  *         exclusions: [

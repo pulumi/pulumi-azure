@@ -19,6 +19,9 @@ class Definition(pulumi.CustomResource):
     The display name of the policy definition.
     """
     management_group_id: pulumi.Output[str]
+    """
+    The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+    """
     management_group_name: pulumi.Output[str]
     """
     The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -109,6 +112,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
+        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a json object representing additional metadata that should be stored
@@ -179,6 +183,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
+        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a json object representing additional metadata that should be stored

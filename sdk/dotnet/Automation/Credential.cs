@@ -11,6 +11,39 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a Automation Credential.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///         });
+    ///         var exampleCredential = new Azure.Automation.Credential("exampleCredential", new Azure.Automation.CredentialArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AutomationAccountName = exampleAccount.Name,
+    ///             Username = "example_user",
+    ///             Password = "example_pwd",
+    ///             Description = "This is an example credential",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Credential : Pulumi.CustomResource
     {
