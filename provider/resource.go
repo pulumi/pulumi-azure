@@ -254,6 +254,12 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"ARM_STORAGE_USE_AZUREAD"},
 				},
 			},
+			"metadata_url": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_METADATA_URL"},
+				},
+			},
 		},
 		ExtraConfig: map[string]*tfbridge.ConfigInfo{
 			azureLocation: {
