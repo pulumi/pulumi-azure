@@ -24,7 +24,7 @@ namespace Pulumi.Azure
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("azure", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -103,8 +103,8 @@ namespace Pulumi.Azure
         /// <summary>
         /// The Metadata URL which will be used to obtain the Cloud Environment.
         /// </summary>
-        [Input("metadataUrl", required: true)]
-        public Input<string> MetadataUrl { get; set; } = null!;
+        [Input("metadataUrl")]
+        public Input<string>? MetadataUrl { get; set; }
 
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -159,6 +159,7 @@ namespace Pulumi.Azure
         public ProviderArgs()
         {
             Environment = Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
+            MetadataUrl = Utilities.GetEnv("ARM_METADATA_URL") ?? "";
             SkipProviderRegistration = Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
             StorageUseAzuread = Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;
             SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";

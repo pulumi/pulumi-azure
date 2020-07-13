@@ -66,7 +66,11 @@ func GetLocation(ctx *pulumi.Context) string {
 
 // The Metadata URL which will be used to obtain the Cloud Environment.
 func GetMetadataUrl(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azure:metadataUrl")
+	v, err := config.Try(ctx, "azure:metadataUrl")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "ARM_METADATA_URL").(string)
 }
 
 // The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

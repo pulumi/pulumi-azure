@@ -54,7 +54,7 @@ features = __config__.get('features')
 
 location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
 
-metadata_url = __config__.get('metadataUrl')
+metadata_url = __config__.get('metadataUrl') or (utilities.get_env('ARM_METADATA_URL') or '')
 """
 The Metadata URL which will be used to obtain the Cloud Environment.
 """

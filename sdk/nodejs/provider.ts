@@ -35,11 +35,8 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-            if (!args || args.metadataUrl === undefined) {
-                throw new Error("Missing required property 'metadataUrl'");
-            }
         inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
         inputs["clientCertificatePassword"] = args ? args.clientCertificatePassword : undefined;
         inputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
@@ -49,7 +46,7 @@ export class Provider extends pulumi.ProviderResource {
         inputs["disableTerraformPartnerId"] = pulumi.output(args ? args.disableTerraformPartnerId : undefined).apply(JSON.stringify);
         inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
         inputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
-        inputs["metadataUrl"] = args ? args.metadataUrl : undefined;
+        inputs["metadataUrl"] = (args ? args.metadataUrl : undefined) || (utilities.getEnv("ARM_METADATA_URL") || "");
         inputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
         inputs["partnerId"] = args ? args.partnerId : undefined;
         inputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify);
@@ -109,7 +106,7 @@ export interface ProviderArgs {
     /**
      * The Metadata URL which will be used to obtain the Cloud Environment.
      */
-    readonly metadataUrl: pulumi.Input<string>;
+    readonly metadataUrl?: pulumi.Input<string>;
     /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.
