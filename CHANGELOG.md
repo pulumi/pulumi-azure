@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 3.12.1 (2020-07-13)
+* Ensure provider `metadataUrl` is an optional provider parameter
+
 ## 3.12.0 (2020-07-10)
 * Upgrade to v2.18.0 of the AzureRM Terraform Provider
 
