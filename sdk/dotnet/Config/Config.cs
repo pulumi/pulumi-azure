@@ -53,7 +53,12 @@ namespace Pulumi.Azure
         public static string? Location { get; set; } = __config.Get("location") ?? Utilities.GetEnv("ARM_LOCATION");
 
         /// <summary>
-        /// The Metadata URL which will be used to obtain the Cloud Environment.
+        /// The Hostname which should be used for the Azure Metadata Service.
+        /// </summary>
+        public static string? MetadataHost { get; set; } = __config.Get("metadataHost");
+
+        /// <summary>
+        /// Deprecated - replaced by `metadata_host`.
         /// </summary>
         public static string? MetadataUrl { get; set; } = __config.Get("metadataUrl") ?? Utilities.GetEnv("ARM_METADATA_URL") ?? "";
 

@@ -71,7 +71,7 @@ type ProtectedVM struct {
 	BackupPolicyId pulumi.StringOutput `pulumi:"backupPolicyId"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
-	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId pulumi.StringOutput `pulumi:"sourceVmId"`
@@ -123,7 +123,7 @@ type protectedVMState struct {
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
-	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId *string `pulumi:"sourceVmId"`
@@ -136,7 +136,7 @@ type ProtectedVMState struct {
 	BackupPolicyId pulumi.StringPtrInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringPtrInput
-	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId pulumi.StringPtrInput
@@ -153,7 +153,7 @@ type protectedVMArgs struct {
 	BackupPolicyId string `pulumi:"backupPolicyId"`
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
-	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId string `pulumi:"sourceVmId"`
@@ -167,7 +167,7 @@ type ProtectedVMArgs struct {
 	BackupPolicyId pulumi.StringInput
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName pulumi.StringInput
-	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+	// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
 	SourceVmId pulumi.StringInput

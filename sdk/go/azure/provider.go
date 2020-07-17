@@ -6,6 +6,7 @@ package azure
 import (
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -20,6 +21,9 @@ type Provider struct {
 // NewProvider registers a new resource with the given unique name, arguments, and options.
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
+	if args == nil || args.MetadataHost == nil {
+		return nil, errors.New("missing required argument 'MetadataHost'")
+	}
 	if args == nil {
 		args = &ProviderArgs{}
 	}
@@ -66,7 +70,11 @@ type providerArgs struct {
 	// public.
 	Environment *string           `pulumi:"environment"`
 	Features    *ProviderFeatures `pulumi:"features"`
-	// The Metadata URL which will be used to obtain the Cloud Environment.
+	// The Hostname which should be used for the Azure Metadata Service.
+	MetadataHost string `pulumi:"metadataHost"`
+	// Deprecated - replaced by `metadata_host`.
+	//
+	// Deprecated: use `metadata_host` instead
 	MetadataUrl *string `pulumi:"metadataUrl"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
@@ -109,7 +117,11 @@ type ProviderArgs struct {
 	// public.
 	Environment pulumi.StringPtrInput
 	Features    ProviderFeaturesPtrInput
-	// The Metadata URL which will be used to obtain the Cloud Environment.
+	// The Hostname which should be used for the Azure Metadata Service.
+	MetadataHost pulumi.StringInput
+	// Deprecated - replaced by `metadata_host`.
+	//
+	// Deprecated: use `metadata_host` instead
 	MetadataUrl pulumi.StringPtrInput
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.

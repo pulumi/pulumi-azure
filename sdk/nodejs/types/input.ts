@@ -11356,6 +11356,21 @@ export namespace monitoring {
         webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria {
+        /**
+         * The ID of the Application Insights Resource.
+         */
+        componentId: pulumi.Input<string>;
+        /**
+         * The number of failed locations.
+         */
+        failedLocationCount: pulumi.Input<number>;
+        /**
+         * The ID of the Application Insights Web Test.
+         */
+        webTestId: pulumi.Input<string>;
+    }
+
     export interface MetricAlertCriteria {
         /**
          * The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
@@ -11384,6 +11399,60 @@ export namespace monitoring {
     }
 
     export interface MetricAlertCriteriaDimension {
+        /**
+         * One of the dimension names.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The dimension operator. Possible values are `Include` and `Exclude`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * The list of dimension values.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface MetricAlertDynamicCriteria {
+        /**
+         * The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+         */
+        aggregation: pulumi.Input<string>;
+        /**
+         * The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
+         */
+        alertSensitivity: pulumi.Input<string>;
+        /**
+         * One or more `dimension` blocks as defined below.
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteriaDimension>[]>;
+        /**
+         * The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+         */
+        evaluationFailureCount?: pulumi.Input<number>;
+        /**
+         * The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+         */
+        evaluationTotalCount?: pulumi.Input<number>;
+        /**
+         * The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+         */
+        ignoreDataBefore?: pulumi.Input<string>;
+        /**
+         * One of the metric names to be monitored.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * One of the metric namespaces to be monitored.
+         */
+        metricNamespace: pulumi.Input<string>;
+        /**
+         * The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
+         */
+        operator: pulumi.Input<string>;
+    }
+
+    export interface MetricAlertDynamicCriteriaDimension {
         /**
          * One of the dimension names.
          */
@@ -12975,6 +13044,25 @@ export namespace network {
         subnetId: pulumi.Input<string>;
     }
 
+    export interface RouteFilterRule {
+        /**
+         * The access type of the rule. The only possible value is `Allow`.
+         */
+        access: pulumi.Input<string>;
+        /**
+         * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+         */
+        communities: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the route filter rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The rule type of the rule. The only possible value is `Community`.
+         */
+        ruleType: pulumi.Input<string>;
+    }
+
     export interface RouteTableRoute {
         /**
          * The destination CIDR to which the route applies, such as 10.1.0.0/16
@@ -13183,6 +13271,11 @@ export namespace network {
          * `300` seconds. Defaults to `27000` seconds.
          */
         saLifetime?: pulumi.Input<number>;
+    }
+
+    export interface VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
+        localAddressCidrs: pulumi.Input<pulumi.Input<string>[]>;
+        remoteAddressCidrs: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface VirtualNetworkGatewayIpConfiguration {
@@ -13481,6 +13574,21 @@ export namespace policy {
          * The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface PolicySetDefinitionPolicyDefinitionReference {
+        /**
+         * A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+         */
+        parameters?: pulumi.Input<{[key: string]: any}>;
+        /**
+         * The ID of the policy definition or policy set definition that will be included in this policy set definition.
+         */
+        policyDefinitionId: pulumi.Input<string>;
+        /**
+         * A unique ID within this policy set definition for this policy definition reference.
+         */
+        referenceId?: pulumi.Input<string>;
     }
 }
 

@@ -30,6 +30,12 @@ namespace Pulumi.Azure.Compute
         public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("proximityPlacementGroupId")]
+        public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -124,6 +130,12 @@ namespace Pulumi.Azure.Compute
         public Input<int> PlatformFaultDomainCount { get; set; } = null!;
 
         /// <summary>
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("proximityPlacementGroupId")]
+        public Input<string>? ProximityPlacementGroupId { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -177,6 +189,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("platformFaultDomainCount")]
         public Input<int>? PlatformFaultDomainCount { get; set; }
+
+        /// <summary>
+        /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("proximityPlacementGroupId")]
+        public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.

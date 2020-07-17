@@ -56,9 +56,9 @@ import (
 // 		}
 // 		_, err = monitoring.NewMetricAlert(ctx, "example", &monitoring.MetricAlertArgs{
 // 			ResourceGroupName: mainResourceGroup.Name,
-// 			Scopes: pulumi.String(pulumi.String{
+// 			Scopes: pulumi.StringArray{
 // 				toMonitor.ID(),
-// 			}),
+// 			},
 // 			Description: pulumi.String("Action will be triggered when Transactions count is greater than 50."),
 // 			Criterias: monitoring.MetricAlertCriteriaArray{
 // 				&monitoring.MetricAlertCriteriaArgs{
@@ -96,12 +96,16 @@ type MetricAlert struct {
 
 	// One or more `action` blocks as defined below.
 	Actions MetricAlertActionArrayOutput `pulumi:"actions"`
+	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
+	ApplicationInsightsWebTestLocationAvailabilityCriteria MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput `pulumi:"applicationInsightsWebTestLocationAvailabilityCriteria"`
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate pulumi.BoolPtrOutput `pulumi:"autoMitigate"`
-	// One or more `criteria` blocks as defined below.
+	// One or more (static) `criteria` blocks as defined below.
 	Criterias MetricAlertCriteriaArrayOutput `pulumi:"criterias"`
 	// The description of this Metric Alert.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A `dynamicCriteria` block as defined below.
+	DynamicCriteria MetricAlertDynamicCriteriaPtrOutput `pulumi:"dynamicCriteria"`
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
@@ -111,11 +115,15 @@ type MetricAlert struct {
 	// The name of the resource group in which to create the Metric Alert instance.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A set of strings of resource IDs at which the metric criteria should be applied.
-	Scopes pulumi.StringOutput `pulumi:"scopes"`
+	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
 	Severity pulumi.IntPtrOutput `pulumi:"severity"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The location of the target resource.
+	TargetResourceLocation pulumi.StringOutput `pulumi:"targetResourceLocation"`
+	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize pulumi.StringPtrOutput `pulumi:"windowSize"`
 }
@@ -123,9 +131,6 @@ type MetricAlert struct {
 // NewMetricAlert registers a new resource with the given unique name, arguments, and options.
 func NewMetricAlert(ctx *pulumi.Context,
 	name string, args *MetricAlertArgs, opts ...pulumi.ResourceOption) (*MetricAlert, error) {
-	if args == nil || args.Criterias == nil {
-		return nil, errors.New("missing required argument 'Criterias'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -159,12 +164,16 @@ func GetMetricAlert(ctx *pulumi.Context,
 type metricAlertState struct {
 	// One or more `action` blocks as defined below.
 	Actions []MetricAlertAction `pulumi:"actions"`
+	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
+	ApplicationInsightsWebTestLocationAvailabilityCriteria *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria `pulumi:"applicationInsightsWebTestLocationAvailabilityCriteria"`
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
-	// One or more `criteria` blocks as defined below.
+	// One or more (static) `criteria` blocks as defined below.
 	Criterias []MetricAlertCriteria `pulumi:"criterias"`
 	// The description of this Metric Alert.
 	Description *string `pulumi:"description"`
+	// A `dynamicCriteria` block as defined below.
+	DynamicCriteria *MetricAlertDynamicCriteria `pulumi:"dynamicCriteria"`
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
@@ -174,11 +183,15 @@ type metricAlertState struct {
 	// The name of the resource group in which to create the Metric Alert instance.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A set of strings of resource IDs at which the metric criteria should be applied.
-	Scopes *string `pulumi:"scopes"`
+	Scopes []string `pulumi:"scopes"`
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
 	Severity *int `pulumi:"severity"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The location of the target resource.
+	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
+	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+	TargetResourceType *string `pulumi:"targetResourceType"`
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize *string `pulumi:"windowSize"`
 }
@@ -186,12 +199,16 @@ type metricAlertState struct {
 type MetricAlertState struct {
 	// One or more `action` blocks as defined below.
 	Actions MetricAlertActionArrayInput
+	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
+	ApplicationInsightsWebTestLocationAvailabilityCriteria MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrInput
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate pulumi.BoolPtrInput
-	// One or more `criteria` blocks as defined below.
+	// One or more (static) `criteria` blocks as defined below.
 	Criterias MetricAlertCriteriaArrayInput
 	// The description of this Metric Alert.
 	Description pulumi.StringPtrInput
+	// A `dynamicCriteria` block as defined below.
+	DynamicCriteria MetricAlertDynamicCriteriaPtrInput
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
@@ -201,11 +218,15 @@ type MetricAlertState struct {
 	// The name of the resource group in which to create the Metric Alert instance.
 	ResourceGroupName pulumi.StringPtrInput
 	// A set of strings of resource IDs at which the metric criteria should be applied.
-	Scopes pulumi.StringPtrInput
+	Scopes pulumi.StringArrayInput
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
 	Severity pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The location of the target resource.
+	TargetResourceLocation pulumi.StringPtrInput
+	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+	TargetResourceType pulumi.StringPtrInput
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize pulumi.StringPtrInput
 }
@@ -217,12 +238,16 @@ func (MetricAlertState) ElementType() reflect.Type {
 type metricAlertArgs struct {
 	// One or more `action` blocks as defined below.
 	Actions []MetricAlertAction `pulumi:"actions"`
+	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
+	ApplicationInsightsWebTestLocationAvailabilityCriteria *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria `pulumi:"applicationInsightsWebTestLocationAvailabilityCriteria"`
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
-	// One or more `criteria` blocks as defined below.
+	// One or more (static) `criteria` blocks as defined below.
 	Criterias []MetricAlertCriteria `pulumi:"criterias"`
 	// The description of this Metric Alert.
 	Description *string `pulumi:"description"`
+	// A `dynamicCriteria` block as defined below.
+	DynamicCriteria *MetricAlertDynamicCriteria `pulumi:"dynamicCriteria"`
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
@@ -232,11 +257,15 @@ type metricAlertArgs struct {
 	// The name of the resource group in which to create the Metric Alert instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A set of strings of resource IDs at which the metric criteria should be applied.
-	Scopes string `pulumi:"scopes"`
+	Scopes []string `pulumi:"scopes"`
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
 	Severity *int `pulumi:"severity"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The location of the target resource.
+	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
+	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+	TargetResourceType *string `pulumi:"targetResourceType"`
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize *string `pulumi:"windowSize"`
 }
@@ -245,12 +274,16 @@ type metricAlertArgs struct {
 type MetricAlertArgs struct {
 	// One or more `action` blocks as defined below.
 	Actions MetricAlertActionArrayInput
+	// A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
+	ApplicationInsightsWebTestLocationAvailabilityCriteria MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrInput
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
 	AutoMitigate pulumi.BoolPtrInput
-	// One or more `criteria` blocks as defined below.
+	// One or more (static) `criteria` blocks as defined below.
 	Criterias MetricAlertCriteriaArrayInput
 	// The description of this Metric Alert.
 	Description pulumi.StringPtrInput
+	// A `dynamicCriteria` block as defined below.
+	DynamicCriteria MetricAlertDynamicCriteriaPtrInput
 	// Should this Metric Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
@@ -260,11 +293,15 @@ type MetricAlertArgs struct {
 	// The name of the resource group in which to create the Metric Alert instance.
 	ResourceGroupName pulumi.StringInput
 	// A set of strings of resource IDs at which the metric criteria should be applied.
-	Scopes pulumi.StringInput
+	Scopes pulumi.StringArrayInput
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
 	Severity pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The location of the target resource.
+	TargetResourceLocation pulumi.StringPtrInput
+	// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+	TargetResourceType pulumi.StringPtrInput
 	// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
 	WindowSize pulumi.StringPtrInput
 }

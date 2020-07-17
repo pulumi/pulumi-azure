@@ -57,10 +57,6 @@ namespace Pulumi.Azure.Network
     ///                     Name = "testconfiguration1",
     ///                     SubnetId = exampleSubnet.Id,
     ///                     PrivateIpAddressAllocation = "Dynamic",
-    ///                     ApplicationSecurityGroupIds = 
-    ///                     {
-    ///                         exampleApplicationSecurityGroup.Id,
-    ///                     },
     ///                 },
     ///             },
     ///         });

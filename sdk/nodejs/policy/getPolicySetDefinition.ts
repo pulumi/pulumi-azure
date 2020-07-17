@@ -78,6 +78,7 @@ export interface GetPolicySetDefinitionResult {
      * Any Parameters defined in the Policy Set Definition.
      */
     readonly parameters: string;
+    readonly policyDefinitionReferences: outputs.policy.GetPolicySetDefinitionPolicyDefinitionReference[];
     /**
      * The policy definitions contained within the policy set definition.
      */

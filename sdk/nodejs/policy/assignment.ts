@@ -49,6 +49,10 @@ import * as utilities from "../utilities";
  *     policyDefinitionId: exampleDefinition.id,
  *     description: "Policy Assignment created via an Acceptance Test",
  *     displayName: "My Example Policy Assignment",
+ *     metadata: `    {
+ *     "category": "General"
+ *     }
+ * `,
  *     parameters: `{
  *   "allowedLocations": {
  *     "value": [ "West Europe" ]
@@ -108,6 +112,10 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+     */
+    public readonly metadata!: pulumi.Output<string>;
+    /**
      * The name of the Policy Assignment. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -145,6 +153,7 @@ export class Assignment extends pulumi.CustomResource {
             inputs["enforcementMode"] = state ? state.enforcementMode : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notScopes"] = state ? state.notScopes : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
@@ -163,6 +172,7 @@ export class Assignment extends pulumi.CustomResource {
             inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notScopes"] = args ? args.notScopes : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
@@ -205,6 +215,10 @@ export interface AssignmentState {
      * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+     */
+    readonly metadata?: pulumi.Input<string>;
     /**
      * The name of the Policy Assignment. Changing this forces a new resource to be created.
      */
@@ -252,6 +266,10 @@ export interface AssignmentArgs {
      * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+     */
+    readonly metadata?: pulumi.Input<string>;
     /**
      * The name of the Policy Assignment. Changing this forces a new resource to be created.
      */

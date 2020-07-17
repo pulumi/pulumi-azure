@@ -295,6 +295,10 @@ type VirtualNetworkGatewayConnection struct {
 	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+	// Only one block can be defined for a connection.
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	// Each connection type requires different mandatory arguments (refer to the
@@ -394,6 +398,10 @@ type virtualNetworkGatewayConnectionState struct {
 	SharedKey *string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+	// Only one block can be defined for a connection.
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	// Each connection type requires different mandatory arguments (refer to the
@@ -457,6 +465,10 @@ type VirtualNetworkGatewayConnectionState struct {
 	SharedKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+	// Only one block can be defined for a connection.
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	// Each connection type requires different mandatory arguments (refer to the
@@ -524,6 +536,10 @@ type virtualNetworkGatewayConnectionArgs struct {
 	SharedKey *string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+	// Only one block can be defined for a connection.
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	TrafficSelectorPolicy *VirtualNetworkGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	// Each connection type requires different mandatory arguments (refer to the
@@ -588,6 +604,10 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	SharedKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+	// Only one block can be defined for a connection.
+	// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+	TrafficSelectorPolicy VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	// Each connection type requires different mandatory arguments (refer to the

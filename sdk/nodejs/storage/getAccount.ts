@@ -71,6 +71,10 @@ export interface GetAccountResult {
      */
     readonly accountTier: string;
     /**
+     * Is public access allowed to all blobs or containers in the storage account?
+     */
+    readonly allowBlobPublicAccess: boolean;
+    /**
      * A `customDomain` block as documented below.
      */
     readonly customDomains: outputs.storage.GetAccountCustomDomain[];

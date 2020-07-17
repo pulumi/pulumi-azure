@@ -91,6 +91,8 @@ type ExpressRouteCircuitPeering struct {
 	// The name of the resource group in which to
 	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	RouteFilterId pulumi.StringPtrOutput `pulumi:"routeFilterId"`
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort pulumi.StringOutput `pulumi:"secondaryAzurePort"`
 	// A `/30` subnet for the secondary link.
@@ -164,6 +166,8 @@ type expressRouteCircuitPeeringState struct {
 	// The name of the resource group in which to
 	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	RouteFilterId *string `pulumi:"routeFilterId"`
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
 	// A `/30` subnet for the secondary link.
@@ -192,6 +196,8 @@ type ExpressRouteCircuitPeeringState struct {
 	// The name of the resource group in which to
 	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	RouteFilterId pulumi.StringPtrInput
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort pulumi.StringPtrInput
 	// A `/30` subnet for the secondary link.
@@ -220,6 +226,8 @@ type expressRouteCircuitPeeringArgs struct {
 	// The name of the resource group in which to
 	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	RouteFilterId *string `pulumi:"routeFilterId"`
 	// A `/30` subnet for the secondary link.
 	SecondaryPeerAddressPrefix string `pulumi:"secondaryPeerAddressPrefix"`
 	// The shared key. Can be a maximum of 25 characters.
@@ -243,6 +251,8 @@ type ExpressRouteCircuitPeeringArgs struct {
 	// The name of the resource group in which to
 	// create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+	RouteFilterId pulumi.StringPtrInput
 	// A `/30` subnet for the secondary link.
 	SecondaryPeerAddressPrefix pulumi.StringInput
 	// The shared key. Can be a maximum of 25 characters.

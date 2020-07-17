@@ -93,6 +93,7 @@ namespace Pulumi.Azure.Policy
         /// Any Parameters defined in the Policy Set Definition.
         /// </summary>
         public readonly string Parameters;
+        public readonly ImmutableArray<Outputs.GetPolicySetDefinitionPolicyDefinitionReferenceResult> PolicyDefinitionReferences;
         /// <summary>
         /// The policy definitions contained within the policy set definition.
         /// </summary>
@@ -118,6 +119,8 @@ namespace Pulumi.Azure.Policy
 
             string parameters,
 
+            ImmutableArray<Outputs.GetPolicySetDefinitionPolicyDefinitionReferenceResult> policyDefinitionReferences,
+
             string policyDefinitions,
 
             string policyType)
@@ -129,6 +132,7 @@ namespace Pulumi.Azure.Policy
             Metadata = metadata;
             Name = name;
             Parameters = parameters;
+            PolicyDefinitionReferences = policyDefinitionReferences;
             PolicyDefinitions = policyDefinitions;
             PolicyType = policyType;
         }

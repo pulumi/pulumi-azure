@@ -38,7 +38,7 @@ class ActionRuleSuppression(pulumi.CustomResource):
         * `operator` (`str`) - The operator for a given condition. Possible values are `Equals`and `NotEquals`.
         * `values` (`list`) - A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
 
-      * `targetResourceType` (`dict`) - A `target_resource_type` block as defined below.
+      * `target_resource_type` (`dict`) - A `target_resource_type` block as defined below.
         * `operator` (`str`) - The operator for a given condition. Possible values are `Equals` and `NotEquals`.
         * `values` (`list`) - A list of values to match for a given condition. The values should be valid resource types.
     """
@@ -152,7 +152,7 @@ class ActionRuleSuppression(pulumi.CustomResource):
             * `operator` (`pulumi.Input[str]`) - The operator for a given condition. Possible values are `Equals`and `NotEquals`.
             * `values` (`pulumi.Input[list]`) - A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
 
-          * `targetResourceType` (`pulumi.Input[dict]`) - A `target_resource_type` block as defined below.
+          * `target_resource_type` (`pulumi.Input[dict]`) - A `target_resource_type` block as defined below.
             * `operator` (`pulumi.Input[str]`) - The operator for a given condition. Possible values are `Equals` and `NotEquals`.
             * `values` (`pulumi.Input[list]`) - A list of values to match for a given condition. The values should be valid resource types.
 
@@ -249,7 +249,7 @@ class ActionRuleSuppression(pulumi.CustomResource):
             * `operator` (`pulumi.Input[str]`) - The operator for a given condition. Possible values are `Equals`and `NotEquals`.
             * `values` (`pulumi.Input[list]`) - A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
 
-          * `targetResourceType` (`pulumi.Input[dict]`) - A `target_resource_type` block as defined below.
+          * `target_resource_type` (`pulumi.Input[dict]`) - A `target_resource_type` block as defined below.
             * `operator` (`pulumi.Input[str]`) - The operator for a given condition. Possible values are `Equals` and `NotEquals`.
             * `values` (`pulumi.Input[list]`) - A list of values to match for a given condition. The values should be valid resource types.
 

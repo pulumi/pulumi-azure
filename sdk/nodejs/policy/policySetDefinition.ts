@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -28,17 +30,12 @@ import * as utilities from "../utilities";
  *         }
  *     }
  * `,
- *     policyDefinitions: `    [
- *         {
- *             "parameters": {
- *                 "listOfAllowedLocations": {
- *                     "value": "[parameters('allowedLocations')]"
- *                 }
- *             },
- *             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"
- *         }
- *     ]
- * `,
+ *     policyDefinitionReferences: [{
+ *         parameters: {
+ *             listOfAllowedLocations: "[parameters('allowedLocations')]",
+ *         },
+ *         policyDefinitionId: "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+ *     }],
  *     policyType: "Custom",
  * });
  * ```
@@ -102,9 +99,15 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
-     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+     * One or more `policyDefinitionReference` blocks as defined below.
      */
-    public readonly policyDefinitions!: pulumi.Output<string | undefined>;
+    public readonly policyDefinitionReferences!: pulumi.Output<outputs.policy.PolicySetDefinitionPolicyDefinitionReference[]>;
+    /**
+     * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+     *
+     * @deprecated Deprecated in favor of `policy_definition_reference`
+     */
+    public readonly policyDefinitions!: pulumi.Output<string>;
     /**
      * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
      */
@@ -129,6 +132,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
+            inputs["policyDefinitionReferences"] = state ? state.policyDefinitionReferences : undefined;
             inputs["policyDefinitions"] = state ? state.policyDefinitions : undefined;
             inputs["policyType"] = state ? state.policyType : undefined;
         } else {
@@ -146,6 +150,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["policyDefinitionReferences"] = args ? args.policyDefinitionReferences : undefined;
             inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
         }
@@ -195,7 +200,13 @@ export interface PolicySetDefinitionState {
      */
     readonly parameters?: pulumi.Input<string>;
     /**
+     * One or more `policyDefinitionReference` blocks as defined below.
+     */
+    readonly policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
+    /**
      * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+     *
+     * @deprecated Deprecated in favor of `policy_definition_reference`
      */
     readonly policyDefinitions?: pulumi.Input<string>;
     /**
@@ -239,7 +250,13 @@ export interface PolicySetDefinitionArgs {
      */
     readonly parameters?: pulumi.Input<string>;
     /**
+     * One or more `policyDefinitionReference` blocks as defined below.
+     */
+    readonly policyDefinitionReferences?: pulumi.Input<pulumi.Input<inputs.policy.PolicySetDefinitionPolicyDefinitionReference>[]>;
+    /**
      * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+     *
+     * @deprecated Deprecated in favor of `policy_definition_reference`
      */
     readonly policyDefinitions?: pulumi.Input<string>;
     /**

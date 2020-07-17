@@ -85,6 +85,10 @@ export interface GetManagedDiskResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The ID of the source image used for creating this Managed Disk.
+     */
+    readonly imageReferenceId: string;
     readonly name: string;
     /**
      * The operating system used for this Managed Disk.

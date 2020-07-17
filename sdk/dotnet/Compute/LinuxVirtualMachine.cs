@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+        /// Should Extension Operations be allowed on this Virtual Machine?
         /// </summary>
         [Output("allowExtensionOperations")]
         public Output<bool?> AllowExtensionOperations { get; private set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
-        /// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+        /// Should Extension Operations be allowed on this Virtual Machine?
         /// </summary>
         [Input("allowExtensionOperations")]
         public Input<bool>? AllowExtensionOperations { get; set; }
@@ -604,7 +604,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
-        /// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+        /// Should Extension Operations be allowed on this Virtual Machine?
         /// </summary>
         [Input("allowExtensionOperations")]
         public Input<bool>? AllowExtensionOperations { get; set; }

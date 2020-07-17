@@ -12,7 +12,7 @@ class GetPolicySetDefinitionResult:
     """
     A collection of values returned by getPolicySetDefinition.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None):
+    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_definition_references=None, policy_definitions=None, policy_type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
@@ -46,6 +46,9 @@ class GetPolicySetDefinitionResult:
         """
         Any Parameters defined in the Policy Set Definition.
         """
+        if policy_definition_references and not isinstance(policy_definition_references, list):
+            raise TypeError("Expected argument 'policy_definition_references' to be a list")
+        __self__.policy_definition_references = policy_definition_references
         if policy_definitions and not isinstance(policy_definitions, str):
             raise TypeError("Expected argument 'policy_definitions' to be a str")
         __self__.policy_definitions = policy_definitions
@@ -71,6 +74,7 @@ class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
             metadata=self.metadata,
             name=self.name,
             parameters=self.parameters,
+            policy_definition_references=self.policy_definition_references,
             policy_definitions=self.policy_definitions,
             policy_type=self.policy_type)
 
@@ -113,5 +117,6 @@ def get_policy_set_definition(display_name=None,management_group_name=None,name=
         metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
         parameters=__ret__.get('parameters'),
+        policy_definition_references=__ret__.get('policyDefinitionReferences'),
         policy_definitions=__ret__.get('policyDefinitions'),
         policy_type=__ret__.get('policyType'))

@@ -11,6 +11,8 @@ namespace Pulumi.Azure.Hpc
 {
     /// <summary>
     /// Manages a NFS Target within a HPC Cache.
+    /// 
+    /// &gt; **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
     /// </summary>
     public partial class CacheNfsTarget : Pulumi.CustomResource
     {

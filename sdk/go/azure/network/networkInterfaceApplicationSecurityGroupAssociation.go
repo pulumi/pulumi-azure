@@ -64,9 +64,6 @@ import (
 // 					Name:                       pulumi.String("testconfiguration1"),
 // 					SubnetId:                   exampleSubnet.ID(),
 // 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 					ApplicationSecurityGroupIds: pulumi.StringArray{
-// 						exampleApplicationSecurityGroup.ID(),
-// 					},
 // 				},
 // 			},
 // 		})

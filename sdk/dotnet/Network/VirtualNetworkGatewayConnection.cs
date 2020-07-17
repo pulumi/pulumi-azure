@@ -318,6 +318,14 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+        /// Only one block can be defined for a connection.
+        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        /// </summary>
+        [Output("trafficSelectorPolicy")]
+        public Output<Outputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicy?> TrafficSelectorPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The type of connection. Valid options are `IPsec`
         /// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
         /// Each connection type requires different mandatory arguments (refer to the
@@ -498,6 +506,14 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+        /// Only one block can be defined for a connection.
+        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        /// </summary>
+        [Input("trafficSelectorPolicy")]
+        public Input<Inputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs>? TrafficSelectorPolicy { get; set; }
+
+        /// <summary>
         /// The type of connection. Valid options are `IPsec`
         /// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
         /// Each connection type requires different mandatory arguments (refer to the
@@ -637,6 +653,14 @@ namespace Pulumi.Azure.Network
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+        /// Only one block can be defined for a connection.
+        /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        /// </summary>
+        [Input("trafficSelectorPolicy")]
+        public Input<Inputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicyGetArgs>? TrafficSelectorPolicy { get; set; }
 
         /// <summary>
         /// The type of connection. Valid options are `IPsec`

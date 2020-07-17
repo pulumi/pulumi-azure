@@ -91,6 +91,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
+     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     */
+    public readonly highBusinessImpact!: pulumi.Output<boolean | undefined>;
+    /**
      * An `identity` block defined below.
      */
     public readonly identity!: pulumi.Output<outputs.machinelearning.WorkspaceIdentity>;
@@ -139,6 +143,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
+            inputs["highBusinessImpact"] = state ? state.highBusinessImpact : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -168,6 +173,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["friendlyName"] = args ? args.friendlyName : undefined;
+            inputs["highBusinessImpact"] = args ? args.highBusinessImpact : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -208,6 +214,10 @@ export interface WorkspaceState {
      * Friendly name for this Machine Learning Workspace.
      */
     readonly friendlyName?: pulumi.Input<string>;
+    /**
+     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     */
+    readonly highBusinessImpact?: pulumi.Input<boolean>;
     /**
      * An `identity` block defined below.
      */
@@ -262,6 +272,10 @@ export interface WorkspaceArgs {
      * Friendly name for this Machine Learning Workspace.
      */
     readonly friendlyName?: pulumi.Input<string>;
+    /**
+     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     */
+    readonly highBusinessImpact?: pulumi.Input<boolean>;
     /**
      * An `identity` block defined below.
      */

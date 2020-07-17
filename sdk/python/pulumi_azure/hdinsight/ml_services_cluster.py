@@ -107,64 +107,7 @@ class MLServicesCluster(pulumi.CustomResource):
     tls_min_version: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, cluster_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, rstudio=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a HDInsight ML Services Cluster.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_ml_services_cluster = azure.hdinsight.MLServicesCluster("exampleMLServicesCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            cluster_version="3.6",
-            tier="Standard",
-            rstudio=True,
-            gateway={
-                "enabled": True,
-                "username": "acctestusrgw",
-                "password": "Password123!",
-            },
-            storage_accounts=[{
-                "storage_container_id": example_container.id,
-                "storage_account_key": example_account.primary_access_key,
-                "isDefault": True,
-            }],
-            roles={
-                "headNode": {
-                    "vm_size": "Standard_D3_v2",
-                    "username": "acctestusrvm",
-                    "password": "AccTestvdSC4daf986!",
-                },
-                "workerNode": {
-                    "vm_size": "Standard_D4_V2",
-                    "username": "acctestusrvm",
-                    "password": "AccTestvdSC4daf986!",
-                    "targetInstanceCount": 3,
-                },
-                "zookeeperNode": {
-                    "vm_size": "Standard_D3_v2",
-                    "username": "acctestusrvm",
-                    "password": "AccTestvdSC4daf986!",
-                },
-                "edgeNode": {
-                    "vm_size": "Standard_D3_v2",
-                    "username": "acctestusrvm",
-                    "password": "AccTestvdSC4daf986!",
-                },
-            })
-        ```
-
+        Create a MLServicesCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.

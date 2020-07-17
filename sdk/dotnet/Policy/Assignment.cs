@@ -61,6 +61,10 @@ namespace Pulumi.Azure.Policy
     ///             PolicyDefinitionId = exampleDefinition.Id,
     ///             Description = "Policy Assignment created via an Acceptance Test",
     ///             DisplayName = "My Example Policy Assignment",
+    ///             Metadata = @"    {
+    ///     ""category"": ""General""
+    ///     }
+    /// ",
     ///             Parameters = @"{
     ///   ""allowedLocations"": {
     ///     ""value"": [ ""West Europe"" ]
@@ -105,6 +109,12 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+        /// </summary>
+        [Output("metadata")]
+        public Output<string> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Policy Assignment. Changing this forces a new resource to be created.
@@ -214,6 +224,12 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+        /// </summary>
+        [Input("metadata")]
+        public Input<string>? Metadata { get; set; }
+
+        /// <summary>
         /// The name of the Policy Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -286,6 +302,12 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+        /// </summary>
+        [Input("metadata")]
+        public Input<string>? Metadata { get; set; }
 
         /// <summary>
         /// The name of the Policy Assignment. Changing this forces a new resource to be created.

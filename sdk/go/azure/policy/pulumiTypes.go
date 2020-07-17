@@ -179,7 +179,235 @@ func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicySetDefinitionPolicyDefinitionReference struct {
+	// A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition that will be included in this policy set definition.
+	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
+	// A unique ID within this policy set definition for this policy definition reference.
+	ReferenceId *string `pulumi:"referenceId"`
+}
+
+// PolicySetDefinitionPolicyDefinitionReferenceInput is an input type that accepts PolicySetDefinitionPolicyDefinitionReferenceArgs and PolicySetDefinitionPolicyDefinitionReferenceOutput values.
+// You can construct a concrete instance of `PolicySetDefinitionPolicyDefinitionReferenceInput` via:
+//
+//          PolicySetDefinitionPolicyDefinitionReferenceArgs{...}
+type PolicySetDefinitionPolicyDefinitionReferenceInput interface {
+	pulumi.Input
+
+	ToPolicySetDefinitionPolicyDefinitionReferenceOutput() PolicySetDefinitionPolicyDefinitionReferenceOutput
+	ToPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(context.Context) PolicySetDefinitionPolicyDefinitionReferenceOutput
+}
+
+type PolicySetDefinitionPolicyDefinitionReferenceArgs struct {
+	// A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+	Parameters pulumi.MapInput `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition that will be included in this policy set definition.
+	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
+	// A unique ID within this policy set definition for this policy definition reference.
+	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
+}
+
+func (PolicySetDefinitionPolicyDefinitionReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (i PolicySetDefinitionPolicyDefinitionReferenceArgs) ToPolicySetDefinitionPolicyDefinitionReferenceOutput() PolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return i.ToPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(context.Background())
+}
+
+func (i PolicySetDefinitionPolicyDefinitionReferenceArgs) ToPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx context.Context) PolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionPolicyDefinitionReferenceOutput)
+}
+
+// PolicySetDefinitionPolicyDefinitionReferenceArrayInput is an input type that accepts PolicySetDefinitionPolicyDefinitionReferenceArray and PolicySetDefinitionPolicyDefinitionReferenceArrayOutput values.
+// You can construct a concrete instance of `PolicySetDefinitionPolicyDefinitionReferenceArrayInput` via:
+//
+//          PolicySetDefinitionPolicyDefinitionReferenceArray{ PolicySetDefinitionPolicyDefinitionReferenceArgs{...} }
+type PolicySetDefinitionPolicyDefinitionReferenceArrayInput interface {
+	pulumi.Input
+
+	ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() PolicySetDefinitionPolicyDefinitionReferenceArrayOutput
+	ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(context.Context) PolicySetDefinitionPolicyDefinitionReferenceArrayOutput
+}
+
+type PolicySetDefinitionPolicyDefinitionReferenceArray []PolicySetDefinitionPolicyDefinitionReferenceInput
+
+func (PolicySetDefinitionPolicyDefinitionReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (i PolicySetDefinitionPolicyDefinitionReferenceArray) ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() PolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return i.ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i PolicySetDefinitionPolicyDefinitionReferenceArray) ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx context.Context) PolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionPolicyDefinitionReferenceArrayOutput)
+}
+
+type PolicySetDefinitionPolicyDefinitionReferenceOutput struct{ *pulumi.OutputState }
+
+func (PolicySetDefinitionPolicyDefinitionReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ToPolicySetDefinitionPolicyDefinitionReferenceOutput() PolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return o
+}
+
+func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ToPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx context.Context) PolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return o
+}
+
+// A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+}
+
+// The ID of the policy definition or policy set definition that will be included in this policy set definition.
+func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) PolicyDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
+}
+
+// A unique ID within this policy set definition for this policy definition reference.
+func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) *string { return v.ReferenceId }).(pulumi.StringPtrOutput)
+}
+
+type PolicySetDefinitionPolicyDefinitionReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() PolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return o
+}
+
+func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx context.Context) PolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return o
+}
+
+func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) PolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicySetDefinitionPolicyDefinitionReference {
+		return vs[0].([]PolicySetDefinitionPolicyDefinitionReference)[vs[1].(int)]
+	}).(PolicySetDefinitionPolicyDefinitionReferenceOutput)
+}
+
+type GetPolicySetDefinitionPolicyDefinitionReference struct {
+	// Any Parameters defined in the Policy Set Definition.
+	Parameters         map[string]interface{} `pulumi:"parameters"`
+	PolicyDefinitionId string                 `pulumi:"policyDefinitionId"`
+	ReferenceId        string                 `pulumi:"referenceId"`
+}
+
+// GetPolicySetDefinitionPolicyDefinitionReferenceInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionReferenceArgs and GetPolicySetDefinitionPolicyDefinitionReferenceOutput values.
+// You can construct a concrete instance of `GetPolicySetDefinitionPolicyDefinitionReferenceInput` via:
+//
+//          GetPolicySetDefinitionPolicyDefinitionReferenceArgs{...}
+type GetPolicySetDefinitionPolicyDefinitionReferenceInput interface {
+	pulumi.Input
+
+	ToGetPolicySetDefinitionPolicyDefinitionReferenceOutput() GetPolicySetDefinitionPolicyDefinitionReferenceOutput
+	ToGetPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(context.Context) GetPolicySetDefinitionPolicyDefinitionReferenceOutput
+}
+
+type GetPolicySetDefinitionPolicyDefinitionReferenceArgs struct {
+	// Any Parameters defined in the Policy Set Definition.
+	Parameters         pulumi.MapInput    `pulumi:"parameters"`
+	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
+	ReferenceId        pulumi.StringInput `pulumi:"referenceId"`
+}
+
+func (GetPolicySetDefinitionPolicyDefinitionReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (i GetPolicySetDefinitionPolicyDefinitionReferenceArgs) ToGetPolicySetDefinitionPolicyDefinitionReferenceOutput() GetPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return i.ToGetPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(context.Background())
+}
+
+func (i GetPolicySetDefinitionPolicyDefinitionReferenceArgs) ToGetPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx context.Context) GetPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicySetDefinitionPolicyDefinitionReferenceOutput)
+}
+
+// GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionReferenceArray and GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput values.
+// You can construct a concrete instance of `GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput` via:
+//
+//          GetPolicySetDefinitionPolicyDefinitionReferenceArray{ GetPolicySetDefinitionPolicyDefinitionReferenceArgs{...} }
+type GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput
+	ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(context.Context) GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput
+}
+
+type GetPolicySetDefinitionPolicyDefinitionReferenceArray []GetPolicySetDefinitionPolicyDefinitionReferenceInput
+
+func (GetPolicySetDefinitionPolicyDefinitionReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (i GetPolicySetDefinitionPolicyDefinitionReferenceArray) ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return i.ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicySetDefinitionPolicyDefinitionReferenceArray) ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx context.Context) GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput)
+}
+
+type GetPolicySetDefinitionPolicyDefinitionReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ToGetPolicySetDefinitionPolicyDefinitionReferenceOutput() GetPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return o
+}
+
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ToGetPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx context.Context) GetPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return o
+}
+
+// Any Parameters defined in the Policy Set Definition.
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+}
+
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) PolicyDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
+}
+
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) string { return v.ReferenceId }).(pulumi.StringOutput)
+}
+
+type GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return o
+}
+
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx context.Context) GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return o
+}
+
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) GetPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicySetDefinitionPolicyDefinitionReference {
+		return vs[0].([]GetPolicySetDefinitionPolicyDefinitionReference)[vs[1].(int)]
+	}).(GetPolicySetDefinitionPolicyDefinitionReferenceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(AssignmentIdentityPtrOutput{})
+	pulumi.RegisterOutputType(PolicySetDefinitionPolicyDefinitionReferenceOutput{})
+	pulumi.RegisterOutputType(PolicySetDefinitionPolicyDefinitionReferenceArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicySetDefinitionPolicyDefinitionReferenceOutput{})
+	pulumi.RegisterOutputType(GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput{})
 }

@@ -46,7 +46,7 @@ import (
 // 			Origins: cdn.EndpointOriginArray{
 // 				&cdn.EndpointOriginArgs{
 // 					Name:     pulumi.String("example"),
-// 					HostName: pulumi.String("www.example.com"),
+// 					HostName: pulumi.String("www.contoso.com"),
 // 				},
 // 			},
 // 		})

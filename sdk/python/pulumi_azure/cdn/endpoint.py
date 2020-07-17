@@ -262,7 +262,7 @@ class Endpoint(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             origins=[{
                 "name": "example",
-                "host_name": "www.example.com",
+                "host_name": "www.contoso.com",
             }])
         ```
 

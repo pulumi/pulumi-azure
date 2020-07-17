@@ -28,7 +28,7 @@ class Database(pulumi.CustomResource):
     """
     elastic_pool_id: pulumi.Output[str]
     """
-    Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+    Specifies the ID of the elastic pool containing this database.
     """
     extended_auditing_policy: pulumi.Output[dict]
     """
@@ -147,7 +147,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[float] max_size_gb: The max size of the database in gigabytes.
@@ -238,7 +238,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[float] max_size_gb: The max size of the database in gigabytes.

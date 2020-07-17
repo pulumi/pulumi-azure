@@ -57,7 +57,7 @@ export class VirtualHub extends pulumi.CustomResource {
     }
 
     /**
-     * The Address Prefix which should be used for this Virtual Hub.
+     * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
      */
     public readonly addressPrefix!: pulumi.Output<string>;
     /**
@@ -81,7 +81,7 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The ID of a Virtual WAN within which the Virtual Hub should be created.
+     * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
     public readonly virtualWanId!: pulumi.Output<string>;
 
@@ -139,7 +139,7 @@ export class VirtualHub extends pulumi.CustomResource {
  */
 export interface VirtualHubState {
     /**
-     * The Address Prefix which should be used for this Virtual Hub.
+     * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
      */
     readonly addressPrefix?: pulumi.Input<string>;
     /**
@@ -163,7 +163,7 @@ export interface VirtualHubState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of a Virtual WAN within which the Virtual Hub should be created.
+     * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
     readonly virtualWanId?: pulumi.Input<string>;
 }
@@ -173,7 +173,7 @@ export interface VirtualHubState {
  */
 export interface VirtualHubArgs {
     /**
-     * The Address Prefix which should be used for this Virtual Hub.
+     * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
      */
     readonly addressPrefix: pulumi.Input<string>;
     /**
@@ -197,7 +197,7 @@ export interface VirtualHubArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ID of a Virtual WAN within which the Virtual Hub should be created.
+     * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
     readonly virtualWanId: pulumi.Input<string>;
 }

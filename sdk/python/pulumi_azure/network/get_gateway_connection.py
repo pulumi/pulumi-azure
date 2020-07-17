@@ -12,7 +12,7 @@ class GetGatewayConnectionResult:
     """
     A collection of values returned by getGatewayConnection.
     """
-    def __init__(__self__, authorization_key=None, connection_protocol=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
+    def __init__(__self__, authorization_key=None, connection_protocol=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policy=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         __self__.authorization_key = authorization_key
@@ -108,6 +108,9 @@ class GetGatewayConnectionResult:
         """
         A mapping of tags to assign to the resource.
         """
+        if traffic_selector_policy and not isinstance(traffic_selector_policy, dict):
+            raise TypeError("Expected argument 'traffic_selector_policy' to be a dict")
+        __self__.traffic_selector_policy = traffic_selector_policy
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
@@ -154,6 +157,7 @@ class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
             routing_weight=self.routing_weight,
             shared_key=self.shared_key,
             tags=self.tags,
+            traffic_selector_policy=self.traffic_selector_policy,
             type=self.type,
             use_policy_based_traffic_selectors=self.use_policy_based_traffic_selectors,
             virtual_network_gateway_id=self.virtual_network_gateway_id)
@@ -207,6 +211,7 @@ def get_gateway_connection(name=None,resource_group_name=None,opts=None):
         routing_weight=__ret__.get('routingWeight'),
         shared_key=__ret__.get('sharedKey'),
         tags=__ret__.get('tags'),
+        traffic_selector_policy=__ret__.get('trafficSelectorPolicy'),
         type=__ret__.get('type'),
         use_policy_based_traffic_selectors=__ret__.get('usePolicyBasedTrafficSelectors'),
         virtual_network_gateway_id=__ret__.get('virtualNetworkGatewayId'))

@@ -43,7 +43,11 @@ export let environment: string | undefined = __config.get("environment") || (uti
 export let features: outputs.config.Features | undefined = __config.getObject<outputs.config.Features>("features");
 export let location: string | undefined = __config.get("location") || utilities.getEnv("ARM_LOCATION");
 /**
- * The Metadata URL which will be used to obtain the Cloud Environment.
+ * The Hostname which should be used for the Azure Metadata Service.
+ */
+export let metadataHost: string | undefined = __config.get("metadataHost");
+/**
+ * Deprecated - replaced by `metadata_host`.
  */
 export let metadataUrl: string | undefined = __config.get("metadataUrl") || (utilities.getEnv("ARM_METADATA_URL") || "");
 /**

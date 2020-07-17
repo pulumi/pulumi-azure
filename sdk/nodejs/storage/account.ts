@@ -108,6 +108,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accountTier!: pulumi.Output<string>;
     /**
+     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+     */
+    public readonly allowBlobPublicAccess!: pulumi.Output<boolean | undefined>;
+    /**
      * A `blobProperties` block as defined below.
      */
     public readonly blobProperties!: pulumi.Output<outputs.storage.AccountBlobProperties>;
@@ -301,6 +305,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountKind"] = state ? state.accountKind : undefined;
             inputs["accountReplicationType"] = state ? state.accountReplicationType : undefined;
             inputs["accountTier"] = state ? state.accountTier : undefined;
+            inputs["allowBlobPublicAccess"] = state ? state.allowBlobPublicAccess : undefined;
             inputs["blobProperties"] = state ? state.blobProperties : undefined;
             inputs["customDomain"] = state ? state.customDomain : undefined;
             inputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
@@ -360,6 +365,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountKind"] = args ? args.accountKind : undefined;
             inputs["accountReplicationType"] = args ? args.accountReplicationType : undefined;
             inputs["accountTier"] = args ? args.accountTier : undefined;
+            inputs["allowBlobPublicAccess"] = args ? args.allowBlobPublicAccess : undefined;
             inputs["blobProperties"] = args ? args.blobProperties : undefined;
             inputs["customDomain"] = args ? args.customDomain : undefined;
             inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
@@ -436,6 +442,10 @@ export interface AccountState {
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     readonly accountTier?: pulumi.Input<string>;
+    /**
+     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+     */
+    readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**
      * A `blobProperties` block as defined below.
      */
@@ -635,6 +645,10 @@ export interface AccountArgs {
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     readonly accountTier: pulumi.Input<string>;
+    /**
+     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+     */
+    readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**
      * A `blobProperties` block as defined below.
      */

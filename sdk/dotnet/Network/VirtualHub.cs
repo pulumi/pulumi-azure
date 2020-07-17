@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network
     public partial class VirtualHub : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Address Prefix which should be used for this Virtual Hub.
+        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         /// </summary>
         [Output("addressPrefix")]
         public Output<string> AddressPrefix { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Virtual WAN within which the Virtual Hub should be created.
+        /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualWanId")]
         public Output<string> VirtualWanId { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Address Prefix which should be used for this Virtual Hub.
+        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         /// </summary>
         [Input("addressPrefix", required: true)]
         public Input<string> AddressPrefix { get; set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The ID of a Virtual WAN within which the Virtual Hub should be created.
+        /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualWanId", required: true)]
         public Input<string> VirtualWanId { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualHubState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Address Prefix which should be used for this Virtual Hub.
+        /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The ID of a Virtual WAN within which the Virtual Hub should be created.
+        /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualWanId")]
         public Input<string>? VirtualWanId { get; set; }

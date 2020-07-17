@@ -54,9 +54,14 @@ features = __config__.get('features')
 
 location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
 
+metadata_host = __config__.get('metadataHost')
+"""
+The Hostname which should be used for the Azure Metadata Service.
+"""
+
 metadata_url = __config__.get('metadataUrl') or (utilities.get_env('ARM_METADATA_URL') or '')
 """
-The Metadata URL which will be used to obtain the Cloud Environment.
+Deprecated - replaced by `metadata_host`.
 """
 
 msi_endpoint = __config__.get('msiEndpoint')

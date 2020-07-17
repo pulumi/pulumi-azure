@@ -13350,6 +13350,21 @@ export namespace monitoring {
         webhookProperties?: {[key: string]: string};
     }
 
+    export interface MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria {
+        /**
+         * The ID of the Application Insights Resource.
+         */
+        componentId: string;
+        /**
+         * The number of failed locations.
+         */
+        failedLocationCount: number;
+        /**
+         * The ID of the Application Insights Web Test.
+         */
+        webTestId: string;
+    }
+
     export interface MetricAlertCriteria {
         /**
          * The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
@@ -13378,6 +13393,60 @@ export namespace monitoring {
     }
 
     export interface MetricAlertCriteriaDimension {
+        /**
+         * One of the dimension names.
+         */
+        name: string;
+        /**
+         * The dimension operator. Possible values are `Include` and `Exclude`.
+         */
+        operator: string;
+        /**
+         * The list of dimension values.
+         */
+        values: string[];
+    }
+
+    export interface MetricAlertDynamicCriteria {
+        /**
+         * The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+         */
+        aggregation: string;
+        /**
+         * The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
+         */
+        alertSensitivity: string;
+        /**
+         * One or more `dimension` blocks as defined below.
+         */
+        dimensions?: outputs.monitoring.MetricAlertDynamicCriteriaDimension[];
+        /**
+         * The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+         */
+        evaluationFailureCount?: number;
+        /**
+         * The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+         */
+        evaluationTotalCount?: number;
+        /**
+         * The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+         */
+        ignoreDataBefore?: string;
+        /**
+         * One of the metric names to be monitored.
+         */
+        metricName: string;
+        /**
+         * One of the metric namespaces to be monitored.
+         */
+        metricNamespace: string;
+        /**
+         * The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
+         */
+        operator: string;
+    }
+
+    export interface MetricAlertDynamicCriteriaDimension {
         /**
          * One of the dimension names.
          */
@@ -14797,6 +14866,17 @@ export namespace network {
         saLifetime: number;
     }
 
+    export interface GetGatewayConnectionTrafficSelectorPolicy {
+        /**
+         * List of local CIDRs.
+         */
+        localAddressCidrs: string[];
+        /**
+         * List of remote CIDRs.
+         */
+        remoteAddressCidrs: string[];
+    }
+
     export interface GetNetworkInterfaceIpConfiguration {
         /**
          * A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
@@ -14917,6 +14997,25 @@ export namespace network {
          * The Name of the Public IP Address
          */
         name: string;
+    }
+
+    export interface GetRouteFilterRule {
+        /**
+         * The access type of the rule
+         */
+        access: string;
+        /**
+         * The collection for bgp community values.
+         */
+        communities: string[];
+        /**
+         * The Name of this Route Filter.
+         */
+        name: string;
+        /**
+         * The Route Filter Rule Type.
+         */
+        ruleType: string;
     }
 
     export interface GetRouteTableRoute {
@@ -15325,6 +15424,25 @@ export namespace network {
         subnetId: string;
     }
 
+    export interface RouteFilterRule {
+        /**
+         * The access type of the rule. The only possible value is `Allow`.
+         */
+        access: string;
+        /**
+         * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+         */
+        communities: string[];
+        /**
+         * The name of the route filter rule.
+         */
+        name: string;
+        /**
+         * The rule type of the rule. The only possible value is `Community`.
+         */
+        ruleType: string;
+    }
+
     export interface RouteTableRoute {
         /**
          * The destination CIDR to which the route applies, such as 10.1.0.0/16
@@ -15533,6 +15651,11 @@ export namespace network {
          * `300` seconds. Defaults to `27000` seconds.
          */
         saLifetime: number;
+    }
+
+    export interface VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
+        localAddressCidrs: string[];
+        remoteAddressCidrs: string[];
     }
 
     export interface VirtualNetworkGatewayIpConfiguration {
@@ -15868,6 +15991,30 @@ export namespace policy {
          * The Managed Service Identity Type of this Policy Assignment. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), or `None` (no use of a Managed Service Identity).
          */
         type?: string;
+    }
+
+    export interface GetPolicySetDefinitionPolicyDefinitionReference {
+        /**
+         * Any Parameters defined in the Policy Set Definition.
+         */
+        parameters: {[key: string]: any};
+        policyDefinitionId: string;
+        referenceId: string;
+    }
+
+    export interface PolicySetDefinitionPolicyDefinitionReference {
+        /**
+         * A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+         */
+        parameters?: {[key: string]: any};
+        /**
+         * The ID of the policy definition or policy set definition that will be included in this policy set definition.
+         */
+        policyDefinitionId: string;
+        /**
+         * A unique ID within this policy set definition for this policy definition reference.
+         */
+        referenceId: string;
     }
 }
 

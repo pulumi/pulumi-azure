@@ -88,7 +88,7 @@ type Database struct {
 	CreateMode pulumi.StringOutput `pulumi:"createMode"`
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringOutput `pulumi:"creationSourceDatabaseId"`
-	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrOutput `pulumi:"elasticPoolId"`
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrOutput `pulumi:"extendedAuditingPolicy"`
@@ -159,7 +159,7 @@ type databaseState struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
-	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
@@ -200,7 +200,7 @@ type DatabaseState struct {
 	CreateMode pulumi.StringPtrInput
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
-	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
@@ -245,7 +245,7 @@ type databaseArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
-	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
@@ -287,7 +287,7 @@ type DatabaseArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
-	// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
 	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput

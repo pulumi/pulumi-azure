@@ -114,6 +114,10 @@ namespace Pulumi.Azure.Compute
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The ID of the source image used for creating this Managed Disk.
+        /// </summary>
+        public readonly string ImageReferenceId;
         public readonly string Name;
         /// <summary>
         /// The operating system used for this Managed Disk.
@@ -159,6 +163,8 @@ namespace Pulumi.Azure.Compute
 
             string id,
 
+            string imageReferenceId,
+
             string name,
 
             string osType,
@@ -183,6 +189,7 @@ namespace Pulumi.Azure.Compute
             DiskMbpsReadWrite = diskMbpsReadWrite;
             DiskSizeGb = diskSizeGb;
             Id = id;
+            ImageReferenceId = imageReferenceId;
             Name = name;
             OsType = osType;
             ResourceGroupName = resourceGroupName;

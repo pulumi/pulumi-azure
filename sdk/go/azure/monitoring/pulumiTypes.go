@@ -7036,6 +7036,179 @@ func (o MetricAlertActionArrayOutput) Index(i pulumi.IntInput) MetricAlertAction
 	}).(MetricAlertActionOutput)
 }
 
+type MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria struct {
+	// The ID of the Application Insights Resource.
+	ComponentId string `pulumi:"componentId"`
+	// The number of failed locations.
+	FailedLocationCount int `pulumi:"failedLocationCount"`
+	// The ID of the Application Insights Web Test.
+	WebTestId string `pulumi:"webTestId"`
+}
+
+// MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaInput is an input type that accepts MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs and MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput values.
+// You can construct a concrete instance of `MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaInput` via:
+//
+//          MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs{...}
+type MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaInput interface {
+	pulumi.Input
+
+	ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput
+	ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutputWithContext(context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput
+}
+
+type MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs struct {
+	// The ID of the Application Insights Resource.
+	ComponentId pulumi.StringInput `pulumi:"componentId"`
+	// The number of failed locations.
+	FailedLocationCount pulumi.IntInput `pulumi:"failedLocationCount"`
+	// The ID of the Application Insights Web Test.
+	WebTestId pulumi.StringInput `pulumi:"webTestId"`
+}
+
+func (MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria)(nil)).Elem()
+}
+
+func (i MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput {
+	return i.ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutputWithContext(context.Background())
+}
+
+func (i MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutputWithContext(ctx context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput)
+}
+
+func (i MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
+	return i.ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput).ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(ctx)
+}
+
+// MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrInput is an input type that accepts MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs, MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtr and MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput values.
+// You can construct a concrete instance of `MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrInput` via:
+//
+//          MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput
+	ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput
+}
+
+type metricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrType MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs
+
+func MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtr(v *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrInput {
+	return (*metricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrType)(v)
+}
+
+func (*metricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria)(nil)).Elem()
+}
+
+func (i *metricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrType) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
+	return i.ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrType) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput)
+}
+
+type MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria)(nil)).Elem()
+}
+
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput {
+	return o
+}
+
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutputWithContext(ctx context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput {
+	return o
+}
+
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
+	return o.ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
+	return o.ApplyT(func(v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria {
+		return &v
+	}).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput)
+}
+
+// The ID of the Application Insights Resource.
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ComponentId() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) string { return v.ComponentId }).(pulumi.StringOutput)
+}
+
+// The number of failed locations.
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) FailedLocationCount() pulumi.IntOutput {
+	return o.ApplyT(func(v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) int {
+		return v.FailedLocationCount
+	}).(pulumi.IntOutput)
+}
+
+// The ID of the Application Insights Web Test.
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) WebTestId() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) string { return v.WebTestId }).(pulumi.StringOutput)
+}
+
+type MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria)(nil)).Elem()
+}
+
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
+	return o
+}
+
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
+	return o
+}
+
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) Elem() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput {
+	return o.ApplyT(func(v *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria {
+		return *v
+	}).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput)
+}
+
+// The ID of the Application Insights Resource.
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) ComponentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComponentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of failed locations.
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) FailedLocationCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FailedLocationCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ID of the Application Insights Web Test.
+func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) WebTestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WebTestId
+	}).(pulumi.StringPtrOutput)
+}
+
 type MetricAlertCriteria struct {
 	// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
 	Aggregation string `pulumi:"aggregation"`
@@ -7291,6 +7464,404 @@ func (o MetricAlertCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) Metric
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAlertCriteriaDimension {
 		return vs[0].([]MetricAlertCriteriaDimension)[vs[1].(int)]
 	}).(MetricAlertCriteriaDimensionOutput)
+}
+
+type MetricAlertDynamicCriteria struct {
+	// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+	Aggregation string `pulumi:"aggregation"`
+	// The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
+	AlertSensitivity string `pulumi:"alertSensitivity"`
+	// One or more `dimension` blocks as defined below.
+	Dimensions []MetricAlertDynamicCriteriaDimension `pulumi:"dimensions"`
+	// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+	EvaluationFailureCount *int `pulumi:"evaluationFailureCount"`
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+	EvaluationTotalCount *int `pulumi:"evaluationTotalCount"`
+	// The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+	IgnoreDataBefore *string `pulumi:"ignoreDataBefore"`
+	// One of the metric names to be monitored.
+	MetricName string `pulumi:"metricName"`
+	// One of the metric namespaces to be monitored.
+	MetricNamespace string `pulumi:"metricNamespace"`
+	// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
+	Operator string `pulumi:"operator"`
+}
+
+// MetricAlertDynamicCriteriaInput is an input type that accepts MetricAlertDynamicCriteriaArgs and MetricAlertDynamicCriteriaOutput values.
+// You can construct a concrete instance of `MetricAlertDynamicCriteriaInput` via:
+//
+//          MetricAlertDynamicCriteriaArgs{...}
+type MetricAlertDynamicCriteriaInput interface {
+	pulumi.Input
+
+	ToMetricAlertDynamicCriteriaOutput() MetricAlertDynamicCriteriaOutput
+	ToMetricAlertDynamicCriteriaOutputWithContext(context.Context) MetricAlertDynamicCriteriaOutput
+}
+
+type MetricAlertDynamicCriteriaArgs struct {
+	// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
+	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
+	// One or more `dimension` blocks as defined below.
+	Dimensions MetricAlertDynamicCriteriaDimensionArrayInput `pulumi:"dimensions"`
+	// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+	EvaluationFailureCount pulumi.IntPtrInput `pulumi:"evaluationFailureCount"`
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+	EvaluationTotalCount pulumi.IntPtrInput `pulumi:"evaluationTotalCount"`
+	// The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
+	// One of the metric names to be monitored.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// One of the metric namespaces to be monitored.
+	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
+	// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (MetricAlertDynamicCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertDynamicCriteria)(nil)).Elem()
+}
+
+func (i MetricAlertDynamicCriteriaArgs) ToMetricAlertDynamicCriteriaOutput() MetricAlertDynamicCriteriaOutput {
+	return i.ToMetricAlertDynamicCriteriaOutputWithContext(context.Background())
+}
+
+func (i MetricAlertDynamicCriteriaArgs) ToMetricAlertDynamicCriteriaOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaOutput)
+}
+
+func (i MetricAlertDynamicCriteriaArgs) ToMetricAlertDynamicCriteriaPtrOutput() MetricAlertDynamicCriteriaPtrOutput {
+	return i.ToMetricAlertDynamicCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i MetricAlertDynamicCriteriaArgs) ToMetricAlertDynamicCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaOutput).ToMetricAlertDynamicCriteriaPtrOutputWithContext(ctx)
+}
+
+// MetricAlertDynamicCriteriaPtrInput is an input type that accepts MetricAlertDynamicCriteriaArgs, MetricAlertDynamicCriteriaPtr and MetricAlertDynamicCriteriaPtrOutput values.
+// You can construct a concrete instance of `MetricAlertDynamicCriteriaPtrInput` via:
+//
+//          MetricAlertDynamicCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type MetricAlertDynamicCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToMetricAlertDynamicCriteriaPtrOutput() MetricAlertDynamicCriteriaPtrOutput
+	ToMetricAlertDynamicCriteriaPtrOutputWithContext(context.Context) MetricAlertDynamicCriteriaPtrOutput
+}
+
+type metricAlertDynamicCriteriaPtrType MetricAlertDynamicCriteriaArgs
+
+func MetricAlertDynamicCriteriaPtr(v *MetricAlertDynamicCriteriaArgs) MetricAlertDynamicCriteriaPtrInput {
+	return (*metricAlertDynamicCriteriaPtrType)(v)
+}
+
+func (*metricAlertDynamicCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlertDynamicCriteria)(nil)).Elem()
+}
+
+func (i *metricAlertDynamicCriteriaPtrType) ToMetricAlertDynamicCriteriaPtrOutput() MetricAlertDynamicCriteriaPtrOutput {
+	return i.ToMetricAlertDynamicCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *metricAlertDynamicCriteriaPtrType) ToMetricAlertDynamicCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaPtrOutput)
+}
+
+type MetricAlertDynamicCriteriaOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertDynamicCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertDynamicCriteria)(nil)).Elem()
+}
+
+func (o MetricAlertDynamicCriteriaOutput) ToMetricAlertDynamicCriteriaOutput() MetricAlertDynamicCriteriaOutput {
+	return o
+}
+
+func (o MetricAlertDynamicCriteriaOutput) ToMetricAlertDynamicCriteriaOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaOutput {
+	return o
+}
+
+func (o MetricAlertDynamicCriteriaOutput) ToMetricAlertDynamicCriteriaPtrOutput() MetricAlertDynamicCriteriaPtrOutput {
+	return o.ToMetricAlertDynamicCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o MetricAlertDynamicCriteriaOutput) ToMetricAlertDynamicCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaPtrOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) *MetricAlertDynamicCriteria {
+		return &v
+	}).(MetricAlertDynamicCriteriaPtrOutput)
+}
+
+// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+func (o MetricAlertDynamicCriteriaOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
+func (o MetricAlertDynamicCriteriaOutput) AlertSensitivity() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) string { return v.AlertSensitivity }).(pulumi.StringOutput)
+}
+
+// One or more `dimension` blocks as defined below.
+func (o MetricAlertDynamicCriteriaOutput) Dimensions() MetricAlertDynamicCriteriaDimensionArrayOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) []MetricAlertDynamicCriteriaDimension { return v.Dimensions }).(MetricAlertDynamicCriteriaDimensionArrayOutput)
+}
+
+// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+func (o MetricAlertDynamicCriteriaOutput) EvaluationFailureCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) *int { return v.EvaluationFailureCount }).(pulumi.IntPtrOutput)
+}
+
+// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+func (o MetricAlertDynamicCriteriaOutput) EvaluationTotalCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) *int { return v.EvaluationTotalCount }).(pulumi.IntPtrOutput)
+}
+
+// The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+func (o MetricAlertDynamicCriteriaOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) *string { return v.IgnoreDataBefore }).(pulumi.StringPtrOutput)
+}
+
+// One of the metric names to be monitored.
+func (o MetricAlertDynamicCriteriaOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// One of the metric namespaces to be monitored.
+func (o MetricAlertDynamicCriteriaOutput) MetricNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) string { return v.MetricNamespace }).(pulumi.StringOutput)
+}
+
+// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
+func (o MetricAlertDynamicCriteriaOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteria) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+type MetricAlertDynamicCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertDynamicCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricAlertDynamicCriteria)(nil)).Elem()
+}
+
+func (o MetricAlertDynamicCriteriaPtrOutput) ToMetricAlertDynamicCriteriaPtrOutput() MetricAlertDynamicCriteriaPtrOutput {
+	return o
+}
+
+func (o MetricAlertDynamicCriteriaPtrOutput) ToMetricAlertDynamicCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaPtrOutput {
+	return o
+}
+
+func (o MetricAlertDynamicCriteriaPtrOutput) Elem() MetricAlertDynamicCriteriaOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) MetricAlertDynamicCriteria { return *v }).(MetricAlertDynamicCriteriaOutput)
+}
+
+// The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+func (o MetricAlertDynamicCriteriaPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
+func (o MetricAlertDynamicCriteriaPtrOutput) AlertSensitivity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AlertSensitivity
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `dimension` blocks as defined below.
+func (o MetricAlertDynamicCriteriaPtrOutput) Dimensions() MetricAlertDynamicCriteriaDimensionArrayOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) []MetricAlertDynamicCriteriaDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(MetricAlertDynamicCriteriaDimensionArrayOutput)
+}
+
+// The number of violations to trigger an alert. Should be smaller or equal to `evaluationTotalCount`.
+func (o MetricAlertDynamicCriteriaPtrOutput) EvaluationFailureCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationFailureCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`windowSize`) and the selected number of aggregated points.
+func (o MetricAlertDynamicCriteriaPtrOutput) EvaluationTotalCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluationTotalCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+func (o MetricAlertDynamicCriteriaPtrOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreDataBefore
+	}).(pulumi.StringPtrOutput)
+}
+
+// One of the metric names to be monitored.
+func (o MetricAlertDynamicCriteriaPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+// One of the metric namespaces to be monitored.
+func (o MetricAlertDynamicCriteriaPtrOutput) MetricNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
+func (o MetricAlertDynamicCriteriaPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlertDynamicCriteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+type MetricAlertDynamicCriteriaDimension struct {
+	// One of the dimension names.
+	Name string `pulumi:"name"`
+	// The dimension operator. Possible values are `Include` and `Exclude`.
+	Operator string `pulumi:"operator"`
+	// The list of dimension values.
+	Values []string `pulumi:"values"`
+}
+
+// MetricAlertDynamicCriteriaDimensionInput is an input type that accepts MetricAlertDynamicCriteriaDimensionArgs and MetricAlertDynamicCriteriaDimensionOutput values.
+// You can construct a concrete instance of `MetricAlertDynamicCriteriaDimensionInput` via:
+//
+//          MetricAlertDynamicCriteriaDimensionArgs{...}
+type MetricAlertDynamicCriteriaDimensionInput interface {
+	pulumi.Input
+
+	ToMetricAlertDynamicCriteriaDimensionOutput() MetricAlertDynamicCriteriaDimensionOutput
+	ToMetricAlertDynamicCriteriaDimensionOutputWithContext(context.Context) MetricAlertDynamicCriteriaDimensionOutput
+}
+
+type MetricAlertDynamicCriteriaDimensionArgs struct {
+	// One of the dimension names.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The dimension operator. Possible values are `Include` and `Exclude`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// The list of dimension values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MetricAlertDynamicCriteriaDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertDynamicCriteriaDimension)(nil)).Elem()
+}
+
+func (i MetricAlertDynamicCriteriaDimensionArgs) ToMetricAlertDynamicCriteriaDimensionOutput() MetricAlertDynamicCriteriaDimensionOutput {
+	return i.ToMetricAlertDynamicCriteriaDimensionOutputWithContext(context.Background())
+}
+
+func (i MetricAlertDynamicCriteriaDimensionArgs) ToMetricAlertDynamicCriteriaDimensionOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaDimensionOutput)
+}
+
+// MetricAlertDynamicCriteriaDimensionArrayInput is an input type that accepts MetricAlertDynamicCriteriaDimensionArray and MetricAlertDynamicCriteriaDimensionArrayOutput values.
+// You can construct a concrete instance of `MetricAlertDynamicCriteriaDimensionArrayInput` via:
+//
+//          MetricAlertDynamicCriteriaDimensionArray{ MetricAlertDynamicCriteriaDimensionArgs{...} }
+type MetricAlertDynamicCriteriaDimensionArrayInput interface {
+	pulumi.Input
+
+	ToMetricAlertDynamicCriteriaDimensionArrayOutput() MetricAlertDynamicCriteriaDimensionArrayOutput
+	ToMetricAlertDynamicCriteriaDimensionArrayOutputWithContext(context.Context) MetricAlertDynamicCriteriaDimensionArrayOutput
+}
+
+type MetricAlertDynamicCriteriaDimensionArray []MetricAlertDynamicCriteriaDimensionInput
+
+func (MetricAlertDynamicCriteriaDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricAlertDynamicCriteriaDimension)(nil)).Elem()
+}
+
+func (i MetricAlertDynamicCriteriaDimensionArray) ToMetricAlertDynamicCriteriaDimensionArrayOutput() MetricAlertDynamicCriteriaDimensionArrayOutput {
+	return i.ToMetricAlertDynamicCriteriaDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i MetricAlertDynamicCriteriaDimensionArray) ToMetricAlertDynamicCriteriaDimensionArrayOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaDimensionArrayOutput)
+}
+
+type MetricAlertDynamicCriteriaDimensionOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertDynamicCriteriaDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAlertDynamicCriteriaDimension)(nil)).Elem()
+}
+
+func (o MetricAlertDynamicCriteriaDimensionOutput) ToMetricAlertDynamicCriteriaDimensionOutput() MetricAlertDynamicCriteriaDimensionOutput {
+	return o
+}
+
+func (o MetricAlertDynamicCriteriaDimensionOutput) ToMetricAlertDynamicCriteriaDimensionOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaDimensionOutput {
+	return o
+}
+
+// One of the dimension names.
+func (o MetricAlertDynamicCriteriaDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The dimension operator. Possible values are `Include` and `Exclude`.
+func (o MetricAlertDynamicCriteriaDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// The list of dimension values.
+func (o MetricAlertDynamicCriteriaDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetricAlertDynamicCriteriaDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MetricAlertDynamicCriteriaDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricAlertDynamicCriteriaDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricAlertDynamicCriteriaDimension)(nil)).Elem()
+}
+
+func (o MetricAlertDynamicCriteriaDimensionArrayOutput) ToMetricAlertDynamicCriteriaDimensionArrayOutput() MetricAlertDynamicCriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o MetricAlertDynamicCriteriaDimensionArrayOutput) ToMetricAlertDynamicCriteriaDimensionArrayOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o MetricAlertDynamicCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) MetricAlertDynamicCriteriaDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAlertDynamicCriteriaDimension {
+		return vs[0].([]MetricAlertDynamicCriteriaDimension)[vs[1].(int)]
+	}).(MetricAlertDynamicCriteriaDimensionOutput)
 }
 
 type ScheduledQueryRulesAlertAction struct {
@@ -10063,10 +10634,16 @@ func init() {
 	pulumi.RegisterOutputType(LogProfileRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionArrayOutput{})
+	pulumi.RegisterOutputType(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput{})
+	pulumi.RegisterOutputType(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlertCriteriaOutput{})
 	pulumi.RegisterOutputType(MetricAlertCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertCriteriaDimensionOutput{})
 	pulumi.RegisterOutputType(MetricAlertCriteriaDimensionArrayOutput{})
+	pulumi.RegisterOutputType(MetricAlertDynamicCriteriaOutput{})
+	pulumi.RegisterOutputType(MetricAlertDynamicCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(MetricAlertDynamicCriteriaDimensionOutput{})
+	pulumi.RegisterOutputType(MetricAlertDynamicCriteriaDimensionArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertActionOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertActionPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerOutput{})

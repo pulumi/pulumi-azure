@@ -26,6 +26,10 @@ class Account(pulumi.CustomResource):
     """
     Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
     """
+    allow_blob_public_access: pulumi.Output[bool]
+    """
+    Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+    """
     blob_properties: pulumi.Output[dict]
     """
     A `blob_properties` block as defined below.
@@ -257,7 +261,7 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, static_website=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, static_website=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Storage Account.
 
@@ -317,6 +321,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
         :param pulumi.Input[dict] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[dict] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -422,6 +427,7 @@ class Account(pulumi.CustomResource):
             if account_tier is None:
                 raise TypeError("Missing required property 'account_tier'")
             __props__['account_tier'] = account_tier
+            __props__['allow_blob_public_access'] = allow_blob_public_access
             __props__['blob_properties'] = blob_properties
             __props__['custom_domain'] = custom_domain
             __props__['enable_https_traffic_only'] = enable_https_traffic_only
@@ -475,7 +481,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_properties=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, static_website=None, tags=None):
+    def get(resource_name, id, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_properties=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, static_website=None, tags=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -487,6 +493,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
         :param pulumi.Input[dict] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[dict] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -607,6 +614,7 @@ class Account(pulumi.CustomResource):
         __props__["account_kind"] = account_kind
         __props__["account_replication_type"] = account_replication_type
         __props__["account_tier"] = account_tier
+        __props__["allow_blob_public_access"] = allow_blob_public_access
         __props__["blob_properties"] = blob_properties
         __props__["custom_domain"] = custom_domain
         __props__["enable_https_traffic_only"] = enable_https_traffic_only

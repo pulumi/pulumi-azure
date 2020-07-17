@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     automationAccountName: exampleAccount.name,
  *     frequency: "Week",
  *     interval: 1,
- *     timezone: "Central Europe Standard Time",
+ *     timezone: "Australia/Perth",
  *     startTime: "2014-04-15T18:00:15+02:00",
  *     description: "This is an example schedule",
  *     weekDays: ["Friday"],
@@ -104,7 +104,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly startTime!: pulumi.Output<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface ScheduleState {
      */
     readonly startTime?: pulumi.Input<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
      */
     readonly timezone?: pulumi.Input<string>;
     /**
@@ -270,7 +270,7 @@ export interface ScheduleArgs {
      */
     readonly startTime?: pulumi.Input<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
      */
     readonly timezone?: pulumi.Input<string>;
     /**

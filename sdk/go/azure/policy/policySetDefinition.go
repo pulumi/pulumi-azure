@@ -29,10 +29,17 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
-// 			DisplayName:       pulumi.String("Test Policy Set"),
-// 			Parameters:        pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "    {\n", "        \"allowedLocations\": {\n", "            \"type\": \"Array\",\n", "            \"metadata\": {\n", "                \"description\": \"The list of allowed locations for resources.\",\n", "                \"displayName\": \"Allowed locations\",\n", "                \"strongType\": \"location\"\n", "            }\n", "        }\n", "    }\n", "\n")),
-// 			PolicyDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "    [\n", "        {\n", "            \"parameters\": {\n", "                \"listOfAllowedLocations\": {\n", "                    \"value\": \"[parameters('allowedLocations')]\"\n", "                }\n", "            },\n", "            \"policyDefinitionId\": \"/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988\"\n", "        }\n", "    ]\n", "\n")),
-// 			PolicyType:        pulumi.String("Custom"),
+// 			DisplayName: pulumi.String("Test Policy Set"),
+// 			Parameters:  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "    {\n", "        \"allowedLocations\": {\n", "            \"type\": \"Array\",\n", "            \"metadata\": {\n", "                \"description\": \"The list of allowed locations for resources.\",\n", "                \"displayName\": \"Allowed locations\",\n", "                \"strongType\": \"location\"\n", "            }\n", "        }\n", "    }\n", "\n")),
+// 			PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
+// 				&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
+// 					Parameters: pulumi.StringMap{
+// 						"listOfAllowedLocations": pulumi.String("[parameters('allowedLocations')]"),
+// 					},
+// 					PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
+// 				},
+// 			},
+// 			PolicyType: pulumi.String("Custom"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -60,8 +67,12 @@ type PolicySetDefinition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
+	// One or more `policyDefinitionReference` blocks as defined below.
+	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayOutput `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
-	PolicyDefinitions pulumi.StringPtrOutput `pulumi:"policyDefinitions"`
+	//
+	// Deprecated: Deprecated in favor of `policy_definition_reference`
+	PolicyDefinitions pulumi.StringOutput `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
 }
@@ -116,7 +127,11 @@ type policySetDefinitionState struct {
 	Name *string `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
+	// One or more `policyDefinitionReference` blocks as defined below.
+	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+	//
+	// Deprecated: Deprecated in favor of `policy_definition_reference`
 	PolicyDefinitions *string `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType *string `pulumi:"policyType"`
@@ -139,7 +154,11 @@ type PolicySetDefinitionState struct {
 	Name pulumi.StringPtrInput
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
+	// One or more `policyDefinitionReference` blocks as defined below.
+	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+	//
+	// Deprecated: Deprecated in favor of `policy_definition_reference`
 	PolicyDefinitions pulumi.StringPtrInput
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringPtrInput
@@ -166,7 +185,11 @@ type policySetDefinitionArgs struct {
 	Name *string `pulumi:"name"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
+	// One or more `policyDefinitionReference` blocks as defined below.
+	PolicyDefinitionReferences []PolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+	//
+	// Deprecated: Deprecated in favor of `policy_definition_reference`
 	PolicyDefinitions *string `pulumi:"policyDefinitions"`
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType string `pulumi:"policyType"`
@@ -190,7 +213,11 @@ type PolicySetDefinitionArgs struct {
 	Name pulumi.StringPtrInput
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
+	// One or more `policyDefinitionReference` blocks as defined below.
+	PolicyDefinitionReferences PolicySetDefinitionPolicyDefinitionReferenceArrayInput
 	// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+	//
+	// Deprecated: Deprecated in favor of `policy_definition_reference`
 	PolicyDefinitions pulumi.StringPtrInput
 	// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringInput

@@ -26,6 +26,10 @@ class Workspace(pulumi.CustomResource):
     """
     Friendly name for this Machine Learning Workspace.
     """
+    high_business_impact: pulumi.Output[bool]
+    """
+    Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+    """
     identity: pulumi.Output[dict]
     """
     An `identity` block defined below.
@@ -62,7 +66,7 @@ class Workspace(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, application_insights_id=None, container_registry_id=None, description=None, friendly_name=None, identity=None, key_vault_id=None, location=None, name=None, resource_group_name=None, sku_name=None, storage_account_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_insights_id=None, container_registry_id=None, description=None, friendly_name=None, high_business_impact=None, identity=None, key_vault_id=None, location=None, name=None, resource_group_name=None, sku_name=None, storage_account_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Azure Machine Learning Workspace
 
@@ -105,6 +109,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
+        :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[dict] identity: An `identity` block defined below.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -143,6 +148,7 @@ class Workspace(pulumi.CustomResource):
             __props__['container_registry_id'] = container_registry_id
             __props__['description'] = description
             __props__['friendly_name'] = friendly_name
+            __props__['high_business_impact'] = high_business_impact
             if identity is None:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
@@ -166,7 +172,7 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, application_insights_id=None, container_registry_id=None, description=None, friendly_name=None, identity=None, key_vault_id=None, location=None, name=None, resource_group_name=None, sku_name=None, storage_account_id=None, tags=None):
+    def get(resource_name, id, opts=None, application_insights_id=None, container_registry_id=None, description=None, friendly_name=None, high_business_impact=None, identity=None, key_vault_id=None, location=None, name=None, resource_group_name=None, sku_name=None, storage_account_id=None, tags=None):
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -178,6 +184,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
+        :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[dict] identity: An `identity` block defined below.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -201,6 +208,7 @@ class Workspace(pulumi.CustomResource):
         __props__["container_registry_id"] = container_registry_id
         __props__["description"] = description
         __props__["friendly_name"] = friendly_name
+        __props__["high_business_impact"] = high_business_impact
         __props__["identity"] = identity
         __props__["key_vault_id"] = key_vault_id
         __props__["location"] = location

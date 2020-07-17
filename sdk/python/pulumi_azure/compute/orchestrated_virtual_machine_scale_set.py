@@ -22,6 +22,10 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     """
     Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
     """
+    proximity_placement_group_id: pulumi.Output[str]
+    """
+    The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -42,7 +46,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     """
     A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, single_placement_group=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, platform_fault_domain_count=None, proximity_placement_group_id=None, resource_group_name=None, single_placement_group=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a OrchestratedVirtualMachineScaleSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -50,6 +54,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[float] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should the Orchestrated Virtual Machine Scale Set use single placement group?
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
@@ -77,6 +82,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             if platform_fault_domain_count is None:
                 raise TypeError("Missing required property 'platform_fault_domain_count'")
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
+            __props__['proximity_placement_group_id'] = proximity_placement_group_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -94,7 +100,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, single_placement_group=None, tags=None, unique_id=None, zones=None):
+    def get(resource_name, id, opts=None, location=None, name=None, platform_fault_domain_count=None, proximity_placement_group_id=None, resource_group_name=None, single_placement_group=None, tags=None, unique_id=None, zones=None):
         """
         Get an existing OrchestratedVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,6 +111,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[float] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should the Orchestrated Virtual Machine Scale Set use single placement group?
         :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
@@ -118,6 +125,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["platform_fault_domain_count"] = platform_fault_domain_count
+        __props__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__["resource_group_name"] = resource_group_name
         __props__["single_placement_group"] = single_placement_group
         __props__["tags"] = tags

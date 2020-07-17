@@ -113,6 +113,7 @@ export interface GetGatewayConnectionResult {
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
+    readonly trafficSelectorPolicy: outputs.network.GetGatewayConnectionTrafficSelectorPolicy;
     /**
      * The type of connection. Valid options are `IPsec`
      * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).

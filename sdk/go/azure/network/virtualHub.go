@@ -54,7 +54,7 @@ import (
 type VirtualHub struct {
 	pulumi.CustomResourceState
 
-	// The Address Prefix which should be used for this Virtual Hub.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
 	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -66,7 +66,7 @@ type VirtualHub struct {
 	Routes VirtualHubRouteArrayOutput `pulumi:"routes"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The ID of a Virtual WAN within which the Virtual Hub should be created.
+	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId pulumi.StringOutput `pulumi:"virtualWanId"`
 }
 
@@ -107,7 +107,7 @@ func GetVirtualHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHub resources.
 type virtualHubState struct {
-	// The Address Prefix which should be used for this Virtual Hub.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -119,12 +119,12 @@ type virtualHubState struct {
 	Routes []VirtualHubRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of a Virtual WAN within which the Virtual Hub should be created.
+	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId *string `pulumi:"virtualWanId"`
 }
 
 type VirtualHubState struct {
-	// The Address Prefix which should be used for this Virtual Hub.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
 	AddressPrefix pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -136,7 +136,7 @@ type VirtualHubState struct {
 	Routes VirtualHubRouteArrayInput
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapInput
-	// The ID of a Virtual WAN within which the Virtual Hub should be created.
+	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId pulumi.StringPtrInput
 }
 
@@ -145,7 +145,7 @@ func (VirtualHubState) ElementType() reflect.Type {
 }
 
 type virtualHubArgs struct {
-	// The Address Prefix which should be used for this Virtual Hub.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -157,13 +157,13 @@ type virtualHubArgs struct {
 	Routes []VirtualHubRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of a Virtual WAN within which the Virtual Hub should be created.
+	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId string `pulumi:"virtualWanId"`
 }
 
 // The set of arguments for constructing a VirtualHub resource.
 type VirtualHubArgs struct {
-	// The Address Prefix which should be used for this Virtual Hub.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
 	AddressPrefix pulumi.StringInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -175,7 +175,7 @@ type VirtualHubArgs struct {
 	Routes VirtualHubRouteArrayInput
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapInput
-	// The ID of a Virtual WAN within which the Virtual Hub should be created.
+	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 	VirtualWanId pulumi.StringInput
 }
 
