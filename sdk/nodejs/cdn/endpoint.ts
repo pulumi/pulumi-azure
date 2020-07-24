@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     origins: [{
  *         name: "example",
- *         hostName: "www.example.com",
+ *         hostName: "www.contoso.com",
  *     }],
  * });
  * ```

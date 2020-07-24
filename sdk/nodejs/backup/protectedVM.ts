@@ -72,7 +72,7 @@ export class ProtectedVM extends pulumi.CustomResource {
      */
     public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export interface ProtectedVMState {
      */
     readonly recoveryVaultName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -171,7 +171,7 @@ export interface ProtectedVMArgs {
      */
     readonly recoveryVaultName: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

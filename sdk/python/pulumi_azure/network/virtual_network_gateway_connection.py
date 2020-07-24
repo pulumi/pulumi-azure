@@ -103,6 +103,15 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
+    traffic_selector_policy: pulumi.Output[dict]
+    """
+    A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+    Only one block can be defined for a connection.
+    For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+
+      * `localAddressCidrs` (`list`)
+      * `remoteAddressCidrs` (`list`)
+    """
     type: pulumi.Output[str]
     """
     The type of connection. Valid options are `IPsec`
@@ -123,7 +132,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     in which the connection will be created. Changing the gateway forces a new
     resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, authorization_key=None, connection_protocol=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authorization_key=None, connection_protocol=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policy=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a connection in an existing Virtual Network Gateway.
 
@@ -283,6 +292,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
                Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] traffic_selector_policy: A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+               Only one block can be defined for a connection.
+               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
                (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
                Each connection type requires different mandatory arguments (refer to the
@@ -315,6 +327,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             `1024` KB. Defaults to `102400000` KB.
           * `saLifetime` (`pulumi.Input[float]`) - The IPSec SA lifetime in seconds. Must be at least
             `300` seconds. Defaults to `27000` seconds.
+
+        The **traffic_selector_policy** object supports the following:
+
+          * `localAddressCidrs` (`pulumi.Input[list]`)
+          * `remoteAddressCidrs` (`pulumi.Input[list]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -349,6 +366,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['routing_weight'] = routing_weight
             __props__['shared_key'] = shared_key
             __props__['tags'] = tags
+            __props__['traffic_selector_policy'] = traffic_selector_policy
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
@@ -363,7 +381,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authorization_key=None, connection_protocol=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
+    def get(resource_name, id, opts=None, authorization_key=None, connection_protocol=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policy=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         """
         Get an existing VirtualNetworkGatewayConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -403,6 +421,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
                Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] traffic_selector_policy: A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+               Only one block can be defined for a connection.
+               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
                (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
                Each connection type requires different mandatory arguments (refer to the
@@ -435,6 +456,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             `1024` KB. Defaults to `102400000` KB.
           * `saLifetime` (`pulumi.Input[float]`) - The IPSec SA lifetime in seconds. Must be at least
             `300` seconds. Defaults to `27000` seconds.
+
+        The **traffic_selector_policy** object supports the following:
+
+          * `localAddressCidrs` (`pulumi.Input[list]`)
+          * `remoteAddressCidrs` (`pulumi.Input[list]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -454,6 +480,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__["routing_weight"] = routing_weight
         __props__["shared_key"] = shared_key
         __props__["tags"] = tags
+        __props__["traffic_selector_policy"] = traffic_selector_policy
         __props__["type"] = type
         __props__["use_policy_based_traffic_selectors"] = use_policy_based_traffic_selectors
         __props__["virtual_network_gateway_id"] = virtual_network_gateway_id

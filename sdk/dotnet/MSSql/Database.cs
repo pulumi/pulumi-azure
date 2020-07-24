@@ -94,7 +94,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> CreationSourceDatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+        /// Specifies the ID of the elastic pool containing this database.
         /// </summary>
         [Output("elasticPoolId")]
         public Output<string?> ElasticPoolId { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? CreationSourceDatabaseId { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+        /// Specifies the ID of the elastic pool containing this database.
         /// </summary>
         [Input("elasticPoolId")]
         public Input<string>? ElasticPoolId { get; set; }
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? CreationSourceDatabaseId { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+        /// Specifies the ID of the elastic pool containing this database.
         /// </summary>
         [Input("elasticPoolId")]
         public Input<string>? ElasticPoolId { get; set; }

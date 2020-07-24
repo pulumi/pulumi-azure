@@ -19,6 +19,8 @@ type OrchestratedVirtualMachineScaleSet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
@@ -73,6 +75,8 @@ type orchestratedVirtualMachineScaleSetState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
@@ -94,6 +98,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
@@ -119,6 +125,8 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Should the Orchestrated Virtual Machine Scale Set use single placement group?
@@ -139,6 +147,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntInput
+	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Should the Orchestrated Virtual Machine Scale Set use single placement group?

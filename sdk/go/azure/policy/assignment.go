@@ -48,6 +48,7 @@ import (
 // 			PolicyDefinitionId: exampleDefinition.ID(),
 // 			Description:        pulumi.String("Policy Assignment created via an Acceptance Test"),
 // 			DisplayName:        pulumi.String("My Example Policy Assignment"),
+// 			Metadata:           pulumi.String(fmt.Sprintf("%v%v%v", "    {\n", "    \"category\": \"General\"\n", "    }\n")),
 // 			Parameters:         pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"allowedLocations\": {\n", "    \"value\": [ \"West Europe\" ]\n", "  }\n", "}\n")),
 // 		})
 // 		if err != nil {
@@ -71,6 +72,8 @@ type Assignment struct {
 	Identity AssignmentIdentityOutput `pulumi:"identity"`
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
@@ -128,6 +131,8 @@ type assignmentState struct {
 	Identity *AssignmentIdentity `pulumi:"identity"`
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+	Metadata *string `pulumi:"metadata"`
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
@@ -152,6 +157,8 @@ type AssignmentState struct {
 	Identity AssignmentIdentityPtrInput
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+	Metadata pulumi.StringPtrInput
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
@@ -180,6 +187,8 @@ type assignmentArgs struct {
 	Identity *AssignmentIdentity `pulumi:"identity"`
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+	Metadata *string `pulumi:"metadata"`
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
@@ -205,6 +214,8 @@ type AssignmentArgs struct {
 	Identity AssignmentIdentityPtrInput
 	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+	Metadata pulumi.StringPtrInput
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).

@@ -250,6 +250,12 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+     * Only one block can be defined for a connection.
+     * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+     */
+    public readonly trafficSelectorPolicy!: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy | undefined>;
+    /**
      * The type of connection. Valid options are `IPsec`
      * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
      * Each connection type requires different mandatory arguments (refer to the
@@ -296,6 +302,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["routingWeight"] = state ? state.routingWeight : undefined;
             inputs["sharedKey"] = state ? state.sharedKey : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trafficSelectorPolicy"] = state ? state.trafficSelectorPolicy : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["usePolicyBasedTrafficSelectors"] = state ? state.usePolicyBasedTrafficSelectors : undefined;
             inputs["virtualNetworkGatewayId"] = state ? state.virtualNetworkGatewayId : undefined;
@@ -324,6 +331,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["routingWeight"] = args ? args.routingWeight : undefined;
             inputs["sharedKey"] = args ? args.sharedKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trafficSelectorPolicy"] = args ? args.trafficSelectorPolicy : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
@@ -417,6 +425,12 @@ export interface VirtualNetworkGatewayConnectionState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+     * Only one block can be defined for a connection.
+     * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+     */
+    readonly trafficSelectorPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy>;
     /**
      * The type of connection. Valid options are `IPsec`
      * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -517,6 +531,12 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+     * Only one block can be defined for a connection.
+     * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+     */
+    readonly trafficSelectorPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy>;
     /**
      * The type of connection. Valid options are `IPsec`
      * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).

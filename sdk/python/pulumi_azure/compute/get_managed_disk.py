@@ -12,7 +12,7 @@ class GetManagedDiskResult:
     """
     A collection of values returned by getManagedDisk.
     """
-    def __init__(__self__, create_option=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, id=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
+    def __init__(__self__, create_option=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, id=None, image_reference_id=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
         if create_option and not isinstance(create_option, str):
             raise TypeError("Expected argument 'create_option' to be a str")
         __self__.create_option = create_option
@@ -45,6 +45,12 @@ class GetManagedDiskResult:
         __self__.id = id
         """
         The provider-assigned unique ID for this managed resource.
+        """
+        if image_reference_id and not isinstance(image_reference_id, str):
+            raise TypeError("Expected argument 'image_reference_id' to be a str")
+        __self__.image_reference_id = image_reference_id
+        """
+        The ID of the source image used for creating this Managed Disk.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -106,6 +112,7 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
             disk_mbps_read_write=self.disk_mbps_read_write,
             disk_size_gb=self.disk_size_gb,
             id=self.id,
+            image_reference_id=self.image_reference_id,
             name=self.name,
             os_type=self.os_type,
             resource_group_name=self.resource_group_name,
@@ -157,6 +164,7 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
         disk_mbps_read_write=__ret__.get('diskMbpsReadWrite'),
         disk_size_gb=__ret__.get('diskSizeGb'),
         id=__ret__.get('id'),
+        image_reference_id=__ret__.get('imageReferenceId'),
         name=__ret__.get('name'),
         os_type=__ret__.get('osType'),
         resource_group_name=__ret__.get('resourceGroupName'),

@@ -125,6 +125,8 @@ type Account struct {
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
+	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+	AllowBlobPublicAccess pulumi.BoolPtrOutput `pulumi:"allowBlobPublicAccess"`
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesOutput `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
@@ -261,6 +263,8 @@ type accountState struct {
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier *string `pulumi:"accountTier"`
+	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
@@ -361,6 +365,8 @@ type AccountState struct {
 	AccountReplicationType pulumi.StringPtrInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringPtrInput
+	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+	AllowBlobPublicAccess pulumi.BoolPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
 	// A `customDomain` block as documented below.
@@ -465,6 +471,8 @@ type accountArgs struct {
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier string `pulumi:"accountTier"`
+	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
@@ -502,6 +510,8 @@ type AccountArgs struct {
 	AccountReplicationType pulumi.StringInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier pulumi.StringInput
+	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+	AllowBlobPublicAccess pulumi.BoolPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
 	// A `customDomain` block as documented below.

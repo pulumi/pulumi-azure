@@ -89,7 +89,7 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     zone_redundant: pulumi.Output[bool]
     """
-    Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+    Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, dedicated_cluster_id=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -124,7 +124,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic` and `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
 
         The **network_rulesets** object supports the following:
 
@@ -210,7 +210,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic` and `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
 
         The **network_rulesets** object supports the following:
 

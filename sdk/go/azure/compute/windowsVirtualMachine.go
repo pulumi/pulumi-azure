@@ -116,7 +116,7 @@ type WindowsVirtualMachine struct {
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations pulumi.BoolPtrOutput `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrOutput `pulumi:"availabilitySetId"`
@@ -240,7 +240,7 @@ type windowsVirtualMachineState struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
@@ -319,7 +319,7 @@ type WindowsVirtualMachineState struct {
 	AdminPassword pulumi.StringPtrInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringPtrInput
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
@@ -402,7 +402,7 @@ type windowsVirtualMachineArgs struct {
 	AdminPassword string `pulumi:"adminPassword"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
@@ -472,7 +472,7 @@ type WindowsVirtualMachineArgs struct {
 	AdminPassword pulumi.StringInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput

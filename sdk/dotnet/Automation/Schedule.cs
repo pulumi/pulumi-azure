@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> StartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
+        /// The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
+        /// The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// The timezone of the start time. Defaults to `UTC`. For possible values see: https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values
+        /// The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

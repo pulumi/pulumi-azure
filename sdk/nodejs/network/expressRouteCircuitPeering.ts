@@ -108,6 +108,10 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+     */
+    public readonly routeFilterId!: pulumi.Output<string | undefined>;
+    /**
      * The Secondary Port used by Azure for this Peering.
      */
     public /*out*/ readonly secondaryAzurePort!: pulumi.Output<string>;
@@ -144,6 +148,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["primaryAzurePort"] = state ? state.primaryAzurePort : undefined;
             inputs["primaryPeerAddressPrefix"] = state ? state.primaryPeerAddressPrefix : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["routeFilterId"] = state ? state.routeFilterId : undefined;
             inputs["secondaryAzurePort"] = state ? state.secondaryAzurePort : undefined;
             inputs["secondaryPeerAddressPrefix"] = state ? state.secondaryPeerAddressPrefix : undefined;
             inputs["sharedKey"] = state ? state.sharedKey : undefined;
@@ -174,6 +179,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["peeringType"] = args ? args.peeringType : undefined;
             inputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeFilterId"] = args ? args.routeFilterId : undefined;
             inputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
             inputs["sharedKey"] = args ? args.sharedKey : undefined;
             inputs["vlanId"] = args ? args.vlanId : undefined;
@@ -230,6 +236,10 @@ export interface ExpressRouteCircuitPeeringState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+     */
+    readonly routeFilterId?: pulumi.Input<string>;
+    /**
      * The Secondary Port used by Azure for this Peering.
      */
     readonly secondaryAzurePort?: pulumi.Input<string>;
@@ -276,6 +286,10 @@ export interface ExpressRouteCircuitPeeringArgs {
      * create the Express Route Circuit Peering. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+     */
+    readonly routeFilterId?: pulumi.Input<string>;
     /**
      * A `/30` subnet for the secondary link.
      */

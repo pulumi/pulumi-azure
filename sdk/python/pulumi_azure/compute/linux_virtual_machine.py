@@ -33,7 +33,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     """
     allow_extension_operations: pulumi.Output[bool]
     """
-    Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+    Should Extension Operations be allowed on this Virtual Machine?
     """
     availability_set_id: pulumi.Output[str]
     """
@@ -253,7 +253,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[list] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
@@ -413,7 +413,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[list] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.

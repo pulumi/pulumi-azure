@@ -1074,8 +1074,9 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_route":       {Tok: azureResource(azureNetwork, "Route")},
-			"azurerm_route_table": {Tok: azureResource(azureNetwork, "RouteTable")},
+			"azurerm_route":        {Tok: azureResource(azureNetwork, "Route")},
+			"azurerm_route_filter": {Tok: azureResource(azureNetwork, "RouteFilter")},
+			"azurerm_route_table":  {Tok: azureResource(azureNetwork, "RouteTable")},
 			"azurerm_subnet": {
 				Tok: azureResource(azureNetwork, "Subnet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1533,6 +1534,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_snapshot":                     {Tok: azureDataSource(azureCompute, "getSnapshot")},
 			"azurerm_subnet":                       {Tok: azureDataSource(azureNetwork, "getSubnet")},
 			"azurerm_route_table":                  {Tok: azureDataSource(azureNetwork, "getRouteTable")},
+			"azurerm_route_filter":                 {Tok: azureDataSource(azureNetwork, "getRouteFilter")},
 			"azurerm_network_ddos_protection_plan": {Tok: azureDataSource(azureNetwork, "getNetworkDdosProtectionPlan")},
 			"azurerm_network_service_tags":         {Tok: azureDataSource(azureNetwork, "getServiceTags")},
 			"azurerm_express_route_circuit": {

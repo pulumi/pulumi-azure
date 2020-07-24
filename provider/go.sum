@@ -49,6 +49,8 @@ github.com/Azure/azure-sdk-for-go v43.1.0+incompatible h1:m6EAp2Dmb8/t+ToZ2jtmvd
 github.com/Azure/azure-sdk-for-go v43.1.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-sdk-for-go v43.2.0+incompatible h1:H8jfb+wuVlLqyP1Nr6zqapNxqhgwshD5OETJsBO74iY=
 github.com/Azure/azure-sdk-for-go v43.2.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
+github.com/Azure/azure-sdk-for-go v44.0.0+incompatible h1:e82Yv2HNpS0kuyeCrV29OPKvEiqfs2/uJHic3/3iKdg=
+github.com/Azure/azure-sdk-for-go v44.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-service-bus-go v0.9.1/go.mod h1:yzBx6/BUGfjfeqbRZny9AQIbIe3AcV9WZbAdpkoXOa0=
 github.com/Azure/azure-storage-blob-go v0.8.0/go.mod h1:lPI3aLPpuLTeUwh1sViKXFxwl2B6teiRqI0deQUvsw0=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78/go.mod h1:LmzpDX56iTiv29bbRTIsUNlaFfuhWRQBWjQdVyAevI8=
@@ -505,6 +507,8 @@ github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200703093719-7c8049f2c2
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200703093719-7c8049f2c259/go.mod h1:tJi7SwYZdmMvwYXmmryHVCiP/QqB1MbQ751FeGJ3JEs=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200710164746-6b7f862f2ba6 h1:Mu/NJXQqoyfjzDms5OHFknsCDHRO/eDp5hbUUTZ0U5o=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200710164746-6b7f862f2ba6/go.mod h1:wlgrzUeAK+p3tAkYloAYgJSyh5v/7fkALdOMWU5Em2c=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200717101508-5d6d75e67c5e h1:6vRnrH6ir0kuZ6twkgsJTGTQ74PVDeCclZZQZLPyisU=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20200717101508-5d6d75e67c5e/go.mod h1:fqAfAGPa8R7zA/NDqxPpdJxxFCeJVAOpmQlNmfAPk3g=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a h1:CUbap8oEhlXRiqVBcAGiW63iXuDY7iIwQLM4r7y8lw8=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200610210702-8e5d1a569c4a/go.mod h1:lE39suxXfTqjNHg8PxtPUdek3wnTTdnoYXVpQdFGmEo=
 github.com/pulumi/tf2pulumi v0.8.1-0.20200630203740-1846524be4ec h1:C0l29EHsfhH+reeRSmqr0sIzJipQpXssof3YZurRrVo=

@@ -124,7 +124,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+     * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
      */
     public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
@@ -267,7 +267,7 @@ export interface EventHubNamespaceState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+     * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
      */
     readonly zoneRedundant?: pulumi.Input<boolean>;
 }
@@ -317,7 +317,7 @@ export interface EventHubNamespaceArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones).
+     * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
      */
     readonly zoneRedundant?: pulumi.Input<boolean>;
 }

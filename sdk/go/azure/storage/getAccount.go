@@ -61,6 +61,8 @@ type LookupAccountResult struct {
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// The Tier of this storage account.
 	AccountTier string `pulumi:"accountTier"`
+	// Is public access allowed to all blobs or containers in the storage account?
+	AllowBlobPublicAccess bool `pulumi:"allowBlobPublicAccess"`
 	// A `customDomain` block as documented below.
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)

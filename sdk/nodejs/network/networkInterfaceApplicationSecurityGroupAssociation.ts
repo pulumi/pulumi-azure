@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
- *         applicationSecurityGroupIds: [exampleApplicationSecurityGroup.id],
  *     }],
  * });
  * const exampleNetworkInterfaceApplicationSecurityGroupAssociation = new azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("exampleNetworkInterfaceApplicationSecurityGroupAssociation", {

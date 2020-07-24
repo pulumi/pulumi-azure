@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Cdn
     ///                 new Azure.Cdn.Inputs.EndpointOriginArgs
     ///                 {
     ///                     Name = "example",
-    ///                     HostName = "www.example.com",
+    ///                     HostName = "www.contoso.com",
     ///                 },
     ///             },
     ///         });

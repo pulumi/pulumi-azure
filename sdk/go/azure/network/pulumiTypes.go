@@ -7994,6 +7994,194 @@ func (o ProfileContainerNetworkInterfaceIpConfigurationArrayOutput) Index(i pulu
 	}).(ProfileContainerNetworkInterfaceIpConfigurationOutput)
 }
 
+type RouteFilterRule struct {
+	// The access type of the rule. The only possible value is `Allow`.
+	Access string `pulumi:"access"`
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+	Communities []string `pulumi:"communities"`
+	// The name of the route filter rule.
+	Name string `pulumi:"name"`
+	// The rule type of the rule. The only possible value is `Community`.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// RouteFilterRuleInput is an input type that accepts RouteFilterRuleArgs and RouteFilterRuleOutput values.
+// You can construct a concrete instance of `RouteFilterRuleInput` via:
+//
+//          RouteFilterRuleArgs{...}
+type RouteFilterRuleInput interface {
+	pulumi.Input
+
+	ToRouteFilterRuleOutput() RouteFilterRuleOutput
+	ToRouteFilterRuleOutputWithContext(context.Context) RouteFilterRuleOutput
+}
+
+type RouteFilterRuleArgs struct {
+	// The access type of the rule. The only possible value is `Allow`.
+	Access pulumi.StringInput `pulumi:"access"`
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+	Communities pulumi.StringArrayInput `pulumi:"communities"`
+	// The name of the route filter rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The rule type of the rule. The only possible value is `Community`.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (RouteFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteFilterRule)(nil)).Elem()
+}
+
+func (i RouteFilterRuleArgs) ToRouteFilterRuleOutput() RouteFilterRuleOutput {
+	return i.ToRouteFilterRuleOutputWithContext(context.Background())
+}
+
+func (i RouteFilterRuleArgs) ToRouteFilterRuleOutputWithContext(ctx context.Context) RouteFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterRuleOutput)
+}
+
+func (i RouteFilterRuleArgs) ToRouteFilterRulePtrOutput() RouteFilterRulePtrOutput {
+	return i.ToRouteFilterRulePtrOutputWithContext(context.Background())
+}
+
+func (i RouteFilterRuleArgs) ToRouteFilterRulePtrOutputWithContext(ctx context.Context) RouteFilterRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterRuleOutput).ToRouteFilterRulePtrOutputWithContext(ctx)
+}
+
+// RouteFilterRulePtrInput is an input type that accepts RouteFilterRuleArgs, RouteFilterRulePtr and RouteFilterRulePtrOutput values.
+// You can construct a concrete instance of `RouteFilterRulePtrInput` via:
+//
+//          RouteFilterRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteFilterRulePtrInput interface {
+	pulumi.Input
+
+	ToRouteFilterRulePtrOutput() RouteFilterRulePtrOutput
+	ToRouteFilterRulePtrOutputWithContext(context.Context) RouteFilterRulePtrOutput
+}
+
+type routeFilterRulePtrType RouteFilterRuleArgs
+
+func RouteFilterRulePtr(v *RouteFilterRuleArgs) RouteFilterRulePtrInput {
+	return (*routeFilterRulePtrType)(v)
+}
+
+func (*routeFilterRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteFilterRule)(nil)).Elem()
+}
+
+func (i *routeFilterRulePtrType) ToRouteFilterRulePtrOutput() RouteFilterRulePtrOutput {
+	return i.ToRouteFilterRulePtrOutputWithContext(context.Background())
+}
+
+func (i *routeFilterRulePtrType) ToRouteFilterRulePtrOutputWithContext(ctx context.Context) RouteFilterRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterRulePtrOutput)
+}
+
+type RouteFilterRuleOutput struct{ *pulumi.OutputState }
+
+func (RouteFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteFilterRule)(nil)).Elem()
+}
+
+func (o RouteFilterRuleOutput) ToRouteFilterRuleOutput() RouteFilterRuleOutput {
+	return o
+}
+
+func (o RouteFilterRuleOutput) ToRouteFilterRuleOutputWithContext(ctx context.Context) RouteFilterRuleOutput {
+	return o
+}
+
+func (o RouteFilterRuleOutput) ToRouteFilterRulePtrOutput() RouteFilterRulePtrOutput {
+	return o.ToRouteFilterRulePtrOutputWithContext(context.Background())
+}
+
+func (o RouteFilterRuleOutput) ToRouteFilterRulePtrOutputWithContext(ctx context.Context) RouteFilterRulePtrOutput {
+	return o.ApplyT(func(v RouteFilterRule) *RouteFilterRule {
+		return &v
+	}).(RouteFilterRulePtrOutput)
+}
+
+// The access type of the rule. The only possible value is `Allow`.
+func (o RouteFilterRuleOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteFilterRule) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+func (o RouteFilterRuleOutput) Communities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RouteFilterRule) []string { return v.Communities }).(pulumi.StringArrayOutput)
+}
+
+// The name of the route filter rule.
+func (o RouteFilterRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteFilterRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rule type of the rule. The only possible value is `Community`.
+func (o RouteFilterRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteFilterRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type RouteFilterRulePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteFilterRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteFilterRule)(nil)).Elem()
+}
+
+func (o RouteFilterRulePtrOutput) ToRouteFilterRulePtrOutput() RouteFilterRulePtrOutput {
+	return o
+}
+
+func (o RouteFilterRulePtrOutput) ToRouteFilterRulePtrOutputWithContext(ctx context.Context) RouteFilterRulePtrOutput {
+	return o
+}
+
+func (o RouteFilterRulePtrOutput) Elem() RouteFilterRuleOutput {
+	return o.ApplyT(func(v *RouteFilterRule) RouteFilterRule { return *v }).(RouteFilterRuleOutput)
+}
+
+// The access type of the rule. The only possible value is `Allow`.
+func (o RouteFilterRulePtrOutput) Access() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteFilterRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Access
+	}).(pulumi.StringPtrOutput)
+}
+
+// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+func (o RouteFilterRulePtrOutput) Communities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteFilterRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Communities
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the route filter rule.
+func (o RouteFilterRulePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteFilterRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rule type of the rule. The only possible value is `Community`.
+func (o RouteFilterRulePtrOutput) RuleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteFilterRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuleType
+	}).(pulumi.StringPtrOutput)
+}
+
 type RouteTableRoute struct {
 	// The destination CIDR to which the route applies, such as 10.1.0.0/16
 	AddressPrefix string `pulumi:"addressPrefix"`
@@ -9773,6 +9961,149 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) SaLifetime() pulumi
 		}
 		return v.SaLifetime
 	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNetworkGatewayConnectionTrafficSelectorPolicy struct {
+	LocalAddressCidrs  []string `pulumi:"localAddressCidrs"`
+	RemoteAddressCidrs []string `pulumi:"remoteAddressCidrs"`
+}
+
+// VirtualNetworkGatewayConnectionTrafficSelectorPolicyInput is an input type that accepts VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs and VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayConnectionTrafficSelectorPolicyInput` via:
+//
+//          VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs{...}
+type VirtualNetworkGatewayConnectionTrafficSelectorPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput() VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput
+	ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyOutputWithContext(context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput
+}
+
+type VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs struct {
+	LocalAddressCidrs  pulumi.StringArrayInput `pulumi:"localAddressCidrs"`
+	RemoteAddressCidrs pulumi.StringArrayInput `pulumi:"remoteAddressCidrs"`
+}
+
+func (VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput() VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput {
+	return i.ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput)
+}
+
+func (i VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput() VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
+	return i.ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput).ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput is an input type that accepts VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs, VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtr and VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput` via:
+//
+//          VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput() VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput
+	ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput
+}
+
+type virtualNetworkGatewayConnectionTrafficSelectorPolicyPtrType VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs
+
+func VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtr(v *VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrInput {
+	return (*virtualNetworkGatewayConnectionTrafficSelectorPolicyPtrType)(v)
+}
+
+func (*virtualNetworkGatewayConnectionTrafficSelectorPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (i *virtualNetworkGatewayConnectionTrafficSelectorPolicyPtrType) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput() VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
+	return i.ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkGatewayConnectionTrafficSelectorPolicyPtrType) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput)
+}
+
+type VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput() VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput() VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
+	return o.ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayConnectionTrafficSelectorPolicy) *VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
+		return &v
+	}).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput)
+}
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) LocalAddressCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string { return v.LocalAddressCidrs }).(pulumi.StringArrayOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput) RemoteAddressCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string { return v.RemoteAddressCidrs }).(pulumi.StringArrayOutput)
+}
+
+type VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput() VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) ToVirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) Elem() VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionTrafficSelectorPolicy) VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
+		return *v
+	}).(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) LocalAddressCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalAddressCidrs
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) RemoteAddressCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionTrafficSelectorPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RemoteAddressCidrs
+	}).(pulumi.StringArrayOutput)
 }
 
 type VirtualNetworkGatewayIpConfiguration struct {
@@ -12285,6 +12616,67 @@ func (o GetGatewayConnectionIpsecPolicyArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetGatewayConnectionIpsecPolicyOutput)
 }
 
+type GetGatewayConnectionTrafficSelectorPolicy struct {
+	// List of local CIDRs.
+	LocalAddressCidrs []string `pulumi:"localAddressCidrs"`
+	// List of remote CIDRs.
+	RemoteAddressCidrs []string `pulumi:"remoteAddressCidrs"`
+}
+
+// GetGatewayConnectionTrafficSelectorPolicyInput is an input type that accepts GetGatewayConnectionTrafficSelectorPolicyArgs and GetGatewayConnectionTrafficSelectorPolicyOutput values.
+// You can construct a concrete instance of `GetGatewayConnectionTrafficSelectorPolicyInput` via:
+//
+//          GetGatewayConnectionTrafficSelectorPolicyArgs{...}
+type GetGatewayConnectionTrafficSelectorPolicyInput interface {
+	pulumi.Input
+
+	ToGetGatewayConnectionTrafficSelectorPolicyOutput() GetGatewayConnectionTrafficSelectorPolicyOutput
+	ToGetGatewayConnectionTrafficSelectorPolicyOutputWithContext(context.Context) GetGatewayConnectionTrafficSelectorPolicyOutput
+}
+
+type GetGatewayConnectionTrafficSelectorPolicyArgs struct {
+	// List of local CIDRs.
+	LocalAddressCidrs pulumi.StringArrayInput `pulumi:"localAddressCidrs"`
+	// List of remote CIDRs.
+	RemoteAddressCidrs pulumi.StringArrayInput `pulumi:"remoteAddressCidrs"`
+}
+
+func (GetGatewayConnectionTrafficSelectorPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (i GetGatewayConnectionTrafficSelectorPolicyArgs) ToGetGatewayConnectionTrafficSelectorPolicyOutput() GetGatewayConnectionTrafficSelectorPolicyOutput {
+	return i.ToGetGatewayConnectionTrafficSelectorPolicyOutputWithContext(context.Background())
+}
+
+func (i GetGatewayConnectionTrafficSelectorPolicyArgs) ToGetGatewayConnectionTrafficSelectorPolicyOutputWithContext(ctx context.Context) GetGatewayConnectionTrafficSelectorPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayConnectionTrafficSelectorPolicyOutput)
+}
+
+type GetGatewayConnectionTrafficSelectorPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayConnectionTrafficSelectorPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (o GetGatewayConnectionTrafficSelectorPolicyOutput) ToGetGatewayConnectionTrafficSelectorPolicyOutput() GetGatewayConnectionTrafficSelectorPolicyOutput {
+	return o
+}
+
+func (o GetGatewayConnectionTrafficSelectorPolicyOutput) ToGetGatewayConnectionTrafficSelectorPolicyOutputWithContext(ctx context.Context) GetGatewayConnectionTrafficSelectorPolicyOutput {
+	return o
+}
+
+// List of local CIDRs.
+func (o GetGatewayConnectionTrafficSelectorPolicyOutput) LocalAddressCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGatewayConnectionTrafficSelectorPolicy) []string { return v.LocalAddressCidrs }).(pulumi.StringArrayOutput)
+}
+
+// List of remote CIDRs.
+func (o GetGatewayConnectionTrafficSelectorPolicyOutput) RemoteAddressCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGatewayConnectionTrafficSelectorPolicy) []string { return v.RemoteAddressCidrs }).(pulumi.StringArrayOutput)
+}
+
 type GetNetworkInterfaceIpConfiguration struct {
 	// A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
 	ApplicationGatewayBackendAddressPoolsIds []string `pulumi:"applicationGatewayBackendAddressPoolsIds"`
@@ -12820,6 +13212,130 @@ func (o GetPublicIPsPublicIpArrayOutput) Index(i pulumi.IntInput) GetPublicIPsPu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPublicIPsPublicIp {
 		return vs[0].([]GetPublicIPsPublicIp)[vs[1].(int)]
 	}).(GetPublicIPsPublicIpOutput)
+}
+
+type GetRouteFilterRule struct {
+	// The access type of the rule
+	Access string `pulumi:"access"`
+	// The collection for bgp community values.
+	Communities []string `pulumi:"communities"`
+	// The Name of this Route Filter.
+	Name string `pulumi:"name"`
+	// The Route Filter Rule Type.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// GetRouteFilterRuleInput is an input type that accepts GetRouteFilterRuleArgs and GetRouteFilterRuleOutput values.
+// You can construct a concrete instance of `GetRouteFilterRuleInput` via:
+//
+//          GetRouteFilterRuleArgs{...}
+type GetRouteFilterRuleInput interface {
+	pulumi.Input
+
+	ToGetRouteFilterRuleOutput() GetRouteFilterRuleOutput
+	ToGetRouteFilterRuleOutputWithContext(context.Context) GetRouteFilterRuleOutput
+}
+
+type GetRouteFilterRuleArgs struct {
+	// The access type of the rule
+	Access pulumi.StringInput `pulumi:"access"`
+	// The collection for bgp community values.
+	Communities pulumi.StringArrayInput `pulumi:"communities"`
+	// The Name of this Route Filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Route Filter Rule Type.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (GetRouteFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteFilterRule)(nil)).Elem()
+}
+
+func (i GetRouteFilterRuleArgs) ToGetRouteFilterRuleOutput() GetRouteFilterRuleOutput {
+	return i.ToGetRouteFilterRuleOutputWithContext(context.Background())
+}
+
+func (i GetRouteFilterRuleArgs) ToGetRouteFilterRuleOutputWithContext(ctx context.Context) GetRouteFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteFilterRuleOutput)
+}
+
+// GetRouteFilterRuleArrayInput is an input type that accepts GetRouteFilterRuleArray and GetRouteFilterRuleArrayOutput values.
+// You can construct a concrete instance of `GetRouteFilterRuleArrayInput` via:
+//
+//          GetRouteFilterRuleArray{ GetRouteFilterRuleArgs{...} }
+type GetRouteFilterRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteFilterRuleArrayOutput() GetRouteFilterRuleArrayOutput
+	ToGetRouteFilterRuleArrayOutputWithContext(context.Context) GetRouteFilterRuleArrayOutput
+}
+
+type GetRouteFilterRuleArray []GetRouteFilterRuleInput
+
+func (GetRouteFilterRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteFilterRule)(nil)).Elem()
+}
+
+func (i GetRouteFilterRuleArray) ToGetRouteFilterRuleArrayOutput() GetRouteFilterRuleArrayOutput {
+	return i.ToGetRouteFilterRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteFilterRuleArray) ToGetRouteFilterRuleArrayOutputWithContext(ctx context.Context) GetRouteFilterRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteFilterRuleArrayOutput)
+}
+
+type GetRouteFilterRuleOutput struct{ *pulumi.OutputState }
+
+func (GetRouteFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteFilterRule)(nil)).Elem()
+}
+
+func (o GetRouteFilterRuleOutput) ToGetRouteFilterRuleOutput() GetRouteFilterRuleOutput {
+	return o
+}
+
+func (o GetRouteFilterRuleOutput) ToGetRouteFilterRuleOutputWithContext(ctx context.Context) GetRouteFilterRuleOutput {
+	return o
+}
+
+// The access type of the rule
+func (o GetRouteFilterRuleOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteFilterRule) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// The collection for bgp community values.
+func (o GetRouteFilterRuleOutput) Communities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteFilterRule) []string { return v.Communities }).(pulumi.StringArrayOutput)
+}
+
+// The Name of this Route Filter.
+func (o GetRouteFilterRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteFilterRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Route Filter Rule Type.
+func (o GetRouteFilterRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteFilterRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type GetRouteFilterRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteFilterRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteFilterRule)(nil)).Elem()
+}
+
+func (o GetRouteFilterRuleArrayOutput) ToGetRouteFilterRuleArrayOutput() GetRouteFilterRuleArrayOutput {
+	return o
+}
+
+func (o GetRouteFilterRuleArrayOutput) ToGetRouteFilterRuleArrayOutputWithContext(ctx context.Context) GetRouteFilterRuleArrayOutput {
+	return o
+}
+
+func (o GetRouteFilterRuleArrayOutput) Index(i pulumi.IntInput) GetRouteFilterRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteFilterRule {
+		return vs[0].([]GetRouteFilterRule)[vs[1].(int)]
+	}).(GetRouteFilterRuleOutput)
 }
 
 type GetRouteTableRoute struct {
@@ -13695,6 +14211,8 @@ func init() {
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfacePtrOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(RouteFilterRuleOutput{})
+	pulumi.RegisterOutputType(RouteFilterRulePtrOutput{})
 	pulumi.RegisterOutputType(RouteTableRouteOutput{})
 	pulumi.RegisterOutputType(RouteTableRouteArrayOutput{})
 	pulumi.RegisterOutputType(SubnetDelegationOutput{})
@@ -13718,6 +14236,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionTrafficSelectorPolicyOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayIpConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationOutput{})
@@ -13753,12 +14273,15 @@ func init() {
 	pulumi.RegisterOutputType(GetFirewallIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewayConnectionTrafficSelectorPolicyOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkSecurityGroupSecurityRuleOutput{})
 	pulumi.RegisterOutputType(GetNetworkSecurityGroupSecurityRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetPublicIPsPublicIpOutput{})
 	pulumi.RegisterOutputType(GetPublicIPsPublicIpArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteFilterRuleOutput{})
+	pulumi.RegisterOutputType(GetRouteFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableRouteOutput{})
 	pulumi.RegisterOutputType(GetRouteTableRouteArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayBgpSettingOutput{})

@@ -130,6 +130,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccountTier { get; private set; } = null!;
 
         /// <summary>
+        /// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+        /// </summary>
+        [Output("allowBlobPublicAccess")]
+        public Output<bool?> AllowBlobPublicAccess { get; private set; } = null!;
+
+        /// <summary>
         /// A `blob_properties` block as defined below.
         /// </summary>
         [Output("blobProperties")]
@@ -465,6 +471,12 @@ namespace Pulumi.Azure.Storage
         public Input<string> AccountTier { get; set; } = null!;
 
         /// <summary>
+        /// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+        /// </summary>
+        [Input("allowBlobPublicAccess")]
+        public Input<bool>? AllowBlobPublicAccess { get; set; }
+
+        /// <summary>
         /// A `blob_properties` block as defined below.
         /// </summary>
         [Input("blobProperties")]
@@ -573,6 +585,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("accountTier")]
         public Input<string>? AccountTier { get; set; }
+
+        /// <summary>
+        /// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+        /// </summary>
+        [Input("allowBlobPublicAccess")]
+        public Input<bool>? AllowBlobPublicAccess { get; set; }
 
         /// <summary>
         /// A `blob_properties` block as defined below.

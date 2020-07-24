@@ -94,7 +94,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly creationSourceDatabaseId!: pulumi.Output<string>;
     /**
-     * Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+     * Specifies the ID of the elastic pool containing this database.
      */
     public readonly elasticPoolId!: pulumi.Output<string | undefined>;
     /**
@@ -242,7 +242,7 @@ export interface DatabaseState {
      */
     readonly creationSourceDatabaseId?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+     * Specifies the ID of the elastic pool containing this database.
      */
     readonly elasticPoolId?: pulumi.Input<string>;
     /**
@@ -324,7 +324,7 @@ export interface DatabaseArgs {
      */
     readonly creationSourceDatabaseId?: pulumi.Input<string>;
     /**
-     * Specifies the ID of the elastic pool containing this database. Changing this forces a new resource to be created.
+     * Specifies the ID of the elastic pool containing this database.
      */
     readonly elasticPoolId?: pulumi.Input<string>;
     /**

@@ -12,7 +12,7 @@ from .. import utilities, tables
 class VirtualHub(pulumi.CustomResource):
     address_prefix: pulumi.Output[str]
     """
-    The Address Prefix which should be used for this Virtual Hub.
+    The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
     """
     location: pulumi.Output[str]
     """
@@ -39,7 +39,7 @@ class VirtualHub(pulumi.CustomResource):
     """
     virtual_wan_id: pulumi.Output[str]
     """
-    The ID of a Virtual WAN within which the Virtual Hub should be created.
+    The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, address_prefix=None, location=None, name=None, resource_group_name=None, routes=None, tags=None, virtual_wan_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -64,13 +64,13 @@ class VirtualHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub.
+        :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[list] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual Hub.
-        :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created.
+        :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 
         The **routes** object supports the following:
 
@@ -122,13 +122,13 @@ class VirtualHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub.
+        :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[list] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual Hub.
-        :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created.
+        :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
 
         The **routes** object supports the following:
 

@@ -119,6 +119,12 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// </summary>
+        [Output("routeFilterId")]
+        public Output<string?> RouteFilterId { get; private set; } = null!;
+
+        /// <summary>
         /// The Secondary Port used by Azure for this Peering.
         /// </summary>
         [Output("secondaryAzurePort")]
@@ -226,6 +232,12 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// </summary>
+        [Input("routeFilterId")]
+        public Input<string>? RouteFilterId { get; set; }
+
+        /// <summary>
         /// A `/30` subnet for the secondary link.
         /// </summary>
         [Input("secondaryPeerAddressPrefix", required: true)]
@@ -298,6 +310,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// </summary>
+        [Input("routeFilterId")]
+        public Input<string>? RouteFilterId { get; set; }
 
         /// <summary>
         /// The Secondary Port used by Azure for this Peering.

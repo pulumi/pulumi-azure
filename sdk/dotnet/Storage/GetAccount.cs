@@ -86,6 +86,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string AccountTier;
         /// <summary>
+        /// Is public access allowed to all blobs or containers in the storage account?
+        /// </summary>
+        public readonly bool AllowBlobPublicAccess;
+        /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCustomDomainResult> CustomDomains;
@@ -254,6 +258,8 @@ namespace Pulumi.Azure.Storage
 
             string accountTier,
 
+            bool allowBlobPublicAccess,
+
             ImmutableArray<Outputs.GetAccountCustomDomainResult> customDomains,
 
             bool enableHttpsTrafficOnly,
@@ -338,6 +344,7 @@ namespace Pulumi.Azure.Storage
             AccountKind = accountKind;
             AccountReplicationType = accountReplicationType;
             AccountTier = accountTier;
+            AllowBlobPublicAccess = allowBlobPublicAccess;
             CustomDomains = customDomains;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Id = id;

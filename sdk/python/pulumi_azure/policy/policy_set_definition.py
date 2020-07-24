@@ -38,6 +38,14 @@ class PolicySetDefinition(pulumi.CustomResource):
     """
     Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
     """
+    policy_definition_references: pulumi.Output[list]
+    """
+    One or more `policy_definition_reference` blocks as defined below.
+
+      * `parameters` (`dict`) - A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+      * `policy_definition_id` (`str`) - The ID of the policy definition or policy set definition that will be included in this policy set definition.
+      * `referenceId` (`str`) - A unique ID within this policy set definition for this policy definition reference.
+    """
     policy_definitions: pulumi.Output[str]
     """
     The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
@@ -46,7 +54,7 @@ class PolicySetDefinition(pulumi.CustomResource):
     """
     The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_definition_references=None, policy_definitions=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a policy set definition.
 
@@ -72,18 +80,12 @@ class PolicySetDefinition(pulumi.CustomResource):
             }
 
         \"\"\",
-            policy_definitions=\"\"\"    [
-                {
-                    "parameters": {
-                        "listOfAllowedLocations": {
-                            "value": "[parameters('allowedLocations')]"
-                        }
-                    },
-                    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"
-                }
-            ]
-
-        \"\"\",
+            policy_definition_references=[{
+                "parameters": {
+                    "listOfAllowedLocations": "[parameters('allowedLocations')]",
+                },
+                "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+            }],
             policy_type="Custom")
         ```
 
@@ -96,8 +98,15 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param pulumi.Input[list] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_definitions: The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+
+        The **policy_definition_references** object supports the following:
+
+          * `parameters` (`pulumi.Input[dict]`) - A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+          * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition that will be included in this policy set definition.
+          * `referenceId` (`pulumi.Input[str]`) - A unique ID within this policy set definition for this policy definition reference.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,6 +137,10 @@ class PolicySetDefinition(pulumi.CustomResource):
             __props__['metadata'] = metadata
             __props__['name'] = name
             __props__['parameters'] = parameters
+            __props__['policy_definition_references'] = policy_definition_references
+            if policy_definitions is not None:
+                warnings.warn("Deprecated in favor of `policy_definition_reference`", DeprecationWarning)
+                pulumi.log.warn("policy_definitions is deprecated: Deprecated in favor of `policy_definition_reference`")
             __props__['policy_definitions'] = policy_definitions
             if policy_type is None:
                 raise TypeError("Missing required property 'policy_type'")
@@ -139,7 +152,7 @@ class PolicySetDefinition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, display_name=None, management_group_id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None):
+    def get(resource_name, id, opts=None, description=None, display_name=None, management_group_id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_definition_references=None, policy_definitions=None, policy_type=None):
         """
         Get an existing PolicySetDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -154,8 +167,15 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
         :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param pulumi.Input[list] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_definitions: The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+
+        The **policy_definition_references** object supports the following:
+
+          * `parameters` (`pulumi.Input[dict]`) - A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+          * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition that will be included in this policy set definition.
+          * `referenceId` (`pulumi.Input[str]`) - A unique ID within this policy set definition for this policy definition reference.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -168,6 +188,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["parameters"] = parameters
+        __props__["policy_definition_references"] = policy_definition_references
         __props__["policy_definitions"] = policy_definitions
         __props__["policy_type"] = policy_type
         return PolicySetDefinition(resource_name, opts=opts, __props__=__props__)

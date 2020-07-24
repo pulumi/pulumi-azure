@@ -99,13 +99,19 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<Outputs.MetricAlertAction>> Actions { get; private set; } = null!;
 
         /// <summary>
+        /// A `application_insights_web_test_location_availability_criteria` block as defined below.
+        /// </summary>
+        [Output("applicationInsightsWebTestLocationAvailabilityCriteria")]
+        public Output<Outputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria?> ApplicationInsightsWebTestLocationAvailabilityCriteria { get; private set; } = null!;
+
+        /// <summary>
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         /// </summary>
         [Output("autoMitigate")]
         public Output<bool?> AutoMitigate { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `criteria` blocks as defined below.
+        /// One or more (static) `criteria` blocks as defined below.
         /// </summary>
         [Output("criterias")]
         public Output<ImmutableArray<Outputs.MetricAlertCriteria>> Criterias { get; private set; } = null!;
@@ -115,6 +121,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// A `dynamic_criteria` block as defined below.
+        /// </summary>
+        [Output("dynamicCriteria")]
+        public Output<Outputs.MetricAlertDynamicCriteria?> DynamicCriteria { get; private set; } = null!;
 
         /// <summary>
         /// Should this Metric Alert be enabled? Defaults to `true`.
@@ -144,7 +156,7 @@ namespace Pulumi.Azure.Monitoring
         /// A set of strings of resource IDs at which the metric criteria should be applied.
         /// </summary>
         [Output("scopes")]
-        public Output<string> Scopes { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
         /// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
@@ -157,6 +169,18 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of the target resource.
+        /// </summary>
+        [Output("targetResourceLocation")]
+        public Output<string> TargetResourceLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+        /// </summary>
+        [Output("targetResourceType")]
+        public Output<string> TargetResourceType { get; private set; } = null!;
 
         /// <summary>
         /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
@@ -223,16 +247,22 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
+        /// A `application_insights_web_test_location_availability_criteria` block as defined below.
+        /// </summary>
+        [Input("applicationInsightsWebTestLocationAvailabilityCriteria")]
+        public Input<Inputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs>? ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; }
+
+        /// <summary>
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         /// </summary>
         [Input("autoMitigate")]
         public Input<bool>? AutoMitigate { get; set; }
 
-        [Input("criterias", required: true)]
+        [Input("criterias")]
         private InputList<Inputs.MetricAlertCriteriaArgs>? _criterias;
 
         /// <summary>
-        /// One or more `criteria` blocks as defined below.
+        /// One or more (static) `criteria` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MetricAlertCriteriaArgs> Criterias
         {
@@ -245,6 +275,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// A `dynamic_criteria` block as defined below.
+        /// </summary>
+        [Input("dynamicCriteria")]
+        public Input<Inputs.MetricAlertDynamicCriteriaArgs>? DynamicCriteria { get; set; }
 
         /// <summary>
         /// Should this Metric Alert be enabled? Defaults to `true`.
@@ -270,11 +306,17 @@ namespace Pulumi.Azure.Monitoring
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("scopes", required: true)]
+        private InputList<string>? _scopes;
+
         /// <summary>
         /// A set of strings of resource IDs at which the metric criteria should be applied.
         /// </summary>
-        [Input("scopes", required: true)]
-        public Input<string> Scopes { get; set; } = null!;
+        public InputList<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<string>());
+            set => _scopes = value;
+        }
 
         /// <summary>
         /// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
@@ -293,6 +335,18 @@ namespace Pulumi.Azure.Monitoring
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The location of the target resource.
+        /// </summary>
+        [Input("targetResourceLocation")]
+        public Input<string>? TargetResourceLocation { get; set; }
+
+        /// <summary>
+        /// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+        /// </summary>
+        [Input("targetResourceType")]
+        public Input<string>? TargetResourceType { get; set; }
 
         /// <summary>
         /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
@@ -320,6 +374,12 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
+        /// A `application_insights_web_test_location_availability_criteria` block as defined below.
+        /// </summary>
+        [Input("applicationInsightsWebTestLocationAvailabilityCriteria")]
+        public Input<Inputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaGetArgs>? ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; }
+
+        /// <summary>
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         /// </summary>
         [Input("autoMitigate")]
@@ -329,7 +389,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.MetricAlertCriteriaGetArgs>? _criterias;
 
         /// <summary>
-        /// One or more `criteria` blocks as defined below.
+        /// One or more (static) `criteria` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MetricAlertCriteriaGetArgs> Criterias
         {
@@ -342,6 +402,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// A `dynamic_criteria` block as defined below.
+        /// </summary>
+        [Input("dynamicCriteria")]
+        public Input<Inputs.MetricAlertDynamicCriteriaGetArgs>? DynamicCriteria { get; set; }
 
         /// <summary>
         /// Should this Metric Alert be enabled? Defaults to `true`.
@@ -367,11 +433,17 @@ namespace Pulumi.Azure.Monitoring
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("scopes")]
+        private InputList<string>? _scopes;
+
         /// <summary>
         /// A set of strings of resource IDs at which the metric criteria should be applied.
         /// </summary>
-        [Input("scopes")]
-        public Input<string>? Scopes { get; set; }
+        public InputList<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<string>());
+            set => _scopes = value;
+        }
 
         /// <summary>
         /// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
@@ -390,6 +462,18 @@ namespace Pulumi.Azure.Monitoring
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The location of the target resource.
+        /// </summary>
+        [Input("targetResourceLocation")]
+        public Input<string>? TargetResourceLocation { get; set; }
+
+        /// <summary>
+        /// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+        /// </summary>
+        [Input("targetResourceType")]
+        public Input<string>? TargetResourceType { get; set; }
 
         /// <summary>
         /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.

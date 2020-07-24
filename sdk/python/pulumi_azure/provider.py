@@ -11,7 +11,7 @@ from . import utilities, tables
 
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, disable_terraform_partner_id=None, environment=None, features=None, metadata_url=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, storage_use_azuread=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, disable_terraform_partner_id=None, environment=None, features=None, metadata_host=None, metadata_url=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, storage_use_azuread=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the azurerm package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -30,7 +30,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] disable_terraform_partner_id: This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
                public.
-        :param pulumi.Input[str] metadata_url: The Metadata URL which will be used to obtain the Cloud Environment.
+        :param pulumi.Input[str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
+        :param pulumi.Input[str] metadata_url: Deprecated - replaced by `metadata_host`.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
                automatically.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -82,8 +83,14 @@ class Provider(pulumi.ProviderResource):
                 environment = (utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__['environment'] = environment
             __props__['features'] = pulumi.Output.from_input(features).apply(json.dumps) if features is not None else None
+            if metadata_host is None:
+                raise TypeError("Missing required property 'metadata_host'")
+            __props__['metadata_host'] = metadata_host
             if metadata_url is None:
                 metadata_url = (utilities.get_env('ARM_METADATA_URL') or '')
+            if metadata_url is not None:
+                warnings.warn("use `metadata_host` instead", DeprecationWarning)
+                pulumi.log.warn("metadata_url is deprecated: use `metadata_host` instead")
             __props__['metadata_url'] = metadata_url
             __props__['msi_endpoint'] = msi_endpoint
             __props__['partner_id'] = partner_id

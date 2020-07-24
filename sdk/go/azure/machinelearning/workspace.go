@@ -92,6 +92,8 @@ type Workspace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Friendly name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	HighBusinessImpact pulumi.BoolPtrOutput `pulumi:"highBusinessImpact"`
 	// An `identity` block defined below.
 	Identity WorkspaceIdentityOutput `pulumi:"identity"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -161,6 +163,8 @@ type workspaceState struct {
 	Description *string `pulumi:"description"`
 	// Friendly name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block defined below.
 	Identity *WorkspaceIdentity `pulumi:"identity"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -188,6 +192,8 @@ type WorkspaceState struct {
 	Description pulumi.StringPtrInput
 	// Friendly name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block defined below.
 	Identity WorkspaceIdentityPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -219,6 +225,8 @@ type workspaceArgs struct {
 	Description *string `pulumi:"description"`
 	// Friendly name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block defined below.
 	Identity WorkspaceIdentity `pulumi:"identity"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -247,6 +255,8 @@ type WorkspaceArgs struct {
 	Description pulumi.StringPtrInput
 	// Friendly name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block defined below.
 	Identity WorkspaceIdentityInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.

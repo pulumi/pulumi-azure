@@ -39,18 +39,17 @@ namespace Pulumi.Azure.Policy
     ///     }
     /// 
     /// ",
-    ///             PolicyDefinitions = @"    [
-    ///         {
-    ///             ""parameters"": {
-    ///                 ""listOfAllowedLocations"": {
-    ///                     ""value"": ""[parameters('allowedLocations')]""
-    ///                 }
+    ///             PolicyDefinitionReferences = 
+    ///             {
+    ///                 new Azure.Policy.Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs
+    ///                 {
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "listOfAllowedLocations", "[parameters('allowedLocations')]" },
+    ///                     },
+    ///                     PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    ///                 },
     ///             },
-    ///             ""policyDefinitionId"": ""/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988""
-    ///         }
-    ///     ]
-    /// 
-    /// ",
     ///             PolicyType = "Custom",
     ///         });
     ///     }
@@ -103,10 +102,16 @@ namespace Pulumi.Azure.Policy
         public Output<string?> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `policy_definition_reference` blocks as defined below.
+        /// </summary>
+        [Output("policyDefinitionReferences")]
+        public Output<ImmutableArray<Outputs.PolicySetDefinitionPolicyDefinitionReference>> PolicyDefinitionReferences { get; private set; } = null!;
+
+        /// <summary>
         /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         /// </summary>
         [Output("policyDefinitions")]
-        public Output<string?> PolicyDefinitions { get; private set; } = null!;
+        public Output<string> PolicyDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
@@ -202,6 +207,18 @@ namespace Pulumi.Azure.Policy
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
+        [Input("policyDefinitionReferences")]
+        private InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs>? _policyDefinitionReferences;
+
+        /// <summary>
+        /// One or more `policy_definition_reference` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs> PolicyDefinitionReferences
+        {
+            get => _policyDefinitionReferences ?? (_policyDefinitionReferences = new InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs>());
+            set => _policyDefinitionReferences = value;
+        }
+
         /// <summary>
         /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         /// </summary>
@@ -262,6 +279,18 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
+
+        [Input("policyDefinitionReferences")]
+        private InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceGetArgs>? _policyDefinitionReferences;
+
+        /// <summary>
+        /// One or more `policy_definition_reference` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceGetArgs> PolicyDefinitionReferences
+        {
+            get => _policyDefinitionReferences ?? (_policyDefinitionReferences = new InputList<Inputs.PolicySetDefinitionPolicyDefinitionReferenceGetArgs>());
+            set => _policyDefinitionReferences = value;
+        }
 
         /// <summary>
         /// The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.

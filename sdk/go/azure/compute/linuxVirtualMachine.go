@@ -32,7 +32,7 @@ type LinuxVirtualMachine struct {
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayOutput `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations pulumi.BoolPtrOutput `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrOutput `pulumi:"availabilitySetId"`
@@ -147,7 +147,7 @@ type linuxVirtualMachineState struct {
 	AdminSshKeys []LinuxVirtualMachineAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
@@ -220,7 +220,7 @@ type LinuxVirtualMachineState struct {
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringPtrInput
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
@@ -297,7 +297,7 @@ type linuxVirtualMachineArgs struct {
 	AdminSshKeys []LinuxVirtualMachineAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
@@ -361,7 +361,7 @@ type LinuxVirtualMachineArgs struct {
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput
-	// Should Extension Operations be allowed on this Virtual Machine? Changing this forces a new resource to be created.
+	// Should Extension Operations be allowed on this Virtual Machine?
 	AllowExtensionOperations pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput

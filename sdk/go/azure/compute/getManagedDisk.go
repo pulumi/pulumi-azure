@@ -66,8 +66,10 @@ type LookupManagedDiskResult struct {
 	// The size of the Managed Disk in gigabytes.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The ID of the source image used for creating this Managed Disk.
+	ImageReferenceId string `pulumi:"imageReferenceId"`
+	Name             string `pulumi:"name"`
 	// The operating system used for this Managed Disk.
 	OsType            string `pulumi:"osType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`

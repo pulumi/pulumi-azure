@@ -35,6 +35,10 @@ class Assignment(pulumi.CustomResource):
     """
     The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
     """
+    metadata: pulumi.Output[str]
+    """
+    The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+    """
     name: pulumi.Output[str]
     """
     The name of the Policy Assignment. Changing this forces a new resource to be created.
@@ -55,7 +59,7 @@ class Assignment(pulumi.CustomResource):
     """
     The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, metadata=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
 
@@ -98,6 +102,10 @@ class Assignment(pulumi.CustomResource):
             policy_definition_id=example_definition.id,
             description="Policy Assignment created via an Acceptance Test",
             display_name="My Example Policy Assignment",
+            metadata=\"\"\"    {
+            "category": "General"
+            }
+        \"\"\",
             parameters=\"\"\"{
           "allowedLocations": {
             "value": [ "West Europe" ]
@@ -114,6 +122,7 @@ class Assignment(pulumi.CustomResource):
                ---
         :param pulumi.Input[dict] identity: An `identity` block.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
         :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[list] not_scopes: A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
@@ -148,6 +157,7 @@ class Assignment(pulumi.CustomResource):
             __props__['enforcement_mode'] = enforcement_mode
             __props__['identity'] = identity
             __props__['location'] = location
+            __props__['metadata'] = metadata
             __props__['name'] = name
             __props__['not_scopes'] = not_scopes
             __props__['parameters'] = parameters
@@ -164,7 +174,7 @@ class Assignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None):
+    def get(resource_name, id, opts=None, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, metadata=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None):
         """
         Get an existing Assignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -178,6 +188,7 @@ class Assignment(pulumi.CustomResource):
                ---
         :param pulumi.Input[dict] identity: An `identity` block.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
         :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[list] not_scopes: A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
@@ -199,6 +210,7 @@ class Assignment(pulumi.CustomResource):
         __props__["enforcement_mode"] = enforcement_mode
         __props__["identity"] = identity
         __props__["location"] = location
+        __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["not_scopes"] = not_scopes
         __props__["parameters"] = parameters

@@ -45,6 +45,10 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly platformFaultDomainCount!: pulumi.Output<number>;
     /**
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     */
+    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
+            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -98,6 +103,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -131,6 +137,10 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
     readonly platformFaultDomainCount?: pulumi.Input<number>;
+    /**
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
@@ -171,6 +181,10 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
     readonly platformFaultDomainCount: pulumi.Input<number>;
+    /**
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
