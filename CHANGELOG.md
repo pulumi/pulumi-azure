@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.13.0 (2020-07-24)
 * Upgrade to v2.20.0 of the AzureRM Terraform Provider
   **PLEASE NOTE:**
   * `monitoring.metricAlert` `scopes` property has changed to be a list of scopes.
-
----
 
 ## 3.12.1 (2020-07-13)
 * Ensure provider `metadataUrl` is an optional provider parameter
