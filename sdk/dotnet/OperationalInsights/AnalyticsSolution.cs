@@ -74,7 +74,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<Outputs.AnalyticsSolutionPlan> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
+        /// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<Inputs.AnalyticsSolutionPlanArgs> Plan { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
+        /// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<Inputs.AnalyticsSolutionPlanGetArgs>? Plan { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
+        /// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -92,6 +92,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> EnableAutomaticFailover { get; private set; } = null!;
 
         /// <summary>
+        /// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("enableFreeTier")]
+        public Output<bool?> EnableFreeTier { get; private set; } = null!;
+
+        /// <summary>
         /// Enable multi-master support for this Cosmos DB account.
         /// </summary>
         [Output("enableMultipleWriteLocations")]
@@ -270,6 +276,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<bool>? EnableAutomaticFailover { get; set; }
 
         /// <summary>
+        /// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("enableFreeTier")]
+        public Input<bool>? EnableFreeTier { get; set; }
+
+        /// <summary>
         /// Enable multi-master support for this Cosmos DB account.
         /// </summary>
         [Input("enableMultipleWriteLocations")]
@@ -395,6 +407,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("enableAutomaticFailover")]
         public Input<bool>? EnableAutomaticFailover { get; set; }
+
+        /// <summary>
+        /// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("enableFreeTier")]
+        public Input<bool>? EnableFreeTier { get; set; }
 
         /// <summary>
         /// Enable multi-master support for this Cosmos DB account.

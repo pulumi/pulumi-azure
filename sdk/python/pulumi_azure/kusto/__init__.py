@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .attached_database_configuration import *
 from .cluster import *
+from .cluster_customer_managed_key import *
 from .cluster_principal_assignment import *
 from .database import *
 from .database_principal import *

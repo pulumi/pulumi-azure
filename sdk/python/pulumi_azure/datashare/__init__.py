@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .account import *
 from .dataset_blob_storage import *
+from .dataset_data_lake_gen1 import *
 from .get_account import *
 from .get_dataset_blob_storage import *
 from .get_share import *

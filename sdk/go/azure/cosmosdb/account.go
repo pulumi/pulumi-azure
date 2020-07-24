@@ -84,6 +84,8 @@ type Account struct {
 	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrOutput `pulumi:"enableAutomaticFailover"`
+	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	EnableFreeTier pulumi.BoolPtrOutput `pulumi:"enableFreeTier"`
 	// Enable multi-master support for this Cosmos DB account.
 	EnableMultipleWriteLocations pulumi.BoolPtrOutput `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
@@ -170,6 +172,8 @@ type accountState struct {
 	ConsistencyPolicy *AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
+	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	EnableFreeTier *bool `pulumi:"enableFreeTier"`
 	// Enable multi-master support for this Cosmos DB account.
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.
@@ -217,6 +221,8 @@ type AccountState struct {
 	ConsistencyPolicy AccountConsistencyPolicyPtrInput
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
+	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	EnableFreeTier pulumi.BoolPtrInput
 	// Enable multi-master support for this Cosmos DB account.
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
 	// The endpoint used to connect to the CosmosDB account.
@@ -266,6 +272,8 @@ type accountArgs struct {
 	ConsistencyPolicy AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
+	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	EnableFreeTier *bool `pulumi:"enableFreeTier"`
 	// Enable multi-master support for this Cosmos DB account.
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
@@ -298,6 +306,8 @@ type AccountArgs struct {
 	ConsistencyPolicy AccountConsistencyPolicyInput
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
+	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+	EnableFreeTier pulumi.BoolPtrInput
 	// Enable multi-master support for this Cosmos DB account.
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.

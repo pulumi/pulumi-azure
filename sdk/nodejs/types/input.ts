@@ -5926,6 +5926,8 @@ export namespace cosmosdb {
         location: pulumi.Input<string>;
         /**
          * The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+         *
+         * @deprecated This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
          */
         prefix?: pulumi.Input<string>;
     }
@@ -7456,6 +7458,31 @@ export namespace eventhub {
 }
 
 export namespace frontdoor {
+    export interface CustomHttpsConfigurationCustomHttpsConfiguration {
+        /**
+         * The name of the Key Vault secret representing the full certificate PFX.
+         */
+        azureKeyVaultCertificateSecretName?: pulumi.Input<string>;
+        /**
+         * The version of the Key Vault secret representing the full certificate PFX.
+         */
+        azureKeyVaultCertificateSecretVersion?: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault containing the SSL certificate.
+         */
+        azureKeyVaultCertificateVaultId?: pulumi.Input<string>;
+        /**
+         * Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+         */
+        certificateSource?: pulumi.Input<string>;
+        /**
+         * Minimum client TLS version supported.
+         */
+        minimumTlsVersion?: pulumi.Input<string>;
+        provisioningState?: pulumi.Input<string>;
+        provisioningSubstate?: pulumi.Input<string>;
+    }
+
     export interface FirewallPolicyCustomRule {
         /**
          * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
@@ -7727,12 +7754,16 @@ export namespace frontdoor {
     export interface FrontdoorFrontendEndpoint {
         /**
          * A `customHttpsConfiguration` block as defined below.
+         *
+         * @deprecated Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
          */
         customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpointCustomHttpsConfiguration>;
         /**
          * Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+         *
+         * @deprecated Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
          */
-        customHttpsProvisioningEnabled: pulumi.Input<boolean>;
+        customHttpsProvisioningEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the host name of the `frontendEndpoint`. Must be a domain name.
          */
@@ -14916,6 +14947,38 @@ export namespace streamanalytics {
          * The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
          */
         type: pulumi.Input<string>;
+    }
+}
+
+export namespace synapse {
+    export interface WorkspaceAadAdmin {
+        /**
+         * The login name of the Azure AD Administrator of this Synapse Workspace.
+         */
+        login: pulumi.Input<string>;
+        /**
+         * The object id of the Azure AD Administrator of this Synapse Workspace.
+         */
+        objectId: pulumi.Input<string>;
+        /**
+         * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         */
+        tenantId: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+         */
+        type?: pulumi.Input<string>;
     }
 }
 

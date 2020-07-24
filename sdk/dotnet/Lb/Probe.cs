@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+        /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         /// </summary>
         [Output("requestPath")]
         public Output<string?> RequestPath { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+        /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         /// </summary>
         [Input("requestPath")]
         public Input<string>? RequestPath { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+        /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         /// </summary>
         [Input("requestPath")]
         public Input<string>? RequestPath { get; set; }

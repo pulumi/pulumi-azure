@@ -4,6 +4,7 @@
 // Export members:
 export * from "./attachedDatabaseConfiguration";
 export * from "./cluster";
+export * from "./clusterCustomerManagedKey";
 export * from "./clusterPrincipalAssignment";
 export * from "./database";
 export * from "./databasePrincipal";

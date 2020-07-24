@@ -32,7 +32,7 @@ class FirewallRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, end_ip_address=None, name=None, resource_group_name=None, server_name=None, start_ip_address=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manages a Firewall Rule for a MySQL Server
+        Manages a Firewall Rule for a MySQL Server.
 
         ## Example Usage
         ### Single IP Address)
@@ -64,6 +64,21 @@ class FirewallRule(pulumi.CustomResource):
             server_name=example_server.name,
             start_ip_address="40.112.0.0",
             end_ip_address="40.112.255.255")
+        ```
+        ### Allow Access To Azure Services)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mysql.Server("exampleServer")
+        # ...
+        example_firewall_rule = azure.mysql.FirewallRule("exampleFirewallRule",
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address="0.0.0.0",
+            end_ip_address="0.0.0.0")
         ```
 
         :param str resource_name: The name of the resource.

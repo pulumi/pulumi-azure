@@ -64,6 +64,10 @@ export interface GetAccountResult {
      */
     readonly enableAutomaticFailover: boolean;
     /**
+     * If Free Tier pricing option is enabled for this CosmosDB Account.
+     */
+    readonly enableFreeTier: boolean;
+    /**
      * If multi-master is enabled for this Cosmos DB account.
      */
     readonly enableMultipleWriteLocations: boolean;

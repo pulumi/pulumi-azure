@@ -120,6 +120,7 @@ const (
 	azureSQL                 = "Sql"                 // SQL
 	azureStorage             = "Storage"             // Storage
 	azureStreamAnalytics     = "StreamAnalytics"     // StreamAnalytics
+	azureSynapse             = "Synapse"             // Synapse
 	azureWaf                 = "Waf"                 // WAF
 
 	// Legacy Module Names
@@ -662,9 +663,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store_firewall_rule":     {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
 
 			// DataShare
-			"azurerm_data_share_account":              {Tok: azureResource(azureDataShare, "Account")},
-			"azurerm_data_share":                      {Tok: azureResource(azureDataShare, "Share")},
-			"azurerm_data_share_dataset_blob_storage": {Tok: azureResource(azureDataShare, "DatasetBlobStorage")},
+			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
+			"azurerm_data_share":         {Tok: azureResource(azureDataShare, "Share")},
+			"azurerm_data_share_dataset_blob_storage": {
+				Tok: azureResource(azureDataShare, "DatasetBlobStorage"),
+			},
+			"azurerm_data_share_dataset_data_lake_gen1": {
+				Tok: azureResource(azureDataShare, "DatasetDataLakeGen1"),
+			},
 
 			// DevSpace
 			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
@@ -1277,6 +1283,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kusto_database_principal_assignment": {
 				Tok: azureResource(azureKusto, "DatabasePrincipalAssignment"),
 			},
+			"azurerm_kusto_cluster_customer_managed_key": {
+				Tok: azureResource(azureKusto, "ClusterCustomerManagedKey"),
+			},
 
 			// Frontdoor
 			"azurerm_frontdoor": {
@@ -1289,6 +1298,14 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureResource(azureFrontdoor, "FirewallPolicy"),
 				Docs: &tfbridge.DocInfo{
 					Source: "front_door_firewall_policy.html.markdown",
+				},
+			},
+			"azurerm_frontdoor_custom_https_configuration": {
+				Tok: azureResource(azureFrontdoor, "CustomHttpsConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"custom_https_configuration": {
+						CSharpName: "CustomHttpsConfigurationConfig",
+					},
 				},
 			},
 
@@ -1395,6 +1412,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Blueprint
 			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
+
+			// Synapse
+			"azurerm_synapse_workspace": {Tok: azureResource(azureSynapse, "Workspace")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1628,6 +1648,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_definition":            {Tok: azureDataSource(azureBlueprint, "getDefinition")},
 			"azurerm_blueprint_published_version":     {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
 			"azurerm_web_application_firewall_policy": {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
+			"azurerm_synapse_workspace":               {Tok: azureDataSource(azureSynapse, "getWorkspace")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

@@ -284,6 +284,8 @@ type AccountGeoLocation struct {
 	// The name of the Azure region to host replicated data.
 	Location string `pulumi:"location"`
 	// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+	//
+	// Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -306,6 +308,8 @@ type AccountGeoLocationArgs struct {
 	// The name of the Azure region to host replicated data.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+	//
+	// Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -376,6 +380,8 @@ func (o AccountGeoLocationOutput) Location() pulumi.StringOutput {
 }
 
 // The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+//
+// Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
 func (o AccountGeoLocationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountGeoLocation) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
