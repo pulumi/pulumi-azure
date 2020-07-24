@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v2.19.0 of the AzureRM Terraform Provider
+  **PLEASE NOTE:**
+  * `monitoring.metricAlert` `scopes` property has changed to be a list of scopes.
 
 ---
 
