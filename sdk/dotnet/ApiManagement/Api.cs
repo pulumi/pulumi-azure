@@ -101,7 +101,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+        /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         /// </summary>
         [Output("path")]
         public Output<string> Path { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+        /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+        /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

@@ -70,7 +70,7 @@ class Frontdoor(pulumi.CustomResource):
     """
     A `frontend_endpoint` block as defined below.
 
-      * `customHttpsConfiguration` (`dict`) - A `custom_https_configuration` block as defined below.
+      * `custom_https_configuration` (`dict`) - A `custom_https_configuration` block as defined below.
         * `azureKeyVaultCertificateSecretName` (`str`) - The name of the Key Vault secret representing the full certificate PFX.
         * `azureKeyVaultCertificateSecretVersion` (`str`) - The version of the Key Vault secret representing the full certificate PFX.
         * `azureKeyVaultCertificateVaultId` (`str`) - The ID of the Key Vault containing the SSL certificate.
@@ -79,7 +79,7 @@ class Frontdoor(pulumi.CustomResource):
         * `provisioningState` (`str`) - Provisioning state of the Front Door.
         * `provisioningSubstate` (`str`) - Provisioning substate of the Front Door
 
-      * `customHttpsProvisioningEnabled` (`bool`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+      * `custom_https_provisioning_enabled` (`bool`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
       * `host_name` (`str`) - Specifies the host name of the `frontend_endpoint`. Must be a domain name.
       * `id` (`str`) - The ID of the FrontDoor.
       * `name` (`str`) - Specifies the name of the `frontend_endpoint`.
@@ -188,7 +188,7 @@ class Frontdoor(pulumi.CustomResource):
             frontend_endpoints=[{
                 "name": "exampleFrontendEndpoint1",
                 "host_name": "example-FrontDoor.azurefd.net",
-                "customHttpsProvisioningEnabled": False,
+                "custom_https_provisioning_enabled": False,
             }])
         ```
 
@@ -243,7 +243,7 @@ class Frontdoor(pulumi.CustomResource):
 
         The **frontend_endpoints** object supports the following:
 
-          * `customHttpsConfiguration` (`pulumi.Input[dict]`) - A `custom_https_configuration` block as defined below.
+          * `custom_https_configuration` (`pulumi.Input[dict]`) - A `custom_https_configuration` block as defined below.
             * `azureKeyVaultCertificateSecretName` (`pulumi.Input[str]`) - The name of the Key Vault secret representing the full certificate PFX.
             * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`) - The version of the Key Vault secret representing the full certificate PFX.
             * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`) - The ID of the Key Vault containing the SSL certificate.
@@ -252,7 +252,7 @@ class Frontdoor(pulumi.CustomResource):
             * `provisioningState` (`pulumi.Input[str]`) - Provisioning state of the Front Door.
             * `provisioningSubstate` (`pulumi.Input[str]`) - Provisioning substate of the Front Door
 
-          * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+          * `custom_https_provisioning_enabled` (`pulumi.Input[bool]`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
           * `host_name` (`pulumi.Input[str]`) - Specifies the host name of the `frontend_endpoint`. Must be a domain name.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the `frontend_endpoint`.
@@ -399,7 +399,7 @@ class Frontdoor(pulumi.CustomResource):
 
         The **frontend_endpoints** object supports the following:
 
-          * `customHttpsConfiguration` (`pulumi.Input[dict]`) - A `custom_https_configuration` block as defined below.
+          * `custom_https_configuration` (`pulumi.Input[dict]`) - A `custom_https_configuration` block as defined below.
             * `azureKeyVaultCertificateSecretName` (`pulumi.Input[str]`) - The name of the Key Vault secret representing the full certificate PFX.
             * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`) - The version of the Key Vault secret representing the full certificate PFX.
             * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`) - The ID of the Key Vault containing the SSL certificate.
@@ -408,7 +408,7 @@ class Frontdoor(pulumi.CustomResource):
             * `provisioningState` (`pulumi.Input[str]`) - Provisioning state of the Front Door.
             * `provisioningSubstate` (`pulumi.Input[str]`) - Provisioning substate of the Front Door
 
-          * `customHttpsProvisioningEnabled` (`pulumi.Input[bool]`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+          * `custom_https_provisioning_enabled` (`pulumi.Input[bool]`) - Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
           * `host_name` (`pulumi.Input[str]`) - Specifies the host name of the `frontend_endpoint`. Must be a domain name.
           * `id` (`pulumi.Input[str]`) - The ID of the FrontDoor.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the `frontend_endpoint`.

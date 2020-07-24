@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MySql
 {
     /// <summary>
-    /// Manages a Firewall Rule for a MySQL Server
+    /// Manages a Firewall Rule for a MySQL Server.
     /// 
     /// ## Example Usage
     /// ### Single IP Address)
@@ -66,6 +66,35 @@ namespace Pulumi.Azure.MySql
     ///             ServerName = exampleServer.Name,
     ///             StartIpAddress = "40.112.0.0",
     ///             EndIpAddress = "40.112.255.255",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Allow Access To Azure Services)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
+    ///         {
+    ///         });
+    ///         // ...
+    ///         var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new Azure.MySql.FirewallRuleArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ServerName = exampleServer.Name,
+    ///             StartIpAddress = "0.0.0.0",
+    ///             EndIpAddress = "0.0.0.0",
     ///         });
     ///     }
     /// 

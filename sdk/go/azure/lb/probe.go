@@ -83,7 +83,7 @@ type Probe struct {
 	Port pulumi.IntOutput `pulumi:"port"`
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrOutput `pulumi:"requestPath"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -139,7 +139,7 @@ type probeState struct {
 	Port *int `pulumi:"port"`
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol *string `pulumi:"protocol"`
-	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath *string `pulumi:"requestPath"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -159,7 +159,7 @@ type ProbeState struct {
 	Port pulumi.IntPtrInput
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringPtrInput
-	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type probeArgs struct {
 	Port int `pulumi:"port"`
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol *string `pulumi:"protocol"`
-	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath *string `pulumi:"requestPath"`
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -202,7 +202,7 @@ type ProbeArgs struct {
 	Port pulumi.IntInput
 	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol pulumi.StringPtrInput
-	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
 	RequestPath pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName pulumi.StringInput

@@ -57,6 +57,8 @@ type LookupAccountResult struct {
 	ConsistencyPolicies []GetAccountConsistencyPolicy `pulumi:"consistencyPolicies"`
 	// If automatic failover is enabled for this CosmosDB Account.
 	EnableAutomaticFailover bool `pulumi:"enableAutomaticFailover"`
+	// If Free Tier pricing option is enabled for this CosmosDB Account.
+	EnableFreeTier bool `pulumi:"enableFreeTier"`
 	// If multi-master is enabled for this Cosmos DB account.
 	EnableMultipleWriteLocations bool `pulumi:"enableMultipleWriteLocations"`
 	// The endpoint used to connect to the CosmosDB account.

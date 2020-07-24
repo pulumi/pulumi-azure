@@ -108,7 +108,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accountTier!: pulumi.Output<string>;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
      */
     public readonly allowBlobPublicAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -443,7 +443,7 @@ export interface AccountState {
      */
     readonly accountTier?: pulumi.Input<string>;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
      */
     readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**
@@ -646,7 +646,7 @@ export interface AccountArgs {
      */
     readonly accountTier: pulumi.Input<string>;
     /**
-     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `true`.
+     * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
      */
     readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**

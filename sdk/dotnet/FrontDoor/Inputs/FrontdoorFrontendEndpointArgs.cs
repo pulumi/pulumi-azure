@@ -21,8 +21,8 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         /// <summary>
         /// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
         /// </summary>
-        [Input("customHttpsProvisioningEnabled", required: true)]
-        public Input<bool> CustomHttpsProvisioningEnabled { get; set; } = null!;
+        [Input("customHttpsProvisioningEnabled")]
+        public Input<bool>? CustomHttpsProvisioningEnabled { get; set; }
 
         /// <summary>
         /// Specifies the host name of the `frontend_endpoint`. Must be a domain name.

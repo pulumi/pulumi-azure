@@ -90,6 +90,7 @@ _submodules = [
     'sql',
     'storage',
     'streamanalytics',
+    'synapse',
     'trafficmanager',
     'waf',
 ]

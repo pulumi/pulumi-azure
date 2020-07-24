@@ -37,7 +37,7 @@ class Probe(pulumi.CustomResource):
     """
     request_path: pulumi.Output[str]
     """
-    The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+    The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -81,7 +81,7 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[float] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[float] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
-        :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+        :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """
         if __name__ is not None:
@@ -137,7 +137,7 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[float] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[float] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
-        :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+        :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

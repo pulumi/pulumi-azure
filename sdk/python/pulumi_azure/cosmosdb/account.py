@@ -32,6 +32,10 @@ class Account(pulumi.CustomResource):
     """
     Enable automatic fail over for this Cosmos DB account.
     """
+    enable_free_tier: pulumi.Output[bool]
+    """
+    Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+    """
     enable_multiple_write_locations: pulumi.Output[bool]
     """
     Enable multi-master support for this Cosmos DB account.
@@ -112,7 +116,7 @@ class Account(pulumi.CustomResource):
     """
     A list of write endpoints available for this CosmosDB account.
     """
-    def __init__(__self__, resource_name, opts=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, enable_multiple_write_locations=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
 
@@ -156,6 +160,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[list] capabilities: The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         :param pulumi.Input[dict] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
+        :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
         :param pulumi.Input[list] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -212,6 +217,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'consistency_policy'")
             __props__['consistency_policy'] = consistency_policy
             __props__['enable_automatic_failover'] = enable_automatic_failover
+            __props__['enable_free_tier'] = enable_free_tier
             __props__['enable_multiple_write_locations'] = enable_multiple_write_locations
             if geo_locations is None:
                 raise TypeError("Missing required property 'geo_locations'")
@@ -244,7 +250,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, capabilities=None, connection_strings=None, consistency_policy=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+    def get(resource_name, id, opts=None, capabilities=None, connection_strings=None, consistency_policy=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -256,6 +262,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[list] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input[dict] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
+        :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
         :param pulumi.Input[list] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
@@ -305,6 +312,7 @@ class Account(pulumi.CustomResource):
         __props__["connection_strings"] = connection_strings
         __props__["consistency_policy"] = consistency_policy
         __props__["enable_automatic_failover"] = enable_automatic_failover
+        __props__["enable_free_tier"] = enable_free_tier
         __props__["enable_multiple_write_locations"] = enable_multiple_write_locations
         __props__["endpoint"] = endpoint
         __props__["geo_locations"] = geo_locations

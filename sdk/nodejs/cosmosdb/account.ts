@@ -91,6 +91,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly enableFreeTier!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable multi-master support for this Cosmos DB account.
      */
     public readonly enableMultipleWriteLocations!: pulumi.Output<boolean | undefined>;
@@ -179,6 +183,7 @@ export class Account extends pulumi.CustomResource {
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
             inputs["enableAutomaticFailover"] = state ? state.enableAutomaticFailover : undefined;
+            inputs["enableFreeTier"] = state ? state.enableFreeTier : undefined;
             inputs["enableMultipleWriteLocations"] = state ? state.enableMultipleWriteLocations : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["geoLocations"] = state ? state.geoLocations : undefined;
@@ -214,6 +219,7 @@ export class Account extends pulumi.CustomResource {
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
+            inputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
             inputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
             inputs["geoLocations"] = args ? args.geoLocations : undefined;
             inputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
@@ -265,6 +271,10 @@ export interface AccountState {
      * Enable automatic fail over for this Cosmos DB account.
      */
     readonly enableAutomaticFailover?: pulumi.Input<boolean>;
+    /**
+     * Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly enableFreeTier?: pulumi.Input<boolean>;
     /**
      * Enable multi-master support for this Cosmos DB account.
      */
@@ -355,6 +365,10 @@ export interface AccountArgs {
      * Enable automatic fail over for this Cosmos DB account.
      */
     readonly enableAutomaticFailover?: pulumi.Input<boolean>;
+    /**
+     * Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly enableFreeTier?: pulumi.Input<boolean>;
     /**
      * Enable multi-master support for this Cosmos DB account.
      */

@@ -94,7 +94,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+     * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
     public readonly path!: pulumi.Output<string>;
     /**
@@ -245,7 +245,7 @@ export interface ApiState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+     * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
     readonly path?: pulumi.Input<string>;
     /**
@@ -311,7 +311,7 @@ export interface ApiArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+     * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
     readonly path: pulumi.Input<string>;
     /**

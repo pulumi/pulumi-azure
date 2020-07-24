@@ -20,7 +20,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// <summary>
         /// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
         /// </summary>
-        public readonly bool CustomHttpsProvisioningEnabled;
+        public readonly bool? CustomHttpsProvisioningEnabled;
         /// <summary>
         /// Specifies the host name of the `frontend_endpoint`. Must be a domain name.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         private FrontdoorFrontendEndpoint(
             Outputs.FrontdoorFrontendEndpointCustomHttpsConfiguration? customHttpsConfiguration,
 
-            bool customHttpsProvisioningEnabled,
+            bool? customHttpsProvisioningEnabled,
 
             string hostName,
 

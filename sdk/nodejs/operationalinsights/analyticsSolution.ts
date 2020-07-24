@@ -78,7 +78,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
      */
     public readonly plan!: pulumi.Output<outputs.operationalinsights.AnalyticsSolutionPlan>;
     /**
-     * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
+     * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface AnalyticsSolutionState {
      */
     readonly plan?: pulumi.Input<inputs.operationalinsights.AnalyticsSolutionPlan>;
     /**
-     * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
+     * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface AnalyticsSolutionArgs {
      */
     readonly plan: pulumi.Input<inputs.operationalinsights.AnalyticsSolutionPlan>;
     /**
-     * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
+     * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

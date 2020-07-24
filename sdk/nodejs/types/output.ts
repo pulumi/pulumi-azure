@@ -7162,11 +7162,11 @@ export namespace cosmosdb {
         /**
          * When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
          */
-        maxIntervalInSeconds?: number;
+        maxIntervalInSeconds: number;
         /**
          * When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
          */
-        maxStalenessPrefix?: number;
+        maxStalenessPrefix: number;
     }
 
     export interface AccountGeoLocation {
@@ -7184,6 +7184,8 @@ export namespace cosmosdb {
         location: string;
         /**
          * The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+         *
+         * @deprecated This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
          */
         prefix?: string;
     }
@@ -8900,6 +8902,31 @@ export namespace eventhub {
 }
 
 export namespace frontdoor {
+    export interface CustomHttpsConfigurationCustomHttpsConfiguration {
+        /**
+         * The name of the Key Vault secret representing the full certificate PFX.
+         */
+        azureKeyVaultCertificateSecretName?: string;
+        /**
+         * The version of the Key Vault secret representing the full certificate PFX.
+         */
+        azureKeyVaultCertificateSecretVersion?: string;
+        /**
+         * The ID of the Key Vault containing the SSL certificate.
+         */
+        azureKeyVaultCertificateVaultId?: string;
+        /**
+         * Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+         */
+        certificateSource?: string;
+        /**
+         * Minimum client TLS version supported.
+         */
+        minimumTlsVersion: string;
+        provisioningState: string;
+        provisioningSubstate: string;
+    }
+
     export interface FirewallPolicyCustomRule {
         /**
          * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
@@ -9171,10 +9198,14 @@ export namespace frontdoor {
     export interface FrontdoorFrontendEndpoint {
         /**
          * A `customHttpsConfiguration` block as defined below.
+         *
+         * @deprecated Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
          */
-        customHttpsConfiguration?: outputs.frontdoor.FrontdoorFrontendEndpointCustomHttpsConfiguration;
+        customHttpsConfiguration: outputs.frontdoor.FrontdoorFrontendEndpointCustomHttpsConfiguration;
         /**
          * Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
+         *
+         * @deprecated Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
          */
         customHttpsProvisioningEnabled: boolean;
         /**
@@ -17562,6 +17593,38 @@ export namespace streamanalytics {
         fieldDelimiter?: string;
         /**
          * The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+         */
+        type: string;
+    }
+}
+
+export namespace synapse {
+    export interface WorkspaceAadAdmin {
+        /**
+         * The login name of the Azure AD Administrator of this Synapse Workspace.
+         */
+        login: string;
+        /**
+         * The object id of the Azure AD Administrator of this Synapse Workspace.
+         */
+        objectId: string;
+        /**
+         * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         */
+        tenantId: string;
+    }
+
+    export interface WorkspaceIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+         */
+        principalId: string;
+        /**
+         * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         */
+        tenantId: string;
+        /**
+         * The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         type: string;
     }

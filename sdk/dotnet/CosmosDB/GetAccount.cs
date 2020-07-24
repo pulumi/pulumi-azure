@@ -79,6 +79,10 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly bool EnableAutomaticFailover;
         /// <summary>
+        /// If Free Tier pricing option is enabled for this CosmosDB Account.
+        /// </summary>
+        public readonly bool EnableFreeTier;
+        /// <summary>
         /// If multi-master is enabled for this Cosmos DB account.
         /// </summary>
         public readonly bool EnableMultipleWriteLocations;
@@ -154,6 +158,8 @@ namespace Pulumi.Azure.CosmosDB
 
             bool enableAutomaticFailover,
 
+            bool enableFreeTier,
+
             bool enableMultipleWriteLocations,
 
             string endpoint,
@@ -195,6 +201,7 @@ namespace Pulumi.Azure.CosmosDB
             Capabilities = capabilities;
             ConsistencyPolicies = consistencyPolicies;
             EnableAutomaticFailover = enableAutomaticFailover;
+            EnableFreeTier = enableFreeTier;
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             Endpoint = endpoint;
             GeoLocations = geoLocations;

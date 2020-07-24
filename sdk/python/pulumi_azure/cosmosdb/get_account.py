@@ -12,7 +12,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         __self__.capabilities = capabilities
@@ -27,6 +27,12 @@ class GetAccountResult:
         __self__.enable_automatic_failover = enable_automatic_failover
         """
         If automatic failover is enabled for this CosmosDB Account.
+        """
+        if enable_free_tier and not isinstance(enable_free_tier, bool):
+            raise TypeError("Expected argument 'enable_free_tier' to be a bool")
+        __self__.enable_free_tier = enable_free_tier
+        """
+        If Free Tier pricing option is enabled for this CosmosDB Account.
         """
         if enable_multiple_write_locations and not isinstance(enable_multiple_write_locations, bool):
             raise TypeError("Expected argument 'enable_multiple_write_locations' to be a bool")
@@ -142,6 +148,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             capabilities=self.capabilities,
             consistency_policies=self.consistency_policies,
             enable_automatic_failover=self.enable_automatic_failover,
+            enable_free_tier=self.enable_free_tier,
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             endpoint=self.endpoint,
             geo_locations=self.geo_locations,
@@ -196,6 +203,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
         capabilities=__ret__.get('capabilities'),
         consistency_policies=__ret__.get('consistencyPolicies'),
         enable_automatic_failover=__ret__.get('enableAutomaticFailover'),
+        enable_free_tier=__ret__.get('enableFreeTier'),
         enable_multiple_write_locations=__ret__.get('enableMultipleWriteLocations'),
         endpoint=__ret__.get('endpoint'),
         geo_locations=__ret__.get('geoLocations'),

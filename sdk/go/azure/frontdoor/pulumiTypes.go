@@ -10,6 +10,251 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type CustomHttpsConfigurationCustomHttpsConfiguration struct {
+	// The name of the Key Vault secret representing the full certificate PFX.
+	AzureKeyVaultCertificateSecretName *string `pulumi:"azureKeyVaultCertificateSecretName"`
+	// The version of the Key Vault secret representing the full certificate PFX.
+	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
+	// The ID of the Key Vault containing the SSL certificate.
+	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
+	// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// Minimum client TLS version supported.
+	MinimumTlsVersion    *string `pulumi:"minimumTlsVersion"`
+	ProvisioningState    *string `pulumi:"provisioningState"`
+	ProvisioningSubstate *string `pulumi:"provisioningSubstate"`
+}
+
+// CustomHttpsConfigurationCustomHttpsConfigurationInput is an input type that accepts CustomHttpsConfigurationCustomHttpsConfigurationArgs and CustomHttpsConfigurationCustomHttpsConfigurationOutput values.
+// You can construct a concrete instance of `CustomHttpsConfigurationCustomHttpsConfigurationInput` via:
+//
+//          CustomHttpsConfigurationCustomHttpsConfigurationArgs{...}
+type CustomHttpsConfigurationCustomHttpsConfigurationInput interface {
+	pulumi.Input
+
+	ToCustomHttpsConfigurationCustomHttpsConfigurationOutput() CustomHttpsConfigurationCustomHttpsConfigurationOutput
+	ToCustomHttpsConfigurationCustomHttpsConfigurationOutputWithContext(context.Context) CustomHttpsConfigurationCustomHttpsConfigurationOutput
+}
+
+type CustomHttpsConfigurationCustomHttpsConfigurationArgs struct {
+	// The name of the Key Vault secret representing the full certificate PFX.
+	AzureKeyVaultCertificateSecretName pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretName"`
+	// The version of the Key Vault secret representing the full certificate PFX.
+	AzureKeyVaultCertificateSecretVersion pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
+	// The ID of the Key Vault containing the SSL certificate.
+	AzureKeyVaultCertificateVaultId pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
+	// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// Minimum client TLS version supported.
+	MinimumTlsVersion    pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
+	ProvisioningState    pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningSubstate pulumi.StringPtrInput `pulumi:"provisioningSubstate"`
+}
+
+func (CustomHttpsConfigurationCustomHttpsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomHttpsConfigurationCustomHttpsConfiguration)(nil)).Elem()
+}
+
+func (i CustomHttpsConfigurationCustomHttpsConfigurationArgs) ToCustomHttpsConfigurationCustomHttpsConfigurationOutput() CustomHttpsConfigurationCustomHttpsConfigurationOutput {
+	return i.ToCustomHttpsConfigurationCustomHttpsConfigurationOutputWithContext(context.Background())
+}
+
+func (i CustomHttpsConfigurationCustomHttpsConfigurationArgs) ToCustomHttpsConfigurationCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationCustomHttpsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationCustomHttpsConfigurationOutput)
+}
+
+func (i CustomHttpsConfigurationCustomHttpsConfigurationArgs) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
+	return i.ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CustomHttpsConfigurationCustomHttpsConfigurationArgs) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationCustomHttpsConfigurationOutput).ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(ctx)
+}
+
+// CustomHttpsConfigurationCustomHttpsConfigurationPtrInput is an input type that accepts CustomHttpsConfigurationCustomHttpsConfigurationArgs, CustomHttpsConfigurationCustomHttpsConfigurationPtr and CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput values.
+// You can construct a concrete instance of `CustomHttpsConfigurationCustomHttpsConfigurationPtrInput` via:
+//
+//          CustomHttpsConfigurationCustomHttpsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomHttpsConfigurationCustomHttpsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput
+	ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(context.Context) CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput
+}
+
+type customHttpsConfigurationCustomHttpsConfigurationPtrType CustomHttpsConfigurationCustomHttpsConfigurationArgs
+
+func CustomHttpsConfigurationCustomHttpsConfigurationPtr(v *CustomHttpsConfigurationCustomHttpsConfigurationArgs) CustomHttpsConfigurationCustomHttpsConfigurationPtrInput {
+	return (*customHttpsConfigurationCustomHttpsConfigurationPtrType)(v)
+}
+
+func (*customHttpsConfigurationCustomHttpsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomHttpsConfigurationCustomHttpsConfiguration)(nil)).Elem()
+}
+
+func (i *customHttpsConfigurationCustomHttpsConfigurationPtrType) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
+	return i.ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *customHttpsConfigurationCustomHttpsConfigurationPtrType) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput)
+}
+
+type CustomHttpsConfigurationCustomHttpsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CustomHttpsConfigurationCustomHttpsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomHttpsConfigurationCustomHttpsConfiguration)(nil)).Elem()
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ToCustomHttpsConfigurationCustomHttpsConfigurationOutput() CustomHttpsConfigurationCustomHttpsConfigurationOutput {
+	return o
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ToCustomHttpsConfigurationCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationCustomHttpsConfigurationOutput {
+	return o
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
+	return o.ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *CustomHttpsConfigurationCustomHttpsConfiguration {
+		return &v
+	}).(CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput)
+}
+
+// The name of the Key Vault secret representing the full certificate PFX.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the Key Vault secret representing the full certificate PFX.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateSecretVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault containing the SSL certificate.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		return v.AzureKeyVaultCertificateVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+// Minimum client TLS version supported.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
+}
+
+type CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomHttpsConfigurationCustomHttpsConfiguration)(nil)).Elem()
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
+	return o
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
+	return o
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) Elem() CustomHttpsConfigurationCustomHttpsConfigurationOutput {
+	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) CustomHttpsConfigurationCustomHttpsConfiguration {
+		return *v
+	}).(CustomHttpsConfigurationCustomHttpsConfigurationOutput)
+}
+
+// The name of the Key Vault secret representing the full certificate PFX.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureKeyVaultCertificateSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the Key Vault secret representing the full certificate PFX.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureKeyVaultCertificateSecretVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault containing the SSL certificate.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureKeyVaultCertificateVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Minimum client TLS version supported.
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningSubstate
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirewallPolicyCustomRule struct {
 	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
 	Action string `pulumi:"action"`
@@ -1594,9 +1839,13 @@ func (o FrontdoorBackendPoolLoadBalancingArrayOutput) Index(i pulumi.IntInput) F
 
 type FrontdoorFrontendEndpoint struct {
 	// A `customHttpsConfiguration` block as defined below.
+	//
+	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
 	CustomHttpsConfiguration *FrontdoorFrontendEndpointCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
 	// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-	CustomHttpsProvisioningEnabled bool `pulumi:"customHttpsProvisioningEnabled"`
+	//
+	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
+	CustomHttpsProvisioningEnabled *bool `pulumi:"customHttpsProvisioningEnabled"`
 	// Specifies the host name of the `frontendEndpoint`. Must be a domain name.
 	HostName string `pulumi:"hostName"`
 	// The ID of the FrontDoor.
@@ -1624,9 +1873,13 @@ type FrontdoorFrontendEndpointInput interface {
 
 type FrontdoorFrontendEndpointArgs struct {
 	// A `customHttpsConfiguration` block as defined below.
+	//
+	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
 	CustomHttpsConfiguration FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput `pulumi:"customHttpsConfiguration"`
 	// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-	CustomHttpsProvisioningEnabled pulumi.BoolInput `pulumi:"customHttpsProvisioningEnabled"`
+	//
+	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
+	CustomHttpsProvisioningEnabled pulumi.BoolPtrInput `pulumi:"customHttpsProvisioningEnabled"`
 	// Specifies the host name of the `frontendEndpoint`. Must be a domain name.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the FrontDoor.
@@ -1693,6 +1946,8 @@ func (o FrontdoorFrontendEndpointOutput) ToFrontdoorFrontendEndpointOutputWithCo
 }
 
 // A `customHttpsConfiguration` block as defined below.
+//
+// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
 func (o FrontdoorFrontendEndpointOutput) CustomHttpsConfiguration() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
 	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *FrontdoorFrontendEndpointCustomHttpsConfiguration {
 		return v.CustomHttpsConfiguration
@@ -1700,8 +1955,10 @@ func (o FrontdoorFrontendEndpointOutput) CustomHttpsConfiguration() FrontdoorFro
 }
 
 // Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-func (o FrontdoorFrontendEndpointOutput) CustomHttpsProvisioningEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpoint) bool { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolOutput)
+//
+// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
+func (o FrontdoorFrontendEndpointOutput) CustomHttpsProvisioningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *bool { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the host name of the `frontendEndpoint`. Must be a domain name.
@@ -2630,6 +2887,8 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) RedirectType() pulum
 }
 
 func init() {
+	pulumi.RegisterOutputType(CustomHttpsConfigurationCustomHttpsConfigurationOutput{})
+	pulumi.RegisterOutputType(CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomRuleOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomRuleMatchConditionOutput{})

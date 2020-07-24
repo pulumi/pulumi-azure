@@ -46,7 +46,7 @@ class Api(pulumi.CustomResource):
     """
     path: pulumi.Output[str]
     """
-    The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+    The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
     """
     protocols: pulumi.Output[list]
     """
@@ -124,7 +124,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input[dict] import_: A `import` block as documented below.
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+        :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[list] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
@@ -216,7 +216,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[bool] is_current: Is this the current API Revision?
         :param pulumi.Input[bool] is_online: Is this API Revision online/accessible via the Gateway?
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+        :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[list] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.

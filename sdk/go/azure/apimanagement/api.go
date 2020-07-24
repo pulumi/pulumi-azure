@@ -79,7 +79,7 @@ type Api struct {
 	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringOutput `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
@@ -161,7 +161,7 @@ type apiState struct {
 	IsOnline *bool `pulumi:"isOnline"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path *string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
 	Protocols []string `pulumi:"protocols"`
@@ -198,7 +198,7 @@ type ApiState struct {
 	IsOnline pulumi.BoolPtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringPtrInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
 	Protocols pulumi.StringArrayInput
@@ -235,7 +235,7 @@ type apiArgs struct {
 	Import *ApiImport `pulumi:"import"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
 	Protocols []string `pulumi:"protocols"`
@@ -269,7 +269,7 @@ type ApiArgs struct {
 	Import ApiImportPtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
 	Protocols pulumi.StringArrayInput

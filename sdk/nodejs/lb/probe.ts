@@ -90,7 +90,7 @@ export class Probe extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
-     * The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+     * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
     public readonly requestPath!: pulumi.Output<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface ProbeState {
      */
     readonly protocol?: pulumi.Input<string>;
     /**
-     * The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+     * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
     readonly requestPath?: pulumi.Input<string>;
     /**
@@ -219,7 +219,7 @@ export interface ProbeArgs {
      */
     readonly protocol?: pulumi.Input<string>;
     /**
-     * The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
+     * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
     readonly requestPath?: pulumi.Input<string>;
     /**
