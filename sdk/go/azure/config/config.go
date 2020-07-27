@@ -66,7 +66,11 @@ func GetLocation(ctx *pulumi.Context) string {
 
 // The Hostname which should be used for the Azure Metadata Service.
 func GetMetadataHost(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azure:metadataHost")
+	v, err := config.Try(ctx, "azure:metadataHost")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "ARM_METADATA_HOSTNAME").(string)
 }
 
 // Deprecated - replaced by `metadata_host`.

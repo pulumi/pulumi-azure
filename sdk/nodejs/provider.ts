@@ -35,11 +35,8 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-            if (!args || args.metadataHost === undefined) {
-                throw new Error("Missing required property 'metadataHost'");
-            }
         inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
         inputs["clientCertificatePassword"] = args ? args.clientCertificatePassword : undefined;
         inputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
@@ -49,7 +46,7 @@ export class Provider extends pulumi.ProviderResource {
         inputs["disableTerraformPartnerId"] = pulumi.output(args ? args.disableTerraformPartnerId : undefined).apply(JSON.stringify);
         inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
         inputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
-        inputs["metadataHost"] = args ? args.metadataHost : undefined;
+        inputs["metadataHost"] = (args ? args.metadataHost : undefined) || (utilities.getEnv("ARM_METADATA_HOSTNAME") || "");
         inputs["metadataUrl"] = (args ? args.metadataUrl : undefined) || (utilities.getEnv("ARM_METADATA_URL") || "");
         inputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
         inputs["partnerId"] = args ? args.partnerId : undefined;
@@ -110,7 +107,7 @@ export interface ProviderArgs {
     /**
      * The Hostname which should be used for the Azure Metadata Service.
      */
-    readonly metadataHost: pulumi.Input<string>;
+    readonly metadataHost?: pulumi.Input<string>;
     /**
      * Deprecated - replaced by `metadata_host`.
      *

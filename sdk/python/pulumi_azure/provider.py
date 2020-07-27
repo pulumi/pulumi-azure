@@ -84,7 +84,7 @@ class Provider(pulumi.ProviderResource):
             __props__['environment'] = environment
             __props__['features'] = pulumi.Output.from_input(features).apply(json.dumps) if features is not None else None
             if metadata_host is None:
-                raise TypeError("Missing required property 'metadata_host'")
+                metadata_host = (utilities.get_env('ARM_METADATA_HOSTNAME') or '')
             __props__['metadata_host'] = metadata_host
             if metadata_url is None:
                 metadata_url = (utilities.get_env('ARM_METADATA_URL') or '')
