@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Ensure provider `metadataHost` is an optional provider parameter
+_(none)_
 
 ---
+
+## 3.13.1 (2020-07-27)
+* Ensure provider `metadataHost` is an optional provider parameter
 
 ## 3.13.0 (2020-07-24)
 * Upgrade to v2.20.0 of the AzureRM Terraform Provider
