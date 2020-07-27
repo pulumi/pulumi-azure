@@ -24,7 +24,7 @@ namespace Pulumi.Azure
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("azure", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -103,8 +103,8 @@ namespace Pulumi.Azure
         /// <summary>
         /// The Hostname which should be used for the Azure Metadata Service.
         /// </summary>
-        [Input("metadataHost", required: true)]
-        public Input<string> MetadataHost { get; set; } = null!;
+        [Input("metadataHost")]
+        public Input<string>? MetadataHost { get; set; }
 
         /// <summary>
         /// Deprecated - replaced by `metadata_host`.
@@ -165,6 +165,7 @@ namespace Pulumi.Azure
         public ProviderArgs()
         {
             Environment = Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
+            MetadataHost = Utilities.GetEnv("ARM_METADATA_HOSTNAME") ?? "";
             MetadataUrl = Utilities.GetEnv("ARM_METADATA_URL") ?? "";
             SkipProviderRegistration = Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
             StorageUseAzuread = Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;

@@ -6,7 +6,6 @@ package azure
 import (
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -21,14 +20,14 @@ type Provider struct {
 // NewProvider registers a new resource with the given unique name, arguments, and options.
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
-	if args == nil || args.MetadataHost == nil {
-		return nil, errors.New("missing required argument 'MetadataHost'")
-	}
 	if args == nil {
 		args = &ProviderArgs{}
 	}
 	if args.Environment == nil {
 		args.Environment = pulumi.StringPtr(getEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").(string))
+	}
+	if args.MetadataHost == nil {
+		args.MetadataHost = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_METADATA_HOSTNAME").(string))
 	}
 	if args.MetadataUrl == nil {
 		args.MetadataUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "ARM_METADATA_URL").(string))
@@ -71,7 +70,7 @@ type providerArgs struct {
 	Environment *string           `pulumi:"environment"`
 	Features    *ProviderFeatures `pulumi:"features"`
 	// The Hostname which should be used for the Azure Metadata Service.
-	MetadataHost string `pulumi:"metadataHost"`
+	MetadataHost *string `pulumi:"metadataHost"`
 	// Deprecated - replaced by `metadata_host`.
 	//
 	// Deprecated: use `metadata_host` instead
@@ -118,7 +117,7 @@ type ProviderArgs struct {
 	Environment pulumi.StringPtrInput
 	Features    ProviderFeaturesPtrInput
 	// The Hostname which should be used for the Azure Metadata Service.
-	MetadataHost pulumi.StringInput
+	MetadataHost pulumi.StringPtrInput
 	// Deprecated - replaced by `metadata_host`.
 	//
 	// Deprecated: use `metadata_host` instead

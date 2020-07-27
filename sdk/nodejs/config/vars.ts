@@ -45,7 +45,7 @@ export let location: string | undefined = __config.get("location") || utilities.
 /**
  * The Hostname which should be used for the Azure Metadata Service.
  */
-export let metadataHost: string | undefined = __config.get("metadataHost");
+export let metadataHost: string | undefined = __config.get("metadataHost") || (utilities.getEnv("ARM_METADATA_HOSTNAME") || "");
 /**
  * Deprecated - replaced by `metadata_host`.
  */

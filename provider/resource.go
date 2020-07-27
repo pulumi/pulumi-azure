@@ -261,6 +261,12 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"ARM_METADATA_URL"},
 				},
 			},
+			"metadata_host": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_METADATA_HOSTNAME"},
+				},
+			},
 		},
 		ExtraConfig: map[string]*tfbridge.ConfigInfo{
 			azureLocation: {

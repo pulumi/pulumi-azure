@@ -55,7 +55,7 @@ namespace Pulumi.Azure
         /// <summary>
         /// The Hostname which should be used for the Azure Metadata Service.
         /// </summary>
-        public static string? MetadataHost { get; set; } = __config.Get("metadataHost");
+        public static string? MetadataHost { get; set; } = __config.Get("metadataHost") ?? Utilities.GetEnv("ARM_METADATA_HOSTNAME") ?? "";
 
         /// <summary>
         /// Deprecated - replaced by `metadata_host`.

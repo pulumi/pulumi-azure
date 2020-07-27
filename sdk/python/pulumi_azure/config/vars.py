@@ -54,7 +54,7 @@ features = __config__.get('features')
 
 location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
 
-metadata_host = __config__.get('metadataHost')
+metadata_host = __config__.get('metadataHost') or (utilities.get_env('ARM_METADATA_HOSTNAME') or '')
 """
 The Hostname which should be used for the Azure Metadata Service.
 """
