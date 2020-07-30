@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Relax naming restrictions on `apimanagement.Service` name to allow 256 character names
+_(none)_
 
 ---
 

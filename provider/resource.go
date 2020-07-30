@@ -286,12 +286,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management": {
 				Tok: azureResource(azureAPIManagement, "Service"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					// Max length of an API Management name is 256.
-					// Source: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftapimanagement
-					//azureName: (azureName, 256),
+					// Max length of an API Management name is 50.
+					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
+					//azureName: (azureName, 50),
 					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
 						Separator: "",
-						Maxlen:    256,
+						Maxlen:    50,
 						Randlen:   8,
 						Transform: func(name string) string {
 							return strings.ToLower(name)
