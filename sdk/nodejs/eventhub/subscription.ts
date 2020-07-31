@@ -115,6 +115,10 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
+    /**
      * The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */
     public readonly topicName!: pulumi.Output<string>;
@@ -146,6 +150,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["requiresSession"] = state ? state.requiresSession : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["status"] = state ? state.status : undefined;
             inputs["topicName"] = state ? state.topicName : undefined;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
@@ -173,6 +178,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
         if (!opts) {
@@ -239,6 +245,10 @@ export interface SubscriptionState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
      * The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */
     readonly topicName?: pulumi.Input<string>;
@@ -296,6 +306,10 @@ export interface SubscriptionArgs {
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+     */
+    readonly status?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */

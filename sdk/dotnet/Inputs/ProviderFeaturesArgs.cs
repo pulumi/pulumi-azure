@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Inputs
         [Input("keyVault")]
         public Input<Inputs.ProviderFeaturesKeyVaultArgs>? KeyVault { get; set; }
 
+        [Input("network")]
+        public Input<Inputs.ProviderFeaturesNetworkArgs>? Network { get; set; }
+
         [Input("virtualMachine")]
         public Input<Inputs.ProviderFeaturesVirtualMachineArgs>? VirtualMachine { get; set; }
 

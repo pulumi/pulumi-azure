@@ -92,6 +92,8 @@ type Subscription struct {
 	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
 	TopicName pulumi.StringOutput `pulumi:"topicName"`
 }
@@ -160,6 +162,8 @@ type subscriptionState struct {
 	RequiresSession *bool `pulumi:"requiresSession"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+	Status *string `pulumi:"status"`
 	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
 	TopicName *string `pulumi:"topicName"`
 }
@@ -189,6 +193,8 @@ type SubscriptionState struct {
 	RequiresSession pulumi.BoolPtrInput
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+	Status pulumi.StringPtrInput
 	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
 	TopicName pulumi.StringPtrInput
 }
@@ -222,6 +228,8 @@ type subscriptionArgs struct {
 	RequiresSession *bool `pulumi:"requiresSession"`
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+	Status *string `pulumi:"status"`
 	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
 	TopicName string `pulumi:"topicName"`
 }
@@ -252,6 +260,8 @@ type SubscriptionArgs struct {
 	RequiresSession pulumi.BoolPtrInput
 	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+	Status pulumi.StringPtrInput
 	// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
 	TopicName pulumi.StringInput
 }

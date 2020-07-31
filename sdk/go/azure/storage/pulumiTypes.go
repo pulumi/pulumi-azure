@@ -2747,7 +2747,7 @@ func (o ShareAclArrayOutput) Index(i pulumi.IntInput) ShareAclOutput {
 type ShareAclAccessPolicy struct {
 	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Expiry string `pulumi:"expiry"`
-	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 	Permissions string `pulumi:"permissions"`
 	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Start string `pulumi:"start"`
@@ -2767,7 +2767,7 @@ type ShareAclAccessPolicyInput interface {
 type ShareAclAccessPolicyArgs struct {
 	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Expiry pulumi.StringInput `pulumi:"expiry"`
-	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 	Permissions pulumi.StringInput `pulumi:"permissions"`
 	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 	Start pulumi.StringInput `pulumi:"start"`
@@ -2829,7 +2829,7 @@ func (o ShareAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
-// The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 func (o ShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Permissions }).(pulumi.StringOutput)
 }

@@ -93,9 +93,7 @@ import (
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
-	// The address space that is used the virtual
-	// network. You can supply more than one address space. Changing this forces
-	// a new resource to be created.
+	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrOutput `pulumi:"ddosProtectionPlan"`
@@ -103,17 +101,13 @@ type VirtualNetwork struct {
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// The GUID of the virtual network.
 	Guid pulumi.StringOutput `pulumi:"guid"`
-	// The location/region where the virtual network is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the virtual network. Changing this forces a
-	// new resource to be created.
+	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the virtual network.
+	// The name of the resource group in which to create the virtual network.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Can be specified multiple times to define multiple
-	// subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets VirtualNetworkSubnetArrayOutput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -153,9 +147,7 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetwork resources.
 type virtualNetworkState struct {
-	// The address space that is used the virtual
-	// network. You can supply more than one address space. Changing this forces
-	// a new resource to be created.
+	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
@@ -163,26 +155,20 @@ type virtualNetworkState struct {
 	DnsServers []string `pulumi:"dnsServers"`
 	// The GUID of the virtual network.
 	Guid *string `pulumi:"guid"`
-	// The location/region where the virtual network is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the virtual network. Changing this forces a
-	// new resource to be created.
+	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the virtual network.
+	// The name of the resource group in which to create the virtual network.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Can be specified multiple times to define multiple
-	// subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type VirtualNetworkState struct {
-	// The address space that is used the virtual
-	// network. You can supply more than one address space. Changing this forces
-	// a new resource to be created.
+	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayInput
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
@@ -190,17 +176,13 @@ type VirtualNetworkState struct {
 	DnsServers pulumi.StringArrayInput
 	// The GUID of the virtual network.
 	Guid pulumi.StringPtrInput
-	// The location/region where the virtual network is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the virtual network. Changing this forces a
-	// new resource to be created.
+	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the virtual network.
+	// The name of the resource group in which to create the virtual network.
 	ResourceGroupName pulumi.StringPtrInput
-	// Can be specified multiple times to define multiple
-	// subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -211,25 +193,19 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
-	// The address space that is used the virtual
-	// network. You can supply more than one address space. Changing this forces
-	// a new resource to be created.
+	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
 	DnsServers []string `pulumi:"dnsServers"`
-	// The location/region where the virtual network is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the virtual network. Changing this forces a
-	// new resource to be created.
+	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the resource group in which to
-	// create the virtual network.
+	// The name of the resource group in which to create the virtual network.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Can be specified multiple times to define multiple
-	// subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -237,25 +213,19 @@ type virtualNetworkArgs struct {
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
-	// The address space that is used the virtual
-	// network. You can supply more than one address space. Changing this forces
-	// a new resource to be created.
+	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayInput
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
 	DnsServers pulumi.StringArrayInput
-	// The location/region where the virtual network is
-	// created. Changing this forces a new resource to be created.
+	// The location/region where the virtual network is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the virtual network. Changing this forces a
-	// new resource to be created.
+	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the resource group in which to
-	// create the virtual network.
+	// The name of the resource group in which to create the virtual network.
 	ResourceGroupName pulumi.StringInput
-	// Can be specified multiple times to define multiple
-	// subnets. Each `subnet` block supports fields documented below.
+	// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

@@ -296,6 +296,118 @@ func (o ModuleModuleLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RunBookJobSchedule struct {
+	JobScheduleId *string           `pulumi:"jobScheduleId"`
+	Parameters    map[string]string `pulumi:"parameters"`
+	RunOn         *string           `pulumi:"runOn"`
+	ScheduleName  string            `pulumi:"scheduleName"`
+}
+
+// RunBookJobScheduleInput is an input type that accepts RunBookJobScheduleArgs and RunBookJobScheduleOutput values.
+// You can construct a concrete instance of `RunBookJobScheduleInput` via:
+//
+//          RunBookJobScheduleArgs{...}
+type RunBookJobScheduleInput interface {
+	pulumi.Input
+
+	ToRunBookJobScheduleOutput() RunBookJobScheduleOutput
+	ToRunBookJobScheduleOutputWithContext(context.Context) RunBookJobScheduleOutput
+}
+
+type RunBookJobScheduleArgs struct {
+	JobScheduleId pulumi.StringPtrInput `pulumi:"jobScheduleId"`
+	Parameters    pulumi.StringMapInput `pulumi:"parameters"`
+	RunOn         pulumi.StringPtrInput `pulumi:"runOn"`
+	ScheduleName  pulumi.StringInput    `pulumi:"scheduleName"`
+}
+
+func (RunBookJobScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookJobSchedule)(nil)).Elem()
+}
+
+func (i RunBookJobScheduleArgs) ToRunBookJobScheduleOutput() RunBookJobScheduleOutput {
+	return i.ToRunBookJobScheduleOutputWithContext(context.Background())
+}
+
+func (i RunBookJobScheduleArgs) ToRunBookJobScheduleOutputWithContext(ctx context.Context) RunBookJobScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookJobScheduleOutput)
+}
+
+// RunBookJobScheduleArrayInput is an input type that accepts RunBookJobScheduleArray and RunBookJobScheduleArrayOutput values.
+// You can construct a concrete instance of `RunBookJobScheduleArrayInput` via:
+//
+//          RunBookJobScheduleArray{ RunBookJobScheduleArgs{...} }
+type RunBookJobScheduleArrayInput interface {
+	pulumi.Input
+
+	ToRunBookJobScheduleArrayOutput() RunBookJobScheduleArrayOutput
+	ToRunBookJobScheduleArrayOutputWithContext(context.Context) RunBookJobScheduleArrayOutput
+}
+
+type RunBookJobScheduleArray []RunBookJobScheduleInput
+
+func (RunBookJobScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunBookJobSchedule)(nil)).Elem()
+}
+
+func (i RunBookJobScheduleArray) ToRunBookJobScheduleArrayOutput() RunBookJobScheduleArrayOutput {
+	return i.ToRunBookJobScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i RunBookJobScheduleArray) ToRunBookJobScheduleArrayOutputWithContext(ctx context.Context) RunBookJobScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookJobScheduleArrayOutput)
+}
+
+type RunBookJobScheduleOutput struct{ *pulumi.OutputState }
+
+func (RunBookJobScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookJobSchedule)(nil)).Elem()
+}
+
+func (o RunBookJobScheduleOutput) ToRunBookJobScheduleOutput() RunBookJobScheduleOutput {
+	return o
+}
+
+func (o RunBookJobScheduleOutput) ToRunBookJobScheduleOutputWithContext(ctx context.Context) RunBookJobScheduleOutput {
+	return o
+}
+
+func (o RunBookJobScheduleOutput) JobScheduleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunBookJobSchedule) *string { return v.JobScheduleId }).(pulumi.StringPtrOutput)
+}
+
+func (o RunBookJobScheduleOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RunBookJobSchedule) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+func (o RunBookJobScheduleOutput) RunOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunBookJobSchedule) *string { return v.RunOn }).(pulumi.StringPtrOutput)
+}
+
+func (o RunBookJobScheduleOutput) ScheduleName() pulumi.StringOutput {
+	return o.ApplyT(func(v RunBookJobSchedule) string { return v.ScheduleName }).(pulumi.StringOutput)
+}
+
+type RunBookJobScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (RunBookJobScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunBookJobSchedule)(nil)).Elem()
+}
+
+func (o RunBookJobScheduleArrayOutput) ToRunBookJobScheduleArrayOutput() RunBookJobScheduleArrayOutput {
+	return o
+}
+
+func (o RunBookJobScheduleArrayOutput) ToRunBookJobScheduleArrayOutputWithContext(ctx context.Context) RunBookJobScheduleArrayOutput {
+	return o
+}
+
+func (o RunBookJobScheduleArrayOutput) Index(i pulumi.IntInput) RunBookJobScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RunBookJobSchedule {
+		return vs[0].([]RunBookJobSchedule)[vs[1].(int)]
+	}).(RunBookJobScheduleOutput)
+}
+
 type RunBookPublishContentLink struct {
 	Hash *RunBookPublishContentLinkHash `pulumi:"hash"`
 	// The uri of the runbook content.
@@ -708,6 +820,8 @@ func init() {
 	pulumi.RegisterOutputType(ModuleModuleLinkPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashPtrOutput{})
+	pulumi.RegisterOutputType(RunBookJobScheduleOutput{})
+	pulumi.RegisterOutputType(RunBookJobScheduleArrayOutput{})
 	pulumi.RegisterOutputType(RunBookPublishContentLinkOutput{})
 	pulumi.RegisterOutputType(RunBookPublishContentLinkPtrOutput{})
 	pulumi.RegisterOutputType(RunBookPublishContentLinkHashOutput{})

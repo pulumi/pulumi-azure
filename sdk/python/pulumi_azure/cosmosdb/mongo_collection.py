@@ -17,7 +17,7 @@ class MongoCollection(pulumi.CustomResource):
     """
     default_ttl_seconds: pulumi.Output[float]
     """
-    The default Time To Live in seconds. If the value is `0` items are not automatically expired.
+    The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
     """
     indices: pulumi.Output[list]
     """
@@ -76,7 +76,7 @@ class MongoCollection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `0` items are not automatically expired.
+        :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
         :param pulumi.Input[list] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -136,7 +136,7 @@ class MongoCollection(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `0` items are not automatically expired.
+        :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
         :param pulumi.Input[list] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.

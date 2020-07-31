@@ -11,6 +11,45 @@ namespace Pulumi.Azure.Automation
 {
     /// <summary>
     /// Manages a Automation Runbook.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///         });
+    ///         var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new Azure.Automation.RunBookArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AutomationAccountName = exampleAccount.Name,
+    ///             LogVerbose = true,
+    ///             LogProgress = true,
+    ///             Description = "This is an example runbook",
+    ///             RunbookType = "PowerShellWorkflow",
+    ///             PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
+    ///             {
+    ///                 Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class RunBook : Pulumi.CustomResource
     {
@@ -31,6 +70,9 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        [Output("jobSchedules")]
+        public Output<ImmutableArray<Outputs.RunBookJobSchedule>> JobSchedules { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -144,6 +186,14 @@ namespace Pulumi.Azure.Automation
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("jobSchedules")]
+        private InputList<Inputs.RunBookJobScheduleArgs>? _jobSchedules;
+        public InputList<Inputs.RunBookJobScheduleArgs> JobSchedules
+        {
+            get => _jobSchedules ?? (_jobSchedules = new InputList<Inputs.RunBookJobScheduleArgs>());
+            set => _jobSchedules = value;
+        }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -222,6 +272,14 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("jobSchedules")]
+        private InputList<Inputs.RunBookJobScheduleGetArgs>? _jobSchedules;
+        public InputList<Inputs.RunBookJobScheduleGetArgs> JobSchedules
+        {
+            get => _jobSchedules ?? (_jobSchedules = new InputList<Inputs.RunBookJobScheduleGetArgs>());
+            set => _jobSchedules = value;
+        }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

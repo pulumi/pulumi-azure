@@ -22,6 +22,7 @@ class RunBook(pulumi.CustomResource):
     """
     A description for this credential.
     """
+    job_schedules: pulumi.Output[list]
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -61,7 +62,7 @@ class RunBook(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, content=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, content=None, description=None, job_schedules=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation Runbook.
 
@@ -75,9 +76,7 @@ class RunBook(pulumi.CustomResource):
         example_account = azure.automation.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=[{
-                "name": "Basic",
-            }])
+            sku_name="Basic")
         example_run_book = azure.automation.RunBook("exampleRunBook",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -104,6 +103,13 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        The **job_schedules** object supports the following:
+
+          * `job_schedule_id` (`pulumi.Input[str]`)
+          * `parameters` (`pulumi.Input[dict]`)
+          * `run_on` (`pulumi.Input[str]`)
+          * `schedule_name` (`pulumi.Input[str]`)
 
         The **publish_content_link** object supports the following:
 
@@ -136,6 +142,7 @@ class RunBook(pulumi.CustomResource):
             __props__['automation_account_name'] = automation_account_name
             __props__['content'] = content
             __props__['description'] = description
+            __props__['job_schedules'] = job_schedules
             __props__['location'] = location
             if log_progress is None:
                 raise TypeError("Missing required property 'log_progress'")
@@ -159,7 +166,7 @@ class RunBook(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, automation_account_name=None, content=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None):
+    def get(resource_name, id, opts=None, automation_account_name=None, content=None, description=None, job_schedules=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None):
         """
         Get an existing RunBook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -179,6 +186,13 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        The **job_schedules** object supports the following:
+
+          * `job_schedule_id` (`pulumi.Input[str]`)
+          * `parameters` (`pulumi.Input[dict]`)
+          * `run_on` (`pulumi.Input[str]`)
+          * `schedule_name` (`pulumi.Input[str]`)
+
         The **publish_content_link** object supports the following:
 
           * `hash` (`pulumi.Input[dict]`)
@@ -195,6 +209,7 @@ class RunBook(pulumi.CustomResource):
         __props__["automation_account_name"] = automation_account_name
         __props__["content"] = content
         __props__["description"] = description
+        __props__["job_schedules"] = job_schedules
         __props__["location"] = location
         __props__["log_progress"] = log_progress
         __props__["log_verbose"] = log_verbose

@@ -2528,6 +2528,8 @@ func (o GetPoolCertificateArrayOutput) Index(i pulumi.IntInput) GetPoolCertifica
 }
 
 type GetPoolContainerConfiguration struct {
+	// A list of container image names to use, as would be specified by `docker pull`.
+	ContainerImageNames []string `pulumi:"containerImageNames"`
 	// Additional container registries from which container images can be pulled by the pool's VMs.
 	ContainerRegistries []GetPoolContainerConfigurationContainerRegistry `pulumi:"containerRegistries"`
 	// The type of container configuration.
@@ -2546,6 +2548,8 @@ type GetPoolContainerConfigurationInput interface {
 }
 
 type GetPoolContainerConfigurationArgs struct {
+	// A list of container image names to use, as would be specified by `docker pull`.
+	ContainerImageNames pulumi.StringArrayInput `pulumi:"containerImageNames"`
 	// Additional container registries from which container images can be pulled by the pool's VMs.
 	ContainerRegistries GetPoolContainerConfigurationContainerRegistryArrayInput `pulumi:"containerRegistries"`
 	// The type of container configuration.
@@ -2601,6 +2605,11 @@ func (o GetPoolContainerConfigurationOutput) ToGetPoolContainerConfigurationOutp
 
 func (o GetPoolContainerConfigurationOutput) ToGetPoolContainerConfigurationOutputWithContext(ctx context.Context) GetPoolContainerConfigurationOutput {
 	return o
+}
+
+// A list of container image names to use, as would be specified by `docker pull`.
+func (o GetPoolContainerConfigurationOutput) ContainerImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPoolContainerConfiguration) []string { return v.ContainerImageNames }).(pulumi.StringArrayOutput)
 }
 
 // Additional container registries from which container images can be pulled by the pool's VMs.

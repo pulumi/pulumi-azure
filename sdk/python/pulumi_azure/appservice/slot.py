@@ -112,7 +112,7 @@ class Slot(pulumi.CustomResource):
 
       * `alwaysOn` (`bool`) - Should the app be loaded at all times? Defaults to `false`.
       * `appCommandLine` (`str`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
-      * `autoSwapSlotName` (`str`) - The name of the swap to automatically swap to during deployment
+      * `autoSwapSlotName` (`str`) - The name of the slot to automatically swap to during deployment
       * `cors` (`dict`) - A `cors` block as defined below.
         * `allowedOrigins` (`list`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         * `supportCredentials` (`bool`) - Are credentials supported?
@@ -338,6 +338,8 @@ class Slot(pulumi.CustomResource):
               * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
               * `sasUrl` (`pulumi.Input[str]`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
+            * `fileSystemLevel` (`pulumi.Input[str]`) - The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+
           * `httpLogs` (`pulumi.Input[dict]`) - An `http_logs` block as defined below.
             * `azureBlobStorage` (`pulumi.Input[dict]`) - An `azure_blob_storage` block as defined below.
               * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
@@ -351,7 +353,7 @@ class Slot(pulumi.CustomResource):
 
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
           * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
-          * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the swap to automatically swap to during deployment
+          * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the slot to automatically swap to during deployment
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
             * `supportCredentials` (`pulumi.Input[bool]`) - Are credentials supported?
@@ -521,6 +523,8 @@ class Slot(pulumi.CustomResource):
               * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
               * `sasUrl` (`pulumi.Input[str]`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
+            * `fileSystemLevel` (`pulumi.Input[str]`) - The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+
           * `httpLogs` (`pulumi.Input[dict]`) - An `http_logs` block as defined below.
             * `azureBlobStorage` (`pulumi.Input[dict]`) - An `azure_blob_storage` block as defined below.
               * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
@@ -534,7 +538,7 @@ class Slot(pulumi.CustomResource):
 
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
           * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
-          * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the swap to automatically swap to during deployment
+          * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the slot to automatically swap to during deployment
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
             * `supportCredentials` (`pulumi.Input[bool]`) - Are credentials supported?

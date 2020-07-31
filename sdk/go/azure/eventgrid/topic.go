@@ -69,7 +69,6 @@ type Topic struct {
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// A mapping of tags to assign to the resource.
-	// ---
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -129,7 +128,6 @@ type topicState struct {
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// A mapping of tags to assign to the resource.
-	// ---
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -153,7 +151,6 @@ type TopicState struct {
 	// The Secondary Shared Access Key associated with the EventGrid Topic.
 	SecondaryAccessKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
-	// ---
 	Tags pulumi.StringMapInput
 }
 
@@ -175,7 +172,6 @@ type topicArgs struct {
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
-	// ---
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -194,7 +190,6 @@ type TopicArgs struct {
 	// The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
-	// ---
 	Tags pulumi.StringMapInput
 }
 

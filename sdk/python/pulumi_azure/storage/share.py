@@ -16,7 +16,7 @@ class Share(pulumi.CustomResource):
 
       * `access_policies` (`list`) - An `access_policy` block as defined below.
         * `expiry` (`str`) - The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-        * `permissions` (`str`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+        * `permissions` (`str`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
         * `start` (`str`) - The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 
       * `id` (`str`) - The ID which should be used for this Shared Identifier.
@@ -88,7 +88,7 @@ class Share(pulumi.CustomResource):
 
           * `access_policies` (`pulumi.Input[list]`) - An `access_policy` block as defined below.
             * `expiry` (`pulumi.Input[str]`) - The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-            * `permissions` (`pulumi.Input[str]`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+            * `permissions` (`pulumi.Input[str]`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
             * `start` (`pulumi.Input[str]`) - The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 
           * `id` (`pulumi.Input[str]`) - The ID which should be used for this Shared Identifier.
@@ -147,7 +147,7 @@ class Share(pulumi.CustomResource):
 
           * `access_policies` (`pulumi.Input[list]`) - An `access_policy` block as defined below.
             * `expiry` (`pulumi.Input[str]`) - The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-            * `permissions` (`pulumi.Input[str]`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+            * `permissions` (`pulumi.Input[str]`) - The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
             * `start` (`pulumi.Input[str]`) - The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 
           * `id` (`pulumi.Input[str]`) - The ID which should be used for this Shared Identifier.

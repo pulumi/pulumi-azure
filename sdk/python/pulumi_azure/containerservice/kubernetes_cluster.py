@@ -218,7 +218,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     sku_tier: pulumi.Output[str]
     """
-    The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+    The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
     """
     tags: pulumi.Output[dict]
     """
@@ -283,7 +283,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
-        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] windows_profile: A `windows_profile` block as defined below.
 
@@ -490,7 +490,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
-        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] windows_profile: A `windows_profile` block as defined below.
 

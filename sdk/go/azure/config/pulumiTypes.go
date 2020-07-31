@@ -12,6 +12,7 @@ import (
 
 type Features struct {
 	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
+	Network                *FeaturesNetwork                `pulumi:"network"`
 	VirtualMachine         *FeaturesVirtualMachine         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *FeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
 }
@@ -29,6 +30,7 @@ type FeaturesInput interface {
 
 type FeaturesArgs struct {
 	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
+	Network                FeaturesNetworkPtrInput                `pulumi:"network"`
 	VirtualMachine         FeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet FeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
 }
@@ -61,6 +63,10 @@ func (o FeaturesOutput) ToFeaturesOutputWithContext(ctx context.Context) Feature
 
 func (o FeaturesOutput) KeyVault() FeaturesKeyVaultPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesKeyVault { return v.KeyVault }).(FeaturesKeyVaultPtrOutput)
+}
+
+func (o FeaturesOutput) Network() FeaturesNetworkPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesNetwork { return v.Network }).(FeaturesNetworkPtrOutput)
 }
 
 func (o FeaturesOutput) VirtualMachine() FeaturesVirtualMachinePtrOutput {
@@ -209,6 +215,132 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrO
 			return nil
 		}
 		return v.RecoverSoftDeletedKeyVaults
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesNetwork struct {
+	RelaxedLocking *bool `pulumi:"relaxedLocking"`
+}
+
+// FeaturesNetworkInput is an input type that accepts FeaturesNetworkArgs and FeaturesNetworkOutput values.
+// You can construct a concrete instance of `FeaturesNetworkInput` via:
+//
+//          FeaturesNetworkArgs{...}
+type FeaturesNetworkInput interface {
+	pulumi.Input
+
+	ToFeaturesNetworkOutput() FeaturesNetworkOutput
+	ToFeaturesNetworkOutputWithContext(context.Context) FeaturesNetworkOutput
+}
+
+type FeaturesNetworkArgs struct {
+	RelaxedLocking pulumi.BoolPtrInput `pulumi:"relaxedLocking"`
+}
+
+func (FeaturesNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesNetwork)(nil)).Elem()
+}
+
+func (i FeaturesNetworkArgs) ToFeaturesNetworkOutput() FeaturesNetworkOutput {
+	return i.ToFeaturesNetworkOutputWithContext(context.Background())
+}
+
+func (i FeaturesNetworkArgs) ToFeaturesNetworkOutputWithContext(ctx context.Context) FeaturesNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetworkOutput)
+}
+
+func (i FeaturesNetworkArgs) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput {
+	return i.ToFeaturesNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesNetworkArgs) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetworkOutput).ToFeaturesNetworkPtrOutputWithContext(ctx)
+}
+
+// FeaturesNetworkPtrInput is an input type that accepts FeaturesNetworkArgs, FeaturesNetworkPtr and FeaturesNetworkPtrOutput values.
+// You can construct a concrete instance of `FeaturesNetworkPtrInput` via:
+//
+//          FeaturesNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type FeaturesNetworkPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput
+	ToFeaturesNetworkPtrOutputWithContext(context.Context) FeaturesNetworkPtrOutput
+}
+
+type featuresNetworkPtrType FeaturesNetworkArgs
+
+func FeaturesNetworkPtr(v *FeaturesNetworkArgs) FeaturesNetworkPtrInput {
+	return (*featuresNetworkPtrType)(v)
+}
+
+func (*featuresNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesNetwork)(nil)).Elem()
+}
+
+func (i *featuresNetworkPtrType) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput {
+	return i.ToFeaturesNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresNetworkPtrType) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesNetworkPtrOutput)
+}
+
+type FeaturesNetworkOutput struct{ *pulumi.OutputState }
+
+func (FeaturesNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesNetwork)(nil)).Elem()
+}
+
+func (o FeaturesNetworkOutput) ToFeaturesNetworkOutput() FeaturesNetworkOutput {
+	return o
+}
+
+func (o FeaturesNetworkOutput) ToFeaturesNetworkOutputWithContext(ctx context.Context) FeaturesNetworkOutput {
+	return o
+}
+
+func (o FeaturesNetworkOutput) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput {
+	return o.ToFeaturesNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesNetworkOutput) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
+	return o.ApplyT(func(v FeaturesNetwork) *FeaturesNetwork {
+		return &v
+	}).(FeaturesNetworkPtrOutput)
+}
+func (o FeaturesNetworkOutput) RelaxedLocking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesNetwork) *bool { return v.RelaxedLocking }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesNetwork)(nil)).Elem()
+}
+
+func (o FeaturesNetworkPtrOutput) ToFeaturesNetworkPtrOutput() FeaturesNetworkPtrOutput {
+	return o
+}
+
+func (o FeaturesNetworkPtrOutput) ToFeaturesNetworkPtrOutputWithContext(ctx context.Context) FeaturesNetworkPtrOutput {
+	return o
+}
+
+func (o FeaturesNetworkPtrOutput) Elem() FeaturesNetworkOutput {
+	return o.ApplyT(func(v *FeaturesNetwork) FeaturesNetwork { return *v }).(FeaturesNetworkOutput)
+}
+
+func (o FeaturesNetworkPtrOutput) RelaxedLocking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RelaxedLocking
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -468,6 +600,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesNetworkOutput{})
+	pulumi.RegisterOutputType(FeaturesNetworkPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesVirtualMachineOutput{})
 	pulumi.RegisterOutputType(FeaturesVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesVirtualMachineScaleSetOutput{})

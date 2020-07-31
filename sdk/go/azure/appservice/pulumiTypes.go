@@ -2056,6 +2056,7 @@ func (o AppServiceLogsPtrOutput) HttpLogs() AppServiceLogsHttpLogsPtrOutput {
 type AppServiceLogsApplicationLogs struct {
 	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage *AppServiceLogsApplicationLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
+	FileSystemLevel  *string                                        `pulumi:"fileSystemLevel"`
 }
 
 // AppServiceLogsApplicationLogsInput is an input type that accepts AppServiceLogsApplicationLogsArgs and AppServiceLogsApplicationLogsOutput values.
@@ -2072,6 +2073,7 @@ type AppServiceLogsApplicationLogsInput interface {
 type AppServiceLogsApplicationLogsArgs struct {
 	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage AppServiceLogsApplicationLogsAzureBlobStoragePtrInput `pulumi:"azureBlobStorage"`
+	FileSystemLevel  pulumi.StringPtrInput                                 `pulumi:"fileSystemLevel"`
 }
 
 func (AppServiceLogsApplicationLogsArgs) ElementType() reflect.Type {
@@ -2158,6 +2160,10 @@ func (o AppServiceLogsApplicationLogsOutput) AzureBlobStorage() AppServiceLogsAp
 	}).(AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
 
+func (o AppServiceLogsApplicationLogsOutput) FileSystemLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceLogsApplicationLogs) *string { return v.FileSystemLevel }).(pulumi.StringPtrOutput)
+}
+
 type AppServiceLogsApplicationLogsPtrOutput struct{ *pulumi.OutputState }
 
 func (AppServiceLogsApplicationLogsPtrOutput) ElementType() reflect.Type {
@@ -2184,6 +2190,15 @@ func (o AppServiceLogsApplicationLogsPtrOutput) AzureBlobStorage() AppServiceLog
 		}
 		return v.AzureBlobStorage
 	}).(AppServiceLogsApplicationLogsAzureBlobStoragePtrOutput)
+}
+
+func (o AppServiceLogsApplicationLogsPtrOutput) FileSystemLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceLogsApplicationLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemLevel
+	}).(pulumi.StringPtrOutput)
 }
 
 type AppServiceLogsApplicationLogsAzureBlobStorage struct {
@@ -7989,6 +8004,8 @@ func (o FunctionAppSlotIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type FunctionAppSlotSiteConfig struct {
 	// Should the Function App be loaded at all times? Defaults to `false`.
 	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// The name of the slot to automatically swap to during deployment
+	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *FunctionAppSlotSiteConfigCors `pulumi:"cors"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
@@ -8023,6 +8040,8 @@ type FunctionAppSlotSiteConfigInput interface {
 type FunctionAppSlotSiteConfigArgs struct {
 	// Should the Function App be loaded at all times? Defaults to `false`.
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	// The name of the slot to automatically swap to during deployment
+	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors FunctionAppSlotSiteConfigCorsPtrInput `pulumi:"cors"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
@@ -8125,6 +8144,11 @@ func (o FunctionAppSlotSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the slot to automatically swap to during deployment
+func (o FunctionAppSlotSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
+}
+
 // A `cors` block as defined below.
 func (o FunctionAppSlotSiteConfigOutput) Cors() FunctionAppSlotSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *FunctionAppSlotSiteConfigCors { return v.Cors }).(FunctionAppSlotSiteConfigCorsPtrOutput)
@@ -8196,6 +8220,16 @@ func (o FunctionAppSlotSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 		}
 		return v.AlwaysOn
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the slot to automatically swap to during deployment
+func (o FunctionAppSlotSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSwapSlotName
+	}).(pulumi.StringPtrOutput)
 }
 
 // A `cors` block as defined below.
@@ -10462,6 +10496,8 @@ func (o SlotLogsPtrOutput) HttpLogs() SlotLogsHttpLogsPtrOutput {
 type SlotLogsApplicationLogs struct {
 	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage *SlotLogsApplicationLogsAzureBlobStorage `pulumi:"azureBlobStorage"`
+	// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+	FileSystemLevel *string `pulumi:"fileSystemLevel"`
 }
 
 // SlotLogsApplicationLogsInput is an input type that accepts SlotLogsApplicationLogsArgs and SlotLogsApplicationLogsOutput values.
@@ -10478,6 +10514,8 @@ type SlotLogsApplicationLogsInput interface {
 type SlotLogsApplicationLogsArgs struct {
 	// An `azureBlobStorage` block as defined below.
 	AzureBlobStorage SlotLogsApplicationLogsAzureBlobStoragePtrInput `pulumi:"azureBlobStorage"`
+	// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+	FileSystemLevel pulumi.StringPtrInput `pulumi:"fileSystemLevel"`
 }
 
 func (SlotLogsApplicationLogsArgs) ElementType() reflect.Type {
@@ -10562,6 +10600,11 @@ func (o SlotLogsApplicationLogsOutput) AzureBlobStorage() SlotLogsApplicationLog
 	return o.ApplyT(func(v SlotLogsApplicationLogs) *SlotLogsApplicationLogsAzureBlobStorage { return v.AzureBlobStorage }).(SlotLogsApplicationLogsAzureBlobStoragePtrOutput)
 }
 
+// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+func (o SlotLogsApplicationLogsOutput) FileSystemLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotLogsApplicationLogs) *string { return v.FileSystemLevel }).(pulumi.StringPtrOutput)
+}
+
 type SlotLogsApplicationLogsPtrOutput struct{ *pulumi.OutputState }
 
 func (SlotLogsApplicationLogsPtrOutput) ElementType() reflect.Type {
@@ -10588,6 +10631,16 @@ func (o SlotLogsApplicationLogsPtrOutput) AzureBlobStorage() SlotLogsApplication
 		}
 		return v.AzureBlobStorage
 	}).(SlotLogsApplicationLogsAzureBlobStoragePtrOutput)
+}
+
+// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+func (o SlotLogsApplicationLogsPtrOutput) FileSystemLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotLogsApplicationLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemLevel
+	}).(pulumi.StringPtrOutput)
 }
 
 type SlotLogsApplicationLogsAzureBlobStorage struct {
@@ -11214,7 +11267,7 @@ type SlotSiteConfig struct {
 	AlwaysOn *bool `pulumi:"alwaysOn"`
 	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
 	AppCommandLine *string `pulumi:"appCommandLine"`
-	// The name of the swap to automatically swap to during deployment
+	// The name of the slot to automatically swap to during deployment
 	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *SlotSiteConfigCors `pulumi:"cors"`
@@ -11276,7 +11329,7 @@ type SlotSiteConfigArgs struct {
 	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
 	// App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
 	AppCommandLine pulumi.StringPtrInput `pulumi:"appCommandLine"`
-	// The name of the swap to automatically swap to during deployment
+	// The name of the slot to automatically swap to during deployment
 	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors SlotSiteConfigCorsPtrInput `pulumi:"cors"`
@@ -11409,7 +11462,7 @@ func (o SlotSiteConfigOutput) AppCommandLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
 }
 
-// The name of the swap to automatically swap to during deployment
+// The name of the slot to automatically swap to during deployment
 func (o SlotSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
@@ -11566,7 +11619,7 @@ func (o SlotSiteConfigPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the swap to automatically swap to during deployment
+// The name of the slot to automatically swap to during deployment
 func (o SlotSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSiteConfig) *string {
 		if v == nil {

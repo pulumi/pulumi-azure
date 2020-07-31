@@ -91,9 +91,7 @@ namespace Pulumi.Azure.Network
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
-        /// The address space that is used the virtual
-        /// network. You can supply more than one address space. Changing this forces
-        /// a new resource to be created.
+        /// The address space that is used the virtual network. You can supply more than one address space.
         /// </summary>
         [Output("addressSpaces")]
         public Output<ImmutableArray<string>> AddressSpaces { get; private set; } = null!;
@@ -117,29 +115,25 @@ namespace Pulumi.Azure.Network
         public Output<string> Guid { get; private set; } = null!;
 
         /// <summary>
-        /// The location/region where the virtual network is
-        /// created. Changing this forces a new resource to be created.
+        /// The location/region where the virtual network is created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
+        /// The name of the virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the virtual network.
+        /// The name of the resource group in which to create the virtual network.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple
-        /// subnets. Each `subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<Outputs.VirtualNetworkSubnet>> Subnets { get; private set; } = null!;
@@ -200,9 +194,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _addressSpaces;
 
         /// <summary>
-        /// The address space that is used the virtual
-        /// network. You can supply more than one address space. Changing this forces
-        /// a new resource to be created.
+        /// The address space that is used the virtual network. You can supply more than one address space.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -229,22 +221,19 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The location/region where the virtual network is
-        /// created. Changing this forces a new resource to be created.
+        /// The location/region where the virtual network is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
+        /// The name of the virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the virtual network.
+        /// The name of the resource group in which to create the virtual network.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -253,8 +242,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkSubnetArgs>? _subnets;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple
-        /// subnets. Each `subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.VirtualNetworkSubnetArgs> Subnets
         {
@@ -285,9 +273,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _addressSpaces;
 
         /// <summary>
-        /// The address space that is used the virtual
-        /// network. You can supply more than one address space. Changing this forces
-        /// a new resource to be created.
+        /// The address space that is used the virtual network. You can supply more than one address space.
         /// </summary>
         public InputList<string> AddressSpaces
         {
@@ -320,22 +306,19 @@ namespace Pulumi.Azure.Network
         public Input<string>? Guid { get; set; }
 
         /// <summary>
-        /// The location/region where the virtual network is
-        /// created. Changing this forces a new resource to be created.
+        /// The location/region where the virtual network is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
+        /// The name of the virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the virtual network.
+        /// The name of the resource group in which to create the virtual network.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -344,8 +327,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkSubnetGetArgs>? _subnets;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple
-        /// subnets. Each `subnet` block supports fields documented below.
+        /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.VirtualNetworkSubnetGetArgs> Subnets
         {

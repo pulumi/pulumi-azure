@@ -25,15 +25,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
+        /// The name of the virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Network Security Group to associate with
-        /// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+        /// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         /// </summary>
         [Input("securityGroup")]
         public Input<string>? SecurityGroup { get; set; }

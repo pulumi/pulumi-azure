@@ -14,6 +14,7 @@ namespace Pulumi.Azure.Outputs
     public sealed class ProviderFeatures
     {
         public readonly Outputs.ProviderFeaturesKeyVault? KeyVault;
+        public readonly Outputs.ProviderFeaturesNetwork? Network;
         public readonly Outputs.ProviderFeaturesVirtualMachine? VirtualMachine;
         public readonly Outputs.ProviderFeaturesVirtualMachineScaleSet? VirtualMachineScaleSet;
 
@@ -21,11 +22,14 @@ namespace Pulumi.Azure.Outputs
         private ProviderFeatures(
             Outputs.ProviderFeaturesKeyVault? keyVault,
 
+            Outputs.ProviderFeaturesNetwork? network,
+
             Outputs.ProviderFeaturesVirtualMachine? virtualMachine,
 
             Outputs.ProviderFeaturesVirtualMachineScaleSet? virtualMachineScaleSet)
         {
             KeyVault = keyVault;
+            Network = network;
             VirtualMachine = virtualMachine;
             VirtualMachineScaleSet = virtualMachineScaleSet;
         }

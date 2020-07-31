@@ -54,6 +54,8 @@ type Service struct {
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A `queryKeys` block as defined below.
 	QueryKeys ServiceQueryKeyArrayOutput `pulumi:"queryKeys"`
 	// The number of replica's which should be created.
@@ -110,6 +112,8 @@ type serviceState struct {
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey *string `pulumi:"primaryKey"`
+	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `queryKeys` block as defined below.
 	QueryKeys []ServiceQueryKey `pulumi:"queryKeys"`
 	// The number of replica's which should be created.
@@ -133,6 +137,8 @@ type ServiceState struct {
 	PartitionCount pulumi.IntPtrInput
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey pulumi.StringPtrInput
+	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `queryKeys` block as defined below.
 	QueryKeys ServiceQueryKeyArrayInput
 	// The number of replica's which should be created.
@@ -158,6 +164,8 @@ type serviceArgs struct {
 	Name *string `pulumi:"name"`
 	// The number of partitions which should be created.
 	PartitionCount *int `pulumi:"partitionCount"`
+	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The number of replica's which should be created.
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
@@ -176,6 +184,8 @@ type ServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// The number of partitions which should be created.
 	PartitionCount pulumi.IntPtrInput
+	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The number of replica's which should be created.
 	ReplicaCount pulumi.IntPtrInput
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.

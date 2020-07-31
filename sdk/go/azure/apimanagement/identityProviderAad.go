@@ -70,6 +70,8 @@ type IdentityProviderAad struct {
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The AAD Tenant to use instead of Common when logging into Active Directory
+	SigninTenant pulumi.StringPtrOutput `pulumi:"signinTenant"`
 }
 
 // NewIdentityProviderAad registers a new resource with the given unique name, arguments, and options.
@@ -125,6 +127,8 @@ type identityProviderAadState struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The AAD Tenant to use instead of Common when logging into Active Directory
+	SigninTenant *string `pulumi:"signinTenant"`
 }
 
 type IdentityProviderAadState struct {
@@ -138,6 +142,8 @@ type IdentityProviderAadState struct {
 	ClientSecret pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The AAD Tenant to use instead of Common when logging into Active Directory
+	SigninTenant pulumi.StringPtrInput
 }
 
 func (IdentityProviderAadState) ElementType() reflect.Type {
@@ -155,6 +161,8 @@ type identityProviderAadArgs struct {
 	ClientSecret string `pulumi:"clientSecret"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The AAD Tenant to use instead of Common when logging into Active Directory
+	SigninTenant *string `pulumi:"signinTenant"`
 }
 
 // The set of arguments for constructing a IdentityProviderAad resource.
@@ -169,6 +177,8 @@ type IdentityProviderAadArgs struct {
 	ClientSecret pulumi.StringInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The AAD Tenant to use instead of Common when logging into Active Directory
+	SigninTenant pulumi.StringPtrInput
 }
 
 func (IdentityProviderAadArgs) ElementType() reflect.Type {

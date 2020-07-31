@@ -95,12 +95,12 @@ type HybridConnection struct {
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The port of the endpoint.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
 	RelayId   pulumi.StringOutput `pulumi:"relayId"`
 	RelayName pulumi.StringOutput `pulumi:"relayName"`
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The name of the Service Bus key.
+	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName pulumi.StringPtrOutput `pulumi:"sendKeyName"`
 	// The value of the Service Bus Primary Access key.
 	SendKeyValue pulumi.StringOutput `pulumi:"sendKeyValue"`
@@ -161,12 +161,12 @@ type hybridConnectionState struct {
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The port of the endpoint.
 	Port *int `pulumi:"port"`
-	// The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
 	RelayId   *string `pulumi:"relayId"`
 	RelayName *string `pulumi:"relayName"`
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The name of the Service Bus key.
+	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName *string `pulumi:"sendKeyName"`
 	// The value of the Service Bus Primary Access key.
 	SendKeyValue *string `pulumi:"sendKeyValue"`
@@ -185,12 +185,12 @@ type HybridConnectionState struct {
 	NamespaceName pulumi.StringPtrInput
 	// The port of the endpoint.
 	Port pulumi.IntPtrInput
-	// The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
 	RelayId   pulumi.StringPtrInput
 	RelayName pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The name of the Service Bus key.
+	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName pulumi.StringPtrInput
 	// The value of the Service Bus Primary Access key.
 	SendKeyValue pulumi.StringPtrInput
@@ -211,11 +211,11 @@ type hybridConnectionArgs struct {
 	Hostname string `pulumi:"hostname"`
 	// The port of the endpoint.
 	Port int `pulumi:"port"`
-	// The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
 	RelayId string `pulumi:"relayId"`
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service Bus key.
+	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName *string `pulumi:"sendKeyName"`
 }
 
@@ -227,11 +227,11 @@ type HybridConnectionArgs struct {
 	Hostname pulumi.StringInput
 	// The port of the endpoint.
 	Port pulumi.IntInput
-	// The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
 	RelayId pulumi.StringInput
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name of the Service Bus key.
+	// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
 	SendKeyName pulumi.StringPtrInput
 }
 

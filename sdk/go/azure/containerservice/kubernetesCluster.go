@@ -115,7 +115,7 @@ type KubernetesCluster struct {
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlOutput `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -212,7 +212,7 @@ type kubernetesClusterState struct {
 	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -273,7 +273,7 @@ type KubernetesClusterState struct {
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
-	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -324,7 +324,7 @@ type kubernetesClusterArgs struct {
 	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -372,7 +372,7 @@ type KubernetesClusterArgs struct {
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
 	// A `servicePrincipal` block as documented below.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
-	// The SKU Tier that should be used for this Kubernetes Cluster. Changing this forces a new resource to be created. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

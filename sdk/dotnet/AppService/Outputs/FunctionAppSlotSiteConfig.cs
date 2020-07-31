@@ -18,6 +18,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
+        /// The name of the slot to automatically swap to during deployment
+        /// </summary>
+        public readonly string? AutoSwapSlotName;
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSlotSiteConfigCors? Cors;
@@ -58,6 +62,8 @@ namespace Pulumi.Azure.AppService.Outputs
         private FunctionAppSlotSiteConfig(
             bool? alwaysOn,
 
+            string? autoSwapSlotName,
+
             Outputs.FunctionAppSlotSiteConfigCors? cors,
 
             string? ftpsState,
@@ -77,6 +83,7 @@ namespace Pulumi.Azure.AppService.Outputs
             bool? websocketsEnabled)
         {
             AlwaysOn = alwaysOn;
+            AutoSwapSlotName = autoSwapSlotName;
             Cors = cors;
             FtpsState = ftpsState;
             Http2Enabled = http2Enabled;

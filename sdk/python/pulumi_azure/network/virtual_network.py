@@ -12,9 +12,7 @@ from .. import utilities, tables
 class VirtualNetwork(pulumi.CustomResource):
     address_spaces: pulumi.Output[list]
     """
-    The address space that is used the virtual
-    network. You can supply more than one address space. Changing this forces
-    a new resource to be created.
+    The address space that is used the virtual network. You can supply more than one address space.
     """
     ddos_protection_plan: pulumi.Output[dict]
     """
@@ -33,30 +31,24 @@ class VirtualNetwork(pulumi.CustomResource):
     """
     location: pulumi.Output[str]
     """
-    The location/region where the virtual network is
-    created. Changing this forces a new resource to be created.
+    The location/region where the virtual network is created. Changing this forces a new resource to be created.
     """
     name: pulumi.Output[str]
     """
-    The name of the virtual network. Changing this forces a
-    new resource to be created.
+    The name of the virtual network. Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to
-    create the virtual network.
+    The name of the resource group in which to create the virtual network.
     """
     subnets: pulumi.Output[list]
     """
-    Can be specified multiple times to define multiple
-    subnets. Each `subnet` block supports fields documented below.
+    Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 
       * `address_prefix` (`str`) - The address prefix to use for the subnet.
       * `id` (`str`) - The Resource ID of DDoS Protection Plan.
-      * `name` (`str`) - The name of the virtual network. Changing this forces a
-        new resource to be created.
-      * `securityGroup` (`str`) - The Network Security Group to associate with
-        the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+      * `name` (`str`) - The name of the virtual network. Changing this forces a new resource to be created.
+      * `securityGroup` (`str`) - The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
     """
     tags: pulumi.Output[dict]
     """
@@ -118,19 +110,13 @@ class VirtualNetwork(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] address_spaces: The address space that is used the virtual
-               network. You can supply more than one address space. Changing this forces
-               a new resource to be created.
+        :param pulumi.Input[list] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
         :param pulumi.Input[dict] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[list] dns_servers: List of IP addresses of DNS servers
-        :param pulumi.Input[str] location: The location/region where the virtual network is
-               created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the virtual network.
-        :param pulumi.Input[list] subnets: Can be specified multiple times to define multiple
-               subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
+        :param pulumi.Input[list] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **ddos_protection_plan** object supports the following:
@@ -142,10 +128,8 @@ class VirtualNetwork(pulumi.CustomResource):
 
           * `address_prefix` (`pulumi.Input[str]`) - The address prefix to use for the subnet.
           * `id` (`pulumi.Input[str]`) - The Resource ID of DDoS Protection Plan.
-          * `name` (`pulumi.Input[str]`) - The name of the virtual network. Changing this forces a
-            new resource to be created.
-          * `securityGroup` (`pulumi.Input[str]`) - The Network Security Group to associate with
-            the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+          * `name` (`pulumi.Input[str]`) - The name of the virtual network. Changing this forces a new resource to be created.
+          * `securityGroup` (`pulumi.Input[str]`) - The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -192,20 +176,14 @@ class VirtualNetwork(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] address_spaces: The address space that is used the virtual
-               network. You can supply more than one address space. Changing this forces
-               a new resource to be created.
+        :param pulumi.Input[list] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
         :param pulumi.Input[dict] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[list] dns_servers: List of IP addresses of DNS servers
         :param pulumi.Input[str] guid: The GUID of the virtual network.
-        :param pulumi.Input[str] location: The location/region where the virtual network is
-               created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a
-               new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the virtual network.
-        :param pulumi.Input[list] subnets: Can be specified multiple times to define multiple
-               subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
+        :param pulumi.Input[list] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         The **ddos_protection_plan** object supports the following:
@@ -217,10 +195,8 @@ class VirtualNetwork(pulumi.CustomResource):
 
           * `address_prefix` (`pulumi.Input[str]`) - The address prefix to use for the subnet.
           * `id` (`pulumi.Input[str]`) - The Resource ID of DDoS Protection Plan.
-          * `name` (`pulumi.Input[str]`) - The name of the virtual network. Changing this forces a
-            new resource to be created.
-          * `securityGroup` (`pulumi.Input[str]`) - The Network Security Group to associate with
-            the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+          * `name` (`pulumi.Input[str]`) - The name of the virtual network. Changing this forces a new resource to be created.
+          * `securityGroup` (`pulumi.Input[str]`) - The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -68,6 +68,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
+     * Whether or not public network access is allowed for this resource. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A `queryKeys` block as defined below.
      */
     public /*out*/ readonly queryKeys!: pulumi.Output<outputs.search.ServiceQueryKey[]>;
@@ -108,6 +112,7 @@ export class Service extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionCount"] = state ? state.partitionCount : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["queryKeys"] = state ? state.queryKeys : undefined;
             inputs["replicaCount"] = state ? state.replicaCount : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -125,6 +130,7 @@ export class Service extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partitionCount"] = args ? args.partitionCount : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["replicaCount"] = args ? args.replicaCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -164,6 +170,10 @@ export interface ServiceState {
      * The Primary Key used for Search Service Administration.
      */
     readonly primaryKey?: pulumi.Input<string>;
+    /**
+     * Whether or not public network access is allowed for this resource. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * A `queryKeys` block as defined below.
      */
@@ -206,6 +216,10 @@ export interface ServiceArgs {
      * The number of partitions which should be created.
      */
     readonly partitionCount?: pulumi.Input<number>;
+    /**
+     * Whether or not public network access is allowed for this resource. Defaults to `true`.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The number of replica's which should be created.
      */

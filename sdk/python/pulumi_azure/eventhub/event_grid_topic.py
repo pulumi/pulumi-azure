@@ -62,7 +62,6 @@ class EventGridTopic(pulumi.CustomResource):
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
-    ---
     """
     warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic", DeprecationWarning)
 
@@ -96,7 +95,6 @@ class EventGridTopic(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-               ---
 
         The **input_mapping_default_values** object supports the following:
 
@@ -168,7 +166,6 @@ class EventGridTopic(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Shared Access Key associated with the EventGrid Topic.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-               ---
 
         The **input_mapping_default_values** object supports the following:
 

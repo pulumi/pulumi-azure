@@ -535,6 +535,7 @@ func (o PolicyManagedRulesPtrOutput) ManagedRuleSets() PolicyManagedRulesManaged
 }
 
 type PolicyManagedRulesExclusion struct {
+	// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable string `pulumi:"matchVariable"`
 	// Describes field of the matchVariable collection.
 	Selector string `pulumi:"selector"`
@@ -554,6 +555,7 @@ type PolicyManagedRulesExclusionInput interface {
 }
 
 type PolicyManagedRulesExclusionArgs struct {
+	// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Describes field of the matchVariable collection.
 	Selector pulumi.StringInput `pulumi:"selector"`
@@ -612,6 +614,7 @@ func (o PolicyManagedRulesExclusionOutput) ToPolicyManagedRulesExclusionOutputWi
 	return o
 }
 
+// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 func (o PolicyManagedRulesExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }

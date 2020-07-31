@@ -41,7 +41,7 @@ class Firewall(pulumi.CustomResource):
     """
     zones: pulumi.Output[list]
     """
-    Specifies the availability zones in which the Azure Firewall should be created.
+    Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, ip_configurations=None, location=None, name=None, resource_group_name=None, tags=None, threat_intel_mode=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,7 +85,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
-        :param pulumi.Input[list] zones: Specifies the availability zones in which the Azure Firewall should be created.
+        :param pulumi.Input[list] zones: Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
 
         The **ip_configurations** object supports the following:
 
@@ -143,7 +143,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
-        :param pulumi.Input[list] zones: Specifies the availability zones in which the Azure Firewall should be created.
+        :param pulumi.Input[list] zones: Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
 
         The **ip_configurations** object supports the following:
 

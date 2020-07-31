@@ -85,6 +85,9 @@ class FunctionAppSlot(pulumi.CustomResource):
     Is the Function App enabled?
     """
     function_app_name: pulumi.Output[str]
+    """
+    The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+    """
     https_only: pulumi.Output[bool]
     """
     Can the Function App only be accessed via HTTPS? Defaults to `false`.
@@ -131,6 +134,7 @@ class FunctionAppSlot(pulumi.CustomResource):
     A `site_config` object as defined below.
 
       * `alwaysOn` (`bool`) - Should the Function App be loaded at all times? Defaults to `false`.
+      * `autoSwapSlotName` (`str`) - The name of the slot to automatically swap to during deployment
       * `cors` (`dict`) - A `cors` block as defined below.
         * `allowedOrigins` (`list`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         * `supportCredentials` (`bool`) - Are credentials supported?
@@ -219,6 +223,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[float] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[str] function_app_name: The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -283,6 +288,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         The **site_config** object supports the following:
 
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
+          * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the slot to automatically swap to during deployment
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
             * `supportCredentials` (`pulumi.Input[bool]`) - Are credentials supported?
@@ -375,6 +381,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[str] function_app_name: The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
@@ -443,6 +450,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         The **site_config** object supports the following:
 
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
+          * `autoSwapSlotName` (`pulumi.Input[str]`) - The name of the slot to automatically swap to during deployment
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
             * `supportCredentials` (`pulumi.Input[bool]`) - Are credentials supported?

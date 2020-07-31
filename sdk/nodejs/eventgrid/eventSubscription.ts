@@ -140,7 +140,9 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly subjectFilter!: pulumi.Output<outputs.eventgrid.EventSubscriptionSubjectFilter | undefined>;
     /**
-     * (Optional) Specifies the name of the topic to associate with the event subscription.
+     * (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+     *
+     * @deprecated This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
      */
     public readonly topicName!: pulumi.Output<string>;
     /**
@@ -300,7 +302,9 @@ export interface EventSubscriptionState {
      */
     readonly subjectFilter?: pulumi.Input<inputs.eventgrid.EventSubscriptionSubjectFilter>;
     /**
-     * (Optional) Specifies the name of the topic to associate with the event subscription.
+     * (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+     *
+     * @deprecated This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
      */
     readonly topicName?: pulumi.Input<string>;
     /**
@@ -390,7 +394,9 @@ export interface EventSubscriptionArgs {
      */
     readonly subjectFilter?: pulumi.Input<inputs.eventgrid.EventSubscriptionSubjectFilter>;
     /**
-     * (Optional) Specifies the name of the topic to associate with the event subscription.
+     * (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+     *
+     * @deprecated This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
      */
     readonly topicName?: pulumi.Input<string>;
     /**

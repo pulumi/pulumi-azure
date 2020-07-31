@@ -64,6 +64,12 @@ namespace Pulumi.Azure.Search
         public Output<string> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// Whether or not public network access is allowed for this resource. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `query_keys` block as defined below.
         /// </summary>
         [Output("queryKeys")]
@@ -164,6 +170,12 @@ namespace Pulumi.Azure.Search
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
+        /// Whether or not public network access is allowed for this resource. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The number of replica's which should be created.
         /// </summary>
         [Input("replicaCount")]
@@ -223,6 +235,12 @@ namespace Pulumi.Azure.Search
         /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
+
+        /// <summary>
+        /// Whether or not public network access is allowed for this resource. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         [Input("queryKeys")]
         private InputList<Inputs.ServiceQueryKeyGetArgs>? _queryKeys;

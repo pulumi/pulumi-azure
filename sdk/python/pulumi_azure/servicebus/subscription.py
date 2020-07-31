@@ -58,11 +58,15 @@ class Subscription(pulumi.CustomResource):
     """
     The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
     """
+    status: pulumi.Output[str]
+    """
+    The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+    """
     topic_name: pulumi.Output[str]
     """
     The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, status=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a ServiceBus Subscription.
 
@@ -105,6 +109,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -142,6 +147,7 @@ class Subscription(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['status'] = status
             if topic_name is None:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
@@ -154,7 +160,7 @@ class Subscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_name=None):
+    def get(resource_name, id, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, status=None, topic_name=None):
         """
         Get an existing Subscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -174,6 +180,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -192,6 +199,7 @@ class Subscription(pulumi.CustomResource):
         __props__["namespace_name"] = namespace_name
         __props__["requires_session"] = requires_session
         __props__["resource_group_name"] = resource_group_name
+        __props__["status"] = status
         __props__["topic_name"] = topic_name
         return Subscription(resource_name, opts=opts, __props__=__props__)
 

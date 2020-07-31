@@ -93,7 +93,6 @@ export class Topic extends pulumi.CustomResource {
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
-     * ---
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -190,7 +189,6 @@ export interface TopicState {
     readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
-     * ---
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -225,7 +223,6 @@ export interface TopicArgs {
     readonly resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
-     * ---
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

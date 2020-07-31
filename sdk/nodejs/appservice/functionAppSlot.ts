@@ -112,6 +112,9 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      * Is the Function App enabled?
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+     */
     public readonly functionAppName!: pulumi.Output<string>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
@@ -305,6 +308,9 @@ export interface FunctionAppSlotState {
      * Is the Function App enabled?
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+     */
     readonly functionAppName?: pulumi.Input<string>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
@@ -404,6 +410,9 @@ export interface FunctionAppSlotArgs {
      * Is the Function App enabled?
      */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+     */
     readonly functionAppName: pulumi.Input<string>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.

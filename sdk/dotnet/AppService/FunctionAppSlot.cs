@@ -122,6 +122,9 @@ namespace Pulumi.Azure.AppService
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("functionAppName")]
         public Output<string> FunctionAppName { get; private set; } = null!;
 
@@ -321,6 +324,9 @@ namespace Pulumi.Azure.AppService
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("functionAppName", required: true)]
         public Input<string> FunctionAppName { get; set; } = null!;
 
@@ -469,6 +475,9 @@ namespace Pulumi.Azure.AppService
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("functionAppName")]
         public Input<string>? FunctionAppName { get; set; }
 

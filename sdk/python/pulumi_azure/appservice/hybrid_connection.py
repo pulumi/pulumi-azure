@@ -28,7 +28,7 @@ class HybridConnection(pulumi.CustomResource):
     """
     relay_id: pulumi.Output[str]
     """
-    The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+    The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
     """
     relay_name: pulumi.Output[str]
     resource_group_name: pulumi.Output[str]
@@ -37,7 +37,7 @@ class HybridConnection(pulumi.CustomResource):
     """
     send_key_name: pulumi.Output[str]
     """
-    The name of the Service Bus key.
+    The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
     """
     send_key_value: pulumi.Output[str]
     """
@@ -97,9 +97,9 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: The hostname of the endpoint.
         :param pulumi.Input[float] port: The port of the endpoint.
-        :param pulumi.Input[str] relay_id: The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] relay_id: The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] send_key_name: The name of the Service Bus key.
+        :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -158,9 +158,9 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] hostname: The hostname of the endpoint.
         :param pulumi.Input[str] namespace_name: The name of the Relay Namespace.
         :param pulumi.Input[float] port: The port of the endpoint.
-        :param pulumi.Input[str] relay_id: The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] relay_id: The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
-        :param pulumi.Input[str] send_key_name: The name of the Service Bus key.
+        :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         :param pulumi.Input[str] send_key_value: The value of the Service Bus Primary Access key.
         :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
         :param pulumi.Input[str] service_bus_suffix: The suffix for the service bus endpoint.

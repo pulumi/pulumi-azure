@@ -97,7 +97,7 @@ namespace Pulumi.Azure.AppService
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+        /// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
         /// </summary>
         [Output("relayId")]
         public Output<string> RelayId { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Service Bus key.
+        /// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         /// </summary>
         [Output("sendKeyName")]
         public Output<string?> SendKeyName { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.AppService
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+        /// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
         /// </summary>
         [Input("relayId", required: true)]
         public Input<string> RelayId { get; set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Service Bus key.
+        /// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         /// </summary>
         [Input("sendKeyName")]
         public Input<string>? SendKeyName { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+        /// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
         /// </summary>
         [Input("relayId")]
         public Input<string>? RelayId { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The name of the Service Bus key.
+        /// The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         /// </summary>
         [Input("sendKeyName")]
         public Input<string>? SendKeyName { get; set; }

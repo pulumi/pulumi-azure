@@ -17,11 +17,19 @@ namespace Pulumi.Azure.AppService.Outputs
         /// An `azure_blob_storage` block as defined below.
         /// </summary>
         public readonly Outputs.SlotLogsApplicationLogsAzureBlobStorage? AzureBlobStorage;
+        /// <summary>
+        /// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+        /// </summary>
+        public readonly string? FileSystemLevel;
 
         [OutputConstructor]
-        private SlotLogsApplicationLogs(Outputs.SlotLogsApplicationLogsAzureBlobStorage? azureBlobStorage)
+        private SlotLogsApplicationLogs(
+            Outputs.SlotLogsApplicationLogsAzureBlobStorage? azureBlobStorage,
+
+            string? fileSystemLevel)
         {
             AzureBlobStorage = azureBlobStorage;
+            FileSystemLevel = fileSystemLevel;
         }
     }
 }

@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Relax naming restrictions on `apimanagement.Api` name to allow 256 character names
   as per https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftapimanagement
+* Upgrade to v2.21.0 of the AzureRM Terraform Provider
 
 ---
 

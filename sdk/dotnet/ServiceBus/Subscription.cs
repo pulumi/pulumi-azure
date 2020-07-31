@@ -129,6 +129,12 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("topicName")]
@@ -257,6 +263,12 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
         /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("topicName", required: true)]
@@ -340,6 +352,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.

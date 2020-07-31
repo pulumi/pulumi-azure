@@ -11,6 +11,53 @@ import (
 )
 
 // Manages a Automation Runbook.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/automation"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			SkuName:           pulumi.String("Basic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
+// 			Location:              exampleResourceGroup.Location,
+// 			ResourceGroupName:     exampleResourceGroup.Name,
+// 			AutomationAccountName: exampleAccount.Name,
+// 			LogVerbose:            pulumi.Bool(true),
+// 			LogProgress:           pulumi.Bool(true),
+// 			Description:           pulumi.String("This is an example runbook"),
+// 			RunbookType:           pulumi.String("PowerShellWorkflow"),
+// 			PublishContentLink: &automation.RunBookPublishContentLinkArgs{
+// 				Uri: pulumi.String("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RunBook struct {
 	pulumi.CustomResourceState
 
@@ -19,7 +66,8 @@ type RunBook struct {
 	// The desired content of the runbook.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// A description for this credential.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description  pulumi.StringPtrOutput        `pulumi:"description"`
+	JobSchedules RunBookJobScheduleArrayOutput `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Progress log option.
@@ -86,7 +134,8 @@ type runBookState struct {
 	// The desired content of the runbook.
 	Content *string `pulumi:"content"`
 	// A description for this credential.
-	Description *string `pulumi:"description"`
+	Description  *string              `pulumi:"description"`
+	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Progress log option.
@@ -111,7 +160,8 @@ type RunBookState struct {
 	// The desired content of the runbook.
 	Content pulumi.StringPtrInput
 	// A description for this credential.
-	Description pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
+	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Progress log option.
@@ -140,7 +190,8 @@ type runBookArgs struct {
 	// The desired content of the runbook.
 	Content *string `pulumi:"content"`
 	// A description for this credential.
-	Description *string `pulumi:"description"`
+	Description  *string              `pulumi:"description"`
+	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Progress log option.
@@ -166,7 +217,8 @@ type RunBookArgs struct {
 	// The desired content of the runbook.
 	Content pulumi.StringPtrInput
 	// A description for this credential.
-	Description pulumi.StringPtrInput
+	Description  pulumi.StringPtrInput
+	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Progress log option.

@@ -96,7 +96,6 @@ export class EventGridTopic extends pulumi.CustomResource {
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
-     * ---
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -194,7 +193,6 @@ export interface EventGridTopicState {
     readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
-     * ---
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -229,7 +227,6 @@ export interface EventGridTopicArgs {
     readonly resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
-     * ---
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -12,6 +12,7 @@ import (
 
 type ProviderFeatures struct {
 	KeyVault               *ProviderFeaturesKeyVault               `pulumi:"keyVault"`
+	Network                *ProviderFeaturesNetwork                `pulumi:"network"`
 	VirtualMachine         *ProviderFeaturesVirtualMachine         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *ProviderFeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
 }
@@ -29,6 +30,7 @@ type ProviderFeaturesInput interface {
 
 type ProviderFeaturesArgs struct {
 	KeyVault               ProviderFeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
+	Network                ProviderFeaturesNetworkPtrInput                `pulumi:"network"`
 	VirtualMachine         ProviderFeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet ProviderFeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
 }
@@ -113,6 +115,10 @@ func (o ProviderFeaturesOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesKeyVault { return v.KeyVault }).(ProviderFeaturesKeyVaultPtrOutput)
 }
 
+func (o ProviderFeaturesOutput) Network() ProviderFeaturesNetworkPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesNetwork { return v.Network }).(ProviderFeaturesNetworkPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) VirtualMachine() ProviderFeaturesVirtualMachinePtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesVirtualMachine { return v.VirtualMachine }).(ProviderFeaturesVirtualMachinePtrOutput)
 }
@@ -146,6 +152,15 @@ func (o ProviderFeaturesPtrOutput) KeyVault() ProviderFeaturesKeyVaultPtrOutput 
 		}
 		return v.KeyVault
 	}).(ProviderFeaturesKeyVaultPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) Network() ProviderFeaturesNetworkPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesNetwork {
+		if v == nil {
+			return nil
+		}
+		return v.Network
+	}).(ProviderFeaturesNetworkPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) VirtualMachine() ProviderFeaturesVirtualMachinePtrOutput {
@@ -304,6 +319,132 @@ func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.
 			return nil
 		}
 		return v.RecoverSoftDeletedKeyVaults
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesNetwork struct {
+	RelaxedLocking *bool `pulumi:"relaxedLocking"`
+}
+
+// ProviderFeaturesNetworkInput is an input type that accepts ProviderFeaturesNetworkArgs and ProviderFeaturesNetworkOutput values.
+// You can construct a concrete instance of `ProviderFeaturesNetworkInput` via:
+//
+//          ProviderFeaturesNetworkArgs{...}
+type ProviderFeaturesNetworkInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesNetworkOutput() ProviderFeaturesNetworkOutput
+	ToProviderFeaturesNetworkOutputWithContext(context.Context) ProviderFeaturesNetworkOutput
+}
+
+type ProviderFeaturesNetworkArgs struct {
+	RelaxedLocking pulumi.BoolPtrInput `pulumi:"relaxedLocking"`
+}
+
+func (ProviderFeaturesNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesNetwork)(nil)).Elem()
+}
+
+func (i ProviderFeaturesNetworkArgs) ToProviderFeaturesNetworkOutput() ProviderFeaturesNetworkOutput {
+	return i.ToProviderFeaturesNetworkOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesNetworkArgs) ToProviderFeaturesNetworkOutputWithContext(ctx context.Context) ProviderFeaturesNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesNetworkOutput)
+}
+
+func (i ProviderFeaturesNetworkArgs) ToProviderFeaturesNetworkPtrOutput() ProviderFeaturesNetworkPtrOutput {
+	return i.ToProviderFeaturesNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesNetworkArgs) ToProviderFeaturesNetworkPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesNetworkOutput).ToProviderFeaturesNetworkPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesNetworkPtrInput is an input type that accepts ProviderFeaturesNetworkArgs, ProviderFeaturesNetworkPtr and ProviderFeaturesNetworkPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesNetworkPtrInput` via:
+//
+//          ProviderFeaturesNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderFeaturesNetworkPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesNetworkPtrOutput() ProviderFeaturesNetworkPtrOutput
+	ToProviderFeaturesNetworkPtrOutputWithContext(context.Context) ProviderFeaturesNetworkPtrOutput
+}
+
+type providerFeaturesNetworkPtrType ProviderFeaturesNetworkArgs
+
+func ProviderFeaturesNetworkPtr(v *ProviderFeaturesNetworkArgs) ProviderFeaturesNetworkPtrInput {
+	return (*providerFeaturesNetworkPtrType)(v)
+}
+
+func (*providerFeaturesNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesNetwork)(nil)).Elem()
+}
+
+func (i *providerFeaturesNetworkPtrType) ToProviderFeaturesNetworkPtrOutput() ProviderFeaturesNetworkPtrOutput {
+	return i.ToProviderFeaturesNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesNetworkPtrType) ToProviderFeaturesNetworkPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesNetworkPtrOutput)
+}
+
+type ProviderFeaturesNetworkOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesNetwork)(nil)).Elem()
+}
+
+func (o ProviderFeaturesNetworkOutput) ToProviderFeaturesNetworkOutput() ProviderFeaturesNetworkOutput {
+	return o
+}
+
+func (o ProviderFeaturesNetworkOutput) ToProviderFeaturesNetworkOutputWithContext(ctx context.Context) ProviderFeaturesNetworkOutput {
+	return o
+}
+
+func (o ProviderFeaturesNetworkOutput) ToProviderFeaturesNetworkPtrOutput() ProviderFeaturesNetworkPtrOutput {
+	return o.ToProviderFeaturesNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesNetworkOutput) ToProviderFeaturesNetworkPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetworkPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesNetwork) *ProviderFeaturesNetwork {
+		return &v
+	}).(ProviderFeaturesNetworkPtrOutput)
+}
+func (o ProviderFeaturesNetworkOutput) RelaxedLocking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesNetwork) *bool { return v.RelaxedLocking }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesNetwork)(nil)).Elem()
+}
+
+func (o ProviderFeaturesNetworkPtrOutput) ToProviderFeaturesNetworkPtrOutput() ProviderFeaturesNetworkPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesNetworkPtrOutput) ToProviderFeaturesNetworkPtrOutputWithContext(ctx context.Context) ProviderFeaturesNetworkPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesNetworkPtrOutput) Elem() ProviderFeaturesNetworkOutput {
+	return o.ApplyT(func(v *ProviderFeaturesNetwork) ProviderFeaturesNetwork { return *v }).(ProviderFeaturesNetworkOutput)
+}
+
+func (o ProviderFeaturesNetworkPtrOutput) RelaxedLocking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RelaxedLocking
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -564,6 +705,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesNetworkOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesNetworkPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineScaleSetOutput{})

@@ -10737,11 +10737,9 @@ type VirtualNetworkSubnet struct {
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// The Resource ID of DDoS Protection Plan.
 	Id *string `pulumi:"id"`
-	// The name of the virtual network. Changing this forces a
-	// new resource to be created.
+	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// The Network Security Group to associate with
-	// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+	// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
 	SecurityGroup *string `pulumi:"securityGroup"`
 }
 
@@ -10761,11 +10759,9 @@ type VirtualNetworkSubnetArgs struct {
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
 	// The Resource ID of DDoS Protection Plan.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the virtual network. Changing this forces a
-	// new resource to be created.
+	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Network Security Group to associate with
-	// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+	// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
 	SecurityGroup pulumi.StringPtrInput `pulumi:"securityGroup"`
 }
 
@@ -10830,14 +10826,12 @@ func (o VirtualNetworkSubnetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the virtual network. Changing this forces a
-// new resource to be created.
+// The name of the virtual network. Changing this forces a new resource to be created.
 func (o VirtualNetworkSubnetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Network Security Group to associate with
-// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
 func (o VirtualNetworkSubnetOutput) SecurityGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.SecurityGroup }).(pulumi.StringPtrOutput)
 }

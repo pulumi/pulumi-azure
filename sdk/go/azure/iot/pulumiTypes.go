@@ -1261,7 +1261,7 @@ func (o IotHubDpsLinkedHubArrayOutput) Index(i pulumi.IntInput) IotHubDpsLinkedH
 type IotHubDpsSku struct {
 	// The number of provisioned IoT Device Provisioning Service units.
 	Capacity int `pulumi:"capacity"`
-	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+	// The name of the sku. Currently can only be set to `S1`.
 	Name string `pulumi:"name"`
 }
 
@@ -1279,7 +1279,7 @@ type IotHubDpsSkuInput interface {
 type IotHubDpsSkuArgs struct {
 	// The number of provisioned IoT Device Provisioning Service units.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+	// The name of the sku. Currently can only be set to `S1`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1365,7 +1365,7 @@ func (o IotHubDpsSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IotHubDpsSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+// The name of the sku. Currently can only be set to `S1`.
 func (o IotHubDpsSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDpsSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1398,7 +1398,7 @@ func (o IotHubDpsSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+// The name of the sku. Currently can only be set to `S1`.
 func (o IotHubDpsSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubDpsSku) *string {
 		if v == nil {
