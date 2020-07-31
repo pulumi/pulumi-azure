@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.14.0 (2020-07-31)
 * Relax naming restrictions on `apimanagement.Api` name to allow 256 character names
   as per https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftapimanagement
 * Upgrade to v2.21.0 of the AzureRM Terraform Provider
-
----
 
 ## 3.13.1 (2020-07-27)
 * Ensure provider `metadataHost` is an optional provider parameter
