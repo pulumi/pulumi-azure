@@ -82,6 +82,12 @@ namespace Pulumi.Azure.ApiManagement
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The AAD Tenant to use instead of Common when logging into Active Directory
+        /// </summary>
+        [Output("signinTenant")]
+        public Output<string?> SigninTenant { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a IdentityProviderAad resource with the given unique name, arguments, and options.
@@ -164,6 +170,12 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The AAD Tenant to use instead of Common when logging into Active Directory
+        /// </summary>
+        [Input("signinTenant")]
+        public Input<string>? SigninTenant { get; set; }
+
         public IdentityProviderAadArgs()
         {
         }
@@ -206,6 +218,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The AAD Tenant to use instead of Common when logging into Active Directory
+        /// </summary>
+        [Input("signinTenant")]
+        public Input<string>? SigninTenant { get; set; }
 
         public IdentityProviderAadState()
         {

@@ -78,6 +78,10 @@ export class IdentityProviderAad extends pulumi.CustomResource {
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The AAD Tenant to use instead of Common when logging into Active Directory
+     */
+    public readonly signinTenant!: pulumi.Output<string | undefined>;
 
     /**
      * Create a IdentityProviderAad resource with the given unique name, arguments, and options.
@@ -96,6 +100,7 @@ export class IdentityProviderAad extends pulumi.CustomResource {
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["clientSecret"] = state ? state.clientSecret : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["signinTenant"] = state ? state.signinTenant : undefined;
         } else {
             const args = argsOrState as IdentityProviderAadArgs | undefined;
             if (!args || args.allowedTenants === undefined) {
@@ -118,6 +123,7 @@ export class IdentityProviderAad extends pulumi.CustomResource {
             inputs["clientId"] = args ? args.clientId : undefined;
             inputs["clientSecret"] = args ? args.clientSecret : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["signinTenant"] = args ? args.signinTenant : undefined;
         }
         if (!opts) {
             opts = {}
@@ -154,6 +160,10 @@ export interface IdentityProviderAadState {
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The AAD Tenant to use instead of Common when logging into Active Directory
+     */
+    readonly signinTenant?: pulumi.Input<string>;
 }
 
 /**
@@ -180,4 +190,8 @@ export interface IdentityProviderAadArgs {
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The AAD Tenant to use instead of Common when logging into Active Directory
+     */
+    readonly signinTenant?: pulumi.Input<string>;
 }

@@ -114,7 +114,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     A `retry_policy` block as defined below.
 
-      * `eventTimeToLive` (`float`) - Specifies the time to live (in minutes) for events.
+      * `eventTimeToLive` (`float`) - Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
       * `maxDeliveryAttempts` (`float`) - Specifies the maximum number of delivery retry attempts for events.
     """
     scope: pulumi.Output[str]
@@ -153,7 +153,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     topic_name: pulumi.Output[str]
     """
-    (Optional) Specifies the name of the topic to associate with the event subscription.
+    (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
     """
     webhook_endpoint: pulumi.Output[dict]
     """
@@ -214,7 +214,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
         :param pulumi.Input[dict] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[str] topic_name: (Optional) Specifies the name of the topic to associate with the event subscription.
+        :param pulumi.Input[str] topic_name: (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
 
         The **advanced_filter** object supports the following:
@@ -283,7 +283,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **retry_policy** object supports the following:
 
-          * `eventTimeToLive` (`pulumi.Input[float]`) - Specifies the time to live (in minutes) for events.
+          * `eventTimeToLive` (`pulumi.Input[float]`) - Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
           * `maxDeliveryAttempts` (`pulumi.Input[float]`) - Specifies the maximum number of delivery retry attempts for events.
 
         The **storage_blob_dead_letter_destination** object supports the following:
@@ -354,6 +354,9 @@ class EventSubscription(pulumi.CustomResource):
             __props__['storage_blob_dead_letter_destination'] = storage_blob_dead_letter_destination
             __props__['storage_queue_endpoint'] = storage_queue_endpoint
             __props__['subject_filter'] = subject_filter
+            if topic_name is not None:
+                warnings.warn("This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.", DeprecationWarning)
+                pulumi.log.warn("topic_name is deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.")
             __props__['topic_name'] = topic_name
             __props__['webhook_endpoint'] = webhook_endpoint
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/eventSubscription:EventSubscription")])
@@ -391,7 +394,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
         :param pulumi.Input[dict] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[str] topic_name: (Optional) Specifies the name of the topic to associate with the event subscription.
+        :param pulumi.Input[str] topic_name: (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
 
         The **advanced_filter** object supports the following:
@@ -460,7 +463,7 @@ class EventSubscription(pulumi.CustomResource):
 
         The **retry_policy** object supports the following:
 
-          * `eventTimeToLive` (`pulumi.Input[float]`) - Specifies the time to live (in minutes) for events.
+          * `eventTimeToLive` (`pulumi.Input[float]`) - Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
           * `maxDeliveryAttempts` (`pulumi.Input[float]`) - Specifies the maximum number of delivery retry attempts for events.
 
         The **storage_blob_dead_letter_destination** object supports the following:

@@ -96,7 +96,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly threatIntelMode!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the availability zones in which the Azure Firewall should be created.
+     * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -175,7 +175,7 @@ export interface FirewallState {
      */
     readonly threatIntelMode?: pulumi.Input<string>;
     /**
-     * Specifies the availability zones in which the Azure Firewall should be created.
+     * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
      */
     readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -209,7 +209,7 @@ export interface FirewallArgs {
      */
     readonly threatIntelMode?: pulumi.Input<string>;
     /**
-     * Specifies the availability zones in which the Azure Firewall should be created.
+     * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
      */
     readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -7,6 +7,7 @@ import * as outputs from "../types/output";
 
 export interface ProviderFeatures {
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
+    network?: pulumi.Input<inputs.ProviderFeaturesNetwork>;
     virtualMachine?: pulumi.Input<inputs.ProviderFeaturesVirtualMachine>;
     virtualMachineScaleSet?: pulumi.Input<inputs.ProviderFeaturesVirtualMachineScaleSet>;
 }
@@ -14,6 +15,10 @@ export interface ProviderFeatures {
 export interface ProviderFeaturesKeyVault {
     purgeSoftDeleteOnDestroy?: pulumi.Input<boolean>;
     recoverSoftDeletedKeyVaults?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesNetwork {
+    relaxedLocking?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesVirtualMachine {
@@ -1134,6 +1139,7 @@ export namespace appservice {
          * An `azureBlobStorage` block as defined below.
          */
         azureBlobStorage?: pulumi.Input<inputs.appservice.AppServiceLogsApplicationLogsAzureBlobStorage>;
+        fileSystemLevel?: pulumi.Input<string>;
     }
 
     export interface AppServiceLogsApplicationLogsAzureBlobStorage {
@@ -1815,6 +1821,10 @@ export namespace appservice {
          */
         alwaysOn?: pulumi.Input<boolean>;
         /**
+         * The name of the slot to automatically swap to during deployment
+         */
+        autoSwapSlotName?: pulumi.Input<string>;
+        /**
          * A `cors` block as defined below.
          */
         cors?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigCors>;
@@ -2068,6 +2078,10 @@ export namespace appservice {
          * An `azureBlobStorage` block as defined below.
          */
         azureBlobStorage?: pulumi.Input<inputs.appservice.SlotLogsApplicationLogsAzureBlobStorage>;
+        /**
+         * The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+         */
+        fileSystemLevel?: pulumi.Input<string>;
     }
 
     export interface SlotLogsApplicationLogsAzureBlobStorage {
@@ -2128,7 +2142,7 @@ export namespace appservice {
          */
         appCommandLine?: pulumi.Input<string>;
         /**
-         * The name of the swap to automatically swap to during deployment
+         * The name of the slot to automatically swap to during deployment
          */
         autoSwapSlotName?: pulumi.Input<string>;
         /**
@@ -2301,6 +2315,13 @@ export namespace automation {
     export interface ModuleModuleLinkHash {
         algorithm: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface RunBookJobSchedule {
+        jobScheduleId?: pulumi.Input<string>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        runOn?: pulumi.Input<string>;
+        scheduleName: pulumi.Input<string>;
     }
 
     export interface RunBookPublishContentLink {
@@ -6850,7 +6871,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: pulumi.Input<number>;
         /**
@@ -7348,7 +7369,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: pulumi.Input<number>;
         /**
@@ -9803,6 +9824,19 @@ export namespace hpc {
     }
 }
 
+export namespace hsm {
+    export interface ModuleNetworkProfile {
+        /**
+         * The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+         */
+        networkInterfacePrivateIpAddresses: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+}
+
 export namespace iot {
     export interface IoTHubEndpoint {
         /**
@@ -9986,7 +10020,7 @@ export namespace iot {
          */
         capacity: pulumi.Input<number>;
         /**
-         * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+         * The name of the sku. Currently can only be set to `S1`.
          */
         name: pulumi.Input<string>;
     }
@@ -13401,13 +13435,11 @@ export namespace network {
          */
         id?: pulumi.Input<string>;
         /**
-         * The name of the virtual network. Changing this forces a
-         * new resource to be created.
+         * The name of the virtual network. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
         /**
-         * The Network Security Group to associate with
-         * the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+         * The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
          */
         securityGroup?: pulumi.Input<string>;
     }
@@ -14762,7 +14794,7 @@ export namespace storage {
          */
         expiry: pulumi.Input<string>;
         /**
-         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
          */
         permissions: pulumi.Input<string>;
         /**
@@ -15137,6 +15169,9 @@ export namespace waf {
     }
 
     export interface PolicyManagedRulesExclusion {
+        /**
+         * The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
         matchVariable: pulumi.Input<string>;
         /**
          * Describes field of the matchVariable collection.

@@ -44,6 +44,7 @@ _submodules = [
     'hdinsight',
     'healthcare',
     'hpc',
+    'hsm',
     'iot',
     'iotcentral',
     'keyvault',

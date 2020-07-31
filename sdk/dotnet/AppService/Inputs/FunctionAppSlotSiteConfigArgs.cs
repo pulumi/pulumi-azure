@@ -19,6 +19,12 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? AlwaysOn { get; set; }
 
         /// <summary>
+        /// The name of the slot to automatically swap to during deployment
+        /// </summary>
+        [Input("autoSwapSlotName")]
+        public Input<string>? AutoSwapSlotName { get; set; }
+
+        /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
         [Input("cors")]

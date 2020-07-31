@@ -110,6 +110,7 @@ namespace Pulumi.Azure
              public class Features
              {
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesNetwork? Network { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesVirtualMachine? VirtualMachine { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesVirtualMachineScaleSet? VirtualMachineScaleSet { get; set; } = null!;
             }
@@ -118,6 +119,11 @@ namespace Pulumi.Azure
              {
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
                 public bool? RecoverSoftDeletedKeyVaults { get; set; }
+            }
+
+             public class FeaturesNetwork
+             {
+                public bool? RelaxedLocking { get; set; }
             }
 
              public class FeaturesVirtualMachine

@@ -122,6 +122,8 @@ class AppService(pulumi.CustomResource):
           * `retention_in_days` (`float`) - The number of days to retain logs for.
           * `sasUrl` (`str`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
+        * `fileSystemLevel` (`str`)
+
       * `httpLogs` (`dict`) - An `http_logs` block as defined below.
         * `azureBlobStorage` (`dict`) - An `azure_blob_storage` block as defined below.
           * `retention_in_days` (`float`) - The number of days to retain logs for.
@@ -353,6 +355,8 @@ class AppService(pulumi.CustomResource):
               * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
               * `sasUrl` (`pulumi.Input[str]`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
 
+            * `fileSystemLevel` (`pulumi.Input[str]`)
+
           * `httpLogs` (`pulumi.Input[dict]`) - An `http_logs` block as defined below.
             * `azureBlobStorage` (`pulumi.Input[dict]`) - An `azure_blob_storage` block as defined below.
               * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
@@ -566,6 +570,8 @@ class AppService(pulumi.CustomResource):
               * `level` (`pulumi.Input[str]`) - The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
               * `retention_in_days` (`pulumi.Input[float]`) - The number of days to retain logs for.
               * `sasUrl` (`pulumi.Input[str]`) - The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+
+            * `fileSystemLevel` (`pulumi.Input[str]`)
 
           * `httpLogs` (`pulumi.Input[dict]`) - An `http_logs` block as defined below.
             * `azureBlobStorage` (`pulumi.Input[dict]`) - An `azure_blob_storage` block as defined below.

@@ -166,7 +166,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<Outputs.EventSubscriptionSubjectFilter?> SubjectFilter { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Specifies the name of the topic to associate with the event subscription.
+        /// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         /// </summary>
         [Output("topicName")]
         public Output<string> TopicName { get; private set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<Inputs.EventSubscriptionSubjectFilterArgs>? SubjectFilter { get; set; }
 
         /// <summary>
-        /// (Optional) Specifies the name of the topic to associate with the event subscription.
+        /// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }
@@ -487,7 +487,7 @@ namespace Pulumi.Azure.EventGrid
         public Input<Inputs.EventSubscriptionSubjectFilterGetArgs>? SubjectFilter { get; set; }
 
         /// <summary>
-        /// (Optional) Specifies the name of the topic to associate with the event subscription.
+        /// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         /// </summary>
         [Input("topicName")]
         public Input<string>? TopicName { get; set; }

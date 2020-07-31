@@ -3665,7 +3665,7 @@ func (o EventSubscriptionHybridConnectionEndpointPtrOutput) HybridConnectionId()
 }
 
 type EventSubscriptionRetryPolicy struct {
-	// Specifies the time to live (in minutes) for events.
+	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 	EventTimeToLive int `pulumi:"eventTimeToLive"`
 	// Specifies the maximum number of delivery retry attempts for events.
 	MaxDeliveryAttempts int `pulumi:"maxDeliveryAttempts"`
@@ -3683,7 +3683,7 @@ type EventSubscriptionRetryPolicyInput interface {
 }
 
 type EventSubscriptionRetryPolicyArgs struct {
-	// Specifies the time to live (in minutes) for events.
+	// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 	EventTimeToLive pulumi.IntInput `pulumi:"eventTimeToLive"`
 	// Specifies the maximum number of delivery retry attempts for events.
 	MaxDeliveryAttempts pulumi.IntInput `pulumi:"maxDeliveryAttempts"`
@@ -3766,7 +3766,7 @@ func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyPtrOut
 	}).(EventSubscriptionRetryPolicyPtrOutput)
 }
 
-// Specifies the time to live (in minutes) for events.
+// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 func (o EventSubscriptionRetryPolicyOutput) EventTimeToLive() pulumi.IntOutput {
 	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
 }
@@ -3794,7 +3794,7 @@ func (o EventSubscriptionRetryPolicyPtrOutput) Elem() EventSubscriptionRetryPoli
 	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) EventSubscriptionRetryPolicy { return *v }).(EventSubscriptionRetryPolicyOutput)
 }
 
-// Specifies the time to live (in minutes) for events.
+// Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 func (o EventSubscriptionRetryPolicyPtrOutput) EventTimeToLive() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionRetryPolicy) *int {
 		if v == nil {

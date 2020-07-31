@@ -94,7 +94,7 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+     * The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
      */
     public readonly relayId!: pulumi.Output<string>;
     public /*out*/ readonly relayName!: pulumi.Output<string>;
@@ -103,7 +103,7 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The name of the Service Bus key.
+     * The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
      */
     public readonly sendKeyName!: pulumi.Output<string | undefined>;
     /**
@@ -203,7 +203,7 @@ export interface HybridConnectionState {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+     * The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
      */
     readonly relayId?: pulumi.Input<string>;
     readonly relayName?: pulumi.Input<string>;
@@ -212,7 +212,7 @@ export interface HybridConnectionState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The name of the Service Bus key.
+     * The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
      */
     readonly sendKeyName?: pulumi.Input<string>;
     /**
@@ -246,7 +246,7 @@ export interface HybridConnectionArgs {
      */
     readonly port: pulumi.Input<number>;
     /**
-     * The Resource ID of Service Bus relay.  Changing this forces a new resource to be created.
+     * The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
      */
     readonly relayId: pulumi.Input<string>;
     /**
@@ -254,7 +254,7 @@ export interface HybridConnectionArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Service Bus key.
+     * The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
      */
     readonly sendKeyName?: pulumi.Input<string>;
 }

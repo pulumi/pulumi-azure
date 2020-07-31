@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Waf.Inputs
 
     public sealed class PolicyManagedRulesExclusionGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;
 

@@ -76,6 +76,7 @@ const (
 	azureHdInsight           = "HDInsight"           // nolint:misspell // HDInsight
 	azureHealthcare          = "Healthcare"          // HealthCare
 	azureHpc                 = "Hpc"                 // High-performance Compute
+	azureHsm                 = "Hsm"                 // Hardware Security Module
 	azureIot                 = "Iot"                 // IoT resource
 	azureIotCentral          = "IotCentral"          // IoT central
 	azureKeyVault            = "KeyVault"            // Key Vault
@@ -1432,6 +1433,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Synapse
 			"azurerm_synapse_workspace": {Tok: azureResource(azureSynapse, "Workspace")},
+
+			// HSM
+			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1461,30 +1465,31 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_automation_variable_bool":        {Tok: azureDataSource(azureAutomation, "getBoolVariable")},
-			"azurerm_automation_variable_datetime":    {Tok: azureDataSource(azureAutomation, "getDateTimeVariable")},
-			"azurerm_automation_variable_int":         {Tok: azureDataSource(azureAutomation, "getIntVariable")},
-			"azurerm_automation_variable_string":      {Tok: azureDataSource(azureAutomation, "getStringVariable")},
-			"azurerm_automation_account":              {Tok: azureDataSource(azureAutomation, "getAccount")},
-			"azurerm_availability_set":                {Tok: azureDataSource(azureCompute, "getAvailabilitySet")},
-			"azurerm_batch_account":                   {Tok: azureDataSource(azureBatch, "getAccount")},
-			"azurerm_batch_certificate":               {Tok: azureDataSource(azureBatch, "getCertificate")},
-			"azurerm_batch_pool":                      {Tok: azureDataSource(azureBatch, "getPool")},
-			"azurerm_subscriptions":                   {Tok: azureDataSource(azureCore, "getSubscriptions")},
-			"azurerm_cdn_profile":                     {Tok: azureDataSource(azureCDN, "getProfile")},
-			"azurerm_client_config":                   {Tok: azureDataSource(azureCore, "getClientConfig")},
-			"azurerm_container_registry":              {Tok: azureDataSource(azureContainerService, "getRegistry")},
-			"azurerm_cosmosdb_account":                {Tok: azureDataSource(azureCosmosDB, "getAccount")},
-			"azurerm_data_lake_store":                 {Tok: azureDataSource(azureDatalake, "getStore")},
-			"azurerm_data_share_account":              {Tok: azureDataSource(azureDataShare, "getAccount")},
-			"azurerm_data_share":                      {Tok: azureDataSource(azureDataShare, "getShare")},
-			"azurerm_data_share_dataset_blob_storage": {Tok: azureDataSource(azureDataShare, "getDatasetBlobStorage")},
-			"azurerm_dev_test_lab":                    {Tok: azureDataSource(azureDevTest, "getLab")},
-			"azurerm_dev_test_virtual_network":        {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
-			"azurerm_image":                           {Tok: azureDataSource(azureCompute, "getImage")},
-			"azurerm_shared_image":                    {Tok: azureDataSource(azureCompute, "getSharedImage")},
-			"azurerm_shared_image_gallery":            {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
-			"azurerm_shared_image_version":            {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
+			"azurerm_automation_variable_bool":          {Tok: azureDataSource(azureAutomation, "getBoolVariable")},
+			"azurerm_automation_variable_datetime":      {Tok: azureDataSource(azureAutomation, "getDateTimeVariable")},
+			"azurerm_automation_variable_int":           {Tok: azureDataSource(azureAutomation, "getIntVariable")},
+			"azurerm_automation_variable_string":        {Tok: azureDataSource(azureAutomation, "getStringVariable")},
+			"azurerm_automation_account":                {Tok: azureDataSource(azureAutomation, "getAccount")},
+			"azurerm_availability_set":                  {Tok: azureDataSource(azureCompute, "getAvailabilitySet")},
+			"azurerm_batch_account":                     {Tok: azureDataSource(azureBatch, "getAccount")},
+			"azurerm_batch_certificate":                 {Tok: azureDataSource(azureBatch, "getCertificate")},
+			"azurerm_batch_pool":                        {Tok: azureDataSource(azureBatch, "getPool")},
+			"azurerm_subscriptions":                     {Tok: azureDataSource(azureCore, "getSubscriptions")},
+			"azurerm_cdn_profile":                       {Tok: azureDataSource(azureCDN, "getProfile")},
+			"azurerm_client_config":                     {Tok: azureDataSource(azureCore, "getClientConfig")},
+			"azurerm_container_registry":                {Tok: azureDataSource(azureContainerService, "getRegistry")},
+			"azurerm_cosmosdb_account":                  {Tok: azureDataSource(azureCosmosDB, "getAccount")},
+			"azurerm_data_lake_store":                   {Tok: azureDataSource(azureDatalake, "getStore")},
+			"azurerm_data_share_account":                {Tok: azureDataSource(azureDataShare, "getAccount")},
+			"azurerm_data_share":                        {Tok: azureDataSource(azureDataShare, "getShare")},
+			"azurerm_data_share_dataset_blob_storage":   {Tok: azureDataSource(azureDataShare, "getDatasetBlobStorage")},
+			"azurerm_data_share_dataset_data_lake_gen1": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen1")},
+			"azurerm_dev_test_lab":                      {Tok: azureDataSource(azureDevTest, "getLab")},
+			"azurerm_dev_test_virtual_network":          {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
+			"azurerm_image":                             {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_shared_image":                      {Tok: azureDataSource(azureCompute, "getSharedImage")},
+			"azurerm_shared_image_gallery":              {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
+			"azurerm_shared_image_version":              {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
 			"azurerm_lb": {
 				Tok: azureDataSource(azureLB, "getLB"),
 				Docs: &tfbridge.DocInfo{

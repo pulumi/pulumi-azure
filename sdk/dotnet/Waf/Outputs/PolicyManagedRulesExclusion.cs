@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Waf.Outputs
     [OutputType]
     public sealed class PolicyManagedRulesExclusion
     {
+        /// <summary>
+        /// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// </summary>
         public readonly string MatchVariable;
         /// <summary>
         /// Describes field of the matchVariable collection.

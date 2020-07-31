@@ -109,7 +109,9 @@ type EventSubscription struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrOutput `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrOutput `pulumi:"subjectFilter"`
-	// (Optional) Specifies the name of the topic to associate with the event subscription.
+	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+	//
+	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
 	TopicName pulumi.StringOutput `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrOutput `pulumi:"webhookEndpoint"`
@@ -186,7 +188,9 @@ type eventSubscriptionState struct {
 	StorageQueueEndpoint *EventSubscriptionStorageQueueEndpoint `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
-	// (Optional) Specifies the name of the topic to associate with the event subscription.
+	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+	//
+	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
 	TopicName *string `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
@@ -233,7 +237,9 @@ type EventSubscriptionState struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrInput
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
-	// (Optional) Specifies the name of the topic to associate with the event subscription.
+	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+	//
+	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
 	TopicName pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput
@@ -284,7 +290,9 @@ type eventSubscriptionArgs struct {
 	StorageQueueEndpoint *EventSubscriptionStorageQueueEndpoint `pulumi:"storageQueueEndpoint"`
 	// A `subjectFilter` block as defined below.
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
-	// (Optional) Specifies the name of the topic to associate with the event subscription.
+	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+	//
+	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
 	TopicName *string `pulumi:"topicName"`
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
@@ -332,7 +340,9 @@ type EventSubscriptionArgs struct {
 	StorageQueueEndpoint EventSubscriptionStorageQueueEndpointPtrInput
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
-	// (Optional) Specifies the name of the topic to associate with the event subscription.
+	// (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+	//
+	// Deprecated: This field has been updated to readonly field since Apr 25, 2019 so no longer has any affect and will be removed in version 3.0 of the provider.
 	TopicName pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput

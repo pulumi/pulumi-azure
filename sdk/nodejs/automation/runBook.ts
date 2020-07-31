@@ -19,9 +19,7 @@ import * as utilities from "../utilities";
  * const exampleAccount = new azure.automation.Account("exampleAccount", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: [{
- *         name: "Basic",
- *     }],
+ *     skuName: "Basic",
  * });
  * const exampleRunBook = new azure.automation.RunBook("exampleRunBook", {
  *     location: exampleResourceGroup.location,
@@ -77,6 +75,7 @@ export class RunBook extends pulumi.CustomResource {
      * A description for this credential.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly jobSchedules!: pulumi.Output<outputs.automation.RunBookJobSchedule[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -125,6 +124,7 @@ export class RunBook extends pulumi.CustomResource {
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["jobSchedules"] = state ? state.jobSchedules : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["logProgress"] = state ? state.logProgress : undefined;
             inputs["logVerbose"] = state ? state.logVerbose : undefined;
@@ -153,6 +153,7 @@ export class RunBook extends pulumi.CustomResource {
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["content"] = args ? args.content : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["jobSchedules"] = args ? args.jobSchedules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logProgress"] = args ? args.logProgress : undefined;
             inputs["logVerbose"] = args ? args.logVerbose : undefined;
@@ -189,6 +190,7 @@ export interface RunBookState {
      * A description for this credential.
      */
     readonly description?: pulumi.Input<string>;
+    readonly jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -239,6 +241,7 @@ export interface RunBookArgs {
      * A description for this credential.
      */
     readonly description?: pulumi.Input<string>;
+    readonly jobSchedules?: pulumi.Input<pulumi.Input<inputs.automation.RunBookJobSchedule>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

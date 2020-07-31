@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string Expiry;
         /// <summary>
-        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
         /// </summary>
         public readonly string Permissions;
         /// <summary>

@@ -49,6 +49,9 @@ class Provider(pulumi.ProviderResource):
             * `purgeSoftDeleteOnDestroy` (`pulumi.Input[bool]`)
             * `recoverSoftDeletedKeyVaults` (`pulumi.Input[bool]`)
 
+          * `network` (`pulumi.Input[dict]`)
+            * `relaxedLocking` (`pulumi.Input[bool]`)
+
           * `virtual_machine` (`pulumi.Input[dict]`)
             * `deleteOsDiskOnDeletion` (`pulumi.Input[bool]`)
 

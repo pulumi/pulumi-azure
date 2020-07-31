@@ -98,8 +98,9 @@ type FunctionAppSlot struct {
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrOutput `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
-	Enabled         pulumi.BoolPtrOutput `pulumi:"enabled"`
-	FunctionAppName pulumi.StringOutput  `pulumi:"functionAppName"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+	FunctionAppName pulumi.StringOutput `pulumi:"functionAppName"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -192,7 +193,8 @@ type functionAppSlotState struct {
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
-	Enabled         *bool   `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName *string `pulumi:"functionAppName"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -244,7 +246,8 @@ type FunctionAppSlotState struct {
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
 	// Is the Function App enabled?
-	Enabled         pulumi.BoolPtrInput
+	Enabled pulumi.BoolPtrInput
+	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName pulumi.StringPtrInput
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
@@ -298,7 +301,8 @@ type functionAppSlotArgs struct {
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging *bool `pulumi:"enableBuiltinLogging"`
 	// Is the Function App enabled?
-	Enabled         *bool  `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName string `pulumi:"functionAppName"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -341,7 +345,8 @@ type FunctionAppSlotArgs struct {
 	// Should the built-in logging of the Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging pulumi.BoolPtrInput
 	// Is the Function App enabled?
-	Enabled         pulumi.BoolPtrInput
+	Enabled pulumi.BoolPtrInput
+	// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
 	FunctionAppName pulumi.StringInput
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput

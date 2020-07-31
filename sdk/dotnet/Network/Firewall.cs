@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> ThreatIntelMode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the availability zones in which the Azure Firewall should be created.
+        /// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies the availability zones in which the Azure Firewall should be created.
+        /// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies the availability zones in which the Azure Firewall should be created.
+        /// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> Zones
         {

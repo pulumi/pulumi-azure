@@ -91,7 +91,7 @@ type Firewall struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
 	ThreatIntelMode pulumi.StringPtrOutput `pulumi:"threatIntelMode"`
-	// Specifies the availability zones in which the Azure Firewall should be created.
+	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -141,7 +141,7 @@ type firewallState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// Specifies the availability zones in which the Azure Firewall should be created.
+	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -158,7 +158,7 @@ type FirewallState struct {
 	Tags pulumi.StringMapInput
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
 	ThreatIntelMode pulumi.StringPtrInput
-	// Specifies the availability zones in which the Azure Firewall should be created.
+	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 
@@ -179,7 +179,7 @@ type firewallArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// Specifies the availability zones in which the Azure Firewall should be created.
+	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -197,7 +197,7 @@ type FirewallArgs struct {
 	Tags pulumi.StringMapInput
 	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`
 	ThreatIntelMode pulumi.StringPtrInput
-	// Specifies the availability zones in which the Azure Firewall should be created.
+	// Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
 	Zones pulumi.StringArrayInput
 }
 

@@ -38,7 +38,7 @@ class Policy(pulumi.CustomResource):
     A `managed_rules` blocks as defined below.
 
       * `exclusions` (`list`) - One or more `exclusion` block defined below.
-        * `matchVariable` (`str`)
+        * `matchVariable` (`str`) - The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
         * `selector` (`str`) - Describes field of the matchVariable collection.
         * `selectorMatchOperator` (`str`) - Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
 
@@ -194,7 +194,7 @@ class Policy(pulumi.CustomResource):
         The **managed_rules** object supports the following:
 
           * `exclusions` (`pulumi.Input[list]`) - One or more `exclusion` block defined below.
-            * `matchVariable` (`pulumi.Input[str]`)
+            * `matchVariable` (`pulumi.Input[str]`) - The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
             * `selector` (`pulumi.Input[str]`) - Describes field of the matchVariable collection.
             * `selectorMatchOperator` (`pulumi.Input[str]`) - Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
 
@@ -285,7 +285,7 @@ class Policy(pulumi.CustomResource):
         The **managed_rules** object supports the following:
 
           * `exclusions` (`pulumi.Input[list]`) - One or more `exclusion` block defined below.
-            * `matchVariable` (`pulumi.Input[str]`)
+            * `matchVariable` (`pulumi.Input[str]`) - The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
             * `selector` (`pulumi.Input[str]`) - Describes field of the matchVariable collection.
             * `selectorMatchOperator` (`pulumi.Input[str]`) - Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
 

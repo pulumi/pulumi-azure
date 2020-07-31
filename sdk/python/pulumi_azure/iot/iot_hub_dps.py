@@ -53,7 +53,7 @@ class IotHubDps(pulumi.CustomResource):
     A `sku` block as defined below.
 
       * `capacity` (`float`) - The number of provisioned IoT Device Provisioning Service units.
-      * `name` (`str`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+      * `name` (`str`) - The name of the sku. Currently can only be set to `S1`.
     """
     tags: pulumi.Output[dict]
     """
@@ -99,7 +99,7 @@ class IotHubDps(pulumi.CustomResource):
         The **sku** object supports the following:
 
           * `capacity` (`pulumi.Input[float]`) - The number of provisioned IoT Device Provisioning Service units.
-          * `name` (`pulumi.Input[str]`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+          * `name` (`pulumi.Input[str]`) - The name of the sku. Currently can only be set to `S1`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -169,7 +169,7 @@ class IotHubDps(pulumi.CustomResource):
         The **sku** object supports the following:
 
           * `capacity` (`pulumi.Input[float]`) - The number of provisioned IoT Device Provisioning Service units.
-          * `name` (`pulumi.Input[str]`) - The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+          * `name` (`pulumi.Input[str]`) - The name of the sku. Currently can only be set to `S1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

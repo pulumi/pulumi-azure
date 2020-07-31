@@ -91,9 +91,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     }
 
     /**
-     * The address space that is used the virtual
-     * network. You can supply more than one address space. Changing this forces
-     * a new resource to be created.
+     * The address space that is used the virtual network. You can supply more than one address space.
      */
     public readonly addressSpaces!: pulumi.Output<string[]>;
     /**
@@ -109,23 +107,19 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
     /**
-     * The location/region where the virtual network is
-     * created. Changing this forces a new resource to be created.
+     * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the virtual network. Changing this forces a
-     * new resource to be created.
+     * The name of the virtual network. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network.
+     * The name of the resource group in which to create the virtual network.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Can be specified multiple times to define multiple
-     * subnets. Each `subnet` block supports fields documented below.
+     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      */
     public readonly subnets!: pulumi.Output<outputs.network.VirtualNetworkSubnet[]>;
     /**
@@ -188,9 +182,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
  */
 export interface VirtualNetworkState {
     /**
-     * The address space that is used the virtual
-     * network. You can supply more than one address space. Changing this forces
-     * a new resource to be created.
+     * The address space that is used the virtual network. You can supply more than one address space.
      */
     readonly addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -206,23 +198,19 @@ export interface VirtualNetworkState {
      */
     readonly guid?: pulumi.Input<string>;
     /**
-     * The location/region where the virtual network is
-     * created. Changing this forces a new resource to be created.
+     * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the virtual network. Changing this forces a
-     * new resource to be created.
+     * The name of the virtual network. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network.
+     * The name of the resource group in which to create the virtual network.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times to define multiple
-     * subnets. Each `subnet` block supports fields documented below.
+     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      */
     readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[]>;
     /**
@@ -236,9 +224,7 @@ export interface VirtualNetworkState {
  */
 export interface VirtualNetworkArgs {
     /**
-     * The address space that is used the virtual
-     * network. You can supply more than one address space. Changing this forces
-     * a new resource to be created.
+     * The address space that is used the virtual network. You can supply more than one address space.
      */
     readonly addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -250,23 +236,19 @@ export interface VirtualNetworkArgs {
      */
     readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The location/region where the virtual network is
-     * created. Changing this forces a new resource to be created.
+     * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the virtual network. Changing this forces a
-     * new resource to be created.
+     * The name of the virtual network. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the virtual network.
+     * The name of the resource group in which to create the virtual network.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Can be specified multiple times to define multiple
-     * subnets. Each `subnet` block supports fields documented below.
+     * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      */
     readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[]>;
     /**

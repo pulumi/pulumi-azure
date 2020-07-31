@@ -7,5 +7,6 @@ export * from "./datasetBlobStorage";
 export * from "./datasetDataLakeGen1";
 export * from "./getAccount";
 export * from "./getDatasetBlobStorage";
+export * from "./getDatasetDataLakeGen1";
 export * from "./getShare";
 export * from "./share";

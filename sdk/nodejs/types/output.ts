@@ -7,6 +7,7 @@ import * as outputs from "../types/output";
 
 export interface ProviderFeatures {
     keyVault?: outputs.ProviderFeaturesKeyVault;
+    network?: outputs.ProviderFeaturesNetwork;
     virtualMachine?: outputs.ProviderFeaturesVirtualMachine;
     virtualMachineScaleSet?: outputs.ProviderFeaturesVirtualMachineScaleSet;
 }
@@ -14,6 +15,10 @@ export interface ProviderFeatures {
 export interface ProviderFeaturesKeyVault {
     purgeSoftDeleteOnDestroy?: boolean;
     recoverSoftDeletedKeyVaults?: boolean;
+}
+
+export interface ProviderFeaturesNetwork {
+    relaxedLocking?: boolean;
 }
 
 export interface ProviderFeaturesVirtualMachine {
@@ -1496,6 +1501,7 @@ export namespace appservice {
          * An `azureBlobStorage` block as defined below.
          */
         azureBlobStorage?: outputs.appservice.AppServiceLogsApplicationLogsAzureBlobStorage;
+        fileSystemLevel?: string;
     }
 
     export interface AppServiceLogsApplicationLogsAzureBlobStorage {
@@ -2177,6 +2183,10 @@ export namespace appservice {
          */
         alwaysOn?: boolean;
         /**
+         * The name of the slot to automatically swap to during deployment
+         */
+        autoSwapSlotName?: string;
+        /**
          * A `cors` block as defined below.
          */
         cors: outputs.appservice.FunctionAppSlotSiteConfigCors;
@@ -2679,6 +2689,10 @@ export namespace appservice {
          * An `azureBlobStorage` block as defined below.
          */
         azureBlobStorage?: outputs.appservice.SlotLogsApplicationLogsAzureBlobStorage;
+        /**
+         * The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+         */
+        fileSystemLevel?: string;
     }
 
     export interface SlotLogsApplicationLogsAzureBlobStorage {
@@ -2739,7 +2753,7 @@ export namespace appservice {
          */
         appCommandLine?: string;
         /**
-         * The name of the swap to automatically swap to during deployment
+         * The name of the slot to automatically swap to during deployment
          */
         autoSwapSlotName?: string;
         /**
@@ -2927,6 +2941,13 @@ export namespace automation {
         value: string;
     }
 
+    export interface RunBookJobSchedule {
+        jobScheduleId: string;
+        parameters?: {[key: string]: string};
+        runOn?: string;
+        scheduleName: string;
+    }
+
     export interface RunBookPublishContentLink {
         hash?: outputs.automation.RunBookPublishContentLinkHash;
         /**
@@ -3091,6 +3112,10 @@ export namespace batch {
     }
 
     export interface GetPoolContainerConfiguration {
+        /**
+         * A list of container image names to use, as would be specified by `docker pull`.
+         */
+        containerImageNames: string[];
         /**
          * Additional container registries from which container images can be pulled by the pool's VMs.
          */
@@ -6015,6 +6040,7 @@ export namespace compute {
 export namespace config {
     export interface Features {
         keyVault?: outputs.config.FeaturesKeyVault;
+        network?: outputs.config.FeaturesNetwork;
         virtualMachine?: outputs.config.FeaturesVirtualMachine;
         virtualMachineScaleSet?: outputs.config.FeaturesVirtualMachineScaleSet;
     }
@@ -6022,6 +6048,10 @@ export namespace config {
     export interface FeaturesKeyVault {
         purgeSoftDeleteOnDestroy?: boolean;
         recoverSoftDeletedKeyVaults?: boolean;
+    }
+
+    export interface FeaturesNetwork {
+        relaxedLocking?: boolean;
     }
 
     export interface FeaturesVirtualMachine {
@@ -8294,7 +8324,7 @@ export namespace eventgrid {
 
     export interface EventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: number;
         /**
@@ -8792,7 +8822,7 @@ export namespace eventhub {
 
     export interface EventSubscriptionRetryPolicy {
         /**
-         * Specifies the time to live (in minutes) for events.
+         * Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
          */
         eventTimeToLive: number;
         /**
@@ -11300,6 +11330,19 @@ export namespace hpc {
     }
 }
 
+export namespace hsm {
+    export interface ModuleNetworkProfile {
+        /**
+         * The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+         */
+        networkInterfacePrivateIpAddresses: string[];
+        /**
+         * The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+         */
+        subnetId: string;
+    }
+}
+
 export namespace iot {
     export interface IoTHubEndpoint {
         /**
@@ -11483,7 +11526,7 @@ export namespace iot {
          */
         capacity: number;
         /**
-         * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+         * The name of the sku. Currently can only be set to `S1`.
          */
         name: string;
     }
@@ -13500,7 +13543,7 @@ export namespace monitoring {
         /**
          * Custom payload to be sent for all webhook payloads in alerting action.
          */
-        customWebhookPayload?: string;
+        customWebhookPayload: string;
         /**
          * Custom subject override for all email ids in Azure action group.
          */
@@ -15781,13 +15824,11 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the virtual network. Changing this forces a
-         * new resource to be created.
+         * The name of the virtual network. Changing this forces a new resource to be created.
          */
         name: string;
         /**
-         * The Network Security Group to associate with
-         * the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+         * The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
          */
         securityGroup?: string;
     }
@@ -17410,7 +17451,7 @@ export namespace storage {
          */
         expiry: string;
         /**
-         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `d` (delete), `l` (list), `r` (read) and `w` (write).
+         * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
          */
         permissions: string;
         /**
@@ -17785,6 +17826,9 @@ export namespace waf {
     }
 
     export interface PolicyManagedRulesExclusion {
+        /**
+         * The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
         matchVariable: string;
         /**
          * Describes field of the matchVariable collection.

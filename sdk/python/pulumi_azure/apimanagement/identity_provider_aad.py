@@ -30,7 +30,11 @@ class IdentityProviderAad(pulumi.CustomResource):
     """
     The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, allowed_tenants=None, api_management_name=None, client_id=None, client_secret=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    signin_tenant: pulumi.Output[str]
+    """
+    The AAD Tenant to use instead of Common when logging into Active Directory
+    """
+    def __init__(__self__, resource_name, opts=None, allowed_tenants=None, api_management_name=None, client_id=None, client_secret=None, resource_group_name=None, signin_tenant=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management AAD Identity Provider.
 
@@ -62,6 +66,7 @@ class IdentityProviderAad(pulumi.CustomResource):
         :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,6 +100,7 @@ class IdentityProviderAad(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['signin_tenant'] = signin_tenant
         super(IdentityProviderAad, __self__).__init__(
             'azure:apimanagement/identityProviderAad:IdentityProviderAad',
             resource_name,
@@ -102,7 +108,7 @@ class IdentityProviderAad(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allowed_tenants=None, api_management_name=None, client_id=None, client_secret=None, resource_group_name=None):
+    def get(resource_name, id, opts=None, allowed_tenants=None, api_management_name=None, client_id=None, client_secret=None, resource_group_name=None, signin_tenant=None):
         """
         Get an existing IdentityProviderAad resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -115,6 +121,7 @@ class IdentityProviderAad(pulumi.CustomResource):
         :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -125,6 +132,7 @@ class IdentityProviderAad(pulumi.CustomResource):
         __props__["client_id"] = client_id
         __props__["client_secret"] = client_secret
         __props__["resource_group_name"] = resource_group_name
+        __props__["signin_tenant"] = signin_tenant
         return IdentityProviderAad(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

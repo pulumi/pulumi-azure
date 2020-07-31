@@ -18,6 +18,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("azureBlobStorage")]
         public Input<Inputs.AppServiceLogsApplicationLogsAzureBlobStorageGetArgs>? AzureBlobStorage { get; set; }
 
+        [Input("fileSystemLevel")]
+        public Input<string>? FileSystemLevel { get; set; }
+
         public AppServiceLogsApplicationLogsGetArgs()
         {
         }

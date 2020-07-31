@@ -22,13 +22,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the virtual network. Changing this forces a
-        /// new resource to be created.
+        /// The name of the virtual network. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Network Security Group to associate with
-        /// the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+        /// The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         /// </summary>
         public readonly string? SecurityGroup;
 
