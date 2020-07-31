@@ -299,7 +299,18 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_api_management_api":                         {Tok: azureResource(azureAPIManagement, "Api")},
+			"azurerm_api_management_api": {
+				Tok: azureResource(azureAPIManagement, "Api"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Max length of an API Management API name is 256.
+					// Source: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftapimanagement
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    256,
+						Randlen:   8,
+					}),
+				},
+			},
 			"azurerm_api_management_api_operation":               {Tok: azureResource(azureAPIManagement, "ApiOperation")},
 			"azurerm_api_management_api_operation_policy":        {Tok: azureResource(azureAPIManagement, "ApiOperationPolicy")},
 			"azurerm_api_management_api_policy":                  {Tok: azureResource(azureAPIManagement, "ApiPolicy")},
