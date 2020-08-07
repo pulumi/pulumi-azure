@@ -173,6 +173,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+        /// </summary>
+        [Output("minTlsVersion")]
+        public Output<string?> MinTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         /// </summary>
         [Output("name")]
@@ -514,6 +520,12 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+        /// </summary>
+        [Input("minTlsVersion")]
+        public Input<string>? MinTlsVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         /// </summary>
         [Input("name")]
@@ -628,6 +640,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+        /// </summary>
+        [Input("minTlsVersion")]
+        public Input<string>? MinTlsVersion { get; set; }
 
         /// <summary>
         /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.

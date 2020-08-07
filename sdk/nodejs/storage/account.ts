@@ -137,6 +137,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+     */
+    public readonly minTlsVersion!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
     public readonly name!: pulumi.Output<string>;
@@ -312,6 +316,7 @@ export class Account extends pulumi.CustomResource {
             inputs["identity"] = state ? state.identity : undefined;
             inputs["isHnsEnabled"] = state ? state.isHnsEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkRules"] = state ? state.networkRules : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
@@ -372,6 +377,7 @@ export class Account extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRules"] = args ? args.networkRules : undefined;
             inputs["queueProperties"] = args ? args.queueProperties : undefined;
@@ -471,6 +477,10 @@ export interface AccountState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+     */
+    readonly minTlsVersion?: pulumi.Input<string>;
     /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
@@ -674,6 +684,10 @@ export interface AccountArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+     */
+    readonly minTlsVersion?: pulumi.Input<string>;
     /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */

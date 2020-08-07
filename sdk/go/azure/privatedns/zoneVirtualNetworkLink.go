@@ -58,7 +58,7 @@ type ZoneVirtualNetworkLink struct {
 	PrivateDnsZoneName pulumi.StringOutput `pulumi:"privateDnsZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled pulumi.BoolPtrOutput `pulumi:"registrationEnabled"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -109,7 +109,7 @@ type zoneVirtualNetworkLinkState struct {
 	PrivateDnsZoneName *string `pulumi:"privateDnsZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled *bool `pulumi:"registrationEnabled"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -124,7 +124,7 @@ type ZoneVirtualNetworkLinkState struct {
 	PrivateDnsZoneName pulumi.StringPtrInput
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled pulumi.BoolPtrInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -143,7 +143,7 @@ type zoneVirtualNetworkLinkArgs struct {
 	PrivateDnsZoneName string `pulumi:"privateDnsZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled *bool `pulumi:"registrationEnabled"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -159,7 +159,7 @@ type ZoneVirtualNetworkLinkArgs struct {
 	PrivateDnsZoneName pulumi.StringInput
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled pulumi.BoolPtrInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

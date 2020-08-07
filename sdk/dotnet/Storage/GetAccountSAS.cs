@@ -50,6 +50,7 @@ namespace Pulumi.Azure.Storage
         ///         {
         ///             ConnectionString = primaryConnectionString,
         ///             HttpsOnly = true,
+        ///             SignedVersion = "2017-07-29",
         ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesArgs
         ///             {
         ///                 Service = true,
@@ -131,6 +132,12 @@ namespace Pulumi.Azure.Storage
         public Inputs.GetAccountSASServicesArgs Services { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+        /// </summary>
+        [Input("signedVersion")]
+        public string? SignedVersion { get; set; }
+
+        /// <summary>
         /// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
         /// </summary>
         [Input("start", required: true)]
@@ -159,6 +166,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string Sas;
         public readonly Outputs.GetAccountSASServicesResult Services;
+        public readonly string? SignedVersion;
         public readonly string Start;
 
         [OutputConstructor]
@@ -179,6 +187,8 @@ namespace Pulumi.Azure.Storage
 
             Outputs.GetAccountSASServicesResult services,
 
+            string? signedVersion,
+
             string start)
         {
             ConnectionString = connectionString;
@@ -189,6 +199,7 @@ namespace Pulumi.Azure.Storage
             ResourceTypes = resourceTypes;
             Sas = sas;
             Services = services;
+            SignedVersion = signedVersion;
             Start = start;
         }
     }

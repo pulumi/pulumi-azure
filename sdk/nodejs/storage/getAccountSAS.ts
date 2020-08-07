@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  * const exampleAccountSAS = exampleAccount.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
  *     connectionString: primaryConnectionString,
  *     httpsOnly: true,
+ *     signedVersion: "2017-07-29",
  *     resourceTypes: {
  *         service: true,
  *         container: false,
@@ -75,6 +76,7 @@ export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptio
         "permissions": args.permissions,
         "resourceTypes": args.resourceTypes,
         "services": args.services,
+        "signedVersion": args.signedVersion,
         "start": args.start,
     }, opts);
 }
@@ -108,6 +110,10 @@ export interface GetAccountSASArgs {
      */
     readonly services: inputs.storage.GetAccountSASServices;
     /**
+     * Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+     */
+    readonly signedVersion?: string;
+    /**
      * The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
      */
     readonly start: string;
@@ -131,5 +137,6 @@ export interface GetAccountSASResult {
      */
     readonly sas: string;
     readonly services: outputs.storage.GetAccountSASServices;
+    readonly signedVersion?: string;
     readonly start: string;
 }

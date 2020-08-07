@@ -135,7 +135,7 @@ class Slot(pulumi.CustomResource):
       * `linuxFxVersion` (`str`)
       * `localMysqlEnabled` (`bool`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
       * `managedPipelineMode` (`str`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
-      * `minTlsVersion` (`str`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+      * `min_tls_version` (`str`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
       * `phpVersion` (`str`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
       * `pythonVersion` (`str`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
       * `remoteDebuggingEnabled` (`bool`) - Is Remote Debugging Enabled? Defaults to `false`.
@@ -376,7 +376,7 @@ class Slot(pulumi.CustomResource):
           * `linuxFxVersion` (`pulumi.Input[str]`)
           * `localMysqlEnabled` (`pulumi.Input[bool]`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
           * `managedPipelineMode` (`pulumi.Input[str]`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
-          * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+          * `min_tls_version` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
           * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
           * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
@@ -561,7 +561,7 @@ class Slot(pulumi.CustomResource):
           * `linuxFxVersion` (`pulumi.Input[str]`)
           * `localMysqlEnabled` (`pulumi.Input[bool]`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
           * `managedPipelineMode` (`pulumi.Input[str]`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
-          * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+          * `min_tls_version` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
           * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, and `7.3`.
           * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.

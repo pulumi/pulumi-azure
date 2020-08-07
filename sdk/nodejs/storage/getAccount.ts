@@ -31,6 +31,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azure:storage/getAccount:getAccount", {
+        "minTlsVersion": args.minTlsVersion,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -40,6 +41,10 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountArgs {
+    /**
+     * The minimum supported TLS version for this storage account.
+     */
+    readonly minTlsVersion?: string;
     /**
      * Specifies the name of the Storage Account
      */
@@ -95,6 +100,10 @@ export interface GetAccountResult {
      * The Azure location where the Storage Account exists
      */
     readonly location: string;
+    /**
+     * The minimum supported TLS version for this storage account.
+     */
+    readonly minTlsVersion?: string;
     /**
      * The Custom Domain Name used for the Storage Account.
      */

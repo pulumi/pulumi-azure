@@ -45,6 +45,8 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountArgs struct {
+	// The minimum supported TLS version for this storage account.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the Storage Account
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Storage Account is located in.
@@ -74,6 +76,8 @@ type LookupAccountResult struct {
 	IsHnsEnabled bool `pulumi:"isHnsEnabled"`
 	// The Azure location where the Storage Account exists
 	Location string `pulumi:"location"`
+	// The minimum supported TLS version for this storage account.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The Custom Domain Name used for the Storage Account.
 	Name string `pulumi:"name"`
 	// The primary access key for the Storage Account.

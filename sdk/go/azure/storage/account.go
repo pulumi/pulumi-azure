@@ -140,6 +140,8 @@ type Account struct {
 	IsHnsEnabled pulumi.BoolPtrOutput `pulumi:"isHnsEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkRules` block as documented below.
@@ -278,6 +280,8 @@ type accountState struct {
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
 	// A `networkRules` block as documented below.
@@ -380,6 +384,8 @@ type AccountState struct {
 	IsHnsEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
 	// A `networkRules` block as documented below.
@@ -486,6 +492,8 @@ type accountArgs struct {
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
 	// A `networkRules` block as documented below.
@@ -525,6 +533,8 @@ type AccountArgs struct {
 	IsHnsEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
 	// A `networkRules` block as documented below.

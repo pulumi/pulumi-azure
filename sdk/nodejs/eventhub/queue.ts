@@ -61,8 +61,7 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the
-     * Queue is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string>;
     /**
@@ -70,71 +69,69 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this
-     * queue. This is the default value used when TTL is not set on message itself.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      */
     public readonly defaultMessageTtl!: pulumi.Output<string>;
     /**
-     * The ISO 8601 timespan duration during which
-     * duplicates can be detected. Default value is 10 minutes. (`PT10M`)
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
      */
     public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string>;
     /**
-     * Boolean flag which controls whether Express Entities
-     * are enabled. An express queue holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
-     * be set to `false`.
+     * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+     */
+    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
+    /**
+     * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      */
     public readonly enableExpress!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag which controls whether to enable
-     * the queue to be partitioned across multiple message brokers. Changing this forces
-     * a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
-     * be set to `true`.
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
     /**
-     * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
+     * The name of a Queue or Topic to automatically forward dead lettered messages to.
+     */
+    public readonly forwardDeadLetteredMessagesTo!: pulumi.Output<string | undefined>;
+    /**
+     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+     */
+    public readonly forwardTo!: pulumi.Output<string | undefined>;
+    /**
+     * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
      */
     public readonly lockDuration!: pulumi.Output<string>;
     /**
-     * Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+     * Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
      */
     public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
     /**
-     * Integer value which controls the size of
-     * memory allocated for the queue. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */
     public readonly maxSizeInMegabytes!: pulumi.Output<number>;
     /**
-     * Specifies the name of the ServiceBus Queue resource. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the ServiceBus Namespace to create
-     * this queue in. Changing this forces a new resource to be created.
+     * The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
-     * Boolean flag which controls whether
-     * the Queue requires duplicate detection. Changing this forces
-     * a new resource to be created. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag which controls whether the Queue requires sessions.
-     * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
-     * a queue can guarantee first-in-first-out delivery of messages.
-     * Changing this forces a new resource to be created. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly requiresSession!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -155,8 +152,11 @@ export class Queue extends pulumi.CustomResource {
             inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
             inputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;
+            inputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
             inputs["enableExpress"] = state ? state.enableExpress : undefined;
             inputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
+            inputs["forwardDeadLetteredMessagesTo"] = state ? state.forwardDeadLetteredMessagesTo : undefined;
+            inputs["forwardTo"] = state ? state.forwardTo : undefined;
             inputs["lockDuration"] = state ? state.lockDuration : undefined;
             inputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
             inputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
@@ -165,6 +165,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
             inputs["requiresSession"] = state ? state.requiresSession : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
             if (!args || args.namespaceName === undefined) {
@@ -177,8 +178,11 @@ export class Queue extends pulumi.CustomResource {
             inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
             inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
+            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             inputs["enableExpress"] = args ? args.enableExpress : undefined;
             inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            inputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
+            inputs["forwardTo"] = args ? args.forwardTo : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
             inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
@@ -187,6 +191,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
         }
         if (!opts) {
             opts = {}
@@ -204,8 +209,7 @@ export class Queue extends pulumi.CustomResource {
  */
 export interface QueueState {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the
-     * Queue is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
     /**
@@ -213,71 +217,69 @@ export interface QueueState {
      */
     readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this
-     * queue. This is the default value used when TTL is not set on message itself.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * The ISO 8601 timespan duration during which
-     * duplicates can be detected. Default value is 10 minutes. (`PT10M`)
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether Express Entities
-     * are enabled. An express queue holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
-     * be set to `false`.
+     * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+     */
+    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      */
     readonly enableExpress?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether to enable
-     * the queue to be partitioned across multiple message brokers. Changing this forces
-     * a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
-     * be set to `true`.
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
      */
     readonly enablePartitioning?: pulumi.Input<boolean>;
     /**
-     * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
+     * The name of a Queue or Topic to automatically forward dead lettered messages to.
+     */
+    readonly forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    /**
+     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+     */
+    readonly forwardTo?: pulumi.Input<string>;
+    /**
+     * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
      */
     readonly lockDuration?: pulumi.Input<string>;
     /**
-     * Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+     * Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
      */
     readonly maxDeliveryCount?: pulumi.Input<number>;
     /**
-     * Integer value which controls the size of
-     * memory allocated for the queue. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */
     readonly maxSizeInMegabytes?: pulumi.Input<number>;
     /**
-     * Specifies the name of the ServiceBus Queue resource. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace to create
-     * this queue in. Changing this forces a new resource to be created.
+     * The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
     readonly namespaceName?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether
-     * the Queue requires duplicate detection. Changing this forces
-     * a new resource to be created. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
      */
     readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether the Queue requires sessions.
-     * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
-     * a queue can guarantee first-in-first-out delivery of messages.
-     * Changing this forces a new resource to be created. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
     readonly requiresSession?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
+     */
+    readonly status?: pulumi.Input<string>;
 }
 
 /**
@@ -285,8 +287,7 @@ export interface QueueState {
  */
 export interface QueueArgs {
     /**
-     * The ISO 8601 timespan duration of the idle interval after which the
-     * Queue is automatically deleted, minimum of 5 minutes.
+     * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
     /**
@@ -294,69 +295,67 @@ export interface QueueArgs {
      */
     readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
-     * The ISO 8601 timespan duration of the TTL of messages sent to this
-     * queue. This is the default value used when TTL is not set on message itself.
+     * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * The ISO 8601 timespan duration during which
-     * duplicates can be detected. Default value is 10 minutes. (`PT10M`)
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether Express Entities
-     * are enabled. An express queue holds a message in memory temporarily before writing
-     * it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
-     * be set to `false`.
+     * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+     */
+    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      */
     readonly enableExpress?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether to enable
-     * the queue to be partitioned across multiple message brokers. Changing this forces
-     * a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
-     * be set to `true`.
+     * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
      */
     readonly enablePartitioning?: pulumi.Input<boolean>;
     /**
-     * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
+     * The name of a Queue or Topic to automatically forward dead lettered messages to.
+     */
+    readonly forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    /**
+     * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+     */
+    readonly forwardTo?: pulumi.Input<string>;
+    /**
+     * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
      */
     readonly lockDuration?: pulumi.Input<string>;
     /**
-     * Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+     * Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
      */
     readonly maxDeliveryCount?: pulumi.Input<number>;
     /**
-     * Integer value which controls the size of
-     * memory allocated for the queue. For supported values see the "Queue/topic size"
-     * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+     * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
      */
     readonly maxSizeInMegabytes?: pulumi.Input<number>;
     /**
-     * Specifies the name of the ServiceBus Queue resource. Changing this forces a
-     * new resource to be created.
+     * Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the ServiceBus Namespace to create
-     * this queue in. Changing this forces a new resource to be created.
+     * The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Boolean flag which controls whether
-     * the Queue requires duplicate detection. Changing this forces
-     * a new resource to be created. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
      */
     readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether the Queue requires sessions.
-     * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
-     * a queue can guarantee first-in-first-out delivery of messages.
-     * Changing this forces a new resource to be created. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
     readonly requiresSession?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group in which to
-     * create the namespace. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
+     */
+    readonly status?: pulumi.Input<string>;
 }

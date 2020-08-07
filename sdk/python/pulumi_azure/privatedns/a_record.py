@@ -24,7 +24,7 @@ class ARecord(pulumi.CustomResource):
     """
     resource_group_name: pulumi.Output[str]
     """
-    Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+    Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -58,7 +58,7 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS A Record.
         :param pulumi.Input[list] records: List of IPv4 Addresses.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
@@ -112,7 +112,7 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The FQDN of the DNS A Record.
         :param pulumi.Input[str] name: The name of the DNS A Record.
         :param pulumi.Input[list] records: List of IPv4 Addresses.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
