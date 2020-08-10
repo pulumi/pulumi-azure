@@ -61,7 +61,7 @@ type ARecord struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of IPv4 Addresses.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -116,7 +116,7 @@ type arecordState struct {
 	Name *string `pulumi:"name"`
 	// List of IPv4 Addresses.
 	Records []string `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -132,7 +132,7 @@ type ARecordState struct {
 	Name pulumi.StringPtrInput
 	// List of IPv4 Addresses.
 	Records pulumi.StringArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -150,7 +150,7 @@ type arecordArgs struct {
 	Name *string `pulumi:"name"`
 	// List of IPv4 Addresses.
 	Records []string `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -165,7 +165,7 @@ type ARecordArgs struct {
 	Name pulumi.StringPtrInput
 	// List of IPv4 Addresses.
 	Records pulumi.StringArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

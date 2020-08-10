@@ -75,6 +75,8 @@ type GetAccountSASArgs struct {
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
 	// A `services` block as defined below.
 	Services GetAccountSASServices `pulumi:"services"`
+	// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
+	SignedVersion *string `pulumi:"signedVersion"`
 	// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
 	Start string `pulumi:"start"`
 }
@@ -89,7 +91,8 @@ type GetAccountSASResult struct {
 	Permissions   GetAccountSASPermissions   `pulumi:"permissions"`
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
 	// The computed Account Shared Access Signature (SAS).
-	Sas      string                `pulumi:"sas"`
-	Services GetAccountSASServices `pulumi:"services"`
-	Start    string                `pulumi:"start"`
+	Sas           string                `pulumi:"sas"`
+	Services      GetAccountSASServices `pulumi:"services"`
+	SignedVersion *string               `pulumi:"signedVersion"`
+	Start         string                `pulumi:"start"`
 }

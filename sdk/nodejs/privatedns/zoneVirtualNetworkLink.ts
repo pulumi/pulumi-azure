@@ -63,7 +63,7 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
      */
     public readonly registrationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export interface ZoneVirtualNetworkLinkState {
      */
     readonly registrationEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -169,7 +169,7 @@ export interface ZoneVirtualNetworkLinkArgs {
      */
     readonly registrationEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

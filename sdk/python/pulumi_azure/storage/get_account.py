@@ -12,7 +12,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, custom_domains=None, enable_https_traffic_only=None, id=None, is_hns_enabled=None, location=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, custom_domains=None, enable_https_traffic_only=None, id=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         __self__.access_tier = access_tier
@@ -73,6 +73,12 @@ class GetAccountResult:
         __self__.location = location
         """
         The Azure location where the Storage Account exists
+        """
+        if min_tls_version and not isinstance(min_tls_version, str):
+            raise TypeError("Expected argument 'min_tls_version' to be a str")
+        __self__.min_tls_version = min_tls_version
+        """
+        The minimum supported TLS version for this storage account.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -297,6 +303,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             id=self.id,
             is_hns_enabled=self.is_hns_enabled,
             location=self.location,
+            min_tls_version=self.min_tls_version,
             name=self.name,
             primary_access_key=self.primary_access_key,
             primary_blob_connection_string=self.primary_blob_connection_string,
@@ -333,7 +340,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             secondary_web_host=self.secondary_web_host,
             tags=self.tags)
 
-def get_account(name=None,resource_group_name=None,opts=None):
+def get_account(min_tls_version=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Storage Account.
 
@@ -349,12 +356,14 @@ def get_account(name=None,resource_group_name=None,opts=None):
     ```
 
 
+    :param str min_tls_version: The minimum supported TLS version for this storage account.
     :param str name: Specifies the name of the Storage Account
     :param str resource_group_name: Specifies the name of the resource group the Storage Account is located in.
     """
     __args__ = dict()
 
 
+    __args__['minTlsVersion'] = min_tls_version
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -374,6 +383,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
         id=__ret__.get('id'),
         is_hns_enabled=__ret__.get('isHnsEnabled'),
         location=__ret__.get('location'),
+        min_tls_version=__ret__.get('minTlsVersion'),
         name=__ret__.get('name'),
         primary_access_key=__ret__.get('primaryAccessKey'),
         primary_blob_connection_string=__ret__.get('primaryBlobConnectionString'),

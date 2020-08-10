@@ -50,8 +50,7 @@ namespace Pulumi.Azure.ServiceBus
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the
-        /// Queue is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
         /// </summary>
         [Output("autoDeleteOnIdle")]
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
@@ -63,94 +62,100 @@ namespace Pulumi.Azure.ServiceBus
         public Output<bool?> DeadLetteringOnMessageExpiration { get; private set; } = null!;
 
         /// <summary>
-        /// The ISO 8601 timespan duration of the TTL of messages sent to this
-        /// queue. This is the default value used when TTL is not set on message itself.
+        /// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
         /// </summary>
         [Output("defaultMessageTtl")]
         public Output<string> DefaultMessageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which
-        /// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
         /// </summary>
         [Output("duplicateDetectionHistoryTimeWindow")]
         public Output<string> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities
-        /// are enabled. An express queue holds a message in memory temporarily before writing
-        /// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
-        /// be set to `false`.
+        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        /// </summary>
+        [Output("enableBatchedOperations")]
+        public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         /// </summary>
         [Output("enableExpress")]
         public Output<bool?> EnableExpress { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether to enable
-        /// the queue to be partitioned across multiple message brokers. Changing this forces
-        /// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
-        /// be set to `true`.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
         /// </summary>
         [Output("enablePartitioning")]
         public Output<bool?> EnablePartitioning { get; private set; } = null!;
 
         /// <summary>
-        /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
+        /// The name of a Queue or Topic to automatically forward dead lettered messages to.
+        /// </summary>
+        [Output("forwardDeadLetteredMessagesTo")]
+        public Output<string?> ForwardDeadLetteredMessagesTo { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        /// </summary>
+        [Output("forwardTo")]
+        public Output<string?> ForwardTo { get; private set; } = null!;
+
+        /// <summary>
+        /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
         /// </summary>
         [Output("lockDuration")]
         public Output<string> LockDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+        /// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         /// </summary>
         [Output("maxDeliveryCount")]
         public Output<int?> MaxDeliveryCount { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value which controls the size of
-        /// memory allocated for the queue. For supported values see the "Queue/topic size"
-        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         /// </summary>
         [Output("maxSizeInMegabytes")]
         public Output<int> MaxSizeInMegabytes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Queue resource. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
-        /// this queue in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether
-        /// the Queue requires duplicate detection. Changing this forces
-        /// a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Output("requiresDuplicateDetection")]
         public Output<bool?> RequiresDuplicateDetection { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires sessions.
-        /// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
-        /// a queue can guarantee first-in-first-out delivery of messages.
-        /// Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Output("requiresSession")]
         public Output<bool?> RequiresSession { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
 
         /// <summary>
@@ -203,8 +208,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class QueueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the
-        /// Queue is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
@@ -216,94 +220,100 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration of the TTL of messages sent to this
-        /// queue. This is the default value used when TTL is not set on message itself.
+        /// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
         /// </summary>
         [Input("defaultMessageTtl")]
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which
-        /// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
         /// </summary>
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities
-        /// are enabled. An express queue holds a message in memory temporarily before writing
-        /// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
-        /// be set to `false`.
+        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        /// </summary>
+        [Input("enableBatchedOperations")]
+        public Input<bool>? EnableBatchedOperations { get; set; }
+
+        /// <summary>
+        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         /// </summary>
         [Input("enableExpress")]
         public Input<bool>? EnableExpress { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable
-        /// the queue to be partitioned across multiple message brokers. Changing this forces
-        /// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
-        /// be set to `true`.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
+        /// The name of a Queue or Topic to automatically forward dead lettered messages to.
+        /// </summary>
+        [Input("forwardDeadLetteredMessagesTo")]
+        public Input<string>? ForwardDeadLetteredMessagesTo { get; set; }
+
+        /// <summary>
+        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        /// </summary>
+        [Input("forwardTo")]
+        public Input<string>? ForwardTo { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
         /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
 
         /// <summary>
-        /// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+        /// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         /// </summary>
         [Input("maxDeliveryCount")]
         public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
-        /// Integer value which controls the size of
-        /// memory allocated for the queue. For supported values see the "Queue/topic size"
-        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         /// </summary>
         [Input("maxSizeInMegabytes")]
         public Input<int>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Queue resource. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
-        /// this queue in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether
-        /// the Queue requires duplicate detection. Changing this forces
-        /// a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires sessions.
-        /// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
-        /// a queue can guarantee first-in-first-out delivery of messages.
-        /// Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         public QueueArgs()
         {
@@ -313,8 +323,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class QueueState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ISO 8601 timespan duration of the idle interval after which the
-        /// Queue is automatically deleted, minimum of 5 minutes.
+        /// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
@@ -326,94 +335,100 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration of the TTL of messages sent to this
-        /// queue. This is the default value used when TTL is not set on message itself.
+        /// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
         /// </summary>
         [Input("defaultMessageTtl")]
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which
-        /// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
         /// </summary>
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether Express Entities
-        /// are enabled. An express queue holds a message in memory temporarily before writing
-        /// it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
-        /// be set to `false`.
+        /// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+        /// </summary>
+        [Input("enableBatchedOperations")]
+        public Input<bool>? EnableBatchedOperations { get; set; }
+
+        /// <summary>
+        /// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         /// </summary>
         [Input("enableExpress")]
         public Input<bool>? EnableExpress { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether to enable
-        /// the queue to be partitioned across multiple message brokers. Changing this forces
-        /// a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
-        /// be set to `true`.
+        /// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
+        /// The name of a Queue or Topic to automatically forward dead lettered messages to.
+        /// </summary>
+        [Input("forwardDeadLetteredMessagesTo")]
+        public Input<string>? ForwardDeadLetteredMessagesTo { get; set; }
+
+        /// <summary>
+        /// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
+        /// </summary>
+        [Input("forwardTo")]
+        public Input<string>? ForwardTo { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
         /// </summary>
         [Input("lockDuration")]
         public Input<string>? LockDuration { get; set; }
 
         /// <summary>
-        /// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+        /// Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         /// </summary>
         [Input("maxDeliveryCount")]
         public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
-        /// Integer value which controls the size of
-        /// memory allocated for the queue. For supported values see the "Queue/topic size"
-        /// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
+        /// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         /// </summary>
         [Input("maxSizeInMegabytes")]
         public Input<int>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Queue resource. Changing this forces a
-        /// new resource to be created.
+        /// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the ServiceBus Namespace to create
-        /// this queue in. Changing this forces a new resource to be created.
+        /// The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether
-        /// the Queue requires duplicate detection. Changing this forces
-        /// a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Input("requiresDuplicateDetection")]
         public Input<bool>? RequiresDuplicateDetection { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Queue requires sessions.
-        /// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
-        /// a queue can guarantee first-in-first-out delivery of messages.
-        /// Changing this forces a new resource to be created. Defaults to `false`.
+        /// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Input("requiresSession")]
         public Input<bool>? RequiresSession { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to
-        /// create the namespace. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         public QueueState()
         {

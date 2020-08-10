@@ -146,7 +146,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         * `subnet_id` (`str`) - The Subnet ID used for this IP Restriction.
 
       * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
-      * `minTlsVersion` (`str`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+      * `min_tls_version` (`str`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
       * `preWarmedInstanceCount` (`float`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
       * `use32BitWorkerProcess` (`bool`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
@@ -300,7 +300,7 @@ class FunctionAppSlot(pulumi.CustomResource):
             * `subnet_id` (`pulumi.Input[str]`) - The Subnet ID used for this IP Restriction.
 
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
-          * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+          * `min_tls_version` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `preWarmedInstanceCount` (`pulumi.Input[float]`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
@@ -462,7 +462,7 @@ class FunctionAppSlot(pulumi.CustomResource):
             * `subnet_id` (`pulumi.Input[str]`) - The Subnet ID used for this IP Restriction.
 
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
-          * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+          * `min_tls_version` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `preWarmedInstanceCount` (`pulumi.Input[float]`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?

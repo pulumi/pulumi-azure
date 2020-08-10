@@ -12,7 +12,7 @@ class GetAccountSASResult:
     """
     A collection of values returned by getAccountSAS.
     """
-    def __init__(__self__, connection_string=None, expiry=None, https_only=None, id=None, permissions=None, resource_types=None, sas=None, services=None, start=None):
+    def __init__(__self__, connection_string=None, expiry=None, https_only=None, id=None, permissions=None, resource_types=None, sas=None, services=None, signed_version=None, start=None):
         if connection_string and not isinstance(connection_string, str):
             raise TypeError("Expected argument 'connection_string' to be a str")
         __self__.connection_string = connection_string
@@ -43,6 +43,9 @@ class GetAccountSASResult:
         if services and not isinstance(services, dict):
             raise TypeError("Expected argument 'services' to be a dict")
         __self__.services = services
+        if signed_version and not isinstance(signed_version, str):
+            raise TypeError("Expected argument 'signed_version' to be a str")
+        __self__.signed_version = signed_version
         if start and not isinstance(start, str):
             raise TypeError("Expected argument 'start' to be a str")
         __self__.start = start
@@ -60,9 +63,10 @@ class AwaitableGetAccountSASResult(GetAccountSASResult):
             resource_types=self.resource_types,
             sas=self.sas,
             services=self.services,
+            signed_version=self.signed_version,
             start=self.start)
 
-def get_account_sas(connection_string=None,expiry=None,https_only=None,permissions=None,resource_types=None,services=None,start=None,opts=None):
+def get_account_sas(connection_string=None,expiry=None,https_only=None,permissions=None,resource_types=None,services=None,signed_version=None,start=None,opts=None):
     """
     Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
 
@@ -88,6 +92,7 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
         })
     example_account_sas = example_account.primary_connection_string.apply(lambda primary_connection_string: azure.storage.get_account_sas(connection_string=primary_connection_string,
         https_only=True,
+        signed_version="2017-07-29",
         resource_types={
             "service": True,
             "container": False,
@@ -121,6 +126,7 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
     :param dict permissions: A `permissions` block as defined below.
     :param dict resource_types: A `resource_types` block as defined below.
     :param dict services: A `services` block as defined below.
+    :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
 
     The **permissions** object supports the following:
@@ -156,6 +162,7 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
     __args__['permissions'] = permissions
     __args__['resourceTypes'] = resource_types
     __args__['services'] = services
+    __args__['signedVersion'] = signed_version
     __args__['start'] = start
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -172,4 +179,5 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
         resource_types=__ret__.get('resourceTypes'),
         sas=__ret__.get('sas'),
         services=__ret__.get('services'),
+        signed_version=__ret__.get('signedVersion'),
         start=__ret__.get('start'))

@@ -66,7 +66,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

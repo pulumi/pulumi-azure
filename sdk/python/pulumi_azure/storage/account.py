@@ -73,6 +73,10 @@ class Account(pulumi.CustomResource):
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
+    min_tls_version: pulumi.Output[str]
+    """
+    The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+    """
     name: pulumi.Output[str]
     """
     Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -261,7 +265,7 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, static_website=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, static_website=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Storage Account.
 
@@ -329,6 +333,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: A `identity` block as defined below.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[dict] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[dict] queue_properties: A `queue_properties` block as defined below.
@@ -434,6 +439,7 @@ class Account(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['is_hns_enabled'] = is_hns_enabled
             __props__['location'] = location
+            __props__['min_tls_version'] = min_tls_version
             __props__['name'] = name
             __props__['network_rules'] = network_rules
             __props__['queue_properties'] = queue_properties
@@ -481,7 +487,7 @@ class Account(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_properties=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, static_website=None, tags=None):
+    def get(resource_name, id, opts=None, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_blob_public_access=None, blob_properties=None, custom_domain=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, network_rules=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_properties=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, static_website=None, tags=None):
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -501,6 +507,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: A `identity` block as defined below.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[dict] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[str] primary_access_key: The primary access key for the storage account.
@@ -621,6 +628,7 @@ class Account(pulumi.CustomResource):
         __props__["identity"] = identity
         __props__["is_hns_enabled"] = is_hns_enabled
         __props__["location"] = location
+        __props__["min_tls_version"] = min_tls_version
         __props__["name"] = name
         __props__["network_rules"] = network_rules
         __props__["primary_access_key"] = primary_access_key

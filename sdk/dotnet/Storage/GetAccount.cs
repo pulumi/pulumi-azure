@@ -49,6 +49,12 @@ namespace Pulumi.Azure.Storage
     public sealed class GetAccountArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The minimum supported TLS version for this storage account.
+        /// </summary>
+        [Input("minTlsVersion")]
+        public string? MinTlsVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Storage Account
         /// </summary>
         [Input("name", required: true)]
@@ -110,6 +116,10 @@ namespace Pulumi.Azure.Storage
         /// The Azure location where the Storage Account exists
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The minimum supported TLS version for this storage account.
+        /// </summary>
+        public readonly string? MinTlsVersion;
         /// <summary>
         /// The Custom Domain Name used for the Storage Account.
         /// </summary>
@@ -270,6 +280,8 @@ namespace Pulumi.Azure.Storage
 
             string location,
 
+            string? minTlsVersion,
+
             string name,
 
             string primaryAccessKey,
@@ -350,6 +362,7 @@ namespace Pulumi.Azure.Storage
             Id = id;
             IsHnsEnabled = isHnsEnabled;
             Location = location;
+            MinTlsVersion = minTlsVersion;
             Name = name;
             PrimaryAccessKey = primaryAccessKey;
             PrimaryBlobConnectionString = primaryBlobConnectionString;
