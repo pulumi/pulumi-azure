@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.22.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 3.15.0 (2020-08-10)
+* Upgrade to v2.22.0 of the AzureRM Terraform Provider
 
 ## 3.14.0 (2020-07-31)
 * Relax naming restrictions on `apimanagement.Api` name to allow 256 character names
