@@ -12,6 +12,9 @@ VERSION         := $(shell pulumictl get version)
 
 WORKING_DIR     := $(shell pwd)
 
+# legacy build steps
+include build/legacy.mk
+
 .PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup
 
 development:: install_plugins provider lint_provider build_sdks install_sdks cleanup # Build the provider & SDKs for a development environment
@@ -96,3 +99,12 @@ install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
+
+
+install_binaries::
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/v3/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v3/cmd/${TFGEN}
+	$(TFGEN) schema --out ./provider/cmd/${PROVIDER}
+	cd provider && VERSION=$(VERSION) go generate cmd/${PROVIDER}/main.go
+	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/v3/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v3/cmd/${PROVIDER}
+
+install:: install_plugins install_binaries install_sdks
