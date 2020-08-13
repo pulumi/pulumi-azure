@@ -123,11 +123,12 @@ class Slot(pulumi.CustomResource):
       * `healthCheckPath` (`str`)
       * `http2Enabled` (`bool`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
       * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
-        * `action` (`str`)
-        * `ip_address` (`str`) - The IP Address used for this IP Restriction.
-        * `name` (`str`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-        * `priority` (`float`)
-        * `virtualNetworkSubnetId` (`str`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+        * `action` (`str`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
+        * `name` (`str`) - The name for this IP Restriction.
+        * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        * `subnet_id` (`str`)
+        * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
 
       * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
       * `javaContainerVersion` (`str`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
@@ -141,11 +142,12 @@ class Slot(pulumi.CustomResource):
       * `remoteDebuggingEnabled` (`bool`) - Is Remote Debugging Enabled? Defaults to `false`.
       * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
       * `scmIpRestrictions` (`list`)
-        * `action` (`str`)
-        * `ip_address` (`str`) - The IP Address used for this IP Restriction.
+        * `action` (`str`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
         * `name` (`str`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-        * `priority` (`float`)
-        * `virtualNetworkSubnetId` (`str`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+        * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        * `subnet_id` (`str`)
+        * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
 
       * `scmType` (`str`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
       * `scmUseMainIpRestriction` (`bool`)
@@ -364,11 +366,12 @@ class Slot(pulumi.CustomResource):
           * `healthCheckPath` (`pulumi.Input[str]`)
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
-            * `action` (`pulumi.Input[str]`)
-            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction.
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-            * `priority` (`pulumi.Input[float]`)
-            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
           * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
@@ -382,11 +385,12 @@ class Slot(pulumi.CustomResource):
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
           * `scmIpRestrictions` (`pulumi.Input[list]`)
-            * `action` (`pulumi.Input[str]`)
-            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
             * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-            * `priority` (`pulumi.Input[float]`)
-            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
           * `scmUseMainIpRestriction` (`pulumi.Input[bool]`)
@@ -549,11 +553,12 @@ class Slot(pulumi.CustomResource):
           * `healthCheckPath` (`pulumi.Input[str]`)
           * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
-            * `action` (`pulumi.Input[str]`)
-            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction.
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-            * `priority` (`pulumi.Input[float]`)
-            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
           * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
@@ -567,11 +572,12 @@ class Slot(pulumi.CustomResource):
           * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
           * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015`, and `VS2017`.
           * `scmIpRestrictions` (`pulumi.Input[list]`)
-            * `action` (`pulumi.Input[str]`)
-            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
             * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-            * `priority` (`pulumi.Input[float]`)
-            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
           * `scmUseMainIpRestriction` (`pulumi.Input[bool]`)

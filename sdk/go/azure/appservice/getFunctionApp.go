@@ -65,16 +65,19 @@ type LookupFunctionAppResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
-	// The name of the Connection String.
+	// The name for this IP Restriction.
 	Name string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.
 	OsType string `pulumi:"osType"`
 	// A comma separated list of outbound IP addresses.
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
 	// A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outboundIpAddresses`.
-	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
-	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	PossibleOutboundIpAddresses string                     `pulumi:"possibleOutboundIpAddresses"`
+	ResourceGroupName           string                     `pulumi:"resourceGroupName"`
+	SiteConfigs                 []GetFunctionAppSiteConfig `pulumi:"siteConfigs"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials []GetFunctionAppSiteCredential `pulumi:"siteCredentials"`
-	Tags            map[string]string              `pulumi:"tags"`
+	// A `sourceControl` block as defined below.
+	SourceControls []GetFunctionAppSourceControl `pulumi:"sourceControls"`
+	Tags           map[string]string             `pulumi:"tags"`
 }

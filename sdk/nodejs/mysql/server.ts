@@ -95,6 +95,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly geoRedundantBackupEnabled!: pulumi.Output<boolean>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.mysql.ServerIdentity | undefined>;
+    /**
      * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
@@ -175,6 +179,7 @@ export class Server extends pulumi.CustomResource {
             inputs["creationSourceServerId"] = state ? state.creationSourceServerId : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["geoRedundantBackupEnabled"] = state ? state.geoRedundantBackupEnabled : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -208,6 +213,7 @@ export class Server extends pulumi.CustomResource {
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["creationSourceServerId"] = args ? args.creationSourceServerId : undefined;
             inputs["geoRedundantBackupEnabled"] = args ? args.geoRedundantBackupEnabled : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -272,6 +278,10 @@ export interface ServerState {
      * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
      */
     readonly geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.mysql.ServerIdentity>;
     /**
      * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -366,6 +376,10 @@ export interface ServerArgs {
      * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
      */
     readonly geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.mysql.ServerIdentity>;
     /**
      * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
      */

@@ -13,6 +13,9 @@ namespace Pulumi.Azure.DataFactory.Outputs
     [OutputType]
     public sealed class DatasetJsonAzureBlobStorageLocation
     {
+        /// <summary>
+        /// The container on the Azure Blob Storage Account hosting the file.
+        /// </summary>
         public readonly string Container;
         /// <summary>
         /// The filename of the file on the web server.

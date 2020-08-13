@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ServerIdentity struct {
+	// The Client ID of the Service Principal assigned to this MySQL Server.
+	PrincipalId *string `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ServerIdentityInput is an input type that accepts ServerIdentityArgs and ServerIdentityOutput values.
+// You can construct a concrete instance of `ServerIdentityInput` via:
+//
+//          ServerIdentityArgs{...}
+type ServerIdentityInput interface {
+	pulumi.Input
+
+	ToServerIdentityOutput() ServerIdentityOutput
+	ToServerIdentityOutputWithContext(context.Context) ServerIdentityOutput
+}
+
+type ServerIdentityArgs struct {
+	// The Client ID of the Service Principal assigned to this MySQL Server.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServerIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerIdentity)(nil)).Elem()
+}
+
+func (i ServerIdentityArgs) ToServerIdentityOutput() ServerIdentityOutput {
+	return i.ToServerIdentityOutputWithContext(context.Background())
+}
+
+func (i ServerIdentityArgs) ToServerIdentityOutputWithContext(ctx context.Context) ServerIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityOutput)
+}
+
+func (i ServerIdentityArgs) ToServerIdentityPtrOutput() ServerIdentityPtrOutput {
+	return i.ToServerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ServerIdentityArgs) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityOutput).ToServerIdentityPtrOutputWithContext(ctx)
+}
+
+// ServerIdentityPtrInput is an input type that accepts ServerIdentityArgs, ServerIdentityPtr and ServerIdentityPtrOutput values.
+// You can construct a concrete instance of `ServerIdentityPtrInput` via:
+//
+//          ServerIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ServerIdentityPtrInput interface {
+	pulumi.Input
+
+	ToServerIdentityPtrOutput() ServerIdentityPtrOutput
+	ToServerIdentityPtrOutputWithContext(context.Context) ServerIdentityPtrOutput
+}
+
+type serverIdentityPtrType ServerIdentityArgs
+
+func ServerIdentityPtr(v *ServerIdentityArgs) ServerIdentityPtrInput {
+	return (*serverIdentityPtrType)(v)
+}
+
+func (*serverIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerIdentity)(nil)).Elem()
+}
+
+func (i *serverIdentityPtrType) ToServerIdentityPtrOutput() ServerIdentityPtrOutput {
+	return i.ToServerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *serverIdentityPtrType) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityPtrOutput)
+}
+
+type ServerIdentityOutput struct{ *pulumi.OutputState }
+
+func (ServerIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerIdentity)(nil)).Elem()
+}
+
+func (o ServerIdentityOutput) ToServerIdentityOutput() ServerIdentityOutput {
+	return o
+}
+
+func (o ServerIdentityOutput) ToServerIdentityOutputWithContext(ctx context.Context) ServerIdentityOutput {
+	return o
+}
+
+func (o ServerIdentityOutput) ToServerIdentityPtrOutput() ServerIdentityPtrOutput {
+	return o.ToServerIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
+	return o.ApplyT(func(v ServerIdentity) *ServerIdentity {
+		return &v
+	}).(ServerIdentityPtrOutput)
+}
+
+// The Client ID of the Service Principal assigned to this MySQL Server.
+func (o ServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant the Service Principal is assigned in.
+func (o ServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+func (o ServerIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServerIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerIdentity)(nil)).Elem()
+}
+
+func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutput() ServerIdentityPtrOutput {
+	return o
+}
+
+func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
+	return o
+}
+
+func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {
+	return o.ApplyT(func(v *ServerIdentity) ServerIdentity { return *v }).(ServerIdentityOutput)
+}
+
+// The Client ID of the Service Principal assigned to this MySQL Server.
+func (o ServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant the Service Principal is assigned in.
+func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerStorageProfile struct {
 	// Deprecated: this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
 	AutoGrow *string `pulumi:"autoGrow"`
@@ -460,6 +629,8 @@ func (o ServerThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtr
 }
 
 func init() {
+	pulumi.RegisterOutputType(ServerIdentityOutput{})
+	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerStorageProfileOutput{})
 	pulumi.RegisterOutputType(ServerStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyOutput{})

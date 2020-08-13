@@ -63,7 +63,7 @@ type Queue struct {
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrOutput `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
 	DefaultMessageTtl pulumi.StringOutput `pulumi:"defaultMessageTtl"`
-	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow pulumi.StringOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
@@ -141,7 +141,7 @@ type queueState struct {
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
-	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
@@ -180,7 +180,7 @@ type QueueState struct {
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
 	DefaultMessageTtl pulumi.StringPtrInput
-	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations pulumi.BoolPtrInput
@@ -223,7 +223,7 @@ type queueArgs struct {
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
-	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
@@ -263,7 +263,7 @@ type QueueArgs struct {
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
 	DefaultMessageTtl pulumi.StringPtrInput
-	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations pulumi.BoolPtrInput

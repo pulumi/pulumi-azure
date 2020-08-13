@@ -1214,6 +1214,175 @@ func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAccountId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventHubNamespaceIdentity struct {
+	// The Client ID of the Service Principal assigned to this EventHub Namespace.
+	PrincipalId *string `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	TenantId *string `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// EventHubNamespaceIdentityInput is an input type that accepts EventHubNamespaceIdentityArgs and EventHubNamespaceIdentityOutput values.
+// You can construct a concrete instance of `EventHubNamespaceIdentityInput` via:
+//
+//          EventHubNamespaceIdentityArgs{...}
+type EventHubNamespaceIdentityInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceIdentityOutput() EventHubNamespaceIdentityOutput
+	ToEventHubNamespaceIdentityOutputWithContext(context.Context) EventHubNamespaceIdentityOutput
+}
+
+type EventHubNamespaceIdentityArgs struct {
+	// The Client ID of the Service Principal assigned to this EventHub Namespace.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventHubNamespaceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubNamespaceIdentity)(nil)).Elem()
+}
+
+func (i EventHubNamespaceIdentityArgs) ToEventHubNamespaceIdentityOutput() EventHubNamespaceIdentityOutput {
+	return i.ToEventHubNamespaceIdentityOutputWithContext(context.Background())
+}
+
+func (i EventHubNamespaceIdentityArgs) ToEventHubNamespaceIdentityOutputWithContext(ctx context.Context) EventHubNamespaceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceIdentityOutput)
+}
+
+func (i EventHubNamespaceIdentityArgs) ToEventHubNamespaceIdentityPtrOutput() EventHubNamespaceIdentityPtrOutput {
+	return i.ToEventHubNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EventHubNamespaceIdentityArgs) ToEventHubNamespaceIdentityPtrOutputWithContext(ctx context.Context) EventHubNamespaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceIdentityOutput).ToEventHubNamespaceIdentityPtrOutputWithContext(ctx)
+}
+
+// EventHubNamespaceIdentityPtrInput is an input type that accepts EventHubNamespaceIdentityArgs, EventHubNamespaceIdentityPtr and EventHubNamespaceIdentityPtrOutput values.
+// You can construct a concrete instance of `EventHubNamespaceIdentityPtrInput` via:
+//
+//          EventHubNamespaceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type EventHubNamespaceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEventHubNamespaceIdentityPtrOutput() EventHubNamespaceIdentityPtrOutput
+	ToEventHubNamespaceIdentityPtrOutputWithContext(context.Context) EventHubNamespaceIdentityPtrOutput
+}
+
+type eventHubNamespaceIdentityPtrType EventHubNamespaceIdentityArgs
+
+func EventHubNamespaceIdentityPtr(v *EventHubNamespaceIdentityArgs) EventHubNamespaceIdentityPtrInput {
+	return (*eventHubNamespaceIdentityPtrType)(v)
+}
+
+func (*eventHubNamespaceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubNamespaceIdentity)(nil)).Elem()
+}
+
+func (i *eventHubNamespaceIdentityPtrType) ToEventHubNamespaceIdentityPtrOutput() EventHubNamespaceIdentityPtrOutput {
+	return i.ToEventHubNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *eventHubNamespaceIdentityPtrType) ToEventHubNamespaceIdentityPtrOutputWithContext(ctx context.Context) EventHubNamespaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceIdentityPtrOutput)
+}
+
+type EventHubNamespaceIdentityOutput struct{ *pulumi.OutputState }
+
+func (EventHubNamespaceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubNamespaceIdentity)(nil)).Elem()
+}
+
+func (o EventHubNamespaceIdentityOutput) ToEventHubNamespaceIdentityOutput() EventHubNamespaceIdentityOutput {
+	return o
+}
+
+func (o EventHubNamespaceIdentityOutput) ToEventHubNamespaceIdentityOutputWithContext(ctx context.Context) EventHubNamespaceIdentityOutput {
+	return o
+}
+
+func (o EventHubNamespaceIdentityOutput) ToEventHubNamespaceIdentityPtrOutput() EventHubNamespaceIdentityPtrOutput {
+	return o.ToEventHubNamespaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EventHubNamespaceIdentityOutput) ToEventHubNamespaceIdentityPtrOutputWithContext(ctx context.Context) EventHubNamespaceIdentityPtrOutput {
+	return o.ApplyT(func(v EventHubNamespaceIdentity) *EventHubNamespaceIdentity {
+		return &v
+	}).(EventHubNamespaceIdentityPtrOutput)
+}
+
+// The Client ID of the Service Principal assigned to this EventHub Namespace.
+func (o EventHubNamespaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubNamespaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant the Service Principal is assigned in.
+func (o EventHubNamespaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubNamespaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+func (o EventHubNamespaceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubNamespaceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EventHubNamespaceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EventHubNamespaceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubNamespaceIdentity)(nil)).Elem()
+}
+
+func (o EventHubNamespaceIdentityPtrOutput) ToEventHubNamespaceIdentityPtrOutput() EventHubNamespaceIdentityPtrOutput {
+	return o
+}
+
+func (o EventHubNamespaceIdentityPtrOutput) ToEventHubNamespaceIdentityPtrOutputWithContext(ctx context.Context) EventHubNamespaceIdentityPtrOutput {
+	return o
+}
+
+func (o EventHubNamespaceIdentityPtrOutput) Elem() EventHubNamespaceIdentityOutput {
+	return o.ApplyT(func(v *EventHubNamespaceIdentity) EventHubNamespaceIdentity { return *v }).(EventHubNamespaceIdentityOutput)
+}
+
+// The Client ID of the Service Principal assigned to this EventHub Namespace.
+func (o EventHubNamespaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Tenant the Service Principal is assigned in.
+func (o EventHubNamespaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+func (o EventHubNamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventHubNamespaceNetworkRulesets struct {
 	// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -1386,7 +1555,7 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) VirtualNetworkRules() EventHu
 }
 
 type EventHubNamespaceNetworkRulesetsIpRule struct {
-	// The action to take when the rule is  matched. Possible values are `Allow`.
+	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action *string `pulumi:"action"`
 	// The ip mask to match on.
 	IpMask string `pulumi:"ipMask"`
@@ -1404,7 +1573,7 @@ type EventHubNamespaceNetworkRulesetsIpRuleInput interface {
 }
 
 type EventHubNamespaceNetworkRulesetsIpRuleArgs struct {
-	// The action to take when the rule is  matched. Possible values are `Allow`.
+	// The action to take when the rule is matched. Possible values are `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The ip mask to match on.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
@@ -1461,7 +1630,7 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToEventHubNamespaceNetwork
 	return o
 }
 
-// The action to take when the rule is  matched. Possible values are `Allow`.
+// The action to take when the rule is matched. Possible values are `Allow`.
 func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -4788,6 +4957,8 @@ func init() {
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionDestinationOutput{})
 	pulumi.RegisterOutputType(EventHubCaptureDescriptionDestinationPtrOutput{})
+	pulumi.RegisterOutputType(EventHubNamespaceIdentityOutput{})
+	pulumi.RegisterOutputType(EventHubNamespaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsPtrOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRuleOutput{})

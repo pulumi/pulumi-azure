@@ -130,19 +130,34 @@ class FunctionApp(pulumi.CustomResource):
     A `site_config` object as defined below.
 
       * `alwaysOn` (`bool`) - Should the Function App be loaded at all times? Defaults to `false`.
+      * `autoSwapSlotName` (`str`)
       * `cors` (`dict`) - A `cors` block as defined below.
         * `allowedOrigins` (`list`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         * `supportCredentials` (`bool`) - Are credentials supported?
 
       * `ftpsState` (`str`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
       * `http2Enabled` (`bool`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-      * `ipRestrictions` (`list`) - A list of objects representing ip restrictions as defined below.
-        * `ip_address` (`str`) - The IP Address CIDR notation used for this IP Restriction.
-        * `subnet_id` (`str`) - The Subnet ID used for this IP Restriction.
+      * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        * `action` (`str`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
+        * `name` (`str`) - The name for this IP Restriction.
+        * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        * `subnet_id` (`str`)
+        * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
 
       * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
       * `min_tls_version` (`str`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
       * `preWarmedInstanceCount` (`float`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+      * `scmIpRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        * `action` (`str`) - Allow or Deny access for this IP range. Defaults to Allow.
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
+        * `name` (`str`) - The name for this IP Restriction.
+        * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        * `subnet_id` (`str`)
+        * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
+
+      * `scmType` (`str`) - The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+      * `scmUseMainIpRestriction` (`bool`) - IP security restrictions for scm to use main. Defaults to false.
       * `use32BitWorkerProcess` (`bool`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
     """
@@ -153,6 +168,16 @@ class FunctionApp(pulumi.CustomResource):
       * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
       * `username` (`str`) - The username which can be used to publish to this App Service
     """
+    source_control: pulumi.Output[dict]
+    """
+    A `source_control` block, as defined below.
+
+      * `branch` (`str`) - The branch of the remote repository to use. Defaults to 'master'.
+      * `manualIntegration` (`bool`) - Limits to manual integration. Defaults to `false` if not specified.
+      * `repoUrl` (`str`) - The URL of the source code repository.
+      * `rollbackEnabled` (`bool`) - Enable roll-back for the repository. Defaults to `false` if not specified.
+      * `useMercurial` (`bool`) - Use Mercurial if `true`, otherwise uses Git.
+    """
     storage_account_access_key: pulumi.Output[str]
     """
     The access key which will be used to access the backend storage account for the Function App.
@@ -162,9 +187,6 @@ class FunctionApp(pulumi.CustomResource):
     The backend storage account name which will be used by this Function App (such as the dashboard, logs).
     """
     storage_connection_string: pulumi.Output[str]
-    """
-    The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
-    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -173,7 +195,7 @@ class FunctionApp(pulumi.CustomResource):
     """
     The runtime version associated with the Function App. Defaults to `~1`.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, os_type=None, resource_group_name=None, site_config=None, storage_account_access_key=None, storage_account_name=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, os_type=None, resource_group_name=None, site_config=None, source_control=None, storage_account_access_key=None, storage_account_name=None, storage_connection_string=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Function App.
 
@@ -275,9 +297,9 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[dict] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
-        :param pulumi.Input[str] storage_connection_string: The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
 
@@ -333,21 +355,44 @@ class FunctionApp(pulumi.CustomResource):
         The **site_config** object supports the following:
 
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
+          * `autoSwapSlotName` (`pulumi.Input[str]`)
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
             * `supportCredentials` (`pulumi.Input[bool]`) - Are credentials supported?
 
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
-            * `ip_address` (`pulumi.Input[str]`) - The IP Address CIDR notation used for this IP Restriction.
-            * `subnet_id` (`pulumi.Input[str]`) - The Subnet ID used for this IP Restriction.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `min_tls_version` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `preWarmedInstanceCount` (`pulumi.Input[float]`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+          * `scmIpRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`) - Allow or Deny access for this IP range. Defaults to Allow.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
+
+          * `scmType` (`pulumi.Input[str]`) - The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+          * `scmUseMainIpRestriction` (`pulumi.Input[bool]`) - IP security restrictions for scm to use main. Defaults to false.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
+
+        The **source_control** object supports the following:
+
+          * `branch` (`pulumi.Input[str]`) - The branch of the remote repository to use. Defaults to 'master'.
+          * `manualIntegration` (`pulumi.Input[bool]`) - Limits to manual integration. Defaults to `false` if not specified.
+          * `repoUrl` (`pulumi.Input[str]`) - The URL of the source code repository.
+          * `rollbackEnabled` (`pulumi.Input[bool]`) - Enable roll-back for the repository. Defaults to `false` if not specified.
+          * `useMercurial` (`pulumi.Input[bool]`) - Use Mercurial if `true`, otherwise uses Git.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -385,6 +430,7 @@ class FunctionApp(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['site_config'] = site_config
+            __props__['source_control'] = source_control
             __props__['storage_account_access_key'] = storage_account_access_key
             __props__['storage_account_name'] = storage_account_name
             if storage_connection_string is not None:
@@ -405,7 +451,7 @@ class FunctionApp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, default_hostname=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, kind=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_connection_string=None, tags=None, version=None):
+    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, daily_memory_time_quota=None, default_hostname=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, kind=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, source_control=None, storage_account_access_key=None, storage_account_name=None, storage_connection_string=None, tags=None, version=None):
         """
         Get an existing FunctionApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -433,9 +479,9 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[dict] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App (such as the dashboard, logs).
-        :param pulumi.Input[str] storage_connection_string: The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
 
@@ -491,19 +537,34 @@ class FunctionApp(pulumi.CustomResource):
         The **site_config** object supports the following:
 
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
+          * `autoSwapSlotName` (`pulumi.Input[str]`)
           * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
             * `allowedOrigins` (`pulumi.Input[list]`) - A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
             * `supportCredentials` (`pulumi.Input[bool]`) - Are credentials supported?
 
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-          * `ipRestrictions` (`pulumi.Input[list]`) - A list of objects representing ip restrictions as defined below.
-            * `ip_address` (`pulumi.Input[str]`) - The IP Address CIDR notation used for this IP Restriction.
-            * `subnet_id` (`pulumi.Input[str]`) - The Subnet ID used for this IP Restriction.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `min_tls_version` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `preWarmedInstanceCount` (`pulumi.Input[float]`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+          * `scmIpRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+            * `action` (`pulumi.Input[str]`) - Allow or Deny access for this IP range. Defaults to Allow.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
+
+          * `scmType` (`pulumi.Input[str]`) - The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+          * `scmUseMainIpRestriction` (`pulumi.Input[bool]`) - IP security restrictions for scm to use main. Defaults to false.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
 
@@ -511,6 +572,14 @@ class FunctionApp(pulumi.CustomResource):
 
           * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
           * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
+
+        The **source_control** object supports the following:
+
+          * `branch` (`pulumi.Input[str]`) - The branch of the remote repository to use. Defaults to 'master'.
+          * `manualIntegration` (`pulumi.Input[bool]`) - Limits to manual integration. Defaults to `false` if not specified.
+          * `repoUrl` (`pulumi.Input[str]`) - The URL of the source code repository.
+          * `rollbackEnabled` (`pulumi.Input[bool]`) - Enable roll-back for the repository. Defaults to `false` if not specified.
+          * `useMercurial` (`pulumi.Input[bool]`) - Use Mercurial if `true`, otherwise uses Git.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -536,6 +605,7 @@ class FunctionApp(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["site_config"] = site_config
         __props__["site_credentials"] = site_credentials
+        __props__["source_control"] = source_control
         __props__["storage_account_access_key"] = storage_account_access_key
         __props__["storage_account_name"] = storage_account_name
         __props__["storage_connection_string"] = storage_connection_string

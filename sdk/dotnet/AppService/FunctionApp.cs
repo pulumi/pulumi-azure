@@ -267,6 +267,12 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.FunctionAppSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
+        /// A `source_control` block, as defined below.
+        /// </summary>
+        [Output("sourceControl")]
+        public Output<Outputs.FunctionAppSourceControl> SourceControl { get; private set; } = null!;
+
+        /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
         [Output("storageAccountAccessKey")]
@@ -278,9 +284,6 @@ namespace Pulumi.Azure.AppService
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
-        /// <summary>
-        /// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
-        /// </summary>
         [Output("storageConnectionString")]
         public Output<string> StorageConnectionString { get; private set; } = null!;
 
@@ -445,6 +448,12 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.FunctionAppSiteConfigArgs>? SiteConfig { get; set; }
 
         /// <summary>
+        /// A `source_control` block, as defined below.
+        /// </summary>
+        [Input("sourceControl")]
+        public Input<Inputs.FunctionAppSourceControlArgs>? SourceControl { get; set; }
+
+        /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
         [Input("storageAccountAccessKey")]
@@ -456,9 +465,6 @@ namespace Pulumi.Azure.AppService
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
-        /// <summary>
-        /// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
-        /// </summary>
         [Input("storageConnectionString")]
         public Input<string>? StorageConnectionString { get; set; }
 
@@ -626,6 +632,12 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
+        /// A `source_control` block, as defined below.
+        /// </summary>
+        [Input("sourceControl")]
+        public Input<Inputs.FunctionAppSourceControlGetArgs>? SourceControl { get; set; }
+
+        /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// </summary>
         [Input("storageAccountAccessKey")]
@@ -637,9 +649,6 @@ namespace Pulumi.Azure.AppService
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
-        /// <summary>
-        /// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primary_connection_string` of a storage account resource.
-        /// </summary>
         [Input("storageConnectionString")]
         public Input<string>? StorageConnectionString { get; set; }
 

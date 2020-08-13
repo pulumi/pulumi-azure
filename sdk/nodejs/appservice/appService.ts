@@ -152,9 +152,9 @@ export class AppService extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.AppServiceSiteCredential[]>;
     /**
-     * A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
+     * A Source Control block as defined below
      */
-    public /*out*/ readonly sourceControls!: pulumi.Output<outputs.appservice.AppServiceSourceControl[]>;
+    public readonly sourceControl!: pulumi.Output<outputs.appservice.AppServiceSourceControl>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
@@ -195,7 +195,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
             inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            inputs["sourceControls"] = state ? state.sourceControls : undefined;
+            inputs["sourceControl"] = state ? state.sourceControl : undefined;
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -221,13 +221,13 @@ export class AppService extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
+            inputs["sourceControl"] = args ? args.sourceControl : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["defaultSiteHostname"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
             inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
             inputs["siteCredentials"] = undefined /*out*/;
-            inputs["sourceControls"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -321,9 +321,9 @@ export interface AppServiceState {
      */
     readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSiteCredential>[]>;
     /**
-     * A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
+     * A Source Control block as defined below
      */
-    readonly sourceControls?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSourceControl>[]>;
+    readonly sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
@@ -398,6 +398,10 @@ export interface AppServiceArgs {
      * A `siteConfig` block as defined below.
      */
     readonly siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig>;
+    /**
+     * A Source Control block as defined below
+     */
+    readonly sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */

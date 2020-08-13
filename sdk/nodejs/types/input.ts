@@ -1327,6 +1327,10 @@ export namespace appservice {
          */
         priority?: pulumi.Input<number>;
         /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: pulumi.Input<string>;
@@ -1350,6 +1354,10 @@ export namespace appservice {
          */
         priority?: pulumi.Input<number>;
         /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: pulumi.Input<string>;
@@ -1368,13 +1376,25 @@ export namespace appservice {
 
     export interface AppServiceSourceControl {
         /**
-         * Branch name of the Git repository for this App Service.
+         * The branch of the remote repository to use. Defaults to 'master'.
          */
         branch?: pulumi.Input<string>;
         /**
-         * URL of the Git repository for this App Service.
+         * Limits to manual integration. Defaults to `false` if not specified.
+         */
+        manualIntegration?: pulumi.Input<boolean>;
+        /**
+         * The URL of the source code repository.
          */
         repoUrl?: pulumi.Input<string>;
+        /**
+         * Enable roll-back for the repository. Defaults to `false` if not specified.
+         */
+        rollbackEnabled?: pulumi.Input<boolean>;
+        /**
+         * Use Mercurial if `true`, otherwise uses Git.
+         */
+        useMercurial?: pulumi.Input<boolean>;
     }
 
     export interface AppServiceStorageAccount {
@@ -1586,6 +1606,7 @@ export namespace appservice {
          * Should the Function App be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: pulumi.Input<boolean>;
+        autoSwapSlotName?: pulumi.Input<string>;
         /**
          * A `cors` block as defined below.
          */
@@ -1599,7 +1620,7 @@ export namespace appservice {
          */
         http2Enabled?: pulumi.Input<boolean>;
         /**
-         * A list of objects representing ip restrictions as defined below.
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteConfigIpRestriction>[]>;
         /**
@@ -1614,6 +1635,18 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteConfigScmIpRestriction>[]>;
+        /**
+         * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         */
+        scmType?: pulumi.Input<string>;
+        /**
+         * IP security restrictions for scm to use main. Defaults to false.
+         */
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
         /**
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
@@ -1637,13 +1670,56 @@ export namespace appservice {
 
     export interface FunctionAppSiteConfigIpRestriction {
         /**
-         * The IP Address CIDR notation used for this IP Restriction.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: pulumi.Input<string>;
         /**
-         * The Subnet ID used for this IP Restriction.
+         * The name for this IP Restriction.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
         subnetId?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSiteConfigScmIpRestriction {
+        /**
+         * Allow or Deny access for this IP range. Defaults to Allow.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name for this IP Restriction.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
     }
 
     export interface FunctionAppSiteCredential {
@@ -1852,6 +1928,9 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount?: pulumi.Input<number>;
+        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfigScmIpRestriction>[]>;
+        scmType?: pulumi.Input<string>;
+        scmUseMainIpRestriction?: pulumi.Input<boolean>;
         /**
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
@@ -1875,13 +1954,56 @@ export namespace appservice {
 
     export interface FunctionAppSlotSiteConfigIpRestriction {
         /**
-         * The IP Address CIDR notation used for this IP Restriction.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: pulumi.Input<string>;
         /**
-         * The Subnet ID used for this IP Restriction.
+         * The name for this IP Restriction.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
         subnetId?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSlotSiteConfigScmIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Function App. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId?: pulumi.Input<string>;
     }
 
     export interface FunctionAppSlotSiteCredential {
@@ -1893,6 +2015,29 @@ export namespace appservice {
          * The username which can be used to publish to this App Service
          */
         username?: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppSourceControl {
+        /**
+         * The branch of the remote repository to use. Defaults to 'master'.
+         */
+        branch?: pulumi.Input<string>;
+        /**
+         * Limits to manual integration. Defaults to `false` if not specified.
+         */
+        manualIntegration?: pulumi.Input<boolean>;
+        /**
+         * The URL of the source code repository.
+         */
+        repoUrl?: pulumi.Input<string>;
+        /**
+         * Enable roll-back for the repository. Defaults to `false` if not specified.
+         */
+        rollbackEnabled?: pulumi.Input<boolean>;
+        /**
+         * Use Mercurial if `true`, otherwise uses Git.
+         */
+        useMercurial?: pulumi.Input<boolean>;
     }
 
     export interface PlanSku {
@@ -2237,35 +2382,55 @@ export namespace appservice {
     }
 
     export interface SlotSiteConfigIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
         action?: pulumi.Input<string>;
         /**
-         * The IP Address used for this IP Restriction.
+         * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: pulumi.Input<string>;
         /**
-         * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         * The name for this IP Restriction.
          */
         name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
         priority?: pulumi.Input<number>;
         /**
-         * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: pulumi.Input<string>;
     }
 
     export interface SlotSiteConfigScmIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
         action?: pulumi.Input<string>;
         /**
-         * The IP Address used for this IP Restriction.
+         * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: pulumi.Input<string>;
         /**
          * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
          */
         name?: pulumi.Input<string>;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
         priority?: pulumi.Input<number>;
         /**
-         * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId?: pulumi.Input<string>;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: pulumi.Input<string>;
     }
@@ -6176,6 +6341,9 @@ export namespace datafactory {
     }
 
     export interface DatasetJsonAzureBlobStorageLocation {
+        /**
+         * The container on the Azure Blob Storage Account hosting the file.
+         */
         container: pulumi.Input<string>;
         /**
          * The filename of the file on the web server.
@@ -7118,6 +7286,21 @@ export namespace eventhub {
         storageAccountId: pulumi.Input<string>;
     }
 
+    export interface EventHubNamespaceIdentity {
+        /**
+         * The Client ID of the Service Principal assigned to this EventHub Namespace.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface EventHubNamespaceNetworkRulesets {
         /**
          * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -7135,7 +7318,7 @@ export namespace eventhub {
 
     export interface EventHubNamespaceNetworkRulesetsIpRule {
         /**
-         * The action to take when the rule is  matched. Possible values are `Allow`.
+         * The action to take when the rule is matched. Possible values are `Allow`.
          */
         action?: pulumi.Input<string>;
         /**
@@ -11791,6 +11974,21 @@ export namespace mssql {
 }
 
 export namespace mysql {
+    export interface ServerIdentity {
+        /**
+         * The Client ID of the Service Principal assigned to this MySQL Server.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface ServerStorageProfile {
         /**
          * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
@@ -13656,6 +13854,21 @@ export namespace policy {
 }
 
 export namespace postgresql {
+    export interface ServerIdentity {
+        /**
+         * The Client ID of the Service Principal assigned to this PostgreSQL Server.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface ServerStorageProfile {
         /**
          * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
@@ -14257,6 +14470,21 @@ export namespace siterecovery {
          * Resource group disk should belong to when a failover is done.
          */
         targetResourceGroupId: pulumi.Input<string>;
+    }
+
+    export interface ReplicatedVMNetworkInterface {
+        /**
+         * Id source network interface.
+         */
+        sourceNetworkInterfaceId?: pulumi.Input<string>;
+        /**
+         * Static IP to assign when a failover is done.
+         */
+        targetStaticIp?: pulumi.Input<string>;
+        /**
+         * Name of the subnet to to use when a failover is done.
+         */
+        targetSubnetName?: pulumi.Input<string>;
     }
 }
 

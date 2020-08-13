@@ -100,7 +100,7 @@ namespace Pulumi.Azure.AppService
         public readonly string Id;
         public readonly string Location;
         /// <summary>
-        /// The name of the Connection String.
+        /// The name for this IP Restriction.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -116,10 +116,15 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
         public readonly string ResourceGroupName;
+        public readonly ImmutableArray<Outputs.GetFunctionAppSiteConfigResult> SiteConfigs;
         /// <summary>
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppSiteCredentialResult> SiteCredentials;
+        /// <summary>
+        /// A `source_control` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionAppSourceControlResult> SourceControls;
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
@@ -148,7 +153,11 @@ namespace Pulumi.Azure.AppService
 
             string resourceGroupName,
 
+            ImmutableArray<Outputs.GetFunctionAppSiteConfigResult> siteConfigs,
+
             ImmutableArray<Outputs.GetFunctionAppSiteCredentialResult> siteCredentials,
+
+            ImmutableArray<Outputs.GetFunctionAppSourceControlResult> sourceControls,
 
             ImmutableDictionary<string, string>? tags)
         {
@@ -164,7 +173,9 @@ namespace Pulumi.Azure.AppService
             OutboundIpAddresses = outboundIpAddresses;
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
             ResourceGroupName = resourceGroupName;
+            SiteConfigs = siteConfigs;
             SiteCredentials = siteCredentials;
+            SourceControls = sourceControls;
             Tags = tags;
         }
     }

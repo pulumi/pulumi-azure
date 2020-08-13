@@ -219,12 +219,12 @@ type FunctionApp struct {
 	SiteConfig FunctionAppSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials FunctionAppSiteCredentialArrayOutput `pulumi:"siteCredentials"`
+	// A `sourceControl` block, as defined below.
+	SourceControl FunctionAppSourceControlOutput `pulumi:"sourceControl"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringOutput `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
-	//
 	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString pulumi.StringOutput `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
@@ -307,12 +307,12 @@ type functionAppState struct {
 	SiteConfig *FunctionAppSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials []FunctionAppSiteCredential `pulumi:"siteCredentials"`
+	// A `sourceControl` block, as defined below.
+	SourceControl *FunctionAppSourceControl `pulumi:"sourceControl"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
-	//
 	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString *string `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
@@ -362,12 +362,12 @@ type FunctionAppState struct {
 	SiteConfig FunctionAppSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials FunctionAppSiteCredentialArrayInput
+	// A `sourceControl` block, as defined below.
+	SourceControl FunctionAppSourceControlPtrInput
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName pulumi.StringPtrInput
-	// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
-	//
 	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -411,12 +411,12 @@ type functionAppArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` object as defined below.
 	SiteConfig *FunctionAppSiteConfig `pulumi:"siteConfig"`
+	// A `sourceControl` block, as defined below.
+	SourceControl *FunctionAppSourceControl `pulumi:"sourceControl"`
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
-	//
 	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString *string `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
@@ -457,12 +457,12 @@ type FunctionAppArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` object as defined below.
 	SiteConfig FunctionAppSiteConfigPtrInput
+	// A `sourceControl` block, as defined below.
+	SourceControl FunctionAppSourceControlPtrInput
 	// The access key which will be used to access the backend storage account for the Function App.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName pulumi.StringPtrInput
-	// The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
-	//
 	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.

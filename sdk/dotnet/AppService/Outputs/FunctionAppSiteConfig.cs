@@ -17,6 +17,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should the Function App be loaded at all times? Defaults to `false`.
         /// </summary>
         public readonly bool? AlwaysOn;
+        public readonly string? AutoSwapSlotName;
         /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
@@ -30,7 +31,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// A list of objects representing ip restrictions as defined below.
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionAppSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
@@ -46,6 +47,18 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int? PreWarmedInstanceCount;
         /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FunctionAppSiteConfigScmIpRestriction> ScmIpRestrictions;
+        /// <summary>
+        /// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// </summary>
+        public readonly string? ScmType;
+        /// <summary>
+        /// IP security restrictions for scm to use main. Defaults to false.
+        /// </summary>
+        public readonly bool? ScmUseMainIpRestriction;
+        /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
@@ -57,6 +70,8 @@ namespace Pulumi.Azure.AppService.Outputs
         [OutputConstructor]
         private FunctionAppSiteConfig(
             bool? alwaysOn,
+
+            string? autoSwapSlotName,
 
             Outputs.FunctionAppSiteConfigCors? cors,
 
@@ -72,11 +87,18 @@ namespace Pulumi.Azure.AppService.Outputs
 
             int? preWarmedInstanceCount,
 
+            ImmutableArray<Outputs.FunctionAppSiteConfigScmIpRestriction> scmIpRestrictions,
+
+            string? scmType,
+
+            bool? scmUseMainIpRestriction,
+
             bool? use32BitWorkerProcess,
 
             bool? websocketsEnabled)
         {
             AlwaysOn = alwaysOn;
+            AutoSwapSlotName = autoSwapSlotName;
             Cors = cors;
             FtpsState = ftpsState;
             Http2Enabled = http2Enabled;
@@ -84,6 +106,9 @@ namespace Pulumi.Azure.AppService.Outputs
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
+            ScmIpRestrictions = scmIpRestrictions;
+            ScmType = scmType;
+            ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
             WebsocketsEnabled = websocketsEnabled;
         }

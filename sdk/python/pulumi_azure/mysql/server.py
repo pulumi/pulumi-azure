@@ -42,6 +42,14 @@ class Server(pulumi.CustomResource):
     """
     Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
     """
+    identity: pulumi.Output[dict]
+    """
+    An `identity` block as defined below.
+
+      * `principal_id` (`str`) - The Client ID of the Service Principal assigned to this MySQL Server.
+      * `tenant_id` (`str`) - The ID of the Tenant the Service Principal is assigned in.
+      * `type` (`str`) - The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+    """
     infrastructure_encryption_enabled: pulumi.Output[bool]
     """
     Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
@@ -104,7 +112,7 @@ class Server(pulumi.CustomResource):
     """
     Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, geo_redundant_backup_enabled=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, threat_detection_policy=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, geo_redundant_backup_enabled=None, identity=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, threat_detection_policy=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a MySQL Server.
 
@@ -141,6 +149,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
         :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+        :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
@@ -154,6 +163,12 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+
+        The **identity** object supports the following:
+
+          * `principal_id` (`pulumi.Input[str]`) - The Client ID of the Service Principal assigned to this MySQL Server.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
+          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
 
         The **storage_profile** object supports the following:
 
@@ -196,6 +211,7 @@ class Server(pulumi.CustomResource):
             __props__['create_mode'] = create_mode
             __props__['creation_source_server_id'] = creation_source_server_id
             __props__['geo_redundant_backup_enabled'] = geo_redundant_backup_enabled
+            __props__['identity'] = identity
             __props__['infrastructure_encryption_enabled'] = infrastructure_encryption_enabled
             __props__['location'] = location
             __props__['name'] = name
@@ -231,7 +247,7 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, fqdn=None, geo_redundant_backup_enabled=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, threat_detection_policy=None, version=None):
+    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, fqdn=None, geo_redundant_backup_enabled=None, identity=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, threat_detection_policy=None, version=None):
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -247,6 +263,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
         :param pulumi.Input[str] fqdn: The FQDN of the MySQL Server.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+        :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
@@ -260,6 +277,12 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+
+        The **identity** object supports the following:
+
+          * `principal_id` (`pulumi.Input[str]`) - The Client ID of the Service Principal assigned to this MySQL Server.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
+          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
 
         The **storage_profile** object supports the following:
 
@@ -290,6 +313,7 @@ class Server(pulumi.CustomResource):
         __props__["creation_source_server_id"] = creation_source_server_id
         __props__["fqdn"] = fqdn
         __props__["geo_redundant_backup_enabled"] = geo_redundant_backup_enabled
+        __props__["identity"] = identity
         __props__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
         __props__["location"] = location
         __props__["name"] = name

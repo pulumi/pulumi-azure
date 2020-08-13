@@ -82,6 +82,10 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServerIdentityResult> Identities;
+        /// <summary>
         /// The location of the Resource Group in which the PostgreSQL Server exists.
         /// </summary>
         public readonly string Location;
@@ -108,6 +112,8 @@ namespace Pulumi.Azure.PostgreSql
 
             string id,
 
+            ImmutableArray<Outputs.GetServerIdentityResult> identities,
+
             string location,
 
             string name,
@@ -123,6 +129,7 @@ namespace Pulumi.Azure.PostgreSql
             AdministratorLogin = administratorLogin;
             Fqdn = fqdn;
             Id = id;
+            Identities = identities;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;

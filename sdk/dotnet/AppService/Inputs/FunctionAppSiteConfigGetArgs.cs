@@ -18,6 +18,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
 
+        [Input("autoSwapSlotName")]
+        public Input<string>? AutoSwapSlotName { get; set; }
+
         /// <summary>
         /// A `cors` block as defined below.
         /// </summary>
@@ -40,7 +43,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.FunctionAppSiteConfigIpRestrictionGetArgs>? _ipRestrictions;
 
         /// <summary>
-        /// A list of objects representing ip restrictions as defined below.
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         /// </summary>
         public InputList<Inputs.FunctionAppSiteConfigIpRestrictionGetArgs> IpRestrictions
         {
@@ -65,6 +68,30 @@ namespace Pulumi.Azure.AppService.Inputs
         /// </summary>
         [Input("preWarmedInstanceCount")]
         public Input<int>? PreWarmedInstanceCount { get; set; }
+
+        [Input("scmIpRestrictions")]
+        private InputList<Inputs.FunctionAppSiteConfigScmIpRestrictionGetArgs>? _scmIpRestrictions;
+
+        /// <summary>
+        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        /// </summary>
+        public InputList<Inputs.FunctionAppSiteConfigScmIpRestrictionGetArgs> ScmIpRestrictions
+        {
+            get => _scmIpRestrictions ?? (_scmIpRestrictions = new InputList<Inputs.FunctionAppSiteConfigScmIpRestrictionGetArgs>());
+            set => _scmIpRestrictions = value;
+        }
+
+        /// <summary>
+        /// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        /// </summary>
+        [Input("scmType")]
+        public Input<string>? ScmType { get; set; }
+
+        /// <summary>
+        /// IP security restrictions for scm to use main. Defaults to false.
+        /// </summary>
+        [Input("scmUseMainIpRestriction")]
+        public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.

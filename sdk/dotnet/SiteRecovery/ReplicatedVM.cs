@@ -26,6 +26,12 @@ namespace Pulumi.Azure.SiteRecovery
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// One or more `network_interface` block.
+        /// </summary>
+        [Output("networkInterfaces")]
+        public Output<ImmutableArray<Outputs.ReplicatedVMNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
+
         [Output("recoveryReplicationPolicyId")]
         public Output<string> RecoveryReplicationPolicyId { get; private set; } = null!;
 
@@ -64,6 +70,12 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Output("targetAvailabilitySetId")]
         public Output<string?> TargetAvailabilitySetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        /// </summary>
+        [Output("targetNetworkId")]
+        public Output<string> TargetNetworkId { get; private set; } = null!;
 
         /// <summary>
         /// Id of fabric where the VM replication should be handled when a failover is done.
@@ -147,6 +159,18 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("networkInterfaces")]
+        private InputList<Inputs.ReplicatedVMNetworkInterfaceArgs>? _networkInterfaces;
+
+        /// <summary>
+        /// One or more `network_interface` block.
+        /// </summary>
+        public InputList<Inputs.ReplicatedVMNetworkInterfaceArgs> NetworkInterfaces
+        {
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.ReplicatedVMNetworkInterfaceArgs>());
+            set => _networkInterfaces = value;
+        }
+
         [Input("recoveryReplicationPolicyId", required: true)]
         public Input<string> RecoveryReplicationPolicyId { get; set; } = null!;
 
@@ -185,6 +209,12 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Input("targetAvailabilitySetId")]
         public Input<string>? TargetAvailabilitySetId { get; set; }
+
+        /// <summary>
+        /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        /// </summary>
+        [Input("targetNetworkId")]
+        public Input<string>? TargetNetworkId { get; set; }
 
         /// <summary>
         /// Id of fabric where the VM replication should be handled when a failover is done.
@@ -229,6 +259,18 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("networkInterfaces")]
+        private InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs>? _networkInterfaces;
+
+        /// <summary>
+        /// One or more `network_interface` block.
+        /// </summary>
+        public InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs> NetworkInterfaces
+        {
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs>());
+            set => _networkInterfaces = value;
+        }
+
         [Input("recoveryReplicationPolicyId")]
         public Input<string>? RecoveryReplicationPolicyId { get; set; }
 
@@ -267,6 +309,12 @@ namespace Pulumi.Azure.SiteRecovery
         /// </summary>
         [Input("targetAvailabilitySetId")]
         public Input<string>? TargetAvailabilitySetId { get; set; }
+
+        /// <summary>
+        /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        /// </summary>
+        [Input("targetNetworkId")]
+        public Input<string>? TargetNetworkId { get; set; }
 
         /// <summary>
         /// Id of fabric where the VM replication should be handled when a failover is done.

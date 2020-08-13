@@ -142,12 +142,26 @@ class FunctionAppSlot(pulumi.CustomResource):
       * `ftpsState` (`str`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
       * `http2Enabled` (`bool`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
       * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-        * `ip_address` (`str`) - The IP Address CIDR notation used for this IP Restriction.
-        * `subnet_id` (`str`) - The Subnet ID used for this IP Restriction.
+        * `action` (`str`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
+        * `name` (`str`) - The name for this IP Restriction.
+        * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        * `subnet_id` (`str`)
+        * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
 
       * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
       * `min_tls_version` (`str`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
       * `preWarmedInstanceCount` (`float`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+      * `scmIpRestrictions` (`list`)
+        * `action` (`str`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
+        * `name` (`str`) - Specifies the name of the Function App. Changing this forces a new resource to be created.
+        * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        * `subnet_id` (`str`)
+        * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
+
+      * `scmType` (`str`)
+      * `scmUseMainIpRestriction` (`bool`)
       * `use32BitWorkerProcess` (`bool`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
     """
@@ -296,12 +310,26 @@ class FunctionAppSlot(pulumi.CustomResource):
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-            * `ip_address` (`pulumi.Input[str]`) - The IP Address CIDR notation used for this IP Restriction.
-            * `subnet_id` (`pulumi.Input[str]`) - The Subnet ID used for this IP Restriction.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `min_tls_version` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `preWarmedInstanceCount` (`pulumi.Input[float]`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+          * `scmIpRestrictions` (`pulumi.Input[list]`)
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - Specifies the name of the Function App. Changing this forces a new resource to be created.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
+
+          * `scmType` (`pulumi.Input[str]`)
+          * `scmUseMainIpRestriction` (`pulumi.Input[bool]`)
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
         """
@@ -458,12 +486,26 @@ class FunctionAppSlot(pulumi.CustomResource):
           * `ftpsState` (`pulumi.Input[str]`) - State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
           * `http2Enabled` (`pulumi.Input[bool]`) - Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
           * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
-            * `ip_address` (`pulumi.Input[str]`) - The IP Address CIDR notation used for this IP Restriction.
-            * `subnet_id` (`pulumi.Input[str]`) - The Subnet ID used for this IP Restriction.
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `min_tls_version` (`pulumi.Input[str]`) - The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
           * `preWarmedInstanceCount` (`pulumi.Input[float]`) - The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+          * `scmIpRestrictions` (`pulumi.Input[list]`)
+            * `action` (`pulumi.Input[str]`) - Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+            * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
+            * `name` (`pulumi.Input[str]`) - Specifies the name of the Function App. Changing this forces a new resource to be created.
+            * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
+
+          * `scmType` (`pulumi.Input[str]`)
+          * `scmUseMainIpRestriction` (`pulumi.Input[bool]`)
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
 

@@ -98,6 +98,12 @@ namespace Pulumi.Azure.PostgreSql
         public Output<bool> GeoRedundantBackupEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ServerIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("infrastructureEncryptionEnabled")]
@@ -270,6 +276,12 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool>? GeoRedundantBackupEnabled { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServerIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
@@ -413,6 +425,12 @@ namespace Pulumi.Azure.PostgreSql
         /// </summary>
         [Input("geoRedundantBackupEnabled")]
         public Input<bool>? GeoRedundantBackupEnabled { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServerIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.

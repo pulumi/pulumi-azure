@@ -143,7 +143,124 @@ func (o ReplicatedVMManagedDiskArrayOutput) Index(i pulumi.IntInput) ReplicatedV
 	}).(ReplicatedVMManagedDiskOutput)
 }
 
+type ReplicatedVMNetworkInterface struct {
+	// Id source network interface.
+	SourceNetworkInterfaceId *string `pulumi:"sourceNetworkInterfaceId"`
+	// Static IP to assign when a failover is done.
+	TargetStaticIp *string `pulumi:"targetStaticIp"`
+	// Name of the subnet to to use when a failover is done.
+	TargetSubnetName *string `pulumi:"targetSubnetName"`
+}
+
+// ReplicatedVMNetworkInterfaceInput is an input type that accepts ReplicatedVMNetworkInterfaceArgs and ReplicatedVMNetworkInterfaceOutput values.
+// You can construct a concrete instance of `ReplicatedVMNetworkInterfaceInput` via:
+//
+//          ReplicatedVMNetworkInterfaceArgs{...}
+type ReplicatedVMNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToReplicatedVMNetworkInterfaceOutput() ReplicatedVMNetworkInterfaceOutput
+	ToReplicatedVMNetworkInterfaceOutputWithContext(context.Context) ReplicatedVMNetworkInterfaceOutput
+}
+
+type ReplicatedVMNetworkInterfaceArgs struct {
+	// Id source network interface.
+	SourceNetworkInterfaceId pulumi.StringPtrInput `pulumi:"sourceNetworkInterfaceId"`
+	// Static IP to assign when a failover is done.
+	TargetStaticIp pulumi.StringPtrInput `pulumi:"targetStaticIp"`
+	// Name of the subnet to to use when a failover is done.
+	TargetSubnetName pulumi.StringPtrInput `pulumi:"targetSubnetName"`
+}
+
+func (ReplicatedVMNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMNetworkInterface)(nil)).Elem()
+}
+
+func (i ReplicatedVMNetworkInterfaceArgs) ToReplicatedVMNetworkInterfaceOutput() ReplicatedVMNetworkInterfaceOutput {
+	return i.ToReplicatedVMNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMNetworkInterfaceArgs) ToReplicatedVMNetworkInterfaceOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMNetworkInterfaceOutput)
+}
+
+// ReplicatedVMNetworkInterfaceArrayInput is an input type that accepts ReplicatedVMNetworkInterfaceArray and ReplicatedVMNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `ReplicatedVMNetworkInterfaceArrayInput` via:
+//
+//          ReplicatedVMNetworkInterfaceArray{ ReplicatedVMNetworkInterfaceArgs{...} }
+type ReplicatedVMNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToReplicatedVMNetworkInterfaceArrayOutput() ReplicatedVMNetworkInterfaceArrayOutput
+	ToReplicatedVMNetworkInterfaceArrayOutputWithContext(context.Context) ReplicatedVMNetworkInterfaceArrayOutput
+}
+
+type ReplicatedVMNetworkInterfaceArray []ReplicatedVMNetworkInterfaceInput
+
+func (ReplicatedVMNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatedVMNetworkInterface)(nil)).Elem()
+}
+
+func (i ReplicatedVMNetworkInterfaceArray) ToReplicatedVMNetworkInterfaceArrayOutput() ReplicatedVMNetworkInterfaceArrayOutput {
+	return i.ToReplicatedVMNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMNetworkInterfaceArray) ToReplicatedVMNetworkInterfaceArrayOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMNetworkInterfaceArrayOutput)
+}
+
+type ReplicatedVMNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMNetworkInterface)(nil)).Elem()
+}
+
+func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutput() ReplicatedVMNetworkInterfaceOutput {
+	return o
+}
+
+func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceOutput {
+	return o
+}
+
+// Id source network interface.
+func (o ReplicatedVMNetworkInterfaceOutput) SourceNetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.SourceNetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// Static IP to assign when a failover is done.
+func (o ReplicatedVMNetworkInterfaceOutput) TargetStaticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.TargetStaticIp }).(pulumi.StringPtrOutput)
+}
+
+// Name of the subnet to to use when a failover is done.
+func (o ReplicatedVMNetworkInterfaceOutput) TargetSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatedVMNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatedVMNetworkInterface)(nil)).Elem()
+}
+
+func (o ReplicatedVMNetworkInterfaceArrayOutput) ToReplicatedVMNetworkInterfaceArrayOutput() ReplicatedVMNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o ReplicatedVMNetworkInterfaceArrayOutput) ToReplicatedVMNetworkInterfaceArrayOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o ReplicatedVMNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) ReplicatedVMNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatedVMNetworkInterface {
+		return vs[0].([]ReplicatedVMNetworkInterface)[vs[1].(int)]
+	}).(ReplicatedVMNetworkInterfaceOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceArrayOutput{})
 }

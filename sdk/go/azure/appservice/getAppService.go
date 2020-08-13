@@ -82,7 +82,8 @@ type LookupAppServiceResult struct {
 	// A `siteConfig` block as defined below.
 	SiteConfigs     []GetAppServiceSiteConfig     `pulumi:"siteConfigs"`
 	SiteCredentials []GetAppServiceSiteCredential `pulumi:"siteCredentials"`
-	SourceControls  []GetAppServiceSourceControl  `pulumi:"sourceControls"`
+	// A `sourceControl` block as defined below.
+	SourceControls []GetAppServiceSourceControl `pulumi:"sourceControls"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }

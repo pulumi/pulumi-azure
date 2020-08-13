@@ -208,6 +208,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.FunctionAppSiteCredential[]>;
     /**
+     * A `sourceControl` block, as defined below.
+     */
+    public readonly sourceControl!: pulumi.Output<outputs.appservice.FunctionAppSourceControl>;
+    /**
      * The access key which will be used to access the backend storage account for the Function App.
      */
     public readonly storageAccountAccessKey!: pulumi.Output<string>;
@@ -216,8 +220,6 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
-     * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
-     *
      * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
      */
     public readonly storageConnectionString!: pulumi.Output<string>;
@@ -262,6 +264,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
             inputs["siteCredentials"] = state ? state.siteCredentials : undefined;
+            inputs["sourceControl"] = state ? state.sourceControl : undefined;
             inputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             inputs["storageConnectionString"] = state ? state.storageConnectionString : undefined;
@@ -290,6 +293,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
+            inputs["sourceControl"] = args ? args.sourceControl : undefined;
             inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["storageConnectionString"] = args ? args.storageConnectionString : undefined;
@@ -397,6 +401,10 @@ export interface FunctionAppState {
      */
     readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSiteCredential>[]>;
     /**
+     * A `sourceControl` block, as defined below.
+     */
+    readonly sourceControl?: pulumi.Input<inputs.appservice.FunctionAppSourceControl>;
+    /**
      * The access key which will be used to access the backend storage account for the Function App.
      */
     readonly storageAccountAccessKey?: pulumi.Input<string>;
@@ -405,8 +413,6 @@ export interface FunctionAppState {
      */
     readonly storageAccountName?: pulumi.Input<string>;
     /**
-     * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
-     *
      * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
      */
     readonly storageConnectionString?: pulumi.Input<string>;
@@ -485,6 +491,10 @@ export interface FunctionAppArgs {
      */
     readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
     /**
+     * A `sourceControl` block, as defined below.
+     */
+    readonly sourceControl?: pulumi.Input<inputs.appservice.FunctionAppSourceControl>;
+    /**
      * The access key which will be used to access the backend storage account for the Function App.
      */
     readonly storageAccountAccessKey?: pulumi.Input<string>;
@@ -493,8 +503,6 @@ export interface FunctionAppArgs {
      */
     readonly storageAccountName?: pulumi.Input<string>;
     /**
-     * The connection string to the backend storage account which will be used by this Function App (such as the dashboard, logs). Typically set to the `primaryConnectionString` of a storage account resource.
-     *
      * @deprecated Deprecated in favor of `storage_account_name` and `storage_account_access_key`
      */
     readonly storageConnectionString?: pulumi.Input<string>;

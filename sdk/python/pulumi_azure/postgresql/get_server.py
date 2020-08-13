@@ -12,7 +12,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, administrator_login=None, fqdn=None, id=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, version=None):
+    def __init__(__self__, administrator_login=None, fqdn=None, id=None, identities=None, location=None, name=None, resource_group_name=None, sku_name=None, tags=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         __self__.administrator_login = administrator_login
@@ -30,6 +30,12 @@ class GetServerResult:
         __self__.id = id
         """
         The provider-assigned unique ID for this managed resource.
+        """
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        __self__.identities = identities
+        """
+        An `identity` block as defined below.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -70,6 +76,7 @@ class AwaitableGetServerResult(GetServerResult):
             administrator_login=self.administrator_login,
             fqdn=self.fqdn,
             id=self.id,
+            identities=self.identities,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -111,6 +118,7 @@ def get_server(name=None,resource_group_name=None,opts=None):
         administrator_login=__ret__.get('administratorLogin'),
         fqdn=__ret__.get('fqdn'),
         id=__ret__.get('id'),
+        identities=__ret__.get('identities'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),

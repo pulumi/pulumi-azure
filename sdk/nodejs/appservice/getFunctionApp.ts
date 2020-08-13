@@ -81,7 +81,7 @@ export interface GetFunctionAppResult {
     readonly id: string;
     readonly location: string;
     /**
-     * The name of the Connection String.
+     * The name for this IP Restriction.
      */
     readonly name: string;
     /**
@@ -97,9 +97,14 @@ export interface GetFunctionAppResult {
      */
     readonly possibleOutboundIpAddresses: string;
     readonly resourceGroupName: string;
+    readonly siteConfigs: outputs.appservice.GetFunctionAppSiteConfig[];
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
     readonly siteCredentials: outputs.appservice.GetFunctionAppSiteCredential[];
+    /**
+     * A `sourceControl` block as defined below.
+     */
+    readonly sourceControls: outputs.appservice.GetFunctionAppSourceControl[];
     readonly tags?: {[key: string]: string};
 }

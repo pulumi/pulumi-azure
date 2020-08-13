@@ -73,7 +73,7 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly defaultMessageTtl!: pulumi.Output<string>;
     /**
-     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
      */
     public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string>;
     /**
@@ -221,7 +221,7 @@ export interface QueueState {
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
@@ -299,7 +299,7 @@ export interface QueueArgs {
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+     * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**

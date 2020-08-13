@@ -14,22 +14,47 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class FunctionAppSiteConfigIpRestriction
     {
         /// <summary>
-        /// The IP Address CIDR notation used for this IP Restriction.
+        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        /// </summary>
+        public readonly string? Action;
+        /// <summary>
+        /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
-        /// The Subnet ID used for this IP Restriction.
+        /// The name for this IP Restriction.
         /// </summary>
+        public readonly string? Name;
+        /// <summary>
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        /// </summary>
+        public readonly int? Priority;
         public readonly string? SubnetId;
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
+        public readonly string? VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private FunctionAppSiteConfigIpRestriction(
+            string? action,
+
             string? ipAddress,
 
-            string? subnetId)
+            string? name,
+
+            int? priority,
+
+            string? subnetId,
+
+            string? virtualNetworkSubnetId)
         {
+            Action = action;
             IpAddress = ipAddress;
+            Name = name;
+            Priority = priority;
             SubnetId = subnetId;
+            VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
 }

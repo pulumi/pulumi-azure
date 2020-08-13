@@ -844,6 +844,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logic_app_trigger_recurrence":   {Tok: azureResource(azureLogicApps, "TriggerRecurrence")},
 			"azurerm_logic_app_workflow":             {Tok: azureResource(azureLogicApps, "Workflow")},
 			"azurerm_logic_app_integration_account":  {Tok: azureResource(azureLogicApps, "IntegrationAccount")},
+			"azurerm_integration_service_environment": {
+				Tok: azureResource(azureLogicApps, "InterationServiceEnvironment"),
+			},
 
 			// MariaDB
 			"azurerm_mariadb_configuration":        {Tok: azureResource(azureMariaDB, "Configuration")},
@@ -1144,6 +1147,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Redis
 			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
 			"azurerm_redis_firewall_rule": {Tok: azureResource(azureRedis, "FirewallRule")},
+			"azurerm_redis_linked_server": {Tok: azureResource(azureRedis, "LinkedServer")},
 
 			// Relay
 			"azurerm_relay_namespace":         {Tok: azureResource(azureRelay, "Namespace")},
@@ -1432,7 +1436,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
 
 			// Synapse
-			"azurerm_synapse_workspace": {Tok: azureResource(azureSynapse, "Workspace")},
+			"azurerm_synapse_workspace":     {Tok: azureResource(azureSynapse, "Workspace")},
+			"azurerm_synapse_firewall_rule": {Tok: azureResource(azureSynapse, "FirewallRule")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
