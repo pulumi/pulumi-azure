@@ -3,5 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .firewall_rule import *
 from .get_workspace import *
 from .workspace import *

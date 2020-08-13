@@ -17,8 +17,10 @@ type ReplicatedVM struct {
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayOutput `pulumi:"managedDisks"`
 	// The name of the network mapping.
-	Name                        pulumi.StringOutput `pulumi:"name"`
-	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// One or more `networkInterface` block.
+	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
+	RecoveryReplicationPolicyId pulumi.StringOutput                     `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated.
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
@@ -31,6 +33,8 @@ type ReplicatedVM struct {
 	SourceVmId pulumi.StringOutput `pulumi:"sourceVmId"`
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrOutput `pulumi:"targetAvailabilitySetId"`
+	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
+	TargetNetworkId pulumi.StringOutput `pulumi:"targetNetworkId"`
 	// Id of fabric where the VM replication should be handled when a failover is done.
 	TargetRecoveryFabricId pulumi.StringOutput `pulumi:"targetRecoveryFabricId"`
 	// Id of protection container where the VM replication should be created when a failover is done.
@@ -97,8 +101,10 @@ type replicatedVMState struct {
 	// One or more `managedDisk` block.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
 	// The name of the network mapping.
-	Name                        *string `pulumi:"name"`
-	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
+	Name *string `pulumi:"name"`
+	// One or more `networkInterface` block.
+	NetworkInterfaces           []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
+	RecoveryReplicationPolicyId *string                        `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated.
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
@@ -111,6 +117,8 @@ type replicatedVMState struct {
 	SourceVmId *string `pulumi:"sourceVmId"`
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
+	TargetNetworkId *string `pulumi:"targetNetworkId"`
 	// Id of fabric where the VM replication should be handled when a failover is done.
 	TargetRecoveryFabricId *string `pulumi:"targetRecoveryFabricId"`
 	// Id of protection container where the VM replication should be created when a failover is done.
@@ -123,7 +131,9 @@ type ReplicatedVMState struct {
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
 	// The name of the network mapping.
-	Name                        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// One or more `networkInterface` block.
+	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayInput
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
 	// The name of the vault that should be updated.
 	RecoveryVaultName pulumi.StringPtrInput
@@ -137,6 +147,8 @@ type ReplicatedVMState struct {
 	SourceVmId pulumi.StringPtrInput
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrInput
+	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
+	TargetNetworkId pulumi.StringPtrInput
 	// Id of fabric where the VM replication should be handled when a failover is done.
 	TargetRecoveryFabricId pulumi.StringPtrInput
 	// Id of protection container where the VM replication should be created when a failover is done.
@@ -153,8 +165,10 @@ type replicatedVMArgs struct {
 	// One or more `managedDisk` block.
 	ManagedDisks []ReplicatedVMManagedDisk `pulumi:"managedDisks"`
 	// The name of the network mapping.
-	Name                        *string `pulumi:"name"`
-	RecoveryReplicationPolicyId string  `pulumi:"recoveryReplicationPolicyId"`
+	Name *string `pulumi:"name"`
+	// One or more `networkInterface` block.
+	NetworkInterfaces           []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
+	RecoveryReplicationPolicyId string                         `pulumi:"recoveryReplicationPolicyId"`
 	// The name of the vault that should be updated.
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault that should be updated is located.
@@ -167,6 +181,8 @@ type replicatedVMArgs struct {
 	SourceVmId string `pulumi:"sourceVmId"`
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
+	TargetNetworkId *string `pulumi:"targetNetworkId"`
 	// Id of fabric where the VM replication should be handled when a failover is done.
 	TargetRecoveryFabricId string `pulumi:"targetRecoveryFabricId"`
 	// Id of protection container where the VM replication should be created when a failover is done.
@@ -180,7 +196,9 @@ type ReplicatedVMArgs struct {
 	// One or more `managedDisk` block.
 	ManagedDisks ReplicatedVMManagedDiskArrayInput
 	// The name of the network mapping.
-	Name                        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// One or more `networkInterface` block.
+	NetworkInterfaces           ReplicatedVMNetworkInterfaceArrayInput
 	RecoveryReplicationPolicyId pulumi.StringInput
 	// The name of the vault that should be updated.
 	RecoveryVaultName pulumi.StringInput
@@ -194,6 +212,8 @@ type ReplicatedVMArgs struct {
 	SourceVmId pulumi.StringInput
 	// Id of availability set that the new VM should belong to when a failover is done.
 	TargetAvailabilitySetId pulumi.StringPtrInput
+	// Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
+	TargetNetworkId pulumi.StringPtrInput
 	// Id of fabric where the VM replication should be handled when a failover is done.
 	TargetRecoveryFabricId pulumi.StringInput
 	// Id of protection container where the VM replication should be created when a failover is done.

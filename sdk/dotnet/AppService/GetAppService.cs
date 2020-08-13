@@ -127,6 +127,9 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceSiteConfigResult> SiteConfigs;
         public readonly ImmutableArray<Outputs.GetAppServiceSiteCredentialResult> SiteCredentials;
+        /// <summary>
+        /// A `source_control` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceSourceControlResult> SourceControls;
         /// <summary>
         /// A mapping of tags to assign to the resource.

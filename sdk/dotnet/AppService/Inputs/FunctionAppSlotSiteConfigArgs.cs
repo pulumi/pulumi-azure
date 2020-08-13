@@ -72,6 +72,20 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("preWarmedInstanceCount")]
         public Input<int>? PreWarmedInstanceCount { get; set; }
 
+        [Input("scmIpRestrictions")]
+        private InputList<Inputs.FunctionAppSlotSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;
+        public InputList<Inputs.FunctionAppSlotSiteConfigScmIpRestrictionArgs> ScmIpRestrictions
+        {
+            get => _scmIpRestrictions ?? (_scmIpRestrictions = new InputList<Inputs.FunctionAppSlotSiteConfigScmIpRestrictionArgs>());
+            set => _scmIpRestrictions = value;
+        }
+
+        [Input("scmType")]
+        public Input<string>? ScmType { get; set; }
+
+        [Input("scmUseMainIpRestriction")]
+        public Input<bool>? ScmUseMainIpRestriction { get; set; }
+
         /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>

@@ -6,3 +6,4 @@
 from .cache import *
 from .firewall_rule import *
 from .get_cache import *
+from .linked_server import *

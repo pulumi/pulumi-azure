@@ -67,6 +67,10 @@ export interface GetServerResult {
      */
     readonly id: string;
     /**
+     * An `identity` block as defined below.
+     */
+    readonly identities: outputs.postgresql.GetServerIdentity[];
+    /**
      * The location of the Resource Group in which the PostgreSQL Server exists.
      */
     readonly location: string;

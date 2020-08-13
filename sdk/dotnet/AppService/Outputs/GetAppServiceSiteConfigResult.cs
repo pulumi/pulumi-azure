@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetAppServiceSiteConfigResult
     {
         /// <summary>
-        /// Is the app be loaded at all times?
+        /// Is the app loaded at all times?
         /// </summary>
         public readonly bool AlwaysOn;
         /// <summary>

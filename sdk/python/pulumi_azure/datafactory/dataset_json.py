@@ -19,6 +19,13 @@ class DatasetJson(pulumi.CustomResource):
     List of tags that can be used for describing the Data Factory Dataset.
     """
     azure_blob_storage_location: pulumi.Output[dict]
+    """
+    A `azure_blob_storage_location` block as defined below.
+
+      * `container` (`str`) - The container on the Azure Blob Storage Account hosting the file.
+      * `filename` (`str`) - The filename of the file on the web server.
+      * `path` (`str`) - The folder path to the file on the web server.
+    """
     data_factory_name: pulumi.Output[str]
     """
     The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
@@ -102,6 +109,7 @@ class DatasetJson(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input[dict] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
@@ -115,7 +123,7 @@ class DatasetJson(pulumi.CustomResource):
 
         The **azure_blob_storage_location** object supports the following:
 
-          * `container` (`pulumi.Input[str]`)
+          * `container` (`pulumi.Input[str]`) - The container on the Azure Blob Storage Account hosting the file.
           * `filename` (`pulumi.Input[str]`) - The filename of the file on the web server.
           * `path` (`pulumi.Input[str]`) - The folder path to the file on the web server.
 
@@ -184,6 +192,7 @@ class DatasetJson(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input[dict] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] encoding: The encoding format for the file.
@@ -197,7 +206,7 @@ class DatasetJson(pulumi.CustomResource):
 
         The **azure_blob_storage_location** object supports the following:
 
-          * `container` (`pulumi.Input[str]`)
+          * `container` (`pulumi.Input[str]`) - The container on the Azure Blob Storage Account hosting the file.
           * `filename` (`pulumi.Input[str]`) - The filename of the file on the web server.
           * `path` (`pulumi.Input[str]`) - The folder path to the file on the web server.
 

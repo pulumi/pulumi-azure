@@ -72,6 +72,8 @@ type EventHubNamespace struct {
 	DefaultSecondaryConnectionStringAlias pulumi.StringOutput `pulumi:"defaultSecondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringOutput `pulumi:"defaultSecondaryKey"`
+	// An `identity` block as defined below.
+	Identity EventHubNamespaceIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -146,6 +148,8 @@ type eventHubNamespaceState struct {
 	DefaultSecondaryConnectionStringAlias *string `pulumi:"defaultSecondaryConnectionStringAlias"`
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey *string `pulumi:"defaultSecondaryKey"`
+	// An `identity` block as defined below.
+	Identity *EventHubNamespaceIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -187,6 +191,8 @@ type EventHubNamespaceState struct {
 	DefaultSecondaryConnectionStringAlias pulumi.StringPtrInput
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity EventHubNamespaceIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -216,6 +222,8 @@ type eventHubNamespaceArgs struct {
 	Capacity *int `pulumi:"capacity"`
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId *string `pulumi:"dedicatedClusterId"`
+	// An `identity` block as defined below.
+	Identity *EventHubNamespaceIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
@@ -242,6 +250,8 @@ type EventHubNamespaceArgs struct {
 	Capacity pulumi.IntPtrInput
 	// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
 	DedicatedClusterId pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity EventHubNamespaceIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.

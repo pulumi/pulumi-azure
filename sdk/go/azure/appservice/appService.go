@@ -113,8 +113,8 @@ type AppService struct {
 	SiteConfig AppServiceSiteConfigOutput `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials AppServiceSiteCredentialArrayOutput `pulumi:"siteCredentials"`
-	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-	SourceControls AppServiceSourceControlArrayOutput `pulumi:"sourceControls"`
+	// A Source Control block as defined below
+	SourceControl AppServiceSourceControlOutput `pulumi:"sourceControl"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AppServiceStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
@@ -193,8 +193,8 @@ type appServiceState struct {
 	SiteConfig *AppServiceSiteConfig `pulumi:"siteConfig"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials []AppServiceSiteCredential `pulumi:"siteCredentials"`
-	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-	SourceControls []AppServiceSourceControl `pulumi:"sourceControls"`
+	// A Source Control block as defined below
+	SourceControl *AppServiceSourceControl `pulumi:"sourceControl"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []AppServiceStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
@@ -240,8 +240,8 @@ type AppServiceState struct {
 	SiteConfig AppServiceSiteConfigPtrInput
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredentials AppServiceSiteCredentialArrayInput
-	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
-	SourceControls AppServiceSourceControlArrayInput
+	// A Source Control block as defined below
+	SourceControl AppServiceSourceControlPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AppServiceStorageAccountArrayInput
 	// A mapping of tags to assign to the resource.
@@ -283,6 +283,8 @@ type appServiceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `siteConfig` block as defined below.
 	SiteConfig *AppServiceSiteConfig `pulumi:"siteConfig"`
+	// A Source Control block as defined below
+	SourceControl *AppServiceSourceControl `pulumi:"sourceControl"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []AppServiceStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags to assign to the resource.
@@ -321,6 +323,8 @@ type AppServiceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `siteConfig` block as defined below.
 	SiteConfig AppServiceSiteConfigPtrInput
+	// A Source Control block as defined below
+	SourceControl AppServiceSourceControlPtrInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts AppServiceStorageAccountArrayInput
 	// A mapping of tags to assign to the resource.

@@ -811,6 +811,7 @@ func (o DatasetHttpSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetHttp
 }
 
 type DatasetJsonAzureBlobStorageLocation struct {
+	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
 	// The filename of the file on the web server.
 	Filename string `pulumi:"filename"`
@@ -830,6 +831,7 @@ type DatasetJsonAzureBlobStorageLocationInput interface {
 }
 
 type DatasetJsonAzureBlobStorageLocationArgs struct {
+	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
 	// The filename of the file on the web server.
 	Filename pulumi.StringInput `pulumi:"filename"`
@@ -913,6 +915,8 @@ func (o DatasetJsonAzureBlobStorageLocationOutput) ToDatasetJsonAzureBlobStorage
 		return &v
 	}).(DatasetJsonAzureBlobStorageLocationPtrOutput)
 }
+
+// The container on the Azure Blob Storage Account hosting the file.
 func (o DatasetJsonAzureBlobStorageLocationOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetJsonAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
@@ -945,6 +949,7 @@ func (o DatasetJsonAzureBlobStorageLocationPtrOutput) Elem() DatasetJsonAzureBlo
 	return o.ApplyT(func(v *DatasetJsonAzureBlobStorageLocation) DatasetJsonAzureBlobStorageLocation { return *v }).(DatasetJsonAzureBlobStorageLocationOutput)
 }
 
+// The container on the Azure Blob Storage Account hosting the file.
 func (o DatasetJsonAzureBlobStorageLocationPtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetJsonAzureBlobStorageLocation) *string {
 		if v == nil {

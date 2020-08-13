@@ -50,6 +50,14 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     The secondary access key for the authorization rule `RootManageSharedAccessKey`.
     """
+    identity: pulumi.Output[dict]
+    """
+    An `identity` block as defined below.
+
+      * `principal_id` (`str`) - The Client ID of the Service Principal assigned to this EventHub Namespace.
+      * `tenant_id` (`str`) - The ID of the Tenant the Service Principal is assigned in.
+      * `type` (`str`) - The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -68,7 +76,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
       * `default_action` (`str`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
       * `ip_rules` (`list`) - One or more `ip_rule` blocks as defined below.
-        * `action` (`str`) - The action to take when the rule is  matched. Possible values are `Allow`.
+        * `action` (`str`) - The action to take when the rule is matched. Possible values are `Allow`.
         * `ipMask` (`str`) - The ip mask to match on.
 
       * `virtual_network_rules` (`list`) - One or more `virtual_network_rule` blocks as defined below.
@@ -91,7 +99,7 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, dedicated_cluster_id=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_inflate_enabled=None, capacity=None, dedicated_cluster_id=None, identity=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventHub Namespace.
 
@@ -117,6 +125,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
         :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -126,11 +135,17 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
 
+        The **identity** object supports the following:
+
+          * `principal_id` (`pulumi.Input[str]`) - The Client ID of the Service Principal assigned to this EventHub Namespace.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
+          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+
         The **network_rulesets** object supports the following:
 
           * `default_action` (`pulumi.Input[str]`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
           * `ip_rules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
-            * `action` (`pulumi.Input[str]`) - The action to take when the rule is  matched. Possible values are `Allow`.
+            * `action` (`pulumi.Input[str]`) - The action to take when the rule is matched. Possible values are `Allow`.
             * `ipMask` (`pulumi.Input[str]`) - The ip mask to match on.
 
           * `virtual_network_rules` (`pulumi.Input[list]`) - One or more `virtual_network_rule` blocks as defined below.
@@ -157,6 +172,7 @@ class EventHubNamespace(pulumi.CustomResource):
             __props__['auto_inflate_enabled'] = auto_inflate_enabled
             __props__['capacity'] = capacity
             __props__['dedicated_cluster_id'] = dedicated_cluster_id
+            __props__['identity'] = identity
             __props__['location'] = location
             __props__['maximum_throughput_units'] = maximum_throughput_units
             __props__['name'] = name
@@ -182,7 +198,7 @@ class EventHubNamespace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, dedicated_cluster_id=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
+    def get(resource_name, id, opts=None, auto_inflate_enabled=None, capacity=None, dedicated_cluster_id=None, default_primary_connection_string=None, default_primary_connection_string_alias=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_connection_string_alias=None, default_secondary_key=None, identity=None, location=None, maximum_throughput_units=None, name=None, network_rulesets=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
         """
         Get an existing EventHubNamespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -203,6 +219,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] default_secondary_connection_string_alias: The alias of the secondary connection string for the
                authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -212,11 +229,17 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
 
+        The **identity** object supports the following:
+
+          * `principal_id` (`pulumi.Input[str]`) - The Client ID of the Service Principal assigned to this EventHub Namespace.
+          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
+          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+
         The **network_rulesets** object supports the following:
 
           * `default_action` (`pulumi.Input[str]`) - The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
           * `ip_rules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
-            * `action` (`pulumi.Input[str]`) - The action to take when the rule is  matched. Possible values are `Allow`.
+            * `action` (`pulumi.Input[str]`) - The action to take when the rule is matched. Possible values are `Allow`.
             * `ipMask` (`pulumi.Input[str]`) - The ip mask to match on.
 
           * `virtual_network_rules` (`pulumi.Input[list]`) - One or more `virtual_network_rule` blocks as defined below.
@@ -236,6 +259,7 @@ class EventHubNamespace(pulumi.CustomResource):
         __props__["default_secondary_connection_string"] = default_secondary_connection_string
         __props__["default_secondary_connection_string_alias"] = default_secondary_connection_string_alias
         __props__["default_secondary_key"] = default_secondary_key
+        __props__["identity"] = identity
         __props__["location"] = location
         __props__["maximum_throughput_units"] = maximum_throughput_units
         __props__["name"] = name

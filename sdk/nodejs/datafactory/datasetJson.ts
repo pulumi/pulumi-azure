@@ -75,6 +75,9 @@ export class DatasetJson extends pulumi.CustomResource {
      * List of tags that can be used for describing the Data Factory Dataset.
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
+    /**
+     * A `azureBlobStorageLocation` block as defined below.
+     */
     public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetJsonAzureBlobStorageLocation | undefined>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
@@ -190,6 +193,9 @@ export interface DatasetJsonState {
      * List of tags that can be used for describing the Data Factory Dataset.
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `azureBlobStorageLocation` block as defined below.
+     */
     readonly azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
@@ -245,6 +251,9 @@ export interface DatasetJsonArgs {
      * List of tags that can be used for describing the Data Factory Dataset.
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `azureBlobStorageLocation` block as defined below.
+     */
     readonly azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.

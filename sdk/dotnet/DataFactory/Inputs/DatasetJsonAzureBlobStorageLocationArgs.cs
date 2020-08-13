@@ -12,6 +12,9 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
     public sealed class DatasetJsonAzureBlobStorageLocationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The container on the Azure Blob Storage Account hosting the file.
+        /// </summary>
         [Input("container", required: true)]
         public Input<string> Container { get; set; } = null!;
 

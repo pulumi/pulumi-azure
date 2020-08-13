@@ -24,7 +24,7 @@ class Queue(pulumi.CustomResource):
     """
     duplicate_detection_history_time_window: pulumi.Output[str]
     """
-    The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+    The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
     """
     enable_batched_operations: pulumi.Output[bool]
     """
@@ -111,7 +111,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
@@ -186,7 +186,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
-        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+        :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.

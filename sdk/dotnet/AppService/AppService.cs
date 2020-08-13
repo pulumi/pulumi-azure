@@ -186,10 +186,10 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.AppServiceSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+        /// A Source Control block as defined below
         /// </summary>
-        [Output("sourceControls")]
-        public Output<ImmutableArray<Outputs.AppServiceSourceControl>> SourceControls { get; private set; } = null!;
+        [Output("sourceControl")]
+        public Output<Outputs.AppServiceSourceControl> SourceControl { get; private set; } = null!;
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
@@ -350,6 +350,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.AppServiceSiteConfigArgs>? SiteConfig { get; set; }
+
+        /// <summary>
+        /// A Source Control block as defined below
+        /// </summary>
+        [Input("sourceControl")]
+        public Input<Inputs.AppServiceSourceControlArgs>? SourceControl { get; set; }
 
         [Input("storageAccounts")]
         private InputList<Inputs.AppServiceStorageAccountArgs>? _storageAccounts;
@@ -514,17 +520,11 @@ namespace Pulumi.Azure.AppService
             set => _siteCredentials = value;
         }
 
-        [Input("sourceControls")]
-        private InputList<Inputs.AppServiceSourceControlGetArgs>? _sourceControls;
-
         /// <summary>
-        /// A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+        /// A Source Control block as defined below
         /// </summary>
-        public InputList<Inputs.AppServiceSourceControlGetArgs> SourceControls
-        {
-            get => _sourceControls ?? (_sourceControls = new InputList<Inputs.AppServiceSourceControlGetArgs>());
-            set => _sourceControls = value;
-        }
+        [Input("sourceControl")]
+        public Input<Inputs.AppServiceSourceControlGetArgs>? SourceControl { get; set; }
 
         [Input("storageAccounts")]
         private InputList<Inputs.AppServiceStorageAccountGetArgs>? _storageAccounts;

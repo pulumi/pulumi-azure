@@ -13,16 +13,37 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class FunctionAppSlotSiteConfigIpRestrictionGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IP Address CIDR notation used for this IP Restriction.
+        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        /// </summary>
+        [Input("action")]
+        public Input<string>? Action { get; set; }
+
+        /// <summary>
+        /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The Subnet ID used for this IP Restriction.
+        /// The name for this IP Restriction.
         /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
+
+        /// <summary>
+        /// The Virtual Network Subnet ID used for this IP Restriction.
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         public FunctionAppSlotSiteConfigIpRestrictionGetArgs()
         {

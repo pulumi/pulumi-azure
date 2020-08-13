@@ -12,7 +12,7 @@ class GetFunctionAppResult:
     """
     A collection of values returned by getFunctionApp.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, id=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_credentials=None, tags=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, id=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         __self__.app_service_plan_id = app_service_plan_id
@@ -56,7 +56,7 @@ class GetFunctionAppResult:
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
-        The name of the Connection String.
+        The name for this IP Restriction.
         """
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
@@ -79,11 +79,20 @@ class GetFunctionAppResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
+        if site_configs and not isinstance(site_configs, list):
+            raise TypeError("Expected argument 'site_configs' to be a list")
+        __self__.site_configs = site_configs
         if site_credentials and not isinstance(site_credentials, list):
             raise TypeError("Expected argument 'site_credentials' to be a list")
         __self__.site_credentials = site_credentials
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        """
+        if source_controls and not isinstance(source_controls, list):
+            raise TypeError("Expected argument 'source_controls' to be a list")
+        __self__.source_controls = source_controls
+        """
+        A `source_control` block as defined below.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -106,7 +115,9 @@ class AwaitableGetFunctionAppResult(GetFunctionAppResult):
             outbound_ip_addresses=self.outbound_ip_addresses,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
             resource_group_name=self.resource_group_name,
+            site_configs=self.site_configs,
             site_credentials=self.site_credentials,
+            source_controls=self.source_controls,
             tags=self.tags)
 
 def get_function_app(name=None,resource_group_name=None,tags=None,opts=None):
@@ -152,5 +163,7 @@ def get_function_app(name=None,resource_group_name=None,tags=None,opts=None):
         outbound_ip_addresses=__ret__.get('outboundIpAddresses'),
         possible_outbound_ip_addresses=__ret__.get('possibleOutboundIpAddresses'),
         resource_group_name=__ret__.get('resourceGroupName'),
+        site_configs=__ret__.get('siteConfigs'),
         site_credentials=__ret__.get('siteCredentials'),
+        source_controls=__ret__.get('sourceControls'),
         tags=__ret__.get('tags'))

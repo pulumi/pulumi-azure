@@ -9,6 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
+    /// <summary>
+    /// Manages an Orchestrated Virtual Machine Scale Set.
+    /// 
+    /// &gt; **Note:** Orchestrated Virtual Machine Scale Sets are in Public Preview and it may receive breaking changes - [more details can be found in the Azure Documentation](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/orchestration-modes).
+    /// 
+    /// &gt; **Note:** Azure is planning to deprecate the `single_placement_group` attribute in the Orchestrated Virtual Machine Scale Set starting from api-version `2019-12-01` and there will be a breaking change in the Orchestrated Virtual Machine Scale Set.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleOrchestratedVirtualMachineScaleSet = new Azure.Compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet", new Azure.Compute.OrchestratedVirtualMachineScaleSetArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             PlatformFaultDomainCount = 1,
+    ///             Zones = 
+    ///             {
+    ///                 "1",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class OrchestratedVirtualMachineScaleSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,7 +78,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Orchestrated Virtual Machine Scale Set use single placement group?
+        /// Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
         /// </summary>
         [Output("singlePlacementGroup")]
         public Output<bool?> SinglePlacementGroup { get; private set; } = null!;
@@ -142,7 +178,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Should the Orchestrated Virtual Machine Scale Set use single placement group?
+        /// Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
         /// </summary>
         [Input("singlePlacementGroup")]
         public Input<bool>? SinglePlacementGroup { get; set; }
@@ -203,7 +239,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Should the Orchestrated Virtual Machine Scale Set use single placement group?
+        /// Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
         /// </summary>
         [Input("singlePlacementGroup")]
         public Input<bool>? SinglePlacementGroup { get; set; }

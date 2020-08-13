@@ -70,6 +70,9 @@ namespace Pulumi.Azure.DataFactory
         [Output("annotations")]
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
+        /// <summary>
+        /// A `azure_blob_storage_location` block as defined below.
+        /// </summary>
         [Output("azureBlobStorageLocation")]
         public Output<Outputs.DatasetJsonAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
 
@@ -203,6 +206,9 @@ namespace Pulumi.Azure.DataFactory
             set => _annotations = value;
         }
 
+        /// <summary>
+        /// A `azure_blob_storage_location` block as defined below.
+        /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetJsonAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
 
@@ -309,6 +315,9 @@ namespace Pulumi.Azure.DataFactory
             set => _annotations = value;
         }
 
+        /// <summary>
+        /// A `azure_blob_storage_location` block as defined below.
+        /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetJsonAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }
 

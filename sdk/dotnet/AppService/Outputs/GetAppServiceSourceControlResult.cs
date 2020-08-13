@@ -13,17 +13,44 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class GetAppServiceSourceControlResult
     {
+        /// <summary>
+        /// The branch of the remote repository in use.
+        /// </summary>
         public readonly string Branch;
+        /// <summary>
+        /// Limits to manual integration.
+        /// </summary>
+        public readonly bool ManualIntegration;
+        /// <summary>
+        /// The URL of the source code repository.
+        /// </summary>
         public readonly string RepoUrl;
+        /// <summary>
+        /// Is roll-back enabled for the repository.
+        /// </summary>
+        public readonly bool RollbackEnabled;
+        /// <summary>
+        /// Uses Mercurial if `true`, otherwise uses Git.
+        /// </summary>
+        public readonly bool UseMercurial;
 
         [OutputConstructor]
         private GetAppServiceSourceControlResult(
             string branch,
 
-            string repoUrl)
+            bool manualIntegration,
+
+            string repoUrl,
+
+            bool rollbackEnabled,
+
+            bool useMercurial)
         {
             Branch = branch;
+            ManualIntegration = manualIntegration;
             RepoUrl = repoUrl;
+            RollbackEnabled = rollbackEnabled;
+            UseMercurial = useMercurial;
         }
     }
 }

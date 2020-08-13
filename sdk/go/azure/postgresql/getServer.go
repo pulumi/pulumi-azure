@@ -58,6 +58,8 @@ type LookupServerResult struct {
 	Fqdn string `pulumi:"fqdn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
+	Identities []GetServerIdentity `pulumi:"identities"`
 	// The location of the Resource Group in which the PostgreSQL Server exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`

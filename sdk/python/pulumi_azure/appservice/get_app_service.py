@@ -106,6 +106,9 @@ class GetAppServiceResult:
         if source_controls and not isinstance(source_controls, list):
             raise TypeError("Expected argument 'source_controls' to be a list")
         __self__.source_controls = source_controls
+        """
+        A `source_control` block as defined below.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags

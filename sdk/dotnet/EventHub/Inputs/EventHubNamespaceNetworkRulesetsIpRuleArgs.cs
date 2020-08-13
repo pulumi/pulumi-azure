@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class EventHubNamespaceNetworkRulesetsIpRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take when the rule is  matched. Possible values are `Allow`.
+        /// The action to take when the rule is matched. Possible values are `Allow`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }

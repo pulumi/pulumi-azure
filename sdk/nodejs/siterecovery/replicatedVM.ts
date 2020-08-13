@@ -45,6 +45,10 @@ export class ReplicatedVM extends pulumi.CustomResource {
      * The name of the network mapping.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * One or more `networkInterface` block.
+     */
+    public readonly networkInterfaces!: pulumi.Output<outputs.siterecovery.ReplicatedVMNetworkInterface[]>;
     public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
     /**
      * The name of the vault that should be updated.
@@ -70,6 +74,10 @@ export class ReplicatedVM extends pulumi.CustomResource {
      * Id of availability set that the new VM should belong to when a failover is done.
      */
     public readonly targetAvailabilitySetId!: pulumi.Output<string | undefined>;
+    /**
+     * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
+     */
+    public readonly targetNetworkId!: pulumi.Output<string>;
     /**
      * Id of fabric where the VM replication should be handled when a failover is done.
      */
@@ -97,6 +105,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             const state = argsOrState as ReplicatedVMState | undefined;
             inputs["managedDisks"] = state ? state.managedDisks : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             inputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
             inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -104,6 +113,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             inputs["sourceRecoveryProtectionContainerName"] = state ? state.sourceRecoveryProtectionContainerName : undefined;
             inputs["sourceVmId"] = state ? state.sourceVmId : undefined;
             inputs["targetAvailabilitySetId"] = state ? state.targetAvailabilitySetId : undefined;
+            inputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
             inputs["targetRecoveryFabricId"] = state ? state.targetRecoveryFabricId : undefined;
             inputs["targetRecoveryProtectionContainerId"] = state ? state.targetRecoveryProtectionContainerId : undefined;
             inputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
@@ -138,6 +148,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             }
             inputs["managedDisks"] = args ? args.managedDisks : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             inputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
             inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -145,6 +156,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             inputs["sourceRecoveryProtectionContainerName"] = args ? args.sourceRecoveryProtectionContainerName : undefined;
             inputs["sourceVmId"] = args ? args.sourceVmId : undefined;
             inputs["targetAvailabilitySetId"] = args ? args.targetAvailabilitySetId : undefined;
+            inputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
             inputs["targetRecoveryFabricId"] = args ? args.targetRecoveryFabricId : undefined;
             inputs["targetRecoveryProtectionContainerId"] = args ? args.targetRecoveryProtectionContainerId : undefined;
             inputs["targetResourceGroupId"] = args ? args.targetResourceGroupId : undefined;
@@ -172,6 +184,10 @@ export interface ReplicatedVMState {
      * The name of the network mapping.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * One or more `networkInterface` block.
+     */
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
     readonly recoveryReplicationPolicyId?: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
@@ -198,6 +214,10 @@ export interface ReplicatedVMState {
      */
     readonly targetAvailabilitySetId?: pulumi.Input<string>;
     /**
+     * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
+     */
+    readonly targetNetworkId?: pulumi.Input<string>;
+    /**
      * Id of fabric where the VM replication should be handled when a failover is done.
      */
     readonly targetRecoveryFabricId?: pulumi.Input<string>;
@@ -223,6 +243,10 @@ export interface ReplicatedVMArgs {
      * The name of the network mapping.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * One or more `networkInterface` block.
+     */
+    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
     readonly recoveryReplicationPolicyId: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
@@ -248,6 +272,10 @@ export interface ReplicatedVMArgs {
      * Id of availability set that the new VM should belong to when a failover is done.
      */
     readonly targetAvailabilitySetId?: pulumi.Input<string>;
+    /**
+     * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
+     */
+    readonly targetNetworkId?: pulumi.Input<string>;
     /**
      * Id of fabric where the VM replication should be handled when a failover is done.
      */

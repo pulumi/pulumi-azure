@@ -36,6 +36,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>

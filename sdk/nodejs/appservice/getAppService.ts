@@ -112,6 +112,9 @@ export interface GetAppServiceResult {
      */
     readonly siteConfigs: outputs.appservice.GetAppServiceSiteConfig[];
     readonly siteCredentials: outputs.appservice.GetAppServiceSiteCredential[];
+    /**
+     * A `sourceControl` block as defined below.
+     */
     readonly sourceControls: outputs.appservice.GetAppServiceSourceControl[];
     /**
      * A mapping of tags to assign to the resource.

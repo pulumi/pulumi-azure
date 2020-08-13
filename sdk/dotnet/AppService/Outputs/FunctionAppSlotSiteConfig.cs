@@ -49,6 +49,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         /// </summary>
         public readonly int? PreWarmedInstanceCount;
+        public readonly ImmutableArray<Outputs.FunctionAppSlotSiteConfigScmIpRestriction> ScmIpRestrictions;
+        public readonly string? ScmType;
+        public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
         /// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         /// </summary>
@@ -78,6 +81,12 @@ namespace Pulumi.Azure.AppService.Outputs
 
             int? preWarmedInstanceCount,
 
+            ImmutableArray<Outputs.FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions,
+
+            string? scmType,
+
+            bool? scmUseMainIpRestriction,
+
             bool? use32BitWorkerProcess,
 
             bool? websocketsEnabled)
@@ -91,6 +100,9 @@ namespace Pulumi.Azure.AppService.Outputs
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
+            ScmIpRestrictions = scmIpRestrictions;
+            ScmType = scmType;
+            ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorkerProcess = use32BitWorkerProcess;
             WebsocketsEnabled = websocketsEnabled;
         }

@@ -170,6 +170,7 @@ class AppService(pulumi.CustomResource):
         * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
         * `name` (`str`) - The name for this IP Restriction.
         * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        * `subnet_id` (`str`)
         * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
 
       * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -188,6 +189,7 @@ class AppService(pulumi.CustomResource):
         * `ip_address` (`str`) - The IP Address used for this IP Restriction in CIDR notation.
         * `name` (`str`) - The name for this IP Restriction.
         * `priority` (`float`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        * `subnet_id` (`str`)
         * `virtualNetworkSubnetId` (`str`) - The Virtual Network Subnet ID used for this IP Restriction.
 
       * `scmType` (`str`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -203,12 +205,15 @@ class AppService(pulumi.CustomResource):
       * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
       * `username` (`str`) - The username which can be used to publish to this App Service
     """
-    source_controls: pulumi.Output[list]
+    source_control: pulumi.Output[dict]
     """
-    A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+    A Source Control block as defined below
 
-      * `branch` (`str`) - Branch name of the Git repository for this App Service.
-      * `repoUrl` (`str`) - URL of the Git repository for this App Service.
+      * `branch` (`str`) - The branch of the remote repository to use. Defaults to 'master'.
+      * `manualIntegration` (`bool`) - Limits to manual integration. Defaults to `false` if not specified.
+      * `repoUrl` (`str`) - The URL of the source code repository.
+      * `rollbackEnabled` (`bool`) - Enable roll-back for the repository. Defaults to `false` if not specified.
+      * `useMercurial` (`bool`) - Use Mercurial if `true`, otherwise uses Git.
     """
     storage_accounts: pulumi.Output[list]
     """
@@ -225,7 +230,7 @@ class AppService(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, backup=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, storage_accounts=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, backup=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, source_control=None, storage_accounts=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service (within an App Service Plan).
 
@@ -282,6 +287,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
         :param pulumi.Input[dict] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[dict] source_control: A Source Control block as defined below
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
@@ -385,6 +391,7 @@ class AppService(pulumi.CustomResource):
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
             * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
             * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -403,6 +410,7 @@ class AppService(pulumi.CustomResource):
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
             * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
             * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -410,6 +418,14 @@ class AppService(pulumi.CustomResource):
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service run in 32 bit mode, rather than 64 bit mode?
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
           * `windowsFxVersion` (`pulumi.Input[str]`) - The Windows Docker container image (`DOCKER|<user/image:tag>`)
+
+        The **source_control** object supports the following:
+
+          * `branch` (`pulumi.Input[str]`) - The branch of the remote repository to use. Defaults to 'master'.
+          * `manualIntegration` (`pulumi.Input[bool]`) - Limits to manual integration. Defaults to `false` if not specified.
+          * `repoUrl` (`pulumi.Input[str]`) - The URL of the source code repository.
+          * `rollbackEnabled` (`pulumi.Input[bool]`) - Enable roll-back for the repository. Defaults to `false` if not specified.
+          * `useMercurial` (`pulumi.Input[bool]`) - Use Mercurial if `true`, otherwise uses Git.
 
         The **storage_accounts** object supports the following:
 
@@ -456,13 +472,13 @@ class AppService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['site_config'] = site_config
+            __props__['source_control'] = source_control
             __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
             __props__['default_site_hostname'] = None
             __props__['outbound_ip_addresses'] = None
             __props__['possible_outbound_ip_addresses'] = None
             __props__['site_credentials'] = None
-            __props__['source_controls'] = None
         super(AppService, __self__).__init__(
             'azure:appservice/appService:AppService',
             resource_name,
@@ -470,7 +486,7 @@ class AppService(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, backup=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, source_controls=None, storage_accounts=None, tags=None):
+    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, backup=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, source_control=None, storage_accounts=None, tags=None):
         """
         Get an existing AppService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -497,7 +513,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
         :param pulumi.Input[dict] site_config: A `site_config` block as defined below.
         :param pulumi.Input[list] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[list] source_controls: A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+        :param pulumi.Input[dict] source_control: A Source Control block as defined below
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
@@ -601,6 +617,7 @@ class AppService(pulumi.CustomResource):
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
             * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
             * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -619,6 +636,7 @@ class AppService(pulumi.CustomResource):
             * `ip_address` (`pulumi.Input[str]`) - The IP Address used for this IP Restriction in CIDR notation.
             * `name` (`pulumi.Input[str]`) - The name for this IP Restriction.
             * `priority` (`pulumi.Input[float]`) - The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+            * `subnet_id` (`pulumi.Input[str]`)
             * `virtualNetworkSubnetId` (`pulumi.Input[str]`) - The Virtual Network Subnet ID used for this IP Restriction.
 
           * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -632,10 +650,13 @@ class AppService(pulumi.CustomResource):
           * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
           * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
 
-        The **source_controls** object supports the following:
+        The **source_control** object supports the following:
 
-          * `branch` (`pulumi.Input[str]`) - Branch name of the Git repository for this App Service.
-          * `repoUrl` (`pulumi.Input[str]`) - URL of the Git repository for this App Service.
+          * `branch` (`pulumi.Input[str]`) - The branch of the remote repository to use. Defaults to 'master'.
+          * `manualIntegration` (`pulumi.Input[bool]`) - Limits to manual integration. Defaults to `false` if not specified.
+          * `repoUrl` (`pulumi.Input[str]`) - The URL of the source code repository.
+          * `rollbackEnabled` (`pulumi.Input[bool]`) - Enable roll-back for the repository. Defaults to `false` if not specified.
+          * `useMercurial` (`pulumi.Input[bool]`) - Use Mercurial if `true`, otherwise uses Git.
 
         The **storage_accounts** object supports the following:
 
@@ -669,7 +690,7 @@ class AppService(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["site_config"] = site_config
         __props__["site_credentials"] = site_credentials
-        __props__["source_controls"] = source_controls
+        __props__["source_control"] = source_control
         __props__["storage_accounts"] = storage_accounts
         __props__["tags"] = tags
         return AppService(resource_name, opts=opts, __props__=__props__)

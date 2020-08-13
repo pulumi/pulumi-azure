@@ -5,3 +5,4 @@
 export * from "./cache";
 export * from "./firewallRule";
 export * from "./getCache";
+export * from "./linkedServer";

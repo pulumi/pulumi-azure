@@ -73,6 +73,8 @@ type Server struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
 	GeoRedundantBackupEnabled pulumi.BoolOutput `pulumi:"geoRedundantBackupEnabled"`
+	// An `identity` block as defined below.
+	Identity ServerIdentityPtrOutput `pulumi:"identity"`
 	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -158,6 +160,8 @@ type serverState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
+	// An `identity` block as defined below.
+	Identity *ServerIdentity `pulumi:"identity"`
 	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -207,6 +211,8 @@ type ServerState struct {
 	Fqdn pulumi.StringPtrInput
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
+	// An `identity` block as defined below.
+	Identity ServerIdentityPtrInput
 	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -258,6 +264,8 @@ type serverArgs struct {
 	CreationSourceServerId *string `pulumi:"creationSourceServerId"`
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
 	GeoRedundantBackupEnabled *bool `pulumi:"geoRedundantBackupEnabled"`
+	// An `identity` block as defined below.
+	Identity *ServerIdentity `pulumi:"identity"`
 	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -306,6 +314,8 @@ type ServerArgs struct {
 	CreationSourceServerId pulumi.StringPtrInput
 	// Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
 	GeoRedundantBackupEnabled pulumi.BoolPtrInput
+	// An `identity` block as defined below.
+	Identity ServerIdentityPtrInput
 	// Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -103,6 +103,12 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultSecondaryKey { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.EventHubNamespaceIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -213,6 +219,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("dedicatedClusterId")]
         public Input<string>? DedicatedClusterId { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.EventHubNamespaceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -332,6 +344,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("defaultSecondaryKey")]
         public Input<string>? DefaultSecondaryKey { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.EventHubNamespaceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

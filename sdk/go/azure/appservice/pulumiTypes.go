@@ -3602,6 +3602,8 @@ type AppServiceSiteConfigIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3626,6 +3628,8 @@ type AppServiceSiteConfigIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3701,6 +3705,11 @@ func (o AppServiceSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
+// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+func (o AppServiceSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o AppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
@@ -3735,6 +3744,8 @@ type AppServiceSiteConfigScmIpRestriction struct {
 	Name *string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority *int `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3759,6 +3770,8 @@ type AppServiceSiteConfigScmIpRestrictionArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3832,6 +3845,11 @@ func (o AppServiceSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutpu
 // The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 func (o AppServiceSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+func (o AppServiceSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
@@ -3966,10 +3984,16 @@ func (o AppServiceSiteCredentialArrayOutput) Index(i pulumi.IntInput) AppService
 }
 
 type AppServiceSourceControl struct {
-	// Branch name of the Git repository for this App Service.
+	// The branch of the remote repository to use. Defaults to 'master'.
 	Branch *string `pulumi:"branch"`
-	// URL of the Git repository for this App Service.
+	// Limits to manual integration. Defaults to `false` if not specified.
+	ManualIntegration *bool `pulumi:"manualIntegration"`
+	// The URL of the source code repository.
 	RepoUrl *string `pulumi:"repoUrl"`
+	// Enable roll-back for the repository. Defaults to `false` if not specified.
+	RollbackEnabled *bool `pulumi:"rollbackEnabled"`
+	// Use Mercurial if `true`, otherwise uses Git.
+	UseMercurial *bool `pulumi:"useMercurial"`
 }
 
 // AppServiceSourceControlInput is an input type that accepts AppServiceSourceControlArgs and AppServiceSourceControlOutput values.
@@ -3984,10 +4008,16 @@ type AppServiceSourceControlInput interface {
 }
 
 type AppServiceSourceControlArgs struct {
-	// Branch name of the Git repository for this App Service.
+	// The branch of the remote repository to use. Defaults to 'master'.
 	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// URL of the Git repository for this App Service.
+	// Limits to manual integration. Defaults to `false` if not specified.
+	ManualIntegration pulumi.BoolPtrInput `pulumi:"manualIntegration"`
+	// The URL of the source code repository.
 	RepoUrl pulumi.StringPtrInput `pulumi:"repoUrl"`
+	// Enable roll-back for the repository. Defaults to `false` if not specified.
+	RollbackEnabled pulumi.BoolPtrInput `pulumi:"rollbackEnabled"`
+	// Use Mercurial if `true`, otherwise uses Git.
+	UseMercurial pulumi.BoolPtrInput `pulumi:"useMercurial"`
 }
 
 func (AppServiceSourceControlArgs) ElementType() reflect.Type {
@@ -4002,29 +4032,45 @@ func (i AppServiceSourceControlArgs) ToAppServiceSourceControlOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourceControlOutput)
 }
 
-// AppServiceSourceControlArrayInput is an input type that accepts AppServiceSourceControlArray and AppServiceSourceControlArrayOutput values.
-// You can construct a concrete instance of `AppServiceSourceControlArrayInput` via:
+func (i AppServiceSourceControlArgs) ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput {
+	return i.ToAppServiceSourceControlPtrOutputWithContext(context.Background())
+}
+
+func (i AppServiceSourceControlArgs) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourceControlOutput).ToAppServiceSourceControlPtrOutputWithContext(ctx)
+}
+
+// AppServiceSourceControlPtrInput is an input type that accepts AppServiceSourceControlArgs, AppServiceSourceControlPtr and AppServiceSourceControlPtrOutput values.
+// You can construct a concrete instance of `AppServiceSourceControlPtrInput` via:
 //
-//          AppServiceSourceControlArray{ AppServiceSourceControlArgs{...} }
-type AppServiceSourceControlArrayInput interface {
+//          AppServiceSourceControlArgs{...}
+//
+//  or:
+//
+//          nil
+type AppServiceSourceControlPtrInput interface {
 	pulumi.Input
 
-	ToAppServiceSourceControlArrayOutput() AppServiceSourceControlArrayOutput
-	ToAppServiceSourceControlArrayOutputWithContext(context.Context) AppServiceSourceControlArrayOutput
+	ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput
+	ToAppServiceSourceControlPtrOutputWithContext(context.Context) AppServiceSourceControlPtrOutput
 }
 
-type AppServiceSourceControlArray []AppServiceSourceControlInput
+type appServiceSourceControlPtrType AppServiceSourceControlArgs
 
-func (AppServiceSourceControlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppServiceSourceControl)(nil)).Elem()
+func AppServiceSourceControlPtr(v *AppServiceSourceControlArgs) AppServiceSourceControlPtrInput {
+	return (*appServiceSourceControlPtrType)(v)
 }
 
-func (i AppServiceSourceControlArray) ToAppServiceSourceControlArrayOutput() AppServiceSourceControlArrayOutput {
-	return i.ToAppServiceSourceControlArrayOutputWithContext(context.Background())
+func (*appServiceSourceControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppServiceSourceControl)(nil)).Elem()
 }
 
-func (i AppServiceSourceControlArray) ToAppServiceSourceControlArrayOutputWithContext(ctx context.Context) AppServiceSourceControlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourceControlArrayOutput)
+func (i *appServiceSourceControlPtrType) ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput {
+	return i.ToAppServiceSourceControlPtrOutputWithContext(context.Background())
+}
+
+func (i *appServiceSourceControlPtrType) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSourceControlPtrOutput)
 }
 
 type AppServiceSourceControlOutput struct{ *pulumi.OutputState }
@@ -4041,34 +4087,107 @@ func (o AppServiceSourceControlOutput) ToAppServiceSourceControlOutputWithContex
 	return o
 }
 
-// Branch name of the Git repository for this App Service.
+func (o AppServiceSourceControlOutput) ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput {
+	return o.ToAppServiceSourceControlPtrOutputWithContext(context.Background())
+}
+
+func (o AppServiceSourceControlOutput) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
+	return o.ApplyT(func(v AppServiceSourceControl) *AppServiceSourceControl {
+		return &v
+	}).(AppServiceSourceControlPtrOutput)
+}
+
+// The branch of the remote repository to use. Defaults to 'master'.
 func (o AppServiceSourceControlOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSourceControl) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// URL of the Git repository for this App Service.
+// Limits to manual integration. Defaults to `false` if not specified.
+func (o AppServiceSourceControlOutput) ManualIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceSourceControl) *bool { return v.ManualIntegration }).(pulumi.BoolPtrOutput)
+}
+
+// The URL of the source code repository.
 func (o AppServiceSourceControlOutput) RepoUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSourceControl) *string { return v.RepoUrl }).(pulumi.StringPtrOutput)
 }
 
-type AppServiceSourceControlArrayOutput struct{ *pulumi.OutputState }
-
-func (AppServiceSourceControlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppServiceSourceControl)(nil)).Elem()
+// Enable roll-back for the repository. Defaults to `false` if not specified.
+func (o AppServiceSourceControlOutput) RollbackEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceSourceControl) *bool { return v.RollbackEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o AppServiceSourceControlArrayOutput) ToAppServiceSourceControlArrayOutput() AppServiceSourceControlArrayOutput {
+// Use Mercurial if `true`, otherwise uses Git.
+func (o AppServiceSourceControlOutput) UseMercurial() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppServiceSourceControl) *bool { return v.UseMercurial }).(pulumi.BoolPtrOutput)
+}
+
+type AppServiceSourceControlPtrOutput struct{ *pulumi.OutputState }
+
+func (AppServiceSourceControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppServiceSourceControl)(nil)).Elem()
+}
+
+func (o AppServiceSourceControlPtrOutput) ToAppServiceSourceControlPtrOutput() AppServiceSourceControlPtrOutput {
 	return o
 }
 
-func (o AppServiceSourceControlArrayOutput) ToAppServiceSourceControlArrayOutputWithContext(ctx context.Context) AppServiceSourceControlArrayOutput {
+func (o AppServiceSourceControlPtrOutput) ToAppServiceSourceControlPtrOutputWithContext(ctx context.Context) AppServiceSourceControlPtrOutput {
 	return o
 }
 
-func (o AppServiceSourceControlArrayOutput) Index(i pulumi.IntInput) AppServiceSourceControlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppServiceSourceControl {
-		return vs[0].([]AppServiceSourceControl)[vs[1].(int)]
-	}).(AppServiceSourceControlOutput)
+func (o AppServiceSourceControlPtrOutput) Elem() AppServiceSourceControlOutput {
+	return o.ApplyT(func(v *AppServiceSourceControl) AppServiceSourceControl { return *v }).(AppServiceSourceControlOutput)
+}
+
+// The branch of the remote repository to use. Defaults to 'master'.
+func (o AppServiceSourceControlPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceSourceControl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limits to manual integration. Defaults to `false` if not specified.
+func (o AppServiceSourceControlPtrOutput) ManualIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceSourceControl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ManualIntegration
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URL of the source code repository.
+func (o AppServiceSourceControlPtrOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceSourceControl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepoUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable roll-back for the repository. Defaults to `false` if not specified.
+func (o AppServiceSourceControlPtrOutput) RollbackEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceSourceControl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RollbackEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Use Mercurial if `true`, otherwise uses Git.
+func (o AppServiceSourceControlPtrOutput) UseMercurial() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceSourceControl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseMercurial
+	}).(pulumi.BoolPtrOutput)
 }
 
 type AppServiceStorageAccount struct {
@@ -5837,14 +5956,15 @@ func (o FunctionAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type FunctionAppSiteConfig struct {
 	// Should the Function App be loaded at all times? Defaults to `false`.
-	AlwaysOn *bool `pulumi:"alwaysOn"`
+	AlwaysOn         *bool   `pulumi:"alwaysOn"`
+	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors *FunctionAppSiteConfigCors `pulumi:"cors"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState *string `pulumi:"ftpsState"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
-	// A list of objects representing ip restrictions as defined below.
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	IpRestrictions []FunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
@@ -5852,6 +5972,12 @@ type FunctionAppSiteConfig struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	ScmIpRestrictions []FunctionAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	ScmType *string `pulumi:"scmType"`
+	// IP security restrictions for scm to use main. Defaults to false.
+	ScmUseMainIpRestriction *bool `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -5871,14 +5997,15 @@ type FunctionAppSiteConfigInput interface {
 
 type FunctionAppSiteConfigArgs struct {
 	// Should the Function App be loaded at all times? Defaults to `false`.
-	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	AlwaysOn         pulumi.BoolPtrInput   `pulumi:"alwaysOn"`
+	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
 	// A `cors` block as defined below.
 	Cors FunctionAppSiteConfigCorsPtrInput `pulumi:"cors"`
 	// State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
 	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
 	// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
-	// A list of objects representing ip restrictions as defined below.
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	IpRestrictions FunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
@@ -5886,6 +6013,12 @@ type FunctionAppSiteConfigArgs struct {
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+	ScmIpRestrictions FunctionAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
+	// IP security restrictions for scm to use main. Defaults to false.
+	ScmUseMainIpRestriction pulumi.BoolPtrInput `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -5974,6 +6107,10 @@ func (o FunctionAppSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
+func (o FunctionAppSiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
+}
+
 // A `cors` block as defined below.
 func (o FunctionAppSiteConfigOutput) Cors() FunctionAppSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *FunctionAppSiteConfigCors { return v.Cors }).(FunctionAppSiteConfigCorsPtrOutput)
@@ -5989,7 +6126,7 @@ func (o FunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of objects representing ip restrictions as defined below.
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 func (o FunctionAppSiteConfigOutput) IpRestrictions() FunctionAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSiteConfigIpRestrictionArrayOutput)
 }
@@ -6007,6 +6144,21 @@ func (o FunctionAppSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 // The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
 func (o FunctionAppSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o FunctionAppSiteConfigOutput) ScmIpRestrictions() FunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) []FunctionAppSiteConfigScmIpRestriction { return v.ScmIpRestrictions }).(FunctionAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+func (o FunctionAppSiteConfigOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
+}
+
+// IP security restrictions for scm to use main. Defaults to false.
+func (o FunctionAppSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolPtrOutput)
 }
 
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -6047,6 +6199,15 @@ func (o FunctionAppSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o FunctionAppSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSwapSlotName
+	}).(pulumi.StringPtrOutput)
+}
+
 // A `cors` block as defined below.
 func (o FunctionAppSiteConfigPtrOutput) Cors() FunctionAppSiteConfigCorsPtrOutput {
 	return o.ApplyT(func(v *FunctionAppSiteConfig) *FunctionAppSiteConfigCors {
@@ -6077,7 +6238,7 @@ func (o FunctionAppSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of objects representing ip restrictions as defined below.
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 func (o FunctionAppSiteConfigPtrOutput) IpRestrictions() FunctionAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v *FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction {
 		if v == nil {
@@ -6115,6 +6276,36 @@ func (o FunctionAppSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOu
 		}
 		return v.PreWarmedInstanceCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+func (o FunctionAppSiteConfigPtrOutput) ScmIpRestrictions() FunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) []FunctionAppSiteConfigScmIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.ScmIpRestrictions
+	}).(FunctionAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+// The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+func (o FunctionAppSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScmType
+	}).(pulumi.StringPtrOutput)
+}
+
+// IP security restrictions for scm to use main. Defaults to false.
+func (o FunctionAppSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScmUseMainIpRestriction
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -6288,10 +6479,18 @@ func (o FunctionAppSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrO
 }
 
 type FunctionAppSiteConfigIpRestriction struct {
-	// The IP Address CIDR notation used for this IP Restriction.
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The Subnet ID used for this IP Restriction.
+	// The name for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // FunctionAppSiteConfigIpRestrictionInput is an input type that accepts FunctionAppSiteConfigIpRestrictionArgs and FunctionAppSiteConfigIpRestrictionOutput values.
@@ -6306,10 +6505,18 @@ type FunctionAppSiteConfigIpRestrictionInput interface {
 }
 
 type FunctionAppSiteConfigIpRestrictionArgs struct {
-	// The IP Address CIDR notation used for this IP Restriction.
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The Subnet ID used for this IP Restriction.
+	// The name for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
 func (FunctionAppSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
@@ -6363,14 +6570,34 @@ func (o FunctionAppSiteConfigIpRestrictionOutput) ToFunctionAppSiteConfigIpRestr
 	return o
 }
 
-// The IP Address CIDR notation used for this IP Restriction.
+// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+func (o FunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
 func (o FunctionAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The Subnet ID used for this IP Restriction.
+// The name for this IP Restriction.
+func (o FunctionAppSiteConfigIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+func (o FunctionAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 func (o FunctionAppSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o FunctionAppSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 type FunctionAppSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
@@ -6391,6 +6618,148 @@ func (o FunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSiteConfigIpRestriction {
 		return vs[0].([]FunctionAppSiteConfigIpRestriction)[vs[1].(int)]
 	}).(FunctionAppSiteConfigIpRestrictionOutput)
+}
+
+type FunctionAppSiteConfigScmIpRestriction struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action *string `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId *string `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// FunctionAppSiteConfigScmIpRestrictionInput is an input type that accepts FunctionAppSiteConfigScmIpRestrictionArgs and FunctionAppSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `FunctionAppSiteConfigScmIpRestrictionInput` via:
+//
+//          FunctionAppSiteConfigScmIpRestrictionArgs{...}
+type FunctionAppSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigScmIpRestrictionOutput() FunctionAppSiteConfigScmIpRestrictionOutput
+	ToFunctionAppSiteConfigScmIpRestrictionOutputWithContext(context.Context) FunctionAppSiteConfigScmIpRestrictionOutput
+}
+
+type FunctionAppSiteConfigScmIpRestrictionArgs struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The name for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (FunctionAppSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i FunctionAppSiteConfigScmIpRestrictionArgs) ToFunctionAppSiteConfigScmIpRestrictionOutput() FunctionAppSiteConfigScmIpRestrictionOutput {
+	return i.ToFunctionAppSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSiteConfigScmIpRestrictionArgs) ToFunctionAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigScmIpRestrictionOutput)
+}
+
+// FunctionAppSiteConfigScmIpRestrictionArrayInput is an input type that accepts FunctionAppSiteConfigScmIpRestrictionArray and FunctionAppSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `FunctionAppSiteConfigScmIpRestrictionArrayInput` via:
+//
+//          FunctionAppSiteConfigScmIpRestrictionArray{ FunctionAppSiteConfigScmIpRestrictionArgs{...} }
+type FunctionAppSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigScmIpRestrictionArrayOutput() FunctionAppSiteConfigScmIpRestrictionArrayOutput
+	ToFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) FunctionAppSiteConfigScmIpRestrictionArrayOutput
+}
+
+type FunctionAppSiteConfigScmIpRestrictionArray []FunctionAppSiteConfigScmIpRestrictionInput
+
+func (FunctionAppSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i FunctionAppSiteConfigScmIpRestrictionArray) ToFunctionAppSiteConfigScmIpRestrictionArrayOutput() FunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSiteConfigScmIpRestrictionArray) ToFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type FunctionAppSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) ToFunctionAppSiteConfigScmIpRestrictionOutput() FunctionAppSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) ToFunctionAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+// Allow or Deny access for this IP range. Defaults to Allow.
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name for this IP Restriction.
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionArrayOutput) ToFunctionAppSiteConfigScmIpRestrictionArrayOutput() FunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionArrayOutput) ToFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) FunctionAppSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSiteConfigScmIpRestriction {
+		return vs[0].([]FunctionAppSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(FunctionAppSiteConfigScmIpRestrictionOutput)
 }
 
 type FunctionAppSiteCredential struct {
@@ -8019,7 +8388,10 @@ type FunctionAppSlotSiteConfig struct {
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
-	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	PreWarmedInstanceCount  *int                                        `pulumi:"preWarmedInstanceCount"`
+	ScmIpRestrictions       []FunctionAppSlotSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	ScmType                 *string                                     `pulumi:"scmType"`
+	ScmUseMainIpRestriction *bool                                       `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -8055,7 +8427,10 @@ type FunctionAppSlotSiteConfigArgs struct {
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
-	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	PreWarmedInstanceCount  pulumi.IntPtrInput                                  `pulumi:"preWarmedInstanceCount"`
+	ScmIpRestrictions       FunctionAppSlotSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	ScmType                 pulumi.StringPtrInput                               `pulumi:"scmType"`
+	ScmUseMainIpRestriction pulumi.BoolPtrInput                                 `pulumi:"scmUseMainIpRestriction"`
 	// Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
 	// Should WebSockets be enabled?
@@ -8184,6 +8559,20 @@ func (o FunctionAppSlotSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrO
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
 }
 
+func (o FunctionAppSlotSiteConfigOutput) ScmIpRestrictions() FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) []FunctionAppSlotSiteConfigScmIpRestriction {
+		return v.ScmIpRestrictions
+	}).(FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput)
+}
+
+func (o FunctionAppSlotSiteConfigOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionAppSlotSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolPtrOutput)
+}
+
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
 func (o FunctionAppSlotSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
@@ -8300,6 +8689,33 @@ func (o FunctionAppSlotSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntP
 		}
 		return v.PreWarmedInstanceCount
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) ScmIpRestrictions() FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) []FunctionAppSlotSiteConfigScmIpRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.ScmIpRestrictions
+	}).(FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput)
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScmType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScmUseMainIpRestriction
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -8473,10 +8889,18 @@ func (o FunctionAppSlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.Bool
 }
 
 type FunctionAppSlotSiteConfigIpRestriction struct {
-	// The IP Address CIDR notation used for this IP Restriction.
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
-	// The Subnet ID used for this IP Restriction.
+	// The name for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId *string `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // FunctionAppSlotSiteConfigIpRestrictionInput is an input type that accepts FunctionAppSlotSiteConfigIpRestrictionArgs and FunctionAppSlotSiteConfigIpRestrictionOutput values.
@@ -8491,10 +8915,18 @@ type FunctionAppSlotSiteConfigIpRestrictionInput interface {
 }
 
 type FunctionAppSlotSiteConfigIpRestrictionArgs struct {
-	// The IP Address CIDR notation used for this IP Restriction.
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The Subnet ID used for this IP Restriction.
+	// The name for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
 func (FunctionAppSlotSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
@@ -8548,14 +8980,34 @@ func (o FunctionAppSlotSiteConfigIpRestrictionOutput) ToFunctionAppSlotSiteConfi
 	return o
 }
 
-// The IP Address CIDR notation used for this IP Restriction.
+// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
 func (o FunctionAppSlotSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The Subnet ID used for this IP Restriction.
+// The name for this IP Restriction.
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
 func (o FunctionAppSlotSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 type FunctionAppSlotSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
@@ -8576,6 +9028,148 @@ func (o FunctionAppSlotSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSlotSiteConfigIpRestriction {
 		return vs[0].([]FunctionAppSlotSiteConfigIpRestriction)[vs[1].(int)]
 	}).(FunctionAppSlotSiteConfigIpRestrictionOutput)
+}
+
+type FunctionAppSlotSiteConfigScmIpRestriction struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress *string `pulumi:"ipAddress"`
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId *string `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// FunctionAppSlotSiteConfigScmIpRestrictionInput is an input type that accepts FunctionAppSlotSiteConfigScmIpRestrictionArgs and FunctionAppSlotSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigScmIpRestrictionInput` via:
+//
+//          FunctionAppSlotSiteConfigScmIpRestrictionArgs{...}
+type FunctionAppSlotSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigScmIpRestrictionOutput() FunctionAppSlotSiteConfigScmIpRestrictionOutput
+	ToFunctionAppSlotSiteConfigScmIpRestrictionOutputWithContext(context.Context) FunctionAppSlotSiteConfigScmIpRestrictionOutput
+}
+
+type FunctionAppSlotSiteConfigScmIpRestrictionArgs struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (FunctionAppSlotSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteConfigScmIpRestrictionArgs) ToFunctionAppSlotSiteConfigScmIpRestrictionOutput() FunctionAppSlotSiteConfigScmIpRestrictionOutput {
+	return i.ToFunctionAppSlotSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigScmIpRestrictionArgs) ToFunctionAppSlotSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigScmIpRestrictionOutput)
+}
+
+// FunctionAppSlotSiteConfigScmIpRestrictionArrayInput is an input type that accepts FunctionAppSlotSiteConfigScmIpRestrictionArray and FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigScmIpRestrictionArrayInput` via:
+//
+//          FunctionAppSlotSiteConfigScmIpRestrictionArray{ FunctionAppSlotSiteConfigScmIpRestrictionArgs{...} }
+type FunctionAppSlotSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigScmIpRestrictionArrayOutput() FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput
+	ToFunctionAppSlotSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput
+}
+
+type FunctionAppSlotSiteConfigScmIpRestrictionArray []FunctionAppSlotSiteConfigScmIpRestrictionInput
+
+func (FunctionAppSlotSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSlotSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteConfigScmIpRestrictionArray) ToFunctionAppSlotSiteConfigScmIpRestrictionArrayOutput() FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToFunctionAppSlotSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigScmIpRestrictionArray) ToFunctionAppSlotSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type FunctionAppSlotSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionOutput() FunctionAppSlotSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the Function App. Changing this forces a new resource to be created.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionAppSlotSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionArrayOutput() FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) FunctionAppSlotSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSlotSiteConfigScmIpRestriction {
+		return vs[0].([]FunctionAppSlotSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(FunctionAppSlotSiteConfigScmIpRestrictionOutput)
 }
 
 type FunctionAppSlotSiteCredential struct {
@@ -8682,6 +9276,213 @@ func (o FunctionAppSlotSiteCredentialArrayOutput) Index(i pulumi.IntInput) Funct
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSlotSiteCredential {
 		return vs[0].([]FunctionAppSlotSiteCredential)[vs[1].(int)]
 	}).(FunctionAppSlotSiteCredentialOutput)
+}
+
+type FunctionAppSourceControl struct {
+	// The branch of the remote repository to use. Defaults to 'master'.
+	Branch *string `pulumi:"branch"`
+	// Limits to manual integration. Defaults to `false` if not specified.
+	ManualIntegration *bool `pulumi:"manualIntegration"`
+	// The URL of the source code repository.
+	RepoUrl *string `pulumi:"repoUrl"`
+	// Enable roll-back for the repository. Defaults to `false` if not specified.
+	RollbackEnabled *bool `pulumi:"rollbackEnabled"`
+	// Use Mercurial if `true`, otherwise uses Git.
+	UseMercurial *bool `pulumi:"useMercurial"`
+}
+
+// FunctionAppSourceControlInput is an input type that accepts FunctionAppSourceControlArgs and FunctionAppSourceControlOutput values.
+// You can construct a concrete instance of `FunctionAppSourceControlInput` via:
+//
+//          FunctionAppSourceControlArgs{...}
+type FunctionAppSourceControlInput interface {
+	pulumi.Input
+
+	ToFunctionAppSourceControlOutput() FunctionAppSourceControlOutput
+	ToFunctionAppSourceControlOutputWithContext(context.Context) FunctionAppSourceControlOutput
+}
+
+type FunctionAppSourceControlArgs struct {
+	// The branch of the remote repository to use. Defaults to 'master'.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// Limits to manual integration. Defaults to `false` if not specified.
+	ManualIntegration pulumi.BoolPtrInput `pulumi:"manualIntegration"`
+	// The URL of the source code repository.
+	RepoUrl pulumi.StringPtrInput `pulumi:"repoUrl"`
+	// Enable roll-back for the repository. Defaults to `false` if not specified.
+	RollbackEnabled pulumi.BoolPtrInput `pulumi:"rollbackEnabled"`
+	// Use Mercurial if `true`, otherwise uses Git.
+	UseMercurial pulumi.BoolPtrInput `pulumi:"useMercurial"`
+}
+
+func (FunctionAppSourceControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSourceControl)(nil)).Elem()
+}
+
+func (i FunctionAppSourceControlArgs) ToFunctionAppSourceControlOutput() FunctionAppSourceControlOutput {
+	return i.ToFunctionAppSourceControlOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSourceControlArgs) ToFunctionAppSourceControlOutputWithContext(ctx context.Context) FunctionAppSourceControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSourceControlOutput)
+}
+
+func (i FunctionAppSourceControlArgs) ToFunctionAppSourceControlPtrOutput() FunctionAppSourceControlPtrOutput {
+	return i.ToFunctionAppSourceControlPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSourceControlArgs) ToFunctionAppSourceControlPtrOutputWithContext(ctx context.Context) FunctionAppSourceControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSourceControlOutput).ToFunctionAppSourceControlPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSourceControlPtrInput is an input type that accepts FunctionAppSourceControlArgs, FunctionAppSourceControlPtr and FunctionAppSourceControlPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSourceControlPtrInput` via:
+//
+//          FunctionAppSourceControlArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionAppSourceControlPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSourceControlPtrOutput() FunctionAppSourceControlPtrOutput
+	ToFunctionAppSourceControlPtrOutputWithContext(context.Context) FunctionAppSourceControlPtrOutput
+}
+
+type functionAppSourceControlPtrType FunctionAppSourceControlArgs
+
+func FunctionAppSourceControlPtr(v *FunctionAppSourceControlArgs) FunctionAppSourceControlPtrInput {
+	return (*functionAppSourceControlPtrType)(v)
+}
+
+func (*functionAppSourceControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSourceControl)(nil)).Elem()
+}
+
+func (i *functionAppSourceControlPtrType) ToFunctionAppSourceControlPtrOutput() FunctionAppSourceControlPtrOutput {
+	return i.ToFunctionAppSourceControlPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSourceControlPtrType) ToFunctionAppSourceControlPtrOutputWithContext(ctx context.Context) FunctionAppSourceControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSourceControlPtrOutput)
+}
+
+type FunctionAppSourceControlOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSourceControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSourceControl)(nil)).Elem()
+}
+
+func (o FunctionAppSourceControlOutput) ToFunctionAppSourceControlOutput() FunctionAppSourceControlOutput {
+	return o
+}
+
+func (o FunctionAppSourceControlOutput) ToFunctionAppSourceControlOutputWithContext(ctx context.Context) FunctionAppSourceControlOutput {
+	return o
+}
+
+func (o FunctionAppSourceControlOutput) ToFunctionAppSourceControlPtrOutput() FunctionAppSourceControlPtrOutput {
+	return o.ToFunctionAppSourceControlPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSourceControlOutput) ToFunctionAppSourceControlPtrOutputWithContext(ctx context.Context) FunctionAppSourceControlPtrOutput {
+	return o.ApplyT(func(v FunctionAppSourceControl) *FunctionAppSourceControl {
+		return &v
+	}).(FunctionAppSourceControlPtrOutput)
+}
+
+// The branch of the remote repository to use. Defaults to 'master'.
+func (o FunctionAppSourceControlOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSourceControl) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Limits to manual integration. Defaults to `false` if not specified.
+func (o FunctionAppSourceControlOutput) ManualIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSourceControl) *bool { return v.ManualIntegration }).(pulumi.BoolPtrOutput)
+}
+
+// The URL of the source code repository.
+func (o FunctionAppSourceControlOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSourceControl) *string { return v.RepoUrl }).(pulumi.StringPtrOutput)
+}
+
+// Enable roll-back for the repository. Defaults to `false` if not specified.
+func (o FunctionAppSourceControlOutput) RollbackEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSourceControl) *bool { return v.RollbackEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Use Mercurial if `true`, otherwise uses Git.
+func (o FunctionAppSourceControlOutput) UseMercurial() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionAppSourceControl) *bool { return v.UseMercurial }).(pulumi.BoolPtrOutput)
+}
+
+type FunctionAppSourceControlPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSourceControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSourceControl)(nil)).Elem()
+}
+
+func (o FunctionAppSourceControlPtrOutput) ToFunctionAppSourceControlPtrOutput() FunctionAppSourceControlPtrOutput {
+	return o
+}
+
+func (o FunctionAppSourceControlPtrOutput) ToFunctionAppSourceControlPtrOutputWithContext(ctx context.Context) FunctionAppSourceControlPtrOutput {
+	return o
+}
+
+func (o FunctionAppSourceControlPtrOutput) Elem() FunctionAppSourceControlOutput {
+	return o.ApplyT(func(v *FunctionAppSourceControl) FunctionAppSourceControl { return *v }).(FunctionAppSourceControlOutput)
+}
+
+// The branch of the remote repository to use. Defaults to 'master'.
+func (o FunctionAppSourceControlPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSourceControl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limits to manual integration. Defaults to `false` if not specified.
+func (o FunctionAppSourceControlPtrOutput) ManualIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSourceControl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ManualIntegration
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URL of the source code repository.
+func (o FunctionAppSourceControlPtrOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSourceControl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepoUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable roll-back for the repository. Defaults to `false` if not specified.
+func (o FunctionAppSourceControlPtrOutput) RollbackEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSourceControl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RollbackEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Use Mercurial if `true`, otherwise uses Git.
+func (o FunctionAppSourceControlPtrOutput) UseMercurial() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSourceControl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseMercurial
+	}).(pulumi.BoolPtrOutput)
 }
 
 type PlanSku struct {
@@ -12014,13 +12815,17 @@ func (o SlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 }
 
 type SlotSiteConfigIpRestriction struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
-	// The IP Address used for this IP Restriction.
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
-	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-	Name     *string `pulumi:"name"`
-	Priority *int    `pulumi:"priority"`
-	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+	// The name for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId *string `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -12036,13 +12841,17 @@ type SlotSiteConfigIpRestrictionInput interface {
 }
 
 type SlotSiteConfigIpRestrictionArgs struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The IP Address used for this IP Restriction.
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Priority pulumi.IntPtrInput    `pulumi:"priority"`
-	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+	// The name for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -12097,25 +12906,32 @@ func (o SlotSiteConfigIpRestrictionOutput) ToSlotSiteConfigIpRestrictionOutputWi
 	return o
 }
 
+// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 func (o SlotSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The IP Address used for this IP Restriction.
+// The IP Address used for this IP Restriction in CIDR notation.
 func (o SlotSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+// The name for this IP Restriction.
 func (o SlotSiteConfigIpRestrictionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 func (o SlotSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+func (o SlotSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
 func (o SlotSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -12141,13 +12957,17 @@ func (o SlotSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) SlotSit
 }
 
 type SlotSiteConfigScmIpRestriction struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
-	// The IP Address used for this IP Restriction.
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-	Name     *string `pulumi:"name"`
-	Priority *int    `pulumi:"priority"`
-	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+	Name *string `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority *int `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId *string `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -12163,13 +12983,17 @@ type SlotSiteConfigScmIpRestrictionInput interface {
 }
 
 type SlotSiteConfigScmIpRestrictionArgs struct {
+	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The IP Address used for this IP Restriction.
+	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Priority pulumi.IntPtrInput    `pulumi:"priority"`
-	// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -12224,11 +13048,12 @@ func (o SlotSiteConfigScmIpRestrictionOutput) ToSlotSiteConfigScmIpRestrictionOu
 	return o
 }
 
+// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 func (o SlotSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The IP Address used for this IP Restriction.
+// The IP Address used for this IP Restriction in CIDR notation.
 func (o SlotSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
@@ -12238,11 +13063,17 @@ func (o SlotSiteConfigScmIpRestrictionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 func (o SlotSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+func (o SlotSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
 func (o SlotSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -12559,7 +13390,7 @@ func (o GetAppServicePlanSkuOutput) Tier() pulumi.StringOutput {
 }
 
 type GetAppServiceSiteConfig struct {
-	// Is the app be loaded at all times?
+	// Is the app loaded at all times?
 	AlwaysOn bool `pulumi:"alwaysOn"`
 	// App command line to launch.
 	AppCommandLine string `pulumi:"appCommandLine"`
@@ -12625,7 +13456,7 @@ type GetAppServiceSiteConfigInput interface {
 }
 
 type GetAppServiceSiteConfigArgs struct {
-	// Is the app be loaded at all times?
+	// Is the app loaded at all times?
 	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
 	// App command line to launch.
 	AppCommandLine pulumi.StringInput `pulumi:"appCommandLine"`
@@ -12730,7 +13561,7 @@ func (o GetAppServiceSiteConfigOutput) ToGetAppServiceSiteConfigOutputWithContex
 	return o
 }
 
-// Is the app be loaded at all times?
+// Is the app loaded at all times?
 func (o GetAppServiceSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfig) bool { return v.AlwaysOn }).(pulumi.BoolOutput)
 }
@@ -13353,8 +14184,16 @@ func (o GetAppServiceSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetAppS
 }
 
 type GetAppServiceSourceControl struct {
-	Branch  string `pulumi:"branch"`
+	// The branch of the remote repository in use.
+	Branch string `pulumi:"branch"`
+	// Limits to manual integration.
+	ManualIntegration bool `pulumi:"manualIntegration"`
+	// The URL of the source code repository.
 	RepoUrl string `pulumi:"repoUrl"`
+	// Is roll-back enabled for the repository.
+	RollbackEnabled bool `pulumi:"rollbackEnabled"`
+	// Uses Mercurial if `true`, otherwise uses Git.
+	UseMercurial bool `pulumi:"useMercurial"`
 }
 
 // GetAppServiceSourceControlInput is an input type that accepts GetAppServiceSourceControlArgs and GetAppServiceSourceControlOutput values.
@@ -13369,8 +14208,16 @@ type GetAppServiceSourceControlInput interface {
 }
 
 type GetAppServiceSourceControlArgs struct {
-	Branch  pulumi.StringInput `pulumi:"branch"`
+	// The branch of the remote repository in use.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// Limits to manual integration.
+	ManualIntegration pulumi.BoolInput `pulumi:"manualIntegration"`
+	// The URL of the source code repository.
 	RepoUrl pulumi.StringInput `pulumi:"repoUrl"`
+	// Is roll-back enabled for the repository.
+	RollbackEnabled pulumi.BoolInput `pulumi:"rollbackEnabled"`
+	// Uses Mercurial if `true`, otherwise uses Git.
+	UseMercurial pulumi.BoolInput `pulumi:"useMercurial"`
 }
 
 func (GetAppServiceSourceControlArgs) ElementType() reflect.Type {
@@ -13424,12 +14271,29 @@ func (o GetAppServiceSourceControlOutput) ToGetAppServiceSourceControlOutputWith
 	return o
 }
 
+// The branch of the remote repository in use.
 func (o GetAppServiceSourceControlOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSourceControl) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// Limits to manual integration.
+func (o GetAppServiceSourceControlOutput) ManualIntegration() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppServiceSourceControl) bool { return v.ManualIntegration }).(pulumi.BoolOutput)
+}
+
+// The URL of the source code repository.
 func (o GetAppServiceSourceControlOutput) RepoUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSourceControl) string { return v.RepoUrl }).(pulumi.StringOutput)
+}
+
+// Is roll-back enabled for the repository.
+func (o GetAppServiceSourceControlOutput) RollbackEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppServiceSourceControl) bool { return v.RollbackEnabled }).(pulumi.BoolOutput)
+}
+
+// Uses Mercurial if `true`, otherwise uses Git.
+func (o GetAppServiceSourceControlOutput) UseMercurial() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppServiceSourceControl) bool { return v.UseMercurial }).(pulumi.BoolOutput)
 }
 
 type GetAppServiceSourceControlArrayOutput struct{ *pulumi.OutputState }
@@ -13691,6 +14555,540 @@ func (o GetFunctionAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetF
 	}).(GetFunctionAppConnectionStringOutput)
 }
 
+type GetFunctionAppSiteConfig struct {
+	// Is the app loaded at all times?
+	AlwaysOn         bool   `pulumi:"alwaysOn"`
+	AutoSwapSlotName string `pulumi:"autoSwapSlotName"`
+	// A `cors` block as defined above.
+	Cors GetFunctionAppSiteConfigCors `pulumi:"cors"`
+	// State of FTP / FTPS service for this AppService.
+	FtpsState string `pulumi:"ftpsState"`
+	// Is HTTP2 Enabled on this App Service?
+	Http2Enabled bool `pulumi:"http2Enabled"`
+	// One or more `ipRestriction` blocks as defined above.
+	IpRestrictions []GetFunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// Linux App Framework and version for the AppService.
+	LinuxFxVersion string `pulumi:"linuxFxVersion"`
+	// The minimum supported TLS version for this App Service.
+	MinTlsVersion string `pulumi:"minTlsVersion"`
+	// The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
+	PreWarmedInstanceCount int `pulumi:"preWarmedInstanceCount"`
+	// One or more `scmIpRestriction` blocks as defined above.
+	ScmIpRestrictions []GetFunctionAppSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
+	// The type of Source Control enabled for this App Service.
+	ScmType string `pulumi:"scmType"`
+	// IP security restrictions for scm to use main.
+	ScmUseMainIpRestriction bool `pulumi:"scmUseMainIpRestriction"`
+	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
+	Use32BitWorkerProcess bool `pulumi:"use32BitWorkerProcess"`
+	// Are WebSockets enabled for this App Service?
+	WebsocketsEnabled bool `pulumi:"websocketsEnabled"`
+}
+
+// GetFunctionAppSiteConfigInput is an input type that accepts GetFunctionAppSiteConfigArgs and GetFunctionAppSiteConfigOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigInput` via:
+//
+//          GetFunctionAppSiteConfigArgs{...}
+type GetFunctionAppSiteConfigInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigOutput() GetFunctionAppSiteConfigOutput
+	ToGetFunctionAppSiteConfigOutputWithContext(context.Context) GetFunctionAppSiteConfigOutput
+}
+
+type GetFunctionAppSiteConfigArgs struct {
+	// Is the app loaded at all times?
+	AlwaysOn         pulumi.BoolInput   `pulumi:"alwaysOn"`
+	AutoSwapSlotName pulumi.StringInput `pulumi:"autoSwapSlotName"`
+	// A `cors` block as defined above.
+	Cors GetFunctionAppSiteConfigCorsInput `pulumi:"cors"`
+	// State of FTP / FTPS service for this AppService.
+	FtpsState pulumi.StringInput `pulumi:"ftpsState"`
+	// Is HTTP2 Enabled on this App Service?
+	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
+	// One or more `ipRestriction` blocks as defined above.
+	IpRestrictions GetFunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// Linux App Framework and version for the AppService.
+	LinuxFxVersion pulumi.StringInput `pulumi:"linuxFxVersion"`
+	// The minimum supported TLS version for this App Service.
+	MinTlsVersion pulumi.StringInput `pulumi:"minTlsVersion"`
+	// The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
+	PreWarmedInstanceCount pulumi.IntInput `pulumi:"preWarmedInstanceCount"`
+	// One or more `scmIpRestriction` blocks as defined above.
+	ScmIpRestrictions GetFunctionAppSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
+	// The type of Source Control enabled for this App Service.
+	ScmType pulumi.StringInput `pulumi:"scmType"`
+	// IP security restrictions for scm to use main.
+	ScmUseMainIpRestriction pulumi.BoolInput `pulumi:"scmUseMainIpRestriction"`
+	// Does the App Service run in 32 bit mode, rather than 64 bit mode?
+	Use32BitWorkerProcess pulumi.BoolInput `pulumi:"use32BitWorkerProcess"`
+	// Are WebSockets enabled for this App Service?
+	WebsocketsEnabled pulumi.BoolInput `pulumi:"websocketsEnabled"`
+}
+
+func (GetFunctionAppSiteConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfig)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigArgs) ToGetFunctionAppSiteConfigOutput() GetFunctionAppSiteConfigOutput {
+	return i.ToGetFunctionAppSiteConfigOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigArgs) ToGetFunctionAppSiteConfigOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigOutput)
+}
+
+// GetFunctionAppSiteConfigArrayInput is an input type that accepts GetFunctionAppSiteConfigArray and GetFunctionAppSiteConfigArrayOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigArrayInput` via:
+//
+//          GetFunctionAppSiteConfigArray{ GetFunctionAppSiteConfigArgs{...} }
+type GetFunctionAppSiteConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigArrayOutput() GetFunctionAppSiteConfigArrayOutput
+	ToGetFunctionAppSiteConfigArrayOutputWithContext(context.Context) GetFunctionAppSiteConfigArrayOutput
+}
+
+type GetFunctionAppSiteConfigArray []GetFunctionAppSiteConfigInput
+
+func (GetFunctionAppSiteConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSiteConfig)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigArray) ToGetFunctionAppSiteConfigArrayOutput() GetFunctionAppSiteConfigArrayOutput {
+	return i.ToGetFunctionAppSiteConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigArray) ToGetFunctionAppSiteConfigArrayOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigArrayOutput)
+}
+
+type GetFunctionAppSiteConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfig)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigOutput) ToGetFunctionAppSiteConfigOutput() GetFunctionAppSiteConfigOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigOutput) ToGetFunctionAppSiteConfigOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigOutput {
+	return o
+}
+
+// Is the app loaded at all times?
+func (o GetFunctionAppSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.AlwaysOn }).(pulumi.BoolOutput)
+}
+
+func (o GetFunctionAppSiteConfigOutput) AutoSwapSlotName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.AutoSwapSlotName }).(pulumi.StringOutput)
+}
+
+// A `cors` block as defined above.
+func (o GetFunctionAppSiteConfigOutput) Cors() GetFunctionAppSiteConfigCorsOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) GetFunctionAppSiteConfigCors { return v.Cors }).(GetFunctionAppSiteConfigCorsOutput)
+}
+
+// State of FTP / FTPS service for this AppService.
+func (o GetFunctionAppSiteConfigOutput) FtpsState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.FtpsState }).(pulumi.StringOutput)
+}
+
+// Is HTTP2 Enabled on this App Service?
+func (o GetFunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
+}
+
+// One or more `ipRestriction` blocks as defined above.
+func (o GetFunctionAppSiteConfigOutput) IpRestrictions() GetFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) []GetFunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(GetFunctionAppSiteConfigIpRestrictionArrayOutput)
+}
+
+// Linux App Framework and version for the AppService.
+func (o GetFunctionAppSiteConfigOutput) LinuxFxVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.LinuxFxVersion }).(pulumi.StringOutput)
+}
+
+// The minimum supported TLS version for this App Service.
+func (o GetFunctionAppSiteConfigOutput) MinTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.MinTlsVersion }).(pulumi.StringOutput)
+}
+
+// The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
+func (o GetFunctionAppSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) int { return v.PreWarmedInstanceCount }).(pulumi.IntOutput)
+}
+
+// One or more `scmIpRestriction` blocks as defined above.
+func (o GetFunctionAppSiteConfigOutput) ScmIpRestrictions() GetFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) []GetFunctionAppSiteConfigScmIpRestriction {
+		return v.ScmIpRestrictions
+	}).(GetFunctionAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+// The type of Source Control enabled for this App Service.
+func (o GetFunctionAppSiteConfigOutput) ScmType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.ScmType }).(pulumi.StringOutput)
+}
+
+// IP security restrictions for scm to use main.
+func (o GetFunctionAppSiteConfigOutput) ScmUseMainIpRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.ScmUseMainIpRestriction }).(pulumi.BoolOutput)
+}
+
+// Does the App Service run in 32 bit mode, rather than 64 bit mode?
+func (o GetFunctionAppSiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.Use32BitWorkerProcess }).(pulumi.BoolOutput)
+}
+
+// Are WebSockets enabled for this App Service?
+func (o GetFunctionAppSiteConfigOutput) WebsocketsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) bool { return v.WebsocketsEnabled }).(pulumi.BoolOutput)
+}
+
+type GetFunctionAppSiteConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSiteConfig)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigArrayOutput) ToGetFunctionAppSiteConfigArrayOutput() GetFunctionAppSiteConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigArrayOutput) ToGetFunctionAppSiteConfigArrayOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionAppSiteConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionAppSiteConfig {
+		return vs[0].([]GetFunctionAppSiteConfig)[vs[1].(int)]
+	}).(GetFunctionAppSiteConfigOutput)
+}
+
+type GetFunctionAppSiteConfigCors struct {
+	AllowedOrigins     []string `pulumi:"allowedOrigins"`
+	SupportCredentials *bool    `pulumi:"supportCredentials"`
+}
+
+// GetFunctionAppSiteConfigCorsInput is an input type that accepts GetFunctionAppSiteConfigCorsArgs and GetFunctionAppSiteConfigCorsOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigCorsInput` via:
+//
+//          GetFunctionAppSiteConfigCorsArgs{...}
+type GetFunctionAppSiteConfigCorsInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigCorsOutput() GetFunctionAppSiteConfigCorsOutput
+	ToGetFunctionAppSiteConfigCorsOutputWithContext(context.Context) GetFunctionAppSiteConfigCorsOutput
+}
+
+type GetFunctionAppSiteConfigCorsArgs struct {
+	AllowedOrigins     pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	SupportCredentials pulumi.BoolPtrInput     `pulumi:"supportCredentials"`
+}
+
+func (GetFunctionAppSiteConfigCorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigCors)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigCorsArgs) ToGetFunctionAppSiteConfigCorsOutput() GetFunctionAppSiteConfigCorsOutput {
+	return i.ToGetFunctionAppSiteConfigCorsOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigCorsArgs) ToGetFunctionAppSiteConfigCorsOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigCorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigCorsOutput)
+}
+
+type GetFunctionAppSiteConfigCorsOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigCorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigCors)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigCorsOutput) ToGetFunctionAppSiteConfigCorsOutput() GetFunctionAppSiteConfigCorsOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigCorsOutput) ToGetFunctionAppSiteConfigCorsOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigCorsOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFunctionAppSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
+}
+
+type GetFunctionAppSiteConfigIpRestriction struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action string `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress string `pulumi:"ipAddress"`
+	// The name of the Function App resource.
+	Name string `pulumi:"name"`
+	// The priority for this IP Restriction.
+	Priority int `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetFunctionAppSiteConfigIpRestrictionInput is an input type that accepts GetFunctionAppSiteConfigIpRestrictionArgs and GetFunctionAppSiteConfigIpRestrictionOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigIpRestrictionInput` via:
+//
+//          GetFunctionAppSiteConfigIpRestrictionArgs{...}
+type GetFunctionAppSiteConfigIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigIpRestrictionOutput() GetFunctionAppSiteConfigIpRestrictionOutput
+	ToGetFunctionAppSiteConfigIpRestrictionOutputWithContext(context.Context) GetFunctionAppSiteConfigIpRestrictionOutput
+}
+
+type GetFunctionAppSiteConfigIpRestrictionArgs struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The name of the Function App resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority for this IP Restriction.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetFunctionAppSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigIpRestrictionArgs) ToGetFunctionAppSiteConfigIpRestrictionOutput() GetFunctionAppSiteConfigIpRestrictionOutput {
+	return i.ToGetFunctionAppSiteConfigIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigIpRestrictionArgs) ToGetFunctionAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigIpRestrictionOutput)
+}
+
+// GetFunctionAppSiteConfigIpRestrictionArrayInput is an input type that accepts GetFunctionAppSiteConfigIpRestrictionArray and GetFunctionAppSiteConfigIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigIpRestrictionArrayInput` via:
+//
+//          GetFunctionAppSiteConfigIpRestrictionArray{ GetFunctionAppSiteConfigIpRestrictionArgs{...} }
+type GetFunctionAppSiteConfigIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigIpRestrictionArrayOutput() GetFunctionAppSiteConfigIpRestrictionArrayOutput
+	ToGetFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(context.Context) GetFunctionAppSiteConfigIpRestrictionArrayOutput
+}
+
+type GetFunctionAppSiteConfigIpRestrictionArray []GetFunctionAppSiteConfigIpRestrictionInput
+
+func (GetFunctionAppSiteConfigIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigIpRestrictionArray) ToGetFunctionAppSiteConfigIpRestrictionArrayOutput() GetFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return i.ToGetFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigIpRestrictionArray) ToGetFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigIpRestrictionArrayOutput)
+}
+
+type GetFunctionAppSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) ToGetFunctionAppSiteConfigIpRestrictionOutput() GetFunctionAppSiteConfigIpRestrictionOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) ToGetFunctionAppSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigIpRestrictionOutput {
+	return o
+}
+
+// Allow or Deny access for this IP range. Defaults to Allow.
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of the Function App resource.
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority for this IP Restriction.
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+type GetFunctionAppSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSiteConfigIpRestriction)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionArrayOutput) ToGetFunctionAppSiteConfigIpRestrictionArrayOutput() GetFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionArrayOutput) ToGetFunctionAppSiteConfigIpRestrictionArrayOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetFunctionAppSiteConfigIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionAppSiteConfigIpRestriction {
+		return vs[0].([]GetFunctionAppSiteConfigIpRestriction)[vs[1].(int)]
+	}).(GetFunctionAppSiteConfigIpRestrictionOutput)
+}
+
+type GetFunctionAppSiteConfigScmIpRestriction struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action string `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress string `pulumi:"ipAddress"`
+	// The name of the Function App resource.
+	Name string `pulumi:"name"`
+	// The priority for this IP Restriction.
+	Priority int `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+}
+
+// GetFunctionAppSiteConfigScmIpRestrictionInput is an input type that accepts GetFunctionAppSiteConfigScmIpRestrictionArgs and GetFunctionAppSiteConfigScmIpRestrictionOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigScmIpRestrictionInput` via:
+//
+//          GetFunctionAppSiteConfigScmIpRestrictionArgs{...}
+type GetFunctionAppSiteConfigScmIpRestrictionInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigScmIpRestrictionOutput() GetFunctionAppSiteConfigScmIpRestrictionOutput
+	ToGetFunctionAppSiteConfigScmIpRestrictionOutputWithContext(context.Context) GetFunctionAppSiteConfigScmIpRestrictionOutput
+}
+
+type GetFunctionAppSiteConfigScmIpRestrictionArgs struct {
+	// Allow or Deny access for this IP range. Defaults to Allow.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The IP Address used for this IP Restriction in CIDR notation.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The name of the Function App resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority for this IP Restriction.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Virtual Network Subnet ID used for this IP Restriction.
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
+}
+
+func (GetFunctionAppSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigScmIpRestrictionArgs) ToGetFunctionAppSiteConfigScmIpRestrictionOutput() GetFunctionAppSiteConfigScmIpRestrictionOutput {
+	return i.ToGetFunctionAppSiteConfigScmIpRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigScmIpRestrictionArgs) ToGetFunctionAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigScmIpRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigScmIpRestrictionOutput)
+}
+
+// GetFunctionAppSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetFunctionAppSiteConfigScmIpRestrictionArray and GetFunctionAppSiteConfigScmIpRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetFunctionAppSiteConfigScmIpRestrictionArrayInput` via:
+//
+//          GetFunctionAppSiteConfigScmIpRestrictionArray{ GetFunctionAppSiteConfigScmIpRestrictionArgs{...} }
+type GetFunctionAppSiteConfigScmIpRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSiteConfigScmIpRestrictionArrayOutput() GetFunctionAppSiteConfigScmIpRestrictionArrayOutput
+	ToGetFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(context.Context) GetFunctionAppSiteConfigScmIpRestrictionArrayOutput
+}
+
+type GetFunctionAppSiteConfigScmIpRestrictionArray []GetFunctionAppSiteConfigScmIpRestrictionInput
+
+func (GetFunctionAppSiteConfigScmIpRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (i GetFunctionAppSiteConfigScmIpRestrictionArray) ToGetFunctionAppSiteConfigScmIpRestrictionArrayOutput() GetFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return i.ToGetFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSiteConfigScmIpRestrictionArray) ToGetFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSiteConfigScmIpRestrictionArrayOutput)
+}
+
+type GetFunctionAppSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) ToGetFunctionAppSiteConfigScmIpRestrictionOutput() GetFunctionAppSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) ToGetFunctionAppSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigScmIpRestrictionOutput {
+	return o
+}
+
+// Allow or Deny access for this IP range. Defaults to Allow.
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The IP Address used for this IP Restriction in CIDR notation.
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The name of the Function App resource.
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority for this IP Restriction.
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The Virtual Network Subnet ID used for this IP Restriction.
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+type GetFunctionAppSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSiteConfigScmIpRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSiteConfigScmIpRestriction)(nil)).Elem()
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionArrayOutput) ToGetFunctionAppSiteConfigScmIpRestrictionArrayOutput() GetFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionArrayOutput) ToGetFunctionAppSiteConfigScmIpRestrictionArrayOutputWithContext(ctx context.Context) GetFunctionAppSiteConfigScmIpRestrictionArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetFunctionAppSiteConfigScmIpRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionAppSiteConfigScmIpRestriction {
+		return vs[0].([]GetFunctionAppSiteConfigScmIpRestriction)[vs[1].(int)]
+	}).(GetFunctionAppSiteConfigScmIpRestrictionOutput)
+}
+
 type GetFunctionAppSiteCredential struct {
 	// The password associated with the username, which can be used to publish to this App Service.
 	Password string `pulumi:"password"`
@@ -13797,6 +15195,139 @@ func (o GetFunctionAppSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetFun
 	}).(GetFunctionAppSiteCredentialOutput)
 }
 
+type GetFunctionAppSourceControl struct {
+	// The branch of the remote repository in use.
+	Branch string `pulumi:"branch"`
+	// Limits to manual integration.
+	ManualIntegration bool `pulumi:"manualIntegration"`
+	// The URL of the source code repository.
+	RepoUrl string `pulumi:"repoUrl"`
+	// Is roll-back enabled for the repository.
+	RollbackEnabled bool `pulumi:"rollbackEnabled"`
+	// Uses Mercurial if `true`, otherwise uses Git.
+	UseMercurial bool `pulumi:"useMercurial"`
+}
+
+// GetFunctionAppSourceControlInput is an input type that accepts GetFunctionAppSourceControlArgs and GetFunctionAppSourceControlOutput values.
+// You can construct a concrete instance of `GetFunctionAppSourceControlInput` via:
+//
+//          GetFunctionAppSourceControlArgs{...}
+type GetFunctionAppSourceControlInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSourceControlOutput() GetFunctionAppSourceControlOutput
+	ToGetFunctionAppSourceControlOutputWithContext(context.Context) GetFunctionAppSourceControlOutput
+}
+
+type GetFunctionAppSourceControlArgs struct {
+	// The branch of the remote repository in use.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// Limits to manual integration.
+	ManualIntegration pulumi.BoolInput `pulumi:"manualIntegration"`
+	// The URL of the source code repository.
+	RepoUrl pulumi.StringInput `pulumi:"repoUrl"`
+	// Is roll-back enabled for the repository.
+	RollbackEnabled pulumi.BoolInput `pulumi:"rollbackEnabled"`
+	// Uses Mercurial if `true`, otherwise uses Git.
+	UseMercurial pulumi.BoolInput `pulumi:"useMercurial"`
+}
+
+func (GetFunctionAppSourceControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSourceControl)(nil)).Elem()
+}
+
+func (i GetFunctionAppSourceControlArgs) ToGetFunctionAppSourceControlOutput() GetFunctionAppSourceControlOutput {
+	return i.ToGetFunctionAppSourceControlOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSourceControlArgs) ToGetFunctionAppSourceControlOutputWithContext(ctx context.Context) GetFunctionAppSourceControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSourceControlOutput)
+}
+
+// GetFunctionAppSourceControlArrayInput is an input type that accepts GetFunctionAppSourceControlArray and GetFunctionAppSourceControlArrayOutput values.
+// You can construct a concrete instance of `GetFunctionAppSourceControlArrayInput` via:
+//
+//          GetFunctionAppSourceControlArray{ GetFunctionAppSourceControlArgs{...} }
+type GetFunctionAppSourceControlArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppSourceControlArrayOutput() GetFunctionAppSourceControlArrayOutput
+	ToGetFunctionAppSourceControlArrayOutputWithContext(context.Context) GetFunctionAppSourceControlArrayOutput
+}
+
+type GetFunctionAppSourceControlArray []GetFunctionAppSourceControlInput
+
+func (GetFunctionAppSourceControlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSourceControl)(nil)).Elem()
+}
+
+func (i GetFunctionAppSourceControlArray) ToGetFunctionAppSourceControlArrayOutput() GetFunctionAppSourceControlArrayOutput {
+	return i.ToGetFunctionAppSourceControlArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppSourceControlArray) ToGetFunctionAppSourceControlArrayOutputWithContext(ctx context.Context) GetFunctionAppSourceControlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppSourceControlArrayOutput)
+}
+
+type GetFunctionAppSourceControlOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSourceControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppSourceControl)(nil)).Elem()
+}
+
+func (o GetFunctionAppSourceControlOutput) ToGetFunctionAppSourceControlOutput() GetFunctionAppSourceControlOutput {
+	return o
+}
+
+func (o GetFunctionAppSourceControlOutput) ToGetFunctionAppSourceControlOutputWithContext(ctx context.Context) GetFunctionAppSourceControlOutput {
+	return o
+}
+
+// The branch of the remote repository in use.
+func (o GetFunctionAppSourceControlOutput) Branch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSourceControl) string { return v.Branch }).(pulumi.StringOutput)
+}
+
+// Limits to manual integration.
+func (o GetFunctionAppSourceControlOutput) ManualIntegration() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSourceControl) bool { return v.ManualIntegration }).(pulumi.BoolOutput)
+}
+
+// The URL of the source code repository.
+func (o GetFunctionAppSourceControlOutput) RepoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSourceControl) string { return v.RepoUrl }).(pulumi.StringOutput)
+}
+
+// Is roll-back enabled for the repository.
+func (o GetFunctionAppSourceControlOutput) RollbackEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSourceControl) bool { return v.RollbackEnabled }).(pulumi.BoolOutput)
+}
+
+// Uses Mercurial if `true`, otherwise uses Git.
+func (o GetFunctionAppSourceControlOutput) UseMercurial() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionAppSourceControl) bool { return v.UseMercurial }).(pulumi.BoolOutput)
+}
+
+type GetFunctionAppSourceControlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppSourceControlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppSourceControl)(nil)).Elem()
+}
+
+func (o GetFunctionAppSourceControlArrayOutput) ToGetFunctionAppSourceControlArrayOutput() GetFunctionAppSourceControlArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSourceControlArrayOutput) ToGetFunctionAppSourceControlArrayOutputWithContext(ctx context.Context) GetFunctionAppSourceControlArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppSourceControlArrayOutput) Index(i pulumi.IntInput) GetFunctionAppSourceControlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionAppSourceControl {
+		return vs[0].([]GetFunctionAppSourceControl)[vs[1].(int)]
+	}).(GetFunctionAppSourceControlOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppServiceAuthSettingsOutput{})
 	pulumi.RegisterOutputType(AppServiceAuthSettingsPtrOutput{})
@@ -13841,7 +15372,7 @@ func init() {
 	pulumi.RegisterOutputType(AppServiceSiteCredentialOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(AppServiceSourceControlOutput{})
-	pulumi.RegisterOutputType(AppServiceSourceControlArrayOutput{})
+	pulumi.RegisterOutputType(AppServiceSourceControlPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceStorageAccountOutput{})
 	pulumi.RegisterOutputType(AppServiceStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateOutput{})
@@ -13868,6 +15399,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionAppSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteConfigScmIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsOutput{})
@@ -13892,8 +15425,12 @@ func init() {
 	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteCredentialOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteCredentialArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSourceControlOutput{})
+	pulumi.RegisterOutputType(FunctionAppSourceControlPtrOutput{})
 	pulumi.RegisterOutputType(PlanSkuOutput{})
 	pulumi.RegisterOutputType(PlanSkuPtrOutput{})
 	pulumi.RegisterOutputType(SlotAuthSettingsOutput{})
@@ -13953,6 +15490,15 @@ func init() {
 	pulumi.RegisterOutputType(GetCertificateOrderCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigCorsOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigScmIpRestrictionOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSiteConfigScmIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteCredentialOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteCredentialArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSourceControlOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppSourceControlArrayOutput{})
 }

@@ -71,7 +71,8 @@ type DatasetJson struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
-	Annotations              pulumi.StringArrayOutput                     `pulumi:"annotations"`
+	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
+	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetJsonAzureBlobStorageLocationPtrOutput `pulumi:"azureBlobStorageLocation"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
@@ -135,7 +136,8 @@ type datasetJsonState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
-	Annotations              []string                             `pulumi:"annotations"`
+	Annotations []string `pulumi:"annotations"`
+	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation *DatasetJsonAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
@@ -163,7 +165,8 @@ type DatasetJsonState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
-	Annotations              pulumi.StringArrayInput
+	Annotations pulumi.StringArrayInput
+	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetJsonAzureBlobStorageLocationPtrInput
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringPtrInput
@@ -195,7 +198,8 @@ type datasetJsonArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
-	Annotations              []string                             `pulumi:"annotations"`
+	Annotations []string `pulumi:"annotations"`
+	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation *DatasetJsonAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName string `pulumi:"dataFactoryName"`
@@ -224,7 +228,8 @@ type DatasetJsonArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
-	Annotations              pulumi.StringArrayInput
+	Annotations pulumi.StringArrayInput
+	// A `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetJsonAzureBlobStorageLocationPtrInput
 	// The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringInput

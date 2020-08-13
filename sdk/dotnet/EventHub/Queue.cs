@@ -69,7 +69,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultMessageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         /// </summary>
         [Output("duplicateDetectionHistoryTimeWindow")]
         public Output<string> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         /// </summary>
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? DefaultMessageTtl { get; set; }
 
         /// <summary>
-        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minute (`PT10M`).
+        /// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         /// </summary>
         [Input("duplicateDetectionHistoryTimeWindow")]
         public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }

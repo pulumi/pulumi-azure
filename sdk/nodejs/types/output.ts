@@ -1641,7 +1641,7 @@ export namespace appservice {
         /**
          * The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
          */
-        scmType?: string;
+        scmType: string;
         /**
          * IP security restrictions for scm to use main. Defaults to false.
          */
@@ -1689,9 +1689,13 @@ export namespace appservice {
          */
         priority?: number;
         /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId: string;
+        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId?: string;
+        virtualNetworkSubnetId: string;
     }
 
     export interface AppServiceSiteConfigScmIpRestriction {
@@ -1712,9 +1716,13 @@ export namespace appservice {
          */
         priority?: number;
         /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId: string;
+        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId?: string;
+        virtualNetworkSubnetId: string;
     }
 
     export interface AppServiceSiteCredential {
@@ -1730,13 +1738,25 @@ export namespace appservice {
 
     export interface AppServiceSourceControl {
         /**
-         * Branch name of the Git repository for this App Service.
+         * The branch of the remote repository to use. Defaults to 'master'.
          */
         branch: string;
         /**
-         * URL of the Git repository for this App Service.
+         * Limits to manual integration. Defaults to `false` if not specified.
+         */
+        manualIntegration: boolean;
+        /**
+         * The URL of the source code repository.
          */
         repoUrl: string;
+        /**
+         * Enable roll-back for the repository. Defaults to `false` if not specified.
+         */
+        rollbackEnabled: boolean;
+        /**
+         * Use Mercurial if `true`, otherwise uses Git.
+         */
+        useMercurial: boolean;
     }
 
     export interface AppServiceStorageAccount {
@@ -1948,6 +1968,7 @@ export namespace appservice {
          * Should the Function App be loaded at all times? Defaults to `false`.
          */
         alwaysOn?: boolean;
+        autoSwapSlotName?: string;
         /**
          * A `cors` block as defined below.
          */
@@ -1961,7 +1982,7 @@ export namespace appservice {
          */
         http2Enabled?: boolean;
         /**
-         * A list of objects representing ip restrictions as defined below.
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
          */
         ipRestrictions: outputs.appservice.FunctionAppSiteConfigIpRestriction[];
         /**
@@ -1976,6 +1997,18 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount?: number;
+        /**
+         * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+         */
+        scmIpRestrictions: outputs.appservice.FunctionAppSiteConfigScmIpRestriction[];
+        /**
+         * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+         */
+        scmType: string;
+        /**
+         * IP security restrictions for scm to use main. Defaults to false.
+         */
+        scmUseMainIpRestriction?: boolean;
         /**
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
@@ -1999,13 +2032,56 @@ export namespace appservice {
 
     export interface FunctionAppSiteConfigIpRestriction {
         /**
-         * The IP Address CIDR notation used for this IP Restriction.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: string;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
         /**
-         * The Subnet ID used for this IP Restriction.
+         * The name for this IP Restriction.
          */
-        subnetId?: string;
+        name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         */
+        priority?: number;
+        /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface FunctionAppSiteConfigScmIpRestriction {
+        /**
+         * Allow or Deny access for this IP range. Defaults to Allow.
+         */
+        action?: string;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress?: string;
+        /**
+         * The name for this IP Restriction.
+         */
+        name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority?: number;
+        /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
     }
 
     export interface FunctionAppSiteCredential {
@@ -2214,6 +2290,9 @@ export namespace appservice {
          * The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount?: number;
+        scmIpRestrictions: outputs.appservice.FunctionAppSlotSiteConfigScmIpRestriction[];
+        scmType: string;
+        scmUseMainIpRestriction?: boolean;
         /**
          * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          */
@@ -2237,13 +2316,56 @@ export namespace appservice {
 
     export interface FunctionAppSlotSiteConfigIpRestriction {
         /**
-         * The IP Address CIDR notation used for this IP Restriction.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: string;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
         /**
-         * The Subnet ID used for this IP Restriction.
+         * The name for this IP Restriction.
          */
-        subnetId?: string;
+        name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority?: number;
+        /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface FunctionAppSlotSiteConfigScmIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
+        action?: string;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress?: string;
+        /**
+         * Specifies the name of the Function App. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
+        priority?: number;
+        /**
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
+         */
+        subnetId: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
     }
 
     export interface FunctionAppSlotSiteCredential {
@@ -2255,6 +2377,29 @@ export namespace appservice {
          * The username which can be used to publish to this App Service
          */
         username: string;
+    }
+
+    export interface FunctionAppSourceControl {
+        /**
+         * The branch of the remote repository to use. Defaults to 'master'.
+         */
+        branch: string;
+        /**
+         * Limits to manual integration. Defaults to `false` if not specified.
+         */
+        manualIntegration: boolean;
+        /**
+         * The URL of the source code repository.
+         */
+        repoUrl: string;
+        /**
+         * Enable roll-back for the repository. Defaults to `false` if not specified.
+         */
+        rollbackEnabled: boolean;
+        /**
+         * Use Mercurial if `true`, otherwise uses Git.
+         */
+        useMercurial: boolean;
     }
 
     export interface GetAppServiceConnectionString {
@@ -2289,7 +2434,7 @@ export namespace appservice {
 
     export interface GetAppServiceSiteConfig {
         /**
-         * Is the app be loaded at all times?
+         * Is the app loaded at all times?
          */
         alwaysOn: boolean;
         /**
@@ -2457,8 +2602,26 @@ export namespace appservice {
     }
 
     export interface GetAppServiceSourceControl {
+        /**
+         * The branch of the remote repository in use.
+         */
         branch: string;
+        /**
+         * Limits to manual integration.
+         */
+        manualIntegration: boolean;
+        /**
+         * The URL of the source code repository.
+         */
         repoUrl: string;
+        /**
+         * Is roll-back enabled for the repository.
+         */
+        rollbackEnabled: boolean;
+        /**
+         * Uses Mercurial if `true`, otherwise uses Git.
+         */
+        useMercurial: boolean;
     }
 
     export interface GetCertificateOrderCertificate {
@@ -2495,6 +2658,113 @@ export namespace appservice {
         value: string;
     }
 
+    export interface GetFunctionAppSiteConfig {
+        /**
+         * Is the app loaded at all times?
+         */
+        alwaysOn: boolean;
+        autoSwapSlotName: string;
+        /**
+         * A `cors` block as defined above.
+         */
+        cors: outputs.appservice.GetFunctionAppSiteConfigCors;
+        /**
+         * State of FTP / FTPS service for this AppService.
+         */
+        ftpsState: string;
+        /**
+         * Is HTTP2 Enabled on this App Service?
+         */
+        http2Enabled: boolean;
+        /**
+         * One or more `ipRestriction` blocks as defined above.
+         */
+        ipRestrictions: outputs.appservice.GetFunctionAppSiteConfigIpRestriction[];
+        /**
+         * Linux App Framework and version for the AppService.
+         */
+        linuxFxVersion: string;
+        /**
+         * The minimum supported TLS version for this App Service.
+         */
+        minTlsVersion: string;
+        /**
+         * The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
+         */
+        preWarmedInstanceCount: number;
+        /**
+         * One or more `scmIpRestriction` blocks as defined above.
+         */
+        scmIpRestrictions: outputs.appservice.GetFunctionAppSiteConfigScmIpRestriction[];
+        /**
+         * The type of Source Control enabled for this App Service.
+         */
+        scmType: string;
+        /**
+         * IP security restrictions for scm to use main.
+         */
+        scmUseMainIpRestriction: boolean;
+        /**
+         * Does the App Service run in 32 bit mode, rather than 64 bit mode?
+         */
+        use32BitWorkerProcess: boolean;
+        /**
+         * Are WebSockets enabled for this App Service?
+         */
+        websocketsEnabled: boolean;
+    }
+
+    export interface GetFunctionAppSiteConfigCors {
+        allowedOrigins: string[];
+        supportCredentials?: boolean;
+    }
+
+    export interface GetFunctionAppSiteConfigIpRestriction {
+        /**
+         * Allow or Deny access for this IP range. Defaults to Allow.
+         */
+        action: string;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress: string;
+        /**
+         * The name of the Function App resource.
+         */
+        name: string;
+        /**
+         * The priority for this IP Restriction.
+         */
+        priority: number;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
+    }
+
+    export interface GetFunctionAppSiteConfigScmIpRestriction {
+        /**
+         * Allow or Deny access for this IP range. Defaults to Allow.
+         */
+        action: string;
+        /**
+         * The IP Address used for this IP Restriction in CIDR notation.
+         */
+        ipAddress: string;
+        /**
+         * The name of the Function App resource.
+         */
+        name: string;
+        /**
+         * The priority for this IP Restriction.
+         */
+        priority: number;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
+    }
+
     export interface GetFunctionAppSiteCredential {
         /**
          * The password associated with the username, which can be used to publish to this App Service.
@@ -2504,6 +2774,29 @@ export namespace appservice {
          * The username which can be used to publish to this App Service
          */
         username: string;
+    }
+
+    export interface GetFunctionAppSourceControl {
+        /**
+         * The branch of the remote repository in use.
+         */
+        branch: string;
+        /**
+         * Limits to manual integration.
+         */
+        manualIntegration: boolean;
+        /**
+         * The URL of the source code repository.
+         */
+        repoUrl: string;
+        /**
+         * Is roll-back enabled for the repository.
+         */
+        rollbackEnabled: boolean;
+        /**
+         * Uses Mercurial if `true`, otherwise uses Git.
+         */
+        useMercurial: boolean;
     }
 
     export interface PlanSku {
@@ -2823,7 +3116,7 @@ export namespace appservice {
         /**
          * The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
          */
-        scmType?: string;
+        scmType: string;
         scmUseMainIpRestriction?: boolean;
         /**
          * Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
@@ -2848,37 +3141,57 @@ export namespace appservice {
     }
 
     export interface SlotSiteConfigIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
         action?: string;
         /**
-         * The IP Address used for this IP Restriction.
+         * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
         /**
-         * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         * The name for this IP Restriction.
          */
         name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
         priority?: number;
         /**
-         * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
-        virtualNetworkSubnetId?: string;
+        subnetId: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
     }
 
     export interface SlotSiteConfigScmIpRestriction {
+        /**
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         */
         action?: string;
         /**
-         * The IP Address used for this IP Restriction.
+         * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
         /**
          * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         */
         priority?: number;
         /**
-         * (Optional.The Virtual Network Subnet ID used for this IP Restriction.
+         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
          */
-        virtualNetworkSubnetId?: string;
+        subnetId: string;
+        /**
+         * The Virtual Network Subnet ID used for this IP Restriction.
+         */
+        virtualNetworkSubnetId: string;
     }
 
     export interface SlotSiteCredential {
@@ -7484,6 +7797,9 @@ export namespace datafactory {
     }
 
     export interface DatasetJsonAzureBlobStorageLocation {
+        /**
+         * The container on the Azure Blob Storage Account hosting the file.
+         */
         container: string;
         /**
          * The filename of the file on the web server.
@@ -8571,6 +8887,21 @@ export namespace eventhub {
         storageAccountId: string;
     }
 
+    export interface EventHubNamespaceIdentity {
+        /**
+         * The Client ID of the Service Principal assigned to this EventHub Namespace.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this EventHub Namespace. At this time the only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface EventHubNamespaceNetworkRulesets {
         /**
          * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
@@ -8588,7 +8919,7 @@ export namespace eventhub {
 
     export interface EventHubNamespaceNetworkRulesetsIpRule {
         /**
-         * The action to take when the rule is  matched. Possible values are `Allow`.
+         * The action to take when the rule is matched. Possible values are `Allow`.
          */
         action?: string;
         /**
@@ -13794,6 +14125,21 @@ export namespace mssql {
 }
 
 export namespace mysql {
+    export interface ServerIdentity {
+        /**
+         * The Client ID of the Service Principal assigned to this MySQL Server.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface ServerStorageProfile {
         /**
          * @deprecated this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.
@@ -16091,6 +16437,36 @@ export namespace policy {
 }
 
 export namespace postgresql {
+    export interface GetServerIdentity {
+        /**
+         * The ID of the System Managed Service Principal assigned to the PostgreSQL Server.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant of the System Managed Service Principal assigned to the PostgreSQL Server.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the Managed Identity assigned to the PostgreSQL Server.
+         */
+        type: string;
+    }
+
+    export interface ServerIdentity {
+        /**
+         * The Client ID of the Service Principal assigned to this PostgreSQL Server.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for this PostgreSQL Server. At this time the only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface ServerStorageProfile {
         /**
          * @deprecated this has been moved to the top level and will be removed in version 3.0 of the provider.
@@ -16829,6 +17205,21 @@ export namespace siterecovery {
          * Resource group disk should belong to when a failover is done.
          */
         targetResourceGroupId: string;
+    }
+
+    export interface ReplicatedVMNetworkInterface {
+        /**
+         * Id source network interface.
+         */
+        sourceNetworkInterfaceId: string;
+        /**
+         * Static IP to assign when a failover is done.
+         */
+        targetStaticIp?: string;
+        /**
+         * Name of the subnet to to use when a failover is done.
+         */
+        targetSubnetName?: string;
     }
 }
 

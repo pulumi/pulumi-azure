@@ -96,6 +96,10 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.eventhub.EventHubNamespaceIdentity | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -149,6 +153,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
             inputs["defaultSecondaryConnectionStringAlias"] = state ? state.defaultSecondaryConnectionStringAlias : undefined;
             inputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maximumThroughputUnits"] = state ? state.maximumThroughputUnits : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -168,6 +173,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["autoInflateEnabled"] = args ? args.autoInflateEnabled : undefined;
             inputs["capacity"] = args ? args.capacity : undefined;
             inputs["dedicatedClusterId"] = args ? args.dedicatedClusterId : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -239,6 +245,10 @@ export interface EventHubNamespaceState {
      */
     readonly defaultSecondaryKey?: pulumi.Input<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.eventhub.EventHubNamespaceIdentity>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -288,6 +298,10 @@ export interface EventHubNamespaceArgs {
      * Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
      */
     readonly dedicatedClusterId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.eventhub.EventHubNamespaceIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
