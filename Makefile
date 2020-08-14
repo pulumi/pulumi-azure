@@ -12,14 +12,11 @@ VERSION         := $(shell pulumictl get version)
 
 WORKING_DIR     := $(shell pwd)
 
-# legacy build steps
-include build/legacy.mk
-
 .PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup
 
 development:: install_plugins provider lint_provider build_sdks install_sdks cleanup # Build the provider & SDKs for a development environment
 
-# used by the downstream provider action
+# Required for the codegen action that runs in pulumi/pulumi and pulumi/pulumi-terraform-bridge
 build:: install_plugins provider build_sdks install_sdks
 only_build:: build
 
@@ -29,7 +26,7 @@ tfgen:: install_plugins
 	(cd provider && VERSION=$(VERSION) go generate cmd/${PROVIDER}/main.go)
 
 provider:: tfgen install_plugins # build the provider binary
-	(cd provider && go build -a -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${PROVIDER})
+	(cd provider && go build -a -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION} -X 'github.com/terraform-providers/terraform-provider-azurerm/version.ProviderVersion=${VERSION}'" ${PROJECT}/${PROVIDER_PATH}/cmd/${PROVIDER})
 
 build_sdks:: install_plugins provider build_nodejs build_python build_go build_dotnet # build all the sdks
 
@@ -99,12 +96,3 @@ install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
-
-
-install_binaries::
-	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/v3/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v3/cmd/${TFGEN}
-	$(TFGEN) schema --out ./provider/cmd/${PROVIDER}
-	cd provider && VERSION=$(VERSION) go generate cmd/${PROVIDER}/main.go
-	cd provider && go install -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/v3/pkg/version.Version=${VERSION}" ${PROJECT}/provider/v3/cmd/${PROVIDER}
-
-install:: install_plugins install_binaries install_sdks
