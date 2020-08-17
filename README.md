@@ -1,8 +1,9 @@
-[![Build Status](https://travis-ci.com/pulumi/pulumi-azure.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master)](https://travis-ci.com/pulumi/pulumi-azure)
+[![Actions Status](https://github.com/pulumi/pulumi-azure/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-azure/actions)
 [![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fazure.svg)](https://npmjs.com/package/@pulumi/azure)
 [![Python version](https://badge.fury.io/py/pulumi-azure.svg)](https://pypi.org/project/pulumi-azure)
-[![GoDoc](https://godoc.org/github.com/pulumi/pulumi-azure?status.svg)](https://godoc.org/github.com/pulumi/pulumi-azure)
+[![NuGet version](https://badge.fury.io/nu/pulumi.azure.svg)](https://badge.fury.io/nu/pulumi.azure)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-azure/sdk/v3/go)](https://pkg.go.dev/github.com/pulumi/pulumi-azure/sdk/v3/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-azure/blob/master/LICENSE)
 
 # Microsoft Azure Resource Provider
