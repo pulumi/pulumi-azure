@@ -201,13 +201,13 @@ namespace Pulumi.Azure.FrontDoor
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
+        /// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
         /// </summary>
         [Output("frontendEndpointIds")]
         public Output<ImmutableArray<string>> FrontendEndpointIds { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location.
+        /// The Azure Region where this FrontDoor Firewall Policy exists.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -413,7 +413,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<string>? _frontendEndpointIds;
 
         /// <summary>
-        /// the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
+        /// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
         /// </summary>
         public InputList<string> FrontendEndpointIds
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Resource location.
+        /// The Azure Region where this FrontDoor Firewall Policy exists.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

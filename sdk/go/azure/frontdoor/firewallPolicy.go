@@ -163,9 +163,9 @@ type FirewallPolicy struct {
 	CustomRules FirewallPolicyCustomRuleArrayOutput `pulumi:"customRules"`
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
+	// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
 	FrontendEndpointIds pulumi.StringArrayOutput `pulumi:"frontendEndpointIds"`
-	// Resource location.
+	// The Azure Region where this FrontDoor Firewall Policy exists.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
@@ -220,9 +220,9 @@ type firewallPolicyState struct {
 	CustomRules []FirewallPolicyCustomRule `pulumi:"customRules"`
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
+	// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
 	FrontendEndpointIds []string `pulumi:"frontendEndpointIds"`
-	// Resource location.
+	// The Azure Region where this FrontDoor Firewall Policy exists.
 	Location *string `pulumi:"location"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FirewallPolicyManagedRule `pulumi:"managedRules"`
@@ -247,9 +247,9 @@ type FirewallPolicyState struct {
 	CustomRules FirewallPolicyCustomRuleArrayInput
 	// Is the policy a enabled state or disabled state. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
+	// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
 	FrontendEndpointIds pulumi.StringArrayInput
-	// Resource location.
+	// The Azure Region where this FrontDoor Firewall Policy exists.
 	Location pulumi.StringPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FirewallPolicyManagedRuleArrayInput

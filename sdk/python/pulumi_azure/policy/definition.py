@@ -36,8 +36,7 @@ class Definition(pulumi.CustomResource):
     """
     The policy mode that allows you to specify which resource
     types will be evaluated.  The value can be "All", "Indexed" or
-    "NotSpecified". Changing this resource forces a new resource to be
-    created.
+    "NotSpecified".
     """
     name: pulumi.Output[str]
     """
@@ -76,7 +75,7 @@ class Definition(pulumi.CustomResource):
             metadata=\"\"\"    {
             "category": "General"
             }
-          
+
 
         \"\"\",
             mode="Indexed",
@@ -119,8 +118,7 @@ class Definition(pulumi.CustomResource):
                with the policy definition.
         :param pulumi.Input[str] mode: The policy mode that allows you to specify which resource
                types will be evaluated.  The value can be "All", "Indexed" or
-               "NotSpecified". Changing this resource forces a new resource to be
-               created.
+               "NotSpecified".
         :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
@@ -190,8 +188,7 @@ class Definition(pulumi.CustomResource):
                with the policy definition.
         :param pulumi.Input[str] mode: The policy mode that allows you to specify which resource
                types will be evaluated.  The value can be "All", "Indexed" or
-               "NotSpecified". Changing this resource forces a new resource to be
-               created.
+               "NotSpecified".
         :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field

@@ -75,6 +75,22 @@ export namespace apimanagement {
         serviceName: pulumi.Input<string>;
     }
 
+    export interface ApiOauth2Authorization {
+        authorizationServerName: pulumi.Input<string>;
+        /**
+         * Operations scope.
+         */
+        scope?: pulumi.Input<string>;
+    }
+
+    export interface ApiOpenidAuthentication {
+        /**
+         * How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+         */
+        bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        openidProviderName: pulumi.Input<string>;
+    }
+
     export interface ApiOperationRequest {
         /**
          * A description of the HTTP Request, which may include HTML tags.
@@ -5302,19 +5318,19 @@ export namespace compute {
 
     export interface WindowsVirtualMachineSourceImageReference {
         /**
-         * (Optional) Specifies the offer of the image used to create the virtual machines.
+         * Specifies the offer of the image used to create the virtual machines.
          */
         offer: pulumi.Input<string>;
         /**
-         * Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+         * Specifies the publisher of the image used to create the virtual machines.
          */
         publisher: pulumi.Input<string>;
         /**
-         * (Optional) Specifies the SKU of the image used to create the virtual machines.
+         * Specifies the SKU of the image used to create the virtual machines.
          */
         sku: pulumi.Input<string>;
         /**
-         * (Optional) Specifies the version of the image used to create the virtual machines.
+         * Specifies the version of the image used to create the virtual machines.
          */
         version: pulumi.Input<string>;
     }
@@ -12903,7 +12919,7 @@ export namespace network {
          */
         description?: pulumi.Input<string>;
         /**
-         * A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+         * A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
          */
         fqdnTags?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -12941,11 +12957,11 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The private IP address of the Azure Firewall.
+         * The Private IP address of the Azure Firewall.
          */
         privateIpAddress?: pulumi.Input<string>;
         /**
-         * The Resource ID of the Public IP Address associated with the firewall.
+         * The ID of the Public IP Address associated with the firewall.
          */
         publicIpAddressId: pulumi.Input<string>;
         /**
@@ -13035,26 +13051,26 @@ export namespace network {
 
     export interface NetworkConnectionMonitorDestination {
         /**
-         * IP address or domain name to monitor connectivity to.
+         * The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
          */
         address?: pulumi.Input<string>;
         /**
-         * The port on the destination to monitor connectivity to.
+         * The destination port used by connection monitor.
          */
         port: pulumi.Input<number>;
         /**
-         * The ID of the Virtual Machine to monitor connectivity to.
+         * The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
          */
         virtualMachineId?: pulumi.Input<string>;
     }
 
     export interface NetworkConnectionMonitorSource {
         /**
-         * The port on the destination to monitor connectivity to.
+         * The source port used by connection monitor.
          */
         port?: pulumi.Input<number>;
         /**
-         * The ID of the Virtual Machine to monitor connectivity to.
+         * The ID of the virtual machine used as the source by connection monitor.
          */
         virtualMachineId: pulumi.Input<string>;
     }
@@ -13467,7 +13483,7 @@ export namespace network {
          */
         enable: pulumi.Input<boolean>;
         /**
-         * The Resource ID of DDoS Protection Plan.
+         * The ID of DDoS Protection Plan.
          */
         id: pulumi.Input<string>;
     }
@@ -13629,7 +13645,7 @@ export namespace network {
          */
         addressPrefix: pulumi.Input<string>;
         /**
-         * The Resource ID of DDoS Protection Plan.
+         * The ID of DDoS Protection Plan.
          */
         id?: pulumi.Input<string>;
         /**
@@ -15211,6 +15227,35 @@ export namespace streamanalytics {
 }
 
 export namespace synapse {
+    export interface SparkPoolAutoPause {
+        /**
+         * Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
+         */
+        delayInMinutes: pulumi.Input<number>;
+    }
+
+    export interface SparkPoolAutoScale {
+        /**
+         * The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+         */
+        maxNodeCount: pulumi.Input<number>;
+        /**
+         * The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+         */
+        minNodeCount: pulumi.Input<number>;
+    }
+
+    export interface SparkPoolLibraryRequirement {
+        /**
+         * The content of library requirements.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The name of the library requirements file.
+         */
+        filename: pulumi.Input<string>;
+    }
+
     export interface WorkspaceAadAdmin {
         /**
          * The login name of the Azure AD Administrator of this Synapse Workspace.

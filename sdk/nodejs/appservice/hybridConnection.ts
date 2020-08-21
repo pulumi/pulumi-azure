@@ -94,7 +94,7 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
+     * The ID of the Service Bus Relay. Changing this forces a new resource to be created.
      */
     public readonly relayId!: pulumi.Output<string>;
     public /*out*/ readonly relayName!: pulumi.Output<string>;
@@ -203,7 +203,7 @@ export interface HybridConnectionState {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
+     * The ID of the Service Bus Relay. Changing this forces a new resource to be created.
      */
     readonly relayId?: pulumi.Input<string>;
     readonly relayName?: pulumi.Input<string>;
@@ -246,7 +246,7 @@ export interface HybridConnectionArgs {
      */
     readonly port: pulumi.Input<number>;
     /**
-     * The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
+     * The ID of the Service Bus Relay. Changing this forces a new resource to be created.
      */
     readonly relayId: pulumi.Input<string>;
     /**

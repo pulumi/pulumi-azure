@@ -71,7 +71,7 @@ export class ContainerStorageAccount extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Azure Resource ID of the storage account to be registered
+     * The ID of the Storage Account to be registered
      */
     public readonly storageAccountId!: pulumi.Output<string>;
 
@@ -129,7 +129,7 @@ export interface ContainerStorageAccountState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Azure Resource ID of the storage account to be registered
+     * The ID of the Storage Account to be registered
      */
     readonly storageAccountId?: pulumi.Input<string>;
 }
@@ -147,7 +147,7 @@ export interface ContainerStorageAccountArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Azure Resource ID of the storage account to be registered
+     * The ID of the Storage Account to be registered
      */
     readonly storageAccountId: pulumi.Input<string>;
 }

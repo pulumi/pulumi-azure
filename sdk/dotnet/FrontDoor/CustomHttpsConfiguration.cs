@@ -12,7 +12,7 @@ namespace Pulumi.Azure.FrontDoor
     /// <summary>
     /// Manages the Custom Https Configuration for an Azure Front Door Frontend Endpoint..
     /// 
-    /// &gt; **NOTE:** Custom https configurations for a Front Door Frontened Endpoint can be defined both within the `azure.frontdoor.Frontdoor` resource via the `custom_https_configuration` block and by using a separate resource, as described in the following sections.
+    /// &gt; **NOTE:** Custom https configurations for a Front Door Frontend Endpoint can be defined both within the `azure.frontdoor.Frontdoor` resource via the `custom_https_configuration` block and by using a separate resource, as described in the following sections.
     /// 
     /// &gt; **NOTE:** Defining custom https configurations using a separate `azure.frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
     /// 
@@ -112,13 +112,11 @@ namespace Pulumi.Azure.FrontDoor
     ///         var exampleCustomHttps0 = new Azure.FrontDoor.CustomHttpsConfiguration("exampleCustomHttps0", new Azure.FrontDoor.CustomHttpsConfigurationArgs
     ///         {
     ///             FrontendEndpointId = exampleFrontdoor.FrontendEndpoints.Apply(frontendEndpoints =&gt; frontendEndpoints[0].Id),
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             CustomHttpsProvisioningEnabled = false,
     ///         });
     ///         var exampleCustomHttps1 = new Azure.FrontDoor.CustomHttpsConfiguration("exampleCustomHttps1", new Azure.FrontDoor.CustomHttpsConfigurationArgs
     ///         {
     ///             FrontendEndpointId = exampleFrontdoor.FrontendEndpoints.Apply(frontendEndpoints =&gt; frontendEndpoints[1].Id),
-    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             CustomHttpsProvisioningEnabled = true,
     ///             CustomHttpsConfiguration = new Azure.FrontDoor.Inputs.CustomHttpsConfigurationCustomHttpsConfigurationArgs
     ///             {
@@ -135,6 +133,9 @@ namespace Pulumi.Azure.FrontDoor
     /// </summary>
     public partial class CustomHttpsConfiguration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A `custom_https_configuration` block as defined below.
+        /// </summary>
         [Output("customHttpsConfiguration")]
         public Output<Outputs.CustomHttpsConfigurationCustomHttpsConfiguration?> CustomHttpsConfigurationConfig { get; private set; } = null!;
 
@@ -145,16 +146,13 @@ namespace Pulumi.Azure.FrontDoor
         public Output<bool> CustomHttpsProvisioningEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Id of the Front Door Frontend endpoint this configuration refers to.
+        /// The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
         /// </summary>
         [Output("frontendEndpointId")]
         public Output<string> FrontendEndpointId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Resource Group in which the Front Door exists
-        /// </summary>
         [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
+        public Output<string?> ResourceGroupName { get; private set; } = null!;
 
 
         /// <summary>
@@ -202,6 +200,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class CustomHttpsConfigurationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `custom_https_configuration` block as defined below.
+        /// </summary>
         [Input("customHttpsConfiguration")]
         public Input<Inputs.CustomHttpsConfigurationCustomHttpsConfigurationArgs>? CustomHttpsConfigurationConfig { get; set; }
 
@@ -212,16 +213,13 @@ namespace Pulumi.Azure.FrontDoor
         public Input<bool> CustomHttpsProvisioningEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Id of the Front Door Frontend endpoint this configuration refers to.
+        /// The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
         /// </summary>
         [Input("frontendEndpointId", required: true)]
         public Input<string> FrontendEndpointId { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Resource Group in which the Front Door exists
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
 
         public CustomHttpsConfigurationArgs()
         {
@@ -230,6 +228,9 @@ namespace Pulumi.Azure.FrontDoor
 
     public sealed class CustomHttpsConfigurationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `custom_https_configuration` block as defined below.
+        /// </summary>
         [Input("customHttpsConfiguration")]
         public Input<Inputs.CustomHttpsConfigurationCustomHttpsConfigurationGetArgs>? CustomHttpsConfigurationConfig { get; set; }
 
@@ -240,14 +241,11 @@ namespace Pulumi.Azure.FrontDoor
         public Input<bool>? CustomHttpsProvisioningEnabled { get; set; }
 
         /// <summary>
-        /// Id of the Front Door Frontend endpoint this configuration refers to.
+        /// The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
         /// </summary>
         [Input("frontendEndpointId")]
         public Input<string>? FrontendEndpointId { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the Resource Group in which the Front Door exists
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

@@ -731,6 +731,7 @@
         "synapse/firewallRule.ts",
         "synapse/getWorkspace.ts",
         "synapse/index.ts",
+        "synapse/sparkPool.ts",
         "synapse/workspace.ts",
         "trafficmanager/endpoint.ts",
         "trafficmanager/getGeographicalLocation.ts",

@@ -58,9 +58,9 @@ func GetDefinition(ctx *pulumi.Context, args *GetDefinitionArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getDefinition.
 type GetDefinitionArgs struct {
-	// The name of the Blueprint
+	// The name of the Blueprint.
 	Name string `pulumi:"name"`
-	// The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.
+	// The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
 	ScopeId string `pulumi:"scopeId"`
 }
 

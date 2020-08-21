@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkConnectionMonitorDestination
     {
         /// <summary>
-        /// IP address or domain name to monitor connectivity to.
+        /// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// The port on the destination to monitor connectivity to.
+        /// The destination port used by connection monitor.
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The ID of the Virtual Machine to monitor connectivity to.
+        /// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
         /// </summary>
         public readonly string? VirtualMachineId;
 

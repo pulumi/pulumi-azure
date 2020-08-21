@@ -93,7 +93,6 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-        /// ---
         /// </summary>
         [Output("enforcementMode")]
         public Output<bool?> EnforcementMode { get; private set; } = null!;
@@ -206,7 +205,6 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-        /// ---
         /// </summary>
         [Input("enforcementMode")]
         public Input<bool>? EnforcementMode { get; set; }
@@ -286,7 +284,6 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-        /// ---
         /// </summary>
         [Input("enforcementMode")]
         public Input<bool>? EnforcementMode { get; set; }

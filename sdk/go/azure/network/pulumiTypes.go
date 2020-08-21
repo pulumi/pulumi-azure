@@ -4934,7 +4934,7 @@ func (o ExpressRouteCircuitSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 type FirewallApplicationRuleCollectionRule struct {
 	// Specifies a description for the rule.
 	Description *string `pulumi:"description"`
-	// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+	// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
 	FqdnTags []string `pulumi:"fqdnTags"`
 	// Specifies the name of the rule.
 	Name string `pulumi:"name"`
@@ -4960,7 +4960,7 @@ type FirewallApplicationRuleCollectionRuleInput interface {
 type FirewallApplicationRuleCollectionRuleArgs struct {
 	// Specifies a description for the rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+	// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
 	FqdnTags pulumi.StringArrayInput `pulumi:"fqdnTags"`
 	// Specifies the name of the rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -5028,7 +5028,7 @@ func (o FirewallApplicationRuleCollectionRuleOutput) Description() pulumi.String
 	return o.ApplyT(func(v FirewallApplicationRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+// A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
 func (o FirewallApplicationRuleCollectionRuleOutput) FqdnTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallApplicationRuleCollectionRule) []string { return v.FqdnTags }).(pulumi.StringArrayOutput)
 }
@@ -5184,9 +5184,9 @@ func (o FirewallApplicationRuleCollectionRuleProtocolArrayOutput) Index(i pulumi
 type FirewallIpConfiguration struct {
 	// Specifies the name of the IP Configuration.
 	Name string `pulumi:"name"`
-	// The private IP address of the Azure Firewall.
+	// The Private IP address of the Azure Firewall.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The Resource ID of the Public IP Address associated with the firewall.
+	// The ID of the Public IP Address associated with the firewall.
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration.
 	SubnetId *string `pulumi:"subnetId"`
@@ -5206,9 +5206,9 @@ type FirewallIpConfigurationInput interface {
 type FirewallIpConfigurationArgs struct {
 	// Specifies the name of the IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The private IP address of the Azure Firewall.
+	// The Private IP address of the Azure Firewall.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The Resource ID of the Public IP Address associated with the firewall.
+	// The ID of the Public IP Address associated with the firewall.
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -5270,12 +5270,12 @@ func (o FirewallIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The private IP address of the Azure Firewall.
+// The Private IP address of the Azure Firewall.
 func (o FirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The Resource ID of the Public IP Address associated with the firewall.
+// The ID of the Public IP Address associated with the firewall.
 func (o FirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
@@ -5785,11 +5785,11 @@ func (o LocalNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutpu
 }
 
 type NetworkConnectionMonitorDestination struct {
-	// IP address or domain name to monitor connectivity to.
+	// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
 	Address *string `pulumi:"address"`
-	// The port on the destination to monitor connectivity to.
+	// The destination port used by connection monitor.
 	Port int `pulumi:"port"`
-	// The ID of the Virtual Machine to monitor connectivity to.
+	// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 }
 
@@ -5805,11 +5805,11 @@ type NetworkConnectionMonitorDestinationInput interface {
 }
 
 type NetworkConnectionMonitorDestinationArgs struct {
-	// IP address or domain name to monitor connectivity to.
+	// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The port on the destination to monitor connectivity to.
+	// The destination port used by connection monitor.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The ID of the Virtual Machine to monitor connectivity to.
+	// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 }
 
@@ -5890,17 +5890,17 @@ func (o NetworkConnectionMonitorDestinationOutput) ToNetworkConnectionMonitorDes
 	}).(NetworkConnectionMonitorDestinationPtrOutput)
 }
 
-// IP address or domain name to monitor connectivity to.
+// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
 func (o NetworkConnectionMonitorDestinationOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The port on the destination to monitor connectivity to.
+// The destination port used by connection monitor.
 func (o NetworkConnectionMonitorDestinationOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorDestination) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The ID of the Virtual Machine to monitor connectivity to.
+// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
 func (o NetworkConnectionMonitorDestinationOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
@@ -5923,7 +5923,7 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) Elem() NetworkConnectionMo
 	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) NetworkConnectionMonitorDestination { return *v }).(NetworkConnectionMonitorDestinationOutput)
 }
 
-// IP address or domain name to monitor connectivity to.
+// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
 func (o NetworkConnectionMonitorDestinationPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *string {
 		if v == nil {
@@ -5933,7 +5933,7 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) Address() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port on the destination to monitor connectivity to.
+// The destination port used by connection monitor.
 func (o NetworkConnectionMonitorDestinationPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *int {
 		if v == nil {
@@ -5943,7 +5943,7 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) Port() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Virtual Machine to monitor connectivity to.
+// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
 func (o NetworkConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *string {
 		if v == nil {
@@ -5954,9 +5954,9 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.
 }
 
 type NetworkConnectionMonitorSource struct {
-	// The port on the destination to monitor connectivity to.
+	// The source port used by connection monitor.
 	Port *int `pulumi:"port"`
-	// The ID of the Virtual Machine to monitor connectivity to.
+	// The ID of the virtual machine used as the source by connection monitor.
 	VirtualMachineId string `pulumi:"virtualMachineId"`
 }
 
@@ -5972,9 +5972,9 @@ type NetworkConnectionMonitorSourceInput interface {
 }
 
 type NetworkConnectionMonitorSourceArgs struct {
-	// The port on the destination to monitor connectivity to.
+	// The source port used by connection monitor.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ID of the Virtual Machine to monitor connectivity to.
+	// The ID of the virtual machine used as the source by connection monitor.
 	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
 }
 
@@ -6055,12 +6055,12 @@ func (o NetworkConnectionMonitorSourceOutput) ToNetworkConnectionMonitorSourcePt
 	}).(NetworkConnectionMonitorSourcePtrOutput)
 }
 
-// The port on the destination to monitor connectivity to.
+// The source port used by connection monitor.
 func (o NetworkConnectionMonitorSourceOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorSource) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Virtual Machine to monitor connectivity to.
+// The ID of the virtual machine used as the source by connection monitor.
 func (o NetworkConnectionMonitorSourceOutput) VirtualMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorSource) string { return v.VirtualMachineId }).(pulumi.StringOutput)
 }
@@ -6083,7 +6083,7 @@ func (o NetworkConnectionMonitorSourcePtrOutput) Elem() NetworkConnectionMonitor
 	return o.ApplyT(func(v *NetworkConnectionMonitorSource) NetworkConnectionMonitorSource { return *v }).(NetworkConnectionMonitorSourceOutput)
 }
 
-// The port on the destination to monitor connectivity to.
+// The source port used by connection monitor.
 func (o NetworkConnectionMonitorSourcePtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorSource) *int {
 		if v == nil {
@@ -6093,7 +6093,7 @@ func (o NetworkConnectionMonitorSourcePtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Virtual Machine to monitor connectivity to.
+// The ID of the virtual machine used as the source by connection monitor.
 func (o NetworkConnectionMonitorSourcePtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorSource) *string {
 		if v == nil {
@@ -9325,7 +9325,7 @@ func (o VirtualHubRouteArrayOutput) Index(i pulumi.IntInput) VirtualHubRouteOutp
 type VirtualNetworkDdosProtectionPlan struct {
 	// Enable/disable DDoS Protection Plan on Virtual Network.
 	Enable bool `pulumi:"enable"`
-	// The Resource ID of DDoS Protection Plan.
+	// The ID of DDoS Protection Plan.
 	Id string `pulumi:"id"`
 }
 
@@ -9343,7 +9343,7 @@ type VirtualNetworkDdosProtectionPlanInput interface {
 type VirtualNetworkDdosProtectionPlanArgs struct {
 	// Enable/disable DDoS Protection Plan on Virtual Network.
 	Enable pulumi.BoolInput `pulumi:"enable"`
-	// The Resource ID of DDoS Protection Plan.
+	// The ID of DDoS Protection Plan.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -9429,7 +9429,7 @@ func (o VirtualNetworkDdosProtectionPlanOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v VirtualNetworkDdosProtectionPlan) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
-// The Resource ID of DDoS Protection Plan.
+// The ID of DDoS Protection Plan.
 func (o VirtualNetworkDdosProtectionPlanOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkDdosProtectionPlan) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -9462,7 +9462,7 @@ func (o VirtualNetworkDdosProtectionPlanPtrOutput) Enable() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Resource ID of DDoS Protection Plan.
+// The ID of DDoS Protection Plan.
 func (o VirtualNetworkDdosProtectionPlanPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkDdosProtectionPlan) *string {
 		if v == nil {
@@ -10735,7 +10735,7 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput) I
 type VirtualNetworkSubnet struct {
 	// The address prefix to use for the subnet.
 	AddressPrefix string `pulumi:"addressPrefix"`
-	// The Resource ID of DDoS Protection Plan.
+	// The ID of DDoS Protection Plan.
 	Id *string `pulumi:"id"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -10757,7 +10757,7 @@ type VirtualNetworkSubnetInput interface {
 type VirtualNetworkSubnetArgs struct {
 	// The address prefix to use for the subnet.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
-	// The Resource ID of DDoS Protection Plan.
+	// The ID of DDoS Protection Plan.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10821,7 +10821,7 @@ func (o VirtualNetworkSubnetOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }
 
-// The Resource ID of DDoS Protection Plan.
+// The ID of DDoS Protection Plan.
 func (o VirtualNetworkSubnetOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -12297,10 +12297,10 @@ type GetFirewallIpConfiguration struct {
 	InternalPublicIpAddressId string `pulumi:"internalPublicIpAddressId"`
 	// The name of the Azure Firewall.
 	Name string `pulumi:"name"`
-	// The private IP address of the Azure Firewall.
+	// The Private IP Address of the Azure Firewall.
 	PrivateIpAddress  string `pulumi:"privateIpAddress"`
 	PublicIpAddressId string `pulumi:"publicIpAddressId"`
-	// The Resource ID of the subnet where the Azure Firewall is deployed.
+	// The ID of the Subnet where the Azure Firewall is deployed.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -12319,10 +12319,10 @@ type GetFirewallIpConfigurationArgs struct {
 	InternalPublicIpAddressId pulumi.StringInput `pulumi:"internalPublicIpAddressId"`
 	// The name of the Azure Firewall.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The private IP address of the Azure Firewall.
+	// The Private IP Address of the Azure Firewall.
 	PrivateIpAddress  pulumi.StringInput `pulumi:"privateIpAddress"`
 	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
-	// The Resource ID of the subnet where the Azure Firewall is deployed.
+	// The ID of the Subnet where the Azure Firewall is deployed.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -12386,7 +12386,7 @@ func (o GetFirewallIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The private IP address of the Azure Firewall.
+// The Private IP Address of the Azure Firewall.
 func (o GetFirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
@@ -12395,7 +12395,7 @@ func (o GetFirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutpu
 	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
 }
 
-// The Resource ID of the subnet where the Azure Firewall is deployed.
+// The ID of the Subnet where the Azure Firewall is deployed.
 func (o GetFirewallIpConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }

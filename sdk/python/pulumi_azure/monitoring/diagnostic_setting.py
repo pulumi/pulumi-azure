@@ -52,7 +52,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     """
     storage_account_id: pulumi.Output[str]
     """
-    With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+    The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
     """
     target_resource_id: pulumi.Output[str]
     """
@@ -100,7 +100,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[list] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[list] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_id: With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 
         The **logs** object supports the following:
@@ -169,7 +169,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[list] logs: One or more `log` blocks as defined below.
         :param pulumi.Input[list] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_id: With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 
         The **logs** object supports the following:

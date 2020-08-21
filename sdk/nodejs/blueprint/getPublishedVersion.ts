@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Azure Blueprint Published Version
+ * Use this data source to access information about an existing Blueprint Published Version
  *
  * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
  *
@@ -49,7 +49,7 @@ export interface GetPublishedVersionArgs {
      */
     readonly blueprintName: string;
     /**
-     * The Resource ID of the scope where the Blueprint Definition is stored. This will be with either a Subscription ID or Management Group ID.
+     * The ID of the Management Group / Subscription where this Blueprint Definition is stored.
      */
     readonly scopeId: string;
     /**

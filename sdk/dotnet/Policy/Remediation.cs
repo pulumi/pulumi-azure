@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the policy assignment that should be remediated.
+        /// The ID of the Policy Assignment that should be remediated.
         /// </summary>
         [Output("policyAssignmentId")]
         public Output<string> PolicyAssignmentId { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The resource ID of the policy assignment that should be remediated.
+        /// The ID of the Policy Assignment that should be remediated.
         /// </summary>
         [Input("policyAssignmentId", required: true)]
         public Input<string> PolicyAssignmentId { get; set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The resource ID of the policy assignment that should be remediated.
+        /// The ID of the Policy Assignment that should be remediated.
         /// </summary>
         [Input("policyAssignmentId")]
         public Input<string>? PolicyAssignmentId { get; set; }

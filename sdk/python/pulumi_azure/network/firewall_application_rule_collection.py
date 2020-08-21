@@ -35,7 +35,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
     One or more `rule` blocks as defined below.
 
       * `description` (`str`) - Specifies a description for the rule.
-      * `fqdnTags` (`list`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+      * `fqdnTags` (`list`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
       * `name` (`str`) - Specifies the name of the rule.
       * `protocols` (`list`) - One or more `protocol` blocks as defined below.
         * `port` (`float`) - Specify a port for the connection.
@@ -104,7 +104,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         The **rules** object supports the following:
 
           * `description` (`pulumi.Input[str]`) - Specifies a description for the rule.
-          * `fqdnTags` (`pulumi.Input[list]`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+          * `fqdnTags` (`pulumi.Input[list]`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the rule.
           * `protocols` (`pulumi.Input[list]`) - One or more `protocol` blocks as defined below.
             * `port` (`pulumi.Input[float]`) - Specify a port for the connection.
@@ -171,7 +171,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         The **rules** object supports the following:
 
           * `description` (`pulumi.Input[str]`) - Specifies a description for the rule.
-          * `fqdnTags` (`pulumi.Input[list]`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics` and `WindowsUpdate`
+          * `fqdnTags` (`pulumi.Input[list]`) - A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
           * `name` (`pulumi.Input[str]`) - Specifies the name of the rule.
           * `protocols` (`pulumi.Input[list]`) - One or more `protocol` blocks as defined below.
             * `port` (`pulumi.Input[float]`) - Specify a port for the connection.

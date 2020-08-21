@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly ImmutableArray<Outputs.GetScheduledQueryRulesAlertActionResult> Actions;
         /// <summary>
-        /// List of Resource IDs referred into query.
+        /// The list of Resource IDs referred into query.
         /// </summary>
         public readonly ImmutableArray<string> AuthorizedResourceIds;
         /// <summary>

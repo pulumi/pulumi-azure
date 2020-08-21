@@ -19,7 +19,7 @@ class VirtualNetwork(pulumi.CustomResource):
     A `ddos_protection_plan` block as documented below.
 
       * `enable` (`bool`) - Enable/disable DDoS Protection Plan on Virtual Network.
-      * `id` (`str`) - The Resource ID of DDoS Protection Plan.
+      * `id` (`str`) - The ID of DDoS Protection Plan.
     """
     dns_servers: pulumi.Output[list]
     """
@@ -46,7 +46,7 @@ class VirtualNetwork(pulumi.CustomResource):
     Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
 
       * `address_prefix` (`str`) - The address prefix to use for the subnet.
-      * `id` (`str`) - The Resource ID of DDoS Protection Plan.
+      * `id` (`str`) - The ID of DDoS Protection Plan.
       * `name` (`str`) - The name of the virtual network. Changing this forces a new resource to be created.
       * `securityGroup` (`str`) - The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
     """
@@ -122,12 +122,12 @@ class VirtualNetwork(pulumi.CustomResource):
         The **ddos_protection_plan** object supports the following:
 
           * `enable` (`pulumi.Input[bool]`) - Enable/disable DDoS Protection Plan on Virtual Network.
-          * `id` (`pulumi.Input[str]`) - The Resource ID of DDoS Protection Plan.
+          * `id` (`pulumi.Input[str]`) - The ID of DDoS Protection Plan.
 
         The **subnets** object supports the following:
 
           * `address_prefix` (`pulumi.Input[str]`) - The address prefix to use for the subnet.
-          * `id` (`pulumi.Input[str]`) - The Resource ID of DDoS Protection Plan.
+          * `id` (`pulumi.Input[str]`) - The ID of DDoS Protection Plan.
           * `name` (`pulumi.Input[str]`) - The name of the virtual network. Changing this forces a new resource to be created.
           * `securityGroup` (`pulumi.Input[str]`) - The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """
@@ -189,12 +189,12 @@ class VirtualNetwork(pulumi.CustomResource):
         The **ddos_protection_plan** object supports the following:
 
           * `enable` (`pulumi.Input[bool]`) - Enable/disable DDoS Protection Plan on Virtual Network.
-          * `id` (`pulumi.Input[str]`) - The Resource ID of DDoS Protection Plan.
+          * `id` (`pulumi.Input[str]`) - The ID of DDoS Protection Plan.
 
         The **subnets** object supports the following:
 
           * `address_prefix` (`pulumi.Input[str]`) - The address prefix to use for the subnet.
-          * `id` (`pulumi.Input[str]`) - The Resource ID of DDoS Protection Plan.
+          * `id` (`pulumi.Input[str]`) - The ID of DDoS Protection Plan.
           * `name` (`pulumi.Input[str]`) - The name of the virtual network. Changing this forces a new resource to be created.
           * `securityGroup` (`pulumi.Input[str]`) - The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         """

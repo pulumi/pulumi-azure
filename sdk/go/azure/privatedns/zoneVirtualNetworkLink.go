@@ -62,7 +62,7 @@ type ZoneVirtualNetworkLink struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringOutput `pulumi:"virtualNetworkId"`
 }
 
@@ -113,7 +113,7 @@ type zoneVirtualNetworkLinkState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
@@ -128,7 +128,7 @@ type ZoneVirtualNetworkLinkState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput
 }
 
@@ -147,7 +147,7 @@ type zoneVirtualNetworkLinkArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
 	VirtualNetworkId string `pulumi:"virtualNetworkId"`
 }
 
@@ -163,7 +163,7 @@ type ZoneVirtualNetworkLinkArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+	// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringInput
 }
 

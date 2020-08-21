@@ -11,23 +11,31 @@ from .. import utilities, tables
 
 class CustomHttpsConfiguration(pulumi.CustomResource):
     custom_https_configuration: pulumi.Output[dict]
+    """
+    A `custom_https_configuration` block as defined below.
+
+      * `azureKeyVaultCertificateSecretName` (`str`) - The name of the Key Vault secret representing the full certificate PFX.
+      * `azureKeyVaultCertificateSecretVersion` (`str`) - The version of the Key Vault secret representing the full certificate PFX.
+      * `azureKeyVaultCertificateVaultId` (`str`) - The ID of the Key Vault containing the SSL certificate.
+      * `certificateSource` (`str`) - Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+      * `minimum_tls_version` (`str`) - Minimum client TLS version supported.
+      * `provisioningState` (`str`)
+      * `provisioningSubstate` (`str`)
+    """
     custom_https_provisioning_enabled: pulumi.Output[bool]
     """
     Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
     """
     frontend_endpoint_id: pulumi.Output[str]
     """
-    Id of the Front Door Frontend endpoint this configuration refers to.
+    The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
     """
     resource_group_name: pulumi.Output[str]
-    """
-    Specifies the name of the Resource Group in which the Front Door exists
-    """
     def __init__(__self__, resource_name, opts=None, custom_https_configuration=None, custom_https_provisioning_enabled=None, frontend_endpoint_id=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages the Custom Https Configuration for an Azure Front Door Frontend Endpoint..
 
-        > **NOTE:** Custom https configurations for a Front Door Frontened Endpoint can be defined both within the `frontdoor.Frontdoor` resource via the `custom_https_configuration` block and by using a separate resource, as described in the following sections.
+        > **NOTE:** Custom https configurations for a Front Door Frontend Endpoint can be defined both within the `frontdoor.Frontdoor` resource via the `custom_https_configuration` block and by using a separate resource, as described in the following sections.
 
         > **NOTE:** Defining custom https configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
 
@@ -83,11 +91,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             ])
         example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints[0]["id"],
-            resource_group_name=example_resource_group.name,
             custom_https_provisioning_enabled=False)
         example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints[1]["id"],
-            resource_group_name=example_resource_group.name,
             custom_https_provisioning_enabled=True,
             custom_https_configuration={
                 "certificateSource": "AzureKeyVault",
@@ -99,9 +105,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] custom_https_configuration: A `custom_https_configuration` block as defined below.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
-        :param pulumi.Input[str] frontend_endpoint_id: Id of the Front Door Frontend endpoint this configuration refers to.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door exists
+        :param pulumi.Input[str] frontend_endpoint_id: The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
 
         The **custom_https_configuration** object supports the following:
 
@@ -137,8 +143,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             if frontend_endpoint_id is None:
                 raise TypeError("Missing required property 'frontend_endpoint_id'")
             __props__['frontend_endpoint_id'] = frontend_endpoint_id
-            if resource_group_name is None:
-                raise TypeError("Missing required property 'resource_group_name'")
+            if resource_group_name is not None:
+                warnings.warn("This field is no longer used and will be removed in the next major version of the Azure Provider", DeprecationWarning)
+                pulumi.log.warn("resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider")
             __props__['resource_group_name'] = resource_group_name
         super(CustomHttpsConfiguration, __self__).__init__(
             'azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration',
@@ -155,9 +162,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] custom_https_configuration: A `custom_https_configuration` block as defined below.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
-        :param pulumi.Input[str] frontend_endpoint_id: Id of the Front Door Frontend endpoint this configuration refers to.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door exists
+        :param pulumi.Input[str] frontend_endpoint_id: The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
 
         The **custom_https_configuration** object supports the following:
 

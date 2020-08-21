@@ -12,10 +12,9 @@ namespace Pulumi.Azure.Blueprint
     public static class GetPublishedVersion
     {
         /// <summary>
-        /// Use this data source to access information about an existing Azure Blueprint Published Version
+        /// Use this data source to access information about an existing Blueprint Published Version
         /// 
         /// &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-        /// 
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -57,7 +56,7 @@ namespace Pulumi.Azure.Blueprint
         public string BlueprintName { get; set; } = null!;
 
         /// <summary>
-        /// The Resource ID of the scope where the Blueprint Definition is stored. This will be with either a Subscription ID or Management Group ID.
+        /// The ID of the Management Group / Subscription where this Blueprint Definition is stored.
         /// </summary>
         [Input("scopeId", required: true)]
         public string ScopeId { get; set; } = null!;

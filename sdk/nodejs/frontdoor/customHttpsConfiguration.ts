@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages the Custom Https Configuration for an Azure Front Door Frontend Endpoint..
  *
- * > **NOTE:** Custom https configurations for a Front Door Frontened Endpoint can be defined both within the `azure.frontdoor.Frontdoor` resource via the `customHttpsConfiguration` block and by using a separate resource, as described in the following sections.
+ * > **NOTE:** Custom https configurations for a Front Door Frontend Endpoint can be defined both within the `azure.frontdoor.Frontdoor` resource via the `customHttpsConfiguration` block and by using a separate resource, as described in the following sections.
  *
  * > **NOTE:** Defining custom https configurations using a separate `azure.frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
  *
@@ -68,12 +68,10 @@ import * as utilities from "../utilities";
  * });
  * const exampleCustomHttps0 = new azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0", {
  *     frontendEndpointId: exampleFrontdoor.frontendEndpoints.apply(frontendEndpoints => frontendEndpoints[0].id),
- *     resourceGroupName: exampleResourceGroup.name,
  *     customHttpsProvisioningEnabled: false,
  * });
  * const exampleCustomHttps1 = new azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1", {
  *     frontendEndpointId: exampleFrontdoor.frontendEndpoints.apply(frontendEndpoints => frontendEndpoints[1].id),
- *     resourceGroupName: exampleResourceGroup.name,
  *     customHttpsProvisioningEnabled: true,
  *     customHttpsConfiguration: {
  *         certificateSource: "AzureKeyVault",
@@ -112,19 +110,22 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomHttpsConfiguration.__pulumiType;
     }
 
+    /**
+     * A `customHttpsConfiguration` block as defined below.
+     */
     public readonly customHttpsConfiguration!: pulumi.Output<outputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration | undefined>;
     /**
      * Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
      */
     public readonly customHttpsProvisioningEnabled!: pulumi.Output<boolean>;
     /**
-     * Id of the Front Door Frontend endpoint this configuration refers to.
+     * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
      */
     public readonly frontendEndpointId!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Resource Group in which the Front Door exists
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomHttpsConfiguration resource with the given unique name, arguments, and options.
@@ -150,9 +151,6 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
             if (!args || args.frontendEndpointId === undefined) {
                 throw new Error("Missing required property 'frontendEndpointId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             inputs["customHttpsConfiguration"] = args ? args.customHttpsConfiguration : undefined;
             inputs["customHttpsProvisioningEnabled"] = args ? args.customHttpsProvisioningEnabled : undefined;
             inputs["frontendEndpointId"] = args ? args.frontendEndpointId : undefined;
@@ -173,17 +171,20 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomHttpsConfiguration resources.
  */
 export interface CustomHttpsConfigurationState {
+    /**
+     * A `customHttpsConfiguration` block as defined below.
+     */
     readonly customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration>;
     /**
      * Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
      */
     readonly customHttpsProvisioningEnabled?: pulumi.Input<boolean>;
     /**
-     * Id of the Front Door Frontend endpoint this configuration refers to.
+     * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
      */
     readonly frontendEndpointId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group in which the Front Door exists
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
     readonly resourceGroupName?: pulumi.Input<string>;
 }
@@ -192,17 +193,20 @@ export interface CustomHttpsConfigurationState {
  * The set of arguments for constructing a CustomHttpsConfiguration resource.
  */
 export interface CustomHttpsConfigurationArgs {
+    /**
+     * A `customHttpsConfiguration` block as defined below.
+     */
     readonly customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration>;
     /**
      * Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
      */
     readonly customHttpsProvisioningEnabled: pulumi.Input<boolean>;
     /**
-     * Id of the Front Door Frontend endpoint this configuration refers to.
+     * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
      */
     readonly frontendEndpointId: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group in which the Front Door exists
+     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName?: pulumi.Input<string>;
 }

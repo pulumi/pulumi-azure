@@ -13,25 +13,25 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class WindowsVirtualMachineSourceImageReferenceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Specifies the offer of the image used to create the virtual machines.
+        /// Specifies the offer of the image used to create the virtual machines.
         /// </summary>
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+        /// Specifies the publisher of the image used to create the virtual machines.
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Specifies the SKU of the image used to create the virtual machines.
+        /// Specifies the SKU of the image used to create the virtual machines.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Specifies the version of the image used to create the virtual machines.
+        /// Specifies the version of the image used to create the virtual machines.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;

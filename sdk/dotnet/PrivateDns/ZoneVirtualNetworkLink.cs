@@ -74,7 +74,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        /// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualNetworkId")]
         public Output<string> VirtualNetworkId { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
-        /// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        /// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkId", required: true)]
         public Input<string> VirtualNetworkId { get; set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
-        /// The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        /// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }

@@ -98,7 +98,7 @@ export class Remediation extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource ID of the policy assignment that should be remediated.
+     * The ID of the Policy Assignment that should be remediated.
      */
     public readonly policyAssignmentId!: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export interface RemediationState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The resource ID of the policy assignment that should be remediated.
+     * The ID of the Policy Assignment that should be remediated.
      */
     readonly policyAssignmentId?: pulumi.Input<string>;
     /**
@@ -191,7 +191,7 @@ export interface RemediationArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The resource ID of the policy assignment that should be remediated.
+     * The ID of the Policy Assignment that should be remediated.
      */
     readonly policyAssignmentId: pulumi.Input<string>;
     /**

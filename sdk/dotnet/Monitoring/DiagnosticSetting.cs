@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

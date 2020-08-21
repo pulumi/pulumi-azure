@@ -94,6 +94,14 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * An `oauth2Authorization` block as documented below.
+     */
+    public readonly oauth2Authorization!: pulumi.Output<outputs.apimanagement.ApiOauth2Authorization | undefined>;
+    /**
+     * An `openidAuthentication` block as documented below.
+     */
+    public readonly openidAuthentication!: pulumi.Output<outputs.apimanagement.ApiOpenidAuthentication | undefined>;
+    /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
     public readonly path!: pulumi.Output<string>;
@@ -153,6 +161,8 @@ export class Api extends pulumi.CustomResource {
             inputs["isCurrent"] = state ? state.isCurrent : undefined;
             inputs["isOnline"] = state ? state.isOnline : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["oauth2Authorization"] = state ? state.oauth2Authorization : undefined;
+            inputs["openidAuthentication"] = state ? state.openidAuthentication : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["protocols"] = state ? state.protocols : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -188,6 +198,8 @@ export class Api extends pulumi.CustomResource {
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["import"] = args ? args.import : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["oauth2Authorization"] = args ? args.oauth2Authorization : undefined;
+            inputs["openidAuthentication"] = args ? args.openidAuthentication : undefined;
             inputs["path"] = args ? args.path : undefined;
             inputs["protocols"] = args ? args.protocols : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -244,6 +256,14 @@ export interface ApiState {
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * An `oauth2Authorization` block as documented below.
+     */
+    readonly oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization>;
+    /**
+     * An `openidAuthentication` block as documented below.
+     */
+    readonly openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication>;
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
@@ -310,6 +330,14 @@ export interface ApiArgs {
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * An `oauth2Authorization` block as documented below.
+     */
+    readonly oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization>;
+    /**
+     * An `openidAuthentication` block as documented below.
+     */
+    readonly openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication>;
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */

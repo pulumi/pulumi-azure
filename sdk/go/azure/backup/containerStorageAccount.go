@@ -71,7 +71,7 @@ type ContainerStorageAccount struct {
 	RecoveryVaultName pulumi.StringOutput `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault is located.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Azure Resource ID of the storage account to be registered
+	// The ID of the Storage Account to be registered
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 }
 
@@ -116,7 +116,7 @@ type containerStorageAccountState struct {
 	RecoveryVaultName *string `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault is located.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Azure Resource ID of the storage account to be registered
+	// The ID of the Storage Account to be registered
 	StorageAccountId *string `pulumi:"storageAccountId"`
 }
 
@@ -125,7 +125,7 @@ type ContainerStorageAccountState struct {
 	RecoveryVaultName pulumi.StringPtrInput
 	// Name of the resource group where the vault is located.
 	ResourceGroupName pulumi.StringPtrInput
-	// Azure Resource ID of the storage account to be registered
+	// The ID of the Storage Account to be registered
 	StorageAccountId pulumi.StringPtrInput
 }
 
@@ -138,7 +138,7 @@ type containerStorageAccountArgs struct {
 	RecoveryVaultName string `pulumi:"recoveryVaultName"`
 	// Name of the resource group where the vault is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Azure Resource ID of the storage account to be registered
+	// The ID of the Storage Account to be registered
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -148,7 +148,7 @@ type ContainerStorageAccountArgs struct {
 	RecoveryVaultName pulumi.StringInput
 	// Name of the resource group where the vault is located.
 	ResourceGroupName pulumi.StringInput
-	// Azure Resource ID of the storage account to be registered
+	// The ID of the Storage Account to be registered
 	StorageAccountId pulumi.StringInput
 }
 

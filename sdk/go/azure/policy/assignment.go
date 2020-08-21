@@ -66,7 +66,6 @@ type Assignment struct {
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-	// ---
 	EnforcementMode pulumi.BoolPtrOutput `pulumi:"enforcementMode"`
 	// An `identity` block.
 	Identity AssignmentIdentityOutput `pulumi:"identity"`
@@ -125,7 +124,6 @@ type assignmentState struct {
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-	// ---
 	EnforcementMode *bool `pulumi:"enforcementMode"`
 	// An `identity` block.
 	Identity *AssignmentIdentity `pulumi:"identity"`
@@ -151,7 +149,6 @@ type AssignmentState struct {
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringPtrInput
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-	// ---
 	EnforcementMode pulumi.BoolPtrInput
 	// An `identity` block.
 	Identity AssignmentIdentityPtrInput
@@ -181,7 +178,6 @@ type assignmentArgs struct {
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
 	DisplayName *string `pulumi:"displayName"`
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-	// ---
 	EnforcementMode *bool `pulumi:"enforcementMode"`
 	// An `identity` block.
 	Identity *AssignmentIdentity `pulumi:"identity"`
@@ -208,7 +204,6 @@ type AssignmentArgs struct {
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
 	DisplayName pulumi.StringPtrInput
 	// Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-	// ---
 	EnforcementMode pulumi.BoolPtrInput
 	// An `identity` block.
 	Identity AssignmentIdentityPtrInput

@@ -53,13 +53,13 @@ namespace Pulumi.Azure.Blueprint
     public sealed class GetDefinitionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Blueprint
+        /// The name of the Blueprint.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.
+        /// The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
         /// </summary>
         [Input("scopeId", required: true)]
         public string ScopeId { get; set; } = null!;

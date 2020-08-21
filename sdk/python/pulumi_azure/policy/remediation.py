@@ -20,7 +20,7 @@ class Remediation(pulumi.CustomResource):
     """
     policy_assignment_id: pulumi.Output[str]
     """
-    The resource ID of the policy assignment that should be remediated.
+    The ID of the Policy Assignment that should be remediated.
     """
     policy_definition_reference_id: pulumi.Output[str]
     """
@@ -89,7 +89,7 @@ class Remediation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that should be remediated.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         :param pulumi.Input[str] scope: The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
         """
@@ -136,7 +136,7 @@ class Remediation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that should be remediated.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         :param pulumi.Input[str] scope: The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
         """

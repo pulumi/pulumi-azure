@@ -54,7 +54,7 @@ type LookupScheduledQueryRulesAlertArgs struct {
 type LookupScheduledQueryRulesAlertResult struct {
 	// An `action` block as defined below.
 	Actions []GetScheduledQueryRulesAlertAction `pulumi:"actions"`
-	// List of Resource IDs referred into query.
+	// The list of Resource IDs referred into query.
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
 	// The resource URI over which log search query is to be run.
 	DataSourceId string `pulumi:"dataSourceId"`

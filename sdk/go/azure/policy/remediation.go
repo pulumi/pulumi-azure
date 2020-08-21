@@ -74,7 +74,7 @@ type Remediation struct {
 	LocationFilters pulumi.StringArrayOutput `pulumi:"locationFilters"`
 	// The name of the Policy Remediation. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource ID of the policy assignment that should be remediated.
+	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringOutput `pulumi:"policyAssignmentId"`
 	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
@@ -120,7 +120,7 @@ type remediationState struct {
 	LocationFilters []string `pulumi:"locationFilters"`
 	// The name of the Policy Remediation. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The resource ID of the policy assignment that should be remediated.
+	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
 	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
@@ -133,7 +133,7 @@ type RemediationState struct {
 	LocationFilters pulumi.StringArrayInput
 	// The name of the Policy Remediation. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The resource ID of the policy assignment that should be remediated.
+	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringPtrInput
 	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
@@ -150,7 +150,7 @@ type remediationArgs struct {
 	LocationFilters []string `pulumi:"locationFilters"`
 	// The name of the Policy Remediation. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The resource ID of the policy assignment that should be remediated.
+	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
 	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
@@ -164,7 +164,7 @@ type RemediationArgs struct {
 	LocationFilters pulumi.StringArrayInput
 	// The name of the Policy Remediation. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The resource ID of the policy assignment that should be remediated.
+	// The ID of the Policy Assignment that should be remediated.
 	PolicyAssignmentId pulumi.StringInput
 	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
