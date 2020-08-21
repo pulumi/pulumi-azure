@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.24.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 3.17.0 (2020-08-21)
+* Upgrade to v2.24.0 of the AzureRM Terraform Provider
 
 ## 3.16.0 (2020-08-14)
 * Upgrade to v2.23.0 of the AzureRM Terraform Provider
