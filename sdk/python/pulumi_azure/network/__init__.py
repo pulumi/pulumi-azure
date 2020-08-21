@@ -72,3 +72,5 @@ from .virtual_network_peering import *
 from .virtual_wan import *
 from .vpn_gateway import *
 from .vpn_server_configuration import *
+from ._inputs import *
+from . import outputs

@@ -13,14 +13,41 @@ namespace Pulumi.Azure.Bot.Outputs
     [OutputType]
     public sealed class ChannelDirectLineSite
     {
+        /// <summary>
+        /// Enables/Disables this site. Enabled by default
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+        /// </summary>
         public readonly bool? EnhancedAuthenticationEnabled;
+        /// <summary>
+        /// Id for the site
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Primary key for accessing this site
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// Secondary key for accessing this site
+        /// </summary>
         public readonly string? Key2;
+        /// <summary>
+        /// The name of the site
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+        /// </summary>
         public readonly ImmutableArray<string> TrustedOrigins;
+        /// <summary>
+        /// Enables v1 of the Directline protocol for this site. Enabled by default
+        /// </summary>
         public readonly bool? V1Allowed;
+        /// <summary>
+        /// Enables v3 of the Directline protocol for this site. Enabled by default
+        /// </summary>
         public readonly bool? V3Allowed;
 
         [OutputConstructor]

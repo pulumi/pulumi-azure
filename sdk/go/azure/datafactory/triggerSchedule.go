@@ -39,15 +39,15 @@ import (
 // 			return err
 // 		}
 // 		testPipeline, err := datafactory.NewPipeline(ctx, "testPipeline", &datafactory.PipelineArgs{
-// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
-// 			DataFactoryName:   pulumi.String(azurerm_data_factory.Test.Name),
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+// 			DataFactoryName:   pulumi.Any(azurerm_data_factory.Test.Name),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = datafactory.NewTriggerSchedule(ctx, "testTriggerSchedule", &datafactory.TriggerScheduleArgs{
-// 			DataFactoryName:   pulumi.String(azurerm_data_factory.Test.Name),
-// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
+// 			DataFactoryName:   pulumi.Any(azurerm_data_factory.Test.Name),
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
 // 			PipelineName:      testPipeline.Name,
 // 			Interval:          pulumi.Int(5),
 // 			Frequency:         pulumi.String("Day"),

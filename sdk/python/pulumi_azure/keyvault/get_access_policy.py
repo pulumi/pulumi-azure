@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetAccessPolicyResult',
+    'AwaitableGetAccessPolicyResult',
+    'get_access_policy',
+]
+
+@pulumi.output_type
 class GetAccessPolicyResult:
     """
     A collection of values returned by getAccessPolicy.
@@ -15,31 +22,58 @@ class GetAccessPolicyResult:
     def __init__(__self__, certificate_permissions=None, id=None, key_permissions=None, name=None, secret_permissions=None):
         if certificate_permissions and not isinstance(certificate_permissions, list):
             raise TypeError("Expected argument 'certificate_permissions' to be a list")
-        __self__.certificate_permissions = certificate_permissions
+        pulumi.set(__self__, "certificate_permissions", certificate_permissions)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if key_permissions and not isinstance(key_permissions, list):
+            raise TypeError("Expected argument 'key_permissions' to be a list")
+        pulumi.set(__self__, "key_permissions", key_permissions)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if secret_permissions and not isinstance(secret_permissions, list):
+            raise TypeError("Expected argument 'secret_permissions' to be a list")
+        pulumi.set(__self__, "secret_permissions", secret_permissions)
+
+    @property
+    @pulumi.getter(name="certificatePermissions")
+    def certificate_permissions(self) -> List[str]:
         """
         the certificate permissions for the access policy
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "certificate_permissions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if key_permissions and not isinstance(key_permissions, list):
-            raise TypeError("Expected argument 'key_permissions' to be a list")
-        __self__.key_permissions = key_permissions
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyPermissions")
+    def key_permissions(self) -> List[str]:
         """
         the key permissions for the access policy
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if secret_permissions and not isinstance(secret_permissions, list):
-            raise TypeError("Expected argument 'secret_permissions' to be a list")
-        __self__.secret_permissions = secret_permissions
+        return pulumi.get(self, "key_permissions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretPermissions")
+    def secret_permissions(self) -> List[str]:
         """
         the secret permissions for the access policy
         """
+        return pulumi.get(self, "secret_permissions")
+
+
 class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -52,7 +86,9 @@ class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
             name=self.name,
             secret_permissions=self.secret_permissions)
 
-def get_access_policy(name=None,opts=None):
+
+def get_access_policy(name: Optional[str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
 
@@ -72,18 +108,16 @@ def get_access_policy(name=None,opts=None):
            `Secret & Certificate Management`,  `Key, Secret, & Certificate Management`
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult).value
 
     return AwaitableGetAccessPolicyResult(
-        certificate_permissions=__ret__.get('certificatePermissions'),
-        id=__ret__.get('id'),
-        key_permissions=__ret__.get('keyPermissions'),
-        name=__ret__.get('name'),
-        secret_permissions=__ret__.get('secretPermissions'))
+        certificate_permissions=__ret__.certificate_permissions,
+        id=__ret__.id,
+        key_permissions=__ret__.key_permissions,
+        name=__ret__.name,
+        secret_permissions=__ret__.secret_permissions)

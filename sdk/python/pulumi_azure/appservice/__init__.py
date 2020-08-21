@@ -23,3 +23,5 @@ from .slot import *
 from .slot_virtual_network_swift_connection import *
 from .source_code_token import *
 from .virtual_network_swift_connection import *
+from ._inputs import *
+from . import outputs

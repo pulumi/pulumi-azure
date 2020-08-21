@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetPublishedVersionResult',
+    'AwaitableGetPublishedVersionResult',
+    'get_published_version',
+]
+
+@pulumi.output_type
 class GetPublishedVersionResult:
     """
     A collection of values returned by getPublishedVersion.
@@ -15,49 +22,101 @@ class GetPublishedVersionResult:
     def __init__(__self__, blueprint_name=None, description=None, display_name=None, id=None, last_modified=None, scope_id=None, target_scope=None, time_created=None, type=None, version=None):
         if blueprint_name and not isinstance(blueprint_name, str):
             raise TypeError("Expected argument 'blueprint_name' to be a str")
-        __self__.blueprint_name = blueprint_name
+        pulumi.set(__self__, "blueprint_name", blueprint_name)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        pulumi.set(__self__, "last_modified", last_modified)
+        if scope_id and not isinstance(scope_id, str):
+            raise TypeError("Expected argument 'scope_id' to be a str")
+        pulumi.set(__self__, "scope_id", scope_id)
+        if target_scope and not isinstance(target_scope, str):
+            raise TypeError("Expected argument 'target_scope' to be a str")
+        pulumi.set(__self__, "target_scope", target_scope)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="blueprintName")
+    def blueprint_name(self) -> str:
+        return pulumi.get(self, "blueprint_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         The description of the Blueprint Published Version
         """
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         The display name of the Blueprint Published Version
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if last_modified and not isinstance(last_modified, str):
-            raise TypeError("Expected argument 'last_modified' to be a str")
-        __self__.last_modified = last_modified
-        if scope_id and not isinstance(scope_id, str):
-            raise TypeError("Expected argument 'scope_id' to be a str")
-        __self__.scope_id = scope_id
-        if target_scope and not isinstance(target_scope, str):
-            raise TypeError("Expected argument 'target_scope' to be a str")
-        __self__.target_scope = target_scope
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter(name="scopeId")
+    def scope_id(self) -> str:
+        return pulumi.get(self, "scope_id")
+
+    @property
+    @pulumi.getter(name="targetScope")
+    def target_scope(self) -> str:
         """
         The target scope
         """
-        if time_created and not isinstance(time_created, str):
-            raise TypeError("Expected argument 'time_created' to be a str")
-        __self__.time_created = time_created
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "target_scope")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        return pulumi.get(self, "time_created")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of the Blueprint
         """
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        return pulumi.get(self, "version")
+
+
 class AwaitableGetPublishedVersionResult(GetPublishedVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -75,7 +134,11 @@ class AwaitableGetPublishedVersionResult(GetPublishedVersionResult):
             type=self.type,
             version=self.version)
 
-def get_published_version(blueprint_name=None,scope_id=None,version=None,opts=None):
+
+def get_published_version(blueprint_name: Optional[str] = None,
+                          scope_id: Optional[str] = None,
+                          version: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublishedVersionResult:
     """
     Use this data source to access information about an existing Blueprint Published Version
 
@@ -99,25 +162,23 @@ def get_published_version(blueprint_name=None,scope_id=None,version=None,opts=No
     :param str version: The Version name of the Published Version of the Blueprint Definition
     """
     __args__ = dict()
-
-
     __args__['blueprintName'] = blueprint_name
     __args__['scopeId'] = scope_id
     __args__['version'] = version
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:blueprint/getPublishedVersion:getPublishedVersion', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:blueprint/getPublishedVersion:getPublishedVersion', __args__, opts=opts, typ=GetPublishedVersionResult).value
 
     return AwaitableGetPublishedVersionResult(
-        blueprint_name=__ret__.get('blueprintName'),
-        description=__ret__.get('description'),
-        display_name=__ret__.get('displayName'),
-        id=__ret__.get('id'),
-        last_modified=__ret__.get('lastModified'),
-        scope_id=__ret__.get('scopeId'),
-        target_scope=__ret__.get('targetScope'),
-        time_created=__ret__.get('timeCreated'),
-        type=__ret__.get('type'),
-        version=__ret__.get('version'))
+        blueprint_name=__ret__.blueprint_name,
+        description=__ret__.description,
+        display_name=__ret__.display_name,
+        id=__ret__.id,
+        last_modified=__ret__.last_modified,
+        scope_id=__ret__.scope_id,
+        target_scope=__ret__.target_scope,
+        time_created=__ret__.time_created,
+        type=__ret__.type,
+        version=__ret__.version)

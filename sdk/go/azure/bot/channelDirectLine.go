@@ -14,10 +14,14 @@ import (
 type ChannelDirectLine struct {
 	pulumi.CustomResourceState
 
-	BotName           pulumi.StringOutput              `pulumi:"botName"`
-	Location          pulumi.StringOutput              `pulumi:"location"`
-	ResourceGroupName pulumi.StringOutput              `pulumi:"resourceGroupName"`
-	Sites             ChannelDirectLineSiteArrayOutput `pulumi:"sites"`
+	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+	BotName pulumi.StringOutput `pulumi:"botName"`
+	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	Sites ChannelDirectLineSiteArrayOutput `pulumi:"sites"`
 }
 
 // NewChannelDirectLine registers a new resource with the given unique name, arguments, and options.
@@ -57,17 +61,25 @@ func GetChannelDirectLine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ChannelDirectLine resources.
 type channelDirectLineState struct {
-	BotName           *string                 `pulumi:"botName"`
-	Location          *string                 `pulumi:"location"`
-	ResourceGroupName *string                 `pulumi:"resourceGroupName"`
-	Sites             []ChannelDirectLineSite `pulumi:"sites"`
+	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+	BotName *string `pulumi:"botName"`
+	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
+	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	Sites []ChannelDirectLineSite `pulumi:"sites"`
 }
 
 type ChannelDirectLineState struct {
-	BotName           pulumi.StringPtrInput
-	Location          pulumi.StringPtrInput
+	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+	BotName pulumi.StringPtrInput
+	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput
+	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Sites             ChannelDirectLineSiteArrayInput
+	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	Sites ChannelDirectLineSiteArrayInput
 }
 
 func (ChannelDirectLineState) ElementType() reflect.Type {
@@ -75,18 +87,26 @@ func (ChannelDirectLineState) ElementType() reflect.Type {
 }
 
 type channelDirectLineArgs struct {
-	BotName           string                  `pulumi:"botName"`
-	Location          *string                 `pulumi:"location"`
-	ResourceGroupName string                  `pulumi:"resourceGroupName"`
-	Sites             []ChannelDirectLineSite `pulumi:"sites"`
+	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+	BotName string `pulumi:"botName"`
+	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location *string `pulumi:"location"`
+	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	Sites []ChannelDirectLineSite `pulumi:"sites"`
 }
 
 // The set of arguments for constructing a ChannelDirectLine resource.
 type ChannelDirectLineArgs struct {
-	BotName           pulumi.StringInput
-	Location          pulumi.StringPtrInput
+	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+	BotName pulumi.StringInput
+	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	Location pulumi.StringPtrInput
+	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Sites             ChannelDirectLineSiteArrayInput
+	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	Sites ChannelDirectLineSiteArrayInput
 }
 
 func (ChannelDirectLineArgs) ElementType() reflect.Type {

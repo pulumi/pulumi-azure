@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPolicyResult',
+    'AwaitableGetPolicyResult',
+    'get_policy',
+]
+
+@pulumi.output_type
 class GetPolicyResult:
     """
     A collection of values returned by getPolicy.
@@ -15,19 +23,36 @@ class GetPolicyResult:
     def __init__(__self__, id=None, rules=None, storage_account_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if rules and not isinstance(rules, list):
+            raise TypeError("Expected argument 'rules' to be a list")
+        pulumi.set(__self__, "rules", rules)
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if rules and not isinstance(rules, list):
-            raise TypeError("Expected argument 'rules' to be a list")
-        __self__.rules = rules
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> List['outputs.GetPolicyRuleResult']:
         """
         A `rule` block as documented below.
         """
-        if storage_account_id and not isinstance(storage_account_id, str):
-            raise TypeError("Expected argument 'storage_account_id' to be a str")
-        __self__.storage_account_id = storage_account_id
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        return pulumi.get(self, "storage_account_id")
+
+
 class AwaitableGetPolicyResult(GetPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -38,7 +63,9 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             rules=self.rules,
             storage_account_id=self.storage_account_id)
 
-def get_policy(storage_account_id=None,opts=None):
+
+def get_policy(storage_account_id: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Use this data source to access information about an existing Storage Management Policy.
 
@@ -57,16 +84,14 @@ def get_policy(storage_account_id=None,opts=None):
     :param str storage_account_id: Specifies the id of the storage account to retrieve the management policy for.
     """
     __args__ = dict()
-
-
     __args__['storageAccountId'] = storage_account_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:storage/getPolicy:getPolicy', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:storage/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        id=__ret__.get('id'),
-        rules=__ret__.get('rules'),
-        storage_account_id=__ret__.get('storageAccountId'))
+        id=__ret__.id,
+        rules=__ret__.rules,
+        storage_account_id=__ret__.storage_account_id)

@@ -5,189 +5,40 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Service']
 
 
 class Service(pulumi.CustomResource):
-    additional_locations: pulumi.Output[list]
-    """
-    One or more `additional_location` blocks as defined below.
-
-      * `gateway_regional_url` (`str`) - The URL of the Regional Gateway for the API Management Service in the specified region.
-      * `location` (`str`) - The name of the Azure Region in which the API Management Service should be expanded to.
-      * `public_ip_addresses` (`list`) - Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-    """
-    certificates: pulumi.Output[list]
-    """
-    One or more (up to 10) `certificate` blocks as defined below.
-
-      * `certificatePassword` (`str`) - The password for the certificate.
-      * `encodedCertificate` (`str`) - The Base64 Encoded PFX Certificate.
-      * `storeName` (`str`) - The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
-    """
-    developer_portal_url: pulumi.Output[str]
-    """
-    The URL for the Developer Portal associated with this API Management service.
-    """
-    gateway_regional_url: pulumi.Output[str]
-    """
-    The URL of the Regional Gateway for the API Management Service in the specified region.
-    """
-    gateway_url: pulumi.Output[str]
-    """
-    The URL of the Gateway for the API Management Service.
-    """
-    hostname_configuration: pulumi.Output[dict]
-    """
-    A `hostname_configuration` block as defined below.
-
-      * `developerPortals` (`list`) - One or more `developer_portal` blocks as documented below.
-        * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
-        * `certificatePassword` (`str`) - The password for the certificate.
-        * `host_name` (`str`) - The Hostname to use for the Management API.
-        * `key_vault_id` (`str`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-        * `negotiateClientCertificate` (`bool`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-      * `managements` (`list`) - One or more `management` blocks as documented below.
-        * `certificate` (`str`) - The Base64 Encoded Certificate.
-        * `certificatePassword` (`str`) - The password associated with the certificate provided above.
-        * `host_name` (`str`) - The Hostname to use for the Management API.
-        * `key_vault_id` (`str`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-        * `negotiateClientCertificate` (`bool`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-      * `portals` (`list`) - One or more `portal` blocks as documented below.
-        * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
-        * `certificatePassword` (`str`) - The password for the certificate.
-        * `host_name` (`str`) - The Hostname to use for the Management API.
-        * `key_vault_id` (`str`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-        * `negotiateClientCertificate` (`bool`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-      * `proxies` (`list`) - One or more `proxy` blocks as documented below.
-        * `certificate` (`str`) - The Base64 Encoded Certificate.
-        * `certificatePassword` (`str`) - The password associated with the certificate provided above.
-        * `defaultSslBinding` (`bool`) - Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
-        * `host_name` (`str`) - The Hostname to use for the Management API.
-        * `key_vault_id` (`str`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-        * `negotiateClientCertificate` (`bool`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-      * `scms` (`list`) - One or more `scm` blocks as documented below.
-        * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
-        * `certificatePassword` (`str`) - The password for the certificate.
-        * `host_name` (`str`) - The Hostname to use for the Management API.
-        * `key_vault_id` (`str`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-        * `negotiateClientCertificate` (`bool`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-    """
-    identity: pulumi.Output[dict]
-    """
-    An `identity` block is documented below.
-
-      * `identityIds` (`list`) - A list of IDs for User Assigned Managed Identity resources to be assigned.
-      * `principal_id` (`str`) - The Principal ID associated with this Managed Service Identity.
-      * `tenant_id` (`str`) - The Tenant ID associated with this Managed Service Identity.
-      * `type` (`str`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-    """
-    management_api_url: pulumi.Output[str]
-    """
-    The URL for the Management API associated with this API Management service.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the API Management Service. Changing this forces a new resource to be created.
-    """
-    notification_sender_email: pulumi.Output[str]
-    """
-    Email address from which the notification will be sent.
-    """
-    policy: pulumi.Output[dict]
-    """
-    A `policy` block as defined below.
-
-      * `xml_content` (`str`) - The XML Content for this Policy.
-      * `xml_link` (`str`) - A link to an API Management Policy XML Document, which must be publicly available.
-    """
-    portal_url: pulumi.Output[str]
-    """
-    The URL for the Publisher Portal associated with this API Management service.
-    """
-    private_ip_addresses: pulumi.Output[list]
-    protocols: pulumi.Output[dict]
-    """
-    A `protocols` block as defined below.
-
-      * `enable_http2` (`bool`) - Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
-    """
-    public_ip_addresses: pulumi.Output[list]
-    """
-    Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-    """
-    publisher_email: pulumi.Output[str]
-    """
-    The email of publisher/company.
-    """
-    publisher_name: pulumi.Output[str]
-    """
-    The name of publisher/company.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-    """
-    scm_url: pulumi.Output[str]
-    """
-    The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
-    """
-    security: pulumi.Output[dict]
-    """
-    A `security` block as defined below.
-
-      * `enableBackendSsl30` (`bool`) - Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
-      * `enableBackendTls10` (`bool`) - Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
-      * `enableBackendTls11` (`bool`) - Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
-      * `enableFrontendSsl30` (`bool`) - Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
-      * `enableFrontendTls10` (`bool`) - Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
-      * `enableFrontendTls11` (`bool`) - Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
-      * `enableTripleDesCiphers` (`bool`) - Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-    """
-    sign_in: pulumi.Output[dict]
-    """
-    A `sign_in` block as defined below.
-
-      * `enabled` (`bool`) - Should anonymous users be redirected to the sign in page?
-    """
-    sign_up: pulumi.Output[dict]
-    """
-    A `sign_up` block as defined below.
-
-      * `enabled` (`bool`) - Can users sign up on the development portal?
-      * `termsOfService` (`dict`) - A `terms_of_service` block as defined below.
-        * `consentRequired` (`bool`) - Should the user be asked for consent during sign up?
-        * `enabled` (`bool`) - Should Terms of Service be displayed during sign up?.
-        * `text` (`str`) - The Terms of Service which users are required to agree to in order to sign up.
-    """
-    sku_name: pulumi.Output[str]
-    """
-    `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags assigned to the resource.
-    """
-    virtual_network_configuration: pulumi.Output[dict]
-    """
-    A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
-
-      * `subnet_id` (`str`) - The id of the subnet that will be used for the API Management.
-    """
-    virtual_network_type: pulumi.Output[str]
-    """
-    The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-    """
-    def __init__(__self__, resource_name, opts=None, additional_locations=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, protocols=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None, virtual_network_configuration=None, virtual_network_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+                 hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification_sender_email: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
+                 protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+                 publisher_email: Optional[pulumi.Input[str]] = None,
+                 publisher_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
+                 sign_in: Optional[pulumi.Input[pulumi.InputType['ServiceSignInArgs']]] = None,
+                 sign_up: Optional[pulumi.Input[pulumi.InputType['ServiceSignUpArgs']]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
+                 virtual_network_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an API Management Service.
 
@@ -204,130 +55,38 @@ class Service(pulumi.CustomResource):
             publisher_name="My Company",
             publisher_email="company@exmaple.com",
             sku_name="Developer_1",
-            policy={
-                "xml_content": \"\"\"    <policies>
+            policy=azure.apimanagement.ServicePolicyArgs(
+                xml_content=\"\"\"    <policies>
               <inbound />
               <backend />
               <outbound />
               <on-error />
             </policies>
         \"\"\",
-            })
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[list] certificates: One or more (up to 10) `certificate` blocks as defined below.
-        :param pulumi.Input[dict] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input[dict] identity: An `identity` block is documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[dict] policy: A `policy` block as defined below.
-        :param pulumi.Input[dict] protocols: A `protocols` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] security: A `security` block as defined below.
-        :param pulumi.Input[dict] sign_in: A `sign_in` block as defined below.
-        :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceSignInArgs']] sign_in: A `sign_in` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceSignUpArgs']] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-        :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
-        :param pulumi.Input[dict] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-
-        The **additional_locations** object supports the following:
-
-          * `gateway_regional_url` (`pulumi.Input[str]`) - The URL of the Regional Gateway for the API Management Service in the specified region.
-          * `location` (`pulumi.Input[str]`) - The name of the Azure Region in which the API Management Service should be expanded to.
-          * `public_ip_addresses` (`pulumi.Input[list]`) - Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-
-        The **certificates** object supports the following:
-
-          * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
-          * `encodedCertificate` (`pulumi.Input[str]`) - The Base64 Encoded PFX Certificate.
-          * `storeName` (`pulumi.Input[str]`) - The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
-
-        The **hostname_configuration** object supports the following:
-
-          * `developerPortals` (`pulumi.Input[list]`) - One or more `developer_portal` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-          * `managements` (`pulumi.Input[list]`) - One or more `management` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - The Base64 Encoded Certificate.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password associated with the certificate provided above.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-          * `portals` (`pulumi.Input[list]`) - One or more `portal` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-          * `proxies` (`pulumi.Input[list]`) - One or more `proxy` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - The Base64 Encoded Certificate.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password associated with the certificate provided above.
-            * `defaultSslBinding` (`pulumi.Input[bool]`) - Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-          * `scms` (`pulumi.Input[list]`) - One or more `scm` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`) - A list of IDs for User Assigned Managed Identity resources to be assigned.
-          * `principal_id` (`pulumi.Input[str]`) - The Principal ID associated with this Managed Service Identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID associated with this Managed Service Identity.
-          * `type` (`pulumi.Input[str]`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
-
-        The **policy** object supports the following:
-
-          * `xml_content` (`pulumi.Input[str]`) - The XML Content for this Policy.
-          * `xml_link` (`pulumi.Input[str]`) - A link to an API Management Policy XML Document, which must be publicly available.
-
-        The **protocols** object supports the following:
-
-          * `enable_http2` (`pulumi.Input[bool]`) - Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
-
-        The **security** object supports the following:
-
-          * `enableBackendSsl30` (`pulumi.Input[bool]`) - Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
-          * `enableBackendTls10` (`pulumi.Input[bool]`) - Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
-          * `enableBackendTls11` (`pulumi.Input[bool]`) - Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
-          * `enableFrontendSsl30` (`pulumi.Input[bool]`) - Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
-          * `enableFrontendTls10` (`pulumi.Input[bool]`) - Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
-          * `enableFrontendTls11` (`pulumi.Input[bool]`) - Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
-          * `enableTripleDesCiphers` (`pulumi.Input[bool]`) - Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-
-        The **sign_in** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Should anonymous users be redirected to the sign in page?
-
-        The **sign_up** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Can users sign up on the development portal?
-          * `termsOfService` (`pulumi.Input[dict]`) - A `terms_of_service` block as defined below.
-            * `consentRequired` (`pulumi.Input[bool]`) - Should the user be asked for consent during sign up?
-            * `enabled` (`pulumi.Input[bool]`) - Should Terms of Service be displayed during sign up?.
-            * `text` (`pulumi.Input[str]`) - The Terms of Service which users are required to agree to in order to sign up.
-
-        The **virtual_network_configuration** object supports the following:
-
-          * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet that will be used for the API Management.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -340,7 +99,7 @@ class Service(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -388,132 +147,69 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_locations=None, certificates=None, developer_portal_url=None, gateway_regional_url=None, gateway_url=None, hostname_configuration=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, policy=None, portal_url=None, private_ip_addresses=None, protocols=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, security=None, sign_in=None, sign_up=None, sku_name=None, tags=None, virtual_network_configuration=None, virtual_network_type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
+            certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+            developer_portal_url: Optional[pulumi.Input[str]] = None,
+            gateway_regional_url: Optional[pulumi.Input[str]] = None,
+            gateway_url: Optional[pulumi.Input[str]] = None,
+            hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            management_api_url: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            notification_sender_email: Optional[pulumi.Input[str]] = None,
+            policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
+            portal_url: Optional[pulumi.Input[str]] = None,
+            private_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+            public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            publisher_email: Optional[pulumi.Input[str]] = None,
+            publisher_name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            scm_url: Optional[pulumi.Input[str]] = None,
+            security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
+            sign_in: Optional[pulumi.Input[pulumi.InputType['ServiceSignInArgs']]] = None,
+            sign_up: Optional[pulumi.Input[pulumi.InputType['ServiceSignUpArgs']]] = None,
+            sku_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
+            virtual_network_type: Optional[pulumi.Input[str]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[list] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
-        :param pulumi.Input[dict] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input[dict] identity: An `identity` block is documented below.
+        :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_api_url: The URL for the Management API associated with this API Management service.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[dict] policy: A `policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
-        :param pulumi.Input[dict] protocols: A `protocols` block as defined below.
-        :param pulumi.Input[list] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scm_url: The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
-        :param pulumi.Input[dict] security: A `security` block as defined below.
-        :param pulumi.Input[dict] sign_in: A `sign_in` block as defined below.
-        :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceSignInArgs']] sign_in: A `sign_in` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceSignUpArgs']] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
-        :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
-        :param pulumi.Input[dict] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-
-        The **additional_locations** object supports the following:
-
-          * `gateway_regional_url` (`pulumi.Input[str]`) - The URL of the Regional Gateway for the API Management Service in the specified region.
-          * `location` (`pulumi.Input[str]`) - The name of the Azure Region in which the API Management Service should be expanded to.
-          * `public_ip_addresses` (`pulumi.Input[list]`) - Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-
-        The **certificates** object supports the following:
-
-          * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
-          * `encodedCertificate` (`pulumi.Input[str]`) - The Base64 Encoded PFX Certificate.
-          * `storeName` (`pulumi.Input[str]`) - The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
-
-        The **hostname_configuration** object supports the following:
-
-          * `developerPortals` (`pulumi.Input[list]`) - One or more `developer_portal` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-          * `managements` (`pulumi.Input[list]`) - One or more `management` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - The Base64 Encoded Certificate.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password associated with the certificate provided above.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-          * `portals` (`pulumi.Input[list]`) - One or more `portal` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-          * `proxies` (`pulumi.Input[list]`) - One or more `proxy` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - The Base64 Encoded Certificate.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password associated with the certificate provided above.
-            * `defaultSslBinding` (`pulumi.Input[bool]`) - Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-          * `scms` (`pulumi.Input[list]`) - One or more `scm` blocks as documented below.
-            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
-            * `certificatePassword` (`pulumi.Input[str]`) - The password for the certificate.
-            * `host_name` (`pulumi.Input[str]`) - The Hostname to use for the Management API.
-            * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-            * `negotiateClientCertificate` (`pulumi.Input[bool]`) - Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`) - A list of IDs for User Assigned Managed Identity resources to be assigned.
-          * `principal_id` (`pulumi.Input[str]`) - The Principal ID associated with this Managed Service Identity.
-          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID associated with this Managed Service Identity.
-          * `type` (`pulumi.Input[str]`) - Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
-
-        The **policy** object supports the following:
-
-          * `xml_content` (`pulumi.Input[str]`) - The XML Content for this Policy.
-          * `xml_link` (`pulumi.Input[str]`) - A link to an API Management Policy XML Document, which must be publicly available.
-
-        The **protocols** object supports the following:
-
-          * `enable_http2` (`pulumi.Input[bool]`) - Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
-
-        The **security** object supports the following:
-
-          * `enableBackendSsl30` (`pulumi.Input[bool]`) - Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
-          * `enableBackendTls10` (`pulumi.Input[bool]`) - Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
-          * `enableBackendTls11` (`pulumi.Input[bool]`) - Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
-          * `enableFrontendSsl30` (`pulumi.Input[bool]`) - Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
-          * `enableFrontendTls10` (`pulumi.Input[bool]`) - Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
-          * `enableFrontendTls11` (`pulumi.Input[bool]`) - Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
-          * `enableTripleDesCiphers` (`pulumi.Input[bool]`) - Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
-
-        The **sign_in** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Should anonymous users be redirected to the sign in page?
-
-        The **sign_up** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Can users sign up on the development portal?
-          * `termsOfService` (`pulumi.Input[dict]`) - A `terms_of_service` block as defined below.
-            * `consentRequired` (`pulumi.Input[bool]`) - Should the user be asked for consent during sign up?
-            * `enabled` (`pulumi.Input[bool]`) - Should Terms of Service be displayed during sign up?.
-            * `text` (`pulumi.Input[str]`) - The Terms of Service which users are required to agree to in order to sign up.
-
-        The **virtual_network_configuration** object supports the following:
-
-          * `subnet_id` (`pulumi.Input[str]`) - The id of the subnet that will be used for the API Management.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -548,8 +244,222 @@ class Service(pulumi.CustomResource):
         __props__["virtual_network_type"] = virtual_network_type
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Optional[List['outputs.ServiceAdditionalLocation']]:
+        """
+        One or more `additional_location` blocks as defined below.
+        """
+        return pulumi.get(self, "additional_locations")
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[List['outputs.ServiceCertificate']]:
+        """
+        One or more (up to 10) `certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter(name="developerPortalUrl")
+    def developer_portal_url(self) -> str:
+        """
+        The URL for the Developer Portal associated with this API Management service.
+        """
+        return pulumi.get(self, "developer_portal_url")
+
+    @property
+    @pulumi.getter(name="gatewayRegionalUrl")
+    def gateway_regional_url(self) -> str:
+        """
+        The URL of the Regional Gateway for the API Management Service in the specified region.
+        """
+        return pulumi.get(self, "gateway_regional_url")
+
+    @property
+    @pulumi.getter(name="gatewayUrl")
+    def gateway_url(self) -> str:
+        """
+        The URL of the Gateway for the API Management Service.
+        """
+        return pulumi.get(self, "gateway_url")
+
+    @property
+    @pulumi.getter(name="hostnameConfiguration")
+    def hostname_configuration(self) -> 'outputs.ServiceHostnameConfiguration':
+        """
+        A `hostname_configuration` block as defined below.
+        """
+        return pulumi.get(self, "hostname_configuration")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ServiceIdentity']:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementApiUrl")
+    def management_api_url(self) -> str:
+        """
+        The URL for the Management API associated with this API Management service.
+        """
+        return pulumi.get(self, "management_api_url")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationSenderEmail")
+    def notification_sender_email(self) -> str:
+        """
+        Email address from which the notification will be sent.
+        """
+        return pulumi.get(self, "notification_sender_email")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> 'outputs.ServicePolicy':
+        """
+        A `policy` block as defined below.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="portalUrl")
+    def portal_url(self) -> str:
+        """
+        The URL for the Publisher Portal associated with this API Management service.
+        """
+        return pulumi.get(self, "portal_url")
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> List[str]:
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> 'outputs.ServiceProtocols':
+        """
+        A `protocols` block as defined below.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> List[str]:
+        """
+        Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publisherEmail")
+    def publisher_email(self) -> str:
+        """
+        The email of publisher/company.
+        """
+        return pulumi.get(self, "publisher_email")
+
+    @property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> str:
+        """
+        The name of publisher/company.
+        """
+        return pulumi.get(self, "publisher_name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="scmUrl")
+    def scm_url(self) -> str:
+        """
+        The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
+        """
+        return pulumi.get(self, "scm_url")
+
+    @property
+    @pulumi.getter
+    def security(self) -> 'outputs.ServiceSecurity':
+        """
+        A `security` block as defined below.
+        """
+        return pulumi.get(self, "security")
+
+    @property
+    @pulumi.getter(name="signIn")
+    def sign_in(self) -> 'outputs.ServiceSignIn':
+        """
+        A `sign_in` block as defined below.
+        """
+        return pulumi.get(self, "sign_in")
+
+    @property
+    @pulumi.getter(name="signUp")
+    def sign_up(self) -> 'outputs.ServiceSignUp':
+        """
+        A `sign_up` block as defined below.
+        """
+        return pulumi.get(self, "sign_up")
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> str:
+        """
+        `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        """
+        return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="virtualNetworkConfiguration")
+    def virtual_network_configuration(self) -> Optional['outputs.ServiceVirtualNetworkConfiguration']:
+        """
+        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        """
+        return pulumi.get(self, "virtual_network_configuration")
+
+    @property
+    @pulumi.getter(name="virtualNetworkType")
+    def virtual_network_type(self) -> Optional[str]:
+        """
+        The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+        """
+        return pulumi.get(self, "virtual_network_type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

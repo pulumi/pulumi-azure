@@ -5,48 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Policy']
 
 
 class Policy(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    A description for the Policy.
-    """
-    evaluator_type: pulumi.Output[str]
-    """
-    The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
-    """
-    fact_data: pulumi.Output[str]
-    """
-    The Fact Data for this Policy.
-    """
-    lab_name: pulumi.Output[str]
-    """
-    Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
-    """
-    policy_set_name: pulumi.Output[str]
-    """
-    Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    threshold: pulumi.Output[str]
-    """
-    The Threshold for this Policy.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, evaluator_type=None, fact_data=None, lab_name=None, name=None, policy_set_name=None, resource_group_name=None, tags=None, threshold=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 evaluator_type: Optional[pulumi.Input[str]] = None,
+                 fact_data: Optional[pulumi.Input[str]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_set_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threshold: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Policy within a Dev Test Policy Set.
 
@@ -84,7 +64,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_set_name: Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] threshold: The Threshold for this Policy.
         """
         if __name__ is not None:
@@ -98,7 +78,7 @@ class Policy(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -130,13 +110,24 @@ class Policy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, evaluator_type=None, fact_data=None, lab_name=None, name=None, policy_set_name=None, resource_group_name=None, tags=None, threshold=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            evaluator_type: Optional[pulumi.Input[str]] = None,
+            fact_data: Optional[pulumi.Input[str]] = None,
+            lab_name: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            policy_set_name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            threshold: Optional[pulumi.Input[str]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Policy.
         :param pulumi.Input[str] evaluator_type: The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
@@ -145,7 +136,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_set_name: Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] threshold: The Threshold for this Policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -163,8 +154,81 @@ class Policy(pulumi.CustomResource):
         __props__["threshold"] = threshold
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for the Policy.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="evaluatorType")
+    def evaluator_type(self) -> str:
+        """
+        The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "evaluator_type")
+
+    @property
+    @pulumi.getter(name="factData")
+    def fact_data(self) -> Optional[str]:
+        """
+        The Fact Data for this Policy.
+        """
+        return pulumi.get(self, "fact_data")
+
+    @property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> str:
+        """
+        Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policySetName")
+    def policy_set_name(self) -> str:
+        """
+        Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "policy_set_name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> str:
+        """
+        The Threshold for this Policy.
+        """
+        return pulumi.get(self, "threshold")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

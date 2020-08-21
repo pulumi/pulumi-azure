@@ -5,33 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['FirewallRule']
 
 
 class FirewallRule(pulumi.CustomResource):
-    end_ip_address: pulumi.Output[str]
-    """
-    Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
-    new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
-    """
-    server_name: pulumi.Output[str]
-    """
-    Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
-    """
-    start_ip_address: pulumi.Output[str]
-    """
-    Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, end_ip_address=None, name=None, resource_group_name=None, server_name=None, start_ip_address=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 end_ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 start_ip_address: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Firewall Rule for a PostgreSQL Server
 
@@ -87,7 +78,7 @@ class FirewallRule(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -113,13 +104,20 @@ class FirewallRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, end_ip_address=None, name=None, resource_group_name=None, server_name=None, start_ip_address=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            end_ip_address: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            server_name: Optional[pulumi.Input[str]] = None,
+            start_ip_address: Optional[pulumi.Input[str]] = None) -> 'FirewallRule':
         """
         Get an existing FirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
@@ -139,8 +137,50 @@ class FirewallRule(pulumi.CustomResource):
         __props__["start_ip_address"] = start_ip_address
         return FirewallRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> str:
+        """
+        Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        """
+        Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> str:
+        """
+        Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "start_ip_address")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

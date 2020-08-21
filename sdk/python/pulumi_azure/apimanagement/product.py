@@ -5,52 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Product']
 
 
 class Product(pulumi.CustomResource):
-    api_management_name: pulumi.Output[str]
-    """
-    The name of the API Management Service. Changing this forces a new resource to be created.
-    """
-    approval_required: pulumi.Output[bool]
-    """
-    Do subscribers need to be approved prior to being able to use the Product?
-    """
-    description: pulumi.Output[str]
-    """
-    A description of this Product, which may include HTML formatting tags.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The Display Name for this API Management Product.
-    """
-    product_id: pulumi.Output[str]
-    """
-    The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-    """
-    published: pulumi.Output[bool]
-    """
-    Is this Product Published?
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-    """
-    subscription_required: pulumi.Output[bool]
-    """
-    Is a Subscription required to access API's included in this Product?
-    """
-    subscriptions_limit: pulumi.Output[float]
-    """
-    The number of subscriptions a user can have to this Product at the same time.
-    """
-    terms: pulumi.Output[str]
-    """
-    The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-    """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, approval_required=None, description=None, display_name=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 approval_required: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 product_id: Optional[pulumi.Input[str]] = None,
+                 published: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subscription_required: Optional[pulumi.Input[bool]] = None,
+                 subscriptions_limit: Optional[pulumi.Input[float]] = None,
+                 terms: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an API Management Product.
 
@@ -101,7 +78,7 @@ class Product(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -136,13 +113,25 @@ class Product(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_management_name=None, approval_required=None, description=None, display_name=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: Optional[pulumi.Input[str]] = None,
+            approval_required: Optional[pulumi.Input[bool]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            display_name: Optional[pulumi.Input[str]] = None,
+            product_id: Optional[pulumi.Input[str]] = None,
+            published: Optional[pulumi.Input[bool]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            subscription_required: Optional[pulumi.Input[bool]] = None,
+            subscriptions_limit: Optional[pulumi.Input[float]] = None,
+            terms: Optional[pulumi.Input[str]] = None) -> 'Product':
         """
         Get an existing Product resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] approval_required: Do subscribers need to be approved prior to being able to use the Product?
@@ -171,8 +160,89 @@ class Product(pulumi.CustomResource):
         __props__["terms"] = terms
         return Product(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> str:
+        """
+        The name of the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @property
+    @pulumi.getter(name="approvalRequired")
+    def approval_required(self) -> Optional[bool]:
+        """
+        Do subscribers need to be approved prior to being able to use the Product?
+        """
+        return pulumi.get(self, "approval_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of this Product, which may include HTML formatting tags.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The Display Name for this API Management Product.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> str:
+        """
+        The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "product_id")
+
+    @property
+    @pulumi.getter
+    def published(self) -> bool:
+        """
+        Is this Product Published?
+        """
+        return pulumi.get(self, "published")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="subscriptionRequired")
+    def subscription_required(self) -> bool:
+        """
+        Is a Subscription required to access API's included in this Product?
+        """
+        return pulumi.get(self, "subscription_required")
+
+    @property
+    @pulumi.getter(name="subscriptionsLimit")
+    def subscriptions_limit(self) -> Optional[float]:
+        """
+        The number of subscriptions a user can have to this Product at the same time.
+        """
+        return pulumi.get(self, "subscriptions_limit")
+
+    @property
+    @pulumi.getter
+    def terms(self) -> Optional[str]:
+        """
+        The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
+        """
+        return pulumi.get(self, "terms")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

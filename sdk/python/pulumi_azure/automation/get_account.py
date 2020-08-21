@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetAccountResult',
+    'AwaitableGetAccountResult',
+    'get_account',
+]
+
+@pulumi.output_type
 class GetAccountResult:
     """
     A collection of values returned by getAccount.
@@ -15,34 +22,66 @@ class GetAccountResult:
     def __init__(__self__, endpoint=None, id=None, name=None, primary_key=None, resource_group_name=None, secondary_key=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
-        __self__.endpoint = endpoint
+        pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if primary_key and not isinstance(primary_key, str):
+            raise TypeError("Expected argument 'primary_key' to be a str")
+        pulumi.set(__self__, "primary_key", primary_key)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_key and not isinstance(secondary_key, str):
+            raise TypeError("Expected argument 'secondary_key' to be a str")
+        pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
         """
         The Endpoint for this Auomation Account.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if primary_key and not isinstance(primary_key, str):
-            raise TypeError("Expected argument 'primary_key' to be a str")
-        __self__.primary_key = primary_key
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
         """
         The Primary Access Key for the Automation Account.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if secondary_key and not isinstance(secondary_key, str):
-            raise TypeError("Expected argument 'secondary_key' to be a str")
-        __self__.secondary_key = secondary_key
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> str:
         """
         The Secondary Access Key for the Automation Account.
         """
+        return pulumi.get(self, "secondary_key")
+
+
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -56,7 +95,10 @@ class AwaitableGetAccountResult(GetAccountResult):
             resource_group_name=self.resource_group_name,
             secondary_key=self.secondary_key)
 
-def get_account(name=None,resource_group_name=None,opts=None):
+
+def get_account(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Use this data source to access information about an existing Automation Account.
 
@@ -76,20 +118,18 @@ def get_account(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: Specifies the name of the Resource Group where the Automation Account exists.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:automation/getAccount:getAccount', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:automation/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        endpoint=__ret__.get('endpoint'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        primary_key=__ret__.get('primaryKey'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        secondary_key=__ret__.get('secondaryKey'))
+        endpoint=__ret__.endpoint,
+        id=__ret__.id,
+        name=__ret__.name,
+        primary_key=__ret__.primary_key,
+        resource_group_name=__ret__.resource_group_name,
+        secondary_key=__ret__.secondary_key)

@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .get_recommendations import *
+from . import outputs

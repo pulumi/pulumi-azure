@@ -64,8 +64,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := datafactory.NewPipeline(ctx, "test", &datafactory.PipelineArgs{
-// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
-// 			DataFactoryName:   pulumi.String(azurerm_data_factory.Test.Name),
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+// 			DataFactoryName:   pulumi.Any(azurerm_data_factory.Test.Name),
 // 			Variables: pulumi.StringMap{
 // 				"bob": pulumi.String("item1"),
 // 			},

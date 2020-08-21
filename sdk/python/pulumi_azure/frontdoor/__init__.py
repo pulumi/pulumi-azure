@@ -6,3 +6,5 @@
 from .custom_https_configuration import *
 from .firewall_policy import *
 from .frontdoor import *
+from ._inputs import *
+from . import outputs

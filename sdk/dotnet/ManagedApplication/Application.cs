@@ -44,11 +44,11 @@ namespace Pulumi.Azure.ManagedApplication
     ///                 new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
     ///                 {
     ///                     ServicePrincipalId = current.Apply(current =&gt; current.ObjectId),
-    ///                     RoleDefinitionId = Output.Tuple(builtin, builtin.Apply(builtin =&gt; builtin.Id.Split("/")).Length).Apply(values =&gt;
+    ///                     RoleDefinitionId = Output.Tuple(builtin.Apply(builtin =&gt; builtin.Id.Split("/")), builtin.Apply(builtin =&gt; builtin.Id.Split("/")).Length).Apply(values =&gt;
     ///                     {
-    ///                         var builtin = values.Item1;
+    ///                         var split = values.Item1;
     ///                         var length = values.Item2;
-    ///                         return builtin.Id.Split("/")[length - 1];
+    ///                         return split[length - 1];
     ///                     }),
     ///                 },
     ///             },

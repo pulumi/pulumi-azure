@@ -6,3 +6,5 @@
 from .assignment import *
 from .definition import *
 from .get_role_definition import *
+from ._inputs import *
+from . import outputs

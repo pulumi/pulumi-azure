@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['ActiveSlot']
 
 
 class ActiveSlot(pulumi.CustomResource):
-    app_service_name: pulumi.Output[str]
-    """
-    The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
-    """
-    app_service_slot_name: pulumi.Output[str]
-    """
-    The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, app_service_name=None, app_service_slot_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service_name: Optional[pulumi.Input[str]] = None,
+                 app_service_slot_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Promotes an App Service Slot to Production within an App Service.
 
@@ -68,7 +66,7 @@ class ActiveSlot(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -90,13 +88,18 @@ class ActiveSlot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_name=None, app_service_slot_name=None, resource_group_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_name: Optional[pulumi.Input[str]] = None,
+            app_service_slot_name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'ActiveSlot':
         """
         Get an existing ActiveSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_slot_name: The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
@@ -111,8 +114,33 @@ class ActiveSlot(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         return ActiveSlot(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appServiceName")
+    def app_service_name(self) -> str:
+        """
+        The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_name")
+
+    @property
+    @pulumi.getter(name="appServiceSlotName")
+    def app_service_slot_name(self) -> str:
+        """
+        The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
+        """
+        return pulumi.get(self, "app_service_slot_name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

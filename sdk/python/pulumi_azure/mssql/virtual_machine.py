@@ -5,61 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VirtualMachine']
 
 
 class VirtualMachine(pulumi.CustomResource):
-    auto_patching: pulumi.Output[dict]
-    """
-    An `auto_patching` block as defined below.
-
-      * `dayOfWeek` (`str`) - The day of week to apply the patch on.
-      * `maintenanceWindowDurationInMinutes` (`float`) - The size of the Maintenance Window in minutes.
-      * `maintenanceWindowStartingHour` (`float`) - The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
-    """
-    key_vault_credential: pulumi.Output[dict]
-    """
-    (Optional) An `key_vault_credential` block as defined below.
-
-      * `keyVaultUrl` (`str`) - The azure Key Vault url. Changing this forces a new resource to be created.
-      * `name` (`str`) - The credential name.
-      * `servicePrincipalName` (`str`) - The service principal name to access key vault. Changing this forces a new resource to be created.
-      * `servicePrincipalSecret` (`str`) - The service principal name secret to access key vault. Changing this forces a new resource to be created.
-    """
-    r_services_enabled: pulumi.Output[bool]
-    """
-    Should R Services be enabled?
-    """
-    sql_connectivity_port: pulumi.Output[float]
-    """
-    The SQL Server port. Defaults to `1433`.
-    """
-    sql_connectivity_type: pulumi.Output[str]
-    """
-    The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
-    """
-    sql_connectivity_update_password: pulumi.Output[str]
-    """
-    The SQL Server sysadmin login password.
-    """
-    sql_connectivity_update_username: pulumi.Output[str]
-    """
-    The SQL Server sysadmin login to create.
-    """
-    sql_license_type: pulumi.Output[str]
-    """
-    The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    virtual_machine_id: pulumi.Output[str]
-    """
-    The ID of the Virtual Machine. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_patching=None, key_vault_credential=None, r_services_enabled=None, sql_connectivity_port=None, sql_connectivity_type=None, sql_connectivity_update_password=None, sql_connectivity_update_username=None, sql_license_type=None, tags=None, virtual_machine_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
+                 key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
+                 r_services_enabled: Optional[pulumi.Input[bool]] = None,
+                 sql_connectivity_port: Optional[pulumi.Input[float]] = None,
+                 sql_connectivity_type: Optional[pulumi.Input[str]] = None,
+                 sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
+                 sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+                 sql_license_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Microsoft SQL Virtual Machine
 
@@ -81,38 +51,25 @@ class VirtualMachine(pulumi.CustomResource):
             sql_connectivity_type="PRIVATE",
             sql_connectivity_update_password="Password1234!",
             sql_connectivity_update_username="sqllogin",
-            auto_patching={
-                "dayOfWeek": "Sunday",
-                "maintenanceWindowDurationInMinutes": 60,
-                "maintenanceWindowStartingHour": 2,
-            })
+            auto_patching=azure.mssql.VirtualMachineAutoPatchingArgs(
+                day_of_week="Sunday",
+                maintenance_window_duration_in_minutes=60,
+                maintenance_window_starting_hour=2,
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] auto_patching: An `auto_patching` block as defined below.
-        :param pulumi.Input[dict] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[float] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
-
-        The **auto_patching** object supports the following:
-
-          * `dayOfWeek` (`pulumi.Input[str]`) - The day of week to apply the patch on.
-          * `maintenanceWindowDurationInMinutes` (`pulumi.Input[float]`) - The size of the Maintenance Window in minutes.
-          * `maintenanceWindowStartingHour` (`pulumi.Input[float]`) - The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
-
-        The **key_vault_credential** object supports the following:
-
-          * `keyVaultUrl` (`pulumi.Input[str]`) - The azure Key Vault url. Changing this forces a new resource to be created.
-          * `name` (`pulumi.Input[str]`) - The credential name.
-          * `servicePrincipalName` (`pulumi.Input[str]`) - The service principal name to access key vault. Changing this forces a new resource to be created.
-          * `servicePrincipalSecret` (`pulumi.Input[str]`) - The service principal name secret to access key vault. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,7 +82,7 @@ class VirtualMachine(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -152,37 +109,36 @@ class VirtualMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_patching=None, key_vault_credential=None, r_services_enabled=None, sql_connectivity_port=None, sql_connectivity_type=None, sql_connectivity_update_password=None, sql_connectivity_update_username=None, sql_license_type=None, tags=None, virtual_machine_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
+            key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
+            r_services_enabled: Optional[pulumi.Input[bool]] = None,
+            sql_connectivity_port: Optional[pulumi.Input[float]] = None,
+            sql_connectivity_type: Optional[pulumi.Input[str]] = None,
+            sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
+            sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+            sql_license_type: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_machine_id: Optional[pulumi.Input[str]] = None) -> 'VirtualMachine':
         """
         Get an existing VirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] auto_patching: An `auto_patching` block as defined below.
-        :param pulumi.Input[dict] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
         :param pulumi.Input[float] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
-
-        The **auto_patching** object supports the following:
-
-          * `dayOfWeek` (`pulumi.Input[str]`) - The day of week to apply the patch on.
-          * `maintenanceWindowDurationInMinutes` (`pulumi.Input[float]`) - The size of the Maintenance Window in minutes.
-          * `maintenanceWindowStartingHour` (`pulumi.Input[float]`) - The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
-
-        The **key_vault_credential** object supports the following:
-
-          * `keyVaultUrl` (`pulumi.Input[str]`) - The azure Key Vault url. Changing this forces a new resource to be created.
-          * `name` (`pulumi.Input[str]`) - The credential name.
-          * `servicePrincipalName` (`pulumi.Input[str]`) - The service principal name to access key vault. Changing this forces a new resource to be created.
-          * `servicePrincipalSecret` (`pulumi.Input[str]`) - The service principal name secret to access key vault. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -200,8 +156,89 @@ class VirtualMachine(pulumi.CustomResource):
         __props__["virtual_machine_id"] = virtual_machine_id
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoPatching")
+    def auto_patching(self) -> Optional['outputs.VirtualMachineAutoPatching']:
+        """
+        An `auto_patching` block as defined below.
+        """
+        return pulumi.get(self, "auto_patching")
+
+    @property
+    @pulumi.getter(name="keyVaultCredential")
+    def key_vault_credential(self) -> Optional['outputs.VirtualMachineKeyVaultCredential']:
+        """
+        (Optional) An `key_vault_credential` block as defined below.
+        """
+        return pulumi.get(self, "key_vault_credential")
+
+    @property
+    @pulumi.getter(name="rServicesEnabled")
+    def r_services_enabled(self) -> Optional[bool]:
+        """
+        Should R Services be enabled?
+        """
+        return pulumi.get(self, "r_services_enabled")
+
+    @property
+    @pulumi.getter(name="sqlConnectivityPort")
+    def sql_connectivity_port(self) -> Optional[float]:
+        """
+        The SQL Server port. Defaults to `1433`.
+        """
+        return pulumi.get(self, "sql_connectivity_port")
+
+    @property
+    @pulumi.getter(name="sqlConnectivityType")
+    def sql_connectivity_type(self) -> Optional[str]:
+        """
+        The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
+        """
+        return pulumi.get(self, "sql_connectivity_type")
+
+    @property
+    @pulumi.getter(name="sqlConnectivityUpdatePassword")
+    def sql_connectivity_update_password(self) -> Optional[str]:
+        """
+        The SQL Server sysadmin login password.
+        """
+        return pulumi.get(self, "sql_connectivity_update_password")
+
+    @property
+    @pulumi.getter(name="sqlConnectivityUpdateUsername")
+    def sql_connectivity_update_username(self) -> Optional[str]:
+        """
+        The SQL Server sysadmin login to create.
+        """
+        return pulumi.get(self, "sql_connectivity_update_username")
+
+    @property
+    @pulumi.getter(name="sqlLicenseType")
+    def sql_license_type(self) -> str:
+        """
+        The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sql_license_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> str:
+        """
+        The ID of the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

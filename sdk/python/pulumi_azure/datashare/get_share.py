@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetShareResult',
+    'AwaitableGetShareResult',
+    'get_share',
+]
+
+@pulumi.output_type
 class GetShareResult:
     """
     A collection of values returned by getShare.
@@ -15,43 +23,80 @@ class GetShareResult:
     def __init__(__self__, account_id=None, description=None, id=None, kind=None, name=None, snapshot_schedules=None, terms=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
-        __self__.account_id = account_id
+        pulumi.set(__self__, "account_id", account_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if snapshot_schedules and not isinstance(snapshot_schedules, list):
+            raise TypeError("Expected argument 'snapshot_schedules' to be a list")
+        pulumi.set(__self__, "snapshot_schedules", snapshot_schedules)
+        if terms and not isinstance(terms, str):
+            raise TypeError("Expected argument 'terms' to be a str")
+        pulumi.set(__self__, "terms", terms)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         The description of the Data Share.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         The kind of the Data Share.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the snapshot schedule.
         """
-        if snapshot_schedules and not isinstance(snapshot_schedules, list):
-            raise TypeError("Expected argument 'snapshot_schedules' to be a list")
-        __self__.snapshot_schedules = snapshot_schedules
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="snapshotSchedules")
+    def snapshot_schedules(self) -> List['outputs.GetShareSnapshotScheduleResult']:
         """
         A `snapshot_schedule` block as defined below.
         """
-        if terms and not isinstance(terms, str):
-            raise TypeError("Expected argument 'terms' to be a str")
-        __self__.terms = terms
+        return pulumi.get(self, "snapshot_schedules")
+
+    @property
+    @pulumi.getter
+    def terms(self) -> str:
         """
         The terms of the Data Share.
         """
+        return pulumi.get(self, "terms")
+
+
 class AwaitableGetShareResult(GetShareResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -66,7 +111,10 @@ class AwaitableGetShareResult(GetShareResult):
             snapshot_schedules=self.snapshot_schedules,
             terms=self.terms)
 
-def get_share(account_id=None,name=None,opts=None):
+
+def get_share(account_id: Optional[str] = None,
+              name: Optional[str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareResult:
     """
     Use this data source to access information about an existing Data Share.
 
@@ -88,21 +136,19 @@ def get_share(account_id=None,name=None,opts=None):
     :param str name: The name of this Data Share.
     """
     __args__ = dict()
-
-
     __args__['accountId'] = account_id
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:datashare/getShare:getShare', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:datashare/getShare:getShare', __args__, opts=opts, typ=GetShareResult).value
 
     return AwaitableGetShareResult(
-        account_id=__ret__.get('accountId'),
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        kind=__ret__.get('kind'),
-        name=__ret__.get('name'),
-        snapshot_schedules=__ret__.get('snapshotSchedules'),
-        terms=__ret__.get('terms'))
+        account_id=__ret__.account_id,
+        description=__ret__.description,
+        id=__ret__.id,
+        kind=__ret__.kind,
+        name=__ret__.name,
+        snapshot_schedules=__ret__.snapshot_schedules,
+        terms=__ret__.terms)

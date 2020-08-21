@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetClusterNodePoolResult',
+    'AwaitableGetClusterNodePoolResult',
+    'get_cluster_node_pool',
+]
+
+@pulumi.output_type
 class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
@@ -15,133 +22,250 @@ class GetClusterNodePoolResult:
     def __init__(__self__, availability_zones=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, priority=None, resource_group_name=None, spot_max_price=None, tags=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
-        __self__.availability_zones = availability_zones
+        pulumi.set(__self__, "availability_zones", availability_zones)
+        if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
+            raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
+        pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+        if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
+            raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
+        pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if eviction_policy and not isinstance(eviction_policy, str):
+            raise TypeError("Expected argument 'eviction_policy' to be a str")
+        pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if kubernetes_cluster_name and not isinstance(kubernetes_cluster_name, str):
+            raise TypeError("Expected argument 'kubernetes_cluster_name' to be a str")
+        pulumi.set(__self__, "kubernetes_cluster_name", kubernetes_cluster_name)
+        if max_count and not isinstance(max_count, float):
+            raise TypeError("Expected argument 'max_count' to be a float")
+        pulumi.set(__self__, "max_count", max_count)
+        if max_pods and not isinstance(max_pods, float):
+            raise TypeError("Expected argument 'max_pods' to be a float")
+        pulumi.set(__self__, "max_pods", max_pods)
+        if min_count and not isinstance(min_count, float):
+            raise TypeError("Expected argument 'min_count' to be a float")
+        pulumi.set(__self__, "min_count", min_count)
+        if mode and not isinstance(mode, str):
+            raise TypeError("Expected argument 'mode' to be a str")
+        pulumi.set(__self__, "mode", mode)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if node_count and not isinstance(node_count, float):
+            raise TypeError("Expected argument 'node_count' to be a float")
+        pulumi.set(__self__, "node_count", node_count)
+        if node_labels and not isinstance(node_labels, dict):
+            raise TypeError("Expected argument 'node_labels' to be a dict")
+        pulumi.set(__self__, "node_labels", node_labels)
+        if node_taints and not isinstance(node_taints, list):
+            raise TypeError("Expected argument 'node_taints' to be a list")
+        pulumi.set(__self__, "node_taints", node_taints)
+        if orchestrator_version and not isinstance(orchestrator_version, str):
+            raise TypeError("Expected argument 'orchestrator_version' to be a str")
+        pulumi.set(__self__, "orchestrator_version", orchestrator_version)
+        if os_disk_size_gb and not isinstance(os_disk_size_gb, float):
+            raise TypeError("Expected argument 'os_disk_size_gb' to be a float")
+        pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        pulumi.set(__self__, "os_type", os_type)
+        if priority and not isinstance(priority, str):
+            raise TypeError("Expected argument 'priority' to be a str")
+        pulumi.set(__self__, "priority", priority)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if spot_max_price and not isinstance(spot_max_price, float):
+            raise TypeError("Expected argument 'spot_max_price' to be a float")
+        pulumi.set(__self__, "spot_max_price", spot_max_price)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if vm_size and not isinstance(vm_size, str):
+            raise TypeError("Expected argument 'vm_size' to be a str")
+        pulumi.set(__self__, "vm_size", vm_size)
+        if vnet_subnet_id and not isinstance(vnet_subnet_id, str):
+            raise TypeError("Expected argument 'vnet_subnet_id' to be a str")
+        pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> List[str]:
         """
         A list of Availability Zones in which the Nodes in this Node Pool exists.
         """
-        if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
-            raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
-        __self__.enable_auto_scaling = enable_auto_scaling
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="enableAutoScaling")
+    def enable_auto_scaling(self) -> bool:
         """
         Does this Node Pool have Auto-Scaling enabled?
         """
-        if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
-            raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
-        __self__.enable_node_public_ip = enable_node_public_ip
+        return pulumi.get(self, "enable_auto_scaling")
+
+    @property
+    @pulumi.getter(name="enableNodePublicIp")
+    def enable_node_public_ip(self) -> bool:
         """
         Do nodes in this Node Pool have a Public IP Address?
         """
-        if eviction_policy and not isinstance(eviction_policy, str):
-            raise TypeError("Expected argument 'eviction_policy' to be a str")
-        __self__.eviction_policy = eviction_policy
+        return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter(name="evictionPolicy")
+    def eviction_policy(self) -> str:
         """
         The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if kubernetes_cluster_name and not isinstance(kubernetes_cluster_name, str):
-            raise TypeError("Expected argument 'kubernetes_cluster_name' to be a str")
-        __self__.kubernetes_cluster_name = kubernetes_cluster_name
-        if max_count and not isinstance(max_count, float):
-            raise TypeError("Expected argument 'max_count' to be a float")
-        __self__.max_count = max_count
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kubernetesClusterName")
+    def kubernetes_cluster_name(self) -> str:
+        return pulumi.get(self, "kubernetes_cluster_name")
+
+    @property
+    @pulumi.getter(name="maxCount")
+    def max_count(self) -> float:
         """
         The maximum number of Nodes allowed when auto-scaling is enabled.
         """
-        if max_pods and not isinstance(max_pods, float):
-            raise TypeError("Expected argument 'max_pods' to be a float")
-        __self__.max_pods = max_pods
+        return pulumi.get(self, "max_count")
+
+    @property
+    @pulumi.getter(name="maxPods")
+    def max_pods(self) -> float:
         """
         The maximum number of Pods allowed on each Node in this Node Pool.
         """
-        if min_count and not isinstance(min_count, float):
-            raise TypeError("Expected argument 'min_count' to be a float")
-        __self__.min_count = min_count
+        return pulumi.get(self, "max_pods")
+
+    @property
+    @pulumi.getter(name="minCount")
+    def min_count(self) -> float:
         """
         The minimum number of Nodes allowed when auto-scaling is enabled.
         """
-        if mode and not isinstance(mode, str):
-            raise TypeError("Expected argument 'mode' to be a str")
-        __self__.mode = mode
+        return pulumi.get(self, "min_count")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
         """
         The Mode for this Node Pool, specifying how these Nodes should be used (for either System or User resources).
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if node_count and not isinstance(node_count, float):
-            raise TypeError("Expected argument 'node_count' to be a float")
-        __self__.node_count = node_count
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> float:
         """
         The current number of Nodes in the Node Pool.
         """
-        if node_labels and not isinstance(node_labels, dict):
-            raise TypeError("Expected argument 'node_labels' to be a dict")
-        __self__.node_labels = node_labels
+        return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="nodeLabels")
+    def node_labels(self) -> Mapping[str, str]:
         """
         A map of Kubernetes Labels applied to each Node in this Node Pool.
         """
-        if node_taints and not isinstance(node_taints, list):
-            raise TypeError("Expected argument 'node_taints' to be a list")
-        __self__.node_taints = node_taints
+        return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodeTaints")
+    def node_taints(self) -> List[str]:
         """
         A map of Kubernetes Taints applied to each Node in this Node Pool.
         """
-        if orchestrator_version and not isinstance(orchestrator_version, str):
-            raise TypeError("Expected argument 'orchestrator_version' to be a str")
-        __self__.orchestrator_version = orchestrator_version
+        return pulumi.get(self, "node_taints")
+
+    @property
+    @pulumi.getter(name="orchestratorVersion")
+    def orchestrator_version(self) -> str:
         """
         The version of Kubernetes configured on each Node in this Node Pool.
         """
-        if os_disk_size_gb and not isinstance(os_disk_size_gb, float):
-            raise TypeError("Expected argument 'os_disk_size_gb' to be a float")
-        __self__.os_disk_size_gb = os_disk_size_gb
+        return pulumi.get(self, "orchestrator_version")
+
+    @property
+    @pulumi.getter(name="osDiskSizeGb")
+    def os_disk_size_gb(self) -> float:
         """
         The size of the OS Disk on each Node in this Node Pool.
         """
-        if os_type and not isinstance(os_type, str):
-            raise TypeError("Expected argument 'os_type' to be a str")
-        __self__.os_type = os_type
+        return pulumi.get(self, "os_disk_size_gb")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
         """
         The operating system used on each Node in this Node Pool.
         """
-        if priority and not isinstance(priority, str):
-            raise TypeError("Expected argument 'priority' to be a str")
-        __self__.priority = priority
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> str:
         """
         The priority of the Virtual Machines in the Virtual Machine Scale Set backing this Node Pool.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if spot_max_price and not isinstance(spot_max_price, float):
-            raise TypeError("Expected argument 'spot_max_price' to be a float")
-        __self__.spot_max_price = spot_max_price
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="spotMaxPrice")
+    def spot_max_price(self) -> float:
         """
         The maximum price being paid for Virtual Machines in this Scale Set. `-1` means the current on-demand price for a Virtual Machine.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "spot_max_price")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the Kubernetes Cluster Node Pool.
         """
-        if vm_size and not isinstance(vm_size, str):
-            raise TypeError("Expected argument 'vm_size' to be a str")
-        __self__.vm_size = vm_size
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> str:
         """
         The size of the Virtual Machines used in the Virtual Machine Scale Set backing this Node Pool.
         """
-        if vnet_subnet_id and not isinstance(vnet_subnet_id, str):
-            raise TypeError("Expected argument 'vnet_subnet_id' to be a str")
-        __self__.vnet_subnet_id = vnet_subnet_id
+        return pulumi.get(self, "vm_size")
+
+    @property
+    @pulumi.getter(name="vnetSubnetId")
+    def vnet_subnet_id(self) -> str:
         """
         The ID of the Subnet in which this Node Pool exists.
         """
+        return pulumi.get(self, "vnet_subnet_id")
+
+
 class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -172,7 +296,11 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
             vm_size=self.vm_size,
             vnet_subnet_id=self.vnet_subnet_id)
 
-def get_cluster_node_pool(kubernetes_cluster_name=None,name=None,resource_group_name=None,opts=None):
+
+def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
+                          name: Optional[str] = None,
+                          resource_group_name: Optional[str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterNodePoolResult:
     """
     Use this data source to access information about an existing Kubernetes Cluster Node Pool.
 
@@ -194,38 +322,36 @@ def get_cluster_node_pool(kubernetes_cluster_name=None,name=None,resource_group_
     :param str resource_group_name: The name of the Resource Group where the Kubernetes Cluster exists.
     """
     __args__ = dict()
-
-
     __args__['kubernetesClusterName'] = kubernetes_cluster_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:containerservice/getClusterNodePool:getClusterNodePool', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:containerservice/getClusterNodePool:getClusterNodePool', __args__, opts=opts, typ=GetClusterNodePoolResult).value
 
     return AwaitableGetClusterNodePoolResult(
-        availability_zones=__ret__.get('availabilityZones'),
-        enable_auto_scaling=__ret__.get('enableAutoScaling'),
-        enable_node_public_ip=__ret__.get('enableNodePublicIp'),
-        eviction_policy=__ret__.get('evictionPolicy'),
-        id=__ret__.get('id'),
-        kubernetes_cluster_name=__ret__.get('kubernetesClusterName'),
-        max_count=__ret__.get('maxCount'),
-        max_pods=__ret__.get('maxPods'),
-        min_count=__ret__.get('minCount'),
-        mode=__ret__.get('mode'),
-        name=__ret__.get('name'),
-        node_count=__ret__.get('nodeCount'),
-        node_labels=__ret__.get('nodeLabels'),
-        node_taints=__ret__.get('nodeTaints'),
-        orchestrator_version=__ret__.get('orchestratorVersion'),
-        os_disk_size_gb=__ret__.get('osDiskSizeGb'),
-        os_type=__ret__.get('osType'),
-        priority=__ret__.get('priority'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        spot_max_price=__ret__.get('spotMaxPrice'),
-        tags=__ret__.get('tags'),
-        vm_size=__ret__.get('vmSize'),
-        vnet_subnet_id=__ret__.get('vnetSubnetId'))
+        availability_zones=__ret__.availability_zones,
+        enable_auto_scaling=__ret__.enable_auto_scaling,
+        enable_node_public_ip=__ret__.enable_node_public_ip,
+        eviction_policy=__ret__.eviction_policy,
+        id=__ret__.id,
+        kubernetes_cluster_name=__ret__.kubernetes_cluster_name,
+        max_count=__ret__.max_count,
+        max_pods=__ret__.max_pods,
+        min_count=__ret__.min_count,
+        mode=__ret__.mode,
+        name=__ret__.name,
+        node_count=__ret__.node_count,
+        node_labels=__ret__.node_labels,
+        node_taints=__ret__.node_taints,
+        orchestrator_version=__ret__.orchestrator_version,
+        os_disk_size_gb=__ret__.os_disk_size_gb,
+        os_type=__ret__.os_type,
+        priority=__ret__.priority,
+        resource_group_name=__ret__.resource_group_name,
+        spot_max_price=__ret__.spot_max_price,
+        tags=__ret__.tags,
+        vm_size=__ret__.vm_size,
+        vnet_subnet_id=__ret__.vnet_subnet_id)

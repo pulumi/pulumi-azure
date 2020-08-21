@@ -5,60 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Definition']
 
 
 class Definition(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The description of the policy definition.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The display name of the policy definition.
-    """
-    management_group_id: pulumi.Output[str]
-    """
-    The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-    """
-    management_group_name: pulumi.Output[str]
-    """
-    The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-    """
-    metadata: pulumi.Output[str]
-    """
-    The metadata for the policy definition. This
-    is a json object representing additional metadata that should be stored
-    with the policy definition.
-    """
-    mode: pulumi.Output[str]
-    """
-    The policy mode that allows you to specify which resource
-    types will be evaluated.  The value can be "All", "Indexed" or
-    "NotSpecified".
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the policy definition. Changing this forces a
-    new resource to be created.
-    """
-    parameters: pulumi.Output[str]
-    """
-    Parameters for the policy definition. This field
-    is a json object that allows you to parameterize your policy definition.
-    """
-    policy_rule: pulumi.Output[str]
-    """
-    The policy rule for the policy definition. This
-    is a json object representing the rule that contains an if and
-    a then block.
-    """
-    policy_type: pulumi.Output[str]
-    """
-    The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, management_group_name=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 management_group_id: Optional[pulumi.Input[str]] = None,
+                 management_group_name: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[str]] = None,
+                 policy_rule: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a policy rule definition on a management group or your provider subscription.
 
@@ -139,7 +108,7 @@ class Definition(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -171,13 +140,25 @@ class Definition(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, display_name=None, management_group_id=None, management_group_name=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            display_name: Optional[pulumi.Input[str]] = None,
+            management_group_id: Optional[pulumi.Input[str]] = None,
+            management_group_name: Optional[pulumi.Input[str]] = None,
+            metadata: Optional[pulumi.Input[str]] = None,
+            mode: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            parameters: Optional[pulumi.Input[str]] = None,
+            policy_rule: Optional[pulumi.Input[str]] = None,
+            policy_type: Optional[pulumi.Input[str]] = None) -> 'Definition':
         """
         Get an existing Definition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
@@ -214,8 +195,97 @@ class Definition(pulumi.CustomResource):
         __props__["policy_type"] = policy_type
         return Definition(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the policy definition.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The display name of the policy definition.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="managementGroupId")
+    def management_group_id(self) -> str:
+        """
+        The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "management_group_id")
+
+    @property
+    @pulumi.getter(name="managementGroupName")
+    def management_group_name(self) -> str:
+        """
+        The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "management_group_name")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> str:
+        """
+        The metadata for the policy definition. This
+        is a json object representing additional metadata that should be stored
+        with the policy definition.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The policy mode that allows you to specify which resource
+        types will be evaluated.  The value can be "All", "Indexed" or
+        "NotSpecified".
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the policy definition. Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        Parameters for the policy definition. This field
+        is a json object that allows you to parameterize your policy definition.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyRule")
+    def policy_rule(self) -> Optional[str]:
+        """
+        The policy rule for the policy definition. This
+        is a json object representing the rule that contains an if and
+        a then block.
+        """
+        return pulumi.get(self, "policy_rule")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> str:
+        """
+        The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "policy_type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

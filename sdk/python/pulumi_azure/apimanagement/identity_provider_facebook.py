@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['IdentityProviderFacebook']
 
 
 class IdentityProviderFacebook(pulumi.CustomResource):
-    api_management_name: pulumi.Output[str]
-    """
-    The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
-    """
-    app_id: pulumi.Output[str]
-    """
-    App ID for Facebook.
-    """
-    app_secret: pulumi.Output[str]
-    """
-    App Secret for Facebook.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, app_id=None, app_secret=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 app_secret: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an API Management Facebook Identity Provider.
 
@@ -68,7 +63,7 @@ class IdentityProviderFacebook(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -93,13 +88,19 @@ class IdentityProviderFacebook(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_management_name=None, app_id=None, app_secret=None, resource_group_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: Optional[pulumi.Input[str]] = None,
+            app_id: Optional[pulumi.Input[str]] = None,
+            app_secret: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'IdentityProviderFacebook':
         """
         Get an existing IdentityProviderFacebook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_id: App ID for Facebook.
@@ -116,8 +117,41 @@ class IdentityProviderFacebook(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         return IdentityProviderFacebook(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> str:
+        """
+        The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> str:
+        """
+        App ID for Facebook.
+        """
+        return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="appSecret")
+    def app_secret(self) -> str:
+        """
+        App Secret for Facebook.
+        """
+        return pulumi.get(self, "app_secret")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

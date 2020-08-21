@@ -5,52 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['NamespaceAuthorizationRule']
 
 
 class NamespaceAuthorizationRule(pulumi.CustomResource):
-    listen: pulumi.Output[bool]
-    """
-    Grants listen access to this this Authorization Rule. Defaults to `false`.
-    """
-    manage: pulumi.Output[bool]
-    """
-    Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-    """
-    namespace_name: pulumi.Output[str]
-    """
-    Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-    """
-    primary_connection_string: pulumi.Output[str]
-    """
-    The Primary Connection String for the ServiceBus Namespace authorization Rule.
-    """
-    primary_key: pulumi.Output[str]
-    """
-    The Primary Key for the ServiceBus Namespace authorization Rule.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-    """
-    secondary_connection_string: pulumi.Output[str]
-    """
-    The Secondary Connection String for the ServiceBus Namespace authorization Rule.
-    """
-    secondary_key: pulumi.Output[str]
-    """
-    The Secondary Key for the ServiceBus Namespace authorization Rule.
-    """
-    send: pulumi.Output[bool]
-    """
-    Grants send access to this this Authorization Rule. Defaults to `false`.
-    """
-    def __init__(__self__, resource_name, opts=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 listen: Optional[pulumi.Input[bool]] = None,
+                 manage: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 send: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
 
@@ -96,7 +69,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -125,13 +98,25 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, listen=None, manage=None, name=None, namespace_name=None, primary_connection_string=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_key=None, send=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            listen: Optional[pulumi.Input[bool]] = None,
+            manage: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            namespace_name: Optional[pulumi.Input[str]] = None,
+            primary_connection_string: Optional[pulumi.Input[str]] = None,
+            primary_key: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            secondary_connection_string: Optional[pulumi.Input[str]] = None,
+            secondary_key: Optional[pulumi.Input[str]] = None,
+            send: Optional[pulumi.Input[bool]] = None) -> 'NamespaceAuthorizationRule':
         """
         Get an existing NamespaceAuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
@@ -160,8 +145,89 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         __props__["send"] = send
         return NamespaceAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def listen(self) -> Optional[bool]:
+        """
+        Grants listen access to this this Authorization Rule. Defaults to `false`.
+        """
+        return pulumi.get(self, "listen")
+
+    @property
+    @pulumi.getter
+    def manage(self) -> Optional[bool]:
+        """
+        Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        """
+        return pulumi.get(self, "manage")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> str:
+        """
+        Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter(name="primaryConnectionString")
+    def primary_connection_string(self) -> str:
+        """
+        The Primary Connection String for the ServiceBus Namespace authorization Rule.
+        """
+        return pulumi.get(self, "primary_connection_string")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        The Primary Key for the ServiceBus Namespace authorization Rule.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryConnectionString")
+    def secondary_connection_string(self) -> str:
+        """
+        The Secondary Connection String for the ServiceBus Namespace authorization Rule.
+        """
+        return pulumi.get(self, "secondary_connection_string")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> str:
+        """
+        The Secondary Key for the ServiceBus Namespace authorization Rule.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter
+    def send(self) -> Optional[bool]:
+        """
+        Grants send access to this this Authorization Rule. Defaults to `false`.
+        """
+        return pulumi.get(self, "send")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

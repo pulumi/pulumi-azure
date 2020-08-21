@@ -5,135 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Group']
 
 
 class Group(pulumi.CustomResource):
-    containers: pulumi.Output[list]
-    """
-    The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-
-      * `commands` (`list`) - A list of commands which should be run on the container. Changing this forces a new resource to be created.
-      * `cpu` (`float`) - The required number of CPU cores of the containers. Changing this forces a new resource to be created.
-      * `environmentVariables` (`dict`) - A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-      * `gpu` (`dict`) - A `gpu` block as defined below. Changing this forces a new resource to be created.
-        * `count` (`float`) - The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-        * `sku` (`str`) - The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
-
-      * `image` (`str`) - The container image name. Changing this forces a new resource to be created.
-      * `livenessProbe` (`dict`) - The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
-        * `execs` (`list`) - Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-        * `failureThreshold` (`float`) - How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        * `httpGets` (`list`) - The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
-          * `path` (`str`) - Path to access on the HTTP server. Changing this forces a new resource to be created.
-          * `port` (`float`) - The port number the container will expose. Changing this forces a new resource to be created.
-          * `scheme` (`str`) - Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
-
-        * `initialDelaySeconds` (`float`) - Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-        * `periodSeconds` (`float`) - How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-        * `successThreshold` (`float`) - Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-        * `timeoutSeconds` (`float`) - Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-
-      * `memory` (`float`) - The required memory of the containers in GB. Changing this forces a new resource to be created.
-      * `name` (`str`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
-      * `ports` (`list`) - A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
-        * `port` (`float`) - The port number the container will expose. Changing this forces a new resource to be created.
-        * `protocol` (`str`) - The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
-
-      * `readinessProbe` (`dict`) - The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
-        * `execs` (`list`) - Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-        * `failureThreshold` (`float`) - How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        * `httpGets` (`list`) - The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
-          * `path` (`str`) - Path to access on the HTTP server. Changing this forces a new resource to be created.
-          * `port` (`float`) - The port number the container will expose. Changing this forces a new resource to be created.
-          * `scheme` (`str`) - Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
-
-        * `initialDelaySeconds` (`float`) - Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-        * `periodSeconds` (`float`) - How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-        * `successThreshold` (`float`) - Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-        * `timeoutSeconds` (`float`) - Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-
-      * `secureEnvironmentVariables` (`dict`) - A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-      * `volumes` (`list`) - The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
-        * `mountPath` (`str`) - The path on which this volume is to be mounted. Changing this forces a new resource to be created.
-        * `name` (`str`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
-        * `readOnly` (`bool`) - Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-        * `share_name` (`str`) - The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
-        * `storage_account_key` (`str`) - The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
-        * `storage_account_name` (`str`) - The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
-    """
-    diagnostics: pulumi.Output[dict]
-    """
-    A `diagnostics` block as documented below.
-
-      * `logAnalytics` (`dict`) - A `log_analytics` block as defined below. Changing this forces a new resource to be created.
-        * `logType` (`str`) - The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
-        * `metadata` (`dict`) - Any metadata required for Log Analytics. Changing this forces a new resource to be created.
-        * `workspace_id` (`str`) - The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
-        * `workspaceKey` (`str`) - The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
-    """
-    dns_name_label: pulumi.Output[str]
-    """
-    The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
-    """
-    fqdn: pulumi.Output[str]
-    """
-    The FQDN of the container group derived from `dns_name_label`.
-    """
-    identity: pulumi.Output[dict]
-    """
-    An `identity` block as defined below.
-
-      * `identityIds` (`list`) - Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
-      * `principal_id` (`str`)
-      * `type` (`str`) - The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
-    """
-    image_registry_credentials: pulumi.Output[list]
-    """
-    A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
-
-      * `password` (`str`) - The password with which to connect to the registry. Changing this forces a new resource to be created.
-      * `server` (`str`) - The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
-      * `username` (`str`) - The username with which to connect to the registry. Changing this forces a new resource to be created.
-    """
-    ip_address: pulumi.Output[str]
-    """
-    The IP address allocated to the container group.
-    """
-    ip_address_type: pulumi.Output[str]
-    """
-    Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Container Group. Changing this forces a new resource to be created.
-    """
-    network_profile_id: pulumi.Output[str]
-    """
-    Network profile ID for deploying to virtual network.
-    """
-    os_type: pulumi.Output[str]
-    """
-    The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-    """
-    restart_policy: pulumi.Output[str]
-    """
-    Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, identity=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, network_profile_id=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 containers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]]] = None,
+                 diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
+                 dns_name_label: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
+                 image_registry_credentials: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_profile_id: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restart_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages as an Azure Container Group instance.
 
@@ -153,22 +52,22 @@ class Group(pulumi.CustomResource):
             dns_name_label="aci-label",
             os_type="Linux",
             containers=[
-                {
-                    "name": "hello-world",
-                    "image": "microsoft/aci-helloworld:latest",
-                    "cpu": "0.5",
-                    "memory": "1.5",
-                    "ports": [{
-                        "port": 443,
-                        "protocol": "TCP",
-                    }],
-                },
-                {
-                    "name": "sidecar",
-                    "image": "microsoft/aci-tutorial-sidecar",
-                    "cpu": "0.5",
-                    "memory": "1.5",
-                },
+                azure.containerservice.GroupContainerArgs(
+                    name="hello-world",
+                    image="microsoft/aci-helloworld:latest",
+                    cpu=0.5,
+                    memory=1.5,
+                    ports=[azure.containerservice.GroupContainerPortArgs(
+                        port=443,
+                        protocol="TCP",
+                    )],
+                ),
+                azure.containerservice.GroupContainerArgs(
+                    name="sidecar",
+                    image="microsoft/aci-tutorial-sidecar",
+                    cpu=0.5,
+                    memory=1.5,
+                ),
             ],
             tags={
                 "environment": "testing",
@@ -177,11 +76,11 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] diagnostics: A `diagnostics` block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] identity: An `identity` block as defined below.
-        :param pulumi.Input[list] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -189,78 +88,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-
-        The **containers** object supports the following:
-
-          * `commands` (`pulumi.Input[list]`) - A list of commands which should be run on the container. Changing this forces a new resource to be created.
-          * `cpu` (`pulumi.Input[float]`) - The required number of CPU cores of the containers. Changing this forces a new resource to be created.
-          * `environmentVariables` (`pulumi.Input[dict]`) - A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-          * `gpu` (`pulumi.Input[dict]`) - A `gpu` block as defined below. Changing this forces a new resource to be created.
-            * `count` (`pulumi.Input[float]`) - The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-            * `sku` (`pulumi.Input[str]`) - The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
-
-          * `image` (`pulumi.Input[str]`) - The container image name. Changing this forces a new resource to be created.
-          * `livenessProbe` (`pulumi.Input[dict]`) - The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
-            * `execs` (`pulumi.Input[list]`) - Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-            * `failureThreshold` (`pulumi.Input[float]`) - How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `httpGets` (`pulumi.Input[list]`) - The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
-              * `path` (`pulumi.Input[str]`) - Path to access on the HTTP server. Changing this forces a new resource to be created.
-              * `port` (`pulumi.Input[float]`) - The port number the container will expose. Changing this forces a new resource to be created.
-              * `scheme` (`pulumi.Input[str]`) - Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
-
-            * `initialDelaySeconds` (`pulumi.Input[float]`) - Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-            * `periodSeconds` (`pulumi.Input[float]`) - How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `successThreshold` (`pulumi.Input[float]`) - Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `timeoutSeconds` (`pulumi.Input[float]`) - Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-
-          * `memory` (`pulumi.Input[float]`) - The required memory of the containers in GB. Changing this forces a new resource to be created.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
-          * `ports` (`pulumi.Input[list]`) - A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
-            * `port` (`pulumi.Input[float]`) - The port number the container will expose. Changing this forces a new resource to be created.
-            * `protocol` (`pulumi.Input[str]`) - The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
-
-          * `readinessProbe` (`pulumi.Input[dict]`) - The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
-            * `execs` (`pulumi.Input[list]`) - Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-            * `failureThreshold` (`pulumi.Input[float]`) - How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `httpGets` (`pulumi.Input[list]`) - The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
-              * `path` (`pulumi.Input[str]`) - Path to access on the HTTP server. Changing this forces a new resource to be created.
-              * `port` (`pulumi.Input[float]`) - The port number the container will expose. Changing this forces a new resource to be created.
-              * `scheme` (`pulumi.Input[str]`) - Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
-
-            * `initialDelaySeconds` (`pulumi.Input[float]`) - Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-            * `periodSeconds` (`pulumi.Input[float]`) - How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `successThreshold` (`pulumi.Input[float]`) - Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `timeoutSeconds` (`pulumi.Input[float]`) - Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-
-          * `secureEnvironmentVariables` (`pulumi.Input[dict]`) - A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-          * `volumes` (`pulumi.Input[list]`) - The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
-            * `mountPath` (`pulumi.Input[str]`) - The path on which this volume is to be mounted. Changing this forces a new resource to be created.
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
-            * `readOnly` (`pulumi.Input[bool]`) - Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-            * `share_name` (`pulumi.Input[str]`) - The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
-            * `storage_account_key` (`pulumi.Input[str]`) - The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
-            * `storage_account_name` (`pulumi.Input[str]`) - The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
-
-        The **diagnostics** object supports the following:
-
-          * `logAnalytics` (`pulumi.Input[dict]`) - A `log_analytics` block as defined below. Changing this forces a new resource to be created.
-            * `logType` (`pulumi.Input[str]`) - The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
-            * `metadata` (`pulumi.Input[dict]`) - Any metadata required for Log Analytics. Changing this forces a new resource to be created.
-            * `workspace_id` (`pulumi.Input[str]`) - The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
-            * `workspaceKey` (`pulumi.Input[str]`) - The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`) - Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
-          * `principal_id` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`) - The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
-
-        The **image_registry_credentials** object supports the following:
-
-          * `password` (`pulumi.Input[str]`) - The password with which to connect to the registry. Changing this forces a new resource to be created.
-          * `server` (`pulumi.Input[str]`) - The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
-          * `username` (`pulumi.Input[str]`) - The username with which to connect to the registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -273,7 +101,7 @@ class Group(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -307,20 +135,37 @@ class Group(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, containers=None, diagnostics=None, dns_name_label=None, fqdn=None, identity=None, image_registry_credentials=None, ip_address=None, ip_address_type=None, location=None, name=None, network_profile_id=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            containers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]]] = None,
+            diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
+            dns_name_label: Optional[pulumi.Input[str]] = None,
+            fqdn: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
+            image_registry_credentials: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
+            ip_address: Optional[pulumi.Input[str]] = None,
+            ip_address_type: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            network_profile_id: Optional[pulumi.Input[str]] = None,
+            os_type: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            restart_policy: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] diagnostics: A `diagnostics` block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
-        :param pulumi.Input[dict] identity: An `identity` block as defined below.
-        :param pulumi.Input[list] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -329,78 +174,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-
-        The **containers** object supports the following:
-
-          * `commands` (`pulumi.Input[list]`) - A list of commands which should be run on the container. Changing this forces a new resource to be created.
-          * `cpu` (`pulumi.Input[float]`) - The required number of CPU cores of the containers. Changing this forces a new resource to be created.
-          * `environmentVariables` (`pulumi.Input[dict]`) - A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-          * `gpu` (`pulumi.Input[dict]`) - A `gpu` block as defined below. Changing this forces a new resource to be created.
-            * `count` (`pulumi.Input[float]`) - The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
-            * `sku` (`pulumi.Input[str]`) - The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
-
-          * `image` (`pulumi.Input[str]`) - The container image name. Changing this forces a new resource to be created.
-          * `livenessProbe` (`pulumi.Input[dict]`) - The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
-            * `execs` (`pulumi.Input[list]`) - Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-            * `failureThreshold` (`pulumi.Input[float]`) - How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `httpGets` (`pulumi.Input[list]`) - The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
-              * `path` (`pulumi.Input[str]`) - Path to access on the HTTP server. Changing this forces a new resource to be created.
-              * `port` (`pulumi.Input[float]`) - The port number the container will expose. Changing this forces a new resource to be created.
-              * `scheme` (`pulumi.Input[str]`) - Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
-
-            * `initialDelaySeconds` (`pulumi.Input[float]`) - Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-            * `periodSeconds` (`pulumi.Input[float]`) - How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `successThreshold` (`pulumi.Input[float]`) - Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `timeoutSeconds` (`pulumi.Input[float]`) - Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-
-          * `memory` (`pulumi.Input[float]`) - The required memory of the containers in GB. Changing this forces a new resource to be created.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
-          * `ports` (`pulumi.Input[list]`) - A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
-            * `port` (`pulumi.Input[float]`) - The port number the container will expose. Changing this forces a new resource to be created.
-            * `protocol` (`pulumi.Input[str]`) - The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
-
-          * `readinessProbe` (`pulumi.Input[dict]`) - The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
-            * `execs` (`pulumi.Input[list]`) - Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-            * `failureThreshold` (`pulumi.Input[float]`) - How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `httpGets` (`pulumi.Input[list]`) - The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
-              * `path` (`pulumi.Input[str]`) - Path to access on the HTTP server. Changing this forces a new resource to be created.
-              * `port` (`pulumi.Input[float]`) - The port number the container will expose. Changing this forces a new resource to be created.
-              * `scheme` (`pulumi.Input[str]`) - Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
-
-            * `initialDelaySeconds` (`pulumi.Input[float]`) - Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-            * `periodSeconds` (`pulumi.Input[float]`) - How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `successThreshold` (`pulumi.Input[float]`) - Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-            * `timeoutSeconds` (`pulumi.Input[float]`) - Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-
-          * `secureEnvironmentVariables` (`pulumi.Input[dict]`) - A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-          * `volumes` (`pulumi.Input[list]`) - The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
-            * `mountPath` (`pulumi.Input[str]`) - The path on which this volume is to be mounted. Changing this forces a new resource to be created.
-            * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Group. Changing this forces a new resource to be created.
-            * `readOnly` (`pulumi.Input[bool]`) - Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-            * `share_name` (`pulumi.Input[str]`) - The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
-            * `storage_account_key` (`pulumi.Input[str]`) - The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
-            * `storage_account_name` (`pulumi.Input[str]`) - The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
-
-        The **diagnostics** object supports the following:
-
-          * `logAnalytics` (`pulumi.Input[dict]`) - A `log_analytics` block as defined below. Changing this forces a new resource to be created.
-            * `logType` (`pulumi.Input[str]`) - The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
-            * `metadata` (`pulumi.Input[dict]`) - Any metadata required for Log Analytics. Changing this forces a new resource to be created.
-            * `workspace_id` (`pulumi.Input[str]`) - The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
-            * `workspaceKey` (`pulumi.Input[str]`) - The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`) - Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
-          * `principal_id` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`) - The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
-
-        The **image_registry_credentials** object supports the following:
-
-          * `password` (`pulumi.Input[str]`) - The password with which to connect to the registry. Changing this forces a new resource to be created.
-          * `server` (`pulumi.Input[str]`) - The address to use to connect to the registry without protocol ("https"/"http"). For example: "myacr.acr.io". Changing this forces a new resource to be created.
-          * `username` (`pulumi.Input[str]`) - The username with which to connect to the registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -423,8 +197,129 @@ class Group(pulumi.CustomResource):
         __props__["tags"] = tags
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def containers(self) -> List['outputs.GroupContainer']:
+        """
+        The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional['outputs.GroupDiagnostics']:
+        """
+        A `diagnostics` block as documented below.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter(name="dnsNameLabel")
+    def dns_name_label(self) -> Optional[str]:
+        """
+        The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_name_label")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The FQDN of the container group derived from `dns_name_label`.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> 'outputs.GroupIdentity':
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="imageRegistryCredentials")
+    def image_registry_credentials(self) -> Optional[List['outputs.GroupImageRegistryCredential']]:
+        """
+        A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image_registry_credentials")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        """
+        The IP address allocated to the container group.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
+        """
+        Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfileId")
+    def network_profile_id(self) -> Optional[str]:
+        """
+        Network profile ID for deploying to virtual network.
+        """
+        return pulumi.get(self, "network_profile_id")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="restartPolicy")
+    def restart_policy(self) -> Optional[str]:
+        """
+        Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "restart_policy")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

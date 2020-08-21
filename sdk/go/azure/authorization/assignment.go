@@ -196,7 +196,7 @@ import (
 // 		}
 // 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Scope:            pulumi.String(data.Azurerm_management_group.Primary.Id),
+// 			Scope:            pulumi.Any(data.Azurerm_management_group.Primary.Id),
 // 			RoleDefinitionId: exampleRoleDefinition.ID(),
 // 			PrincipalId:      pulumi.String(exampleClientConfig.ClientId),
 // 		})

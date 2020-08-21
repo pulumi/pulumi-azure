@@ -5,55 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['NetworkConnectionMonitor']
 
 
 class NetworkConnectionMonitor(pulumi.CustomResource):
-    auto_start: pulumi.Output[bool]
-    """
-    Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
-    """
-    destination: pulumi.Output[dict]
-    """
-    A `destination` block as defined below.
-
-      * `address` (`str`) - The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
-      * `port` (`float`) - The destination port used by connection monitor.
-      * `virtual_machine_id` (`str`) - The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
-    """
-    interval_in_seconds: pulumi.Output[float]
-    """
-    Monitoring interval in seconds.
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
-    """
-    network_watcher_name: pulumi.Output[str]
-    """
-    The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-    """
-    source: pulumi.Output[dict]
-    """
-    A `source` block as defined below.
-
-      * `port` (`float`) - The source port used by connection monitor.
-      * `virtual_machine_id` (`str`) - The ID of the virtual machine used as the source by connection monitor.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags which should be assigned to the Network Connection Monitor.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_start=None, destination=None, interval_in_seconds=None, location=None, name=None, network_watcher_name=None, resource_group_name=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_start: Optional[pulumi.Input[bool]] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Network Connection Monitor.
 
@@ -81,14 +56,14 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             location=example_network_watcher.location,
             auto_start=False,
             interval_in_seconds=30,
-            source={
-                "virtual_machine_id": src_virtual_machine.id,
-                "port": 20020,
-            },
-            destination={
-                "address": "mycompany.io",
-                "port": 443,
-            },
+            source=azure.network.NetworkConnectionMonitorSourceArgs(
+                virtual_machine_id=src_virtual_machine.id,
+                port=20020,
+            ),
+            destination=azure.network.NetworkConnectionMonitorDestinationArgs(
+                address="mycompany.io",
+                port=443,
+            ),
             tags={
                 "foo": "bar",
             },
@@ -98,25 +73,14 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
-        :param pulumi.Input[dict] destination: A `destination` block as defined below.
+        :param pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']] destination: A `destination` block as defined below.
         :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-        :param pulumi.Input[dict] source: A `source` block as defined below.
-        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
-
-        The **destination** object supports the following:
-
-          * `address` (`pulumi.Input[str]`) - The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
-          * `port` (`pulumi.Input[float]`) - The destination port used by connection monitor.
-          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
-
-        The **source** object supports the following:
-
-          * `port` (`pulumi.Input[float]`) - The source port used by connection monitor.
-          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the virtual machine used as the source by connection monitor.
+        :param pulumi.Input[pulumi.InputType['NetworkConnectionMonitorSourceArgs']] source: A `source` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,7 +93,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -159,34 +123,34 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_start=None, destination=None, interval_in_seconds=None, location=None, name=None, network_watcher_name=None, resource_group_name=None, source=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_start: Optional[pulumi.Input[bool]] = None,
+            destination: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']]] = None,
+            interval_in_seconds: Optional[pulumi.Input[float]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            network_watcher_name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            source: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorSourceArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NetworkConnectionMonitor':
         """
         Get an existing NetworkConnectionMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
-        :param pulumi.Input[dict] destination: A `destination` block as defined below.
+        :param pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']] destination: A `destination` block as defined below.
         :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
-        :param pulumi.Input[dict] source: A `source` block as defined below.
-        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
-
-        The **destination** object supports the following:
-
-          * `address` (`pulumi.Input[str]`) - The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
-          * `port` (`pulumi.Input[float]`) - The destination port used by connection monitor.
-          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
-
-        The **source** object supports the following:
-
-          * `port` (`pulumi.Input[float]`) - The source port used by connection monitor.
-          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the virtual machine used as the source by connection monitor.
+        :param pulumi.Input[pulumi.InputType['NetworkConnectionMonitorSourceArgs']] source: A `source` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -203,8 +167,81 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         __props__["tags"] = tags
         return NetworkConnectionMonitor(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoStart")
+    def auto_start(self) -> Optional[bool]:
+        """
+        Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
+        """
+        return pulumi.get(self, "auto_start")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.NetworkConnectionMonitorDestination':
+        """
+        A `destination` block as defined below.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[float]:
+        """
+        Monitoring interval in seconds.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkWatcherName")
+    def network_watcher_name(self) -> str:
+        """
+        The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
+        """
+        return pulumi.get(self, "network_watcher_name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> 'outputs.NetworkConnectionMonitorSource':
+        """
+        A `source` block as defined below.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags which should be assigned to the Network Connection Monitor.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

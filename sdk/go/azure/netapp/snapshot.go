@@ -86,7 +86,7 @@ import (
 // 			PoolName:          examplePool.Name,
 // 			VolumePath:        pulumi.String("my-unique-file-path"),
 // 			ServiceLevel:      pulumi.String("Premium"),
-// 			SubnetId:          pulumi.String(azurerm_subnet.Test.Id),
+// 			SubnetId:          pulumi.Any(azurerm_subnet.Test.Id),
 // 			StorageQuotaInGb:  pulumi.Int(100),
 // 		})
 // 		if err != nil {

@@ -5,73 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Volume']
 
 
 class Volume(pulumi.CustomResource):
-    account_name: pulumi.Output[str]
-    """
-    The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-    """
-    export_policy_rules: pulumi.Output[list]
-    """
-    One or more `export_policy_rule` block defined below.
-
-      * `allowedClients` (`list`) - A list of allowed clients IPv4 addresses.
-      * `cifsEnabled` (`bool`) - Is the CIFS protocol allowed?
-      * `nfsv3Enabled` (`bool`) - Is the NFSv3 protocol allowed?
-      * `nfsv4Enabled` (`bool`) - Is the NFSv4 protocol allowed?
-      * `protocolsEnabled` (`str`) - A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-      * `ruleIndex` (`float`) - The index number of the rule.
-      * `unixReadOnly` (`bool`) - Is the file system on unix read only?
-      * `unixReadWrite` (`bool`) - Is the file system on unix read and write?
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    mount_ip_addresses: pulumi.Output[list]
-    """
-    A list of IPv4 Addresses which should be used to mount the volume.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the NetApp Volume. Changing this forces a new resource to be created.
-    """
-    pool_name: pulumi.Output[str]
-    """
-    The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
-    """
-    protocols: pulumi.Output[list]
-    """
-    The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
-    """
-    service_level: pulumi.Output[str]
-    """
-    The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
-    """
-    storage_quota_in_gb: pulumi.Output[float]
-    """
-    The maximum Storage Quota allowed for a file system in Gigabytes.
-    """
-    subnet_id: pulumi.Output[str]
-    """
-    The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    volume_path: pulumi.Output[str]
-    """
-    A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, export_policy_rules=None, location=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, tags=None, volume_path=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 export_policy_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_name: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_level: Optional[pulumi.Input[str]] = None,
+                 storage_quota_in_gb: Optional[pulumi.Input[float]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_path: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a NetApp Volume.
 
@@ -90,16 +50,16 @@ class Volume(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefix="10.0.2.0/24",
-            delegations=[{
-                "name": "netapp",
-                "serviceDelegation": {
-                    "name": "Microsoft.Netapp/volumes",
-                    "actions": [
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="netapp",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Netapp/volumes",
+                    actions=[
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                },
-            }])
+                ),
+            )])
         example_account = azure.netapp.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
@@ -124,28 +84,17 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+        :param pulumi.Input[List[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
         :param pulumi.Input[float] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
-
-        The **export_policy_rules** object supports the following:
-
-          * `allowedClients` (`pulumi.Input[list]`) - A list of allowed clients IPv4 addresses.
-          * `cifsEnabled` (`pulumi.Input[bool]`) - Is the CIFS protocol allowed?
-          * `nfsv3Enabled` (`pulumi.Input[bool]`) - Is the NFSv3 protocol allowed?
-          * `nfsv4Enabled` (`pulumi.Input[bool]`) - Is the NFSv4 protocol allowed?
-          * `protocolsEnabled` (`pulumi.Input[str]`) - A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-          * `ruleIndex` (`pulumi.Input[float]`) - The index number of the rule.
-          * `unixReadOnly` (`pulumi.Input[bool]`) - Is the file system on unix read only?
-          * `unixReadWrite` (`pulumi.Input[bool]`) - Is the file system on unix read and write?
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -158,7 +107,7 @@ class Volume(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -198,38 +147,42 @@ class Volume(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, export_policy_rules=None, location=None, mount_ip_addresses=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, tags=None, volume_path=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: Optional[pulumi.Input[str]] = None,
+            export_policy_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            mount_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            pool_name: Optional[pulumi.Input[str]] = None,
+            protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            service_level: Optional[pulumi.Input[str]] = None,
+            storage_quota_in_gb: Optional[pulumi.Input[float]] = None,
+            subnet_id: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            volume_path: Optional[pulumi.Input[str]] = None) -> 'Volume':
         """
         Get an existing Volume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
+        :param pulumi.Input[List[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+        :param pulumi.Input[List[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
         :param pulumi.Input[float] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
-
-        The **export_policy_rules** object supports the following:
-
-          * `allowedClients` (`pulumi.Input[list]`) - A list of allowed clients IPv4 addresses.
-          * `cifsEnabled` (`pulumi.Input[bool]`) - Is the CIFS protocol allowed?
-          * `nfsv3Enabled` (`pulumi.Input[bool]`) - Is the NFSv3 protocol allowed?
-          * `nfsv4Enabled` (`pulumi.Input[bool]`) - Is the NFSv4 protocol allowed?
-          * `protocolsEnabled` (`pulumi.Input[str]`) - A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-          * `ruleIndex` (`pulumi.Input[float]`) - The index number of the rule.
-          * `unixReadOnly` (`pulumi.Input[bool]`) - Is the file system on unix read only?
-          * `unixReadWrite` (`pulumi.Input[bool]`) - Is the file system on unix read and write?
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -250,8 +203,113 @@ class Volume(pulumi.CustomResource):
         __props__["volume_path"] = volume_path
         return Volume(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="exportPolicyRules")
+    def export_policy_rules(self) -> Optional[List['outputs.VolumeExportPolicyRule']]:
+        """
+        One or more `export_policy_rule` block defined below.
+        """
+        return pulumi.get(self, "export_policy_rules")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="mountIpAddresses")
+    def mount_ip_addresses(self) -> List[str]:
+        """
+        A list of IPv4 Addresses which should be used to mount the volume.
+        """
+        return pulumi.get(self, "mount_ip_addresses")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the NetApp Volume. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="poolName")
+    def pool_name(self) -> str:
+        """
+        The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pool_name")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> List[str]:
+        """
+        The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> str:
+        """
+        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        """
+        return pulumi.get(self, "service_level")
+
+    @property
+    @pulumi.getter(name="storageQuotaInGb")
+    def storage_quota_in_gb(self) -> float:
+        """
+        The maximum Storage Quota allowed for a file system in Gigabytes.
+        """
+        return pulumi.get(self, "storage_quota_in_gb")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="volumePath")
+    def volume_path(self) -> str:
+        """
+        A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "volume_path")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

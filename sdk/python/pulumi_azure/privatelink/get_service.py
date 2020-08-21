@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetServiceResult',
+    'AwaitableGetServiceResult',
+    'get_service',
+]
+
+@pulumi.output_type
 class GetServiceResult:
     """
     A collection of values returned by getService.
@@ -15,67 +23,124 @@ class GetServiceResult:
     def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, id=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
-        __self__.alias = alias
+        pulumi.set(__self__, "alias", alias)
+        if auto_approval_subscription_ids and not isinstance(auto_approval_subscription_ids, list):
+            raise TypeError("Expected argument 'auto_approval_subscription_ids' to be a list")
+        pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
+        if enable_proxy_protocol and not isinstance(enable_proxy_protocol, bool):
+            raise TypeError("Expected argument 'enable_proxy_protocol' to be a bool")
+        pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if load_balancer_frontend_ip_configuration_ids and not isinstance(load_balancer_frontend_ip_configuration_ids, list):
+            raise TypeError("Expected argument 'load_balancer_frontend_ip_configuration_ids' to be a list")
+        pulumi.set(__self__, "load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if nat_ip_configurations and not isinstance(nat_ip_configurations, list):
+            raise TypeError("Expected argument 'nat_ip_configurations' to be a list")
+        pulumi.set(__self__, "nat_ip_configurations", nat_ip_configurations)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if visibility_subscription_ids and not isinstance(visibility_subscription_ids, list):
+            raise TypeError("Expected argument 'visibility_subscription_ids' to be a list")
+        pulumi.set(__self__, "visibility_subscription_ids", visibility_subscription_ids)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> str:
         """
         The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
         """
-        if auto_approval_subscription_ids and not isinstance(auto_approval_subscription_ids, list):
-            raise TypeError("Expected argument 'auto_approval_subscription_ids' to be a list")
-        __self__.auto_approval_subscription_ids = auto_approval_subscription_ids
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="autoApprovalSubscriptionIds")
+    def auto_approval_subscription_ids(self) -> List[str]:
         """
         The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
         """
-        if enable_proxy_protocol and not isinstance(enable_proxy_protocol, bool):
-            raise TypeError("Expected argument 'enable_proxy_protocol' to be a bool")
-        __self__.enable_proxy_protocol = enable_proxy_protocol
+        return pulumi.get(self, "auto_approval_subscription_ids")
+
+    @property
+    @pulumi.getter(name="enableProxyProtocol")
+    def enable_proxy_protocol(self) -> bool:
         """
         Does the Private Link Service support the Proxy Protocol?
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "enable_proxy_protocol")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if load_balancer_frontend_ip_configuration_ids and not isinstance(load_balancer_frontend_ip_configuration_ids, list):
-            raise TypeError("Expected argument 'load_balancer_frontend_ip_configuration_ids' to be a list")
-        __self__.load_balancer_frontend_ip_configuration_ids = load_balancer_frontend_ip_configuration_ids
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
+    def load_balancer_frontend_ip_configuration_ids(self) -> List[str]:
         """
         The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "load_balancer_frontend_ip_configuration_ids")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The supported Azure location where the resource exists.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of private link service NAT IP configuration.
         """
-        if nat_ip_configurations and not isinstance(nat_ip_configurations, list):
-            raise TypeError("Expected argument 'nat_ip_configurations' to be a list")
-        __self__.nat_ip_configurations = nat_ip_configurations
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="natIpConfigurations")
+    def nat_ip_configurations(self) -> List['outputs.GetServiceNatIpConfigurationResult']:
         """
         The `nat_ip_configuration` block as defined below.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "nat_ip_configurations")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags to assign to the resource.
         """
-        if visibility_subscription_ids and not isinstance(visibility_subscription_ids, list):
-            raise TypeError("Expected argument 'visibility_subscription_ids' to be a list")
-        __self__.visibility_subscription_ids = visibility_subscription_ids
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="visibilitySubscriptionIds")
+    def visibility_subscription_ids(self) -> List[str]:
         """
         The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
         """
+        return pulumi.get(self, "visibility_subscription_ids")
+
+
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -94,7 +159,10 @@ class AwaitableGetServiceResult(GetServiceResult):
             tags=self.tags,
             visibility_subscription_ids=self.visibility_subscription_ids)
 
-def get_service(name=None,resource_group_name=None,opts=None):
+
+def get_service(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to access information about an existing Private Link Service.
 
@@ -116,25 +184,23 @@ def get_service(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: The name of the resource group in which the private link service resides.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:privatelink/getService:getService', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:privatelink/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        alias=__ret__.get('alias'),
-        auto_approval_subscription_ids=__ret__.get('autoApprovalSubscriptionIds'),
-        enable_proxy_protocol=__ret__.get('enableProxyProtocol'),
-        id=__ret__.get('id'),
-        load_balancer_frontend_ip_configuration_ids=__ret__.get('loadBalancerFrontendIpConfigurationIds'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        nat_ip_configurations=__ret__.get('natIpConfigurations'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        visibility_subscription_ids=__ret__.get('visibilitySubscriptionIds'))
+        alias=__ret__.alias,
+        auto_approval_subscription_ids=__ret__.auto_approval_subscription_ids,
+        enable_proxy_protocol=__ret__.enable_proxy_protocol,
+        id=__ret__.id,
+        load_balancer_frontend_ip_configuration_ids=__ret__.load_balancer_frontend_ip_configuration_ids,
+        location=__ret__.location,
+        name=__ret__.name,
+        nat_ip_configurations=__ret__.nat_ip_configurations,
+        resource_group_name=__ret__.resource_group_name,
+        tags=__ret__.tags,
+        visibility_subscription_ids=__ret__.visibility_subscription_ids)

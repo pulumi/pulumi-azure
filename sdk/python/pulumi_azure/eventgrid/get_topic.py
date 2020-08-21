@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetTopicResult',
+    'AwaitableGetTopicResult',
+    'get_topic',
+]
+
+@pulumi.output_type
 class GetTopicResult:
     """
     A collection of values returned by getTopic.
@@ -15,40 +22,82 @@ class GetTopicResult:
     def __init__(__self__, endpoint=None, id=None, location=None, name=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, tags=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
-        __self__.endpoint = endpoint
+        pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if primary_access_key and not isinstance(primary_access_key, str):
+            raise TypeError("Expected argument 'primary_access_key' to be a str")
+        pulumi.set(__self__, "primary_access_key", primary_access_key)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_access_key and not isinstance(secondary_access_key, str):
+            raise TypeError("Expected argument 'secondary_access_key' to be a str")
+        pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
         """
         The Endpoint associated with the EventGrid Topic.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if primary_access_key and not isinstance(primary_access_key, str):
-            raise TypeError("Expected argument 'primary_access_key' to be a str")
-        __self__.primary_access_key = primary_access_key
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryAccessKey")
+    def primary_access_key(self) -> str:
         """
         The Primary Shared Access Key associated with the EventGrid Topic.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if secondary_access_key and not isinstance(secondary_access_key, str):
-            raise TypeError("Expected argument 'secondary_access_key' to be a str")
-        __self__.secondary_access_key = secondary_access_key
+        return pulumi.get(self, "primary_access_key")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryAccessKey")
+    def secondary_access_key(self) -> str:
         """
         The Secondary Shared Access Key associated with the EventGrid Topic.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "secondary_access_key")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
+
+
 class AwaitableGetTopicResult(GetTopicResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -64,7 +113,11 @@ class AwaitableGetTopicResult(GetTopicResult):
             secondary_access_key=self.secondary_access_key,
             tags=self.tags)
 
-def get_topic(name=None,resource_group_name=None,tags=None,opts=None):
+
+def get_topic(name: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              tags: Optional[Mapping[str, str]] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Use this data source to access information about an existing EventGrid Topic
 
@@ -83,23 +136,21 @@ def get_topic(name=None,resource_group_name=None,tags=None,opts=None):
     :param str resource_group_name: The name of the resource group in which the EventGrid Topic exists.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:eventgrid/getTopic:getTopic', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:eventgrid/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
-        endpoint=__ret__.get('endpoint'),
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        primary_access_key=__ret__.get('primaryAccessKey'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        secondary_access_key=__ret__.get('secondaryAccessKey'),
-        tags=__ret__.get('tags'))
+        endpoint=__ret__.endpoint,
+        id=__ret__.id,
+        location=__ret__.location,
+        name=__ret__.name,
+        primary_access_key=__ret__.primary_access_key,
+        resource_group_name=__ret__.resource_group_name,
+        secondary_access_key=__ret__.secondary_access_key,
+        tags=__ret__.tags)

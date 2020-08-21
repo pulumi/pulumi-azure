@@ -83,7 +83,7 @@ import (
 // 			Location:          rg.Location,
 // 			ClusterName:       cluster.Name,
 // 			DatabaseName:      database.Name,
-// 			EventhubId:        pulumi.String(azurerm_eventhub.Evenhub.Id),
+// 			EventhubId:        pulumi.Any(azurerm_eventhub.Evenhub.Id),
 // 			ConsumerGroup:     consumerGroup.Name,
 // 			TableName:         pulumi.String("my-table"),
 // 			MappingRuleName:   pulumi.String("my-table-mapping"),

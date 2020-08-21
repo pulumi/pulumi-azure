@@ -12,3 +12,5 @@ from .database_principal import *
 from .database_principal_assignment import *
 from .eventhub_data_connection import *
 from .get_cluster import *
+from ._inputs import *
+from . import outputs

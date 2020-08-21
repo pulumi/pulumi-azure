@@ -5,103 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Api']
 
 
 class Api(pulumi.CustomResource):
-    api_management_name: pulumi.Output[str]
-    """
-    The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
-    """
-    description: pulumi.Output[str]
-    """
-    A description of the API Management API, which may include HTML formatting tags.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The display name of the API.
-    """
-    import_: pulumi.Output[dict]
-    """
-    A `import` block as documented below.
-
-      * `contentFormat` (`str`) - The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
-      * `contentValue` (`str`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
-      * `wsdlSelector` (`dict`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
-        * `endpointName` (`str`) - The name of endpoint (port) to import from WSDL.
-        * `service_name` (`str`) - The name of service to import from WSDL.
-    """
-    is_current: pulumi.Output[bool]
-    """
-    Is this the current API Revision?
-    """
-    is_online: pulumi.Output[bool]
-    """
-    Is this API Revision online/accessible via the Gateway?
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the API Management API. Changing this forces a new resource to be created.
-    """
-    oauth2_authorization: pulumi.Output[dict]
-    """
-    An `oauth2_authorization` block as documented below.
-
-      * `authorizationServerName` (`str`)
-      * `scope` (`str`) - Operations scope.
-    """
-    openid_authentication: pulumi.Output[dict]
-    """
-    An `openid_authentication` block as documented below.
-
-      * `bearer_token_sending_methods` (`list`) - How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
-      * `openidProviderName` (`str`)
-    """
-    path: pulumi.Output[str]
-    """
-    The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-    """
-    protocols: pulumi.Output[list]
-    """
-    A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-    """
-    revision: pulumi.Output[str]
-    """
-    The Revision which used for this API.
-    """
-    service_url: pulumi.Output[str]
-    """
-    Absolute URL of the backend service implementing this API.
-    """
-    soap_pass_through: pulumi.Output[bool]
-    """
-    Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-    """
-    subscription_key_parameter_names: pulumi.Output[dict]
-    """
-    A `subscription_key_parameter_names` block as documented below.
-
-      * `header` (`str`) - The name of the HTTP Header which should be used for the Subscription Key.
-      * `query` (`str`) - The name of the QueryString parameter which should be used for the Subscription Key.
-    """
-    subscription_required: pulumi.Output[bool]
-    """
-    Should this API require a subscription key?
-    """
-    version: pulumi.Output[str]
-    """
-    The Version number of this API, if this API is versioned.
-    """
-    version_set_id: pulumi.Output[str]
-    """
-    The ID of the Version Set which this API is associated with.
-    """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, description=None, display_name=None, import_=None, name=None, oauth2_authorization=None, openid_authentication=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, subscription_required=None, version=None, version_set_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 import_: Optional[pulumi.Input[pulumi.InputType['ApiImportArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 oauth2_authorization: Optional[pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']]] = None,
+                 openid_authentication: Optional[pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 revision: Optional[pulumi.Input[str]] = None,
+                 service_url: Optional[pulumi.Input[str]] = None,
+                 soap_pass_through: Optional[pulumi.Input[bool]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']]] = None,
+                 subscription_required: Optional[pulumi.Input[bool]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 version_set_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an API within an API Management Service.
 
@@ -125,10 +60,10 @@ class Api(pulumi.CustomResource):
             display_name="Example API",
             path="example",
             protocols=["https"],
-            import_={
-                "contentFormat": "swagger-link-json",
-                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
-            })
+            import_=azure.apimanagement.ApiImportArgs(
+                content_format="swagger-link-json",
+                content_value="http://conferenceapi.azurewebsites.net/?format=json",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
@@ -136,43 +71,20 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
-        :param pulumi.Input[dict] import_: A `import` block as documented below.
+        :param pulumi.Input[pulumi.InputType['ApiImportArgs']] import_: A `import` block as documented below.
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] oauth2_authorization: An `oauth2_authorization` block as documented below.
-        :param pulumi.Input[dict] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']] oauth2_authorization: An `oauth2_authorization` block as documented below.
+        :param pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        :param pulumi.Input[list] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[List[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-        :param pulumi.Input[dict] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
-
-        The **import_** object supports the following:
-
-          * `contentFormat` (`pulumi.Input[str]`) - The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
-          * `contentValue` (`pulumi.Input[str]`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
-          * `wsdlSelector` (`pulumi.Input[dict]`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
-            * `endpointName` (`pulumi.Input[str]`) - The name of endpoint (port) to import from WSDL.
-            * `service_name` (`pulumi.Input[str]`) - The name of service to import from WSDL.
-
-        The **oauth2_authorization** object supports the following:
-
-          * `authorizationServerName` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[str]`) - Operations scope.
-
-        The **openid_authentication** object supports the following:
-
-          * `bearer_token_sending_methods` (`pulumi.Input[list]`) - How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
-          * `openidProviderName` (`pulumi.Input[str]`)
-
-        The **subscription_key_parameter_names** object supports the following:
-
-          * `header` (`pulumi.Input[str]`) - The name of the HTTP Header which should be used for the Subscription Key.
-          * `query` (`pulumi.Input[str]`) - The name of the QueryString parameter which should be used for the Subscription Key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -185,7 +97,7 @@ class Api(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -229,56 +141,54 @@ class Api(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_management_name=None, description=None, display_name=None, import_=None, is_current=None, is_online=None, name=None, oauth2_authorization=None, openid_authentication=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, subscription_required=None, version=None, version_set_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            display_name: Optional[pulumi.Input[str]] = None,
+            import_: Optional[pulumi.Input[pulumi.InputType['ApiImportArgs']]] = None,
+            is_current: Optional[pulumi.Input[bool]] = None,
+            is_online: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            oauth2_authorization: Optional[pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']]] = None,
+            openid_authentication: Optional[pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']]] = None,
+            path: Optional[pulumi.Input[str]] = None,
+            protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            revision: Optional[pulumi.Input[str]] = None,
+            service_url: Optional[pulumi.Input[str]] = None,
+            soap_pass_through: Optional[pulumi.Input[bool]] = None,
+            subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']]] = None,
+            subscription_required: Optional[pulumi.Input[bool]] = None,
+            version: Optional[pulumi.Input[str]] = None,
+            version_set_id: Optional[pulumi.Input[str]] = None) -> 'Api':
         """
         Get an existing Api resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
-        :param pulumi.Input[dict] import_: A `import` block as documented below.
+        :param pulumi.Input[pulumi.InputType['ApiImportArgs']] import_: A `import` block as documented below.
         :param pulumi.Input[bool] is_current: Is this the current API Revision?
         :param pulumi.Input[bool] is_online: Is this API Revision online/accessible via the Gateway?
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] oauth2_authorization: An `oauth2_authorization` block as documented below.
-        :param pulumi.Input[dict] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']] oauth2_authorization: An `oauth2_authorization` block as documented below.
+        :param pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        :param pulumi.Input[list] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[List[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-        :param pulumi.Input[dict] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input[pulumi.InputType['ApiSubscriptionKeyParameterNamesArgs']] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
-
-        The **import_** object supports the following:
-
-          * `contentFormat` (`pulumi.Input[str]`) - The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
-          * `contentValue` (`pulumi.Input[str]`) - The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
-          * `wsdlSelector` (`pulumi.Input[dict]`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
-            * `endpointName` (`pulumi.Input[str]`) - The name of endpoint (port) to import from WSDL.
-            * `service_name` (`pulumi.Input[str]`) - The name of service to import from WSDL.
-
-        The **oauth2_authorization** object supports the following:
-
-          * `authorizationServerName` (`pulumi.Input[str]`)
-          * `scope` (`pulumi.Input[str]`) - Operations scope.
-
-        The **openid_authentication** object supports the following:
-
-          * `bearer_token_sending_methods` (`pulumi.Input[list]`) - How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
-          * `openidProviderName` (`pulumi.Input[str]`)
-
-        The **subscription_key_parameter_names** object supports the following:
-
-          * `header` (`pulumi.Input[str]`) - The name of the HTTP Header which should be used for the Subscription Key.
-          * `query` (`pulumi.Input[str]`) - The name of the QueryString parameter which should be used for the Subscription Key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -305,8 +215,161 @@ class Api(pulumi.CustomResource):
         __props__["version_set_id"] = version_set_id
         return Api(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> str:
+        """
+        The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the API Management API, which may include HTML formatting tags.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The display name of the API.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="import")
+    def import_(self) -> Optional['outputs.ApiImport']:
+        """
+        A `import` block as documented below.
+        """
+        return pulumi.get(self, "import_")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> bool:
+        """
+        Is this the current API Revision?
+        """
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isOnline")
+    def is_online(self) -> bool:
+        """
+        Is this API Revision online/accessible via the Gateway?
+        """
+        return pulumi.get(self, "is_online")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the API Management API. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="oauth2Authorization")
+    def oauth2_authorization(self) -> Optional['outputs.ApiOauth2Authorization']:
+        """
+        An `oauth2_authorization` block as documented below.
+        """
+        return pulumi.get(self, "oauth2_authorization")
+
+    @property
+    @pulumi.getter(name="openidAuthentication")
+    def openid_authentication(self) -> Optional['outputs.ApiOpenidAuthentication']:
+        """
+        An `openid_authentication` block as documented below.
+        """
+        return pulumi.get(self, "openid_authentication")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> List[str]:
+        """
+        A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> str:
+        """
+        The Revision which used for this API.
+        """
+        return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter(name="serviceUrl")
+    def service_url(self) -> str:
+        """
+        Absolute URL of the backend service implementing this API.
+        """
+        return pulumi.get(self, "service_url")
+
+    @property
+    @pulumi.getter(name="soapPassThrough")
+    def soap_pass_through(self) -> Optional[bool]:
+        """
+        Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+        """
+        return pulumi.get(self, "soap_pass_through")
+
+    @property
+    @pulumi.getter(name="subscriptionKeyParameterNames")
+    def subscription_key_parameter_names(self) -> 'outputs.ApiSubscriptionKeyParameterNames':
+        """
+        A `subscription_key_parameter_names` block as documented below.
+        """
+        return pulumi.get(self, "subscription_key_parameter_names")
+
+    @property
+    @pulumi.getter(name="subscriptionRequired")
+    def subscription_required(self) -> bool:
+        """
+        Should this API require a subscription key?
+        """
+        return pulumi.get(self, "subscription_required")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The Version number of this API, if this API is versioned.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionSetId")
+    def version_set_id(self) -> str:
+        """
+        The ID of the Version Set which this API is associated with.
+        """
+        return pulumi.get(self, "version_set_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

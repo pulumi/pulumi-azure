@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAppServicePlanResult',
+    'AwaitableGetAppServicePlanResult',
+    'get_app_service_plan',
+]
+
+@pulumi.output_type
 class GetAppServicePlanResult:
     """
     A collection of values returned by getAppServicePlan.
@@ -15,76 +23,143 @@ class GetAppServicePlanResult:
     def __init__(__self__, app_service_environment_id=None, id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None):
         if app_service_environment_id and not isinstance(app_service_environment_id, str):
             raise TypeError("Expected argument 'app_service_environment_id' to be a str")
-        __self__.app_service_environment_id = app_service_environment_id
+        pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if is_xenon and not isinstance(is_xenon, bool):
+            raise TypeError("Expected argument 'is_xenon' to be a bool")
+        pulumi.set(__self__, "is_xenon", is_xenon)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if maximum_elastic_worker_count and not isinstance(maximum_elastic_worker_count, float):
+            raise TypeError("Expected argument 'maximum_elastic_worker_count' to be a float")
+        pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
+        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
+            raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
+        pulumi.set(__self__, "maximum_number_of_workers", maximum_number_of_workers)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if per_site_scaling and not isinstance(per_site_scaling, bool):
+            raise TypeError("Expected argument 'per_site_scaling' to be a bool")
+        pulumi.set(__self__, "per_site_scaling", per_site_scaling)
+        if reserved and not isinstance(reserved, bool):
+            raise TypeError("Expected argument 'reserved' to be a bool")
+        pulumi.set(__self__, "reserved", reserved)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="appServiceEnvironmentId")
+    def app_service_environment_id(self) -> str:
         """
         The ID of the App Service Environment where the App Service Plan is located.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "app_service_environment_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if is_xenon and not isinstance(is_xenon, bool):
-            raise TypeError("Expected argument 'is_xenon' to be a bool")
-        __self__.is_xenon = is_xenon
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isXenon")
+    def is_xenon(self) -> bool:
         """
         A flag that indicates if it's a xenon plan (support for Windows Container)
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "is_xenon")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         The Operating System type of the App Service Plan
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The Azure location where the App Service Plan exists
         """
-        if maximum_elastic_worker_count and not isinstance(maximum_elastic_worker_count, float):
-            raise TypeError("Expected argument 'maximum_elastic_worker_count' to be a float")
-        __self__.maximum_elastic_worker_count = maximum_elastic_worker_count
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maximumElasticWorkerCount")
+    def maximum_elastic_worker_count(self) -> float:
         """
         The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         """
-        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
-            raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
-        __self__.maximum_number_of_workers = maximum_number_of_workers
+        return pulumi.get(self, "maximum_elastic_worker_count")
+
+    @property
+    @pulumi.getter(name="maximumNumberOfWorkers")
+    def maximum_number_of_workers(self) -> float:
         """
         The maximum number of workers supported with the App Service Plan's sku.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if per_site_scaling and not isinstance(per_site_scaling, bool):
-            raise TypeError("Expected argument 'per_site_scaling' to be a bool")
-        __self__.per_site_scaling = per_site_scaling
+        return pulumi.get(self, "maximum_number_of_workers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="perSiteScaling")
+    def per_site_scaling(self) -> bool:
         """
         Can Apps assigned to this App Service Plan be scaled independently?
         """
-        if reserved and not isinstance(reserved, bool):
-            raise TypeError("Expected argument 'reserved' to be a bool")
-        __self__.reserved = reserved
+        return pulumi.get(self, "per_site_scaling")
+
+    @property
+    @pulumi.getter
+    def reserved(self) -> bool:
         """
         Is this App Service Plan `Reserved`?
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        return pulumi.get(self, "reserved")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.GetAppServicePlanSkuResult':
         """
         A `sku` block as documented below.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the resource.
         """
+        return pulumi.get(self, "tags")
+
+
 class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -105,7 +180,10 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             sku=self.sku,
             tags=self.tags)
 
-def get_app_service_plan(name=None,resource_group_name=None,opts=None):
+
+def get_app_service_plan(name: Optional[str] = None,
+                         resource_group_name: Optional[str] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServicePlanResult:
     """
     Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
 
@@ -125,27 +203,25 @@ def get_app_service_plan(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: The Name of the Resource Group where the App Service Plan exists.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult).value
 
     return AwaitableGetAppServicePlanResult(
-        app_service_environment_id=__ret__.get('appServiceEnvironmentId'),
-        id=__ret__.get('id'),
-        is_xenon=__ret__.get('isXenon'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        maximum_elastic_worker_count=__ret__.get('maximumElasticWorkerCount'),
-        maximum_number_of_workers=__ret__.get('maximumNumberOfWorkers'),
-        name=__ret__.get('name'),
-        per_site_scaling=__ret__.get('perSiteScaling'),
-        reserved=__ret__.get('reserved'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'))
+        app_service_environment_id=__ret__.app_service_environment_id,
+        id=__ret__.id,
+        is_xenon=__ret__.is_xenon,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        maximum_elastic_worker_count=__ret__.maximum_elastic_worker_count,
+        maximum_number_of_workers=__ret__.maximum_number_of_workers,
+        name=__ret__.name,
+        per_site_scaling=__ret__.per_site_scaling,
+        reserved=__ret__.reserved,
+        resource_group_name=__ret__.resource_group_name,
+        sku=__ret__.sku,
+        tags=__ret__.tags)

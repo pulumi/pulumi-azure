@@ -5,26 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Agreement']
 
 
 class Agreement(pulumi.CustomResource):
-    license_text_link: pulumi.Output[str]
-    offer: pulumi.Output[str]
-    """
-    The Offer of the Marketplace Image. Changing this forces a new resource to be created.
-    """
-    plan: pulumi.Output[str]
-    """
-    The Plan of the Marketplace Image. Changing this forces a new resource to be created.
-    """
-    privacy_policy_link: pulumi.Output[str]
-    publisher: pulumi.Output[str]
-    """
-    The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, offer=None, plan=None, publisher=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 offer: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[str]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
 
@@ -57,7 +53,7 @@ class Agreement(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -81,13 +77,20 @@ class Agreement(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, license_text_link=None, offer=None, plan=None, privacy_policy_link=None, publisher=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            license_text_link: Optional[pulumi.Input[str]] = None,
+            offer: Optional[pulumi.Input[str]] = None,
+            plan: Optional[pulumi.Input[str]] = None,
+            privacy_policy_link: Optional[pulumi.Input[str]] = None,
+            publisher: Optional[pulumi.Input[str]] = None) -> 'Agreement':
         """
         Get an existing Agreement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] offer: The Offer of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
@@ -104,8 +107,43 @@ class Agreement(pulumi.CustomResource):
         __props__["publisher"] = publisher
         return Agreement(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="licenseTextLink")
+    def license_text_link(self) -> str:
+        return pulumi.get(self, "license_text_link")
+
+    @property
+    @pulumi.getter
+    def offer(self) -> str:
+        """
+        The Offer of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> str:
+        """
+        The Plan of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter(name="privacyPolicyLink")
+    def privacy_policy_link(self) -> str:
+        return pulumi.get(self, "privacy_policy_link")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

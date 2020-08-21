@@ -5,37 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['CnameRecord']
 
 
 class CnameRecord(pulumi.CustomResource):
-    fqdn: pulumi.Output[str]
-    """
-    The FQDN of the DNS CNAME Record.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the DNS CNAME Record.
-    """
-    record: pulumi.Output[str]
-    """
-    The target of the CNAME.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    ttl: pulumi.Output[float]
-    zone_name: pulumi.Output[str]
-    """
-    Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, record=None, resource_group_name=None, tags=None, ttl=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 record: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ttl: Optional[pulumi.Input[float]] = None,
+                 zone_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Enables you to manage DNS CNAME Records within Azure Private DNS.
 
@@ -59,7 +47,7 @@ class CnameRecord(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the DNS CNAME Record.
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -73,7 +61,7 @@ class CnameRecord(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -101,19 +89,28 @@ class CnameRecord(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, fqdn=None, name=None, record=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            fqdn: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            record: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            ttl: Optional[pulumi.Input[float]] = None,
+            zone_name: Optional[pulumi.Input[str]] = None) -> 'CnameRecord':
         """
         Get an existing CnameRecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS CNAME Record.
         :param pulumi.Input[str] name: The name of the DNS CNAME Record.
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -129,8 +126,62 @@ class CnameRecord(pulumi.CustomResource):
         __props__["zone_name"] = zone_name
         return CnameRecord(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The FQDN of the DNS CNAME Record.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the DNS CNAME Record.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def record(self) -> str:
+        """
+        The target of the CNAME.
+        """
+        return pulumi.get(self, "record")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> float:
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter(name="zoneName")
+    def zone_name(self) -> str:
+        """
+        Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zone_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

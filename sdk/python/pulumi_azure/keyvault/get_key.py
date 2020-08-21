@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetKeyResult',
+    'AwaitableGetKeyResult',
+    'get_key',
+]
+
+@pulumi.output_type
 class GetKeyResult:
     """
     A collection of values returned by getKey.
@@ -15,58 +22,110 @@ class GetKeyResult:
     def __init__(__self__, e=None, id=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, version=None):
         if e and not isinstance(e, str):
             raise TypeError("Expected argument 'e' to be a str")
-        __self__.e = e
+        pulumi.set(__self__, "e", e)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if key_opts and not isinstance(key_opts, list):
+            raise TypeError("Expected argument 'key_opts' to be a list")
+        pulumi.set(__self__, "key_opts", key_opts)
+        if key_size and not isinstance(key_size, float):
+            raise TypeError("Expected argument 'key_size' to be a float")
+        pulumi.set(__self__, "key_size", key_size)
+        if key_type and not isinstance(key_type, str):
+            raise TypeError("Expected argument 'key_type' to be a str")
+        pulumi.set(__self__, "key_type", key_type)
+        if key_vault_id and not isinstance(key_vault_id, str):
+            raise TypeError("Expected argument 'key_vault_id' to be a str")
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if n and not isinstance(n, str):
+            raise TypeError("Expected argument 'n' to be a str")
+        pulumi.set(__self__, "n", n)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def e(self) -> str:
         """
         The RSA public exponent of this Key Vault Key.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "e")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if key_opts and not isinstance(key_opts, list):
-            raise TypeError("Expected argument 'key_opts' to be a list")
-        __self__.key_opts = key_opts
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyOpts")
+    def key_opts(self) -> List[str]:
         """
         A list of JSON web key operations assigned to this Key Vault Key
         """
-        if key_size and not isinstance(key_size, float):
-            raise TypeError("Expected argument 'key_size' to be a float")
-        __self__.key_size = key_size
+        return pulumi.get(self, "key_opts")
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> float:
         """
         Specifies the Size of this Key Vault Key.
         """
-        if key_type and not isinstance(key_type, str):
-            raise TypeError("Expected argument 'key_type' to be a str")
-        __self__.key_type = key_type
+        return pulumi.get(self, "key_size")
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> str:
         """
         Specifies the Key Type of this Key Vault Key
         """
-        if key_vault_id and not isinstance(key_vault_id, str):
-            raise TypeError("Expected argument 'key_vault_id' to be a str")
-        __self__.key_vault_id = key_vault_id
-        if n and not isinstance(n, str):
-            raise TypeError("Expected argument 'n' to be a str")
-        __self__.n = n
+        return pulumi.get(self, "key_type")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter
+    def n(self) -> str:
         """
         The RSA modulus of this Key Vault Key.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "n")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to this Key Vault Key.
         """
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
         """
         The current version of the Key Vault Key.
         """
+        return pulumi.get(self, "version")
+
+
 class AwaitableGetKeyResult(GetKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -84,7 +143,10 @@ class AwaitableGetKeyResult(GetKeyResult):
             tags=self.tags,
             version=self.version)
 
-def get_key(key_vault_id=None,name=None,opts=None):
+
+def get_key(key_vault_id: Optional[str] = None,
+            name: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     Use this data source to access information about an existing Key Vault Key.
 
@@ -104,24 +166,22 @@ def get_key(key_vault_id=None,name=None,opts=None):
     :param str name: Specifies the name of the Key Vault Key.
     """
     __args__ = dict()
-
-
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:keyvault/getKey:getKey', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:keyvault/getKey:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
-        e=__ret__.get('e'),
-        id=__ret__.get('id'),
-        key_opts=__ret__.get('keyOpts'),
-        key_size=__ret__.get('keySize'),
-        key_type=__ret__.get('keyType'),
-        key_vault_id=__ret__.get('keyVaultId'),
-        n=__ret__.get('n'),
-        name=__ret__.get('name'),
-        tags=__ret__.get('tags'),
-        version=__ret__.get('version'))
+        e=__ret__.e,
+        id=__ret__.id,
+        key_opts=__ret__.key_opts,
+        key_size=__ret__.key_size,
+        key_type=__ret__.key_type,
+        key_vault_id=__ret__.key_vault_id,
+        n=__ret__.n,
+        name=__ret__.name,
+        tags=__ret__.tags,
+        version=__ret__.version)

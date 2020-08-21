@@ -14,15 +14,27 @@ namespace Pulumi.Azure.Bot
     /// </summary>
     public partial class ChannelDirectLine : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("botName")]
         public Output<string> BotName { get; private set; } = null!;
 
+        /// <summary>
+        /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// </summary>
         [Output("sites")]
         public Output<ImmutableArray<Outputs.ChannelDirectLineSite>> Sites { get; private set; } = null!;
 
@@ -72,17 +84,30 @@ namespace Pulumi.Azure.Bot
 
     public sealed class ChannelDirectLineArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("botName", required: true)]
         public Input<string> BotName { get; set; } = null!;
 
+        /// <summary>
+        /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("sites", required: true)]
         private InputList<Inputs.ChannelDirectLineSiteArgs>? _sites;
+
+        /// <summary>
+        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// </summary>
         public InputList<Inputs.ChannelDirectLineSiteArgs> Sites
         {
             get => _sites ?? (_sites = new InputList<Inputs.ChannelDirectLineSiteArgs>());
@@ -96,17 +121,30 @@ namespace Pulumi.Azure.Bot
 
     public sealed class ChannelDirectLineState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("botName")]
         public Input<string>? BotName { get; set; }
 
+        /// <summary>
+        /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         [Input("sites")]
         private InputList<Inputs.ChannelDirectLineSiteGetArgs>? _sites;
+
+        /// <summary>
+        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// </summary>
         public InputList<Inputs.ChannelDirectLineSiteGetArgs> Sites
         {
             get => _sites ?? (_sites = new InputList<Inputs.ChannelDirectLineSiteGetArgs>());

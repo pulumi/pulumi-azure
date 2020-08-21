@@ -5,56 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['DatabasePrincipal']
 
 
 class DatabasePrincipal(pulumi.CustomResource):
-    app_id: pulumi.Output[str]
-    """
-    The app id, if not empty, of the principal.
-    """
-    client_id: pulumi.Output[str]
-    """
-    The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
-    """
-    cluster_name: pulumi.Output[str]
-    """
-    Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
-    """
-    database_name: pulumi.Output[str]
-    """
-    Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
-    """
-    email: pulumi.Output[str]
-    """
-    The email, if not empty, of the principal.
-    """
-    fully_qualified_name: pulumi.Output[str]
-    """
-    The fully qualified name of the principal.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Kusto Database Principal.
-    """
-    object_id: pulumi.Output[str]
-    """
-    An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
-    """
-    role: pulumi.Output[str]
-    """
-    Specifies the permissions the Principal will have. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User`, `Viewer`. Changing this forces a new resource to be created.
-    """
-    type: pulumi.Output[str]
-    """
-    Specifies the type of object the principal is. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, client_id=None, cluster_name=None, database_name=None, object_id=None, resource_group_name=None, role=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Database Principal
 
@@ -71,10 +41,10 @@ class DatabasePrincipal(pulumi.CustomResource):
         cluster = azure.kusto.Cluster("cluster",
             location=rg.location,
             resource_group_name=rg.name,
-            sku={
-                "name": "Standard_D13_v2",
-                "capacity": 2,
-            })
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
         database = azure.kusto.Database("database",
             resource_group_name=rg.name,
             location=rg.location,
@@ -112,7 +82,7 @@ class DatabasePrincipal(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -150,13 +120,26 @@ class DatabasePrincipal(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_id=None, client_id=None, cluster_name=None, database_name=None, email=None, fully_qualified_name=None, name=None, object_id=None, resource_group_name=None, role=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: Optional[pulumi.Input[str]] = None,
+            client_id: Optional[pulumi.Input[str]] = None,
+            cluster_name: Optional[pulumi.Input[str]] = None,
+            database_name: Optional[pulumi.Input[str]] = None,
+            email: Optional[pulumi.Input[str]] = None,
+            fully_qualified_name: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            object_id: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            role: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'DatabasePrincipal':
         """
         Get an existing DatabasePrincipal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The app id, if not empty, of the principal.
         :param pulumi.Input[str] client_id: The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
@@ -187,8 +170,97 @@ class DatabasePrincipal(pulumi.CustomResource):
         __props__["type"] = type
         return DatabasePrincipal(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> str:
+        """
+        The app id, if not empty, of the principal.
+        """
+        return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> str:
+        """
+        Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email, if not empty, of the principal.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> str:
+        """
+        The fully qualified name of the principal.
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Kusto Database Principal.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        Specifies the permissions the Principal will have. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User`, `Viewer`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of object the principal is. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

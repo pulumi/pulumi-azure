@@ -60,7 +60,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
-// 			SynapseWorkspaceId: pulumi.String(azurerm_synapse_workspace.Test.Id),
+// 			SynapseWorkspaceId: pulumi.Any(azurerm_synapse_workspace.Test.Id),
 // 			StartIpAddress:     pulumi.String("0.0.0.0"),
 // 			EndIpAddress:       pulumi.String("255.255.255.255"),
 // 		})

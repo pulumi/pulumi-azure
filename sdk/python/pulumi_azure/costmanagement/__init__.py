@@ -4,3 +4,5 @@
 
 # Export this package's modules as members:
 from .resource_group_export import *
+from ._inputs import *
+from . import outputs

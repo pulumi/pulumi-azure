@@ -5,33 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['CustomHttpsConfiguration']
 
 
 class CustomHttpsConfiguration(pulumi.CustomResource):
-    custom_https_configuration: pulumi.Output[dict]
-    """
-    A `custom_https_configuration` block as defined below.
-
-      * `azureKeyVaultCertificateSecretName` (`str`) - The name of the Key Vault secret representing the full certificate PFX.
-      * `azureKeyVaultCertificateSecretVersion` (`str`) - The version of the Key Vault secret representing the full certificate PFX.
-      * `azureKeyVaultCertificateVaultId` (`str`) - The ID of the Key Vault containing the SSL certificate.
-      * `certificateSource` (`str`) - Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-      * `minimum_tls_version` (`str`) - Minimum client TLS version supported.
-      * `provisioningState` (`str`)
-      * `provisioningSubstate` (`str`)
-    """
-    custom_https_provisioning_enabled: pulumi.Output[bool]
-    """
-    Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
-    """
-    frontend_endpoint_id: pulumi.Output[str]
-    """
-    The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
-    """
-    resource_group_name: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, custom_https_configuration=None, custom_https_provisioning_enabled=None, frontend_endpoint_id=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_https_configuration: Optional[pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]] = None,
+                 custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
+                 frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages the Custom Https Configuration for an Azure Front Door Frontend Endpoint..
 
@@ -49,75 +41,65 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
             resource_group_name=example_resource_group.name,
             enforce_backend_pools_certificate_name_check=False,
-            routing_rules=[{
-                "name": "exampleRoutingRule1",
-                "acceptedProtocols": [
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+                name="exampleRoutingRule1",
+                accepted_protocols=[
                     "Http",
                     "Https",
                 ],
-                "patternsToMatches": ["/*"],
-                "frontend_endpoints": ["exampleFrontendEndpoint1"],
-                "forwardingConfiguration": {
-                    "forwardingProtocol": "MatchRequest",
-                    "backendPoolName": "exampleBackendBing",
-                },
-            }],
-            backend_pool_load_balancings=[{
-                "name": "exampleLoadBalancingSettings1",
-            }],
-            backend_pool_health_probes=[{
-                "name": "exampleHealthProbeSetting1",
-            }],
-            backend_pools=[{
-                "name": "exampleBackendBing",
-                "backends": [{
-                    "hostHeader": "www.bing.com",
-                    "address": "www.bing.com",
-                    "httpPort": 80,
-                    "httpsPort": 443,
-                }],
-                "loadBalancingName": "exampleLoadBalancingSettings1",
-                "healthProbeName": "exampleHealthProbeSetting1",
-            }],
+                patterns_to_matches=["/*"],
+                frontend_endpoints=["exampleFrontendEndpoint1"],
+                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
+                    forwarding_protocol="MatchRequest",
+                    backend_pool_name="exampleBackendBing",
+                ),
+            )],
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+                name="exampleLoadBalancingSettings1",
+            )],
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+                name="exampleHealthProbeSetting1",
+            )],
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+                name="exampleBackendBing",
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                    host_header="www.bing.com",
+                    address="www.bing.com",
+                    http_port=80,
+                    https_port=443,
+                )],
+                load_balancing_name="exampleLoadBalancingSettings1",
+                health_probe_name="exampleHealthProbeSetting1",
+            )],
             frontend_endpoints=[
-                {
-                    "name": "exampleFrontendEndpoint1",
-                    "host_name": "example-FrontDoor.azurefd.net",
-                },
-                {
-                    "name": "exampleFrontendEndpoint2",
-                    "host_name": "examplefd1.examplefd.net",
-                },
+                azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                    name="exampleFrontendEndpoint1",
+                    host_name="example-FrontDoor.azurefd.net",
+                ),
+                azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                    name="exampleFrontendEndpoint2",
+                    host_name="examplefd1.examplefd.net",
+                ),
             ])
         example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0",
-            frontend_endpoint_id=example_frontdoor.frontend_endpoints[0]["id"],
+            frontend_endpoint_id=example_frontdoor.frontend_endpoints[0].id,
             custom_https_provisioning_enabled=False)
         example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1",
-            frontend_endpoint_id=example_frontdoor.frontend_endpoints[1]["id"],
+            frontend_endpoint_id=example_frontdoor.frontend_endpoints[1].id,
             custom_https_provisioning_enabled=True,
-            custom_https_configuration={
-                "certificateSource": "AzureKeyVault",
-                "azureKeyVaultCertificateSecretName": "examplefd1",
-                "azureKeyVaultCertificateSecretVersion": "ec8d0737e0df4f4gb52ecea858e97a73",
-                "azureKeyVaultCertificateVaultId": vault.id,
-            })
+            custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(
+                certificate_source="AzureKeyVault",
+                azure_key_vault_certificate_secret_name="examplefd1",
+                azure_key_vault_certificate_secret_version="ec8d0737e0df4f4gb52ecea858e97a73",
+                azure_key_vault_certificate_vault_id=vault.id,
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] custom_https_configuration: A `custom_https_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: A `custom_https_configuration` block as defined below.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
-
-        The **custom_https_configuration** object supports the following:
-
-          * `azureKeyVaultCertificateSecretName` (`pulumi.Input[str]`) - The name of the Key Vault secret representing the full certificate PFX.
-          * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`) - The version of the Key Vault secret representing the full certificate PFX.
-          * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`) - The ID of the Key Vault containing the SSL certificate.
-          * `certificateSource` (`pulumi.Input[str]`) - Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-          * `minimum_tls_version` (`pulumi.Input[str]`) - Minimum client TLS version supported.
-          * `provisioningState` (`pulumi.Input[str]`)
-          * `provisioningSubstate` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,7 +112,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -154,27 +136,23 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, custom_https_configuration=None, custom_https_provisioning_enabled=None, frontend_endpoint_id=None, resource_group_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_https_configuration: Optional[pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]] = None,
+            custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
+            frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'CustomHttpsConfiguration':
         """
         Get an existing CustomHttpsConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] custom_https_configuration: A `custom_https_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: A `custom_https_configuration` block as defined below.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
-
-        The **custom_https_configuration** object supports the following:
-
-          * `azureKeyVaultCertificateSecretName` (`pulumi.Input[str]`) - The name of the Key Vault secret representing the full certificate PFX.
-          * `azureKeyVaultCertificateSecretVersion` (`pulumi.Input[str]`) - The version of the Key Vault secret representing the full certificate PFX.
-          * `azureKeyVaultCertificateVaultId` (`pulumi.Input[str]`) - The ID of the Key Vault containing the SSL certificate.
-          * `certificateSource` (`pulumi.Input[str]`) - Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-          * `minimum_tls_version` (`pulumi.Input[str]`) - Minimum client TLS version supported.
-          * `provisioningState` (`pulumi.Input[str]`)
-          * `provisioningSubstate` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -186,8 +164,38 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         return CustomHttpsConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="customHttpsConfiguration")
+    def custom_https_configuration(self) -> Optional['outputs.CustomHttpsConfigurationCustomHttpsConfiguration']:
+        """
+        A `custom_https_configuration` block as defined below.
+        """
+        return pulumi.get(self, "custom_https_configuration")
+
+    @property
+    @pulumi.getter(name="customHttpsProvisioningEnabled")
+    def custom_https_provisioning_enabled(self) -> bool:
+        """
+        Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
+        """
+        return pulumi.get(self, "custom_https_provisioning_enabled")
+
+    @property
+    @pulumi.getter(name="frontendEndpointId")
+    def frontend_endpoint_id(self) -> str:
+        """
+        The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+        """
+        return pulumi.get(self, "frontend_endpoint_id")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "resource_group_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

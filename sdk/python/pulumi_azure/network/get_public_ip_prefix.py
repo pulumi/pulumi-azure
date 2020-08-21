@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetPublicIpPrefixResult',
+    'AwaitableGetPublicIpPrefixResult',
+    'get_public_ip_prefix',
+]
+
+@pulumi.output_type
 class GetPublicIpPrefixResult:
     """
     A collection of values returned by getPublicIpPrefix.
@@ -15,52 +22,99 @@ class GetPublicIpPrefixResult:
     def __init__(__self__, id=None, ip_prefix=None, location=None, name=None, prefix_length=None, resource_group_name=None, sku=None, tags=None, zones=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if ip_prefix and not isinstance(ip_prefix, str):
+            raise TypeError("Expected argument 'ip_prefix' to be a str")
+        pulumi.set(__self__, "ip_prefix", ip_prefix)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if prefix_length and not isinstance(prefix_length, float):
+            raise TypeError("Expected argument 'prefix_length' to be a float")
+        pulumi.set(__self__, "prefix_length", prefix_length)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if ip_prefix and not isinstance(ip_prefix, str):
-            raise TypeError("Expected argument 'ip_prefix' to be a str")
-        __self__.ip_prefix = ip_prefix
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipPrefix")
+    def ip_prefix(self) -> str:
+        return pulumi.get(self, "ip_prefix")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The supported Azure location where the resource exists.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the Public IP prefix resource.
         """
-        if prefix_length and not isinstance(prefix_length, float):
-            raise TypeError("Expected argument 'prefix_length' to be a float")
-        __self__.prefix_length = prefix_length
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> float:
         """
         The number of bits of the prefix.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
+        return pulumi.get(self, "prefix_length")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
         """
         The name of the resource group in which to create the public IP.
         """
-        if sku and not isinstance(sku, str):
-            raise TypeError("Expected argument 'sku' to be a str")
-        __self__.sku = sku
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
         """
         The SKU of the Public IP Prefix.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags to assigned to the resource.
         """
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        __self__.zones = zones
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> List[str]:
+        return pulumi.get(self, "zones")
+
+
 class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -77,7 +131,11 @@ class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
             tags=self.tags,
             zones=self.zones)
 
-def get_public_ip_prefix(name=None,resource_group_name=None,zones=None,opts=None):
+
+def get_public_ip_prefix(name: Optional[str] = None,
+                         resource_group_name: Optional[str] = None,
+                         zones: Optional[List[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIpPrefixResult:
     """
     Use this data source to access information about an existing Public IP Prefix.
 
@@ -98,24 +156,22 @@ def get_public_ip_prefix(name=None,resource_group_name=None,zones=None,opts=None
     :param str resource_group_name: Specifies the name of the resource group.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['zones'] = zones
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getPublicIpPrefix:getPublicIpPrefix', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:network/getPublicIpPrefix:getPublicIpPrefix', __args__, opts=opts, typ=GetPublicIpPrefixResult).value
 
     return AwaitableGetPublicIpPrefixResult(
-        id=__ret__.get('id'),
-        ip_prefix=__ret__.get('ipPrefix'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        prefix_length=__ret__.get('prefixLength'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'))
+        id=__ret__.id,
+        ip_prefix=__ret__.ip_prefix,
+        location=__ret__.location,
+        name=__ret__.name,
+        prefix_length=__ret__.prefix_length,
+        resource_group_name=__ret__.resource_group_name,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        zones=__ret__.zones)

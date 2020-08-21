@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation']
 
 
 class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.CustomResource):
-    backend_address_pool_id: pulumi.Output[str]
-    """
-    The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
-    """
-    ip_configuration_name: pulumi.Output[str]
-    """
-    The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
-    """
-    network_interface_id: pulumi.Output[str]
-    """
-    The ID of the Network Interface. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, ip_configuration_name=None, network_interface_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 ip_configuration_name: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
 
@@ -58,58 +56,58 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
         network = azure.network.ApplicationGateway("network",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku={
-                "name": "Standard_Small",
-                "tier": "Standard",
-                "capacity": 2,
-            },
-            gateway_ip_configurations=[{
-                "name": "my-gateway-ip-configuration",
-                "subnet_id": frontend.id,
-            }],
-            frontend_ports=[{
-                "name": frontend_port_name,
-                "port": 80,
-            }],
-            frontend_ip_configurations=[{
-                "name": frontend_ip_configuration_name,
-                "public_ip_address_id": example_public_ip.id,
-            }],
-            backend_address_pools=[{
-                "name": backend_address_pool_name,
-            }],
-            backend_http_settings=[{
-                "name": http_setting_name,
-                "cookieBasedAffinity": "Disabled",
-                "port": 80,
-                "protocol": "Http",
-                "requestTimeout": 1,
-            }],
-            http_listeners=[{
-                "name": listener_name,
-                "frontend_ip_configuration_name": frontend_ip_configuration_name,
-                "frontendPortName": frontend_port_name,
-                "protocol": "Http",
-            }],
-            request_routing_rules=[{
-                "name": request_routing_rule_name,
-                "ruleType": "Basic",
-                "httpListenerName": listener_name,
-                "backendAddressPoolName": backend_address_pool_name,
-                "backendHttpSettingsName": http_setting_name,
-            }])
+            sku=azure.network.ApplicationGatewaySkuArgs(
+                name="Standard_Small",
+                tier="Standard",
+                capacity=2,
+            ),
+            gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
+                name="my-gateway-ip-configuration",
+                subnet_id=frontend.id,
+            )],
+            frontend_ports=[azure.network.ApplicationGatewayFrontendPortArgs(
+                name=frontend_port_name,
+                port=80,
+            )],
+            frontend_ip_configurations=[azure.network.ApplicationGatewayFrontendIpConfigurationArgs(
+                name=frontend_ip_configuration_name,
+                public_ip_address_id=example_public_ip.id,
+            )],
+            backend_address_pools=[azure.network.ApplicationGatewayBackendAddressPoolArgs(
+                name=backend_address_pool_name,
+            )],
+            backend_http_settings=[azure.network.ApplicationGatewayBackendHttpSettingArgs(
+                name=http_setting_name,
+                cookie_based_affinity="Disabled",
+                port=80,
+                protocol="Http",
+                request_timeout=1,
+            )],
+            http_listeners=[azure.network.ApplicationGatewayHttpListenerArgs(
+                name=listener_name,
+                frontend_ip_configuration_name=frontend_ip_configuration_name,
+                frontend_port_name=frontend_port_name,
+                protocol="Http",
+            )],
+            request_routing_rules=[azure.network.ApplicationGatewayRequestRoutingRuleArgs(
+                name=request_routing_rule_name,
+                rule_type="Basic",
+                http_listener_name=listener_name,
+                backend_address_pool_name=backend_address_pool_name,
+                backend_http_settings_name=http_setting_name,
+            )])
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[{
-                "name": "testconfiguration1",
-                "subnet_id": frontend.id,
-                "privateIpAddressAllocation": "Dynamic",
-            }])
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                subnet_id=frontend.id,
+                private_ip_address_allocation="Dynamic",
+            )])
         example_network_interface_application_gateway_backend_address_pool_association = azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation",
             network_interface_id=example_network_interface.id,
             ip_configuration_name="testconfiguration1",
-            backend_address_pool_id=network.backend_address_pools[0]["id"])
+            backend_address_pool_id=network.backend_address_pools[0].id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -129,7 +127,7 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -151,13 +149,18 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_address_pool_id=None, ip_configuration_name=None, network_interface_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+            ip_configuration_name: Optional[pulumi.Input[str]] = None,
+            network_interface_id: Optional[pulumi.Input[str]] = None) -> 'NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation':
         """
         Get an existing NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
@@ -172,8 +175,33 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
         __props__["network_interface_id"] = network_interface_id
         return NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="backendAddressPoolId")
+    def backend_address_pool_id(self) -> str:
+        """
+        The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "backend_address_pool_id")
+
+    @property
+    @pulumi.getter(name="ipConfigurationName")
+    def ip_configuration_name(self) -> str:
+        """
+        The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ip_configuration_name")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> str:
+        """
+        The ID of the Network Interface. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_interface_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

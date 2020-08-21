@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetCertificateResult',
+    'AwaitableGetCertificateResult',
+    'get_certificate',
+]
+
+@pulumi.output_type
 class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
@@ -15,43 +23,90 @@ class GetCertificateResult:
     def __init__(__self__, certificate_data=None, certificate_policies=None, id=None, key_vault_id=None, name=None, secret_id=None, tags=None, thumbprint=None, version=None):
         if certificate_data and not isinstance(certificate_data, str):
             raise TypeError("Expected argument 'certificate_data' to be a str")
-        __self__.certificate_data = certificate_data
+        pulumi.set(__self__, "certificate_data", certificate_data)
         if certificate_policies and not isinstance(certificate_policies, list):
             raise TypeError("Expected argument 'certificate_policies' to be a list")
-        __self__.certificate_policies = certificate_policies
+        pulumi.set(__self__, "certificate_policies", certificate_policies)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if key_vault_id and not isinstance(key_vault_id, str):
+            raise TypeError("Expected argument 'key_vault_id' to be a str")
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if secret_id and not isinstance(secret_id, str):
+            raise TypeError("Expected argument 'secret_id' to be a str")
+        pulumi.set(__self__, "secret_id", secret_id)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        pulumi.set(__self__, "thumbprint", thumbprint)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="certificateData")
+    def certificate_data(self) -> str:
+        return pulumi.get(self, "certificate_data")
+
+    @property
+    @pulumi.getter(name="certificatePolicies")
+    def certificate_policies(self) -> List['outputs.GetCertificateCertificatePolicyResult']:
         """
         A `certificate_policy` block as defined below.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "certificate_policies")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if key_vault_id and not isinstance(key_vault_id, str):
-            raise TypeError("Expected argument 'key_vault_id' to be a str")
-        __self__.key_vault_id = key_vault_id
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the Certificate Issuer.
         """
-        if secret_id and not isinstance(secret_id, str):
-            raise TypeError("Expected argument 'secret_id' to be a str")
-        __self__.secret_id = secret_id
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        return pulumi.get(self, "secret_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags to assign to the resource.
         """
-        if thumbprint and not isinstance(thumbprint, str):
-            raise TypeError("Expected argument 'thumbprint' to be a str")
-        __self__.thumbprint = thumbprint
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        return pulumi.get(self, "thumbprint")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        return pulumi.get(self, "version")
+
+
 class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -68,7 +123,11 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             thumbprint=self.thumbprint,
             version=self.version)
 
-def get_certificate(key_vault_id=None,name=None,version=None,opts=None):
+
+def get_certificate(key_vault_id: Optional[str] = None,
+                    name: Optional[str] = None,
+                    version: Optional[str] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Use this data source to access information about an existing Key Vault Certificate.
 
@@ -94,24 +153,22 @@ def get_certificate(key_vault_id=None,name=None,version=None,opts=None):
     :param str version: Specifies the version of the certificate to look up.  (Defaults to latest)
     """
     __args__ = dict()
-
-
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
     __args__['version'] = version
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:keyvault/getCertificate:getCertificate', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:keyvault/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        certificate_data=__ret__.get('certificateData'),
-        certificate_policies=__ret__.get('certificatePolicies'),
-        id=__ret__.get('id'),
-        key_vault_id=__ret__.get('keyVaultId'),
-        name=__ret__.get('name'),
-        secret_id=__ret__.get('secretId'),
-        tags=__ret__.get('tags'),
-        thumbprint=__ret__.get('thumbprint'),
-        version=__ret__.get('version'))
+        certificate_data=__ret__.certificate_data,
+        certificate_policies=__ret__.certificate_policies,
+        id=__ret__.id,
+        key_vault_id=__ret__.key_vault_id,
+        name=__ret__.name,
+        secret_id=__ret__.secret_id,
+        tags=__ret__.tags,
+        thumbprint=__ret__.thumbprint,
+        version=__ret__.version)

@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetSharedImageVersionResult',
+    'AwaitableGetSharedImageVersionResult',
+    'get_shared_image_version',
+]
+
+@pulumi.output_type
 class GetSharedImageVersionResult:
     """
     A collection of values returned by getSharedImageVersion.
@@ -15,61 +23,118 @@ class GetSharedImageVersionResult:
     def __init__(__self__, exclude_from_latest=None, gallery_name=None, id=None, image_name=None, location=None, managed_image_id=None, name=None, os_disk_snapshot_id=None, resource_group_name=None, tags=None, target_regions=None):
         if exclude_from_latest and not isinstance(exclude_from_latest, bool):
             raise TypeError("Expected argument 'exclude_from_latest' to be a bool")
-        __self__.exclude_from_latest = exclude_from_latest
+        pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+        if gallery_name and not isinstance(gallery_name, str):
+            raise TypeError("Expected argument 'gallery_name' to be a str")
+        pulumi.set(__self__, "gallery_name", gallery_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if image_name and not isinstance(image_name, str):
+            raise TypeError("Expected argument 'image_name' to be a str")
+        pulumi.set(__self__, "image_name", image_name)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if managed_image_id and not isinstance(managed_image_id, str):
+            raise TypeError("Expected argument 'managed_image_id' to be a str")
+        pulumi.set(__self__, "managed_image_id", managed_image_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if os_disk_snapshot_id and not isinstance(os_disk_snapshot_id, str):
+            raise TypeError("Expected argument 'os_disk_snapshot_id' to be a str")
+        pulumi.set(__self__, "os_disk_snapshot_id", os_disk_snapshot_id)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if target_regions and not isinstance(target_regions, list):
+            raise TypeError("Expected argument 'target_regions' to be a list")
+        pulumi.set(__self__, "target_regions", target_regions)
+
+    @property
+    @pulumi.getter(name="excludeFromLatest")
+    def exclude_from_latest(self) -> bool:
         """
         Is this Image Version excluded from the `latest` filter?
         """
-        if gallery_name and not isinstance(gallery_name, str):
-            raise TypeError("Expected argument 'gallery_name' to be a str")
-        __self__.gallery_name = gallery_name
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "exclude_from_latest")
+
+    @property
+    @pulumi.getter(name="galleryName")
+    def gallery_name(self) -> str:
+        return pulumi.get(self, "gallery_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if image_name and not isinstance(image_name, str):
-            raise TypeError("Expected argument 'image_name' to be a str")
-        __self__.image_name = image_name
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The supported Azure location where the Shared Image Gallery exists.
         """
-        if managed_image_id and not isinstance(managed_image_id, str):
-            raise TypeError("Expected argument 'managed_image_id' to be a str")
-        __self__.managed_image_id = managed_image_id
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedImageId")
+    def managed_image_id(self) -> str:
         """
         The ID of the Managed Image which was the source of this Shared Image Version.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "managed_image_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The Azure Region in which this Image Version exists.
         """
-        if os_disk_snapshot_id and not isinstance(os_disk_snapshot_id, str):
-            raise TypeError("Expected argument 'os_disk_snapshot_id' to be a str")
-        __self__.os_disk_snapshot_id = os_disk_snapshot_id
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osDiskSnapshotId")
+    def os_disk_snapshot_id(self) -> str:
         """
         The ID of the OS disk snapshot which was the source of this Shared Image Version.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "os_disk_snapshot_id")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the Shared Image.
         """
-        if target_regions and not isinstance(target_regions, list):
-            raise TypeError("Expected argument 'target_regions' to be a list")
-        __self__.target_regions = target_regions
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetRegions")
+    def target_regions(self) -> List['outputs.GetSharedImageVersionTargetRegionResult']:
         """
         One or more `target_region` blocks as documented below.
         """
+        return pulumi.get(self, "target_regions")
+
+
 class AwaitableGetSharedImageVersionResult(GetSharedImageVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -88,7 +153,12 @@ class AwaitableGetSharedImageVersionResult(GetSharedImageVersionResult):
             tags=self.tags,
             target_regions=self.target_regions)
 
-def get_shared_image_version(gallery_name=None,image_name=None,name=None,resource_group_name=None,opts=None):
+
+def get_shared_image_version(gallery_name: Optional[str] = None,
+                             image_name: Optional[str] = None,
+                             name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedImageVersionResult:
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
 
@@ -111,8 +181,6 @@ def get_shared_image_version(gallery_name=None,image_name=None,name=None,resourc
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     """
     __args__ = dict()
-
-
     __args__['galleryName'] = gallery_name
     __args__['imageName'] = image_name
     __args__['name'] = name
@@ -120,18 +188,18 @@ def get_shared_image_version(gallery_name=None,image_name=None,name=None,resourc
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts, typ=GetSharedImageVersionResult).value
 
     return AwaitableGetSharedImageVersionResult(
-        exclude_from_latest=__ret__.get('excludeFromLatest'),
-        gallery_name=__ret__.get('galleryName'),
-        id=__ret__.get('id'),
-        image_name=__ret__.get('imageName'),
-        location=__ret__.get('location'),
-        managed_image_id=__ret__.get('managedImageId'),
-        name=__ret__.get('name'),
-        os_disk_snapshot_id=__ret__.get('osDiskSnapshotId'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        target_regions=__ret__.get('targetRegions'))
+        exclude_from_latest=__ret__.exclude_from_latest,
+        gallery_name=__ret__.gallery_name,
+        id=__ret__.id,
+        image_name=__ret__.image_name,
+        location=__ret__.location,
+        managed_image_id=__ret__.managed_image_id,
+        name=__ret__.name,
+        os_disk_snapshot_id=__ret__.os_disk_snapshot_id,
+        resource_group_name=__ret__.resource_group_name,
+        tags=__ret__.tags,
+        target_regions=__ret__.target_regions)

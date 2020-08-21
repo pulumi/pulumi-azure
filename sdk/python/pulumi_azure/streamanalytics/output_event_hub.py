@@ -5,49 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['OutputEventHub']
 
 
 class OutputEventHub(pulumi.CustomResource):
-    eventhub_name: pulumi.Output[str]
-    """
-    The name of the Event Hub.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Stream Output. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-    """
-    serialization: pulumi.Output[dict]
-    """
-    A `serialization` block as defined below.
-
-      * `encoding` (`str`) - The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-      * `fieldDelimiter` (`str`) - The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-      * `format` (`str`) - Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-      * `type` (`str`) - The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
-    """
-    servicebus_namespace: pulumi.Output[str]
-    """
-    The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
-    """
-    shared_access_policy_key: pulumi.Output[str]
-    """
-    The shared access policy key for the specified shared access policy.
-    """
-    shared_access_policy_name: pulumi.Output[str]
-    """
-    The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
-    """
-    stream_analytics_job_name: pulumi.Output[str]
-    """
-    The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, eventhub_name=None, name=None, resource_group_name=None, serialization=None, servicebus_namespace=None, shared_access_policy_key=None, shared_access_policy_name=None, stream_analytics_job_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 eventhub_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']]] = None,
+                 servicebus_namespace: Optional[pulumi.Input[str]] = None,
+                 shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+                 shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Stream Analytics Output to an EventHub.
 
@@ -77,9 +57,9 @@ class OutputEventHub(pulumi.CustomResource):
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
-            serialization={
-                "type": "Avro",
-            })
+            serialization=azure.streamanalytics.OutputEventHubSerializationArgs(
+                type="Avro",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
@@ -87,18 +67,11 @@ class OutputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-
-        The **serialization** object supports the following:
-
-          * `encoding` (`pulumi.Input[str]`) - The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-          * `fieldDelimiter` (`pulumi.Input[str]`) - The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-          * `format` (`pulumi.Input[str]`) - Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-          * `type` (`pulumi.Input[str]`) - The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +84,7 @@ class OutputEventHub(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -146,29 +119,32 @@ class OutputEventHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eventhub_name=None, name=None, resource_group_name=None, serialization=None, servicebus_namespace=None, shared_access_policy_key=None, shared_access_policy_name=None, stream_analytics_job_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            eventhub_name: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            serialization: Optional[pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']]] = None,
+            servicebus_namespace: Optional[pulumi.Input[str]] = None,
+            shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+            shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+            stream_analytics_job_name: Optional[pulumi.Input[str]] = None) -> 'OutputEventHub':
         """
         Get an existing OutputEventHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-
-        The **serialization** object supports the following:
-
-          * `encoding` (`pulumi.Input[str]`) - The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
-          * `fieldDelimiter` (`pulumi.Input[str]`) - The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
-          * `format` (`pulumi.Input[str]`) - Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
-          * `type` (`pulumi.Input[str]`) - The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -184,8 +160,73 @@ class OutputEventHub(pulumi.CustomResource):
         __props__["stream_analytics_job_name"] = stream_analytics_job_name
         return OutputEventHub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="eventhubName")
+    def eventhub_name(self) -> str:
+        """
+        The name of the Event Hub.
+        """
+        return pulumi.get(self, "eventhub_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Stream Output. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def serialization(self) -> 'outputs.OutputEventHubSerialization':
+        """
+        A `serialization` block as defined below.
+        """
+        return pulumi.get(self, "serialization")
+
+    @property
+    @pulumi.getter(name="servicebusNamespace")
+    def servicebus_namespace(self) -> str:
+        """
+        The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        """
+        return pulumi.get(self, "servicebus_namespace")
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicyKey")
+    def shared_access_policy_key(self) -> str:
+        """
+        The shared access policy key for the specified shared access policy.
+        """
+        return pulumi.get(self, "shared_access_policy_key")
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicyName")
+    def shared_access_policy_name(self) -> str:
+        """
+        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        """
+        return pulumi.get(self, "shared_access_policy_name")
+
+    @property
+    @pulumi.getter(name="streamAnalyticsJobName")
+    def stream_analytics_job_name(self) -> str:
+        """
+        The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_analytics_job_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

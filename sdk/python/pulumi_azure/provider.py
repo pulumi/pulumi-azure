@@ -6,12 +6,39 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+from . import outputs
+
+__all__ = ['Provider']
 
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, auxiliary_tenant_ids=None, client_certificate_password=None, client_certificate_path=None, client_id=None, client_secret=None, disable_correlation_request_id=None, disable_terraform_partner_id=None, environment=None, features=None, metadata_host=None, metadata_url=None, msi_endpoint=None, partner_id=None, skip_credentials_validation=None, skip_provider_registration=None, storage_use_azuread=None, subscription_id=None, tenant_id=None, use_msi=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auxiliary_tenant_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 client_certificate_password: Optional[pulumi.Input[str]] = None,
+                 client_certificate_path: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
+                 disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
+                 environment: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArgs']]] = None,
+                 metadata_host: Optional[pulumi.Input[str]] = None,
+                 metadata_url: Optional[pulumi.Input[str]] = None,
+                 msi_endpoint: Optional[pulumi.Input[str]] = None,
+                 partner_id: Optional[pulumi.Input[str]] = None,
+                 skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
+                 skip_provider_registration: Optional[pulumi.Input[bool]] = None,
+                 storage_use_azuread: Optional[pulumi.Input[bool]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_msi: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         The provider type for the azurerm package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -42,21 +69,6 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
         :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
-
-        The **features** object supports the following:
-
-          * `key_vault` (`pulumi.Input[dict]`)
-            * `purgeSoftDeleteOnDestroy` (`pulumi.Input[bool]`)
-            * `recoverSoftDeletedKeyVaults` (`pulumi.Input[bool]`)
-
-          * `network` (`pulumi.Input[dict]`)
-            * `relaxedLocking` (`pulumi.Input[bool]`)
-
-          * `virtual_machine` (`pulumi.Input[dict]`)
-            * `deleteOsDiskOnDeletion` (`pulumi.Input[bool]`)
-
-          * `virtual_machine_scale_set` (`pulumi.Input[dict]`)
-            * `rollInstancesWhenRequired` (`pulumi.Input[bool]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,7 +81,7 @@ class Provider(pulumi.ProviderResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -83,14 +95,14 @@ class Provider(pulumi.ProviderResource):
             __props__['disable_correlation_request_id'] = pulumi.Output.from_input(disable_correlation_request_id).apply(json.dumps) if disable_correlation_request_id is not None else None
             __props__['disable_terraform_partner_id'] = pulumi.Output.from_input(disable_terraform_partner_id).apply(json.dumps) if disable_terraform_partner_id is not None else None
             if environment is None:
-                environment = (utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
+                environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__['environment'] = environment
             __props__['features'] = pulumi.Output.from_input(features).apply(json.dumps) if features is not None else None
             if metadata_host is None:
-                metadata_host = (utilities.get_env('ARM_METADATA_HOSTNAME') or '')
+                metadata_host = (_utilities.get_env('ARM_METADATA_HOSTNAME') or '')
             __props__['metadata_host'] = metadata_host
             if metadata_url is None:
-                metadata_url = (utilities.get_env('ARM_METADATA_URL') or '')
+                metadata_url = (_utilities.get_env('ARM_METADATA_URL') or '')
             if metadata_url is not None:
                 warnings.warn("use `metadata_host` instead", DeprecationWarning)
                 pulumi.log.warn("metadata_url is deprecated: use `metadata_host` instead")
@@ -99,13 +111,13 @@ class Provider(pulumi.ProviderResource):
             __props__['partner_id'] = partner_id
             __props__['skip_credentials_validation'] = pulumi.Output.from_input(skip_credentials_validation).apply(json.dumps) if skip_credentials_validation is not None else None
             if skip_provider_registration is None:
-                skip_provider_registration = (utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
+                skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
             __props__['skip_provider_registration'] = pulumi.Output.from_input(skip_provider_registration).apply(json.dumps) if skip_provider_registration is not None else None
             if storage_use_azuread is None:
-                storage_use_azuread = (utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
+                storage_use_azuread = (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
             __props__['storage_use_azuread'] = pulumi.Output.from_input(storage_use_azuread).apply(json.dumps) if storage_use_azuread is not None else None
             if subscription_id is None:
-                subscription_id = (utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
+                subscription_id = (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
             __props__['subscription_id'] = subscription_id
             __props__['tenant_id'] = tenant_id
             __props__['use_msi'] = pulumi.Output.from_input(use_msi).apply(json.dumps) if use_msi is not None else None
@@ -116,7 +128,8 @@ class Provider(pulumi.ProviderResource):
             opts)
 
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

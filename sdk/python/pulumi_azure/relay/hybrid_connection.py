@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['HybridConnection']
 
 
 class HybridConnection(pulumi.CustomResource):
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-    """
-    relay_namespace_name: pulumi.Output[str]
-    """
-    The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-    """
-    requires_client_authorization: pulumi.Output[bool]
-    """
-    Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
-    """
-    user_metadata: pulumi.Output[str]
-    """
-    The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
-    """
-    def __init__(__self__, resource_name, opts=None, name=None, relay_namespace_name=None, requires_client_authorization=None, resource_group_name=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 relay_namespace_name: Optional[pulumi.Input[str]] = None,
+                 requires_client_authorization: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 user_metadata: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an Azure Relay Hybrid Connection.
 
@@ -74,7 +66,7 @@ class HybridConnection(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -96,13 +88,20 @@ class HybridConnection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, relay_namespace_name=None, requires_client_authorization=None, resource_group_name=None, user_metadata=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            relay_namespace_name: Optional[pulumi.Input[str]] = None,
+            requires_client_authorization: Optional[pulumi.Input[bool]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            user_metadata: Optional[pulumi.Input[str]] = None) -> 'HybridConnection':
         """
         Get an existing HybridConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] relay_namespace_name: The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
@@ -121,8 +120,49 @@ class HybridConnection(pulumi.CustomResource):
         __props__["user_metadata"] = user_metadata
         return HybridConnection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="relayNamespaceName")
+    def relay_namespace_name(self) -> str:
+        """
+        The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "relay_namespace_name")
+
+    @property
+    @pulumi.getter(name="requiresClientAuthorization")
+    def requires_client_authorization(self) -> Optional[bool]:
+        """
+        Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "requires_client_authorization")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[str]:
+        """
+        The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+        """
+        return pulumi.get(self, "user_metadata")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

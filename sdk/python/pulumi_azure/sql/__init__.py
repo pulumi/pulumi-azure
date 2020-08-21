@@ -12,3 +12,5 @@ from .get_database import *
 from .get_server import *
 from .sql_server import *
 from .virtual_network_rule import *
+from ._inputs import *
+from . import outputs

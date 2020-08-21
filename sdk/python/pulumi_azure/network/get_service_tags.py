@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetServiceTagsResult',
+    'AwaitableGetServiceTagsResult',
+    'get_service_tags',
+]
+
+@pulumi.output_type
 class GetServiceTagsResult:
     """
     A collection of values returned by getServiceTags.
@@ -15,25 +22,52 @@ class GetServiceTagsResult:
     def __init__(__self__, address_prefixes=None, id=None, location=None, location_filter=None, service=None):
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
-        __self__.address_prefixes = address_prefixes
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if location_filter and not isinstance(location_filter, str):
+            raise TypeError("Expected argument 'location_filter' to be a str")
+        pulumi.set(__self__, "location_filter", location_filter)
+        if service and not isinstance(service, str):
+            raise TypeError("Expected argument 'service' to be a str")
+        pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> List[str]:
         """
         List of address prefixes for the service type (and optionally a specific region).
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        if location_filter and not isinstance(location_filter, str):
-            raise TypeError("Expected argument 'location_filter' to be a str")
-        __self__.location_filter = location_filter
-        if service and not isinstance(service, str):
-            raise TypeError("Expected argument 'service' to be a str")
-        __self__.service = service
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="locationFilter")
+    def location_filter(self) -> Optional[str]:
+        return pulumi.get(self, "location_filter")
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        return pulumi.get(self, "service")
+
+
 class AwaitableGetServiceTagsResult(GetServiceTagsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -46,7 +80,11 @@ class AwaitableGetServiceTagsResult(GetServiceTagsResult):
             location_filter=self.location_filter,
             service=self.service)
 
-def get_service_tags(location=None,location_filter=None,service=None,opts=None):
+
+def get_service_tags(location: Optional[str] = None,
+                     location_filter: Optional[str] = None,
+                     service: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceTagsResult:
     """
     Use this data source to access information about Service Tags.
 
@@ -68,20 +106,18 @@ def get_service_tags(location=None,location_filter=None,service=None,opts=None):
     :param str service: The type of the service for which address prefixes will be fetched. Available service tags can be found here: [Available service tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
     """
     __args__ = dict()
-
-
     __args__['location'] = location
     __args__['locationFilter'] = location_filter
     __args__['service'] = service
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getServiceTags:getServiceTags', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:network/getServiceTags:getServiceTags', __args__, opts=opts, typ=GetServiceTagsResult).value
 
     return AwaitableGetServiceTagsResult(
-        address_prefixes=__ret__.get('addressPrefixes'),
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        location_filter=__ret__.get('locationFilter'),
-        service=__ret__.get('service'))
+        address_prefixes=__ret__.address_prefixes,
+        id=__ret__.id,
+        location=__ret__.location,
+        location_filter=__ret__.location_filter,
+        service=__ret__.service)

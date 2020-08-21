@@ -5,123 +5,35 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VirtualNetworkGateway']
 
 
 class VirtualNetworkGateway(pulumi.CustomResource):
-    active_active: pulumi.Output[bool]
-    """
-    If `true`, an active-active Virtual Network Gateway
-    will be created. An active-active gateway requires a `HighPerformance` or an
-    `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
-    Defaults to `false`.
-    """
-    bgp_settings: pulumi.Output[dict]
-    default_local_network_gateway_id: pulumi.Output[str]
-    """
-    The ID of the local network gateway
-    through which outbound Internet traffic from the virtual network in which the
-    gateway is created will be routed (*forced tunnelling*). Refer to the
-    [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
-    If not specified, forced tunnelling is disabled.
-    """
-    enable_bgp: pulumi.Output[bool]
-    """
-    If `true`, BGP (Border Gateway Protocol) will be enabled
-    for this Virtual Network Gateway. Defaults to `false`.
-    """
-    generation: pulumi.Output[str]
-    """
-    The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
-    """
-    ip_configurations: pulumi.Output[list]
-    """
-    One or two `ip_configuration` blocks documented below.
-    An active-standby gateway requires exactly one `ip_configuration` block whereas
-    an active-active gateway requires exactly two `ip_configuration` blocks.
-
-      * `name` (`str`) - A user-defined name of the revoked certificate.
-      * `privateIpAddressAllocation` (`str`) - Defines how the private IP address
-        of the gateways virtual interface is assigned. Valid options are `Static` or
-        `Dynamic`. Defaults to `Dynamic`.
-      * `public_ip_address_id` (`str`) - The ID of the public ip address to associate
-        with the Virtual Network Gateway.
-      * `subnet_id` (`str`) - The ID of the gateway subnet of a virtual network in
-        which the virtual network gateway will be created. It is mandatory that
-        the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-        network can contain at most a single Virtual Network Gateway.
-    """
-    location: pulumi.Output[str]
-    """
-    The location/region where the Virtual Network Gateway is
-    located. Changing the location/region forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    A user-defined name of the revoked certificate.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to
-    create the Virtual Network Gateway. Changing the resource group name forces
-    a new resource to be created.
-    """
-    sku: pulumi.Output[str]
-    """
-    Configuration of the size and capacity of the virtual network
-    gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
-    `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
-    `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
-    `generation` arguments.
-    A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
-    sku is only supported by an `ExpressRoute` gateway.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the Virtual Network Gateway. Valid options are
-    `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-    """
-    vpn_client_configuration: pulumi.Output[dict]
-    """
-    A `vpn_client_configuration` block which
-    is documented below. In this block the Virtual Network Gateway can be configured
-    to accept IPSec point-to-site connections.
-
-      * `address_spaces` (`list`) - The address space out of which ip addresses for
-        vpn clients will be taken. You can provide more than one address space, e.g.
-        in CIDR notation.
-      * `radiusServerAddress` (`str`) - The address of the Radius server.
-        This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
-      * `radiusServerSecret` (`str`) - The secret used by the Radius server.
-        This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
-      * `revokedCertificates` (`list`) - One or more `revoked_certificate` blocks which
-        are defined below.
-        This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
-        * `name` (`str`) - A user-defined name of the revoked certificate.
-        * `thumbprint` (`str`)
-
-      * `rootCertificates` (`list`) - One or more `root_certificate` blocks which are
-        defined below. These root certificates are used to sign the client certificate
-        used by the VPN clients to connect to the gateway.
-        This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
-        * `name` (`str`) - A user-defined name of the revoked certificate.
-        * `publicCertData` (`str`) - The SHA1 thumbprint of the certificate to be
-          revoked.
-
-      * `vpnClientProtocols` (`list`) - List of the protocols supported by the vpn client.
-        The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
-    """
-    vpn_type: pulumi.Output[str]
-    """
-    The routing type of the Virtual Network Gateway. Valid
-    options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
-    """
-    def __init__(__self__, resource_name, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active_active: Optional[pulumi.Input[bool]] = None,
+                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']]] = None,
+                 default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 generation: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']]] = None,
+                 vpn_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
 
@@ -154,17 +66,17 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             active_active=False,
             enable_bgp=False,
             sku="Basic",
-            ip_configurations=[{
-                "name": "vnetGatewayConfig",
-                "public_ip_address_id": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnet_id": example_subnet.id,
-            }],
-            vpn_client_configuration={
-                "address_spaces": ["10.2.0.0/24"],
-                "rootCertificates": [{
-                    "name": "DigiCert-Federated-ID-Root-CA",
-                    "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                name="vnetGatewayConfig",
+                public_ip_address_id=example_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=example_subnet.id,
+            )],
+            vpn_client_configuration=azure.network.VirtualNetworkGatewayVpnClientConfigurationArgs(
+                address_spaces=["10.2.0.0/24"],
+                root_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs(
+                    name="DigiCert-Federated-ID-Root-CA",
+                    public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -185,12 +97,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
-                }],
-                "revokedCertificates": [{
-                    "name": "Verizon-Global-Root-CA",
-                    "thumbprint": "912198EEF23DCAC40939312FEE97DD560BAE49B1",
-                }],
-            })
+                )],
+                revoked_certificates=[azure.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs(
+                    name="Verizon-Global-Root-CA",
+                    thumbprint="912198EEF23DCAC40939312FEE97DD560BAE49B1",
+                )],
+            ))
         ```
 
         :param str resource_name: The name of the resource.
@@ -207,7 +119,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
-        :param pulumi.Input[list] ip_configurations: One or two `ip_configuration` blocks documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One or two `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block whereas
                an active-active gateway requires exactly two `ip_configuration` blocks.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
@@ -223,63 +135,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                `generation` arguments.
                A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
                sku is only supported by an `ExpressRoute` gateway.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
                `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-        :param pulumi.Input[dict] vpn_client_configuration: A `vpn_client_configuration` block which
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
                options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
-
-        The **bgp_settings** object supports the following:
-
-          * `asn` (`pulumi.Input[float]`) - The Autonomous System Number (ASN) to use as part of the BGP.
-          * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes which have been learned
-            through BGP peering. Valid values can be between `0` and `100`.
-          * `peeringAddress` (`pulumi.Input[str]`) - The BGP peer IP address of the virtual network
-            gateway. This address is needed to configure the created gateway as a BGP Peer
-            on the on-premises VPN devices. The IP address must be part of the subnet of
-            the Virtual Network Gateway. Changing this forces a new resource to be created.
-
-        The **ip_configurations** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
-          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - Defines how the private IP address
-            of the gateways virtual interface is assigned. Valid options are `Static` or
-            `Dynamic`. Defaults to `Dynamic`.
-          * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of the public ip address to associate
-            with the Virtual Network Gateway.
-          * `subnet_id` (`pulumi.Input[str]`) - The ID of the gateway subnet of a virtual network in
-            which the virtual network gateway will be created. It is mandatory that
-            the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-            network can contain at most a single Virtual Network Gateway.
-
-        The **vpn_client_configuration** object supports the following:
-
-          * `address_spaces` (`pulumi.Input[list]`) - The address space out of which ip addresses for
-            vpn clients will be taken. You can provide more than one address space, e.g.
-            in CIDR notation.
-          * `radiusServerAddress` (`pulumi.Input[str]`) - The address of the Radius server.
-            This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
-          * `radiusServerSecret` (`pulumi.Input[str]`) - The secret used by the Radius server.
-            This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
-          * `revokedCertificates` (`pulumi.Input[list]`) - One or more `revoked_certificate` blocks which
-            are defined below.
-            This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
-            * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
-            * `thumbprint` (`pulumi.Input[str]`)
-
-          * `rootCertificates` (`pulumi.Input[list]`) - One or more `root_certificate` blocks which are
-            defined below. These root certificates are used to sign the client certificate
-            used by the VPN clients to connect to the gateway.
-            This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
-            * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
-            * `publicCertData` (`pulumi.Input[str]`) - The SHA1 thumbprint of the certificate to be
-              revoked.
-
-          * `vpnClientProtocols` (`pulumi.Input[list]`) - List of the protocols supported by the vpn client.
-            The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -292,7 +155,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -327,13 +190,29 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, generation=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active_active: Optional[pulumi.Input[bool]] = None,
+            bgp_settings: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayBgpSettingsArgs']]] = None,
+            default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+            enable_bgp: Optional[pulumi.Input[bool]] = None,
+            generation: Optional[pulumi.Input[str]] = None,
+            ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            sku: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']]] = None,
+            vpn_type: Optional[pulumi.Input[str]] = None) -> 'VirtualNetworkGateway':
         """
         Get an existing VirtualNetworkGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
                will be created. An active-active gateway requires a `HighPerformance` or an
@@ -347,7 +226,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
-        :param pulumi.Input[list] ip_configurations: One or two `ip_configuration` blocks documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One or two `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block whereas
                an active-active gateway requires exactly two `ip_configuration` blocks.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
@@ -363,63 +242,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                `generation` arguments.
                A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
                sku is only supported by an `ExpressRoute` gateway.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
                `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-        :param pulumi.Input[dict] vpn_client_configuration: A `vpn_client_configuration` block which
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayVpnClientConfigurationArgs']] vpn_client_configuration: A `vpn_client_configuration` block which
                is documented below. In this block the Virtual Network Gateway can be configured
                to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
                options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
-
-        The **bgp_settings** object supports the following:
-
-          * `asn` (`pulumi.Input[float]`) - The Autonomous System Number (ASN) to use as part of the BGP.
-          * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes which have been learned
-            through BGP peering. Valid values can be between `0` and `100`.
-          * `peeringAddress` (`pulumi.Input[str]`) - The BGP peer IP address of the virtual network
-            gateway. This address is needed to configure the created gateway as a BGP Peer
-            on the on-premises VPN devices. The IP address must be part of the subnet of
-            the Virtual Network Gateway. Changing this forces a new resource to be created.
-
-        The **ip_configurations** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
-          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - Defines how the private IP address
-            of the gateways virtual interface is assigned. Valid options are `Static` or
-            `Dynamic`. Defaults to `Dynamic`.
-          * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of the public ip address to associate
-            with the Virtual Network Gateway.
-          * `subnet_id` (`pulumi.Input[str]`) - The ID of the gateway subnet of a virtual network in
-            which the virtual network gateway will be created. It is mandatory that
-            the associated subnet is named `GatewaySubnet`. Therefore, each virtual
-            network can contain at most a single Virtual Network Gateway.
-
-        The **vpn_client_configuration** object supports the following:
-
-          * `address_spaces` (`pulumi.Input[list]`) - The address space out of which ip addresses for
-            vpn clients will be taken. You can provide more than one address space, e.g.
-            in CIDR notation.
-          * `radiusServerAddress` (`pulumi.Input[str]`) - The address of the Radius server.
-            This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
-          * `radiusServerSecret` (`pulumi.Input[str]`) - The secret used by the Radius server.
-            This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
-          * `revokedCertificates` (`pulumi.Input[list]`) - One or more `revoked_certificate` blocks which
-            are defined below.
-            This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
-            * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
-            * `thumbprint` (`pulumi.Input[str]`)
-
-          * `rootCertificates` (`pulumi.Input[list]`) - One or more `root_certificate` blocks which are
-            defined below. These root certificates are used to sign the client certificate
-            used by the VPN clients to connect to the gateway.
-            This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
-            * `name` (`pulumi.Input[str]`) - A user-defined name of the revoked certificate.
-            * `publicCertData` (`pulumi.Input[str]`) - The SHA1 thumbprint of the certificate to be
-              revoked.
-
-          * `vpnClientProtocols` (`pulumi.Input[list]`) - List of the protocols supported by the vpn client.
-            The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -441,8 +271,141 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__["vpn_type"] = vpn_type
         return VirtualNetworkGateway(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="activeActive")
+    def active_active(self) -> bool:
+        """
+        If `true`, an active-active Virtual Network Gateway
+        will be created. An active-active gateway requires a `HighPerformance` or an
+        `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+        Defaults to `false`.
+        """
+        return pulumi.get(self, "active_active")
+
+    @property
+    @pulumi.getter(name="bgpSettings")
+    def bgp_settings(self) -> 'outputs.VirtualNetworkGatewayBgpSettings':
+        return pulumi.get(self, "bgp_settings")
+
+    @property
+    @pulumi.getter(name="defaultLocalNetworkGatewayId")
+    def default_local_network_gateway_id(self) -> Optional[str]:
+        """
+        The ID of the local network gateway
+        through which outbound Internet traffic from the virtual network in which the
+        gateway is created will be routed (*forced tunnelling*). Refer to the
+        [Azure documentation on forced tunnelling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+        If not specified, forced tunnelling is disabled.
+        """
+        return pulumi.get(self, "default_local_network_gateway_id")
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> bool:
+        """
+        If `true`, BGP (Border Gateway Protocol) will be enabled
+        for this Virtual Network Gateway. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @property
+    @pulumi.getter
+    def generation(self) -> str:
+        """
+        The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
+        """
+        return pulumi.get(self, "generation")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> List['outputs.VirtualNetworkGatewayIpConfiguration']:
+        """
+        One or two `ip_configuration` blocks documented below.
+        An active-standby gateway requires exactly one `ip_configuration` block whereas
+        an active-active gateway requires exactly two `ip_configuration` blocks.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location/region where the Virtual Network Gateway is
+        located. Changing the location/region forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A user-defined name of the revoked certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to
+        create the Virtual Network Gateway. Changing the resource group name forces
+        a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        """
+        Configuration of the size and capacity of the virtual network
+        gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
+        `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`,
+        `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and
+        `generation` arguments.
+        A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
+        sku is only supported by an `ExpressRoute` gateway.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the Virtual Network Gateway. Valid options are
+        `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vpnClientConfiguration")
+    def vpn_client_configuration(self) -> Optional['outputs.VirtualNetworkGatewayVpnClientConfiguration']:
+        """
+        A `vpn_client_configuration` block which
+        is documented below. In this block the Virtual Network Gateway can be configured
+        to accept IPSec point-to-site connections.
+        """
+        return pulumi.get(self, "vpn_client_configuration")
+
+    @property
+    @pulumi.getter(name="vpnType")
+    def vpn_type(self) -> Optional[str]:
+        """
+        The routing type of the Virtual Network Gateway. Valid
+        options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        """
+        return pulumi.get(self, "vpn_type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

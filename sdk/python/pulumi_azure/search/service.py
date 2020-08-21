@@ -5,59 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Service']
 
 
 class Service(pulumi.CustomResource):
-    location: pulumi.Output[str]
-    """
-    The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
-    """
-    partition_count: pulumi.Output[float]
-    """
-    The number of partitions which should be created.
-    """
-    primary_key: pulumi.Output[str]
-    """
-    The Primary Key used for Search Service Administration.
-    """
-    public_network_access_enabled: pulumi.Output[bool]
-    """
-    Whether or not public network access is allowed for this resource. Defaults to `true`.
-    """
-    query_keys: pulumi.Output[list]
-    """
-    A `query_keys` block as defined below.
-
-      * `key` (`str`) - The value of this Query Key.
-      * `name` (`str`) - The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
-    """
-    replica_count: pulumi.Output[float]
-    """
-    The number of replica's which should be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
-    """
-    secondary_key: pulumi.Output[str]
-    """
-    The Secondary Key used for Search Service Administration.
-    """
-    sku: pulumi.Output[str]
-    """
-    The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags which should be assigned to the Search Service.
-    """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, partition_count=None, public_network_access_enabled=None, replica_count=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[float]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 replica_count: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Search Service.
 
@@ -83,7 +53,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[float] replica_count: The number of replica's which should be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Search Service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Search Service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,7 +66,7 @@ class Service(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -124,30 +94,38 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location=None, name=None, partition_count=None, primary_key=None, public_network_access_enabled=None, query_keys=None, replica_count=None, resource_group_name=None, secondary_key=None, sku=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            partition_count: Optional[pulumi.Input[float]] = None,
+            primary_key: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+            query_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]]] = None,
+            replica_count: Optional[pulumi.Input[float]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            secondary_key: Optional[pulumi.Input[str]] = None,
+            sku: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[float] partition_count: The number of partitions which should be created.
         :param pulumi.Input[str] primary_key: The Primary Key used for Search Service Administration.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this resource. Defaults to `true`.
-        :param pulumi.Input[list] query_keys: A `query_keys` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]] query_keys: A `query_keys` block as defined below.
         :param pulumi.Input[float] replica_count: The number of replica's which should be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Search Service.
-
-        The **query_keys** object supports the following:
-
-          * `key` (`pulumi.Input[str]`) - The value of this Query Key.
-          * `name` (`pulumi.Input[str]`) - The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Search Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -166,8 +144,97 @@ class Service(pulumi.CustomResource):
         __props__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> float:
+        """
+        The number of partitions which should be created.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        The Primary Key used for Search Service Administration.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[bool]:
+        """
+        Whether or not public network access is allowed for this resource. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="queryKeys")
+    def query_keys(self) -> List['outputs.ServiceQueryKey']:
+        """
+        A `query_keys` block as defined below.
+        """
+        return pulumi.get(self, "query_keys")
+
+    @property
+    @pulumi.getter(name="replicaCount")
+    def replica_count(self) -> float:
+        """
+        The number of replica's which should be created.
+        """
+        return pulumi.get(self, "replica_count")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> str:
+        """
+        The Secondary Key used for Search Service Administration.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        """
+        The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags which should be assigned to the Search Service.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,40 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['DataSourceWindowsPerformanceCounter']
 
 
 class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
-    counter_name: pulumi.Output[str]
-    """
-    The friendly name of the performance counter.
-    """
-    instance_name: pulumi.Output[str]
-    """
-    The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
-    """
-    interval_seconds: pulumi.Output[float]
-    """
-    The time of sample interval in seconds. Supports values between 10 and 2147483647.
-    """
-    name: pulumi.Output[str]
-    """
-    The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
-    """
-    object_name: pulumi.Output[str]
-    """
-    The object name of the Log Analytics Windows Performance Counter DataSource.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
-    """
-    workspace_name: pulumi.Output[str]
-    """
-    The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, counter_name=None, instance_name=None, interval_seconds=None, name=None, object_name=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 counter_name: Optional[pulumi.Input[str]] = None,
+                 instance_name: Optional[pulumi.Input[str]] = None,
+                 interval_seconds: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 object_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 workspace_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
 
@@ -83,7 +69,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -115,13 +101,22 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, counter_name=None, instance_name=None, interval_seconds=None, name=None, object_name=None, resource_group_name=None, workspace_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            counter_name: Optional[pulumi.Input[str]] = None,
+            instance_name: Optional[pulumi.Input[str]] = None,
+            interval_seconds: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            object_name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            workspace_name: Optional[pulumi.Input[str]] = None) -> 'DataSourceWindowsPerformanceCounter':
         """
         Get an existing DataSourceWindowsPerformanceCounter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] counter_name: The friendly name of the performance counter.
         :param pulumi.Input[str] instance_name: The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
@@ -144,8 +139,65 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         __props__["workspace_name"] = workspace_name
         return DataSourceWindowsPerformanceCounter(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="counterName")
+    def counter_name(self) -> str:
+        """
+        The friendly name of the performance counter.
+        """
+        return pulumi.get(self, "counter_name")
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> str:
+        """
+        The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> float:
+        """
+        The time of sample interval in seconds. Supports values between 10 and 2147483647.
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> str:
+        """
+        The object name of the Log Analytics Windows Performance Counter DataSource.
+        """
+        return pulumi.get(self, "object_name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> str:
+        """
+        The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
+        """
+        return pulumi.get(self, "workspace_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

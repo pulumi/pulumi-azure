@@ -5,51 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MongoCollection']
 
 
 class MongoCollection(pulumi.CustomResource):
-    account_name: pulumi.Output[str]
-    database_name: pulumi.Output[str]
-    """
-    The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-    """
-    default_ttl_seconds: pulumi.Output[float]
-    """
-    The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-    """
-    indices: pulumi.Output[list]
-    """
-    One or more `index` blocks as defined below.
-
-      * `keys` (`list`) - Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
-      * `unique` (`bool`) - Is the index unique or not? Defaults to `false`.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
-    """
-    shard_key: pulumi.Output[str]
-    """
-    The name of the key to partition on for sharding. There must not be any other unique index keys.
-    """
-    system_indexes: pulumi.Output[list]
-    """
-    One or more `system_indexes` blocks as defined below.
-
-      * `keys` (`list`) - Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
-      * `unique` (`bool`) - Is the index unique or not? Defaults to `false`.
-    """
-    throughput: pulumi.Output[float]
-    """
-    The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, default_ttl_seconds=None, indices=None, name=None, resource_group_name=None, shard_key=None, throughput=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 default_ttl_seconds: Optional[pulumi.Input[float]] = None,
+                 indices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 shard_key: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Mongo Collection within a Cosmos DB Account.
 
@@ -68,7 +46,7 @@ class MongoCollection(pulumi.CustomResource):
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             database_name=example_mongo_database.name,
-            default_ttl_seconds="777",
+            default_ttl_seconds=777,
             shard_key="uniqueKey",
             throughput=400)
         ```
@@ -77,16 +55,11 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-        :param pulumi.Input[list] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
         :param pulumi.Input[float] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-
-        The **indices** object supports the following:
-
-          * `keys` (`pulumi.Input[list]`) - Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
-          * `unique` (`pulumi.Input[bool]`) - Is the index unique or not? Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,7 +72,7 @@ class MongoCollection(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -127,32 +100,33 @@ class MongoCollection(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, database_name=None, default_ttl_seconds=None, indices=None, name=None, resource_group_name=None, shard_key=None, system_indexes=None, throughput=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: Optional[pulumi.Input[str]] = None,
+            database_name: Optional[pulumi.Input[str]] = None,
+            default_ttl_seconds: Optional[pulumi.Input[float]] = None,
+            indices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            shard_key: Optional[pulumi.Input[str]] = None,
+            system_indexes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MongoCollectionSystemIndexArgs']]]]] = None,
+            throughput: Optional[pulumi.Input[float]] = None) -> 'MongoCollection':
         """
         Get an existing MongoCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
-        :param pulumi.Input[list] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys.
-        :param pulumi.Input[list] system_indexes: One or more `system_indexes` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MongoCollectionSystemIndexArgs']]]] system_indexes: One or more `system_indexes` blocks as defined below.
         :param pulumi.Input[float] throughput: The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-
-        The **indices** object supports the following:
-
-          * `keys` (`pulumi.Input[list]`) - Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
-          * `unique` (`pulumi.Input[bool]`) - Is the index unique or not? Defaults to `false`.
-
-        The **system_indexes** object supports the following:
-
-          * `keys` (`pulumi.Input[list]`) - Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
-          * `unique` (`pulumi.Input[bool]`) - Is the index unique or not? Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -169,8 +143,78 @@ class MongoCollection(pulumi.CustomResource):
         __props__["throughput"] = throughput
         return MongoCollection(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="defaultTtlSeconds")
+    def default_ttl_seconds(self) -> Optional[float]:
+        """
+        The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
+        """
+        return pulumi.get(self, "default_ttl_seconds")
+
+    @property
+    @pulumi.getter
+    def indices(self) -> Optional[List['outputs.MongoCollectionIndex']]:
+        """
+        One or more `index` blocks as defined below.
+        """
+        return pulumi.get(self, "indices")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="shardKey")
+    def shard_key(self) -> Optional[str]:
+        """
+        The name of the key to partition on for sharding. There must not be any other unique index keys.
+        """
+        return pulumi.get(self, "shard_key")
+
+    @property
+    @pulumi.getter(name="systemIndexes")
+    def system_indexes(self) -> List['outputs.MongoCollectionSystemIndex']:
+        """
+        One or more `system_indexes` blocks as defined below.
+        """
+        return pulumi.get(self, "system_indexes")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> float:
+        """
+        The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        """
+        return pulumi.get(self, "throughput")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

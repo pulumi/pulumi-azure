@@ -54,7 +54,7 @@ import (
 // 		_, err = backup.NewProtectedVM(ctx, "vm1", &backup.ProtectedVMArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			RecoveryVaultName: exampleVault.Name,
-// 			SourceVmId:        pulumi.String(azurerm_virtual_machine.Example.Id),
+// 			SourceVmId:        pulumi.Any(azurerm_virtual_machine.Example.Id),
 // 			BackupPolicyId:    examplePolicyVM.ID(),
 // 		})
 // 		if err != nil {

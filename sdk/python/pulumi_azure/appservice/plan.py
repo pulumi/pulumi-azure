@@ -5,61 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Plan']
 
 
 class Plan(pulumi.CustomResource):
-    app_service_environment_id: pulumi.Output[str]
-    """
-    The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
-    """
-    is_xenon: pulumi.Output[bool]
-    kind: pulumi.Output[str]
-    """
-    The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    maximum_elastic_worker_count: pulumi.Output[float]
-    """
-    The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
-    """
-    maximum_number_of_workers: pulumi.Output[float]
-    """
-    The maximum number of workers supported with the App Service Plan's sku.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-    """
-    per_site_scaling: pulumi.Output[bool]
-    """
-    Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-    """
-    reserved: pulumi.Output[bool]
-    """
-    Is this App Service Plan `Reserved`. Defaults to `false`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the App Service Plan component.
-    """
-    sku: pulumi.Output[dict]
-    """
-    A `sku` block as documented below.
-
-      * `capacity` (`float`) - Specifies the number of workers associated with this App Service Plan.
-      * `size` (`str`) - Specifies the plan's instance size.
-      * `tier` (`str`) - Specifies the plan's pricing tier.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service_environment_id: Optional[pulumi.Input[str]] = None,
+                 is_xenon: Optional[pulumi.Input[bool]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_elastic_worker_count: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 per_site_scaling: Optional[pulumi.Input[bool]] = None,
+                 reserved: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an App Service Plan component.
 
@@ -74,10 +45,10 @@ class Plan(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
         ```
         ### Shared / Consumption Plan)
 
@@ -90,10 +61,10 @@ class Plan(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             kind="FunctionApp",
-            sku={
-                "tier": "Dynamic",
-                "size": "Y1",
-            })
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Dynamic",
+                size="Y1",
+            ))
         ```
         ### Linux)
 
@@ -107,10 +78,10 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="Linux",
             reserved=True,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
         ```
         ### Windows Container)
 
@@ -124,30 +95,24 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="xenon",
             is_xenon=True,
-            sku={
-                "tier": "PremiumContainer",
-                "size": "PC2",
-            })
+            sku=azure.appservice.PlanSkuArgs(
+                tier="PremiumContainer",
+                size="PC2",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
-        :param pulumi.Input[dict] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
-        :param pulumi.Input[dict] sku: A `sku` block as documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Specifies the number of workers associated with this App Service Plan.
-          * `size` (`pulumi.Input[str]`) - Specifies the plan's instance size.
-          * `tier` (`pulumi.Input[str]`) - Specifies the plan's pricing tier.
+        :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -160,7 +125,7 @@ class Plan(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -189,16 +154,30 @@ class Plan(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_environment_id: Optional[pulumi.Input[str]] = None,
+            is_xenon: Optional[pulumi.Input[bool]] = None,
+            kind: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            maximum_elastic_worker_count: Optional[pulumi.Input[float]] = None,
+            maximum_number_of_workers: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            per_site_scaling: Optional[pulumi.Input[bool]] = None,
+            reserved: Optional[pulumi.Input[bool]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Plan':
         """
         Get an existing Plan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
-        :param pulumi.Input[dict] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         :param pulumi.Input[float] maximum_number_of_workers: The maximum number of workers supported with the App Service Plan's sku.
@@ -206,14 +185,8 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
-        :param pulumi.Input[dict] sku: A `sku` block as documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Specifies the number of workers associated with this App Service Plan.
-          * `size` (`pulumi.Input[str]`) - Specifies the plan's instance size.
-          * `tier` (`pulumi.Input[str]`) - Specifies the plan's pricing tier.
+        :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -233,8 +206,102 @@ class Plan(pulumi.CustomResource):
         __props__["tags"] = tags
         return Plan(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="appServiceEnvironmentId")
+    def app_service_environment_id(self) -> Optional[str]:
+        """
+        The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_environment_id")
+
+    @property
+    @pulumi.getter(name="isXenon")
+    def is_xenon(self) -> Optional[bool]:
+        return pulumi.get(self, "is_xenon")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maximumElasticWorkerCount")
+    def maximum_elastic_worker_count(self) -> float:
+        """
+        The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+        """
+        return pulumi.get(self, "maximum_elastic_worker_count")
+
+    @property
+    @pulumi.getter(name="maximumNumberOfWorkers")
+    def maximum_number_of_workers(self) -> float:
+        """
+        The maximum number of workers supported with the App Service Plan's sku.
+        """
+        return pulumi.get(self, "maximum_number_of_workers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="perSiteScaling")
+    def per_site_scaling(self) -> Optional[bool]:
+        """
+        Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+        """
+        return pulumi.get(self, "per_site_scaling")
+
+    @property
+    @pulumi.getter
+    def reserved(self) -> Optional[bool]:
+        """
+        Is this App Service Plan `Reserved`. Defaults to `false`.
+        """
+        return pulumi.get(self, "reserved")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the App Service Plan component.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.PlanSku':
+        """
+        A `sku` block as documented below.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

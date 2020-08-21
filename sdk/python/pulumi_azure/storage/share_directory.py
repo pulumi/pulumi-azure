@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['ShareDirectory']
 
 
 class ShareDirectory(pulumi.CustomResource):
-    metadata: pulumi.Output[dict]
-    """
-    A mapping of metadata to assign to this Directory.
-    """
-    name: pulumi.Output[str]
-    """
-    The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
-    """
-    share_name: pulumi.Output[str]
-    """
-    The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
-    """
-    storage_account_name: pulumi.Output[str]
-    """
-    The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, metadata=None, name=None, share_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 share_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Directory within an Azure Storage File Share.
 
@@ -52,7 +47,7 @@ class ShareDirectory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] metadata: A mapping of metadata to assign to this Directory.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] share_name: The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
@@ -68,7 +63,7 @@ class ShareDirectory(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -89,15 +84,21 @@ class ShareDirectory(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, metadata=None, name=None, share_name=None, storage_account_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            share_name: Optional[pulumi.Input[str]] = None,
+            storage_account_name: Optional[pulumi.Input[str]] = None) -> 'ShareDirectory':
         """
         Get an existing ShareDirectory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] metadata: A mapping of metadata to assign to this Directory.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this Directory.
         :param pulumi.Input[str] name: The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] share_name: The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
@@ -112,8 +113,41 @@ class ShareDirectory(pulumi.CustomResource):
         __props__["storage_account_name"] = storage_account_name
         return ShareDirectory(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of metadata to assign to this Directory.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> str:
+        """
+        The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "share_name")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

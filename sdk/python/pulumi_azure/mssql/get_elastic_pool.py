@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetElasticPoolResult',
+    'AwaitableGetElasticPoolResult',
+    'get_elastic_pool',
+]
+
+@pulumi.output_type
 class GetElasticPoolResult:
     """
     A collection of values returned by getElasticPool.
@@ -15,67 +22,129 @@ class GetElasticPoolResult:
     def __init__(__self__, id=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, tags=None, zone_redundant=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if license_type and not isinstance(license_type, str):
+            raise TypeError("Expected argument 'license_type' to be a str")
+        pulumi.set(__self__, "license_type", license_type)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if max_size_bytes and not isinstance(max_size_bytes, float):
+            raise TypeError("Expected argument 'max_size_bytes' to be a float")
+        pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+        if max_size_gb and not isinstance(max_size_gb, float):
+            raise TypeError("Expected argument 'max_size_gb' to be a float")
+        pulumi.set(__self__, "max_size_gb", max_size_gb)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if per_db_max_capacity and not isinstance(per_db_max_capacity, float):
+            raise TypeError("Expected argument 'per_db_max_capacity' to be a float")
+        pulumi.set(__self__, "per_db_max_capacity", per_db_max_capacity)
+        if per_db_min_capacity and not isinstance(per_db_min_capacity, float):
+            raise TypeError("Expected argument 'per_db_min_capacity' to be a float")
+        pulumi.set(__self__, "per_db_min_capacity", per_db_min_capacity)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if server_name and not isinstance(server_name, str):
+            raise TypeError("Expected argument 'server_name' to be a str")
+        pulumi.set(__self__, "server_name", server_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if license_type and not isinstance(license_type, str):
-            raise TypeError("Expected argument 'license_type' to be a str")
-        __self__.license_type = license_type
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> str:
         """
         The license type to apply for this database.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Specifies the supported Azure location where the resource exists.
         """
-        if max_size_bytes and not isinstance(max_size_bytes, float):
-            raise TypeError("Expected argument 'max_size_bytes' to be a float")
-        __self__.max_size_bytes = max_size_bytes
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxSizeBytes")
+    def max_size_bytes(self) -> float:
         """
         The max data size of the elastic pool in bytes.
         """
-        if max_size_gb and not isinstance(max_size_gb, float):
-            raise TypeError("Expected argument 'max_size_gb' to be a float")
-        __self__.max_size_gb = max_size_gb
+        return pulumi.get(self, "max_size_bytes")
+
+    @property
+    @pulumi.getter(name="maxSizeGb")
+    def max_size_gb(self) -> float:
         """
         The max data size of the elastic pool in gigabytes.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if per_db_max_capacity and not isinstance(per_db_max_capacity, float):
-            raise TypeError("Expected argument 'per_db_max_capacity' to be a float")
-        __self__.per_db_max_capacity = per_db_max_capacity
+        return pulumi.get(self, "max_size_gb")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="perDbMaxCapacity")
+    def per_db_max_capacity(self) -> float:
         """
         The maximum capacity any one database can consume.
         """
-        if per_db_min_capacity and not isinstance(per_db_min_capacity, float):
-            raise TypeError("Expected argument 'per_db_min_capacity' to be a float")
-        __self__.per_db_min_capacity = per_db_min_capacity
+        return pulumi.get(self, "per_db_max_capacity")
+
+    @property
+    @pulumi.getter(name="perDbMinCapacity")
+    def per_db_min_capacity(self) -> float:
         """
         The minimum capacity all databases are guaranteed.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if server_name and not isinstance(server_name, str):
-            raise TypeError("Expected argument 'server_name' to be a str")
-        __self__.server_name = server_name
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "per_db_min_capacity")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags to assign to the resource.
         """
-        if zone_redundant and not isinstance(zone_redundant, bool):
-            raise TypeError("Expected argument 'zone_redundant' to be a bool")
-        __self__.zone_redundant = zone_redundant
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> bool:
         """
         Whether or not this elastic pool is zone redundant.
         """
+        return pulumi.get(self, "zone_redundant")
+
+
 class AwaitableGetElasticPoolResult(GetElasticPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -95,7 +164,11 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             tags=self.tags,
             zone_redundant=self.zone_redundant)
 
-def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=None):
+
+def get_elastic_pool(name: Optional[str] = None,
+                     resource_group_name: Optional[str] = None,
+                     server_name: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticPoolResult:
     """
     Use this data source to access information about an existing SQL elastic pool.
 
@@ -117,27 +190,25 @@ def get_elastic_pool(name=None,resource_group_name=None,server_name=None,opts=No
     :param str server_name: The name of the SQL Server which contains the elastic pool.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:mssql/getElasticPool:getElasticPool', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:mssql/getElasticPool:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult).value
 
     return AwaitableGetElasticPoolResult(
-        id=__ret__.get('id'),
-        license_type=__ret__.get('licenseType'),
-        location=__ret__.get('location'),
-        max_size_bytes=__ret__.get('maxSizeBytes'),
-        max_size_gb=__ret__.get('maxSizeGb'),
-        name=__ret__.get('name'),
-        per_db_max_capacity=__ret__.get('perDbMaxCapacity'),
-        per_db_min_capacity=__ret__.get('perDbMinCapacity'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        server_name=__ret__.get('serverName'),
-        tags=__ret__.get('tags'),
-        zone_redundant=__ret__.get('zoneRedundant'))
+        id=__ret__.id,
+        license_type=__ret__.license_type,
+        location=__ret__.location,
+        max_size_bytes=__ret__.max_size_bytes,
+        max_size_gb=__ret__.max_size_gb,
+        name=__ret__.name,
+        per_db_max_capacity=__ret__.per_db_max_capacity,
+        per_db_min_capacity=__ret__.per_db_min_capacity,
+        resource_group_name=__ret__.resource_group_name,
+        server_name=__ret__.server_name,
+        tags=__ret__.tags,
+        zone_redundant=__ret__.zone_redundant)

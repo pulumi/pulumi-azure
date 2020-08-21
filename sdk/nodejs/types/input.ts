@@ -3014,14 +3014,41 @@ export namespace blueprint {
 
 export namespace bot {
     export interface ChannelDirectLineSite {
+        /**
+         * Enables/Disables this site. Enabled by default
+         */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+         */
         enhancedAuthenticationEnabled?: pulumi.Input<boolean>;
+        /**
+         * Id for the site
+         */
         id?: pulumi.Input<string>;
+        /**
+         * Primary key for accessing this site
+         */
         key?: pulumi.Input<string>;
+        /**
+         * Secondary key for accessing this site
+         */
         key2?: pulumi.Input<string>;
+        /**
+         * The name of the site
+         */
         name: pulumi.Input<string>;
+        /**
+         * This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+         */
         trustedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Enables v1 of the Directline protocol for this site. Enabled by default
+         */
         v1Allowed?: pulumi.Input<boolean>;
+        /**
+         * Enables v3 of the Directline protocol for this site. Enabled by default
+         */
         v3Allowed?: pulumi.Input<boolean>;
     }
 }

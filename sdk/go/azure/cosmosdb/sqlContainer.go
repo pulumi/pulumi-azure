@@ -25,9 +25,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
-// 			ResourceGroupName: pulumi.String(azurerm_cosmosdb_account.Example.Resource_group_name),
-// 			AccountName:       pulumi.String(azurerm_cosmosdb_account.Example.Name),
-// 			DatabaseName:      pulumi.String(azurerm_cosmosdb_sql_database.Example.Name),
+// 			ResourceGroupName: pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
+// 			AccountName:       pulumi.Any(azurerm_cosmosdb_account.Example.Name),
+// 			DatabaseName:      pulumi.Any(azurerm_cosmosdb_sql_database.Example.Name),
 // 			PartitionKeyPath:  pulumi.String("/definition/id"),
 // 			Throughput:        pulumi.Int(400),
 // 			UniqueKeys: cosmosdb.SqlContainerUniqueKeyArray{

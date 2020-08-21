@@ -5,41 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['OutputMssql']
 
 
 class OutputMssql(pulumi.CustomResource):
-    database: pulumi.Output[str]
-    name: pulumi.Output[str]
-    """
-    The name of the Stream Output. Changing this forces a new resource to be created.
-    """
-    password: pulumi.Output[str]
-    """
-    Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-    """
-    server: pulumi.Output[str]
-    """
-    The SQL server url. Changing this forces a new resource to be created.
-    """
-    stream_analytics_job_name: pulumi.Output[str]
-    """
-    The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-    """
-    table: pulumi.Output[str]
-    """
-    Table in the database that the output points to. Changing this forces a new resource to be created.
-    """
-    user: pulumi.Output[str]
-    """
-    Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, database=None, name=None, password=None, resource_group_name=None, server=None, stream_analytics_job_name=None, table=None, user=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 database: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server: Optional[pulumi.Input[str]] = None,
+                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 table: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Stream Analytics Output to Microsoft SQL Server Database.
 
@@ -97,7 +83,7 @@ class OutputMssql(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -132,13 +118,23 @@ class OutputMssql(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, database=None, name=None, password=None, resource_group_name=None, server=None, stream_analytics_job_name=None, table=None, user=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            database: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            password: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            server: Optional[pulumi.Input[str]] = None,
+            stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+            table: Optional[pulumi.Input[str]] = None,
+            user: Optional[pulumi.Input[str]] = None) -> 'OutputMssql':
         """
         Get an existing OutputMssql resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
@@ -162,8 +158,70 @@ class OutputMssql(pulumi.CustomResource):
         __props__["user"] = user
         return OutputMssql(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Stream Output. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        The SQL server url. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter(name="streamAnalyticsJobName")
+    def stream_analytics_job_name(self) -> str:
+        """
+        The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_analytics_job_name")
+
+    @property
+    @pulumi.getter
+    def table(self) -> str:
+        """
+        Table in the database that the output points to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "table")
+
+    @property
+    @pulumi.getter
+    def user(self) -> str:
+        """
+        Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "user")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

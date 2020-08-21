@@ -5,77 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Server']
 
 
 class Server(pulumi.CustomResource):
-    administrator_login: pulumi.Output[str]
-    """
-    The administrator login name for the new server. Changing this forces a new resource to be created.
-    """
-    administrator_login_password: pulumi.Output[str]
-    """
-    The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-    """
-    azuread_administrator: pulumi.Output[dict]
-    """
-    An `azuread_administrator` block as defined below.
-
-      * `loginUsername` (`str`) - (Required)  The login username of the Azure AD Administrator of this SQL Server.
-      * `object_id` (`str`) - (Required) The object id of the Azure AD Administrator of this SQL Server.
-      * `tenant_id` (`str`) - (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
-    """
-    connection_policy: pulumi.Output[str]
-    """
-    The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
-    """
-    extended_auditing_policy: pulumi.Output[dict]
-    """
-    A `extended_auditing_policy` block as defined below.
-
-      * `retention_in_days` (`float`) - (Optional) Specifies the number of days to retain logs for in the storage account.
-      * `storage_account_access_key` (`str`) - (Required)  Specifies the access key to use for the auditing storage account.
-      * `storageAccountAccessKeyIsSecondary` (`bool`) - (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-      * `storage_endpoint` (`str`) - (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-    """
-    fully_qualified_domain_name: pulumi.Output[str]
-    """
-    The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-    """
-    identity: pulumi.Output[dict]
-    """
-    An `identity` block as defined below.
-
-      * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-      * `tenant_id` (`str`) - (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
-      * `type` (`str`) - Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
-    """
-    public_network_access_enabled: pulumi.Output[bool]
-    """
-    Whether or not public network access is allowed for this server. Defaults to `true`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the Microsoft SQL Server.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    version: pulumi.Output[str]
-    """
-    The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
-    """
-    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, azuread_administrator=None, connection_policy=None, extended_auditing_policy=None, identity=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
+                 connection_policy: Optional[pulumi.Input[str]] = None,
+                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Microsoft SQL Azure Database Server.
 
@@ -100,16 +56,16 @@ class Server(pulumi.CustomResource):
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
-            azuread_administrator={
-                "loginUsername": "AzureAD Admin",
-                "object_id": "00000000-0000-0000-0000-000000000000",
-            },
-            extended_auditing_policy={
-                "storage_endpoint": example_account.primary_blob_endpoint,
-                "storage_account_access_key": example_account.primary_access_key,
-                "storageAccountAccessKeyIsSecondary": True,
-                "retention_in_days": 6,
-            },
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+                login_username="AzureAD Admin",
+                object_id="00000000-0000-0000-0000-000000000000",
+            ),
+            extended_auditing_policy=azure.mssql.ServerExtendedAuditingPolicyArgs(
+                storage_endpoint=example_account.primary_blob_endpoint,
+                storage_account_access_key=example_account.primary_access_key,
+                storage_account_access_key_is_secondary=True,
+                retention_in_days=6,
+            ),
             tags={
                 "environment": "production",
             })
@@ -119,35 +75,16 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-        :param pulumi.Input[dict] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
-        :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
-        :param pulumi.Input[dict] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
-
-        The **azuread_administrator** object supports the following:
-
-          * `loginUsername` (`pulumi.Input[str]`) - (Required)  The login username of the Azure AD Administrator of this SQL Server.
-          * `object_id` (`pulumi.Input[str]`) - (Required) The object id of the Azure AD Administrator of this SQL Server.
-          * `tenant_id` (`pulumi.Input[str]`) - (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
-
-        The **extended_auditing_policy** object supports the following:
-
-          * `retention_in_days` (`pulumi.Input[float]`) - (Optional) Specifies the number of days to retain logs for in the storage account.
-          * `storage_account_access_key` (`pulumi.Input[str]`) - (Required)  Specifies the access key to use for the auditing storage account.
-          * `storageAccountAccessKeyIsSecondary` (`pulumi.Input[bool]`) - (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-          * `storage_endpoint` (`pulumi.Input[str]`) - (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-          * `tenant_id` (`pulumi.Input[str]`) - (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -160,7 +97,7 @@ class Server(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -194,46 +131,42 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, azuread_administrator=None, connection_policy=None, extended_auditing_policy=None, fully_qualified_domain_name=None, identity=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, tags=None, version=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_login: Optional[pulumi.Input[str]] = None,
+            administrator_login_password: Optional[pulumi.Input[str]] = None,
+            azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
+            connection_policy: Optional[pulumi.Input[str]] = None,
+            extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']]] = None,
+            fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            version: Optional[pulumi.Input[str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-        :param pulumi.Input[dict] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
-        :param pulumi.Input[dict] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-        :param pulumi.Input[dict] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
-
-        The **azuread_administrator** object supports the following:
-
-          * `loginUsername` (`pulumi.Input[str]`) - (Required)  The login username of the Azure AD Administrator of this SQL Server.
-          * `object_id` (`pulumi.Input[str]`) - (Required) The object id of the Azure AD Administrator of this SQL Server.
-          * `tenant_id` (`pulumi.Input[str]`) - (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
-
-        The **extended_auditing_policy** object supports the following:
-
-          * `retention_in_days` (`pulumi.Input[float]`) - (Optional) Specifies the number of days to retain logs for in the storage account.
-          * `storage_account_access_key` (`pulumi.Input[str]`) - (Required)  Specifies the access key to use for the auditing storage account.
-          * `storageAccountAccessKeyIsSecondary` (`pulumi.Input[bool]`) - (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
-          * `storage_endpoint` (`pulumi.Input[str]`) - (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this SQL Server.
-          * `tenant_id` (`pulumi.Input[str]`) - (Optional) The tenant id of the Azure AD Administrator of this SQL Server.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Microsoft SQL Server. At this time the only allowed value is `SystemAssigned`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -254,8 +187,113 @@ class Server(pulumi.CustomResource):
         __props__["version"] = version
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> str:
+        """
+        The administrator login name for the new server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> str:
+        """
+        The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @property
+    @pulumi.getter(name="azureadAdministrator")
+    def azuread_administrator(self) -> Optional['outputs.ServerAzureadAdministrator']:
+        """
+        An `azuread_administrator` block as defined below.
+        """
+        return pulumi.get(self, "azuread_administrator")
+
+    @property
+    @pulumi.getter(name="connectionPolicy")
+    def connection_policy(self) -> Optional[str]:
+        """
+        The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        """
+        return pulumi.get(self, "connection_policy")
+
+    @property
+    @pulumi.getter(name="extendedAuditingPolicy")
+    def extended_auditing_policy(self) -> Optional['outputs.ServerExtendedAuditingPolicy']:
+        """
+        A `extended_auditing_policy` block as defined below.
+        """
+        return pulumi.get(self, "extended_auditing_policy")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedDomainName")
+    def fully_qualified_domain_name(self) -> str:
+        """
+        The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
+        """
+        return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ServerIdentity']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[bool]:
+        """
+        Whether or not public network access is allowed for this server. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the Microsoft SQL Server.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

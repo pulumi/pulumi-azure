@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     description: "Test Managed App Definition",
  *     authorizations: [{
  *         servicePrincipalId: current.then(current => current.objectId),
- *         roleDefinitionId: Promise.all([builtin, builtin.then(builtin => builtin.id.split("/")).length]).then(([builtin, length]) => builtin.id.split("/")[length - 1]),
+ *         roleDefinitionId: Promise.all([builtin.then(builtin => builtin.id.split("/")), builtin.then(builtin => builtin.id.split("/")).length]).then(([split, length]) => split[length - 1]),
  *     }],
  * });
  * const exampleApplication = new azure.managedapplication.Application("exampleApplication", {

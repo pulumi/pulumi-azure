@@ -5,131 +5,50 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Backend']
 
 
 class Backend(pulumi.CustomResource):
-    api_management_name: pulumi.Output[str]
-    """
-    The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-    """
-    credentials: pulumi.Output[dict]
-    """
-    A `credentials` block as documented below.
-
-      * `authorization` (`dict`) - An `authorization` block as defined below.
-        * `parameter` (`str`) - The authentication Parameter value.
-        * `scheme` (`str`) - The authentication Scheme name.
-
-      * `certificates` (`list`) - A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
-      * `header` (`dict`) - A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
-      * `query` (`dict`) - A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of the backend.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the API Management backend. Changing this forces a new resource to be created.
-    """
-    protocol: pulumi.Output[str]
-    """
-    The protocol used by the backend host. Possible values are `http` or `soap`.
-    """
-    proxy: pulumi.Output[dict]
-    """
-    A `proxy` block as documented below.
-
-      * `password` (`str`) - The password to connect to the proxy server.
-      * `url` (`str`) - The URL of the proxy server.
-      * `username` (`str`) - The username to connect to the proxy server.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-    """
-    resource_id: pulumi.Output[str]
-    """
-    The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-    """
-    service_fabric_cluster: pulumi.Output[dict]
-    """
-    A `service_fabric_cluster` block as documented below.
-
-      * `clientCertificateThumbprint` (`str`) - The client certificate thumbprint for the management endpoint.
-      * `managementEndpoints` (`list`) - A list of cluster management endpoints.
-      * `maxPartitionResolutionRetries` (`float`) - The maximum number of retries when attempting resolve the partition.
-      * `serverCertificateThumbprints` (`list`) - A list of thumbprints of the server certificates of the Service Fabric cluster.
-      * `serverX509Names` (`list`) - One or more `server_x509_name` blocks as documented below.
-        * `issuerCertificateThumbprint` (`str`) - The thumbprint for the issuer of the certificate.
-        * `name` (`str`) - The name of the API Management backend. Changing this forces a new resource to be created.
-    """
-    title: pulumi.Output[str]
-    """
-    The title of the backend.
-    """
-    tls: pulumi.Output[dict]
-    """
-    A `tls` block as documented below.
-
-      * `validateCertificateChain` (`bool`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
-      * `validateCertificateName` (`bool`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
-    """
-    url: pulumi.Output[str]
-    """
-    The URL of the backend host.
-    """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, credentials=None, description=None, name=None, protocol=None, proxy=None, resource_group_name=None, resource_id=None, service_fabric_cluster=None, title=None, tls=None, url=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 service_fabric_cluster: Optional[pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']]] = None,
+                 title: Optional[pulumi.Input[str]] = None,
+                 tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsArgs']]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a backend within an API Management Service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] credentials: A `credentials` block as documented below.
+        :param pulumi.Input[pulumi.InputType['BackendCredentialsArgs']] credentials: A `credentials` block as documented below.
         :param pulumi.Input[str] description: The description of the backend.
         :param pulumi.Input[str] name: The name of the API Management backend. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
-        :param pulumi.Input[dict] proxy: A `proxy` block as documented below.
+        :param pulumi.Input[pulumi.InputType['BackendProxyArgs']] proxy: A `proxy` block as documented below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        :param pulumi.Input[dict] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
+        :param pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
         :param pulumi.Input[str] title: The title of the backend.
-        :param pulumi.Input[dict] tls: A `tls` block as documented below.
+        :param pulumi.Input[pulumi.InputType['BackendTlsArgs']] tls: A `tls` block as documented below.
         :param pulumi.Input[str] url: The URL of the backend host.
-
-        The **credentials** object supports the following:
-
-          * `authorization` (`pulumi.Input[dict]`) - An `authorization` block as defined below.
-            * `parameter` (`pulumi.Input[str]`) - The authentication Parameter value.
-            * `scheme` (`pulumi.Input[str]`) - The authentication Scheme name.
-
-          * `certificates` (`pulumi.Input[list]`) - A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
-          * `header` (`pulumi.Input[dict]`) - A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
-          * `query` (`pulumi.Input[dict]`) - A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
-
-        The **proxy** object supports the following:
-
-          * `password` (`pulumi.Input[str]`) - The password to connect to the proxy server.
-          * `url` (`pulumi.Input[str]`) - The URL of the proxy server.
-          * `username` (`pulumi.Input[str]`) - The username to connect to the proxy server.
-
-        The **service_fabric_cluster** object supports the following:
-
-          * `clientCertificateThumbprint` (`pulumi.Input[str]`) - The client certificate thumbprint for the management endpoint.
-          * `managementEndpoints` (`pulumi.Input[list]`) - A list of cluster management endpoints.
-          * `maxPartitionResolutionRetries` (`pulumi.Input[float]`) - The maximum number of retries when attempting resolve the partition.
-          * `serverCertificateThumbprints` (`pulumi.Input[list]`) - A list of thumbprints of the server certificates of the Service Fabric cluster.
-          * `serverX509Names` (`pulumi.Input[list]`) - One or more `server_x509_name` blocks as documented below.
-            * `issuerCertificateThumbprint` (`pulumi.Input[str]`) - The thumbprint for the issuer of the certificate.
-            * `name` (`pulumi.Input[str]`) - The name of the API Management backend. Changing this forces a new resource to be created.
-
-        The **tls** object supports the following:
-
-          * `validateCertificateChain` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
-          * `validateCertificateName` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,7 +61,7 @@ class Backend(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -175,57 +94,40 @@ class Backend(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_management_name=None, credentials=None, description=None, name=None, protocol=None, proxy=None, resource_group_name=None, resource_id=None, service_fabric_cluster=None, title=None, tls=None, url=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: Optional[pulumi.Input[str]] = None,
+            credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsArgs']]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            protocol: Optional[pulumi.Input[str]] = None,
+            proxy: Optional[pulumi.Input[pulumi.InputType['BackendProxyArgs']]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            resource_id: Optional[pulumi.Input[str]] = None,
+            service_fabric_cluster: Optional[pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']]] = None,
+            title: Optional[pulumi.Input[str]] = None,
+            tls: Optional[pulumi.Input[pulumi.InputType['BackendTlsArgs']]] = None,
+            url: Optional[pulumi.Input[str]] = None) -> 'Backend':
         """
         Get an existing Backend resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] credentials: A `credentials` block as documented below.
+        :param pulumi.Input[pulumi.InputType['BackendCredentialsArgs']] credentials: A `credentials` block as documented below.
         :param pulumi.Input[str] description: The description of the backend.
         :param pulumi.Input[str] name: The name of the API Management backend. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The protocol used by the backend host. Possible values are `http` or `soap`.
-        :param pulumi.Input[dict] proxy: A `proxy` block as documented below.
+        :param pulumi.Input[pulumi.InputType['BackendProxyArgs']] proxy: A `proxy` block as documented below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        :param pulumi.Input[dict] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
+        :param pulumi.Input[pulumi.InputType['BackendServiceFabricClusterArgs']] service_fabric_cluster: A `service_fabric_cluster` block as documented below.
         :param pulumi.Input[str] title: The title of the backend.
-        :param pulumi.Input[dict] tls: A `tls` block as documented below.
+        :param pulumi.Input[pulumi.InputType['BackendTlsArgs']] tls: A `tls` block as documented below.
         :param pulumi.Input[str] url: The URL of the backend host.
-
-        The **credentials** object supports the following:
-
-          * `authorization` (`pulumi.Input[dict]`) - An `authorization` block as defined below.
-            * `parameter` (`pulumi.Input[str]`) - The authentication Parameter value.
-            * `scheme` (`pulumi.Input[str]`) - The authentication Scheme name.
-
-          * `certificates` (`pulumi.Input[list]`) - A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
-          * `header` (`pulumi.Input[dict]`) - A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
-          * `query` (`pulumi.Input[dict]`) - A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
-
-        The **proxy** object supports the following:
-
-          * `password` (`pulumi.Input[str]`) - The password to connect to the proxy server.
-          * `url` (`pulumi.Input[str]`) - The URL of the proxy server.
-          * `username` (`pulumi.Input[str]`) - The username to connect to the proxy server.
-
-        The **service_fabric_cluster** object supports the following:
-
-          * `clientCertificateThumbprint` (`pulumi.Input[str]`) - The client certificate thumbprint for the management endpoint.
-          * `managementEndpoints` (`pulumi.Input[list]`) - A list of cluster management endpoints.
-          * `maxPartitionResolutionRetries` (`pulumi.Input[float]`) - The maximum number of retries when attempting resolve the partition.
-          * `serverCertificateThumbprints` (`pulumi.Input[list]`) - A list of thumbprints of the server certificates of the Service Fabric cluster.
-          * `serverX509Names` (`pulumi.Input[list]`) - One or more `server_x509_name` blocks as documented below.
-            * `issuerCertificateThumbprint` (`pulumi.Input[str]`) - The thumbprint for the issuer of the certificate.
-            * `name` (`pulumi.Input[str]`) - The name of the API Management backend. Changing this forces a new resource to be created.
-
-        The **tls** object supports the following:
-
-          * `validateCertificateChain` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
-          * `validateCertificateName` (`pulumi.Input[bool]`) - Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,8 +147,105 @@ class Backend(pulumi.CustomResource):
         __props__["url"] = url
         return Backend(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> str:
+        """
+        The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.BackendCredentials']:
+        """
+        A `credentials` block as documented below.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the backend.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the API Management backend. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol used by the backend host. Possible values are `http` or `soap`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional['outputs.BackendProxy']:
+        """
+        A `proxy` block as documented below.
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="serviceFabricCluster")
+    def service_fabric_cluster(self) -> Optional['outputs.BackendServiceFabricCluster']:
+        """
+        A `service_fabric_cluster` block as documented below.
+        """
+        return pulumi.get(self, "service_fabric_cluster")
+
+    @property
+    @pulumi.getter
+    def title(self) -> Optional[str]:
+        """
+        The title of the backend.
+        """
+        return pulumi.get(self, "title")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.BackendTls']:
+        """
+        A `tls` block as documented below.
+        """
+        return pulumi.get(self, "tls")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The URL of the backend host.
+        """
+        return pulumi.get(self, "url")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

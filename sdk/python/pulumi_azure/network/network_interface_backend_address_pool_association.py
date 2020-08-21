@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['NetworkInterfaceBackendAddressPoolAssociation']
 
 
 class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
-    backend_address_pool_id: pulumi.Output[str]
-    """
-    The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
-    """
-    ip_configuration_name: pulumi.Output[str]
-    """
-    The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
-    """
-    network_interface_id: pulumi.Output[str]
-    """
-    The ID of the Network Interface. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, ip_configuration_name=None, network_interface_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 ip_configuration_name: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.
 
@@ -48,21 +46,21 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[{
-                "name": "primary",
-                "public_ip_address_id": example_public_ip.id,
-            }])
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="primary",
+                public_ip_address_id=example_public_ip.id,
+            )])
         example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool",
             resource_group_name=example_resource_group.name,
             loadbalancer_id=example_load_balancer.id)
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[{
-                "name": "testconfiguration1",
-                "subnet_id": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
-            }])
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="testconfiguration1",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
         example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("exampleNetworkInterfaceBackendAddressPoolAssociation",
             network_interface_id=example_network_interface.id,
             ip_configuration_name="testconfiguration1",
@@ -86,7 +84,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -108,13 +106,18 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_address_pool_id=None, ip_configuration_name=None, network_interface_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+            ip_configuration_name: Optional[pulumi.Input[str]] = None,
+            network_interface_id: Optional[pulumi.Input[str]] = None) -> 'NetworkInterfaceBackendAddressPoolAssociation':
         """
         Get an existing NetworkInterfaceBackendAddressPoolAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
@@ -129,8 +132,33 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         __props__["network_interface_id"] = network_interface_id
         return NetworkInterfaceBackendAddressPoolAssociation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="backendAddressPoolId")
+    def backend_address_pool_id(self) -> str:
+        """
+        The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "backend_address_pool_id")
+
+    @property
+    @pulumi.getter(name="ipConfigurationName")
+    def ip_configuration_name(self) -> str:
+        """
+        The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ip_configuration_name")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> str:
+        """
+        The ID of the Network Interface. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_interface_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

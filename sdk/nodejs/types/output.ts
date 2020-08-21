@@ -3864,14 +3864,41 @@ export namespace blueprint {
 
 export namespace bot {
     export interface ChannelDirectLineSite {
+        /**
+         * Enables/Disables this site. Enabled by default
+         */
         enabled?: boolean;
+        /**
+         * Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+         */
         enhancedAuthenticationEnabled?: boolean;
+        /**
+         * Id for the site
+         */
         id: string;
+        /**
+         * Primary key for accessing this site
+         */
         key: string;
+        /**
+         * Secondary key for accessing this site
+         */
         key2: string;
+        /**
+         * The name of the site
+         */
         name: string;
+        /**
+         * This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+         */
         trustedOrigins?: string[];
+        /**
+         * Enables v1 of the Directline protocol for this site. Enabled by default
+         */
         v1Allowed?: boolean;
+        /**
+         * Enables v3 of the Directline protocol for this site. Enabled by default
+         */
         v3Allowed?: boolean;
     }
 }

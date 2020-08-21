@@ -95,7 +95,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = devtest.NewGlobalVMShutdownSchedule(ctx, "exampleGlobalVMShutdownSchedule", &devtest.GlobalVMShutdownScheduleArgs{
-// 			VirtualMachineId:    pulumi.String(azurerm_virtual_machine.Example.Id),
+// 			VirtualMachineId:    pulumi.Any(azurerm_virtual_machine.Example.Id),
 // 			Location:            exampleResourceGroup.Location,
 // 			Enabled:             pulumi.Bool(true),
 // 			DailyRecurrenceTime: pulumi.String("1100"),

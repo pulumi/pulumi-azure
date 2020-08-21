@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetPolicyDefintionResult',
+    'AwaitableGetPolicyDefintionResult',
+    'get_policy_defintion',
+]
+
+@pulumi.output_type
 class GetPolicyDefintionResult:
     """
     A collection of values returned by getPolicyDefintion.
@@ -15,62 +22,119 @@ class GetPolicyDefintionResult:
     def __init__(__self__, description=None, display_name=None, id=None, management_group_id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
-        """
-        The Description of the Policy.
-        """
+        pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        pulumi.set(__self__, "display_name", display_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
+        pulumi.set(__self__, "id", id)
         if management_group_id and not isinstance(management_group_id, str):
             raise TypeError("Expected argument 'management_group_id' to be a str")
         if management_group_id is not None:
             warnings.warn("Deprecated in favour of `management_group_name`", DeprecationWarning)
             pulumi.log.warn("management_group_id is deprecated: Deprecated in favour of `management_group_name`")
 
-        __self__.management_group_id = management_group_id
+        pulumi.set(__self__, "management_group_id", management_group_id)
         if management_group_name and not isinstance(management_group_name, str):
             raise TypeError("Expected argument 'management_group_name' to be a str")
-        __self__.management_group_name = management_group_name
+        pulumi.set(__self__, "management_group_name", management_group_name)
         if metadata and not isinstance(metadata, str):
             raise TypeError("Expected argument 'metadata' to be a str")
-        __self__.metadata = metadata
+        pulumi.set(__self__, "metadata", metadata)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if parameters and not isinstance(parameters, str):
+            raise TypeError("Expected argument 'parameters' to be a str")
+        pulumi.set(__self__, "parameters", parameters)
+        if policy_rule and not isinstance(policy_rule, str):
+            raise TypeError("Expected argument 'policy_rule' to be a str")
+        pulumi.set(__self__, "policy_rule", policy_rule)
+        if policy_type and not isinstance(policy_type, str):
+            raise TypeError("Expected argument 'policy_type' to be a str")
+        pulumi.set(__self__, "policy_type", policy_type)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The Description of the Policy.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The provider-assigned unique ID for this managed resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="managementGroupId")
+    def management_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "management_group_id")
+
+    @property
+    @pulumi.getter(name="managementGroupName")
+    def management_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "management_group_name")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> str:
         """
         Any Metadata defined in the Policy.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if parameters and not isinstance(parameters, str):
-            raise TypeError("Expected argument 'parameters' to be a str")
-        __self__.parameters = parameters
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> str:
         """
         Any Parameters defined in the Policy.
         """
-        if policy_rule and not isinstance(policy_rule, str):
-            raise TypeError("Expected argument 'policy_rule' to be a str")
-        __self__.policy_rule = policy_rule
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyRule")
+    def policy_rule(self) -> str:
         """
         The Rule as defined (in JSON) in the Policy.
         """
-        if policy_type and not isinstance(policy_type, str):
-            raise TypeError("Expected argument 'policy_type' to be a str")
-        __self__.policy_type = policy_type
+        return pulumi.get(self, "policy_rule")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> str:
         """
         The Type of the Policy. Possible values are "BuiltIn", "Custom" and "NotSpecified".
         """
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The Type of Policy.
         """
+        return pulumi.get(self, "type")
+
+
 class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -89,7 +153,12 @@ class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
             policy_type=self.policy_type,
             type=self.type)
 
-def get_policy_defintion(display_name=None,management_group_id=None,management_group_name=None,name=None,opts=None):
+
+def get_policy_defintion(display_name: Optional[str] = None,
+                         management_group_id: Optional[str] = None,
+                         management_group_name: Optional[str] = None,
+                         name: Optional[str] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDefintionResult:
     """
     Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
 
@@ -109,8 +178,6 @@ def get_policy_defintion(display_name=None,management_group_id=None,management_g
     :param str name: Specifies the name of the Policy Definition. Conflicts with `display_name`.
     """
     __args__ = dict()
-
-
     __args__['displayName'] = display_name
     __args__['managementGroupId'] = management_group_id
     __args__['managementGroupName'] = management_group_name
@@ -118,18 +185,18 @@ def get_policy_defintion(display_name=None,management_group_id=None,management_g
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts, typ=GetPolicyDefintionResult).value
 
     return AwaitableGetPolicyDefintionResult(
-        description=__ret__.get('description'),
-        display_name=__ret__.get('displayName'),
-        id=__ret__.get('id'),
-        management_group_id=__ret__.get('managementGroupId'),
-        management_group_name=__ret__.get('managementGroupName'),
-        metadata=__ret__.get('metadata'),
-        name=__ret__.get('name'),
-        parameters=__ret__.get('parameters'),
-        policy_rule=__ret__.get('policyRule'),
-        policy_type=__ret__.get('policyType'),
-        type=__ret__.get('type'))
+        description=__ret__.description,
+        display_name=__ret__.display_name,
+        id=__ret__.id,
+        management_group_id=__ret__.management_group_id,
+        management_group_name=__ret__.management_group_name,
+        metadata=__ret__.metadata,
+        name=__ret__.name,
+        parameters=__ret__.parameters,
+        policy_rule=__ret__.policy_rule,
+        policy_type=__ret__.policy_type,
+        type=__ret__.type)

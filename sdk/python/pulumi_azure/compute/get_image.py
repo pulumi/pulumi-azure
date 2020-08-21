@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetImageResult',
+    'AwaitableGetImageResult',
+    'get_image',
+]
+
+@pulumi.output_type
 class GetImageResult:
     """
     A collection of values returned by getImage.
@@ -15,55 +23,107 @@ class GetImageResult:
     def __init__(__self__, data_disks=None, id=None, location=None, name=None, name_regex=None, os_disks=None, resource_group_name=None, sort_descending=None, tags=None, zone_resilient=None):
         if data_disks and not isinstance(data_disks, list):
             raise TypeError("Expected argument 'data_disks' to be a list")
-        __self__.data_disks = data_disks
+        pulumi.set(__self__, "data_disks", data_disks)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if name_regex and not isinstance(name_regex, str):
+            raise TypeError("Expected argument 'name_regex' to be a str")
+        pulumi.set(__self__, "name_regex", name_regex)
+        if os_disks and not isinstance(os_disks, list):
+            raise TypeError("Expected argument 'os_disks' to be a list")
+        pulumi.set(__self__, "os_disks", os_disks)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sort_descending and not isinstance(sort_descending, bool):
+            raise TypeError("Expected argument 'sort_descending' to be a bool")
+        pulumi.set(__self__, "sort_descending", sort_descending)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if zone_resilient and not isinstance(zone_resilient, bool):
+            raise TypeError("Expected argument 'zone_resilient' to be a bool")
+        pulumi.set(__self__, "zone_resilient", zone_resilient)
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> List['outputs.GetImageDataDiskResult']:
         """
         a collection of `data_disk` blocks as defined below.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "data_disks")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         the Azure Location where this Image exists.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         the name of the Image.
         """
-        if name_regex and not isinstance(name_regex, str):
-            raise TypeError("Expected argument 'name_regex' to be a str")
-        __self__.name_regex = name_regex
-        if os_disks and not isinstance(os_disks, list):
-            raise TypeError("Expected argument 'os_disks' to be a list")
-        __self__.os_disks = os_disks
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nameRegex")
+    def name_regex(self) -> Optional[str]:
+        return pulumi.get(self, "name_regex")
+
+    @property
+    @pulumi.getter(name="osDisks")
+    def os_disks(self) -> List['outputs.GetImageOsDiskResult']:
         """
         a `os_disk` block as defined below.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if sort_descending and not isinstance(sort_descending, bool):
-            raise TypeError("Expected argument 'sort_descending' to be a bool")
-        __self__.sort_descending = sort_descending
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "os_disks")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="sortDescending")
+    def sort_descending(self) -> Optional[bool]:
+        return pulumi.get(self, "sort_descending")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         a mapping of tags to assigned to the resource.
         """
-        if zone_resilient and not isinstance(zone_resilient, bool):
-            raise TypeError("Expected argument 'zone_resilient' to be a bool")
-        __self__.zone_resilient = zone_resilient
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zoneResilient")
+    def zone_resilient(self) -> bool:
         """
         is zone resiliency enabled?
         """
+        return pulumi.get(self, "zone_resilient")
+
+
 class AwaitableGetImageResult(GetImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -81,7 +141,12 @@ class AwaitableGetImageResult(GetImageResult):
             tags=self.tags,
             zone_resilient=self.zone_resilient)
 
-def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending=None,opts=None):
+
+def get_image(name: Optional[str] = None,
+              name_regex: Optional[str] = None,
+              resource_group_name: Optional[str] = None,
+              sort_descending: Optional[bool] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Use this data source to access information about an existing Image.
 
@@ -103,8 +168,6 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
     :param bool sort_descending: By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['nameRegex'] = name_regex
     __args__['resourceGroupName'] = resource_group_name
@@ -112,17 +175,17 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        data_disks=__ret__.get('dataDisks'),
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        name_regex=__ret__.get('nameRegex'),
-        os_disks=__ret__.get('osDisks'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        sort_descending=__ret__.get('sortDescending'),
-        tags=__ret__.get('tags'),
-        zone_resilient=__ret__.get('zoneResilient'))
+        data_disks=__ret__.data_disks,
+        id=__ret__.id,
+        location=__ret__.location,
+        name=__ret__.name,
+        name_regex=__ret__.name_regex,
+        os_disks=__ret__.os_disks,
+        resource_group_name=__ret__.resource_group_name,
+        sort_descending=__ret__.sort_descending,
+        tags=__ret__.tags,
+        zone_resilient=__ret__.zone_resilient)
