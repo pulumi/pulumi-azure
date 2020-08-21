@@ -5,108 +5,37 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['MetricAlert']
 
 
 class MetricAlert(pulumi.CustomResource):
-    actions: pulumi.Output[list]
-    """
-    One or more `action` blocks as defined below.
-
-      * `action_group_id` (`str`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
-      * `webhookProperties` (`dict`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-    """
-    application_insights_web_test_location_availability_criteria: pulumi.Output[dict]
-    """
-    A `application_insights_web_test_location_availability_criteria` block as defined below.
-
-      * `componentId` (`str`) - The ID of the Application Insights Resource.
-      * `failedLocationCount` (`float`) - The number of failed locations.
-      * `webTestId` (`str`) - The ID of the Application Insights Web Test.
-    """
-    auto_mitigate: pulumi.Output[bool]
-    """
-    Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
-    """
-    criterias: pulumi.Output[list]
-    """
-    One or more (static) `criteria` blocks as defined below.
-
-      * `aggregation` (`str`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-      * `dimensions` (`list`) - One or more `dimension` blocks as defined below.
-        * `name` (`str`) - One of the dimension names.
-        * `operator` (`str`) - The dimension operator. Possible values are `Include` and `Exclude`.
-        * `values` (`list`) - The list of dimension values.
-
-      * `metricName` (`str`) - One of the metric names to be monitored.
-      * `metricNamespace` (`str`) - One of the metric namespaces to be monitored.
-      * `operator` (`str`) - The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
-      * `threshold` (`float`) - The criteria threshold value that activates the alert.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of this Metric Alert.
-    """
-    dynamic_criteria: pulumi.Output[dict]
-    """
-    A `dynamic_criteria` block as defined below.
-
-      * `aggregation` (`str`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-      * `alertSensitivity` (`str`) - The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
-      * `dimensions` (`list`) - One or more `dimension` blocks as defined below.
-        * `name` (`str`) - One of the dimension names.
-        * `operator` (`str`) - The dimension operator. Possible values are `Include` and `Exclude`.
-        * `values` (`list`) - The list of dimension values.
-
-      * `evaluationFailureCount` (`float`) - The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
-      * `evaluationTotalCount` (`float`) - The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
-      * `ignoreDataBefore` (`str`) - The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
-      * `metricName` (`str`) - One of the metric names to be monitored.
-      * `metricNamespace` (`str`) - One of the metric namespaces to be monitored.
-      * `operator` (`str`) - The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Should this Metric Alert be enabled? Defaults to `true`.
-    """
-    frequency: pulumi.Output[str]
-    """
-    The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Metric Alert. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the Metric Alert instance.
-    """
-    scopes: pulumi.Output[list]
-    """
-    A set of strings of resource IDs at which the metric criteria should be applied.
-    """
-    severity: pulumi.Output[float]
-    """
-    The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    target_resource_location: pulumi.Output[str]
-    """
-    The location of the target resource.
-    """
-    target_resource_type: pulumi.Output[str]
-    """
-    The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
-    """
-    window_size: pulumi.Output[str]
-    """
-    The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
-    """
-    def __init__(__self__, resource_name, opts=None, actions=None, application_insights_web_test_location_availability_criteria=None, auto_mitigate=None, criterias=None, description=None, dynamic_criteria=None, enabled=None, frequency=None, name=None, resource_group_name=None, scopes=None, severity=None, tags=None, target_resource_location=None, target_resource_type=None, window_size=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
+                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]] = None,
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
+                 criterias: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 frequency: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 severity: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
+                 target_resource_type: Optional[pulumi.Input[str]] = None,
+                 window_size: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Metric Alert within Azure Monitor.
 
@@ -125,89 +54,49 @@ class MetricAlert(pulumi.CustomResource):
         main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
             resource_group_name=main_resource_group.name,
             short_name="exampleact",
-            webhook_receivers=[{
-                "name": "callmyapi",
-                "service_uri": "http://example.com/alert",
-            }])
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+                name="callmyapi",
+                service_uri="http://example.com/alert",
+            )])
         example = azure.monitoring.MetricAlert("example",
             resource_group_name=main_resource_group.name,
             scopes=[to_monitor.id],
             description="Action will be triggered when Transactions count is greater than 50.",
-            criterias=[{
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "metricName": "Transactions",
-                "aggregation": "Total",
-                "operator": "GreaterThan",
-                "threshold": 50,
-                "dimensions": [{
-                    "name": "ApiName",
-                    "operator": "Include",
-                    "values": ["*"],
-                }],
-            }],
-            actions=[{
-                "action_group_id": main_action_group.id,
-            }])
+            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
+                metric_namespace="Microsoft.Storage/storageAccounts",
+                metric_name="Transactions",
+                aggregation="Total",
+                operator="GreaterThan",
+                threshold=50,
+                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
+                    name="ApiName",
+                    operator="Include",
+                    values=["*"],
+                )],
+            )],
+            actions=[azure.monitoring.MetricAlertActionArgs(
+                action_group_id=main_action_group.id,
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[dict] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
-        :param pulumi.Input[list] criterias: One or more (static) `criteria` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]] criterias: One or more (static) `criteria` blocks as defined below.
         :param pulumi.Input[str] description: The description of this Metric Alert.
-        :param pulumi.Input[dict] dynamic_criteria: A `dynamic_criteria` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']] dynamic_criteria: A `dynamic_criteria` block as defined below.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance.
-        :param pulumi.Input[list] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
+        :param pulumi.Input[List[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
         :param pulumi.Input[float] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_location: The location of the target resource.
         :param pulumi.Input[str] target_resource_type: The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
-
-        The **actions** object supports the following:
-
-          * `action_group_id` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
-          * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-
-        The **application_insights_web_test_location_availability_criteria** object supports the following:
-
-          * `componentId` (`pulumi.Input[str]`) - The ID of the Application Insights Resource.
-          * `failedLocationCount` (`pulumi.Input[float]`) - The number of failed locations.
-          * `webTestId` (`pulumi.Input[str]`) - The ID of the Application Insights Web Test.
-
-        The **criterias** object supports the following:
-
-          * `aggregation` (`pulumi.Input[str]`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-          * `dimensions` (`pulumi.Input[list]`) - One or more `dimension` blocks as defined below.
-            * `name` (`pulumi.Input[str]`) - One of the dimension names.
-            * `operator` (`pulumi.Input[str]`) - The dimension operator. Possible values are `Include` and `Exclude`.
-            * `values` (`pulumi.Input[list]`) - The list of dimension values.
-
-          * `metricName` (`pulumi.Input[str]`) - One of the metric names to be monitored.
-          * `metricNamespace` (`pulumi.Input[str]`) - One of the metric namespaces to be monitored.
-          * `operator` (`pulumi.Input[str]`) - The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
-          * `threshold` (`pulumi.Input[float]`) - The criteria threshold value that activates the alert.
-
-        The **dynamic_criteria** object supports the following:
-
-          * `aggregation` (`pulumi.Input[str]`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-          * `alertSensitivity` (`pulumi.Input[str]`) - The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
-          * `dimensions` (`pulumi.Input[list]`) - One or more `dimension` blocks as defined below.
-            * `name` (`pulumi.Input[str]`) - One of the dimension names.
-            * `operator` (`pulumi.Input[str]`) - The dimension operator. Possible values are `Include` and `Exclude`.
-            * `values` (`pulumi.Input[list]`) - The list of dimension values.
-
-          * `evaluationFailureCount` (`pulumi.Input[float]`) - The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
-          * `evaluationTotalCount` (`pulumi.Input[float]`) - The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
-          * `ignoreDataBefore` (`pulumi.Input[str]`) - The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
-          * `metricName` (`pulumi.Input[str]`) - One of the metric names to be monitored.
-          * `metricNamespace` (`pulumi.Input[str]`) - One of the metric namespaces to be monitored.
-          * `operator` (`pulumi.Input[str]`) - The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -220,7 +109,7 @@ class MetricAlert(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -253,70 +142,48 @@ class MetricAlert(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, actions=None, application_insights_web_test_location_availability_criteria=None, auto_mitigate=None, criterias=None, description=None, dynamic_criteria=None, enabled=None, frequency=None, name=None, resource_group_name=None, scopes=None, severity=None, tags=None, target_resource_location=None, target_resource_type=None, window_size=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
+            application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]] = None,
+            auto_mitigate: Optional[pulumi.Input[bool]] = None,
+            criterias: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            frequency: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            severity: Optional[pulumi.Input[float]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            target_resource_location: Optional[pulumi.Input[str]] = None,
+            target_resource_type: Optional[pulumi.Input[str]] = None,
+            window_size: Optional[pulumi.Input[str]] = None) -> 'MetricAlert':
         """
         Get an existing MetricAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[dict] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
-        :param pulumi.Input[list] criterias: One or more (static) `criteria` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]] criterias: One or more (static) `criteria` blocks as defined below.
         :param pulumi.Input[str] description: The description of this Metric Alert.
-        :param pulumi.Input[dict] dynamic_criteria: A `dynamic_criteria` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']] dynamic_criteria: A `dynamic_criteria` block as defined below.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance.
-        :param pulumi.Input[list] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
+        :param pulumi.Input[List[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
         :param pulumi.Input[float] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_location: The location of the target resource.
         :param pulumi.Input[str] target_resource_type: The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
-
-        The **actions** object supports the following:
-
-          * `action_group_id` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
-          * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-
-        The **application_insights_web_test_location_availability_criteria** object supports the following:
-
-          * `componentId` (`pulumi.Input[str]`) - The ID of the Application Insights Resource.
-          * `failedLocationCount` (`pulumi.Input[float]`) - The number of failed locations.
-          * `webTestId` (`pulumi.Input[str]`) - The ID of the Application Insights Web Test.
-
-        The **criterias** object supports the following:
-
-          * `aggregation` (`pulumi.Input[str]`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-          * `dimensions` (`pulumi.Input[list]`) - One or more `dimension` blocks as defined below.
-            * `name` (`pulumi.Input[str]`) - One of the dimension names.
-            * `operator` (`pulumi.Input[str]`) - The dimension operator. Possible values are `Include` and `Exclude`.
-            * `values` (`pulumi.Input[list]`) - The list of dimension values.
-
-          * `metricName` (`pulumi.Input[str]`) - One of the metric names to be monitored.
-          * `metricNamespace` (`pulumi.Input[str]`) - One of the metric namespaces to be monitored.
-          * `operator` (`pulumi.Input[str]`) - The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
-          * `threshold` (`pulumi.Input[float]`) - The criteria threshold value that activates the alert.
-
-        The **dynamic_criteria** object supports the following:
-
-          * `aggregation` (`pulumi.Input[str]`) - The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
-          * `alertSensitivity` (`pulumi.Input[str]`) - The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
-          * `dimensions` (`pulumi.Input[list]`) - One or more `dimension` blocks as defined below.
-            * `name` (`pulumi.Input[str]`) - One of the dimension names.
-            * `operator` (`pulumi.Input[str]`) - The dimension operator. Possible values are `Include` and `Exclude`.
-            * `values` (`pulumi.Input[list]`) - The list of dimension values.
-
-          * `evaluationFailureCount` (`pulumi.Input[float]`) - The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
-          * `evaluationTotalCount` (`pulumi.Input[float]`) - The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
-          * `ignoreDataBefore` (`pulumi.Input[str]`) - The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
-          * `metricName` (`pulumi.Input[str]`) - One of the metric names to be monitored.
-          * `metricNamespace` (`pulumi.Input[str]`) - One of the metric namespaces to be monitored.
-          * `operator` (`pulumi.Input[str]`) - The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,8 +207,137 @@ class MetricAlert(pulumi.CustomResource):
         __props__["window_size"] = window_size
         return MetricAlert(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[List['outputs.MetricAlertAction']]:
+        """
+        One or more `action` blocks as defined below.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="applicationInsightsWebTestLocationAvailabilityCriteria")
+    def application_insights_web_test_location_availability_criteria(self) -> Optional['outputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria']:
+        """
+        A `application_insights_web_test_location_availability_criteria` block as defined below.
+        """
+        return pulumi.get(self, "application_insights_web_test_location_availability_criteria")
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[bool]:
+        """
+        Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @property
+    @pulumi.getter
+    def criterias(self) -> Optional[List['outputs.MetricAlertCriteria']]:
+        """
+        One or more (static) `criteria` blocks as defined below.
+        """
+        return pulumi.get(self, "criterias")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of this Metric Alert.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="dynamicCriteria")
+    def dynamic_criteria(self) -> Optional['outputs.MetricAlertDynamicCriteria']:
+        """
+        A `dynamic_criteria` block as defined below.
+        """
+        return pulumi.get(self, "dynamic_criteria")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Should this Metric Alert be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Metric Alert. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the Metric Alert instance.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> List[str]:
+        """
+        A set of strings of resource IDs at which the metric criteria should be applied.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[float]:
+        """
+        The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> str:
+        """
+        The location of the target resource.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> str:
+        """
+        The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+        """
+        return pulumi.get(self, "target_resource_type")
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[str]:
+        """
+        The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
+        """
+        return pulumi.get(self, "window_size")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

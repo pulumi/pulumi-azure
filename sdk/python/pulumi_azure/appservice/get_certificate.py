@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetCertificateResult',
+    'AwaitableGetCertificateResult',
+    'get_certificate',
+]
+
+@pulumi.output_type
 class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
@@ -15,64 +22,126 @@ class GetCertificateResult:
     def __init__(__self__, expiration_date=None, friendly_name=None, host_names=None, id=None, issue_date=None, issuer=None, location=None, name=None, resource_group_name=None, subject_name=None, tags=None, thumbprint=None):
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
-        __self__.expiration_date = expiration_date
+        pulumi.set(__self__, "expiration_date", expiration_date)
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        pulumi.set(__self__, "friendly_name", friendly_name)
+        if host_names and not isinstance(host_names, list):
+            raise TypeError("Expected argument 'host_names' to be a list")
+        pulumi.set(__self__, "host_names", host_names)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if issue_date and not isinstance(issue_date, str):
+            raise TypeError("Expected argument 'issue_date' to be a str")
+        pulumi.set(__self__, "issue_date", issue_date)
+        if issuer and not isinstance(issuer, str):
+            raise TypeError("Expected argument 'issuer' to be a str")
+        pulumi.set(__self__, "issuer", issuer)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subject_name and not isinstance(subject_name, str):
+            raise TypeError("Expected argument 'subject_name' to be a str")
+        pulumi.set(__self__, "subject_name", subject_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
         """
         The expiration date for the certificate.
         """
-        if friendly_name and not isinstance(friendly_name, str):
-            raise TypeError("Expected argument 'friendly_name' to be a str")
-        __self__.friendly_name = friendly_name
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
         """
         The friendly name of the certificate.
         """
-        if host_names and not isinstance(host_names, list):
-            raise TypeError("Expected argument 'host_names' to be a list")
-        __self__.host_names = host_names
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> List[str]:
         """
         List of host names the certificate applies to.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if issue_date and not isinstance(issue_date, str):
-            raise TypeError("Expected argument 'issue_date' to be a str")
-        __self__.issue_date = issue_date
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="issueDate")
+    def issue_date(self) -> str:
         """
         The issue date for the certificate.
         """
-        if issuer and not isinstance(issuer, str):
-            raise TypeError("Expected argument 'issuer' to be a str")
-        __self__.issuer = issuer
+        return pulumi.get(self, "issue_date")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
         """
         The name of the certificate issuer.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if subject_name and not isinstance(subject_name, str):
-            raise TypeError("Expected argument 'subject_name' to be a str")
-        __self__.subject_name = subject_name
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
         """
         The subject name of the certificate.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
-        if thumbprint and not isinstance(thumbprint, str):
-            raise TypeError("Expected argument 'thumbprint' to be a str")
-        __self__.thumbprint = thumbprint
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
         """
         The thumbprint for the certificate.
         """
+        return pulumi.get(self, "thumbprint")
+
+
 class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -92,7 +161,11 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             tags=self.tags,
             thumbprint=self.thumbprint)
 
-def get_certificate(name=None,resource_group_name=None,tags=None,opts=None):
+
+def get_certificate(name: Optional[str] = None,
+                    resource_group_name: Optional[str] = None,
+                    tags: Optional[Mapping[str, str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Use this data source to access information about an App Service Certificate.
 
@@ -112,27 +185,25 @@ def get_certificate(name=None,resource_group_name=None,tags=None,opts=None):
     :param str resource_group_name: The name of the resource group in which to create the certificate.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:appservice/getCertificate:getCertificate', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:appservice/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        expiration_date=__ret__.get('expirationDate'),
-        friendly_name=__ret__.get('friendlyName'),
-        host_names=__ret__.get('hostNames'),
-        id=__ret__.get('id'),
-        issue_date=__ret__.get('issueDate'),
-        issuer=__ret__.get('issuer'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        subject_name=__ret__.get('subjectName'),
-        tags=__ret__.get('tags'),
-        thumbprint=__ret__.get('thumbprint'))
+        expiration_date=__ret__.expiration_date,
+        friendly_name=__ret__.friendly_name,
+        host_names=__ret__.host_names,
+        id=__ret__.id,
+        issue_date=__ret__.issue_date,
+        issuer=__ret__.issuer,
+        location=__ret__.location,
+        name=__ret__.name,
+        resource_group_name=__ret__.resource_group_name,
+        subject_name=__ret__.subject_name,
+        tags=__ret__.tags,
+        thumbprint=__ret__.thumbprint)

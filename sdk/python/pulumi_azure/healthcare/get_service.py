@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetServiceResult',
+    'AwaitableGetServiceResult',
+    'get_service',
+]
+
+@pulumi.output_type
 class GetServiceResult:
     """
     A collection of values returned by getService.
@@ -15,52 +23,104 @@ class GetServiceResult:
     def __init__(__self__, access_policy_object_ids=None, authentication_configurations=None, cors_configurations=None, cosmosdb_throughput=None, id=None, kind=None, location=None, name=None, resource_group_name=None, tags=None):
         if access_policy_object_ids and not isinstance(access_policy_object_ids, list):
             raise TypeError("Expected argument 'access_policy_object_ids' to be a list")
-        __self__.access_policy_object_ids = access_policy_object_ids
+        pulumi.set(__self__, "access_policy_object_ids", access_policy_object_ids)
         if authentication_configurations and not isinstance(authentication_configurations, list):
             raise TypeError("Expected argument 'authentication_configurations' to be a list")
-        __self__.authentication_configurations = authentication_configurations
+        pulumi.set(__self__, "authentication_configurations", authentication_configurations)
+        if cors_configurations and not isinstance(cors_configurations, list):
+            raise TypeError("Expected argument 'cors_configurations' to be a list")
+        pulumi.set(__self__, "cors_configurations", cors_configurations)
+        if cosmosdb_throughput and not isinstance(cosmosdb_throughput, float):
+            raise TypeError("Expected argument 'cosmosdb_throughput' to be a float")
+        pulumi.set(__self__, "cosmosdb_throughput", cosmosdb_throughput)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accessPolicyObjectIds")
+    def access_policy_object_ids(self) -> List[str]:
+        return pulumi.get(self, "access_policy_object_ids")
+
+    @property
+    @pulumi.getter(name="authenticationConfigurations")
+    def authentication_configurations(self) -> List['outputs.GetServiceAuthenticationConfigurationResult']:
         """
         An `authentication_configuration` block as defined below.
         """
-        if cors_configurations and not isinstance(cors_configurations, list):
-            raise TypeError("Expected argument 'cors_configurations' to be a list")
-        __self__.cors_configurations = cors_configurations
+        return pulumi.get(self, "authentication_configurations")
+
+    @property
+    @pulumi.getter(name="corsConfigurations")
+    def cors_configurations(self) -> List['outputs.GetServiceCorsConfigurationResult']:
         """
         A `cors_configuration` block as defined below.
         """
-        if cosmosdb_throughput and not isinstance(cosmosdb_throughput, float):
-            raise TypeError("Expected argument 'cosmosdb_throughput' to be a float")
-        __self__.cosmosdb_throughput = cosmosdb_throughput
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "cors_configurations")
+
+    @property
+    @pulumi.getter(name="cosmosdbThroughput")
+    def cosmosdb_throughput(self) -> float:
+        return pulumi.get(self, "cosmosdb_throughput")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         The type of the service.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The Azure Region where the Service is located.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags to assign to the resource.
         """
+        return pulumi.get(self, "tags")
+
+
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -78,7 +138,11 @@ class AwaitableGetServiceResult(GetServiceResult):
             resource_group_name=self.resource_group_name,
             tags=self.tags)
 
-def get_service(location=None,name=None,resource_group_name=None,opts=None):
+
+def get_service(location: Optional[str] = None,
+                name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Use this data source to access information about an existing Healthcare Service
 
@@ -100,25 +164,23 @@ def get_service(location=None,name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: The name of the Resource Group in which the Healthcare Service exists.
     """
     __args__ = dict()
-
-
     __args__['location'] = location
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:healthcare/getService:getService', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:healthcare/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        access_policy_object_ids=__ret__.get('accessPolicyObjectIds'),
-        authentication_configurations=__ret__.get('authenticationConfigurations'),
-        cors_configurations=__ret__.get('corsConfigurations'),
-        cosmosdb_throughput=__ret__.get('cosmosdbThroughput'),
-        id=__ret__.get('id'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'))
+        access_policy_object_ids=__ret__.access_policy_object_ids,
+        authentication_configurations=__ret__.authentication_configurations,
+        cors_configurations=__ret__.cors_configurations,
+        cosmosdb_throughput=__ret__.cosmosdb_throughput,
+        id=__ret__.id,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        resource_group_name=__ret__.resource_group_name,
+        tags=__ret__.tags)

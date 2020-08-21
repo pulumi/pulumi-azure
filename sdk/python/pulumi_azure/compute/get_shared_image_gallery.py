@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetSharedImageGalleryResult',
+    'AwaitableGetSharedImageGalleryResult',
+    'get_shared_image_gallery',
+]
+
+@pulumi.output_type
 class GetSharedImageGalleryResult:
     """
     A collection of values returned by getSharedImageGallery.
@@ -15,37 +22,74 @@ class GetSharedImageGalleryResult:
     def __init__(__self__, description=None, id=None, location=None, name=None, resource_group_name=None, tags=None, unique_name=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
-        __self__.description = description
+        pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if unique_name and not isinstance(unique_name, str):
+            raise TypeError("Expected argument 'unique_name' to be a str")
+        pulumi.set(__self__, "unique_name", unique_name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
         """
         A description for the Shared Image Gallery.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags which are assigned to the Shared Image Gallery.
         """
-        if unique_name and not isinstance(unique_name, str):
-            raise TypeError("Expected argument 'unique_name' to be a str")
-        __self__.unique_name = unique_name
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="uniqueName")
+    def unique_name(self) -> str:
         """
         The unique name assigned to the Shared Image Gallery.
         """
+        return pulumi.get(self, "unique_name")
+
+
 class AwaitableGetSharedImageGalleryResult(GetSharedImageGalleryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -60,7 +104,10 @@ class AwaitableGetSharedImageGalleryResult(GetSharedImageGalleryResult):
             tags=self.tags,
             unique_name=self.unique_name)
 
-def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
+
+def get_shared_image_gallery(name: Optional[str] = None,
+                             resource_group_name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharedImageGalleryResult:
     """
     Use this data source to access information about an existing Shared Image Gallery.
 
@@ -79,21 +126,19 @@ def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageGallery:getSharedImageGallery', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageGallery:getSharedImageGallery', __args__, opts=opts, typ=GetSharedImageGalleryResult).value
 
     return AwaitableGetSharedImageGalleryResult(
-        description=__ret__.get('description'),
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        unique_name=__ret__.get('uniqueName'))
+        description=__ret__.description,
+        id=__ret__.id,
+        location=__ret__.location,
+        name=__ret__.name,
+        resource_group_name=__ret__.resource_group_name,
+        tags=__ret__.tags,
+        unique_name=__ret__.unique_name)

@@ -16,3 +16,5 @@ from .get_secret import *
 from .key import *
 from .key_vault import *
 from .secret import *
+from ._inputs import *
+from . import outputs

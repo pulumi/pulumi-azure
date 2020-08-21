@@ -32,8 +32,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = eventhub.NewCluster(ctx, "test", &eventhub.ClusterArgs{
-// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
-// 			Location:          pulumi.String(azurerm_resource_group.Test.Location),
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+// 			Location:          pulumi.Any(azurerm_resource_group.Test.Location),
 // 			SkuName:           pulumi.String("Dedicated_1"),
 // 		})
 // 		if err != nil {

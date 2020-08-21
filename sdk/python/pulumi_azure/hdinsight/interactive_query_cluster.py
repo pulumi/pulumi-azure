@@ -5,135 +5,35 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['InteractiveQueryCluster']
 
 
 class InteractiveQueryCluster(pulumi.CustomResource):
-    cluster_version: pulumi.Output[str]
-    """
-    Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-    """
-    component_version: pulumi.Output[dict]
-    """
-    A `component_version` block as defined below.
-
-      * `interactiveHive` (`str`)
-    """
-    gateway: pulumi.Output[dict]
-    """
-    A `gateway` block as defined below.
-
-      * `enabled` (`bool`) - Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-      * `password` (`str`) - The password used for the Ambari Portal.
-      * `username` (`str`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
-    """
-    https_endpoint: pulumi.Output[str]
-    """
-    The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-    """
-    metastores: pulumi.Output[dict]
-    """
-    A `metastores` block as defined below.
-
-      * `ambari` (`dict`) - An `ambari` block as defined below.
-        * `database_name` (`str`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        * `password` (`str`) - The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        * `server` (`str`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-        * `username` (`str`) - The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-
-      * `hive` (`dict`) - A `hive` block as defined below.
-        * `database_name` (`str`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-        * `password` (`str`) - The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        * `server` (`str`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-        * `username` (`str`) - The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-
-      * `oozie` (`dict`) - An `oozie` block as defined below.
-        * `database_name` (`str`) - The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-        * `password` (`str`) - The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-        * `server` (`str`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-        * `username` (`str`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-    """
-    monitor: pulumi.Output[dict]
-    """
-    A `monitor` block as defined below.
-
-      * `log_analytics_workspace_id` (`str`) - The Operations Management Suite (OMS) workspace ID.
-      * `primary_key` (`str`) - The Operations Management Suite (OMS) workspace key.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-    """
-    roles: pulumi.Output[dict]
-    """
-    A `roles` block as defined below.
-
-      * `headNode` (`dict`) - A `head_node` block as defined above.
-        * `password` (`str`) - The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        * `sshKeys` (`list`) - A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-        * `subnet_id` (`str`) - The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        * `username` (`str`) - The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        * `virtual_network_id` (`str`) - The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        * `vm_size` (`str`) - The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-
-      * `workerNode` (`dict`) - A `worker_node` block as defined below.
-        * `minInstanceCount` (`float`) - The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-        * `password` (`str`) - The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        * `sshKeys` (`list`) - A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-        * `subnet_id` (`str`) - The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        * `targetInstanceCount` (`float`) - The number of instances which should be run for the Worker Nodes.
-        * `username` (`str`) - The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        * `virtual_network_id` (`str`) - The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        * `vm_size` (`str`) - The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-
-      * `zookeeperNode` (`dict`) - A `zookeeper_node` block as defined below.
-        * `password` (`str`) - The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        * `sshKeys` (`list`) - A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-        * `subnet_id` (`str`) - The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        * `username` (`str`) - The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        * `virtual_network_id` (`str`) - The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        * `vm_size` (`str`) - The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-    """
-    ssh_endpoint: pulumi.Output[str]
-    """
-    The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-    """
-    storage_account_gen2: pulumi.Output[dict]
-    """
-    A `storage_account_gen2` block as defined below.
-
-      * `filesystemId` (`str`) - The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
-      * `isDefault` (`bool`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-      * `managedIdentityResourceId` (`str`) - The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-      * `storageResourceId` (`str`) - The ID of the Storage Account. Changing this forces a new resource to be created.
-    """
-    storage_accounts: pulumi.Output[list]
-    """
-    One or more `storage_account` block as defined below.
-
-      * `isDefault` (`bool`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-      * `storage_account_key` (`str`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-      * `storage_container_id` (`str`) - The ID of the Storage Container. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
-    """
-    tier: pulumi.Output[str]
-    """
-    Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-    """
-    tls_min_version: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, metastores=None, monitor=None, name=None, resource_group_name=None, roles=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_version: Optional[pulumi.Input[str]] = None,
+                 component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+                 gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
+                 monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']]] = None,
+                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
+                 tls_min_version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a HDInsight Interactive Query Cluster.
 
@@ -157,130 +57,54 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             cluster_version="3.6",
             tier="Standard",
-            component_version={
-                "interactiveHive": "2.1",
-            },
-            gateway={
-                "enabled": True,
-                "username": "acctestusrgw",
-                "password": "Password!",
-            },
-            storage_accounts=[{
-                "storage_container_id": example_container.id,
-                "storage_account_key": example_account.primary_access_key,
-                "isDefault": True,
-            }],
-            roles={
-                "headNode": {
-                    "vm_size": "Standard_D13_V2",
-                    "username": "acctestusrvm",
-                    "password": "AccTestvdSC4daf986!",
-                },
-                "workerNode": {
-                    "vm_size": "Standard_D14_V2",
-                    "username": "acctestusrvm",
-                    "password": "AccTestvdSC4daf986!",
-                    "targetInstanceCount": 3,
-                },
-                "zookeeperNode": {
-                    "vm_size": "Standard_A4_V2",
-                    "username": "acctestusrvm",
-                    "password": "AccTestvdSC4daf986!",
-                },
-            })
+            component_version=azure.hdinsight.InteractiveQueryClusterComponentVersionArgs(
+                interactive_hive="2.1",
+            ),
+            gateway=azure.hdinsight.InteractiveQueryClusterGatewayArgs(
+                enabled=True,
+                username="acctestusrgw",
+                password="Password!",
+            ),
+            storage_accounts=[azure.hdinsight.InteractiveQueryClusterStorageAccountArgs(
+                storage_container_id=example_container.id,
+                storage_account_key=example_account.primary_access_key,
+                is_default=True,
+            )],
+            roles=azure.hdinsight.InteractiveQueryClusterRolesArgs(
+                head_node=azure.hdinsight.InteractiveQueryClusterRolesHeadNodeArgs(
+                    vm_size="Standard_D13_V2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+                worker_node=azure.hdinsight.InteractiveQueryClusterRolesWorkerNodeArgs(
+                    vm_size="Standard_D14_V2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                    target_instance_count=3,
+                ),
+                zookeeper_node=azure.hdinsight.InteractiveQueryClusterRolesZookeeperNodeArgs(
+                    vm_size="Standard_A4_V2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[dict] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[dict] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] roles: A `roles` block as defined below.
-        :param pulumi.Input[dict] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
-        :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-
-        The **component_version** object supports the following:
-
-          * `interactiveHive` (`pulumi.Input[str]`)
-
-        The **gateway** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-          * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal.
-          * `username` (`pulumi.Input[str]`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
-
-        The **metastores** object supports the following:
-
-          * `ambari` (`pulumi.Input[dict]`) - An `ambari` block as defined below.
-            * `database_name` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-            * `password` (`pulumi.Input[str]`) - The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-
-          * `hive` (`pulumi.Input[dict]`) - A `hive` block as defined below.
-            * `database_name` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-            * `password` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-
-          * `oozie` (`pulumi.Input[dict]`) - An `oozie` block as defined below.
-            * `database_name` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-            * `password` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-
-        The **monitor** object supports the following:
-
-          * `log_analytics_workspace_id` (`pulumi.Input[str]`) - The Operations Management Suite (OMS) workspace ID.
-          * `primary_key` (`pulumi.Input[str]`) - The Operations Management Suite (OMS) workspace key.
-
-        The **roles** object supports the following:
-
-          * `headNode` (`pulumi.Input[dict]`) - A `head_node` block as defined above.
-            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-
-          * `workerNode` (`pulumi.Input[dict]`) - A `worker_node` block as defined below.
-            * `minInstanceCount` (`pulumi.Input[float]`) - The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `targetInstanceCount` (`pulumi.Input[float]`) - The number of instances which should be run for the Worker Nodes.
-            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-
-          * `zookeeperNode` (`pulumi.Input[dict]`) - A `zookeeper_node` block as defined below.
-            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-
-        The **storage_account_gen2** object supports the following:
-
-          * `filesystemId` (`pulumi.Input[str]`) - The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
-          * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-          * `managedIdentityResourceId` (`pulumi.Input[str]`) - The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-          * `storageResourceId` (`pulumi.Input[str]`) - The ID of the Storage Account. Changing this forces a new resource to be created.
-
-        The **storage_accounts** object supports the following:
-
-          * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-          * `storage_account_key` (`pulumi.Input[str]`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-          * `storage_container_id` (`pulumi.Input[str]`) - The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -293,7 +117,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -334,105 +158,47 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, metastores=None, monitor=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_account_gen2=None, storage_accounts=None, tags=None, tier=None, tls_min_version=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cluster_version: Optional[pulumi.Input[str]] = None,
+            component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+            gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
+            https_endpoint: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
+            monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
+            ssh_endpoint: Optional[pulumi.Input[str]] = None,
+            storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']]] = None,
+            storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tier: Optional[pulumi.Input[str]] = None,
+            tls_min_version: Optional[pulumi.Input[str]] = None) -> 'InteractiveQueryCluster':
         """
         Get an existing InteractiveQueryCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[dict] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[dict] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-        :param pulumi.Input[dict] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
-        :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-
-        The **component_version** object supports the following:
-
-          * `interactiveHive` (`pulumi.Input[str]`)
-
-        The **gateway** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`) - Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
-          * `password` (`pulumi.Input[str]`) - The password used for the Ambari Portal.
-          * `username` (`pulumi.Input[str]`) - The username used for the Ambari Portal. Changing this forces a new resource to be created.
-
-        The **metastores** object supports the following:
-
-          * `ambari` (`pulumi.Input[dict]`) - An `ambari` block as defined below.
-            * `database_name` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-            * `password` (`pulumi.Input[str]`) - The external Ambari metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore.  Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The external Ambari metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-
-          * `hive` (`pulumi.Input[dict]`) - A `hive` block as defined below.
-            * `database_name` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
-            * `password` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The external Hive metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-
-          * `oozie` (`pulumi.Input[dict]`) - An `oozie` block as defined below.
-            * `database_name` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL database.  Changing this forces a new resource to be created.
-            * `password` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin password.  Changing this forces a new resource to be created.
-            * `server` (`pulumi.Input[str]`) - The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore.  Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The external Oozie metastore's existing SQL server admin username.  Changing this forces a new resource to be created.
-
-        The **monitor** object supports the following:
-
-          * `log_analytics_workspace_id` (`pulumi.Input[str]`) - The Operations Management Suite (OMS) workspace ID.
-          * `primary_key` (`pulumi.Input[str]`) - The Operations Management Suite (OMS) workspace key.
-
-        The **roles** object supports the following:
-
-          * `headNode` (`pulumi.Input[dict]`) - A `head_node` block as defined above.
-            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
-            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
-
-          * `workerNode` (`pulumi.Input[dict]`) - A `worker_node` block as defined below.
-            * `minInstanceCount` (`pulumi.Input[float]`) - The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
-            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
-            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `targetInstanceCount` (`pulumi.Input[float]`) - The number of instances which should be run for the Worker Nodes.
-            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-
-          * `zookeeperNode` (`pulumi.Input[dict]`) - A `zookeeper_node` block as defined below.
-            * `password` (`pulumi.Input[str]`) - The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-            * `sshKeys` (`pulumi.Input[list]`) - A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
-            * `subnet_id` (`pulumi.Input[str]`) - The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `username` (`pulumi.Input[str]`) - The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-            * `virtual_network_id` (`pulumi.Input[str]`) - The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-            * `vm_size` (`pulumi.Input[str]`) - The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
-
-        The **storage_account_gen2** object supports the following:
-
-          * `filesystemId` (`pulumi.Input[str]`) - The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
-          * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-          * `managedIdentityResourceId` (`pulumi.Input[str]`) - The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-          * `storageResourceId` (`pulumi.Input[str]`) - The ID of the Storage Account. Changing this forces a new resource to be created.
-
-        The **storage_accounts** object supports the following:
-
-          * `isDefault` (`pulumi.Input[bool]`) - Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-          * `storage_account_key` (`pulumi.Input[str]`) - The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-          * `storage_container_id` (`pulumi.Input[str]`) - The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -456,8 +222,134 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         __props__["tls_min_version"] = tls_min_version
         return InteractiveQueryCluster(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> str:
+        """
+        Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @property
+    @pulumi.getter(name="componentVersion")
+    def component_version(self) -> 'outputs.InteractiveQueryClusterComponentVersion':
+        """
+        A `component_version` block as defined below.
+        """
+        return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> 'outputs.InteractiveQueryClusterGateway':
+        """
+        A `gateway` block as defined below.
+        """
+        return pulumi.get(self, "gateway")
+
+    @property
+    @pulumi.getter(name="httpsEndpoint")
+    def https_endpoint(self) -> str:
+        """
+        The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
+        """
+        return pulumi.get(self, "https_endpoint")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metastores(self) -> Optional['outputs.InteractiveQueryClusterMetastores']:
+        """
+        A `metastores` block as defined below.
+        """
+        return pulumi.get(self, "metastores")
+
+    @property
+    @pulumi.getter
+    def monitor(self) -> Optional['outputs.InteractiveQueryClusterMonitor']:
+        """
+        A `monitor` block as defined below.
+        """
+        return pulumi.get(self, "monitor")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> 'outputs.InteractiveQueryClusterRoles':
+        """
+        A `roles` block as defined below.
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="sshEndpoint")
+    def ssh_endpoint(self) -> str:
+        """
+        The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
+        """
+        return pulumi.get(self, "ssh_endpoint")
+
+    @property
+    @pulumi.getter(name="storageAccountGen2")
+    def storage_account_gen2(self) -> Optional['outputs.InteractiveQueryClusterStorageAccountGen2']:
+        """
+        A `storage_account_gen2` block as defined below.
+        """
+        return pulumi.get(self, "storage_account_gen2")
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[List['outputs.InteractiveQueryClusterStorageAccount']]:
+        """
+        One or more `storage_account` block as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> str:
+        """
+        Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter(name="tlsMinVersion")
+    def tls_min_version(self) -> Optional[str]:
+        return pulumi.get(self, "tls_min_version")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

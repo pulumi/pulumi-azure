@@ -5,204 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['WindowsVirtualMachine']
 
 
 class WindowsVirtualMachine(pulumi.CustomResource):
-    additional_capabilities: pulumi.Output[dict]
-    """
-    A `additional_capabilities` block as defined below.
-
-      * `ultraSsdEnabled` (`bool`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-    """
-    additional_unattend_contents: pulumi.Output[list]
-    """
-    One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
-
-      * `content` (`str`) - The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
-      * `setting` (`str`) - The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
-    """
-    admin_password: pulumi.Output[str]
-    """
-    The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-    """
-    admin_username: pulumi.Output[str]
-    """
-    The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-    """
-    allow_extension_operations: pulumi.Output[bool]
-    """
-    Should Extension Operations be allowed on this Virtual Machine?
-    """
-    availability_set_id: pulumi.Output[str]
-    """
-    Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-    """
-    boot_diagnostics: pulumi.Output[dict]
-    """
-    A `boot_diagnostics` block as defined below.
-
-      * `storageAccountUri` (`str`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-    """
-    computer_name: pulumi.Output[str]
-    """
-    Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
-    """
-    custom_data: pulumi.Output[str]
-    """
-    The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-    """
-    dedicated_host_id: pulumi.Output[str]
-    """
-    The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
-    """
-    enable_automatic_updates: pulumi.Output[bool]
-    """
-    Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
-    """
-    eviction_policy: pulumi.Output[str]
-    """
-    Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
-    """
-    identity: pulumi.Output[dict]
-    """
-    An `identity` block as defined below.
-
-      * `identityIds` (`list`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
-      * `principal_id` (`str`) - The ID of the System Managed Service Principal.
-      * `tenant_id` (`str`) - The ID of the Tenant the System Managed Service Principal is assigned in.
-      * `type` (`str`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-    """
-    license_type: pulumi.Output[str]
-    """
-    Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
-    """
-    max_bid_price: pulumi.Output[float]
-    """
-    The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-    """
-    network_interface_ids: pulumi.Output[list]
-    """
-    . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-    """
-    os_disk: pulumi.Output[dict]
-    """
-    A `os_disk` block as defined below.
-
-      * `caching` (`str`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-      * `diffDiskSettings` (`dict`) - A `diff_disk_settings` block as defined above.
-        * `option` (`str`) - Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-
-      * `disk_encryption_set_id` (`str`) - The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-      * `disk_size_gb` (`float`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-      * `name` (`str`) - The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-      * `storage_account_type` (`str`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-      * `write_accelerator_enabled` (`bool`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-    """
-    plan: pulumi.Output[dict]
-    """
-    A `plan` block as defined below. Changing this forces a new resource to be created.
-
-      * `name` (`str`) - Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-      * `product` (`str`) - Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-      * `publisher` (`str`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-    """
-    priority: pulumi.Output[str]
-    """
-    Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
-    """
-    private_ip_address: pulumi.Output[str]
-    """
-    The Primary Private IP Address assigned to this Virtual Machine.
-    """
-    private_ip_addresses: pulumi.Output[list]
-    """
-    A list of Private IP Addresses assigned to this Virtual Machine.
-    """
-    provision_vm_agent: pulumi.Output[bool]
-    """
-    Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
-    """
-    proximity_placement_group_id: pulumi.Output[str]
-    """
-    The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
-    """
-    public_ip_address: pulumi.Output[str]
-    """
-    The Primary Public IP Address assigned to this Virtual Machine.
-    """
-    public_ip_addresses: pulumi.Output[list]
-    """
-    A list of the Public IP Addresses assigned to this Virtual Machine.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
-    """
-    secrets: pulumi.Output[list]
-    """
-    One or more `secret` blocks as defined below.
-
-      * `certificates` (`list`) - One or more `certificate` blocks as defined above.
-        * `store` (`str`) - The certificate store on the Virtual Machine where the certificate should be added.
-        * `url` (`str`) - The Secret URL of a Key Vault Certificate.
-
-      * `key_vault_id` (`str`) - The ID of the Key Vault from which all Secrets should be sourced.
-    """
-    size: pulumi.Output[str]
-    """
-    The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
-    """
-    source_image_id: pulumi.Output[str]
-    """
-    The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
-    """
-    source_image_reference: pulumi.Output[dict]
-    """
-    A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
-
-      * `offer` (`str`) - Specifies the offer of the image used to create the virtual machines.
-      * `publisher` (`str`) - Specifies the publisher of the image used to create the virtual machines.
-      * `sku` (`str`) - Specifies the SKU of the image used to create the virtual machines.
-      * `version` (`str`) - Specifies the version of the image used to create the virtual machines.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags which should be assigned to this Virtual Machine.
-    """
-    timezone: pulumi.Output[str]
-    """
-    Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-    """
-    virtual_machine_id: pulumi.Output[str]
-    """
-    A 128-bit identifier which uniquely identifies this Virtual Machine.
-    """
-    virtual_machine_scale_set_id: pulumi.Output[str]
-    """
-    Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
-    """
-    winrm_listeners: pulumi.Output[list]
-    """
-    One or more `winrm_listener` blocks as defined below.
-
-      * `certificateUrl` (`str`) - The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
-      * `protocol` (`str`)
-    """
-    zone: pulumi.Output[str]
-    """
-    The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, enable_automatic_updates=None, eviction_policy=None, identity=None, license_type=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, provision_vm_agent=None, proximity_placement_group_id=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, virtual_machine_scale_set_id=None, winrm_listeners=None, zone=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalCapabilitiesArgs']]] = None,
+                 additional_unattend_contents: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]] = None,
+                 admin_password: Optional[pulumi.Input[str]] = None,
+                 admin_username: Optional[pulumi.Input[str]] = None,
+                 allow_extension_operations: Optional[pulumi.Input[bool]] = None,
+                 availability_set_id: Optional[pulumi.Input[str]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']]] = None,
+                 computer_name: Optional[pulumi.Input[str]] = None,
+                 custom_data: Optional[pulumi.Input[str]] = None,
+                 dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
+                 eviction_policy: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_bid_price: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_interface_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
+                 provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+                 proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 source_image_id: Optional[pulumi.Input[str]] = None,
+                 source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 winrm_listeners: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]]] = None,
+                 zone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Windows Virtual Machine.
 
@@ -236,11 +86,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[{
-                "name": "internal",
-                "subnet_id": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
-            }])
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
         example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -248,111 +98,53 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             admin_username="adminuser",
             admin_password="P@$$w0rd1234!",
             network_interface_ids=[example_network_interface.id],
-            os_disk={
-                "caching": "ReadWrite",
-                "storage_account_type": "Standard_LRS",
-            },
-            source_image_reference={
-                "publisher": "MicrosoftWindowsServer",
-                "offer": "WindowsServer",
-                "sku": "2016-Datacenter",
-                "version": "latest",
-            })
+            os_disk=azure.compute.WindowsVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            source_image_reference=azure.compute.WindowsVirtualMachineSourceImageReferenceArgs(
+                publisher="MicrosoftWindowsServer",
+                offer="WindowsServer",
+                sku="2016-Datacenter",
+                version="latest",
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block as defined below.
-        :param pulumi.Input[list] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input[dict] os_disk: A `os_disk` block as defined below.
-        :param pulumi.Input[dict] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[List[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] winrm_listeners: One or more `winrm_listener` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
-
-        The **additional_capabilities** object supports the following:
-
-          * `ultraSsdEnabled` (`pulumi.Input[bool]`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-
-        The **additional_unattend_contents** object supports the following:
-
-          * `content` (`pulumi.Input[str]`) - The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
-          * `setting` (`pulumi.Input[str]`) - The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
-
-        The **boot_diagnostics** object supports the following:
-
-          * `storageAccountUri` (`pulumi.Input[str]`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
-          * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
-          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the System Managed Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-
-        The **os_disk** object supports the following:
-
-          * `caching` (`pulumi.Input[str]`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-          * `diffDiskSettings` (`pulumi.Input[dict]`) - A `diff_disk_settings` block as defined above.
-            * `option` (`pulumi.Input[str]`) - Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-
-          * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-          * `disk_size_gb` (`pulumi.Input[float]`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-          * `name` (`pulumi.Input[str]`) - The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-          * `storage_account_type` (`pulumi.Input[str]`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `product` (`pulumi.Input[str]`) - Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-
-        The **secrets** object supports the following:
-
-          * `certificates` (`pulumi.Input[list]`) - One or more `certificate` blocks as defined above.
-            * `store` (`pulumi.Input[str]`) - The certificate store on the Virtual Machine where the certificate should be added.
-            * `url` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate.
-
-          * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault from which all Secrets should be sourced.
-
-        The **source_image_reference** object supports the following:
-
-          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
-          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
-          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
-
-        The **winrm_listeners** object supports the following:
-
-          * `certificateUrl` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
-          * `protocol` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -365,7 +157,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -428,110 +220,92 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, additional_capabilities=None, additional_unattend_contents=None, admin_password=None, admin_username=None, allow_extension_operations=None, availability_set_id=None, boot_diagnostics=None, computer_name=None, custom_data=None, dedicated_host_id=None, enable_automatic_updates=None, eviction_policy=None, identity=None, license_type=None, location=None, max_bid_price=None, name=None, network_interface_ids=None, os_disk=None, plan=None, priority=None, private_ip_address=None, private_ip_addresses=None, provision_vm_agent=None, proximity_placement_group_id=None, public_ip_address=None, public_ip_addresses=None, resource_group_name=None, secrets=None, size=None, source_image_id=None, source_image_reference=None, tags=None, timezone=None, virtual_machine_id=None, virtual_machine_scale_set_id=None, winrm_listeners=None, zone=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            additional_capabilities: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalCapabilitiesArgs']]] = None,
+            additional_unattend_contents: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]] = None,
+            admin_password: Optional[pulumi.Input[str]] = None,
+            admin_username: Optional[pulumi.Input[str]] = None,
+            allow_extension_operations: Optional[pulumi.Input[bool]] = None,
+            availability_set_id: Optional[pulumi.Input[str]] = None,
+            boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']]] = None,
+            computer_name: Optional[pulumi.Input[str]] = None,
+            custom_data: Optional[pulumi.Input[str]] = None,
+            dedicated_host_id: Optional[pulumi.Input[str]] = None,
+            enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
+            eviction_policy: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
+            license_type: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            max_bid_price: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            network_interface_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+            plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
+            priority: Optional[pulumi.Input[str]] = None,
+            private_ip_address: Optional[pulumi.Input[str]] = None,
+            private_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+            proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+            public_ip_address: Optional[pulumi.Input[str]] = None,
+            public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]]] = None,
+            size: Optional[pulumi.Input[str]] = None,
+            source_image_id: Optional[pulumi.Input[str]] = None,
+            source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            timezone: Optional[pulumi.Input[str]] = None,
+            virtual_machine_id: Optional[pulumi.Input[str]] = None,
+            virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+            winrm_listeners: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]]] = None,
+            zone: Optional[pulumi.Input[str]] = None) -> 'WindowsVirtualMachine':
         """
         Get an existing WindowsVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block as defined below.
-        :param pulumi.Input[list] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input[dict] os_disk: A `os_disk` block as defined below.
-        :param pulumi.Input[dict] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[List[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
-        :param pulumi.Input[list] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[List[pulumi.Input[str]]] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
-        :param pulumi.Input[list] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[str] timezone: Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] winrm_listeners: One or more `winrm_listener` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineWinrmListenerArgs']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below.
         :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
-
-        The **additional_capabilities** object supports the following:
-
-          * `ultraSsdEnabled` (`pulumi.Input[bool]`) - Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
-
-        The **additional_unattend_contents** object supports the following:
-
-          * `content` (`pulumi.Input[str]`) - The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
-          * `setting` (`pulumi.Input[str]`) - The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
-
-        The **boot_diagnostics** object supports the following:
-
-          * `storageAccountUri` (`pulumi.Input[str]`) - The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`) - A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
-          * `principal_id` (`pulumi.Input[str]`) - The ID of the System Managed Service Principal.
-          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the System Managed Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`) - The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-
-        The **os_disk** object supports the following:
-
-          * `caching` (`pulumi.Input[str]`) - The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-          * `diffDiskSettings` (`pulumi.Input[dict]`) - A `diff_disk_settings` block as defined above.
-            * `option` (`pulumi.Input[str]`) - Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-
-          * `disk_encryption_set_id` (`pulumi.Input[str]`) - The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-          * `disk_size_gb` (`pulumi.Input[float]`) - The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-          * `name` (`pulumi.Input[str]`) - The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-          * `storage_account_type` (`pulumi.Input[str]`) - The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
-          * `write_accelerator_enabled` (`pulumi.Input[bool]`) - Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `product` (`pulumi.Input[str]`) - Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-
-        The **secrets** object supports the following:
-
-          * `certificates` (`pulumi.Input[list]`) - One or more `certificate` blocks as defined above.
-            * `store` (`pulumi.Input[str]`) - The certificate store on the Virtual Machine where the certificate should be added.
-            * `url` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate.
-
-          * `key_vault_id` (`pulumi.Input[str]`) - The ID of the Key Vault from which all Secrets should be sourced.
-
-        The **source_image_reference** object supports the following:
-
-          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
-          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
-          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
-
-        The **winrm_listeners** object supports the following:
-
-          * `certificateUrl` (`pulumi.Input[str]`) - The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
-          * `protocol` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -577,8 +351,313 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__["zone"] = zone
         return WindowsVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional['outputs.WindowsVirtualMachineAdditionalCapabilities']:
+        """
+        A `additional_capabilities` block as defined below.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @property
+    @pulumi.getter(name="additionalUnattendContents")
+    def additional_unattend_contents(self) -> Optional[List['outputs.WindowsVirtualMachineAdditionalUnattendContent']]:
+        """
+        One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "additional_unattend_contents")
+
+    @property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> str:
+        """
+        The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "admin_password")
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> str:
+        """
+        The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="allowExtensionOperations")
+    def allow_extension_operations(self) -> Optional[bool]:
+        """
+        Should Extension Operations be allowed on this Virtual Machine?
+        """
+        return pulumi.get(self, "allow_extension_operations")
+
+    @property
+    @pulumi.getter(name="availabilitySetId")
+    def availability_set_id(self) -> Optional[str]:
+        """
+        Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "availability_set_id")
+
+    @property
+    @pulumi.getter(name="bootDiagnostics")
+    def boot_diagnostics(self) -> Optional['outputs.WindowsVirtualMachineBootDiagnostics']:
+        """
+        A `boot_diagnostics` block as defined below.
+        """
+        return pulumi.get(self, "boot_diagnostics")
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> str:
+        """
+        Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "computer_name")
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[str]:
+        """
+        The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "custom_data")
+
+    @property
+    @pulumi.getter(name="dedicatedHostId")
+    def dedicated_host_id(self) -> Optional[str]:
+        """
+        The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dedicated_host_id")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpdates")
+    def enable_automatic_updates(self) -> Optional[bool]:
+        """
+        Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "enable_automatic_updates")
+
+    @property
+    @pulumi.getter(name="evictionPolicy")
+    def eviction_policy(self) -> Optional[str]:
+        """
+        Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.WindowsVirtualMachineIdentity']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[str]:
+        """
+        Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxBidPrice")
+    def max_bid_price(self) -> Optional[float]:
+        """
+        The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        """
+        return pulumi.get(self, "max_bid_price")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaceIds")
+    def network_interface_ids(self) -> List[str]:
+        """
+        . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+        """
+        return pulumi.get(self, "network_interface_ids")
+
+    @property
+    @pulumi.getter(name="osDisk")
+    def os_disk(self) -> 'outputs.WindowsVirtualMachineOsDisk':
+        """
+        A `os_disk` block as defined below.
+        """
+        return pulumi.get(self, "os_disk")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.WindowsVirtualMachinePlan']:
+        """
+        A `plan` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[str]:
+        """
+        Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        The Primary Private IP Address assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> List[str]:
+        """
+        A list of Private IP Addresses assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
+    @pulumi.getter(name="provisionVmAgent")
+    def provision_vm_agent(self) -> Optional[bool]:
+        """
+        Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "provision_vm_agent")
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroupId")
+    def proximity_placement_group_id(self) -> Optional[str]:
+        """
+        The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "proximity_placement_group_id")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> str:
+        """
+        The Primary Public IP Address assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> List[str]:
+        """
+        A list of the Public IP Addresses assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[List['outputs.WindowsVirtualMachineSecret']]:
+        """
+        One or more `secret` blocks as defined below.
+        """
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter
+    def size(self) -> str:
+        """
+        The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="sourceImageId")
+    def source_image_id(self) -> Optional[str]:
+        """
+        The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_image_id")
+
+    @property
+    @pulumi.getter(name="sourceImageReference")
+    def source_image_reference(self) -> Optional['outputs.WindowsVirtualMachineSourceImageReference']:
+        """
+        A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_image_reference")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags which should be assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        """
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> str:
+        """
+        A 128-bit identifier which uniquely identifies this Virtual Machine.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="virtualMachineScaleSetId")
+    def virtual_machine_scale_set_id(self) -> Optional[str]:
+        """
+        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_scale_set_id")
+
+    @property
+    @pulumi.getter(name="winrmListeners")
+    def winrm_listeners(self) -> Optional[List['outputs.WindowsVirtualMachineWinrmListener']]:
+        """
+        One or more `winrm_listener` blocks as defined below.
+        """
+        return pulumi.get(self, "winrm_listeners")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        """
+        The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zone")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

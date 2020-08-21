@@ -5,80 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Assignment']
 
 
 class Assignment(pulumi.CustomResource):
-    blueprint_name: pulumi.Output[str]
-    """
-    The name of the blueprint assigned
-    """
-    description: pulumi.Output[str]
-    """
-    The Description on the Blueprint
-    """
-    display_name: pulumi.Output[str]
-    """
-    The display name of the blueprint
-    """
-    identity: pulumi.Output[dict]
-    location: pulumi.Output[str]
-    """
-    The Azure location of the Assignment.
-    """
-    lock_exclude_principals: pulumi.Output[list]
-    """
-    a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
-    """
-    lock_mode: pulumi.Output[str]
-    """
-    The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Blueprint Assignment
-    """
-    parameter_values: pulumi.Output[str]
-    """
-    a JSON string to supply Blueprint Assignment parameter values.
-    """
-    resource_groups: pulumi.Output[str]
-    """
-    a JSON string to supply the Blueprint Resource Group information.
-    """
-    target_subscription_id: pulumi.Output[str]
-    """
-    The Subscription ID the Blueprint Published Version is to be applied to.
-    """
-    type: pulumi.Output[str]
-    """
-    The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
-    """
-    version_id: pulumi.Output[str]
-    """
-    The ID of the Published Version of the blueprint to be assigned.
-    """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, lock_exclude_principals=None, lock_mode=None, name=None, parameter_values=None, resource_groups=None, target_subscription_id=None, version_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 lock_exclude_principals: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 lock_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameter_values: Optional[pulumi.Input[str]] = None,
+                 resource_groups: Optional[pulumi.Input[str]] = None,
+                 target_subscription_id: Optional[pulumi.Input[str]] = None,
+                 version_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Create a Assignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure location of the Assignment.
-        :param pulumi.Input[list] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
+        :param pulumi.Input[List[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
         :param pulumi.Input[str] name: The name of the Blueprint Assignment
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`)
-          * `principal_id` (`pulumi.Input[str]`)
-          * `tenant_id` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`) - The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,7 +53,7 @@ class Assignment(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -121,19 +83,34 @@ class Assignment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, blueprint_name=None, description=None, display_name=None, identity=None, location=None, lock_exclude_principals=None, lock_mode=None, name=None, parameter_values=None, resource_groups=None, target_subscription_id=None, type=None, version_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blueprint_name: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            display_name: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            lock_exclude_principals: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            lock_mode: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            parameter_values: Optional[pulumi.Input[str]] = None,
+            resource_groups: Optional[pulumi.Input[str]] = None,
+            target_subscription_id: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None,
+            version_id: Optional[pulumi.Input[str]] = None) -> 'Assignment':
         """
         Get an existing Assignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blueprint_name: The name of the blueprint assigned
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
         :param pulumi.Input[str] location: The Azure location of the Assignment.
-        :param pulumi.Input[list] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
+        :param pulumi.Input[List[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
         :param pulumi.Input[str] name: The name of the Blueprint Assignment
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
@@ -141,13 +118,6 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to.
         :param pulumi.Input[str] type: The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`)
-          * `principal_id` (`pulumi.Input[str]`)
-          * `tenant_id` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`) - The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -168,8 +138,110 @@ class Assignment(pulumi.CustomResource):
         __props__["version_id"] = version_id
         return Assignment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="blueprintName")
+    def blueprint_name(self) -> str:
+        """
+        The name of the blueprint assigned
+        """
+        return pulumi.get(self, "blueprint_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The Description on the Blueprint
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The display name of the blueprint
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.AssignmentIdentity']:
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Azure location of the Assignment.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="lockExcludePrincipals")
+    def lock_exclude_principals(self) -> Optional[List[str]]:
+        """
+        a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
+        """
+        return pulumi.get(self, "lock_exclude_principals")
+
+    @property
+    @pulumi.getter(name="lockMode")
+    def lock_mode(self) -> Optional[str]:
+        """
+        The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
+        """
+        return pulumi.get(self, "lock_mode")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Blueprint Assignment
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="parameterValues")
+    def parameter_values(self) -> Optional[str]:
+        """
+        a JSON string to supply Blueprint Assignment parameter values.
+        """
+        return pulumi.get(self, "parameter_values")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[str]:
+        """
+        a JSON string to supply the Blueprint Resource Group information.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @property
+    @pulumi.getter(name="targetSubscriptionId")
+    def target_subscription_id(self) -> str:
+        """
+        The Subscription ID the Blueprint Published Version is to be applied to.
+        """
+        return pulumi.get(self, "target_subscription_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> str:
+        """
+        The ID of the Published Version of the blueprint to be assigned.
+        """
+        return pulumi.get(self, "version_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetNetworkWatcherResult',
+    'AwaitableGetNetworkWatcherResult',
+    'get_network_watcher',
+]
+
+@pulumi.output_type
 class GetNetworkWatcherResult:
     """
     A collection of values returned by getNetworkWatcher.
@@ -15,28 +22,55 @@ class GetNetworkWatcherResult:
     def __init__(__self__, id=None, location=None, name=None, resource_group_name=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The supported Azure location where the resource exists.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the resource.
         """
+        return pulumi.get(self, "tags")
+
+
 class AwaitableGetNetworkWatcherResult(GetNetworkWatcherResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -49,7 +83,10 @@ class AwaitableGetNetworkWatcherResult(GetNetworkWatcherResult):
             resource_group_name=self.resource_group_name,
             tags=self.tags)
 
-def get_network_watcher(name=None,resource_group_name=None,opts=None):
+
+def get_network_watcher(name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkWatcherResult:
     """
     Use this data source to access information about an existing Network Watcher.
 
@@ -69,19 +106,17 @@ def get_network_watcher(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: Specifies the Name of the Resource Group within which the Network Watcher exists.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getNetworkWatcher:getNetworkWatcher', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:network/getNetworkWatcher:getNetworkWatcher', __args__, opts=opts, typ=GetNetworkWatcherResult).value
 
     return AwaitableGetNetworkWatcherResult(
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'))
+        id=__ret__.id,
+        location=__ret__.location,
+        name=__ret__.name,
+        resource_group_name=__ret__.resource_group_name,
+        tags=__ret__.tags)

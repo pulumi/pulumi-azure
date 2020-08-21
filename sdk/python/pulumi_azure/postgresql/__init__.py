@@ -10,3 +10,5 @@ from .firewall_rule import *
 from .get_server import *
 from .server import *
 from .virtual_network_rule import *
+from ._inputs import *
+from . import outputs

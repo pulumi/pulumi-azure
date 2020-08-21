@@ -29,7 +29,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
-// 			Location: pulumi.String(_var.Resource_group_location),
+// 			Location: pulumi.Any(_var.Resource_group_location),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -54,7 +54,7 @@ import (
 // 			},
 // 			GeoLocations: cosmosdb.AccountGeoLocationArray{
 // 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         pulumi.String(_var.Failover_location),
+// 					Location:         pulumi.Any(_var.Failover_location),
 // 					FailoverPriority: pulumi.Int(1),
 // 				},
 // 				&cosmosdb.AccountGeoLocationArgs{

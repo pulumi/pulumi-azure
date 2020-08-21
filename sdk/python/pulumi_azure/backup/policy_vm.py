@@ -5,70 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['PolicyVM']
 
 
 class PolicyVM(pulumi.CustomResource):
-    backup: pulumi.Output[dict]
-    """
-    Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-
-      * `frequency` (`str`) - Sets the backup frequency. Must be either `Daily` or`Weekly`.
-      * `time` (`str`) - The time of day to perform the backup in 24hour format.
-      * `weekdays` (`list`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
-    """
-    recovery_vault_name: pulumi.Output[str]
-    """
-    Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
-    """
-    retention_daily: pulumi.Output[dict]
-    """
-    Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
-
-      * `count` (`float`) - The number of yearly backups to keep. Must be between `1` and `9999`
-    """
-    retention_monthly: pulumi.Output[dict]
-    """
-    Configures the policy monthly retention as documented in the `retention_monthly` block below.
-
-      * `count` (`float`) - The number of yearly backups to keep. Must be between `1` and `9999`
-      * `weekdays` (`list`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-      * `weeks` (`list`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
-    """
-    retention_weekly: pulumi.Output[dict]
-    """
-    Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
-
-      * `count` (`float`) - The number of yearly backups to keep. Must be between `1` and `9999`
-      * `weekdays` (`list`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-    """
-    retention_yearly: pulumi.Output[dict]
-    """
-    Configures the policy yearly retention as documented in the `retention_yearly` block below.
-
-      * `count` (`float`) - The number of yearly backups to keep. Must be between `1` and `9999`
-      * `months` (`list`) - The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
-      * `weekdays` (`list`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-      * `weeks` (`list`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    timezone: pulumi.Output[str]
-    """
-    Specifies the timezone. Defaults to `UTC`
-    """
-    def __init__(__self__, resource_name, opts=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, retention_monthly=None, retention_weekly=None, retention_yearly=None, tags=None, timezone=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']]] = None,
+                 retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
+                 retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
+                 retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an Azure Backup VM Backup Policy.
 
@@ -87,81 +48,53 @@ class PolicyVM(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             recovery_vault_name=example_vault.name,
             timezone="UTC",
-            backup={
-                "frequency": "Daily",
-                "time": "23:00",
-            },
-            retention_daily={
-                "count": 10,
-            },
-            retention_weekly={
-                "count": 42,
-                "weekdays": [
+            backup=azure.backup.PolicyVMBackupArgs(
+                frequency="Daily",
+                time="23:00",
+            ),
+            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
+                count=10,
+            ),
+            retention_weekly=azure.backup.PolicyVMRetentionWeeklyArgs(
+                count=42,
+                weekdays=[
                     "Sunday",
                     "Wednesday",
                     "Friday",
                     "Saturday",
                 ],
-            },
-            retention_monthly={
-                "count": 7,
-                "weekdays": [
+            ),
+            retention_monthly=azure.backup.PolicyVMRetentionMonthlyArgs(
+                count=7,
+                weekdays=[
                     "Sunday",
                     "Wednesday",
                 ],
-                "weeks": [
+                weeks=[
                     "First",
                     "Last",
                 ],
-            },
-            retention_yearly={
-                "count": 77,
-                "weekdays": ["Sunday"],
-                "weeks": ["Last"],
-                "months": ["January"],
-            })
+            ),
+            retention_yearly=azure.backup.PolicyVMRetentionYearlyArgs(
+                count=77,
+                weekdays=["Sunday"],
+                weeks=["Last"],
+                months=["January"],
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
-        :param pulumi.Input[dict] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
-        :param pulumi.Input[dict] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
-        :param pulumi.Input[dict] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
-
-        The **backup** object supports the following:
-
-          * `frequency` (`pulumi.Input[str]`) - Sets the backup frequency. Must be either `Daily` or`Weekly`.
-          * `time` (`pulumi.Input[str]`) - The time of day to perform the backup in 24hour format.
-          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-
-        The **retention_daily** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
-
-        The **retention_monthly** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
-          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-          * `weeks` (`pulumi.Input[list]`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
-
-        The **retention_weekly** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
-          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-
-        The **retention_yearly** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
-          * `months` (`pulumi.Input[list]`) - The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
-          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-          * `weeks` (`pulumi.Input[list]`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -174,7 +107,7 @@ class PolicyVM(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -203,52 +136,36 @@ class PolicyVM(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, retention_monthly=None, retention_weekly=None, retention_yearly=None, tags=None, timezone=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            recovery_vault_name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']]] = None,
+            retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
+            retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
+            retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            timezone: Optional[pulumi.Input[str]] = None) -> 'PolicyVM':
         """
         Get an existing PolicyVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
-        :param pulumi.Input[dict] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
-        :param pulumi.Input[dict] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
-        :param pulumi.Input[dict] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
-
-        The **backup** object supports the following:
-
-          * `frequency` (`pulumi.Input[str]`) - Sets the backup frequency. Must be either `Daily` or`Weekly`.
-          * `time` (`pulumi.Input[str]`) - The time of day to perform the backup in 24hour format.
-          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-
-        The **retention_daily** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
-
-        The **retention_monthly** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
-          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-          * `weeks` (`pulumi.Input[list]`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
-
-        The **retention_weekly** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
-          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-
-        The **retention_yearly** object supports the following:
-
-          * `count` (`pulumi.Input[float]`) - The number of yearly backups to keep. Must be between `1` and `9999`
-          * `months` (`pulumi.Input[list]`) - The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
-          * `weekdays` (`pulumi.Input[list]`) - The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
-          * `weeks` (`pulumi.Input[list]`) - The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -266,8 +183,89 @@ class PolicyVM(pulumi.CustomResource):
         __props__["timezone"] = timezone
         return PolicyVM(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def backup(self) -> 'outputs.PolicyVMBackup':
+        """
+        Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        """
+        return pulumi.get(self, "backup")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> str:
+        """
+        Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="retentionDaily")
+    def retention_daily(self) -> Optional['outputs.PolicyVMRetentionDaily']:
+        """
+        Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        """
+        return pulumi.get(self, "retention_daily")
+
+    @property
+    @pulumi.getter(name="retentionMonthly")
+    def retention_monthly(self) -> Optional['outputs.PolicyVMRetentionMonthly']:
+        """
+        Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        """
+        return pulumi.get(self, "retention_monthly")
+
+    @property
+    @pulumi.getter(name="retentionWeekly")
+    def retention_weekly(self) -> Optional['outputs.PolicyVMRetentionWeekly']:
+        """
+        Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        """
+        return pulumi.get(self, "retention_weekly")
+
+    @property
+    @pulumi.getter(name="retentionYearly")
+    def retention_yearly(self) -> Optional['outputs.PolicyVMRetentionYearly']:
+        """
+        Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        """
+        return pulumi.get(self, "retention_yearly")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        Specifies the timezone. Defaults to `UTC`
+        """
+        return pulumi.get(self, "timezone")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,45 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['RouteTable']
 
 
 class RouteTable(pulumi.CustomResource):
-    disable_bgp_route_propagation: pulumi.Output[bool]
-    """
-    Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the route.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-    """
-    routes: pulumi.Output[list]
-    """
-    A list of objects representing routes. Each object accepts the arguments documented below.
-
-      * `address_prefix` (`str`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
-      * `name` (`str`) - The name of the route.
-      * `next_hop_in_ip_address` (`str`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-      * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
-    """
-    subnets: pulumi.Output[list]
-    """
-    The collection of Subnets associated with this route table.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, disable_bgp_route_propagation=None, location=None, name=None, resource_group_name=None, routes=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Route Table
 
@@ -61,11 +43,11 @@ class RouteTable(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             disable_bgp_route_propagation=False,
-            routes=[{
-                "name": "route1",
-                "address_prefix": "10.1.0.0/16",
-                "next_hop_type": "vnetlocal",
-            }],
+            routes=[azure.network.RouteTableRouteArgs(
+                name="route1",
+                address_prefix="10.1.0.0/16",
+                next_hop_type="vnetlocal",
+            )],
             tags={
                 "environment": "Production",
             })
@@ -77,15 +59,8 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] routes: A list of objects representing routes. Each object accepts the arguments documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **routes** object supports the following:
-
-          * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
-          * `name` (`pulumi.Input[str]`) - The name of the route.
-          * `next_hop_in_ip_address` (`pulumi.Input[str]`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-          * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,7 +73,7 @@ class RouteTable(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -120,28 +95,30 @@ class RouteTable(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, disable_bgp_route_propagation=None, location=None, name=None, resource_group_name=None, routes=None, subnets=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
+            subnets: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RouteTable':
         """
         Get an existing RouteTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] routes: A list of objects representing routes. Each object accepts the arguments documented below.
-        :param pulumi.Input[list] subnets: The collection of Subnets associated with this route table.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **routes** object supports the following:
-
-          * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
-          * `name` (`pulumi.Input[str]`) - The name of the route.
-          * `next_hop_in_ip_address` (`pulumi.Input[str]`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-          * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[List[pulumi.Input[str]]] subnets: The collection of Subnets associated with this route table.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -156,8 +133,65 @@ class RouteTable(pulumi.CustomResource):
         __props__["tags"] = tags
         return RouteTable(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="disableBgpRoutePropagation")
+    def disable_bgp_route_propagation(self) -> Optional[bool]:
+        """
+        Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+        """
+        return pulumi.get(self, "disable_bgp_route_propagation")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the route.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> List['outputs.RouteTableRoute']:
+        """
+        A list of objects representing routes. Each object accepts the arguments documented below.
+        """
+        return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> List[str]:
+        """
+        The collection of Subnets associated with this route table.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

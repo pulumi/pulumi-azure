@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetPublicIPResult',
+    'AwaitableGetPublicIPResult',
+    'get_public_ip',
+]
+
+@pulumi.output_type
 class GetPublicIPResult:
     """
     A collection of values returned by getPublicIP.
@@ -15,67 +22,139 @@ class GetPublicIPResult:
     def __init__(__self__, allocation_method=None, domain_name_label=None, fqdn=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
         if allocation_method and not isinstance(allocation_method, str):
             raise TypeError("Expected argument 'allocation_method' to be a str")
-        __self__.allocation_method = allocation_method
+        pulumi.set(__self__, "allocation_method", allocation_method)
         if domain_name_label and not isinstance(domain_name_label, str):
             raise TypeError("Expected argument 'domain_name_label' to be a str")
-        __self__.domain_name_label = domain_name_label
+        pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        pulumi.set(__self__, "fqdn", fqdn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if ip_address and not isinstance(ip_address, str):
+            raise TypeError("Expected argument 'ip_address' to be a str")
+        pulumi.set(__self__, "ip_address", ip_address)
+        if ip_version and not isinstance(ip_version, str):
+            raise TypeError("Expected argument 'ip_version' to be a str")
+        pulumi.set(__self__, "ip_version", ip_version)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if reverse_fqdn and not isinstance(reverse_fqdn, str):
+            raise TypeError("Expected argument 'reverse_fqdn' to be a str")
+        pulumi.set(__self__, "reverse_fqdn", reverse_fqdn)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="allocationMethod")
+    def allocation_method(self) -> str:
+        return pulumi.get(self, "allocation_method")
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> str:
         """
         The label for the Domain Name.
         """
-        if fqdn and not isinstance(fqdn, str):
-            raise TypeError("Expected argument 'fqdn' to be a str")
-        __self__.fqdn = fqdn
+        return pulumi.get(self, "domain_name_label")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
         """
         Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
-            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
-        __self__.idle_timeout_in_minutes = idle_timeout_in_minutes
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> float:
         """
         Specifies the timeout for the TCP idle connection.
         """
-        if ip_address and not isinstance(ip_address, str):
-            raise TypeError("Expected argument 'ip_address' to be a str")
-        __self__.ip_address = ip_address
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
         """
         The IP address value that was allocated.
         """
-        if ip_version and not isinstance(ip_version, str):
-            raise TypeError("Expected argument 'ip_version' to be a str")
-        __self__.ip_version = ip_version
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> str:
         """
         The IP version being used, for example `IPv4` or `IPv6`.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if reverse_fqdn and not isinstance(reverse_fqdn, str):
-            raise TypeError("Expected argument 'reverse_fqdn' to be a str")
-        __self__.reverse_fqdn = reverse_fqdn
-        if sku and not isinstance(sku, str):
-            raise TypeError("Expected argument 'sku' to be a str")
-        __self__.sku = sku
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "ip_version")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="reverseFqdn")
+    def reverse_fqdn(self) -> str:
+        return pulumi.get(self, "reverse_fqdn")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
         A mapping of tags to assigned to the resource.
         """
-        if zones and not isinstance(zones, list):
-            raise TypeError("Expected argument 'zones' to be a list")
-        __self__.zones = zones
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> List[str]:
+        return pulumi.get(self, "zones")
+
+
 class AwaitableGetPublicIPResult(GetPublicIPResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -97,7 +176,12 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
             tags=self.tags,
             zones=self.zones)
 
-def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
+
+def get_public_ip(name: Optional[str] = None,
+                  resource_group_name: Optional[str] = None,
+                  tags: Optional[Mapping[str, str]] = None,
+                  zones: Optional[List[str]] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPResult:
     """
     Use this data source to access information about an existing Public IP Address.
 
@@ -139,13 +223,13 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
     example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        ip_configurations=[{
-            "name": "testconfiguration1",
-            "subnet_id": example_subnet.id,
-            "privateIpAddressAllocation": "Static",
-            "private_ip_address": "10.0.2.5",
-            "public_ip_address_id": example_public_ip.id,
-        }])
+        ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            name="testconfiguration1",
+            subnet_id=example_subnet.id,
+            private_ip_address_allocation="Static",
+            private_ip_address="10.0.2.5",
+            public_ip_address_id=example_public_ip.id,
+        )])
     example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
@@ -159,11 +243,9 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
 
     :param str name: Specifies the name of the public IP address.
     :param str resource_group_name: Specifies the name of the resource group.
-    :param dict tags: A mapping of tags to assigned to the resource.
+    :param Mapping[str, str] tags: A mapping of tags to assigned to the resource.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
@@ -171,21 +253,21 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getPublicIP:getPublicIP', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:network/getPublicIP:getPublicIP', __args__, opts=opts, typ=GetPublicIPResult).value
 
     return AwaitableGetPublicIPResult(
-        allocation_method=__ret__.get('allocationMethod'),
-        domain_name_label=__ret__.get('domainNameLabel'),
-        fqdn=__ret__.get('fqdn'),
-        id=__ret__.get('id'),
-        idle_timeout_in_minutes=__ret__.get('idleTimeoutInMinutes'),
-        ip_address=__ret__.get('ipAddress'),
-        ip_version=__ret__.get('ipVersion'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        reverse_fqdn=__ret__.get('reverseFqdn'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'))
+        allocation_method=__ret__.allocation_method,
+        domain_name_label=__ret__.domain_name_label,
+        fqdn=__ret__.fqdn,
+        id=__ret__.id,
+        idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
+        ip_address=__ret__.ip_address,
+        ip_version=__ret__.ip_version,
+        location=__ret__.location,
+        name=__ret__.name,
+        resource_group_name=__ret__.resource_group_name,
+        reverse_fqdn=__ret__.reverse_fqdn,
+        sku=__ret__.sku,
+        tags=__ret__.tags,
+        zones=__ret__.zones)

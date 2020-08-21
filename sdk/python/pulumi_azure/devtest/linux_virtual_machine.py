@@ -5,97 +5,38 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LinuxVirtualMachine']
 
 
 class LinuxVirtualMachine(pulumi.CustomResource):
-    allow_claim: pulumi.Output[bool]
-    """
-    Can this Virtual Machine be claimed by users? Defaults to `true`.
-    """
-    disallow_public_ip_address: pulumi.Output[bool]
-    """
-    Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-    """
-    fqdn: pulumi.Output[str]
-    """
-    The FQDN of the Virtual Machine.
-    """
-    gallery_image_reference: pulumi.Output[dict]
-    """
-    A `gallery_image_reference` block as defined below.
-
-      * `offer` (`str`) - The Offer of the Gallery Image. Changing this forces a new resource to be created.
-      * `publisher` (`str`) - The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-      * `sku` (`str`) - The SKU of the Gallery Image. Changing this forces a new resource to be created.
-      * `version` (`str`) - The Version of the Gallery Image. Changing this forces a new resource to be created.
-    """
-    inbound_nat_rules: pulumi.Output[list]
-    """
-    One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
-
-      * `backend_port` (`float`) - The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-      * `frontend_port` (`float`) - The frontend port associated with this Inbound NAT Rule.
-      * `protocol` (`str`) - The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-    """
-    lab_name: pulumi.Output[str]
-    """
-    Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
-    """
-    lab_subnet_name: pulumi.Output[str]
-    """
-    The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
-    """
-    lab_virtual_network_id: pulumi.Output[str]
-    """
-    The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
-    """
-    notes: pulumi.Output[str]
-    """
-    Any notes about the Virtual Machine.
-    """
-    password: pulumi.Output[str]
-    """
-    The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-    """
-    size: pulumi.Output[str]
-    """
-    The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-    """
-    ssh_key: pulumi.Output[str]
-    """
-    The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
-    """
-    storage_type: pulumi.Output[str]
-    """
-    The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    unique_identifier: pulumi.Output[str]
-    """
-    The unique immutable identifier of the Virtual Machine.
-    """
-    username: pulumi.Output[str]
-    """
-    The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, allow_claim=None, disallow_public_ip_address=None, gallery_image_reference=None, inbound_nat_rules=None, lab_name=None, lab_subnet_name=None, lab_virtual_network_id=None, location=None, name=None, notes=None, password=None, resource_group_name=None, size=None, ssh_key=None, storage_type=None, tags=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_claim: Optional[pulumi.Input[bool]] = None,
+                 disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
+                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 lab_subnet_name: Optional[pulumi.Input[str]] = None,
+                 lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 ssh_key: Optional[pulumi.Input[str]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Linux Virtual Machine within a Dev Test Lab.
 
@@ -103,8 +44,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] gallery_image_reference: A `gallery_image_reference` block as defined below.
-        :param pulumi.Input[list] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -116,21 +57,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-
-        The **gallery_image_reference** object supports the following:
-
-          * `offer` (`pulumi.Input[str]`) - The Offer of the Gallery Image. Changing this forces a new resource to be created.
-          * `publisher` (`pulumi.Input[str]`) - The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`) - The SKU of the Gallery Image. Changing this forces a new resource to be created.
-          * `version` (`pulumi.Input[str]`) - The Version of the Gallery Image. Changing this forces a new resource to be created.
-
-        The **inbound_nat_rules** object supports the following:
-
-          * `backend_port` (`pulumi.Input[float]`) - The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-          * `frontend_port` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
-          * `protocol` (`pulumi.Input[str]`) - The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,7 +71,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -191,19 +119,40 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_claim=None, disallow_public_ip_address=None, fqdn=None, gallery_image_reference=None, inbound_nat_rules=None, lab_name=None, lab_subnet_name=None, lab_virtual_network_id=None, location=None, name=None, notes=None, password=None, resource_group_name=None, size=None, ssh_key=None, storage_type=None, tags=None, unique_identifier=None, username=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_claim: Optional[pulumi.Input[bool]] = None,
+            disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
+            fqdn: Optional[pulumi.Input[str]] = None,
+            gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']]] = None,
+            inbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]]] = None,
+            lab_name: Optional[pulumi.Input[str]] = None,
+            lab_subnet_name: Optional[pulumi.Input[str]] = None,
+            lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            notes: Optional[pulumi.Input[str]] = None,
+            password: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            size: Optional[pulumi.Input[str]] = None,
+            ssh_key: Optional[pulumi.Input[str]] = None,
+            storage_type: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            unique_identifier: Optional[pulumi.Input[str]] = None,
+            username: Optional[pulumi.Input[str]] = None) -> 'LinuxVirtualMachine':
         """
         Get an existing LinuxVirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Virtual Machine.
-        :param pulumi.Input[dict] gallery_image_reference: A `gallery_image_reference` block as defined below.
-        :param pulumi.Input[list] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -215,22 +164,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Virtual Machine.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
-
-        The **gallery_image_reference** object supports the following:
-
-          * `offer` (`pulumi.Input[str]`) - The Offer of the Gallery Image. Changing this forces a new resource to be created.
-          * `publisher` (`pulumi.Input[str]`) - The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`) - The SKU of the Gallery Image. Changing this forces a new resource to be created.
-          * `version` (`pulumi.Input[str]`) - The Version of the Gallery Image. Changing this forces a new resource to be created.
-
-        The **inbound_nat_rules** object supports the following:
-
-          * `backend_port` (`pulumi.Input[float]`) - The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
-          * `frontend_port` (`pulumi.Input[float]`) - The frontend port associated with this Inbound NAT Rule.
-          * `protocol` (`pulumi.Input[str]`) - The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -257,8 +193,161 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__["username"] = username
         return LinuxVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowClaim")
+    def allow_claim(self) -> Optional[bool]:
+        """
+        Can this Virtual Machine be claimed by users? Defaults to `true`.
+        """
+        return pulumi.get(self, "allow_claim")
+
+    @property
+    @pulumi.getter(name="disallowPublicIpAddress")
+    def disallow_public_ip_address(self) -> Optional[bool]:
+        """
+        Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disallow_public_ip_address")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The FQDN of the Virtual Machine.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="galleryImageReference")
+    def gallery_image_reference(self) -> 'outputs.LinuxVirtualMachineGalleryImageReference':
+        """
+        A `gallery_image_reference` block as defined below.
+        """
+        return pulumi.get(self, "gallery_image_reference")
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> Optional[List['outputs.LinuxVirtualMachineInboundNatRule']]:
+        """
+        One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> str:
+        """
+        Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @property
+    @pulumi.getter(name="labSubnetName")
+    def lab_subnet_name(self) -> str:
+        """
+        The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lab_subnet_name")
+
+    @property
+    @pulumi.getter(name="labVirtualNetworkId")
+    def lab_virtual_network_id(self) -> str:
+        """
+        The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lab_virtual_network_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[str]:
+        """
+        Any notes about the Virtual Machine.
+        """
+        return pulumi.get(self, "notes")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> str:
+        """
+        The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="sshKey")
+    def ssh_key(self) -> Optional[str]:
+        """
+        The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ssh_key")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> str:
+        """
+        The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="uniqueIdentifier")
+    def unique_identifier(self) -> str:
+        """
+        The unique immutable identifier of the Virtual Machine.
+        """
+        return pulumi.get(self, "unique_identifier")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "username")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

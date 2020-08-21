@@ -18,3 +18,5 @@ from .log_profile import *
 from .metric_alert import *
 from .scheduled_query_rules_alert import *
 from .scheduled_query_rules_log import *
+from ._inputs import *
+from . import outputs

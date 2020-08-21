@@ -5,34 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['ExpressRouteCircuitAuthorization']
 
 
 class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
-    authorization_key: pulumi.Output[str]
-    """
-    The Authorization Key.
-    """
-    authorization_use_status: pulumi.Output[str]
-    """
-    The authorization use status.
-    """
-    express_route_circuit_name: pulumi.Output[str]
-    """
-    The name of the Express Route Circuit in which to create the Authorization.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the ExpressRoute circuit. Changing this forces a
-    new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to
-    create the ExpressRoute circuit. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, express_route_circuit_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 express_route_circuit_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an ExpressRoute Circuit Authorization.
 
@@ -49,10 +37,10 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            },
+            sku=azure.network.ExpressRouteCircuitSkuArgs(
+                tier="Standard",
+                family="MeteredData",
+            ),
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
@@ -81,7 +69,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -103,13 +91,20 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authorization_key=None, authorization_use_status=None, express_route_circuit_name=None, name=None, resource_group_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization_key: Optional[pulumi.Input[str]] = None,
+            authorization_use_status: Optional[pulumi.Input[str]] = None,
+            express_route_circuit_name: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'ExpressRouteCircuitAuthorization':
         """
         Get an existing ExpressRouteCircuitAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The Authorization Key.
         :param pulumi.Input[str] authorization_use_status: The authorization use status.
@@ -130,8 +125,51 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         return ExpressRouteCircuitAuthorization(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> str:
+        """
+        The Authorization Key.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="authorizationUseStatus")
+    def authorization_use_status(self) -> str:
+        """
+        The authorization use status.
+        """
+        return pulumi.get(self, "authorization_use_status")
+
+    @property
+    @pulumi.getter(name="expressRouteCircuitName")
+    def express_route_circuit_name(self) -> str:
+        """
+        The name of the Express Route Circuit in which to create the Authorization.
+        """
+        return pulumi.get(self, "express_route_circuit_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the ExpressRoute circuit. Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to
+        create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

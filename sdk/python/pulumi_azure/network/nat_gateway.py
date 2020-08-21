@@ -5,52 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['NatGateway']
 
 
 class NatGateway(pulumi.CustomResource):
-    idle_timeout_in_minutes: pulumi.Output[float]
-    """
-    The idle timeout which should be used in minutes. Defaults to `4`.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
-    """
-    public_ip_address_ids: pulumi.Output[list]
-    """
-    A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-    """
-    public_ip_prefix_ids: pulumi.Output[list]
-    """
-    A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
-    """
-    resource_guid: pulumi.Output[str]
-    """
-    The resource GUID property of the NAT Gateway.
-    """
-    sku_name: pulumi.Output[str]
-    """
-    The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-    """
-    zones: pulumi.Output[list]
-    """
-    A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, idle_timeout_in_minutes=None, location=None, name=None, public_ip_address_ids=None, public_ip_prefix_ids=None, resource_group_name=None, sku_name=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_ip_address_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 public_ip_prefix_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Azure NAT Gateway.
 
@@ -87,12 +63,12 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[float] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[list] public_ip_prefix_ids: A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
+        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_prefix_ids: A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,7 +81,7 @@ class NatGateway(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -133,24 +109,36 @@ class NatGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, idle_timeout_in_minutes=None, location=None, name=None, public_ip_address_ids=None, public_ip_prefix_ids=None, resource_group_name=None, resource_guid=None, sku_name=None, tags=None, zones=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            public_ip_address_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            public_ip_prefix_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            resource_guid: Optional[pulumi.Input[str]] = None,
+            sku_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'NatGateway':
         """
         Get an existing NatGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] idle_timeout_in_minutes: The idle timeout which should be used in minutes. Defaults to `4`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
-        :param pulumi.Input[list] public_ip_prefix_ids: A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_address_ids: A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
+        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_prefix_ids: A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -168,8 +156,89 @@ class NatGateway(pulumi.CustomResource):
         __props__["zones"] = zones
         return NatGateway(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[float]:
+        """
+        The idle timeout which should be used in minutes. Defaults to `4`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicIpAddressIds")
+    def public_ip_address_ids(self) -> List[str]:
+        """
+        A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
+        """
+        return pulumi.get(self, "public_ip_address_ids")
+
+    @property
+    @pulumi.getter(name="publicIpPrefixIds")
+    def public_ip_prefix_ids(self) -> Optional[List[str]]:
+        """
+        A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
+        """
+        return pulumi.get(self, "public_ip_prefix_ids")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the NAT Gateway.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[str]:
+        """
+        The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[List[str]]:
+        """
+        A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zones")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

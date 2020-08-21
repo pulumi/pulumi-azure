@@ -5,69 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Certificate']
 
 
 class Certificate(pulumi.CustomResource):
-    expiration_date: pulumi.Output[str]
-    """
-    The expiration date for the certificate.
-    """
-    friendly_name: pulumi.Output[str]
-    """
-    The friendly name of the certificate.
-    """
-    host_names: pulumi.Output[list]
-    """
-    List of host names the certificate applies to.
-    """
-    hosting_environment_profile_id: pulumi.Output[str]
-    """
-    Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
-    """
-    issue_date: pulumi.Output[str]
-    """
-    The issue date for the certificate.
-    """
-    issuer: pulumi.Output[str]
-    """
-    The name of the certificate issuer.
-    """
-    key_vault_secret_id: pulumi.Output[str]
-    """
-    The ID of the Key Vault secret. Changing this forces a new resource to be created.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the certificate. Changing this forces a new resource to be created.
-    """
-    password: pulumi.Output[str]
-    """
-    The password to access the certificate's private key. Changing this forces a new resource to be created.
-    """
-    pfx_blob: pulumi.Output[str]
-    """
-    The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-    """
-    subject_name: pulumi.Output[str]
-    """
-    The subject name of the certificate.
-    """
-    tags: pulumi.Output[dict]
-    thumbprint: pulumi.Output[str]
-    """
-    The thumbprint for the certificate.
-    """
-    def __init__(__self__, resource_name, opts=None, hosting_environment_profile_id=None, key_vault_secret_id=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 pfx_blob: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an App Service certificate.
 
@@ -92,7 +50,7 @@ class Certificate(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -122,17 +80,34 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile_id=None, issue_date=None, issuer=None, key_vault_secret_id=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, subject_name=None, tags=None, thumbprint=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            expiration_date: Optional[pulumi.Input[str]] = None,
+            friendly_name: Optional[pulumi.Input[str]] = None,
+            host_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
+            issue_date: Optional[pulumi.Input[str]] = None,
+            issuer: Optional[pulumi.Input[str]] = None,
+            key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            password: Optional[pulumi.Input[str]] = None,
+            pfx_blob: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            subject_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            thumbprint: Optional[pulumi.Input[str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
-        :param pulumi.Input[list] host_names: List of host names the certificate applies to.
+        :param pulumi.Input[List[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
         :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
@@ -166,8 +141,126 @@ class Certificate(pulumi.CustomResource):
         __props__["thumbprint"] = thumbprint
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
+        """
+        The expiration date for the certificate.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        The friendly name of the certificate.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> List[str]:
+        """
+        List of host names the certificate applies to.
+        """
+        return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentProfileId")
+    def hosting_environment_profile_id(self) -> Optional[str]:
+        """
+        Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "hosting_environment_profile_id")
+
+    @property
+    @pulumi.getter(name="issueDate")
+    def issue_date(self) -> str:
+        """
+        The issue date for the certificate.
+        """
+        return pulumi.get(self, "issue_date")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        The name of the certificate issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault secret. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password to access the certificate's private key. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="pfxBlob")
+    def pfx_blob(self) -> Optional[str]:
+        """
+        The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pfx_blob")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> str:
+        """
+        The subject name of the certificate.
+        """
+        return pulumi.get(self, "subject_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        The thumbprint for the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

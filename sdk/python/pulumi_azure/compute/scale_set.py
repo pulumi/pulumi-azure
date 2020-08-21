@@ -5,219 +5,49 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ScaleSet']
 
 
 class ScaleSet(pulumi.CustomResource):
-    automatic_os_upgrade: pulumi.Output[bool]
-    """
-    Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
-    """
-    boot_diagnostics: pulumi.Output[dict]
-    """
-    A boot diagnostics profile block as referenced below.
-
-      * `enabled` (`bool`)
-      * `storageUri` (`str`)
-    """
-    eviction_policy: pulumi.Output[str]
-    """
-    Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
-    """
-    extensions: pulumi.Output[list]
-    """
-    Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
-
-      * `auto_upgrade_minor_version` (`bool`) - Specifies whether or not to use the latest minor version available.
-      * `name` (`str`) - Specifies the name of the extension.
-      * `protected_settings` (`str`) - The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
-      * `provision_after_extensions` (`list`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
-      * `publisher` (`str`) - The publisher of the extension, available publishers can be found by using the Azure CLI.
-      * `settings` (`str`) - The settings passed to the extension, these are specified as a JSON object in a string.
-      * `type` (`str`) - The type of extension, available types for a publisher can be found using the Azure CLI.
-      * `type_handler_version` (`str`) - Specifies the version of the extension to use, available versions can be found using the Azure CLI.
-    """
-    health_probe_id: pulumi.Output[str]
-    """
-    Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
-    """
-    identity: pulumi.Output[dict]
-    license_type: pulumi.Output[str]
-    """
-    Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
-    """
-    network_profiles: pulumi.Output[list]
-    """
-    A collection of network profile block as documented below.
-
-      * `acceleratedNetworking` (`bool`) - Specifies whether to enable accelerated networking or not. Defaults to `false`.
-      * `dnsSettings` (`dict`) - A dns_settings block as documented below.
-        * `dns_servers` (`list`) - Specifies an array of dns servers.
-
-      * `ip_configurations` (`list`) - An ip_configuration block as documented below.
-        * `applicationGatewayBackendAddressPoolIds` (`list`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
-        * `applicationSecurityGroupIds` (`list`) - Specifies up to `20` application security group IDs.
-        * `loadBalancerBackendAddressPoolIds` (`list`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-        * `loadBalancerInboundNatRulesIds` (`list`) - Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-        * `name` (`str`) - Specifies name of the IP configuration.
-        * `primary` (`bool`) - Specifies if this ip_configuration is the primary one.
-        * `publicIpAddressConfiguration` (`dict`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
-          * `domain_name_label` (`str`) - The domain name label for the dns settings.
-          * `idleTimeout` (`float`) - The idle timeout in minutes. This value must be between 4 and 30.
-          * `name` (`str`) - The name of the public ip address configuration
-
-        * `subnet_id` (`str`) - Specifies the identifier of the subnet.
-
-      * `ipForwarding` (`bool`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
-      * `name` (`str`) - Specifies the name of the network interface configuration.
-      * `network_security_group_id` (`str`) - Specifies the identifier for the network security group.
-      * `primary` (`bool`) - Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
-    """
-    os_profile: pulumi.Output[dict]
-    """
-    A Virtual Machine OS Profile block as documented below.
-
-      * `admin_password` (`str`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
-      * `admin_username` (`str`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
-      * `computer_name_prefix` (`str`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
-      * `custom_data` (`str`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
-    """
-    os_profile_linux_config: pulumi.Output[dict]
-    """
-    A Linux config block as documented below.
-
-      * `disable_password_authentication` (`bool`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
-      * `sshKeys` (`list`) - Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
-        * `keyData` (`str`)
-        * `path` (`str`)
-    """
-    os_profile_secrets: pulumi.Output[list]
-    """
-    A collection of Secret blocks as documented below.
-
-      * `sourceVaultId` (`str`) - Specifies the key vault to use.
-      * `vaultCertificates` (`list`) - A collection of Vault Certificates as documented below
-        * `certificateStore` (`str`) - Specifies the certificate store on the Virtual Machine where the certificate should be added to.
-        * `certificateUrl` (`str`) - It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
-    """
-    os_profile_windows_config: pulumi.Output[dict]
-    """
-    A Windows config block as documented below.
-
-      * `additionalUnattendConfigs` (`list`) - An Additional Unattended Config block as documented below.
-        * `component` (`str`) - Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
-        * `content` (`str`) - Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
-        * `pass` (`str`) - Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
-        * `settingName` (`str`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
-
-      * `enableAutomaticUpgrades` (`bool`) - Indicates whether virtual machines in the scale set are enabled for automatic updates.
-      * `provision_vm_agent` (`bool`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
-      * `winrms` (`list`) - A collection of WinRM configuration blocks as documented below.
-        * `certificateUrl` (`str`) - Specifies URL of the certificate with which new Virtual Machines is provisioned.
-        * `protocol` (`str`) - Specifies the protocol of listener
-    """
-    overprovision: pulumi.Output[bool]
-    """
-    Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
-    """
-    plan: pulumi.Output[dict]
-    """
-    A plan block as documented below.
-
-      * `name` (`str`) - Specifies the name of the image from the marketplace.
-      * `product` (`str`) - Specifies the product of the image from the marketplace.
-      * `publisher` (`str`) - Specifies the publisher of the image.
-    """
-    priority: pulumi.Output[str]
-    """
-    Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
-    """
-    proximity_placement_group_id: pulumi.Output[str]
-    """
-    The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-    """
-    rolling_upgrade_policy: pulumi.Output[dict]
-    """
-    A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
-
-      * `maxBatchInstancePercent` (`float`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
-      * `maxUnhealthyInstancePercent` (`float`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
-      * `maxUnhealthyUpgradedInstancePercent` (`float`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
-      * `pauseTimeBetweenBatches` (`str`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
-    """
-    single_placement_group: pulumi.Output[bool]
-    """
-    Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-    """
-    sku: pulumi.Output[dict]
-    """
-    A sku block as documented below.
-
-      * `capacity` (`float`) - Specifies the number of virtual machines in the scale set.
-      * `name` (`str`) - Specifies the size of virtual machines in a scale set.
-      * `tier` (`str`) - Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
-    """
-    storage_profile_data_disks: pulumi.Output[list]
-    """
-    A storage profile data disk block as documented below
-
-      * `caching` (`str`) - Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-      * `create_option` (`str`) - Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
-      * `disk_size_gb` (`float`) - Specifies the size of the disk in GB. This element is required when creating an empty disk.
-      * `lun` (`float`) - Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
-      * `managedDiskType` (`str`) - Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
-    """
-    storage_profile_image_reference: pulumi.Output[dict]
-    """
-    A storage profile image reference block as documented below.
-
-      * `id` (`str`) - Specifies the ID of the (custom) image to use to create the virtual
-        machine scale set, as in the example below.
-      * `offer` (`str`) - Specifies the offer of the image used to create the virtual machines.
-      * `publisher` (`str`) - Specifies the publisher of the image used to create the virtual machines.
-      * `sku` (`str`) - Specifies the SKU of the image used to create the virtual machines.
-      * `version` (`str`) - Specifies the version of the image used to create the virtual machines.
-    """
-    storage_profile_os_disk: pulumi.Output[dict]
-    """
-    A storage profile os disk block as documented below
-
-      * `caching` (`str`) - Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-      * `create_option` (`str`) - Specifies how the virtual machine should be created. The only possible option is `FromImage`.
-      * `image` (`str`) - Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
-        Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-        When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
-      * `managedDiskType` (`str`) - Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
-      * `name` (`str`) - Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
-      * `os_type` (`str`) - Specifies the operating system Type, valid values are windows, linux.
-      * `vhdContainers` (`list`) - Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    upgrade_policy_mode: pulumi.Output[str]
-    """
-    Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-    """
-    zones: pulumi.Output[list]
-    """
-    A collection of availability zones to spread the Virtual Machines over.
-    """
-    def __init__(__self__, resource_name, opts=None, automatic_os_upgrade=None, boot_diagnostics=None, eviction_policy=None, extensions=None, health_probe_id=None, identity=None, license_type=None, location=None, name=None, network_profiles=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, overprovision=None, plan=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, single_placement_group=None, sku=None, storage_profile_data_disks=None, storage_profile_image_reference=None, storage_profile_os_disk=None, tags=None, upgrade_policy_mode=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']]] = None,
+                 eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]]] = None,
+                 health_probe_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]]] = None,
+                 os_profile: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']]] = None,
+                 os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']]] = None,
+                 os_profile_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]]] = None,
+                 os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']]] = None,
+                 overprovision: Optional[pulumi.Input[bool]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
+                 proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']]] = None,
+                 single_placement_group: Optional[pulumi.Input[bool]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']]] = None,
+                 storage_profile_data_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]]] = None,
+                 storage_profile_image_reference: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']]] = None,
+                 storage_profile_os_disk: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
+                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a virtual machine scale set.
 
@@ -252,10 +82,10 @@ class ScaleSet(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[{
-                "name": "PublicIPAddress",
-                "public_ip_address_id": example_public_ip.id,
-            }])
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="PublicIPAddress",
+                public_ip_address_id=example_public_ip.id,
+            )])
         bpepool = azure.lb.BackendAddressPool("bpepool",
             resource_group_name=example_resource_group.name,
             loadbalancer_id=example_load_balancer.id)
@@ -278,58 +108,58 @@ class ScaleSet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             automatic_os_upgrade=True,
             upgrade_policy_mode="Rolling",
-            rolling_upgrade_policy={
-                "maxBatchInstancePercent": 20,
-                "maxUnhealthyInstancePercent": 20,
-                "maxUnhealthyUpgradedInstancePercent": 5,
-                "pauseTimeBetweenBatches": "PT0S",
-            },
+            rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArgs(
+                max_batch_instance_percent=20,
+                max_unhealthy_instance_percent=20,
+                max_unhealthy_upgraded_instance_percent=5,
+                pause_time_between_batches="PT0S",
+            ),
             health_probe_id=example_probe.id,
-            sku={
-                "name": "Standard_F2",
-                "tier": "Standard",
-                "capacity": 2,
-            },
-            storage_profile_image_reference={
-                "publisher": "Canonical",
-                "offer": "UbuntuServer",
-                "sku": "16.04-LTS",
-                "version": "latest",
-            },
-            storage_profile_os_disk={
-                "name": "",
-                "caching": "ReadWrite",
-                "create_option": "FromImage",
-                "managedDiskType": "Standard_LRS",
-            },
-            storage_profile_data_disks=[{
-                "lun": 0,
-                "caching": "ReadWrite",
-                "create_option": "Empty",
-                "disk_size_gb": 10,
-            }],
-            os_profile={
-                "computer_name_prefix": "testvm",
-                "admin_username": "myadmin",
-            },
-            os_profile_linux_config={
-                "disable_password_authentication": True,
-                "sshKeys": [{
-                    "path": "/home/myadmin/.ssh/authorized_keys",
-                    "keyData": (lambda path: open(path).read())("~/.ssh/demo_key.pub"),
-                }],
-            },
-            network_profiles=[{
-                "name": "mynetworkprofile",
-                "primary": True,
-                "ip_configurations": [{
+            sku=azure.compute.ScaleSetSkuArgs(
+                name="Standard_F2",
+                tier="Standard",
+                capacity=2,
+            ),
+            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04-LTS",
+                version="latest",
+            ),
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+                name="",
+                caching="ReadWrite",
+                create_option="FromImage",
+                managed_disk_type="Standard_LRS",
+            ),
+            storage_profile_data_disks=[azure.compute.ScaleSetStorageProfileDataDiskArgs(
+                lun=0,
+                caching="ReadWrite",
+                create_option="Empty",
+                disk_size_gb=10,
+            )],
+            os_profile=azure.compute.ScaleSetOsProfileArgs(
+                computer_name_prefix="testvm",
+                admin_username="myadmin",
+            ),
+            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
+                disable_password_authentication=True,
+                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
+                    path="/home/myadmin/.ssh/authorized_keys",
+                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
+                )],
+            ),
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+                name="mynetworkprofile",
+                primary=True,
+                ip_configurations=[{
                     "name": "TestIPConfiguration",
                     "primary": True,
                     "subnet_id": example_subnet.id,
                     "loadBalancerBackendAddressPoolIds": [bpepool.id],
                     "loadBalancerInboundNatRulesIds": [lbnatpool.id],
                 }],
-            }],
+            )],
             tags={
                 "environment": "staging",
             })
@@ -364,43 +194,43 @@ class ScaleSet(pulumi.CustomResource):
             location="West US",
             resource_group_name=example_resource_group.name,
             upgrade_policy_mode="Manual",
-            sku={
-                "name": "Standard_F2",
-                "tier": "Standard",
-                "capacity": 2,
-            },
-            os_profile={
-                "computer_name_prefix": "testvm",
-                "admin_username": "myadmin",
-            },
-            os_profile_linux_config={
-                "disable_password_authentication": True,
-                "sshKeys": [{
-                    "path": "/home/myadmin/.ssh/authorized_keys",
-                    "keyData": (lambda path: open(path).read())("~/.ssh/demo_key.pub"),
-                }],
-            },
-            network_profiles=[{
-                "name": "TestNetworkProfile",
-                "primary": True,
-                "ip_configurations": [{
+            sku=azure.compute.ScaleSetSkuArgs(
+                name="Standard_F2",
+                tier="Standard",
+                capacity=2,
+            ),
+            os_profile=azure.compute.ScaleSetOsProfileArgs(
+                computer_name_prefix="testvm",
+                admin_username="myadmin",
+            ),
+            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
+                disable_password_authentication=True,
+                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
+                    path="/home/myadmin/.ssh/authorized_keys",
+                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
+                )],
+            ),
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[{
                     "name": "TestIPConfiguration",
                     "primary": True,
                     "subnet_id": example_subnet.id,
                 }],
-            }],
-            storage_profile_os_disk={
-                "name": "osDiskProfile",
-                "caching": "ReadWrite",
-                "create_option": "FromImage",
-                "vhdContainers": [pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
-            },
-            storage_profile_image_reference={
-                "publisher": "Canonical",
-                "offer": "UbuntuServer",
-                "sku": "16.04-LTS",
-                "version": "latest",
-            })
+            )],
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+                name="osDiskProfile",
+                caching="ReadWrite",
+                create_option="FromImage",
+                vhd_containers=[pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
+            ),
+            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04-LTS",
+                version="latest",
+            ))
         ```
         ## Example of storage_profile_image_reference with id
 
@@ -410,171 +240,41 @@ class ScaleSet(pulumi.CustomResource):
 
         example_image = azure.compute.Image("exampleImage")
         # ...
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference={
-            "id": example_image.id,
-        })
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+            id=example_image.id,
+        ))
         # ...
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
-        :param pulumi.Input[dict] boot_diagnostics: A boot diagnostics profile block as referenced below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
-        :param pulumi.Input[list] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[str] license_type: Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] network_profiles: A collection of network profile block as documented below.
-        :param pulumi.Input[dict] os_profile: A Virtual Machine OS Profile block as documented below.
-        :param pulumi.Input[dict] os_profile_linux_config: A Linux config block as documented below.
-        :param pulumi.Input[list] os_profile_secrets: A collection of Secret blocks as documented below.
-        :param pulumi.Input[dict] os_profile_windows_config: A Windows config block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]] network_profiles: A collection of network profile block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']] os_profile: A Virtual Machine OS Profile block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']] os_profile_linux_config: A Linux config block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]] os_profile_secrets: A collection of Secret blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
-        :param pulumi.Input[dict] plan: A plan block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']] plan: A plan block as documented below.
         :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+        :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input[dict] sku: A sku block as documented below.
-        :param pulumi.Input[list] storage_profile_data_disks: A storage profile data disk block as documented below
-        :param pulumi.Input[dict] storage_profile_image_reference: A storage profile image reference block as documented below.
-        :param pulumi.Input[dict] storage_profile_os_disk: A storage profile os disk block as documented below
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']] sku: A sku block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]] storage_profile_data_disks: A storage profile data disk block as documented below
+        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']] storage_profile_image_reference: A storage profile image reference block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']] storage_profile_os_disk: A storage profile os disk block as documented below
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-        :param pulumi.Input[list] zones: A collection of availability zones to spread the Virtual Machines over.
-
-        The **boot_diagnostics** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`)
-          * `storageUri` (`pulumi.Input[str]`)
-
-        The **extensions** object supports the following:
-
-          * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Specifies whether or not to use the latest minor version available.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the extension.
-          * `protected_settings` (`pulumi.Input[str]`) - The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
-          * `provision_after_extensions` (`pulumi.Input[list]`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
-          * `publisher` (`pulumi.Input[str]`) - The publisher of the extension, available publishers can be found by using the Azure CLI.
-          * `settings` (`pulumi.Input[str]`) - The settings passed to the extension, these are specified as a JSON object in a string.
-          * `type` (`pulumi.Input[str]`) - The type of extension, available types for a publisher can be found using the Azure CLI.
-          * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the extension to use, available versions can be found using the Azure CLI.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`) - Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
-          * `principal_id` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
-
-        The **network_profiles** object supports the following:
-
-          * `acceleratedNetworking` (`pulumi.Input[bool]`) - Specifies whether to enable accelerated networking or not. Defaults to `false`.
-          * `dnsSettings` (`pulumi.Input[dict]`) - A dns_settings block as documented below.
-            * `dns_servers` (`pulumi.Input[list]`) - Specifies an array of dns servers.
-
-          * `ip_configurations` (`pulumi.Input[list]`) - An ip_configuration block as documented below.
-            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
-            * `applicationSecurityGroupIds` (`pulumi.Input[list]`) - Specifies up to `20` application security group IDs.
-            * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`) - Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-            * `name` (`pulumi.Input[str]`) - Specifies name of the IP configuration.
-            * `primary` (`pulumi.Input[bool]`) - Specifies if this ip_configuration is the primary one.
-            * `publicIpAddressConfiguration` (`pulumi.Input[dict]`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
-              * `domain_name_label` (`pulumi.Input[str]`) - The domain name label for the dns settings.
-              * `idleTimeout` (`pulumi.Input[float]`) - The idle timeout in minutes. This value must be between 4 and 30.
-              * `name` (`pulumi.Input[str]`) - The name of the public ip address configuration
-
-            * `subnet_id` (`pulumi.Input[str]`) - Specifies the identifier of the subnet.
-
-          * `ipForwarding` (`pulumi.Input[bool]`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the network interface configuration.
-          * `network_security_group_id` (`pulumi.Input[str]`) - Specifies the identifier for the network security group.
-          * `primary` (`pulumi.Input[bool]`) - Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
-
-        The **os_profile** object supports the following:
-
-          * `admin_password` (`pulumi.Input[str]`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
-          * `admin_username` (`pulumi.Input[str]`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
-          * `computer_name_prefix` (`pulumi.Input[str]`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
-          * `custom_data` (`pulumi.Input[str]`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
-
-        The **os_profile_linux_config** object supports the following:
-
-          * `disable_password_authentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
-          * `sshKeys` (`pulumi.Input[list]`) - Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
-            * `keyData` (`pulumi.Input[str]`)
-            * `path` (`pulumi.Input[str]`)
-
-        The **os_profile_secrets** object supports the following:
-
-          * `sourceVaultId` (`pulumi.Input[str]`) - Specifies the key vault to use.
-          * `vaultCertificates` (`pulumi.Input[list]`) - A collection of Vault Certificates as documented below
-            * `certificateStore` (`pulumi.Input[str]`) - Specifies the certificate store on the Virtual Machine where the certificate should be added to.
-            * `certificateUrl` (`pulumi.Input[str]`) - It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
-
-        The **os_profile_windows_config** object supports the following:
-
-          * `additionalUnattendConfigs` (`pulumi.Input[list]`) - An Additional Unattended Config block as documented below.
-            * `component` (`pulumi.Input[str]`) - Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
-            * `content` (`pulumi.Input[str]`) - Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
-            * `pass` (`pulumi.Input[str]`) - Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
-            * `settingName` (`pulumi.Input[str]`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
-
-          * `enableAutomaticUpgrades` (`pulumi.Input[bool]`) - Indicates whether virtual machines in the scale set are enabled for automatic updates.
-          * `provision_vm_agent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
-          * `winrms` (`pulumi.Input[list]`) - A collection of WinRM configuration blocks as documented below.
-            * `certificateUrl` (`pulumi.Input[str]`) - Specifies URL of the certificate with which new Virtual Machines is provisioned.
-            * `protocol` (`pulumi.Input[str]`) - Specifies the protocol of listener
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
-          * `product` (`pulumi.Input[str]`) - Specifies the product of the image from the marketplace.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image.
-
-        The **rolling_upgrade_policy** object supports the following:
-
-          * `maxBatchInstancePercent` (`pulumi.Input[float]`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
-          * `maxUnhealthyInstancePercent` (`pulumi.Input[float]`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
-          * `maxUnhealthyUpgradedInstancePercent` (`pulumi.Input[float]`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
-          * `pauseTimeBetweenBatches` (`pulumi.Input[str]`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Specifies the number of virtual machines in the scale set.
-          * `name` (`pulumi.Input[str]`) - Specifies the size of virtual machines in a scale set.
-          * `tier` (`pulumi.Input[str]`) - Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
-
-        The **storage_profile_data_disks** object supports the following:
-
-          * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-          * `create_option` (`pulumi.Input[str]`) - Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
-          * `disk_size_gb` (`pulumi.Input[float]`) - Specifies the size of the disk in GB. This element is required when creating an empty disk.
-          * `lun` (`pulumi.Input[float]`) - Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
-          * `managedDiskType` (`pulumi.Input[str]`) - Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
-
-        The **storage_profile_image_reference** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Specifies the ID of the (custom) image to use to create the virtual
-            machine scale set, as in the example below.
-          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
-          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
-          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
-
-        The **storage_profile_os_disk** object supports the following:
-
-          * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-          * `create_option` (`pulumi.Input[str]`) - Specifies how the virtual machine should be created. The only possible option is `FromImage`.
-          * `image` (`pulumi.Input[str]`) - Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
-            Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-            When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
-          * `managedDiskType` (`pulumi.Input[str]`) - Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
-          * `name` (`pulumi.Input[str]`) - Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
-          * `os_type` (`pulumi.Input[str]`) - Specifies the operating system Type, valid values are windows, linux.
-          * `vhdContainers` (`pulumi.Input[list]`) - Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -587,7 +287,7 @@ class ScaleSet(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -640,171 +340,71 @@ class ScaleSet(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, automatic_os_upgrade=None, boot_diagnostics=None, eviction_policy=None, extensions=None, health_probe_id=None, identity=None, license_type=None, location=None, name=None, network_profiles=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, overprovision=None, plan=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, rolling_upgrade_policy=None, single_placement_group=None, sku=None, storage_profile_data_disks=None, storage_profile_image_reference=None, storage_profile_os_disk=None, tags=None, upgrade_policy_mode=None, zones=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
+            boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']]] = None,
+            eviction_policy: Optional[pulumi.Input[str]] = None,
+            extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]]] = None,
+            health_probe_id: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']]] = None,
+            license_type: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            network_profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]]] = None,
+            os_profile: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']]] = None,
+            os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']]] = None,
+            os_profile_secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]]] = None,
+            os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']]] = None,
+            overprovision: Optional[pulumi.Input[bool]] = None,
+            plan: Optional[pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']]] = None,
+            priority: Optional[pulumi.Input[str]] = None,
+            proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']]] = None,
+            single_placement_group: Optional[pulumi.Input[bool]] = None,
+            sku: Optional[pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']]] = None,
+            storage_profile_data_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]]] = None,
+            storage_profile_image_reference: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']]] = None,
+            storage_profile_os_disk: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
+            zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ScaleSet':
         """
         Get an existing ScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
-        :param pulumi.Input[dict] boot_diagnostics: A boot diagnostics profile block as referenced below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
-        :param pulumi.Input[list] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[str] license_type: Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] network_profiles: A collection of network profile block as documented below.
-        :param pulumi.Input[dict] os_profile: A Virtual Machine OS Profile block as documented below.
-        :param pulumi.Input[dict] os_profile_linux_config: A Linux config block as documented below.
-        :param pulumi.Input[list] os_profile_secrets: A collection of Secret blocks as documented below.
-        :param pulumi.Input[dict] os_profile_windows_config: A Windows config block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]] network_profiles: A collection of network profile block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']] os_profile: A Virtual Machine OS Profile block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']] os_profile_linux_config: A Linux config block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]] os_profile_secrets: A collection of Secret blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
-        :param pulumi.Input[dict] plan: A plan block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']] plan: A plan block as documented below.
         :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+        :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input[dict] sku: A sku block as documented below.
-        :param pulumi.Input[list] storage_profile_data_disks: A storage profile data disk block as documented below
-        :param pulumi.Input[dict] storage_profile_image_reference: A storage profile image reference block as documented below.
-        :param pulumi.Input[dict] storage_profile_os_disk: A storage profile os disk block as documented below
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']] sku: A sku block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]] storage_profile_data_disks: A storage profile data disk block as documented below
+        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']] storage_profile_image_reference: A storage profile image reference block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']] storage_profile_os_disk: A storage profile os disk block as documented below
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
-        :param pulumi.Input[list] zones: A collection of availability zones to spread the Virtual Machines over.
-
-        The **boot_diagnostics** object supports the following:
-
-          * `enabled` (`pulumi.Input[bool]`)
-          * `storageUri` (`pulumi.Input[str]`)
-
-        The **extensions** object supports the following:
-
-          * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Specifies whether or not to use the latest minor version available.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the extension.
-          * `protected_settings` (`pulumi.Input[str]`) - The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
-          * `provision_after_extensions` (`pulumi.Input[list]`) - Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
-          * `publisher` (`pulumi.Input[str]`) - The publisher of the extension, available publishers can be found by using the Azure CLI.
-          * `settings` (`pulumi.Input[str]`) - The settings passed to the extension, these are specified as a JSON object in a string.
-          * `type` (`pulumi.Input[str]`) - The type of extension, available types for a publisher can be found using the Azure CLI.
-          * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the extension to use, available versions can be found using the Azure CLI.
-
-        The **identity** object supports the following:
-
-          * `identityIds` (`pulumi.Input[list]`) - Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
-          * `principal_id` (`pulumi.Input[str]`)
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
-
-        The **network_profiles** object supports the following:
-
-          * `acceleratedNetworking` (`pulumi.Input[bool]`) - Specifies whether to enable accelerated networking or not. Defaults to `false`.
-          * `dnsSettings` (`pulumi.Input[dict]`) - A dns_settings block as documented below.
-            * `dns_servers` (`pulumi.Input[list]`) - Specifies an array of dns servers.
-
-          * `ip_configurations` (`pulumi.Input[list]`) - An ip_configuration block as documented below.
-            * `applicationGatewayBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
-            * `applicationSecurityGroupIds` (`pulumi.Input[list]`) - Specifies up to `20` application security group IDs.
-            * `loadBalancerBackendAddressPoolIds` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-            * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`) - Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-            * `name` (`pulumi.Input[str]`) - Specifies name of the IP configuration.
-            * `primary` (`pulumi.Input[bool]`) - Specifies if this ip_configuration is the primary one.
-            * `publicIpAddressConfiguration` (`pulumi.Input[dict]`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
-              * `domain_name_label` (`pulumi.Input[str]`) - The domain name label for the dns settings.
-              * `idleTimeout` (`pulumi.Input[float]`) - The idle timeout in minutes. This value must be between 4 and 30.
-              * `name` (`pulumi.Input[str]`) - The name of the public ip address configuration
-
-            * `subnet_id` (`pulumi.Input[str]`) - Specifies the identifier of the subnet.
-
-          * `ipForwarding` (`pulumi.Input[bool]`) - Whether IP forwarding is enabled on this NIC. Defaults to `false`.
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the network interface configuration.
-          * `network_security_group_id` (`pulumi.Input[str]`) - Specifies the identifier for the network security group.
-          * `primary` (`pulumi.Input[bool]`) - Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
-
-        The **os_profile** object supports the following:
-
-          * `admin_password` (`pulumi.Input[str]`) - Specifies the administrator password to use for all the instances of virtual machines in a scale set.
-          * `admin_username` (`pulumi.Input[str]`) - Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
-          * `computer_name_prefix` (`pulumi.Input[str]`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for linux. Changing this forces a new resource to be created.
-          * `custom_data` (`pulumi.Input[str]`) - Specifies custom data to supply to the machine. On linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
-
-        The **os_profile_linux_config** object supports the following:
-
-          * `disable_password_authentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
-          * `sshKeys` (`pulumi.Input[list]`) - Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
-            * `keyData` (`pulumi.Input[str]`)
-            * `path` (`pulumi.Input[str]`)
-
-        The **os_profile_secrets** object supports the following:
-
-          * `sourceVaultId` (`pulumi.Input[str]`) - Specifies the key vault to use.
-          * `vaultCertificates` (`pulumi.Input[list]`) - A collection of Vault Certificates as documented below
-            * `certificateStore` (`pulumi.Input[str]`) - Specifies the certificate store on the Virtual Machine where the certificate should be added to.
-            * `certificateUrl` (`pulumi.Input[str]`) - It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
-
-        The **os_profile_windows_config** object supports the following:
-
-          * `additionalUnattendConfigs` (`pulumi.Input[list]`) - An Additional Unattended Config block as documented below.
-            * `component` (`pulumi.Input[str]`) - Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
-            * `content` (`pulumi.Input[str]`) - Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
-            * `pass` (`pulumi.Input[str]`) - Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
-            * `settingName` (`pulumi.Input[str]`) - Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
-
-          * `enableAutomaticUpgrades` (`pulumi.Input[bool]`) - Indicates whether virtual machines in the scale set are enabled for automatic updates.
-          * `provision_vm_agent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
-          * `winrms` (`pulumi.Input[list]`) - A collection of WinRM configuration blocks as documented below.
-            * `certificateUrl` (`pulumi.Input[str]`) - Specifies URL of the certificate with which new Virtual Machines is provisioned.
-            * `protocol` (`pulumi.Input[str]`) - Specifies the protocol of listener
-
-        The **plan** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the image from the marketplace.
-          * `product` (`pulumi.Input[str]`) - Specifies the product of the image from the marketplace.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image.
-
-        The **rolling_upgrade_policy** object supports the following:
-
-          * `maxBatchInstancePercent` (`pulumi.Input[float]`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
-          * `maxUnhealthyInstancePercent` (`pulumi.Input[float]`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
-          * `maxUnhealthyUpgradedInstancePercent` (`pulumi.Input[float]`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
-          * `pauseTimeBetweenBatches` (`pulumi.Input[str]`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
-
-        The **sku** object supports the following:
-
-          * `capacity` (`pulumi.Input[float]`) - Specifies the number of virtual machines in the scale set.
-          * `name` (`pulumi.Input[str]`) - Specifies the size of virtual machines in a scale set.
-          * `tier` (`pulumi.Input[str]`) - Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
-
-        The **storage_profile_data_disks** object supports the following:
-
-          * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-          * `create_option` (`pulumi.Input[str]`) - Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
-          * `disk_size_gb` (`pulumi.Input[float]`) - Specifies the size of the disk in GB. This element is required when creating an empty disk.
-          * `lun` (`pulumi.Input[float]`) - Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
-          * `managedDiskType` (`pulumi.Input[str]`) - Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
-
-        The **storage_profile_image_reference** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Specifies the ID of the (custom) image to use to create the virtual
-            machine scale set, as in the example below.
-          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
-          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
-          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
-
-        The **storage_profile_os_disk** object supports the following:
-
-          * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-          * `create_option` (`pulumi.Input[str]`) - Specifies how the virtual machine should be created. The only possible option is `FromImage`.
-          * `image` (`pulumi.Input[str]`) - Specifies the blob uri for user image. A virtual machine scale set creates an os disk in the same container as the user image.
-            Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
-            When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
-          * `managedDiskType` (`pulumi.Input[str]`) - Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
-          * `name` (`pulumi.Input[str]`) - Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
-          * `os_type` (`pulumi.Input[str]`) - Specifies the operating system Type, valid values are windows, linux.
-          * `vhdContainers` (`pulumi.Input[list]`) - Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -840,8 +440,230 @@ class ScaleSet(pulumi.CustomResource):
         __props__["zones"] = zones
         return ScaleSet(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="automaticOsUpgrade")
+    def automatic_os_upgrade(self) -> Optional[bool]:
+        """
+        Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+        """
+        return pulumi.get(self, "automatic_os_upgrade")
+
+    @property
+    @pulumi.getter(name="bootDiagnostics")
+    def boot_diagnostics(self) -> Optional['outputs.ScaleSetBootDiagnostics']:
+        """
+        A boot diagnostics profile block as referenced below.
+        """
+        return pulumi.get(self, "boot_diagnostics")
+
+    @property
+    @pulumi.getter(name="evictionPolicy")
+    def eviction_policy(self) -> Optional[str]:
+        """
+        Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+        """
+        return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[List['outputs.ScaleSetExtension']]:
+        """
+        Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter(name="healthProbeId")
+    def health_probe_id(self) -> Optional[str]:
+        """
+        Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+        """
+        return pulumi.get(self, "health_probe_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> 'outputs.ScaleSetIdentity':
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> str:
+        """
+        Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfiles")
+    def network_profiles(self) -> List['outputs.ScaleSetNetworkProfile']:
+        """
+        A collection of network profile block as documented below.
+        """
+        return pulumi.get(self, "network_profiles")
+
+    @property
+    @pulumi.getter(name="osProfile")
+    def os_profile(self) -> 'outputs.ScaleSetOsProfile':
+        """
+        A Virtual Machine OS Profile block as documented below.
+        """
+        return pulumi.get(self, "os_profile")
+
+    @property
+    @pulumi.getter(name="osProfileLinuxConfig")
+    def os_profile_linux_config(self) -> 'outputs.ScaleSetOsProfileLinuxConfig':
+        """
+        A Linux config block as documented below.
+        """
+        return pulumi.get(self, "os_profile_linux_config")
+
+    @property
+    @pulumi.getter(name="osProfileSecrets")
+    def os_profile_secrets(self) -> Optional[List['outputs.ScaleSetOsProfileSecret']]:
+        """
+        A collection of Secret blocks as documented below.
+        """
+        return pulumi.get(self, "os_profile_secrets")
+
+    @property
+    @pulumi.getter(name="osProfileWindowsConfig")
+    def os_profile_windows_config(self) -> Optional['outputs.ScaleSetOsProfileWindowsConfig']:
+        """
+        A Windows config block as documented below.
+        """
+        return pulumi.get(self, "os_profile_windows_config")
+
+    @property
+    @pulumi.getter
+    def overprovision(self) -> Optional[bool]:
+        """
+        Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
+        """
+        return pulumi.get(self, "overprovision")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.ScaleSetPlan']:
+        """
+        A plan block as documented below.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[str]:
+        """
+        Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroupId")
+    def proximity_placement_group_id(self) -> Optional[str]:
+        """
+        The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+        """
+        return pulumi.get(self, "proximity_placement_group_id")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="rollingUpgradePolicy")
+    def rolling_upgrade_policy(self) -> Optional['outputs.ScaleSetRollingUpgradePolicy']:
+        """
+        A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+        """
+        return pulumi.get(self, "rolling_upgrade_policy")
+
+    @property
+    @pulumi.getter(name="singlePlacementGroup")
+    def single_placement_group(self) -> Optional[bool]:
+        """
+        Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+        """
+        return pulumi.get(self, "single_placement_group")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.ScaleSetSku':
+        """
+        A sku block as documented below.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="storageProfileDataDisks")
+    def storage_profile_data_disks(self) -> Optional[List['outputs.ScaleSetStorageProfileDataDisk']]:
+        """
+        A storage profile data disk block as documented below
+        """
+        return pulumi.get(self, "storage_profile_data_disks")
+
+    @property
+    @pulumi.getter(name="storageProfileImageReference")
+    def storage_profile_image_reference(self) -> 'outputs.ScaleSetStorageProfileImageReference':
+        """
+        A storage profile image reference block as documented below.
+        """
+        return pulumi.get(self, "storage_profile_image_reference")
+
+    @property
+    @pulumi.getter(name="storageProfileOsDisk")
+    def storage_profile_os_disk(self) -> 'outputs.ScaleSetStorageProfileOsDisk':
+        """
+        A storage profile os disk block as documented below
+        """
+        return pulumi.get(self, "storage_profile_os_disk")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="upgradePolicyMode")
+    def upgrade_policy_mode(self) -> str:
+        """
+        Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
+        """
+        return pulumi.get(self, "upgrade_policy_mode")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[List[str]]:
+        """
+        A collection of availability zones to spread the Virtual Machines over.
+        """
+        return pulumi.get(self, "zones")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

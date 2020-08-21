@@ -5,68 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['AlertRuleScheduled']
 
 
 class AlertRuleScheduled(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The description of this Sentinel Scheduled Alert Rule.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The friendly name of this Sentinel Scheduled Alert Rule.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
-    """
-    log_analytics_workspace_id: pulumi.Output[str]
-    """
-    The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
-    """
-    query: pulumi.Output[str]
-    """
-    The query of this Sentinel Scheduled Alert Rule.
-    """
-    query_frequency: pulumi.Output[str]
-    """
-    The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
-    """
-    query_period: pulumi.Output[str]
-    """
-    The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
-    """
-    severity: pulumi.Output[str]
-    """
-    The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
-    """
-    suppression_duration: pulumi.Output[str]
-    """
-    If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
-    """
-    suppression_enabled: pulumi.Output[bool]
-    """
-    Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
-    """
-    tactics: pulumi.Output[list]
-    """
-    A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
-    """
-    trigger_operator: pulumi.Output[str]
-    """
-    The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
-    """
-    trigger_threshold: pulumi.Output[float]
-    """
-    The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, enabled=None, log_analytics_workspace_id=None, name=None, query=None, query_frequency=None, query_period=None, severity=None, suppression_duration=None, suppression_enabled=None, tactics=None, trigger_operator=None, trigger_threshold=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 query_frequency: Optional[pulumi.Input[str]] = None,
+                 query_period: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 suppression_duration: Optional[pulumi.Input[str]] = None,
+                 suppression_enabled: Optional[pulumi.Input[bool]] = None,
+                 tactics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 trigger_operator: Optional[pulumi.Input[str]] = None,
+                 trigger_threshold: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Sentinel Scheduled Alert Rule.
 
@@ -105,7 +70,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         :param pulumi.Input[str] severity: The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
-        :param pulumi.Input[list] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        :param pulumi.Input[List[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
         :param pulumi.Input[str] trigger_operator: The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
         :param pulumi.Input[float] trigger_threshold: The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
         """
@@ -120,7 +85,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -155,13 +120,29 @@ class AlertRuleScheduled(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, display_name=None, enabled=None, log_analytics_workspace_id=None, name=None, query=None, query_frequency=None, query_period=None, severity=None, suppression_duration=None, suppression_enabled=None, tactics=None, trigger_operator=None, trigger_threshold=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            display_name: Optional[pulumi.Input[str]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            query: Optional[pulumi.Input[str]] = None,
+            query_frequency: Optional[pulumi.Input[str]] = None,
+            query_period: Optional[pulumi.Input[str]] = None,
+            severity: Optional[pulumi.Input[str]] = None,
+            suppression_duration: Optional[pulumi.Input[str]] = None,
+            suppression_enabled: Optional[pulumi.Input[bool]] = None,
+            tactics: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            trigger_operator: Optional[pulumi.Input[str]] = None,
+            trigger_threshold: Optional[pulumi.Input[float]] = None) -> 'AlertRuleScheduled':
         """
         Get an existing AlertRuleScheduled resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Sentinel Scheduled Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel Scheduled Alert Rule.
@@ -174,7 +155,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
         :param pulumi.Input[str] severity: The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
-        :param pulumi.Input[list] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        :param pulumi.Input[List[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
         :param pulumi.Input[str] trigger_operator: The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
         :param pulumi.Input[float] trigger_threshold: The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
         """
@@ -198,8 +179,121 @@ class AlertRuleScheduled(pulumi.CustomResource):
         __props__["trigger_threshold"] = trigger_threshold
         return AlertRuleScheduled(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of this Sentinel Scheduled Alert Rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The friendly name of this Sentinel Scheduled Alert Rule.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The query of this Sentinel Scheduled Alert Rule.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="queryFrequency")
+    def query_frequency(self) -> Optional[str]:
+        """
+        The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
+        """
+        return pulumi.get(self, "query_frequency")
+
+    @property
+    @pulumi.getter(name="queryPeriod")
+    def query_period(self) -> Optional[str]:
+        """
+        The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+        """
+        return pulumi.get(self, "query_period")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="suppressionDuration")
+    def suppression_duration(self) -> Optional[str]:
+        """
+        If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        """
+        return pulumi.get(self, "suppression_duration")
+
+    @property
+    @pulumi.getter(name="suppressionEnabled")
+    def suppression_enabled(self) -> Optional[bool]:
+        """
+        Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
+        """
+        return pulumi.get(self, "suppression_enabled")
+
+    @property
+    @pulumi.getter
+    def tactics(self) -> Optional[List[str]]:
+        """
+        A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+        """
+        return pulumi.get(self, "tactics")
+
+    @property
+    @pulumi.getter(name="triggerOperator")
+    def trigger_operator(self) -> Optional[str]:
+        """
+        The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+        """
+        return pulumi.get(self, "trigger_operator")
+
+    @property
+    @pulumi.getter(name="triggerThreshold")
+    def trigger_threshold(self) -> Optional[float]:
+        """
+        The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
+        """
+        return pulumi.get(self, "trigger_threshold")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

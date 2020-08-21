@@ -12,3 +12,5 @@ from .policy import *
 from .schedule import *
 from .virtual_network import *
 from .windows_virtual_machine import *
+from ._inputs import *
+from . import outputs

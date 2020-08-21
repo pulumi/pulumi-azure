@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetBackendAddressPoolResult',
+    'AwaitableGetBackendAddressPoolResult',
+    'get_backend_address_pool',
+]
+
+@pulumi.output_type
 class GetBackendAddressPoolResult:
     """
     A collection of values returned by getBackendAddressPool.
@@ -15,25 +23,47 @@ class GetBackendAddressPoolResult:
     def __init__(__self__, backend_ip_configurations=None, id=None, loadbalancer_id=None, name=None):
         if backend_ip_configurations and not isinstance(backend_ip_configurations, list):
             raise TypeError("Expected argument 'backend_ip_configurations' to be a list")
-        __self__.backend_ip_configurations = backend_ip_configurations
+        pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if loadbalancer_id and not isinstance(loadbalancer_id, str):
+            raise TypeError("Expected argument 'loadbalancer_id' to be a str")
+        pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="backendIpConfigurations")
+    def backend_ip_configurations(self) -> List['outputs.GetBackendAddressPoolBackendIpConfigurationResult']:
         """
         An array of references to IP addresses defined in network interfaces.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "backend_ip_configurations")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if loadbalancer_id and not isinstance(loadbalancer_id, str):
-            raise TypeError("Expected argument 'loadbalancer_id' to be a str")
-        __self__.loadbalancer_id = loadbalancer_id
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="loadbalancerId")
+    def loadbalancer_id(self) -> str:
+        return pulumi.get(self, "loadbalancer_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The name of the Backend Address Pool.
         """
+        return pulumi.get(self, "name")
+
+
 class AwaitableGetBackendAddressPoolResult(GetBackendAddressPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -45,7 +75,10 @@ class AwaitableGetBackendAddressPoolResult(GetBackendAddressPoolResult):
             loadbalancer_id=self.loadbalancer_id,
             name=self.name)
 
-def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
+
+def get_backend_address_pool(loadbalancer_id: Optional[str] = None,
+                             name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackendAddressPoolResult:
     """
     Use this data source to access information about an existing Load Balancer's Backend Address Pool.
 
@@ -68,18 +101,16 @@ def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     :param str name: Specifies the name of the Backend Address Pool.
     """
     __args__ = dict()
-
-
     __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts, typ=GetBackendAddressPoolResult).value
 
     return AwaitableGetBackendAddressPoolResult(
-        backend_ip_configurations=__ret__.get('backendIpConfigurations'),
-        id=__ret__.get('id'),
-        loadbalancer_id=__ret__.get('loadbalancerId'),
-        name=__ret__.get('name'))
+        backend_ip_configurations=__ret__.backend_ip_configurations,
+        id=__ret__.id,
+        loadbalancer_id=__ret__.loadbalancer_id,
+        name=__ret__.name)

@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetKubernetesServiceVersionsResult',
+    'AwaitableGetKubernetesServiceVersionsResult',
+    'get_kubernetes_service_versions',
+]
+
+@pulumi.output_type
 class GetKubernetesServiceVersionsResult:
     """
     A collection of values returned by getKubernetesServiceVersions.
@@ -15,31 +22,63 @@ class GetKubernetesServiceVersionsResult:
     def __init__(__self__, id=None, include_preview=None, latest_version=None, location=None, version_prefix=None, versions=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if include_preview and not isinstance(include_preview, bool):
+            raise TypeError("Expected argument 'include_preview' to be a bool")
+        pulumi.set(__self__, "include_preview", include_preview)
+        if latest_version and not isinstance(latest_version, str):
+            raise TypeError("Expected argument 'latest_version' to be a str")
+        pulumi.set(__self__, "latest_version", latest_version)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if version_prefix and not isinstance(version_prefix, str):
+            raise TypeError("Expected argument 'version_prefix' to be a str")
+        pulumi.set(__self__, "version_prefix", version_prefix)
+        if versions and not isinstance(versions, list):
+            raise TypeError("Expected argument 'versions' to be a list")
+        pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if include_preview and not isinstance(include_preview, bool):
-            raise TypeError("Expected argument 'include_preview' to be a bool")
-        __self__.include_preview = include_preview
-        if latest_version and not isinstance(latest_version, str):
-            raise TypeError("Expected argument 'latest_version' to be a str")
-        __self__.latest_version = latest_version
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includePreview")
+    def include_preview(self) -> Optional[bool]:
+        return pulumi.get(self, "include_preview")
+
+    @property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> str:
         """
         The most recent version available. If `include_preview == false`, this is the most recent non-preview version available.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        if version_prefix and not isinstance(version_prefix, str):
-            raise TypeError("Expected argument 'version_prefix' to be a str")
-        __self__.version_prefix = version_prefix
-        if versions and not isinstance(versions, list):
-            raise TypeError("Expected argument 'versions' to be a list")
-        __self__.versions = versions
+        return pulumi.get(self, "latest_version")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="versionPrefix")
+    def version_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "version_prefix")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> List[str]:
         """
         The list of all supported versions.
         """
+        return pulumi.get(self, "versions")
+
+
 class AwaitableGetKubernetesServiceVersionsResult(GetKubernetesServiceVersionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -53,7 +92,11 @@ class AwaitableGetKubernetesServiceVersionsResult(GetKubernetesServiceVersionsRe
             version_prefix=self.version_prefix,
             versions=self.versions)
 
-def get_kubernetes_service_versions(include_preview=None,location=None,version_prefix=None,opts=None):
+
+def get_kubernetes_service_versions(include_preview: Optional[bool] = None,
+                                    location: Optional[str] = None,
+                                    version_prefix: Optional[str] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesServiceVersionsResult:
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
 
@@ -74,21 +117,19 @@ def get_kubernetes_service_versions(include_preview=None,location=None,version_p
     :param str version_prefix: A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
     """
     __args__ = dict()
-
-
     __args__['includePreview'] = include_preview
     __args__['location'] = location
     __args__['versionPrefix'] = version_prefix
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts, typ=GetKubernetesServiceVersionsResult).value
 
     return AwaitableGetKubernetesServiceVersionsResult(
-        id=__ret__.get('id'),
-        include_preview=__ret__.get('includePreview'),
-        latest_version=__ret__.get('latestVersion'),
-        location=__ret__.get('location'),
-        version_prefix=__ret__.get('versionPrefix'),
-        versions=__ret__.get('versions'))
+        id=__ret__.id,
+        include_preview=__ret__.include_preview,
+        latest_version=__ret__.latest_version,
+        location=__ret__.location,
+        version_prefix=__ret__.version_prefix,
+        versions=__ret__.versions)

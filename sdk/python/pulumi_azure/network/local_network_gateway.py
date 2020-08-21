@@ -5,52 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['LocalNetworkGateway']
 
 
 class LocalNetworkGateway(pulumi.CustomResource):
-    address_spaces: pulumi.Output[list]
-    """
-    The list of string CIDRs representing the
-    address spaces the gateway exposes.
-    """
-    bgp_settings: pulumi.Output[dict]
-    """
-    A `bgp_settings` block as defined below containing the
-    Local Network Gateway's BGP speaker settings.
-
-      * `asn` (`float`) - The BGP speaker's ASN.
-      * `bgpPeeringAddress` (`str`) - The BGP peering address and BGP identifier
-        of this BGP speaker.
-      * `peerWeight` (`float`) - The weight added to routes learned from this
-        BGP speaker.
-    """
-    gateway_address: pulumi.Output[str]
-    """
-    The IP address of the gateway to which to
-    connect.
-    """
-    location: pulumi.Output[str]
-    """
-    The location/region where the local network gateway is
-    created. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the local network gateway. Changing this
-    forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to
-    create the local network gateway.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, address_spaces=None, bgp_settings=None, gateway_address=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address_spaces: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']]] = None,
+                 gateway_address: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a local network gateway connection over which specific connections can be configured.
 
@@ -70,9 +46,9 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] address_spaces: The list of string CIDRs representing the
+        :param pulumi.Input[List[pulumi.Input[str]]] address_spaces: The list of string CIDRs representing the
                address spaces the gateway exposes.
-        :param pulumi.Input[dict] bgp_settings: A `bgp_settings` block as defined below containing the
+        :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below containing the
                Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The IP address of the gateway to which to
                connect.
@@ -82,15 +58,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
                forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the local network gateway.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **bgp_settings** object supports the following:
-
-          * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
-          * `bgpPeeringAddress` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier
-            of this BGP speaker.
-          * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes learned from this
-            BGP speaker.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,7 +71,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -129,17 +97,26 @@ class LocalNetworkGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, address_spaces=None, bgp_settings=None, gateway_address=None, location=None, name=None, resource_group_name=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address_spaces: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']]] = None,
+            gateway_address: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LocalNetworkGateway':
         """
         Get an existing LocalNetworkGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] address_spaces: The list of string CIDRs representing the
+        :param pulumi.Input[List[pulumi.Input[str]]] address_spaces: The list of string CIDRs representing the
                address spaces the gateway exposes.
-        :param pulumi.Input[dict] bgp_settings: A `bgp_settings` block as defined below containing the
+        :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below containing the
                Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The IP address of the gateway to which to
                connect.
@@ -149,15 +126,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
                forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the local network gateway.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **bgp_settings** object supports the following:
-
-          * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
-          * `bgpPeeringAddress` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier
-            of this BGP speaker.
-          * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes learned from this
-            BGP speaker.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -172,8 +141,71 @@ class LocalNetworkGateway(pulumi.CustomResource):
         __props__["tags"] = tags
         return LocalNetworkGateway(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="addressSpaces")
+    def address_spaces(self) -> List[str]:
+        """
+        The list of string CIDRs representing the
+        address spaces the gateway exposes.
+        """
+        return pulumi.get(self, "address_spaces")
+
+    @property
+    @pulumi.getter(name="bgpSettings")
+    def bgp_settings(self) -> Optional['outputs.LocalNetworkGatewayBgpSettings']:
+        """
+        A `bgp_settings` block as defined below containing the
+        Local Network Gateway's BGP speaker settings.
+        """
+        return pulumi.get(self, "bgp_settings")
+
+    @property
+    @pulumi.getter(name="gatewayAddress")
+    def gateway_address(self) -> str:
+        """
+        The IP address of the gateway to which to
+        connect.
+        """
+        return pulumi.get(self, "gateway_address")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location/region where the local network gateway is
+        created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the local network gateway. Changing this
+        forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to
+        create the local network gateway.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

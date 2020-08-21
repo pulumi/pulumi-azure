@@ -5,40 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Snapshot']
 
 
 class Snapshot(pulumi.CustomResource):
-    account_name: pulumi.Output[str]
-    """
-    The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the NetApp Snapshot. Changing this forces a new resource to be created.
-    """
-    pool_name: pulumi.Output[str]
-    """
-    The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    volume_name: pulumi.Output[str]
-    """
-    The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, account_name=None, location=None, name=None, pool_name=None, resource_group_name=None, tags=None, volume_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a NetApp Snapshot.
 
@@ -57,16 +43,16 @@ class Snapshot(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefix="10.0.2.0/24",
-            delegations=[{
-                "name": "netapp",
-                "serviceDelegation": {
-                    "name": "Microsoft.Netapp/volumes",
-                    "actions": [
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="netapp",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Netapp/volumes",
+                    actions=[
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                },
-            }])
+                ),
+            )])
         example_account = azure.netapp.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
@@ -75,7 +61,7 @@ class Snapshot(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_level="Premium",
-            size_in_tb="4")
+            size_in_tb=4)
         example_volume = azure.netapp.Volume("exampleVolume",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -84,7 +70,7 @@ class Snapshot(pulumi.CustomResource):
             volume_path="my-unique-file-path",
             service_level="Premium",
             subnet_id=azurerm_subnet["test"]["id"],
-            storage_quota_in_gb="100")
+            storage_quota_in_gb=100)
         example_snapshot = azure.netapp.Snapshot("exampleSnapshot",
             account_name=example_account.name,
             pool_name=example_pool.name,
@@ -100,7 +86,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the NetApp Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] volume_name: The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -114,7 +100,7 @@ class Snapshot(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -142,20 +128,29 @@ class Snapshot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, account_name=None, location=None, name=None, pool_name=None, resource_group_name=None, tags=None, volume_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_name: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            pool_name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            volume_name: Optional[pulumi.Input[str]] = None) -> 'Snapshot':
         """
         Get an existing Snapshot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] volume_name: The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -171,8 +166,65 @@ class Snapshot(pulumi.CustomResource):
         __props__["volume_name"] = volume_name
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the NetApp Snapshot. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="poolName")
+    def pool_name(self) -> str:
+        """
+        The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pool_name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> str:
+        """
+        The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "volume_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

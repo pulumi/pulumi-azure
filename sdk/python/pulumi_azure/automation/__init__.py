@@ -25,3 +25,5 @@ from .module import *
 from .run_book import *
 from .schedule import *
 from .string_variable import *
+from ._inputs import *
+from . import outputs

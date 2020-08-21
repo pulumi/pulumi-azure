@@ -5,40 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Container']
 
 
 class Container(pulumi.CustomResource):
-    container_access_type: pulumi.Output[str]
-    """
-    The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
-    """
-    has_immutability_policy: pulumi.Output[bool]
-    """
-    Is there an Immutability Policy configured on this Storage Container?
-    """
-    has_legal_hold: pulumi.Output[bool]
-    """
-    Is there a Legal Hold configured on this Storage Container?
-    """
-    metadata: pulumi.Output[dict]
-    """
-    A mapping of MetaData for this Container.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Container which should be created within the Storage Account.
-    """
-    resource_manager_id: pulumi.Output[str]
-    """
-    The Resource Manager ID of this Storage Container.
-    """
-    storage_account_name: pulumi.Output[str]
-    """
-    The name of the Storage Account where the Container should be created.
-    """
-    def __init__(__self__, resource_name, opts=None, container_access_type=None, metadata=None, name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 container_access_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Container within an Azure Storage Account.
 
@@ -65,7 +48,7 @@ class Container(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
-        :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
         """
@@ -80,7 +63,7 @@ class Container(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -102,18 +85,27 @@ class Container(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, metadata=None, name=None, resource_manager_id=None, storage_account_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            container_access_type: Optional[pulumi.Input[str]] = None,
+            has_immutability_policy: Optional[pulumi.Input[bool]] = None,
+            has_legal_hold: Optional[pulumi.Input[bool]] = None,
+            metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_manager_id: Optional[pulumi.Input[str]] = None,
+            storage_account_name: Optional[pulumi.Input[str]] = None) -> 'Container':
         """
         Get an existing Container resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         :param pulumi.Input[bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
         :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
-        :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this Container.
         :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
         :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of this Storage Container.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
@@ -131,8 +123,65 @@ class Container(pulumi.CustomResource):
         __props__["storage_account_name"] = storage_account_name
         return Container(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="containerAccessType")
+    def container_access_type(self) -> Optional[str]:
+        """
+        The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        """
+        return pulumi.get(self, "container_access_type")
+
+    @property
+    @pulumi.getter(name="hasImmutabilityPolicy")
+    def has_immutability_policy(self) -> bool:
+        """
+        Is there an Immutability Policy configured on this Storage Container?
+        """
+        return pulumi.get(self, "has_immutability_policy")
+
+    @property
+    @pulumi.getter(name="hasLegalHold")
+    def has_legal_hold(self) -> bool:
+        """
+        Is there a Legal Hold configured on this Storage Container?
+        """
+        return pulumi.get(self, "has_legal_hold")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Mapping[str, str]:
+        """
+        A mapping of MetaData for this Container.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container which should be created within the Storage Account.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceManagerId")
+    def resource_manager_id(self) -> str:
+        """
+        The Resource Manager ID of this Storage Container.
+        """
+        return pulumi.get(self, "resource_manager_id")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> str:
+        """
+        The name of the Storage Account where the Container should be created.
+        """
+        return pulumi.get(self, "storage_account_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

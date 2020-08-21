@@ -13,3 +13,5 @@ from .kubernetes_cluster_node_pool import *
 from .registry import *
 from .registry_webhook import *
 from .registry_webook import *
+from ._inputs import *
+from . import outputs

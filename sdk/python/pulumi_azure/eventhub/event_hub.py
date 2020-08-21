@@ -5,52 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EventHub']
 
 
 class EventHub(pulumi.CustomResource):
-    capture_description: pulumi.Output[dict]
-    """
-    A `capture_description` block as defined below.
-
-      * `destination` (`dict`) - A `destination` block as defined below.
-        * `archiveNameFormat` (`str`) - The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-        * `blobContainerName` (`str`) - The name of the Container within the Blob Storage Account where messages should be archived.
-        * `name` (`str`) - The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
-        * `storage_account_id` (`str`) - The ID of the Blob Storage Account where messages should be archived.
-
-      * `enabled` (`bool`) - Specifies if the Capture Description is Enabled.
-      * `encoding` (`str`) - Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
-      * `interval_in_seconds` (`float`) - Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
-      * `sizeLimitInBytes` (`float`) - Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
-      * `skipEmptyArchives` (`bool`) - Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
-    """
-    message_retention: pulumi.Output[float]
-    """
-    Specifies the number of days to retain the events for this Event Hub.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-    """
-    namespace_name: pulumi.Output[str]
-    """
-    Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-    """
-    partition_count: pulumi.Output[float]
-    """
-    Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
-    """
-    partition_ids: pulumi.Output[list]
-    """
-    The identifiers for partitions created for Event Hubs.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, capture_description=None, message_retention=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+                 message_retention: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
 
@@ -78,26 +53,12 @@ class EventHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[float] message_retention: Specifies the number of days to retain the events for this Event Hub.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[float] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-
-        The **capture_description** object supports the following:
-
-          * `destination` (`pulumi.Input[dict]`) - A `destination` block as defined below.
-            * `archiveNameFormat` (`pulumi.Input[str]`) - The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-            * `blobContainerName` (`pulumi.Input[str]`) - The name of the Container within the Blob Storage Account where messages should be archived.
-            * `name` (`pulumi.Input[str]`) - The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
-            * `storage_account_id` (`pulumi.Input[str]`) - The ID of the Blob Storage Account where messages should be archived.
-
-          * `enabled` (`pulumi.Input[bool]`) - Specifies if the Capture Description is Enabled.
-          * `encoding` (`pulumi.Input[str]`) - Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
-          * `interval_in_seconds` (`pulumi.Input[float]`) - Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
-          * `sizeLimitInBytes` (`pulumi.Input[float]`) - Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
-          * `skipEmptyArchives` (`pulumi.Input[bool]`) - Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,7 +71,7 @@ class EventHub(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -138,35 +99,30 @@ class EventHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, capture_description=None, message_retention=None, name=None, namespace_name=None, partition_count=None, partition_ids=None, resource_group_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+            message_retention: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            namespace_name: Optional[pulumi.Input[str]] = None,
+            partition_count: Optional[pulumi.Input[float]] = None,
+            partition_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'EventHub':
         """
         Get an existing EventHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[float] message_retention: Specifies the number of days to retain the events for this Event Hub.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[float] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] partition_ids: The identifiers for partitions created for Event Hubs.
+        :param pulumi.Input[List[pulumi.Input[str]]] partition_ids: The identifiers for partitions created for Event Hubs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-
-        The **capture_description** object supports the following:
-
-          * `destination` (`pulumi.Input[dict]`) - A `destination` block as defined below.
-            * `archiveNameFormat` (`pulumi.Input[str]`) - The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-            * `blobContainerName` (`pulumi.Input[str]`) - The name of the Container within the Blob Storage Account where messages should be archived.
-            * `name` (`pulumi.Input[str]`) - The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
-            * `storage_account_id` (`pulumi.Input[str]`) - The ID of the Blob Storage Account where messages should be archived.
-
-          * `enabled` (`pulumi.Input[bool]`) - Specifies if the Capture Description is Enabled.
-          * `encoding` (`pulumi.Input[str]`) - Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
-          * `interval_in_seconds` (`pulumi.Input[float]`) - Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
-          * `sizeLimitInBytes` (`pulumi.Input[float]`) - Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
-          * `skipEmptyArchives` (`pulumi.Input[bool]`) - Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -181,8 +137,65 @@ class EventHub(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         return EventHub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="captureDescription")
+    def capture_description(self) -> Optional['outputs.EventHubCaptureDescription']:
+        """
+        A `capture_description` block as defined below.
+        """
+        return pulumi.get(self, "capture_description")
+
+    @property
+    @pulumi.getter(name="messageRetention")
+    def message_retention(self) -> float:
+        """
+        Specifies the number of days to retain the events for this Event Hub.
+        """
+        return pulumi.get(self, "message_retention")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> str:
+        """
+        Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> float:
+        """
+        Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @property
+    @pulumi.getter(name="partitionIds")
+    def partition_ids(self) -> List[str]:
+        """
+        The identifiers for partitions created for Event Hubs.
+        """
+        return pulumi.get(self, "partition_ids")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

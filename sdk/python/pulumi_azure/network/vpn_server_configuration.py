@@ -5,85 +5,32 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['VpnServerConfiguration']
 
 
 class VpnServerConfiguration(pulumi.CustomResource):
-    azure_active_directory_authentications: pulumi.Output[list]
-    """
-    A `azure_active_directory_authentication` block as defined below.
-
-      * `audience` (`str`) - The Audience which should be used for authentication.
-      * `issuer` (`str`) - The Issuer which should be used for authentication.
-      * `tenant` (`str`) - The Tenant which should be used for authentication.
-    """
-    client_revoked_certificates: pulumi.Output[list]
-    """
-    One or more `client_revoked_certificate` blocks as defined below.
-
-      * `name` (`str`) - A name used to uniquely identify this certificate.
-      * `thumbprint` (`str`) - The Thumbprint of the Certificate.
-    """
-    client_root_certificates: pulumi.Output[list]
-    """
-    One or more `client_root_certificate` blocks as defined below.
-
-      * `name` (`str`) - A name used to uniquely identify this certificate.
-      * `publicCertData` (`str`) - The Public Key Data associated with the Certificate.
-    """
-    ipsec_policy: pulumi.Output[dict]
-    """
-    A `ipsec_policy` block as defined below.
-
-      * `dhGroup` (`str`) - The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-      * `ikeEncryption` (`str`) - The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-      * `ikeIntegrity` (`str`) - The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-      * `ipsecEncryption` (`str`) - The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-      * `ipsecIntegrity` (`str`) - The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-      * `pfsGroup` (`str`) - The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-      * `saDataSizeKilobytes` (`float`) - The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-      * `saLifetimeSeconds` (`float`) - The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-    """
-    radius_server: pulumi.Output[dict]
-    """
-    A `radius_server` block as defined below.
-
-      * `address` (`str`) - The Address of the Radius Server.
-      * `client_root_certificates` (`list`) - One or more `client_root_certificate` blocks as defined above.
-        * `name` (`str`) - A name used to uniquely identify this certificate.
-        * `thumbprint` (`str`) - The Thumbprint of the Certificate.
-
-      * `secret` (`str`) - The Secret used to communicate with the Radius Server.
-      * `serverRootCertificates` (`list`) - One or more `server_root_certificate` blocks as defined below.
-        * `name` (`str`) - A name used to uniquely identify this certificate.
-        * `publicCertData` (`str`) - The Public Key Data associated with the Certificate.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    vpn_authentication_types: pulumi.Output[str]
-    """
-    A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
-    """
-    vpn_protocols: pulumi.Output[list]
-    """
-    A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
-    """
-    def __init__(__self__, resource_name, opts=None, azure_active_directory_authentications=None, client_revoked_certificates=None, client_root_certificates=None, ipsec_policy=None, location=None, name=None, radius_server=None, resource_group_name=None, tags=None, vpn_authentication_types=None, vpn_protocols=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_active_directory_authentications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]]] = None,
+                 client_revoked_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]]] = None,
+                 client_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]]] = None,
+                 ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 radius_server: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusServerArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpn_authentication_types: Optional[pulumi.Input[str]] = None,
+                 vpn_protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a VPN Server Configuration.
 
@@ -98,9 +45,9 @@ class VpnServerConfiguration(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Certificate"],
-            client_root_certificates=[{
-                "name": "DigiCert-Federated-ID-Root-CA",
-                "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
+                name="DigiCert-Federated-ID-Root-CA",
+                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -121,61 +68,22 @@ class VpnServerConfiguration(pulumi.CustomResource):
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
-            }])
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
-        :param pulumi.Input[list] client_revoked_certificates: One or more `client_revoked_certificate` blocks as defined below.
-        :param pulumi.Input[list] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
-        :param pulumi.Input[dict] ipsec_policy: A `ipsec_policy` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]] client_revoked_certificates: One or more `client_revoked_certificate` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] radius_server: A `radius_server` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusServerArgs']] radius_server: A `radius_server` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpn_authentication_types: A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
-        :param pulumi.Input[list] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
-
-        The **azure_active_directory_authentications** object supports the following:
-
-          * `audience` (`pulumi.Input[str]`) - The Audience which should be used for authentication.
-          * `issuer` (`pulumi.Input[str]`) - The Issuer which should be used for authentication.
-          * `tenant` (`pulumi.Input[str]`) - The Tenant which should be used for authentication.
-
-        The **client_revoked_certificates** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
-          * `thumbprint` (`pulumi.Input[str]`) - The Thumbprint of the Certificate.
-
-        The **client_root_certificates** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
-          * `publicCertData` (`pulumi.Input[str]`) - The Public Key Data associated with the Certificate.
-
-        The **ipsec_policy** object supports the following:
-
-          * `dhGroup` (`pulumi.Input[str]`) - The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-          * `ikeEncryption` (`pulumi.Input[str]`) - The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-          * `ikeIntegrity` (`pulumi.Input[str]`) - The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-          * `ipsecEncryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-          * `ipsecIntegrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-          * `pfsGroup` (`pulumi.Input[str]`) - The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-          * `saDataSizeKilobytes` (`pulumi.Input[float]`) - The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-          * `saLifetimeSeconds` (`pulumi.Input[float]`) - The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
-
-        The **radius_server** object supports the following:
-
-          * `address` (`pulumi.Input[str]`) - The Address of the Radius Server.
-          * `client_root_certificates` (`pulumi.Input[list]`) - One or more `client_root_certificate` blocks as defined above.
-            * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
-            * `thumbprint` (`pulumi.Input[str]`) - The Thumbprint of the Certificate.
-
-          * `secret` (`pulumi.Input[str]`) - The Secret used to communicate with the Radius Server.
-          * `serverRootCertificates` (`pulumi.Input[list]`) - One or more `server_root_certificate` blocks as defined below.
-            * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
-            * `publicCertData` (`pulumi.Input[str]`) - The Public Key Data associated with the Certificate.
+        :param pulumi.Input[List[pulumi.Input[str]]] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -188,7 +96,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -216,64 +124,38 @@ class VpnServerConfiguration(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, azure_active_directory_authentications=None, client_revoked_certificates=None, client_root_certificates=None, ipsec_policy=None, location=None, name=None, radius_server=None, resource_group_name=None, tags=None, vpn_authentication_types=None, vpn_protocols=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_active_directory_authentications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]]] = None,
+            client_revoked_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]]] = None,
+            client_root_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]]] = None,
+            ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            radius_server: Optional[pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusServerArgs']]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            vpn_authentication_types: Optional[pulumi.Input[str]] = None,
+            vpn_protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'VpnServerConfiguration':
         """
         Get an existing VpnServerConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
-        :param pulumi.Input[list] client_revoked_certificates: One or more `client_revoked_certificate` blocks as defined below.
-        :param pulumi.Input[list] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
-        :param pulumi.Input[dict] ipsec_policy: A `ipsec_policy` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]] client_revoked_certificates: One or more `client_revoked_certificate` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] radius_server: A `radius_server` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusServerArgs']] radius_server: A `radius_server` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] vpn_authentication_types: A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
-        :param pulumi.Input[list] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
-
-        The **azure_active_directory_authentications** object supports the following:
-
-          * `audience` (`pulumi.Input[str]`) - The Audience which should be used for authentication.
-          * `issuer` (`pulumi.Input[str]`) - The Issuer which should be used for authentication.
-          * `tenant` (`pulumi.Input[str]`) - The Tenant which should be used for authentication.
-
-        The **client_revoked_certificates** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
-          * `thumbprint` (`pulumi.Input[str]`) - The Thumbprint of the Certificate.
-
-        The **client_root_certificates** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
-          * `publicCertData` (`pulumi.Input[str]`) - The Public Key Data associated with the Certificate.
-
-        The **ipsec_policy** object supports the following:
-
-          * `dhGroup` (`pulumi.Input[str]`) - The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
-          * `ikeEncryption` (`pulumi.Input[str]`) - The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
-          * `ikeIntegrity` (`pulumi.Input[str]`) - The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
-          * `ipsecEncryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
-          * `ipsecIntegrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
-          * `pfsGroup` (`pulumi.Input[str]`) - The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-          * `saDataSizeKilobytes` (`pulumi.Input[float]`) - The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-          * `saLifetimeSeconds` (`pulumi.Input[float]`) - The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
-
-        The **radius_server** object supports the following:
-
-          * `address` (`pulumi.Input[str]`) - The Address of the Radius Server.
-          * `client_root_certificates` (`pulumi.Input[list]`) - One or more `client_root_certificate` blocks as defined above.
-            * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
-            * `thumbprint` (`pulumi.Input[str]`) - The Thumbprint of the Certificate.
-
-          * `secret` (`pulumi.Input[str]`) - The Secret used to communicate with the Radius Server.
-          * `serverRootCertificates` (`pulumi.Input[list]`) - One or more `server_root_certificate` blocks as defined below.
-            * `name` (`pulumi.Input[str]`) - A name used to uniquely identify this certificate.
-            * `publicCertData` (`pulumi.Input[str]`) - The Public Key Data associated with the Certificate.
+        :param pulumi.Input[List[pulumi.Input[str]]] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,8 +174,97 @@ class VpnServerConfiguration(pulumi.CustomResource):
         __props__["vpn_protocols"] = vpn_protocols
         return VpnServerConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="azureActiveDirectoryAuthentications")
+    def azure_active_directory_authentications(self) -> Optional[List['outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication']]:
+        """
+        A `azure_active_directory_authentication` block as defined below.
+        """
+        return pulumi.get(self, "azure_active_directory_authentications")
+
+    @property
+    @pulumi.getter(name="clientRevokedCertificates")
+    def client_revoked_certificates(self) -> Optional[List['outputs.VpnServerConfigurationClientRevokedCertificate']]:
+        """
+        One or more `client_revoked_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "client_revoked_certificates")
+
+    @property
+    @pulumi.getter(name="clientRootCertificates")
+    def client_root_certificates(self) -> Optional[List['outputs.VpnServerConfigurationClientRootCertificate']]:
+        """
+        One or more `client_root_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "client_root_certificates")
+
+    @property
+    @pulumi.getter(name="ipsecPolicy")
+    def ipsec_policy(self) -> Optional['outputs.VpnServerConfigurationIpsecPolicy']:
+        """
+        A `ipsec_policy` block as defined below.
+        """
+        return pulumi.get(self, "ipsec_policy")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="radiusServer")
+    def radius_server(self) -> Optional['outputs.VpnServerConfigurationRadiusServer']:
+        """
+        A `radius_server` block as defined below.
+        """
+        return pulumi.get(self, "radius_server")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpnAuthenticationTypes")
+    def vpn_authentication_types(self) -> str:
+        """
+        A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
+        """
+        return pulumi.get(self, "vpn_authentication_types")
+
+    @property
+    @pulumi.getter(name="vpnProtocols")
+    def vpn_protocols(self) -> List[str]:
+        """
+        A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
+        """
+        return pulumi.get(self, "vpn_protocols")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

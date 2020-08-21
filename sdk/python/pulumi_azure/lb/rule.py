@@ -5,69 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Rule']
 
 
 class Rule(pulumi.CustomResource):
-    backend_address_pool_id: pulumi.Output[str]
-    """
-    A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-    """
-    backend_port: pulumi.Output[float]
-    """
-    The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
-    """
-    disable_outbound_snat: pulumi.Output[bool]
-    """
-    Is snat enabled for this Load Balancer Rule? Default `false`.
-    """
-    enable_floating_ip: pulumi.Output[bool]
-    """
-    Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-    """
-    enable_tcp_reset: pulumi.Output[bool]
-    """
-    Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-    """
-    frontend_ip_configuration_id: pulumi.Output[str]
-    frontend_ip_configuration_name: pulumi.Output[str]
-    """
-    The name of the frontend IP configuration to which the rule is associated.
-    """
-    frontend_port: pulumi.Output[float]
-    """
-    The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
-    """
-    idle_timeout_in_minutes: pulumi.Output[float]
-    """
-    Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-    """
-    load_distribution: pulumi.Output[str]
-    """
-    Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
-    """
-    loadbalancer_id: pulumi.Output[str]
-    """
-    The ID of the Load Balancer in which to create the Rule.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the LB Rule.
-    """
-    probe_id: pulumi.Output[str]
-    """
-    A reference to a Probe used by this Load Balancing Rule.
-    """
-    protocol: pulumi.Output[str]
-    """
-    The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 backend_port: Optional[pulumi.Input[float]] = None,
+                 disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
+                 enable_floating_ip: Optional[pulumi.Input[bool]] = None,
+                 enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
+                 frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
+                 frontend_port: Optional[pulumi.Input[float]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 load_distribution: Optional[pulumi.Input[str]] = None,
+                 loadbalancer_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 probe_id: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Load Balancer Rule.
 
@@ -87,10 +51,10 @@ class Rule(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location="West US",
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[{
-                "name": "PublicIPAddress",
-                "public_ip_address_id": example_public_ip.id,
-            }])
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name="PublicIPAddress",
+                public_ip_address_id=example_public_ip.id,
+            )])
         example_rule = azure.lb.Rule("exampleRule",
             resource_group_name=example_resource_group.name,
             loadbalancer_id=example_load_balancer.id,
@@ -128,7 +92,7 @@ class Rule(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -168,13 +132,30 @@ class Rule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, frontend_ip_configuration_id=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+            backend_port: Optional[pulumi.Input[float]] = None,
+            disable_outbound_snat: Optional[pulumi.Input[bool]] = None,
+            enable_floating_ip: Optional[pulumi.Input[bool]] = None,
+            enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
+            frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
+            frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
+            frontend_port: Optional[pulumi.Input[float]] = None,
+            idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+            load_distribution: Optional[pulumi.Input[str]] = None,
+            loadbalancer_id: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            probe_id: Optional[pulumi.Input[str]] = None,
+            protocol: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[float] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
@@ -212,8 +193,126 @@ class Rule(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         return Rule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="backendAddressPoolId")
+    def backend_address_pool_id(self) -> str:
+        """
+        A reference to a Backend Address Pool over which this Load Balancing Rule operates.
+        """
+        return pulumi.get(self, "backend_address_pool_id")
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> float:
+        """
+        The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @property
+    @pulumi.getter(name="disableOutboundSnat")
+    def disable_outbound_snat(self) -> Optional[bool]:
+        """
+        Is snat enabled for this Load Balancer Rule? Default `false`.
+        """
+        return pulumi.get(self, "disable_outbound_snat")
+
+    @property
+    @pulumi.getter(name="enableFloatingIp")
+    def enable_floating_ip(self) -> Optional[bool]:
+        """
+        Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_floating_ip")
+
+    @property
+    @pulumi.getter(name="enableTcpReset")
+    def enable_tcp_reset(self) -> Optional[bool]:
+        """
+        Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_tcp_reset")
+
+    @property
+    @pulumi.getter(name="frontendIpConfigurationId")
+    def frontend_ip_configuration_id(self) -> str:
+        return pulumi.get(self, "frontend_ip_configuration_id")
+
+    @property
+    @pulumi.getter(name="frontendIpConfigurationName")
+    def frontend_ip_configuration_name(self) -> str:
+        """
+        The name of the frontend IP configuration to which the rule is associated.
+        """
+        return pulumi.get(self, "frontend_ip_configuration_name")
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> float:
+        """
+        The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> float:
+        """
+        Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="loadDistribution")
+    def load_distribution(self) -> str:
+        """
+        Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
+        """
+        return pulumi.get(self, "load_distribution")
+
+    @property
+    @pulumi.getter(name="loadbalancerId")
+    def loadbalancer_id(self) -> str:
+        """
+        The ID of the Load Balancer in which to create the Rule.
+        """
+        return pulumi.get(self, "loadbalancer_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the LB Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="probeId")
+    def probe_id(self) -> str:
+        """
+        A reference to a Probe used by this Load Balancing Rule.
+        """
+        return pulumi.get(self, "probe_id")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the resource.
+        """
+        return pulumi.get(self, "resource_group_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

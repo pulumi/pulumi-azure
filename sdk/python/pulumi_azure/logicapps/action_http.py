@@ -5,43 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ActionHttp']
 
 
 class ActionHttp(pulumi.CustomResource):
-    body: pulumi.Output[str]
-    """
-    Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
-    """
-    headers: pulumi.Output[dict]
-    """
-    Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
-    """
-    logic_app_id: pulumi.Output[str]
-    """
-    Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-    """
-    method: pulumi.Output[str]
-    """
-    Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-    """
-    run_afters: pulumi.Output[list]
-    """
-    Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
-
-      * `actionName` (`str`) - Specifies the name of the precedent HTTP Action.
-      * `actionResult` (`str`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
-    """
-    uri: pulumi.Output[str]
-    """
-    Specifies the URI which will be called when this HTTP Action is triggered.
-    """
-    def __init__(__self__, resource_name, opts=None, body=None, headers=None, logic_app_id=None, method=None, name=None, run_afters=None, uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 body: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 logic_app_id: Optional[pulumi.Input[str]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 run_afters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActionHttpRunAfterArgs']]]]] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an HTTP Action within a Logic App Workflow
 
@@ -64,17 +49,12 @@ class ActionHttp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
-        :param pulumi.Input[dict] headers: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ActionHttpRunAfterArgs']]]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         :param pulumi.Input[str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
-
-        The **run_afters** object supports the following:
-
-          * `actionName` (`pulumi.Input[str]`) - Specifies the name of the precedent HTTP Action.
-          * `actionResult` (`pulumi.Input[str]`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +67,7 @@ class ActionHttp(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -113,26 +93,30 @@ class ActionHttp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, body=None, headers=None, logic_app_id=None, method=None, name=None, run_afters=None, uri=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            body: Optional[pulumi.Input[str]] = None,
+            headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            logic_app_id: Optional[pulumi.Input[str]] = None,
+            method: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            run_afters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActionHttpRunAfterArgs']]]]] = None,
+            uri: Optional[pulumi.Input[str]] = None) -> 'ActionHttp':
         """
         Get an existing ActionHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
-        :param pulumi.Input[dict] headers: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] method: Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         :param pulumi.Input[str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ActionHttpRunAfterArgs']]]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         :param pulumi.Input[str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
-
-        The **run_afters** object supports the following:
-
-          * `actionName` (`pulumi.Input[str]`) - Specifies the name of the precedent HTTP Action.
-          * `actionResult` (`pulumi.Input[str]`) - Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -147,8 +131,65 @@ class ActionHttp(pulumi.CustomResource):
         __props__["uri"] = uri
         return ActionHttp(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="logicAppId")
+    def logic_app_id(self) -> str:
+        """
+        Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "logic_app_id")
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        """
+        Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runAfters")
+    def run_afters(self) -> Optional[List['outputs.ActionHttpRunAfter']]:
+        """
+        Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        """
+        return pulumi.get(self, "run_afters")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Specifies the URI which will be called when this HTTP Action is triggered.
+        """
+        return pulumi.get(self, "uri")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

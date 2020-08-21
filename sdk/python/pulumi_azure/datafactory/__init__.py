@@ -28,3 +28,5 @@ from .linked_service_sql_server import *
 from .linked_service_web import *
 from .pipeline import *
 from .trigger_schedule import *
+from ._inputs import *
+from . import outputs

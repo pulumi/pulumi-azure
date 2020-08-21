@@ -5,56 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Service']
 
 
 class Service(pulumi.CustomResource):
-    access_policy_object_ids: pulumi.Output[list]
-    authentication_configuration: pulumi.Output[dict]
-    """
-    An `authentication_configuration` block as defined below.
-
-      * `audience` (`str`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-      * `authority` (`str`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-        Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-      * `smartProxyEnabled` (`bool`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
-    """
-    cors_configuration: pulumi.Output[dict]
-    """
-    A `cors_configuration` block as defined below.
-
-      * `allowCredentials` (`bool`) - If credentials are allowed via CORS.
-      * `allowedHeaders` (`list`) - A set of headers to be allowed via CORS.
-      * `allowedMethods` (`list`) - The methods to be allowed via CORS.
-      * `allowedOrigins` (`list`) - A set of origins to be allowed via CORS.
-      * `maxAgeInSeconds` (`float`) - The max age to be allowed via CORS.
-    """
-    cosmosdb_throughput: pulumi.Output[float]
-    """
-    The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
-    """
-    kind: pulumi.Output[str]
-    """
-    The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure Region where the Service should be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the service instance. Used for service endpoint, must be unique within the audience.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group in which to create the Service.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, access_policy_object_ids=None, authentication_configuration=None, cors_configuration=None, cosmosdb_throughput=None, kind=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policy_object_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
+                 cosmosdb_throughput: Optional[pulumi.Input[float]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Healthcare Service.
 
@@ -66,28 +40,28 @@ class Service(pulumi.CustomResource):
 
         example = azure.healthcare.Service("example",
             access_policy_object_ids=["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
-            authentication_configuration={
-                "audience": "https://azurehealthcareapis.com/",
-                "authority": "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
-                "smartProxyEnabled": "true",
-            },
-            cors_configuration={
-                "allowCredentials": "true",
-                "allowedHeaders": [
+            authentication_configuration=azure.healthcare.ServiceAuthenticationConfigurationArgs(
+                audience="https://azurehealthcareapis.com/",
+                authority="https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
+                smart_proxy_enabled=True,
+            ),
+            cors_configuration=azure.healthcare.ServiceCorsConfigurationArgs(
+                allow_credentials=True,
+                allowed_headers=[
                     "x-tempo-*",
                     "x-tempo2-*",
                 ],
-                "allowedMethods": [
+                allowed_methods=[
                     "GET",
                     "PUT",
                 ],
-                "allowedOrigins": [
+                allowed_origins=[
                     "http://www.example.com",
                     "http://www.example2.com",
                 ],
-                "maxAgeInSeconds": "500",
-            },
-            cosmosdb_throughput="2000",
+                max_age_in_seconds=500,
+            ),
+            cosmosdb_throughput=2000,
             kind="fhir-R4",
             location="westus2",
             resource_group_name="sample-resource-group",
@@ -99,29 +73,14 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] authentication_configuration: An `authentication_configuration` block as defined below.
-        :param pulumi.Input[dict] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[float] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **authentication_configuration** object supports the following:
-
-          * `audience` (`pulumi.Input[str]`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-          * `authority` (`pulumi.Input[str]`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-            Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-          * `smartProxyEnabled` (`pulumi.Input[bool]`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
-
-        The **cors_configuration** object supports the following:
-
-          * `allowCredentials` (`pulumi.Input[bool]`) - If credentials are allowed via CORS.
-          * `allowedHeaders` (`pulumi.Input[list]`) - A set of headers to be allowed via CORS.
-          * `allowedMethods` (`pulumi.Input[list]`) - The methods to be allowed via CORS.
-          * `allowedOrigins` (`pulumi.Input[list]`) - A set of origins to be allowed via CORS.
-          * `maxAgeInSeconds` (`pulumi.Input[float]`) - The max age to be allowed via CORS.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,7 +93,7 @@ class Service(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -158,37 +117,33 @@ class Service(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_policy_object_ids=None, authentication_configuration=None, cors_configuration=None, cosmosdb_throughput=None, kind=None, location=None, name=None, resource_group_name=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_policy_object_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
+            cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
+            cosmosdb_throughput: Optional[pulumi.Input[float]] = None,
+            kind: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] authentication_configuration: An `authentication_configuration` block as defined below.
-        :param pulumi.Input[dict] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
         :param pulumi.Input[float] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **authentication_configuration** object supports the following:
-
-          * `audience` (`pulumi.Input[str]`) - The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-          * `authority` (`pulumi.Input[str]`) - The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-            Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-          * `smartProxyEnabled` (`pulumi.Input[bool]`) - Enables the 'SMART on FHIR' option for mobile and web implementations.
-
-        The **cors_configuration** object supports the following:
-
-          * `allowCredentials` (`pulumi.Input[bool]`) - If credentials are allowed via CORS.
-          * `allowedHeaders` (`pulumi.Input[list]`) - A set of headers to be allowed via CORS.
-          * `allowedMethods` (`pulumi.Input[list]`) - The methods to be allowed via CORS.
-          * `allowedOrigins` (`pulumi.Input[list]`) - A set of origins to be allowed via CORS.
-          * `maxAgeInSeconds` (`pulumi.Input[float]`) - The max age to be allowed via CORS.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -205,8 +160,78 @@ class Service(pulumi.CustomResource):
         __props__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessPolicyObjectIds")
+    def access_policy_object_ids(self) -> Optional[List[str]]:
+        return pulumi.get(self, "access_policy_object_ids")
+
+    @property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> 'outputs.ServiceAuthenticationConfiguration':
+        """
+        An `authentication_configuration` block as defined below.
+        """
+        return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="corsConfiguration")
+    def cors_configuration(self) -> 'outputs.ServiceCorsConfiguration':
+        """
+        A `cors_configuration` block as defined below.
+        """
+        return pulumi.get(self, "cors_configuration")
+
+    @property
+    @pulumi.getter(name="cosmosdbThroughput")
+    def cosmosdb_throughput(self) -> Optional[float]:
+        """
+        The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        """
+        return pulumi.get(self, "cosmosdb_throughput")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure Region where the Service should be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the service instance. Used for service endpoint, must be unique within the audience.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group in which to create the Service.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Remediation']
 
 
 class Remediation(pulumi.CustomResource):
-    location_filters: pulumi.Output[list]
-    """
-    A list of the resource locations that will be remediated.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the Policy Remediation. Changing this forces a new resource to be created.
-    """
-    policy_assignment_id: pulumi.Output[str]
-    """
-    The ID of the Policy Assignment that should be remediated.
-    """
-    policy_definition_reference_id: pulumi.Output[str]
-    """
-    The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-    """
-    scope: pulumi.Output[str]
-    """
-    The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
-    """
-    def __init__(__self__, resource_name, opts=None, location_filters=None, name=None, policy_assignment_id=None, policy_definition_reference_id=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_assignment_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an Azure Policy Remediation at the specified Scope.
 
@@ -87,7 +79,7 @@ class Remediation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] location_filters: A list of the resource locations that will be remediated.
+        :param pulumi.Input[List[pulumi.Input[str]]] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
@@ -104,7 +96,7 @@ class Remediation(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -126,15 +118,22 @@ class Remediation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, location_filters=None, name=None, policy_assignment_id=None, policy_definition_reference_id=None, scope=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            policy_assignment_id: Optional[pulumi.Input[str]] = None,
+            policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+            scope: Optional[pulumi.Input[str]] = None) -> 'Remediation':
         """
         Get an existing Remediation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] location_filters: A list of the resource locations that will be remediated.
+        :param pulumi.Input[List[pulumi.Input[str]]] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
@@ -151,8 +150,49 @@ class Remediation(pulumi.CustomResource):
         __props__["scope"] = scope
         return Remediation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="locationFilters")
+    def location_filters(self) -> Optional[List[str]]:
+        """
+        A list of the resource locations that will be remediated.
+        """
+        return pulumi.get(self, "location_filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Policy Remediation. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyAssignmentId")
+    def policy_assignment_id(self) -> str:
+        """
+        The ID of the Policy Assignment that should be remediated.
+        """
+        return pulumi.get(self, "policy_assignment_id")
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[str]:
+        """
+        The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        """
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
+        """
+        return pulumi.get(self, "scope")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

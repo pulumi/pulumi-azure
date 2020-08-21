@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['CustomerManagedKey']
 
 
 class CustomerManagedKey(pulumi.CustomResource):
-    key_name: pulumi.Output[str]
-    """
-    The name of Key Vault Key.
-    """
-    key_vault_id: pulumi.Output[str]
-    """
-    The ID of the Key Vault. Changing this forces a new resource to be created.
-    """
-    key_version: pulumi.Output[str]
-    """
-    The version of Key Vault Key.
-    """
-    storage_account_id: pulumi.Output[str]
-    """
-    The ID of the Storage Account. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, key_name=None, key_vault_id=None, key_version=None, storage_account_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 key_version: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Customer Managed Key for a Storage Account.
 
@@ -48,7 +43,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -73,13 +68,19 @@ class CustomerManagedKey(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, key_name=None, key_vault_id=None, key_version=None, storage_account_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            key_name: Optional[pulumi.Input[str]] = None,
+            key_vault_id: Optional[pulumi.Input[str]] = None,
+            key_version: Optional[pulumi.Input[str]] = None,
+            storage_account_id: Optional[pulumi.Input[str]] = None) -> 'CustomerManagedKey':
         """
         Get an existing CustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
@@ -96,8 +97,41 @@ class CustomerManagedKey(pulumi.CustomResource):
         __props__["storage_account_id"] = storage_account_id
         return CustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> str:
+        """
+        The name of Key Vault Key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        The ID of the Key Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> str:
+        """
+        The version of Key Vault Key.
+        """
+        return pulumi.get(self, "key_version")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

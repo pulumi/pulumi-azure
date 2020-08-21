@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetPlatformImageResult',
+    'AwaitableGetPlatformImageResult',
+    'get_platform_image',
+]
+
+@pulumi.output_type
 class GetPlatformImageResult:
     """
     A collection of values returned by getPlatformImage.
@@ -15,25 +22,57 @@ class GetPlatformImageResult:
     def __init__(__self__, id=None, location=None, offer=None, publisher=None, sku=None, version=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if offer and not isinstance(offer, str):
+            raise TypeError("Expected argument 'offer' to be a str")
+        pulumi.set(__self__, "offer", offer)
+        if publisher and not isinstance(publisher, str):
+            raise TypeError("Expected argument 'publisher' to be a str")
+        pulumi.set(__self__, "publisher", publisher)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        if offer and not isinstance(offer, str):
-            raise TypeError("Expected argument 'offer' to be a str")
-        __self__.offer = offer
-        if publisher and not isinstance(publisher, str):
-            raise TypeError("Expected argument 'publisher' to be a str")
-        __self__.publisher = publisher
-        if sku and not isinstance(sku, str):
-            raise TypeError("Expected argument 'sku' to be a str")
-        __self__.sku = sku
-        if version and not isinstance(version, str):
-            raise TypeError("Expected argument 'version' to be a str")
-        __self__.version = version
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def offer(self) -> str:
+        return pulumi.get(self, "offer")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        return pulumi.get(self, "version")
+
+
 class AwaitableGetPlatformImageResult(GetPlatformImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -47,7 +86,13 @@ class AwaitableGetPlatformImageResult(GetPlatformImageResult):
             sku=self.sku,
             version=self.version)
 
-def get_platform_image(location=None,offer=None,publisher=None,sku=None,version=None,opts=None):
+
+def get_platform_image(location: Optional[str] = None,
+                       offer: Optional[str] = None,
+                       publisher: Optional[str] = None,
+                       sku: Optional[str] = None,
+                       version: Optional[str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlatformImageResult:
     """
     Use this data source to access information about a Platform Image.
 
@@ -72,8 +117,6 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,version=
     :param str version: The version of the Platform Image.
     """
     __args__ = dict()
-
-
     __args__['location'] = location
     __args__['offer'] = offer
     __args__['publisher'] = publisher
@@ -82,13 +125,13 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,version=
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts, typ=GetPlatformImageResult).value
 
     return AwaitableGetPlatformImageResult(
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        offer=__ret__.get('offer'),
-        publisher=__ret__.get('publisher'),
-        sku=__ret__.get('sku'),
-        version=__ret__.get('version'))
+        id=__ret__.id,
+        location=__ret__.location,
+        offer=__ret__.offer,
+        publisher=__ret__.publisher,
+        sku=__ret__.sku,
+        version=__ret__.version)

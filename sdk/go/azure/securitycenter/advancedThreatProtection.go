@@ -33,8 +33,8 @@ import (
 // 			return err
 // 		}
 // 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      pulumi.String(azurerm_resource_group.Example.Name),
-// 			Location:               pulumi.String(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName:      pulumi.Any(azurerm_resource_group.Example.Name),
+// 			Location:               pulumi.Any(azurerm_resource_group.Example.Location),
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 			Tags: pulumi.StringMap{

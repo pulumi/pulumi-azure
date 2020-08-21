@@ -5,87 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AutoscaleSetting']
 
 
 class AutoscaleSetting(pulumi.CustomResource):
-    enabled: pulumi.Output[bool]
-    """
-    Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the AutoScale Setting. Changing this forces a new resource to be created.
-    """
-    notification: pulumi.Output[dict]
-    """
-    Specifies a `notification` block as defined below.
-
-      * `email` (`dict`) - A `email` block as defined below.
-        * `customEmails` (`list`) - Specifies a list of custom email addresses to which the email notifications will be sent.
-        * `sendToSubscriptionAdministrator` (`bool`) - Should email notifications be sent to the subscription administrator? Defaults to `false`.
-        * `sendToSubscriptionCoAdministrator` (`bool`) - Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
-
-      * `webhooks` (`list`) - One or more `webhook` blocks as defined below.
-        * `properties` (`dict`) - A map of settings.
-        * `service_uri` (`str`) - The HTTPS URI which should receive scale notifications.
-    """
-    profiles: pulumi.Output[list]
-    """
-    Specifies one or more (up to 20) `profile` blocks as defined below.
-
-      * `capacity` (`dict`) - A `capacity` block as defined below.
-        * `default` (`float`) - The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
-        * `maximum` (`float`) - The maximum number of instances for this resource. Valid values are between `0` and `1000`.
-        * `minimum` (`float`) - The minimum number of instances for this resource. Valid values are between `0` and `1000`.
-
-      * `fixedDate` (`dict`) - A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
-        * `end` (`str`) - Specifies the end date for the profile, formatted as an RFC3339 date string.
-        * `start` (`str`) - Specifies the start date for the profile, formatted as an RFC3339 date string.
-        * `timezone` (`str`) - The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
-
-      * `name` (`str`) - Specifies the name of the profile.
-      * `recurrence` (`dict`) - A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
-        * `days` (`list`) - A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-        * `hours` (`float`) - A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
-        * `minutes` (`float`) - A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-        * `timezone` (`str`) - The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
-
-      * `rules` (`list`) - One or more (up to 10) `rule` blocks as defined below.
-        * `metricTrigger` (`dict`) - A `metric_trigger` block as defined below.
-          * `metricName` (`str`) - The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
-          * `metricResourceId` (`str`) - The ID of the Resource which the Rule monitors.
-          * `operator` (`str`) - Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
-          * `statistic` (`str`) - Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
-          * `threshold` (`float`) - Specifies the threshold of the metric that triggers the scale action.
-          * `timeAggregation` (`str`) - Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
-          * `timeGrain` (`str`) - Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
-          * `time_window` (`str`) - Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
-
-        * `scaleAction` (`dict`) - A `scale_action` block as defined below.
-          * `cooldown` (`str`) - The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
-          * `direction` (`str`) - The scale direction. Possible values are `Increase` and `Decrease`.
-          * `type` (`str`) - The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
-          * `value` (`float`) - The number of instances involved in the scaling action. Defaults to `1`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    target_resource_id: pulumi.Output[str]
-    """
-    Specifies the resource ID of the resource that the autoscale setting should be added to.
-    """
-    def __init__(__self__, resource_name, opts=None, enabled=None, location=None, name=None, notification=None, profiles=None, resource_group_name=None, tags=None, target_resource_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
+                 profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
 
@@ -102,59 +44,59 @@ class AutoscaleSetting(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             target_resource_id=example_scale_set.id,
-            profiles=[{
-                "name": "defaultProfile",
-                "capacity": {
-                    "default": 1,
-                    "minimum": 1,
-                    "maximum": 10,
-                },
-                "rules": [
-                    {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_scale_set.id,
-                            "timeGrain": "PT1M",
-                            "statistic": "Average",
-                            "time_window": "PT5M",
-                            "timeAggregation": "Average",
-                            "operator": "GreaterThan",
-                            "threshold": 75,
-                        },
-                        "scaleAction": {
-                            "direction": "Increase",
-                            "type": "ChangeCount",
-                            "value": "1",
-                            "cooldown": "PT1M",
-                        },
-                    },
-                    {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_scale_set.id,
-                            "timeGrain": "PT1M",
-                            "statistic": "Average",
-                            "time_window": "PT5M",
-                            "timeAggregation": "Average",
-                            "operator": "LessThan",
-                            "threshold": 25,
-                        },
-                        "scaleAction": {
-                            "direction": "Decrease",
-                            "type": "ChangeCount",
-                            "value": "1",
-                            "cooldown": "PT1M",
-                        },
-                    },
+            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
+                name="defaultProfile",
+                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
+                    default=1,
+                    minimum=1,
+                    maximum=10,
+                ),
+                rules=[
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="GreaterThan",
+                            threshold=75,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Increase",
+                            type="ChangeCount",
+                            value=1,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="LessThan",
+                            threshold=25,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Decrease",
+                            type="ChangeCount",
+                            value=1,
+                            cooldown="PT1M",
+                        ),
+                    ),
                 ],
-            }],
-            notification={
-                "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
-                },
-            })
+            )],
+            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
+                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
+                    send_to_subscription_administrator=True,
+                    send_to_subscription_co_administrator=True,
+                    custom_emails=["admin@contoso.com"],
+                ),
+            ))
         ```
         ### Repeating On Weekends)
 
@@ -169,69 +111,69 @@ class AutoscaleSetting(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             target_resource_id=example_scale_set.id,
-            profiles=[{
-                "name": "Weekends",
-                "capacity": {
-                    "default": 1,
-                    "minimum": 1,
-                    "maximum": 10,
-                },
-                "rules": [
-                    {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_scale_set.id,
-                            "timeGrain": "PT1M",
-                            "statistic": "Average",
-                            "time_window": "PT5M",
-                            "timeAggregation": "Average",
-                            "operator": "GreaterThan",
-                            "threshold": 90,
-                        },
-                        "scaleAction": {
-                            "direction": "Increase",
-                            "type": "ChangeCount",
-                            "value": "2",
-                            "cooldown": "PT1M",
-                        },
-                    },
-                    {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_scale_set.id,
-                            "timeGrain": "PT1M",
-                            "statistic": "Average",
-                            "time_window": "PT5M",
-                            "timeAggregation": "Average",
-                            "operator": "LessThan",
-                            "threshold": 10,
-                        },
-                        "scaleAction": {
-                            "direction": "Decrease",
-                            "type": "ChangeCount",
-                            "value": "2",
-                            "cooldown": "PT1M",
-                        },
-                    },
+            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
+                name="Weekends",
+                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
+                    default=1,
+                    minimum=1,
+                    maximum=10,
+                ),
+                rules=[
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="GreaterThan",
+                            threshold=90,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Increase",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="LessThan",
+                            threshold=10,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Decrease",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
                 ],
-                "recurrence": {
-                    "frequency": "Week",
-                    "timezone": "Pacific Standard Time",
-                    "days": [
+                recurrence=azure.monitoring.AutoscaleSettingProfileRecurrenceArgs(
+                    frequency="Week",
+                    timezone="Pacific Standard Time",
+                    days=[
                         "Saturday",
                         "Sunday",
                     ],
-                    "hours": [12],
-                    "minutes": [0],
-                },
-            }],
-            notification={
-                "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
-                },
-            })
+                    hours=[12],
+                    minutes=[0],
+                ),
+            )],
+            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
+                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
+                    send_to_subscription_administrator=True,
+                    send_to_subscription_co_administrator=True,
+                    custom_emails=["admin@contoso.com"],
+                ),
+            ))
         ```
         ### For Fixed Dates)
 
@@ -247,64 +189,64 @@ class AutoscaleSetting(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             target_resource_id=example_scale_set.id,
-            profiles=[{
-                "name": "forJuly",
-                "capacity": {
-                    "default": 1,
-                    "minimum": 1,
-                    "maximum": 10,
-                },
-                "rules": [
-                    {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_scale_set.id,
-                            "timeGrain": "PT1M",
-                            "statistic": "Average",
-                            "time_window": "PT5M",
-                            "timeAggregation": "Average",
-                            "operator": "GreaterThan",
-                            "threshold": 90,
-                        },
-                        "scaleAction": {
-                            "direction": "Increase",
-                            "type": "ChangeCount",
-                            "value": "2",
-                            "cooldown": "PT1M",
-                        },
-                    },
-                    {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_scale_set.id,
-                            "timeGrain": "PT1M",
-                            "statistic": "Average",
-                            "time_window": "PT5M",
-                            "timeAggregation": "Average",
-                            "operator": "LessThan",
-                            "threshold": 10,
-                        },
-                        "scaleAction": {
-                            "direction": "Decrease",
-                            "type": "ChangeCount",
-                            "value": "2",
-                            "cooldown": "PT1M",
-                        },
-                    },
+            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
+                name="forJuly",
+                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
+                    default=1,
+                    minimum=1,
+                    maximum=10,
+                ),
+                rules=[
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="GreaterThan",
+                            threshold=90,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Increase",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="LessThan",
+                            threshold=10,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Decrease",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
                 ],
-                "fixedDate": {
-                    "timezone": "Pacific Standard Time",
-                    "start": "2020-07-01T00:00:00Z",
-                    "end": "2020-07-31T23:59:59Z",
-                },
-            }],
-            notification={
-                "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
-                },
-            })
+                fixed_date=azure.monitoring.AutoscaleSettingProfileFixedDateArgs(
+                    timezone="Pacific Standard Time",
+                    start="2020-07-01T00:00:00Z",
+                    end="2020-07-31T23:59:59Z",
+                ),
+            )],
+            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
+                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
+                    send_to_subscription_administrator=True,
+                    send_to_subscription_co_administrator=True,
+                    custom_emails=["admin@contoso.com"],
+                ),
+            ))
         ```
 
         :param str resource_name: The name of the resource.
@@ -312,58 +254,11 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] notification: Specifies a `notification` block as defined below.
-        :param pulumi.Input[list] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
-
-        The **notification** object supports the following:
-
-          * `email` (`pulumi.Input[dict]`) - A `email` block as defined below.
-            * `customEmails` (`pulumi.Input[list]`) - Specifies a list of custom email addresses to which the email notifications will be sent.
-            * `sendToSubscriptionAdministrator` (`pulumi.Input[bool]`) - Should email notifications be sent to the subscription administrator? Defaults to `false`.
-            * `sendToSubscriptionCoAdministrator` (`pulumi.Input[bool]`) - Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
-
-          * `webhooks` (`pulumi.Input[list]`) - One or more `webhook` blocks as defined below.
-            * `properties` (`pulumi.Input[dict]`) - A map of settings.
-            * `service_uri` (`pulumi.Input[str]`) - The HTTPS URI which should receive scale notifications.
-
-        The **profiles** object supports the following:
-
-          * `capacity` (`pulumi.Input[dict]`) - A `capacity` block as defined below.
-            * `default` (`pulumi.Input[float]`) - The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
-            * `maximum` (`pulumi.Input[float]`) - The maximum number of instances for this resource. Valid values are between `0` and `1000`.
-            * `minimum` (`pulumi.Input[float]`) - The minimum number of instances for this resource. Valid values are between `0` and `1000`.
-
-          * `fixedDate` (`pulumi.Input[dict]`) - A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
-            * `end` (`pulumi.Input[str]`) - Specifies the end date for the profile, formatted as an RFC3339 date string.
-            * `start` (`pulumi.Input[str]`) - Specifies the start date for the profile, formatted as an RFC3339 date string.
-            * `timezone` (`pulumi.Input[str]`) - The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
-
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the profile.
-          * `recurrence` (`pulumi.Input[dict]`) - A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
-            * `days` (`pulumi.Input[list]`) - A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-            * `hours` (`pulumi.Input[float]`) - A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
-            * `minutes` (`pulumi.Input[float]`) - A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-            * `timezone` (`pulumi.Input[str]`) - The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
-
-          * `rules` (`pulumi.Input[list]`) - One or more (up to 10) `rule` blocks as defined below.
-            * `metricTrigger` (`pulumi.Input[dict]`) - A `metric_trigger` block as defined below.
-              * `metricName` (`pulumi.Input[str]`) - The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
-              * `metricResourceId` (`pulumi.Input[str]`) - The ID of the Resource which the Rule monitors.
-              * `operator` (`pulumi.Input[str]`) - Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
-              * `statistic` (`pulumi.Input[str]`) - Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
-              * `threshold` (`pulumi.Input[float]`) - Specifies the threshold of the metric that triggers the scale action.
-              * `timeAggregation` (`pulumi.Input[str]`) - Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
-              * `timeGrain` (`pulumi.Input[str]`) - Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
-              * `time_window` (`pulumi.Input[str]`) - Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
-
-            * `scaleAction` (`pulumi.Input[dict]`) - A `scale_action` block as defined below.
-              * `cooldown` (`pulumi.Input[str]`) - The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
-              * `direction` (`pulumi.Input[str]`) - The scale direction. Possible values are `Increase` and `Decrease`.
-              * `type` (`pulumi.Input[str]`) - The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
-              * `value` (`pulumi.Input[float]`) - The number of instances involved in the scaling action. Defaults to `1`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -376,7 +271,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -403,69 +298,32 @@ class AutoscaleSetting(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, enabled=None, location=None, name=None, notification=None, profiles=None, resource_group_name=None, tags=None, target_resource_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
+            profiles: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            target_resource_id: Optional[pulumi.Input[str]] = None) -> 'AutoscaleSetting':
         """
         Get an existing AutoscaleSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] notification: Specifies a `notification` block as defined below.
-        :param pulumi.Input[list] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
-
-        The **notification** object supports the following:
-
-          * `email` (`pulumi.Input[dict]`) - A `email` block as defined below.
-            * `customEmails` (`pulumi.Input[list]`) - Specifies a list of custom email addresses to which the email notifications will be sent.
-            * `sendToSubscriptionAdministrator` (`pulumi.Input[bool]`) - Should email notifications be sent to the subscription administrator? Defaults to `false`.
-            * `sendToSubscriptionCoAdministrator` (`pulumi.Input[bool]`) - Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
-
-          * `webhooks` (`pulumi.Input[list]`) - One or more `webhook` blocks as defined below.
-            * `properties` (`pulumi.Input[dict]`) - A map of settings.
-            * `service_uri` (`pulumi.Input[str]`) - The HTTPS URI which should receive scale notifications.
-
-        The **profiles** object supports the following:
-
-          * `capacity` (`pulumi.Input[dict]`) - A `capacity` block as defined below.
-            * `default` (`pulumi.Input[float]`) - The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
-            * `maximum` (`pulumi.Input[float]`) - The maximum number of instances for this resource. Valid values are between `0` and `1000`.
-            * `minimum` (`pulumi.Input[float]`) - The minimum number of instances for this resource. Valid values are between `0` and `1000`.
-
-          * `fixedDate` (`pulumi.Input[dict]`) - A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
-            * `end` (`pulumi.Input[str]`) - Specifies the end date for the profile, formatted as an RFC3339 date string.
-            * `start` (`pulumi.Input[str]`) - Specifies the start date for the profile, formatted as an RFC3339 date string.
-            * `timezone` (`pulumi.Input[str]`) - The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
-
-          * `name` (`pulumi.Input[str]`) - Specifies the name of the profile.
-          * `recurrence` (`pulumi.Input[dict]`) - A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
-            * `days` (`pulumi.Input[list]`) - A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-            * `hours` (`pulumi.Input[float]`) - A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
-            * `minutes` (`pulumi.Input[float]`) - A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-            * `timezone` (`pulumi.Input[str]`) - The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
-
-          * `rules` (`pulumi.Input[list]`) - One or more (up to 10) `rule` blocks as defined below.
-            * `metricTrigger` (`pulumi.Input[dict]`) - A `metric_trigger` block as defined below.
-              * `metricName` (`pulumi.Input[str]`) - The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
-              * `metricResourceId` (`pulumi.Input[str]`) - The ID of the Resource which the Rule monitors.
-              * `operator` (`pulumi.Input[str]`) - Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
-              * `statistic` (`pulumi.Input[str]`) - Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
-              * `threshold` (`pulumi.Input[float]`) - Specifies the threshold of the metric that triggers the scale action.
-              * `timeAggregation` (`pulumi.Input[str]`) - Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
-              * `timeGrain` (`pulumi.Input[str]`) - Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
-              * `time_window` (`pulumi.Input[str]`) - Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
-
-            * `scaleAction` (`pulumi.Input[dict]`) - A `scale_action` block as defined below.
-              * `cooldown` (`pulumi.Input[str]`) - The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
-              * `direction` (`pulumi.Input[str]`) - The scale direction. Possible values are `Increase` and `Decrease`.
-              * `type` (`pulumi.Input[str]`) - The type of action that should occur. Possible values are `ChangeCount`, `ExactCount` and `PercentChangeCount`.
-              * `value` (`pulumi.Input[float]`) - The number of instances involved in the scaling action. Defaults to `1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -481,8 +339,73 @@ class AutoscaleSetting(pulumi.CustomResource):
         __props__["target_resource_id"] = target_resource_id
         return AutoscaleSetting(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the AutoScale Setting. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def notification(self) -> Optional['outputs.AutoscaleSettingNotification']:
+        """
+        Specifies a `notification` block as defined below.
+        """
+        return pulumi.get(self, "notification")
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> List['outputs.AutoscaleSettingProfile']:
+        """
+        Specifies one or more (up to 20) `profile` blocks as defined below.
+        """
+        return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> str:
+        """
+        Specifies the resource ID of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

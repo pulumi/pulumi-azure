@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['TriggerRecurrence']
 
 
 class TriggerRecurrence(pulumi.CustomResource):
-    frequency: pulumi.Output[str]
-    """
-    Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
-    """
-    interval: pulumi.Output[float]
-    """
-    Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
-    """
-    logic_app_id: pulumi.Output[str]
-    """
-    Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
-    """
-    start_time: pulumi.Output[str]
-    """
-    Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
-    """
-    def __init__(__self__, resource_name, opts=None, frequency=None, interval=None, logic_app_id=None, name=None, start_time=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 frequency: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[float]] = None,
+                 logic_app_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Recurrence Trigger within a Logic App Workflow
 
@@ -69,7 +61,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -93,13 +85,20 @@ class TriggerRecurrence(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, frequency=None, interval=None, logic_app_id=None, name=None, start_time=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            frequency: Optional[pulumi.Input[str]] = None,
+            interval: Optional[pulumi.Input[float]] = None,
+            logic_app_id: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            start_time: Optional[pulumi.Input[str]] = None) -> 'TriggerRecurrence':
         """
         Get an existing TriggerRecurrence resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] frequency: Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
         :param pulumi.Input[float] interval: Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
@@ -118,8 +117,49 @@ class TriggerRecurrence(pulumi.CustomResource):
         __props__["start_time"] = start_time
         return TriggerRecurrence(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def frequency(self) -> str:
+        """
+        Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> float:
+        """
+        Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="logicAppId")
+    def logic_app_id(self) -> str:
+        """
+        Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "logic_app_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+        """
+        return pulumi.get(self, "start_time")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

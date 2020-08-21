@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetGatewayConnectionResult',
+    'AwaitableGetGatewayConnectionResult',
+    'get_gateway_connection',
+]
+
+@pulumi.output_type
 class GetGatewayConnectionResult:
     """
     A collection of values returned by getGatewayConnection.
@@ -15,124 +23,236 @@ class GetGatewayConnectionResult:
     def __init__(__self__, authorization_key=None, connection_protocol=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policy=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
-        __self__.authorization_key = authorization_key
+        pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_protocol and not isinstance(connection_protocol, str):
+            raise TypeError("Expected argument 'connection_protocol' to be a str")
+        pulumi.set(__self__, "connection_protocol", connection_protocol)
+        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
+            raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
+        pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
+        if enable_bgp and not isinstance(enable_bgp, bool):
+            raise TypeError("Expected argument 'enable_bgp' to be a bool")
+        pulumi.set(__self__, "enable_bgp", enable_bgp)
+        if express_route_circuit_id and not isinstance(express_route_circuit_id, str):
+            raise TypeError("Expected argument 'express_route_circuit_id' to be a str")
+        pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
+        if express_route_gateway_bypass and not isinstance(express_route_gateway_bypass, bool):
+            raise TypeError("Expected argument 'express_route_gateway_bypass' to be a bool")
+        pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
+            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
+        pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
+        if ipsec_policies and not isinstance(ipsec_policies, list):
+            raise TypeError("Expected argument 'ipsec_policies' to be a list")
+        pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+        if local_network_gateway_id and not isinstance(local_network_gateway_id, str):
+            raise TypeError("Expected argument 'local_network_gateway_id' to be a str")
+        pulumi.set(__self__, "local_network_gateway_id", local_network_gateway_id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if peer_virtual_network_gateway_id and not isinstance(peer_virtual_network_gateway_id, str):
+            raise TypeError("Expected argument 'peer_virtual_network_gateway_id' to be a str")
+        pulumi.set(__self__, "peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        if routing_weight and not isinstance(routing_weight, float):
+            raise TypeError("Expected argument 'routing_weight' to be a float")
+        pulumi.set(__self__, "routing_weight", routing_weight)
+        if shared_key and not isinstance(shared_key, str):
+            raise TypeError("Expected argument 'shared_key' to be a str")
+        pulumi.set(__self__, "shared_key", shared_key)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if traffic_selector_policy and not isinstance(traffic_selector_policy, dict):
+            raise TypeError("Expected argument 'traffic_selector_policy' to be a dict")
+        pulumi.set(__self__, "traffic_selector_policy", traffic_selector_policy)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if use_policy_based_traffic_selectors and not isinstance(use_policy_based_traffic_selectors, bool):
+            raise TypeError("Expected argument 'use_policy_based_traffic_selectors' to be a bool")
+        pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
+        if virtual_network_gateway_id and not isinstance(virtual_network_gateway_id, str):
+            raise TypeError("Expected argument 'virtual_network_gateway_id' to be a str")
+        pulumi.set(__self__, "virtual_network_gateway_id", virtual_network_gateway_id)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> str:
         """
         The authorization key associated with the
         Express Route Circuit. This field is present only if the type is an
         ExpressRoute connection.
         """
-        if connection_protocol and not isinstance(connection_protocol, str):
-            raise TypeError("Expected argument 'connection_protocol' to be a str")
-        __self__.connection_protocol = connection_protocol
-        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
-            raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
-        __self__.egress_bytes_transferred = egress_bytes_transferred
-        if enable_bgp and not isinstance(enable_bgp, bool):
-            raise TypeError("Expected argument 'enable_bgp' to be a bool")
-        __self__.enable_bgp = enable_bgp
+        return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="connectionProtocol")
+    def connection_protocol(self) -> str:
+        return pulumi.get(self, "connection_protocol")
+
+    @property
+    @pulumi.getter(name="egressBytesTransferred")
+    def egress_bytes_transferred(self) -> float:
+        return pulumi.get(self, "egress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> bool:
         """
         If `true`, BGP (Border Gateway Protocol) is enabled
         for this connection.
         """
-        if express_route_circuit_id and not isinstance(express_route_circuit_id, str):
-            raise TypeError("Expected argument 'express_route_circuit_id' to be a str")
-        __self__.express_route_circuit_id = express_route_circuit_id
+        return pulumi.get(self, "enable_bgp")
+
+    @property
+    @pulumi.getter(name="expressRouteCircuitId")
+    def express_route_circuit_id(self) -> str:
         """
         The ID of the Express Route Circuit
         (i.e. when `type` is `ExpressRoute`).
         """
-        if express_route_gateway_bypass and not isinstance(express_route_gateway_bypass, bool):
-            raise TypeError("Expected argument 'express_route_gateway_bypass' to be a bool")
-        __self__.express_route_gateway_bypass = express_route_gateway_bypass
+        return pulumi.get(self, "express_route_circuit_id")
+
+    @property
+    @pulumi.getter(name="expressRouteGatewayBypass")
+    def express_route_gateway_bypass(self) -> bool:
         """
         If `true`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "express_route_gateway_bypass")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
-            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
-        __self__.ingress_bytes_transferred = ingress_bytes_transferred
-        if ipsec_policies and not isinstance(ipsec_policies, list):
-            raise TypeError("Expected argument 'ipsec_policies' to be a list")
-        __self__.ipsec_policies = ipsec_policies
-        if local_network_gateway_id and not isinstance(local_network_gateway_id, str):
-            raise TypeError("Expected argument 'local_network_gateway_id' to be a str")
-        __self__.local_network_gateway_id = local_network_gateway_id
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ingressBytesTransferred")
+    def ingress_bytes_transferred(self) -> float:
+        return pulumi.get(self, "ingress_bytes_transferred")
+
+    @property
+    @pulumi.getter(name="ipsecPolicies")
+    def ipsec_policies(self) -> List['outputs.GetGatewayConnectionIpsecPolicyResult']:
+        return pulumi.get(self, "ipsec_policies")
+
+    @property
+    @pulumi.getter(name="localNetworkGatewayId")
+    def local_network_gateway_id(self) -> str:
         """
         The ID of the local network gateway
         when a Site-to-Site connection (i.e. when `type` is `IPsec`).
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "local_network_gateway_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The location/region where the connection is
         located.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if peer_virtual_network_gateway_id and not isinstance(peer_virtual_network_gateway_id, str):
-            raise TypeError("Expected argument 'peer_virtual_network_gateway_id' to be a str")
-        __self__.peer_virtual_network_gateway_id = peer_virtual_network_gateway_id
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peerVirtualNetworkGatewayId")
+    def peer_virtual_network_gateway_id(self) -> str:
         """
         The ID of the peer virtual
         network gateway when a VNet-to-VNet connection (i.e. when `type`
         is `Vnet2Vnet`).
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if resource_guid and not isinstance(resource_guid, str):
-            raise TypeError("Expected argument 'resource_guid' to be a str")
-        __self__.resource_guid = resource_guid
-        if routing_weight and not isinstance(routing_weight, float):
-            raise TypeError("Expected argument 'routing_weight' to be a float")
-        __self__.routing_weight = routing_weight
+        return pulumi.get(self, "peer_virtual_network_gateway_id")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> float:
         """
         The routing weight.
         """
-        if shared_key and not isinstance(shared_key, str):
-            raise TypeError("Expected argument 'shared_key' to be a str")
-        __self__.shared_key = shared_key
+        return pulumi.get(self, "routing_weight")
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> str:
         """
         The shared IPSec key.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "shared_key")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags to assign to the resource.
         """
-        if traffic_selector_policy and not isinstance(traffic_selector_policy, dict):
-            raise TypeError("Expected argument 'traffic_selector_policy' to be a dict")
-        __self__.traffic_selector_policy = traffic_selector_policy
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        __self__.type = type
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trafficSelectorPolicy")
+    def traffic_selector_policy(self) -> 'outputs.GetGatewayConnectionTrafficSelectorPolicyResult':
+        return pulumi.get(self, "traffic_selector_policy")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         """
         The type of connection. Valid options are `IPsec`
         (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
         """
-        if use_policy_based_traffic_selectors and not isinstance(use_policy_based_traffic_selectors, bool):
-            raise TypeError("Expected argument 'use_policy_based_traffic_selectors' to be a bool")
-        __self__.use_policy_based_traffic_selectors = use_policy_based_traffic_selectors
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usePolicyBasedTrafficSelectors")
+    def use_policy_based_traffic_selectors(self) -> bool:
         """
         If `true`, policy-based traffic
         selectors are enabled for this connection. Enabling policy-based traffic
         selectors requires an `ipsec_policy` block.
         """
-        if virtual_network_gateway_id and not isinstance(virtual_network_gateway_id, str):
-            raise TypeError("Expected argument 'virtual_network_gateway_id' to be a str")
-        __self__.virtual_network_gateway_id = virtual_network_gateway_id
+        return pulumi.get(self, "use_policy_based_traffic_selectors")
+
+    @property
+    @pulumi.getter(name="virtualNetworkGatewayId")
+    def virtual_network_gateway_id(self) -> str:
         """
         The ID of the Virtual Network Gateway
         in which the connection is created.
         """
+        return pulumi.get(self, "virtual_network_gateway_id")
+
+
 class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -162,7 +282,10 @@ class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
             use_policy_based_traffic_selectors=self.use_policy_based_traffic_selectors,
             virtual_network_gateway_id=self.virtual_network_gateway_id)
 
-def get_gateway_connection(name=None,resource_group_name=None,opts=None):
+
+def get_gateway_connection(name: Optional[str] = None,
+                           resource_group_name: Optional[str] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayConnectionResult:
     """
     Use this data source to access information about an existing Virtual Network Gateway Connection.
 
@@ -182,36 +305,34 @@ def get_gateway_connection(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network Gateway Connection is located in.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getGatewayConnection:getGatewayConnection', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:network/getGatewayConnection:getGatewayConnection', __args__, opts=opts, typ=GetGatewayConnectionResult).value
 
     return AwaitableGetGatewayConnectionResult(
-        authorization_key=__ret__.get('authorizationKey'),
-        connection_protocol=__ret__.get('connectionProtocol'),
-        egress_bytes_transferred=__ret__.get('egressBytesTransferred'),
-        enable_bgp=__ret__.get('enableBgp'),
-        express_route_circuit_id=__ret__.get('expressRouteCircuitId'),
-        express_route_gateway_bypass=__ret__.get('expressRouteGatewayBypass'),
-        id=__ret__.get('id'),
-        ingress_bytes_transferred=__ret__.get('ingressBytesTransferred'),
-        ipsec_policies=__ret__.get('ipsecPolicies'),
-        local_network_gateway_id=__ret__.get('localNetworkGatewayId'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        peer_virtual_network_gateway_id=__ret__.get('peerVirtualNetworkGatewayId'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        resource_guid=__ret__.get('resourceGuid'),
-        routing_weight=__ret__.get('routingWeight'),
-        shared_key=__ret__.get('sharedKey'),
-        tags=__ret__.get('tags'),
-        traffic_selector_policy=__ret__.get('trafficSelectorPolicy'),
-        type=__ret__.get('type'),
-        use_policy_based_traffic_selectors=__ret__.get('usePolicyBasedTrafficSelectors'),
-        virtual_network_gateway_id=__ret__.get('virtualNetworkGatewayId'))
+        authorization_key=__ret__.authorization_key,
+        connection_protocol=__ret__.connection_protocol,
+        egress_bytes_transferred=__ret__.egress_bytes_transferred,
+        enable_bgp=__ret__.enable_bgp,
+        express_route_circuit_id=__ret__.express_route_circuit_id,
+        express_route_gateway_bypass=__ret__.express_route_gateway_bypass,
+        id=__ret__.id,
+        ingress_bytes_transferred=__ret__.ingress_bytes_transferred,
+        ipsec_policies=__ret__.ipsec_policies,
+        local_network_gateway_id=__ret__.local_network_gateway_id,
+        location=__ret__.location,
+        name=__ret__.name,
+        peer_virtual_network_gateway_id=__ret__.peer_virtual_network_gateway_id,
+        resource_group_name=__ret__.resource_group_name,
+        resource_guid=__ret__.resource_guid,
+        routing_weight=__ret__.routing_weight,
+        shared_key=__ret__.shared_key,
+        tags=__ret__.tags,
+        traffic_selector_policy=__ret__.traffic_selector_policy,
+        type=__ret__.type,
+        use_policy_based_traffic_selectors=__ret__.use_policy_based_traffic_selectors,
+        virtual_network_gateway_id=__ret__.virtual_network_gateway_id)

@@ -39,8 +39,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = cosmosdb.NewGremlinGraph(ctx, "exampleGremlinGraph", &cosmosdb.GremlinGraphArgs{
-// 			ResourceGroupName: pulumi.String(azurerm_cosmosdb_account.Example.Resource_group_name),
-// 			AccountName:       pulumi.String(azurerm_cosmosdb_account.Example.Name),
+// 			ResourceGroupName: pulumi.Any(azurerm_cosmosdb_account.Example.Resource_group_name),
+// 			AccountName:       pulumi.Any(azurerm_cosmosdb_account.Example.Name),
 // 			DatabaseName:      exampleGremlinDatabase.Name,
 // 			PartitionKeyPath:  pulumi.String("/Example"),
 // 			Throughput:        pulumi.Int(400),

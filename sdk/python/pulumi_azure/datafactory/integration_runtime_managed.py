@@ -5,72 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['IntegrationRuntimeManaged']
 
 
 class IntegrationRuntimeManaged(pulumi.CustomResource):
-    catalog_info: pulumi.Output[dict]
-    """
-    A `catalog_info` block as defined below.
-
-      * `administrator_login` (`str`) - Administrator login name for the SQL Server.
-      * `administratorPassword` (`str`) - Administrator login password for the SQL Server.
-      * `pricing_tier` (`str`) - Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
-      * `serverEndpoint` (`str`) - The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
-    """
-    custom_setup_script: pulumi.Output[dict]
-    """
-    A `custom_setup_script` block as defined below.
-
-      * `blobContainerUri` (`str`) - The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-      * `sasToken` (`str`) - A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-    """
-    data_factory_name: pulumi.Output[str]
-    """
-    Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
-    """
-    description: pulumi.Output[str]
-    edition: pulumi.Output[str]
-    """
-    The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
-    """
-    license_type: pulumi.Output[str]
-    """
-    The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    max_parallel_executions_per_node: pulumi.Output[float]
-    """
-    Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-    """
-    node_size: pulumi.Output[str]
-    """
-    The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
-    """
-    number_of_nodes: pulumi.Output[float]
-    """
-    Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-    """
-    vnet_integration: pulumi.Output[dict]
-    """
-    A `vnet_integration` block as defined below.
-
-      * `subnetName` (`str`) - Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
-      * `vnetId` (`str`) - ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
-    """
-    def __init__(__self__, resource_name, opts=None, catalog_info=None, custom_setup_script=None, data_factory_name=None, description=None, edition=None, license_type=None, location=None, max_parallel_executions_per_node=None, name=None, node_size=None, number_of_nodes=None, resource_group_name=None, vnet_integration=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']]] = None,
+                 custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_parallel_executions_per_node: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_size: Optional[pulumi.Input[str]] = None,
+                 number_of_nodes: Optional[pulumi.Input[float]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an Azure Data Factory Managed Integration Runtime.
 
@@ -93,8 +55,8 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] catalog_info: A `catalog_info` block as defined below.
-        :param pulumi.Input[dict] custom_setup_script: A `custom_setup_script` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] edition: The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -104,24 +66,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.Input[str] node_size: The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[float] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] vnet_integration: A `vnet_integration` block as defined below.
-
-        The **catalog_info** object supports the following:
-
-          * `administrator_login` (`pulumi.Input[str]`) - Administrator login name for the SQL Server.
-          * `administratorPassword` (`pulumi.Input[str]`) - Administrator login password for the SQL Server.
-          * `pricing_tier` (`pulumi.Input[str]`) - Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
-          * `serverEndpoint` (`pulumi.Input[str]`) - The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
-
-        The **custom_setup_script** object supports the following:
-
-          * `blobContainerUri` (`pulumi.Input[str]`) - The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-          * `sasToken` (`pulumi.Input[str]`) - A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-
-        The **vnet_integration** object supports the following:
-
-          * `subnetName` (`pulumi.Input[str]`) - Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
-          * `vnetId` (`pulumi.Input[str]`) - ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']] vnet_integration: A `vnet_integration` block as defined below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,7 +79,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -166,16 +111,31 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, catalog_info=None, custom_setup_script=None, data_factory_name=None, description=None, edition=None, license_type=None, location=None, max_parallel_executions_per_node=None, name=None, node_size=None, number_of_nodes=None, resource_group_name=None, vnet_integration=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']]] = None,
+            custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']]] = None,
+            data_factory_name: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            edition: Optional[pulumi.Input[str]] = None,
+            license_type: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            max_parallel_executions_per_node: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            node_size: Optional[pulumi.Input[str]] = None,
+            number_of_nodes: Optional[pulumi.Input[float]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']]] = None) -> 'IntegrationRuntimeManaged':
         """
         Get an existing IntegrationRuntimeManaged resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] catalog_info: A `catalog_info` block as defined below.
-        :param pulumi.Input[dict] custom_setup_script: A `custom_setup_script` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] edition: The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
@@ -185,24 +145,7 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.Input[str] node_size: The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[float] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] vnet_integration: A `vnet_integration` block as defined below.
-
-        The **catalog_info** object supports the following:
-
-          * `administrator_login` (`pulumi.Input[str]`) - Administrator login name for the SQL Server.
-          * `administratorPassword` (`pulumi.Input[str]`) - Administrator login password for the SQL Server.
-          * `pricing_tier` (`pulumi.Input[str]`) - Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
-          * `serverEndpoint` (`pulumi.Input[str]`) - The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
-
-        The **custom_setup_script** object supports the following:
-
-          * `blobContainerUri` (`pulumi.Input[str]`) - The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-          * `sasToken` (`pulumi.Input[str]`) - A container SAS token that gives access to the files. See [https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
-
-        The **vnet_integration** object supports the following:
-
-          * `subnetName` (`pulumi.Input[str]`) - Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
-          * `vnetId` (`pulumi.Input[str]`) - ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']] vnet_integration: A `vnet_integration` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -223,8 +166,110 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         __props__["vnet_integration"] = vnet_integration
         return IntegrationRuntimeManaged(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="catalogInfo")
+    def catalog_info(self) -> Optional['outputs.IntegrationRuntimeManagedCatalogInfo']:
+        """
+        A `catalog_info` block as defined below.
+        """
+        return pulumi.get(self, "catalog_info")
+
+    @property
+    @pulumi.getter(name="customSetupScript")
+    def custom_setup_script(self) -> Optional['outputs.IntegrationRuntimeManagedCustomSetupScript']:
+        """
+        A `custom_setup_script` block as defined below.
+        """
+        return pulumi.get(self, "custom_setup_script")
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> str:
+        """
+        Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[str]:
+        """
+        The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
+        """
+        return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[str]:
+        """
+        The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxParallelExecutionsPerNode")
+    def max_parallel_executions_per_node(self) -> Optional[float]:
+        """
+        Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        """
+        return pulumi.get(self, "max_parallel_executions_per_node")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeSize")
+    def node_size(self) -> str:
+        """
+        The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
+        """
+        return pulumi.get(self, "node_size")
+
+    @property
+    @pulumi.getter(name="numberOfNodes")
+    def number_of_nodes(self) -> Optional[float]:
+        """
+        Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
+        """
+        return pulumi.get(self, "number_of_nodes")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="vnetIntegration")
+    def vnet_integration(self) -> Optional['outputs.IntegrationRuntimeManagedVnetIntegration']:
+        """
+        A `vnet_integration` block as defined below.
+        """
+        return pulumi.get(self, "vnet_integration")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

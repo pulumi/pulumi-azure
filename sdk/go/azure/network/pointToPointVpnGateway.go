@@ -25,10 +25,10 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := network.NewPointToPointVpnGateway(ctx, "example", &network.PointToPointVpnGatewayArgs{
-// 			Location:                 pulumi.String(azurerm_resource_group.Example.Location),
-// 			ResourceGroupName:        pulumi.String(azurerm_resource_group.Example.Resource_group_name),
-// 			VirtualHubId:             pulumi.String(azurerm_virtual_hub.Example.Id),
-// 			VpnServerConfigurationId: pulumi.String(azurerm_vpn_server_configuration.Example.Id),
+// 			Location:                 pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName:        pulumi.Any(azurerm_resource_group.Example.Resource_group_name),
+// 			VirtualHubId:             pulumi.Any(azurerm_virtual_hub.Example.Id),
+// 			VpnServerConfigurationId: pulumi.Any(azurerm_vpn_server_configuration.Example.Id),
 // 			ScaleUnit:                pulumi.Int(1),
 // 		})
 // 		if err != nil {

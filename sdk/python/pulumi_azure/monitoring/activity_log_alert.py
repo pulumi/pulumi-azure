@@ -5,61 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['ActivityLogAlert']
 
 
 class ActivityLogAlert(pulumi.CustomResource):
-    actions: pulumi.Output[list]
-    """
-    One or more `action` blocks as defined below.
-
-      * `action_group_id` (`str`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
-      * `webhookProperties` (`dict`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-    """
-    criteria: pulumi.Output[dict]
-    """
-    A `criteria` block as defined below.
-
-      * `caller` (`str`) - The email address or Azure Active Directory identifier of the user who performed the operation.
-      * `category` (`str`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
-      * `level` (`str`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
-      * `operationName` (`str`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
-      * `recommendationCategory` (`str`) - The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
-      * `recommendationImpact` (`str`) - The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
-      * `recommendationType` (`str`) - The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
-      * `resourceGroup` (`str`) - The name of resource group monitored by the activity log alert.
-      * `resource_id` (`str`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
-      * `resourceProvider` (`str`) - The name of the resource provider monitored by the activity log alert.
-      * `resourceType` (`str`) - The resource type monitored by the activity log alert.
-      * `status` (`str`) - The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
-      * `subStatus` (`str`) - The sub status of the event.
-    """
-    description: pulumi.Output[str]
-    """
-    The description of this activity log alert.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Should this Activity Log Alert be enabled? Defaults to `true`.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the activity log alert. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the activity log alert instance.
-    """
-    scopes: pulumi.Output[list]
-    """
-    The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, actions=None, criteria=None, description=None, enabled=None, name=None, resource_group_name=None, scopes=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
+                 criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an Activity Log Alert within Azure Monitor.
 
@@ -73,10 +41,10 @@ class ActivityLogAlert(pulumi.CustomResource):
         main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
             resource_group_name=main_resource_group.name,
             short_name="p0action",
-            webhook_receivers=[{
-                "name": "callmyapi",
-                "service_uri": "http://example.com/alert",
-            }])
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+                name="callmyapi",
+                service_uri="http://example.com/alert",
+            )])
         to_monitor = azure.storage.Account("toMonitor",
             resource_group_name=main_resource_group.name,
             location=main_resource_group.location,
@@ -86,50 +54,29 @@ class ActivityLogAlert(pulumi.CustomResource):
             resource_group_name=main_resource_group.name,
             scopes=[main_resource_group.id],
             description="This alert will monitor a specific storage account updates.",
-            criteria={
-                "resource_id": to_monitor.id,
-                "operationName": "Microsoft.Storage/storageAccounts/write",
-                "category": "Recommendation",
-            },
-            actions=[{
-                "action_group_id": main_action_group.id,
-                "webhookProperties": {
+            criteria=azure.monitoring.ActivityLogAlertCriteriaArgs(
+                resource_id=to_monitor.id,
+                operation_name="Microsoft.Storage/storageAccounts/write",
+                category="Recommendation",
+            ),
+            actions=[azure.monitoring.ActivityLogAlertActionArgs(
+                action_group_id=main_action_group.id,
+                webhook_properties={
                     "from": "source",
                 },
-            }])
+            )])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[dict] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
-        :param pulumi.Input[list] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **actions** object supports the following:
-
-          * `action_group_id` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
-          * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-
-        The **criteria** object supports the following:
-
-          * `caller` (`pulumi.Input[str]`) - The email address or Azure Active Directory identifier of the user who performed the operation.
-          * `category` (`pulumi.Input[str]`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
-          * `level` (`pulumi.Input[str]`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
-          * `operationName` (`pulumi.Input[str]`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
-          * `recommendationCategory` (`pulumi.Input[str]`) - The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
-          * `recommendationImpact` (`pulumi.Input[str]`) - The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
-          * `recommendationType` (`pulumi.Input[str]`) - The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
-          * `resourceGroup` (`pulumi.Input[str]`) - The name of resource group monitored by the activity log alert.
-          * `resource_id` (`pulumi.Input[str]`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
-          * `resourceProvider` (`pulumi.Input[str]`) - The name of the resource provider monitored by the activity log alert.
-          * `resourceType` (`pulumi.Input[str]`) - The resource type monitored by the activity log alert.
-          * `status` (`pulumi.Input[str]`) - The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
-          * `subStatus` (`pulumi.Input[str]`) - The sub status of the event.
+        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,7 +89,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -169,43 +116,32 @@ class ActivityLogAlert(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, actions=None, criteria=None, description=None, enabled=None, name=None, resource_group_name=None, scopes=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
+            criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ActivityLogAlert':
         """
         Get an existing ActivityLogAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[dict] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
-        :param pulumi.Input[list] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **actions** object supports the following:
-
-          * `action_group_id` (`pulumi.Input[str]`) - The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
-          * `webhookProperties` (`pulumi.Input[dict]`) - The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
-
-        The **criteria** object supports the following:
-
-          * `caller` (`pulumi.Input[str]`) - The email address or Azure Active Directory identifier of the user who performed the operation.
-          * `category` (`pulumi.Input[str]`) - The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
-          * `level` (`pulumi.Input[str]`) - The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
-          * `operationName` (`pulumi.Input[str]`) - The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
-          * `recommendationCategory` (`pulumi.Input[str]`) - The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
-          * `recommendationImpact` (`pulumi.Input[str]`) - The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
-          * `recommendationType` (`pulumi.Input[str]`) - The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
-          * `resourceGroup` (`pulumi.Input[str]`) - The name of resource group monitored by the activity log alert.
-          * `resource_id` (`pulumi.Input[str]`) - The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
-          * `resourceProvider` (`pulumi.Input[str]`) - The name of the resource provider monitored by the activity log alert.
-          * `resourceType` (`pulumi.Input[str]`) - The resource type monitored by the activity log alert.
-          * `status` (`pulumi.Input[str]`) - The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
-          * `subStatus` (`pulumi.Input[str]`) - The sub status of the event.
+        :param pulumi.Input[List[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -221,8 +157,73 @@ class ActivityLogAlert(pulumi.CustomResource):
         __props__["tags"] = tags
         return ActivityLogAlert(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[List['outputs.ActivityLogAlertAction']]:
+        """
+        One or more `action` blocks as defined below.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> 'outputs.ActivityLogAlertCriteria':
+        """
+        A `criteria` block as defined below.
+        """
+        return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of this activity log alert.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Should this Activity Log Alert be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the activity log alert. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the activity log alert instance.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> List[str]:
+        """
+        The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

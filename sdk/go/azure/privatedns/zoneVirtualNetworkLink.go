@@ -40,7 +40,7 @@ import (
 // 		_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			PrivateDnsZoneName: exampleZone.Name,
-// 			VirtualNetworkId:   pulumi.String(azurerm_virtual_network.Example.Id),
+// 			VirtualNetworkId:   pulumi.Any(azurerm_virtual_network.Example.Id),
 // 		})
 // 		if err != nil {
 // 			return err

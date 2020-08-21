@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['TimeSeriesInsightsAccessPolicy']
 
 
 class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The description of the Azure IoT Time Series Insights Access Policy.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
-    """
-    principal_object_id: pulumi.Output[str]
-    """
-    The id of the principal in Azure Active Directory.
-    """
-    roles: pulumi.Output[list]
-    """
-    A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
-    """
-    time_series_insights_environment_id: pulumi.Output[str]
-    """
-    The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, name=None, principal_object_id=None, roles=None, time_series_insights_environment_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 principal_object_id: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an Azure IoT Time Series Insights Access Policy.
 
@@ -57,7 +49,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
-        :param pulumi.Input[list] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
+        :param pulumi.Input[List[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -71,7 +63,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -95,18 +87,25 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, name=None, principal_object_id=None, roles=None, time_series_insights_environment_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            principal_object_id: Optional[pulumi.Input[str]] = None,
+            roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            time_series_insights_environment_id: Optional[pulumi.Input[str]] = None) -> 'TimeSeriesInsightsAccessPolicy':
         """
         Get an existing TimeSeriesInsightsAccessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
-        :param pulumi.Input[list] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
+        :param pulumi.Input[List[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -120,8 +119,49 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         __props__["time_series_insights_environment_id"] = time_series_insights_environment_id
         return TimeSeriesInsightsAccessPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the Azure IoT Time Series Insights Access Policy.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="principalObjectId")
+    def principal_object_id(self) -> str:
+        """
+        The id of the principal in Azure Active Directory.
+        """
+        return pulumi.get(self, "principal_object_id")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> List[str]:
+        """
+        A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter(name="timeSeriesInsightsEnvironmentId")
+    def time_series_insights_environment_id(self) -> str:
+        """
+        The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "time_series_insights_environment_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -8,3 +8,5 @@ from .get_role_definition import *
 from .get_user_assigned_identity import *
 from .role_definition import *
 from .user_assigned_identity import *
+from ._inputs import *
+from . import outputs

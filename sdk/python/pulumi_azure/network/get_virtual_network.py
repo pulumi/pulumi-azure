@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetVirtualNetworkResult',
+    'AwaitableGetVirtualNetworkResult',
+    'get_virtual_network',
+]
+
+@pulumi.output_type
 class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
@@ -15,52 +22,99 @@ class GetVirtualNetworkResult:
     def __init__(__self__, address_spaces=None, dns_servers=None, guid=None, id=None, location=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError("Expected argument 'address_spaces' to be a list")
-        __self__.address_spaces = address_spaces
+        pulumi.set(__self__, "address_spaces", address_spaces)
+        if dns_servers and not isinstance(dns_servers, list):
+            raise TypeError("Expected argument 'dns_servers' to be a list")
+        pulumi.set(__self__, "dns_servers", dns_servers)
+        if guid and not isinstance(guid, str):
+            raise TypeError("Expected argument 'guid' to be a str")
+        pulumi.set(__self__, "guid", guid)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subnets and not isinstance(subnets, list):
+            raise TypeError("Expected argument 'subnets' to be a list")
+        pulumi.set(__self__, "subnets", subnets)
+        if vnet_peerings and not isinstance(vnet_peerings, dict):
+            raise TypeError("Expected argument 'vnet_peerings' to be a dict")
+        pulumi.set(__self__, "vnet_peerings", vnet_peerings)
+
+    @property
+    @pulumi.getter(name="addressSpaces")
+    def address_spaces(self) -> List[str]:
         """
         The list of address spaces used by the virtual network.
         """
-        if dns_servers and not isinstance(dns_servers, list):
-            raise TypeError("Expected argument 'dns_servers' to be a list")
-        __self__.dns_servers = dns_servers
+        return pulumi.get(self, "address_spaces")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> List[str]:
         """
         The list of DNS servers used by the virtual network.
         """
-        if guid and not isinstance(guid, str):
-            raise TypeError("Expected argument 'guid' to be a str")
-        __self__.guid = guid
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def guid(self) -> str:
         """
         The GUID of the virtual network.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "guid")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         Location of the virtual network.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if subnets and not isinstance(subnets, list):
-            raise TypeError("Expected argument 'subnets' to be a list")
-        __self__.subnets = subnets
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> List[str]:
         """
         The list of name of the subnets that are attached to this virtual network.
         """
-        if vnet_peerings and not isinstance(vnet_peerings, dict):
-            raise TypeError("Expected argument 'vnet_peerings' to be a dict")
-        __self__.vnet_peerings = vnet_peerings
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter(name="vnetPeerings")
+    def vnet_peerings(self) -> Mapping[str, str]:
         """
         A mapping of name - virtual network id of the virtual network peerings.
         """
+        return pulumi.get(self, "vnet_peerings")
+
+
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -77,7 +131,10 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             subnets=self.subnets,
             vnet_peerings=self.vnet_peerings)
 
-def get_virtual_network(name=None,resource_group_name=None,opts=None):
+
+def get_virtual_network(name: Optional[str] = None,
+                        resource_group_name: Optional[str] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkResult:
     """
     Use this data source to access information about an existing Virtual Network.
 
@@ -97,23 +154,21 @@ def get_virtual_network(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:network/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
-        address_spaces=__ret__.get('addressSpaces'),
-        dns_servers=__ret__.get('dnsServers'),
-        guid=__ret__.get('guid'),
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        subnets=__ret__.get('subnets'),
-        vnet_peerings=__ret__.get('vnetPeerings'))
+        address_spaces=__ret__.address_spaces,
+        dns_servers=__ret__.dns_servers,
+        guid=__ret__.guid,
+        id=__ret__.id,
+        location=__ret__.location,
+        name=__ret__.name,
+        resource_group_name=__ret__.resource_group_name,
+        subnets=__ret__.subnets,
+        vnet_peerings=__ret__.vnet_peerings)

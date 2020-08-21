@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetWorkflowResult',
+    'AwaitableGetWorkflowResult',
+    'get_workflow',
+]
+
+@pulumi.output_type
 class GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
@@ -15,82 +22,154 @@ class GetWorkflowResult:
     def __init__(__self__, access_endpoint=None, connector_endpoint_ip_addresses=None, connector_outbound_ip_addresses=None, id=None, location=None, logic_app_integration_account_id=None, name=None, parameters=None, resource_group_name=None, tags=None, workflow_endpoint_ip_addresses=None, workflow_outbound_ip_addresses=None, workflow_schema=None, workflow_version=None):
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
-        __self__.access_endpoint = access_endpoint
+        pulumi.set(__self__, "access_endpoint", access_endpoint)
+        if connector_endpoint_ip_addresses and not isinstance(connector_endpoint_ip_addresses, list):
+            raise TypeError("Expected argument 'connector_endpoint_ip_addresses' to be a list")
+        pulumi.set(__self__, "connector_endpoint_ip_addresses", connector_endpoint_ip_addresses)
+        if connector_outbound_ip_addresses and not isinstance(connector_outbound_ip_addresses, list):
+            raise TypeError("Expected argument 'connector_outbound_ip_addresses' to be a list")
+        pulumi.set(__self__, "connector_outbound_ip_addresses", connector_outbound_ip_addresses)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if logic_app_integration_account_id and not isinstance(logic_app_integration_account_id, str):
+            raise TypeError("Expected argument 'logic_app_integration_account_id' to be a str")
+        pulumi.set(__self__, "logic_app_integration_account_id", logic_app_integration_account_id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if workflow_endpoint_ip_addresses and not isinstance(workflow_endpoint_ip_addresses, list):
+            raise TypeError("Expected argument 'workflow_endpoint_ip_addresses' to be a list")
+        pulumi.set(__self__, "workflow_endpoint_ip_addresses", workflow_endpoint_ip_addresses)
+        if workflow_outbound_ip_addresses and not isinstance(workflow_outbound_ip_addresses, list):
+            raise TypeError("Expected argument 'workflow_outbound_ip_addresses' to be a list")
+        pulumi.set(__self__, "workflow_outbound_ip_addresses", workflow_outbound_ip_addresses)
+        if workflow_schema and not isinstance(workflow_schema, str):
+            raise TypeError("Expected argument 'workflow_schema' to be a str")
+        pulumi.set(__self__, "workflow_schema", workflow_schema)
+        if workflow_version and not isinstance(workflow_version, str):
+            raise TypeError("Expected argument 'workflow_version' to be a str")
+        pulumi.set(__self__, "workflow_version", workflow_version)
+
+    @property
+    @pulumi.getter(name="accessEndpoint")
+    def access_endpoint(self) -> str:
         """
         The Access Endpoint for the Logic App Workflow
         """
-        if connector_endpoint_ip_addresses and not isinstance(connector_endpoint_ip_addresses, list):
-            raise TypeError("Expected argument 'connector_endpoint_ip_addresses' to be a list")
-        __self__.connector_endpoint_ip_addresses = connector_endpoint_ip_addresses
+        return pulumi.get(self, "access_endpoint")
+
+    @property
+    @pulumi.getter(name="connectorEndpointIpAddresses")
+    def connector_endpoint_ip_addresses(self) -> List[str]:
         """
         The list of access endpoint ip addresses of connector.
         """
-        if connector_outbound_ip_addresses and not isinstance(connector_outbound_ip_addresses, list):
-            raise TypeError("Expected argument 'connector_outbound_ip_addresses' to be a list")
-        __self__.connector_outbound_ip_addresses = connector_outbound_ip_addresses
+        return pulumi.get(self, "connector_endpoint_ip_addresses")
+
+    @property
+    @pulumi.getter(name="connectorOutboundIpAddresses")
+    def connector_outbound_ip_addresses(self) -> List[str]:
         """
         The list of outgoing ip addresses of connector.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "connector_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The Azure location where the Logic App Workflow exists.
         """
-        if logic_app_integration_account_id and not isinstance(logic_app_integration_account_id, str):
-            raise TypeError("Expected argument 'logic_app_integration_account_id' to be a str")
-        __self__.logic_app_integration_account_id = logic_app_integration_account_id
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logicAppIntegrationAccountId")
+    def logic_app_integration_account_id(self) -> str:
         """
         The ID of the integration account linked by this Logic App Workflow.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if parameters and not isinstance(parameters, dict):
-            raise TypeError("Expected argument 'parameters' to be a dict")
-        __self__.parameters = parameters
+        return pulumi.get(self, "logic_app_integration_account_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, str]:
         """
         A map of Key-Value pairs.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the resource.
         """
-        if workflow_endpoint_ip_addresses and not isinstance(workflow_endpoint_ip_addresses, list):
-            raise TypeError("Expected argument 'workflow_endpoint_ip_addresses' to be a list")
-        __self__.workflow_endpoint_ip_addresses = workflow_endpoint_ip_addresses
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="workflowEndpointIpAddresses")
+    def workflow_endpoint_ip_addresses(self) -> List[str]:
         """
         The list of access endpoint ip addresses of workflow.
         """
-        if workflow_outbound_ip_addresses and not isinstance(workflow_outbound_ip_addresses, list):
-            raise TypeError("Expected argument 'workflow_outbound_ip_addresses' to be a list")
-        __self__.workflow_outbound_ip_addresses = workflow_outbound_ip_addresses
+        return pulumi.get(self, "workflow_endpoint_ip_addresses")
+
+    @property
+    @pulumi.getter(name="workflowOutboundIpAddresses")
+    def workflow_outbound_ip_addresses(self) -> List[str]:
         """
         The list of outgoing ip addresses of workflow.
         """
-        if workflow_schema and not isinstance(workflow_schema, str):
-            raise TypeError("Expected argument 'workflow_schema' to be a str")
-        __self__.workflow_schema = workflow_schema
+        return pulumi.get(self, "workflow_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="workflowSchema")
+    def workflow_schema(self) -> str:
         """
         The Schema used for this Logic App Workflow.
         """
-        if workflow_version and not isinstance(workflow_version, str):
-            raise TypeError("Expected argument 'workflow_version' to be a str")
-        __self__.workflow_version = workflow_version
+        return pulumi.get(self, "workflow_schema")
+
+    @property
+    @pulumi.getter(name="workflowVersion")
+    def workflow_version(self) -> str:
         """
         The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.
         """
+        return pulumi.get(self, "workflow_version")
+
+
 class AwaitableGetWorkflowResult(GetWorkflowResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -112,7 +191,10 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             workflow_schema=self.workflow_schema,
             workflow_version=self.workflow_version)
 
-def get_workflow(name=None,resource_group_name=None,opts=None):
+
+def get_workflow(name: Optional[str] = None,
+                 resource_group_name: Optional[str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowResult:
     """
     Use this data source to access information about an existing Logic App Workflow.
 
@@ -132,28 +214,26 @@ def get_workflow(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: The name of the Resource Group in which the Logic App Workflow exists.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:logicapps/getWorkflow:getWorkflow', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:logicapps/getWorkflow:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
-        access_endpoint=__ret__.get('accessEndpoint'),
-        connector_endpoint_ip_addresses=__ret__.get('connectorEndpointIpAddresses'),
-        connector_outbound_ip_addresses=__ret__.get('connectorOutboundIpAddresses'),
-        id=__ret__.get('id'),
-        location=__ret__.get('location'),
-        logic_app_integration_account_id=__ret__.get('logicAppIntegrationAccountId'),
-        name=__ret__.get('name'),
-        parameters=__ret__.get('parameters'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'),
-        workflow_endpoint_ip_addresses=__ret__.get('workflowEndpointIpAddresses'),
-        workflow_outbound_ip_addresses=__ret__.get('workflowOutboundIpAddresses'),
-        workflow_schema=__ret__.get('workflowSchema'),
-        workflow_version=__ret__.get('workflowVersion'))
+        access_endpoint=__ret__.access_endpoint,
+        connector_endpoint_ip_addresses=__ret__.connector_endpoint_ip_addresses,
+        connector_outbound_ip_addresses=__ret__.connector_outbound_ip_addresses,
+        id=__ret__.id,
+        location=__ret__.location,
+        logic_app_integration_account_id=__ret__.logic_app_integration_account_id,
+        name=__ret__.name,
+        parameters=__ret__.parameters,
+        resource_group_name=__ret__.resource_group_name,
+        tags=__ret__.tags,
+        workflow_endpoint_ip_addresses=__ret__.workflow_endpoint_ip_addresses,
+        workflow_outbound_ip_addresses=__ret__.workflow_outbound_ip_addresses,
+        workflow_schema=__ret__.workflow_schema,
+        workflow_version=__ret__.workflow_version)

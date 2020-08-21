@@ -37,25 +37,27 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
-        inputs["clientCertificatePassword"] = args ? args.clientCertificatePassword : undefined;
-        inputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
-        inputs["clientId"] = args ? args.clientId : undefined;
-        inputs["clientSecret"] = args ? args.clientSecret : undefined;
-        inputs["disableCorrelationRequestId"] = pulumi.output(args ? args.disableCorrelationRequestId : undefined).apply(JSON.stringify);
-        inputs["disableTerraformPartnerId"] = pulumi.output(args ? args.disableTerraformPartnerId : undefined).apply(JSON.stringify);
-        inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
-        inputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
-        inputs["metadataHost"] = (args ? args.metadataHost : undefined) || (utilities.getEnv("ARM_METADATA_HOSTNAME") || "");
-        inputs["metadataUrl"] = (args ? args.metadataUrl : undefined) || (utilities.getEnv("ARM_METADATA_URL") || "");
-        inputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
-        inputs["partnerId"] = args ? args.partnerId : undefined;
-        inputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify);
-        inputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) || (<any>utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
-        inputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) || (<any>utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
-        inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
-        inputs["tenantId"] = args ? args.tenantId : undefined;
-        inputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
+        {
+            inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
+            inputs["clientCertificatePassword"] = args ? args.clientCertificatePassword : undefined;
+            inputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
+            inputs["clientId"] = args ? args.clientId : undefined;
+            inputs["clientSecret"] = args ? args.clientSecret : undefined;
+            inputs["disableCorrelationRequestId"] = pulumi.output(args ? args.disableCorrelationRequestId : undefined).apply(JSON.stringify);
+            inputs["disableTerraformPartnerId"] = pulumi.output(args ? args.disableTerraformPartnerId : undefined).apply(JSON.stringify);
+            inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
+            inputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
+            inputs["metadataHost"] = (args ? args.metadataHost : undefined) || (utilities.getEnv("ARM_METADATA_HOSTNAME") || "");
+            inputs["metadataUrl"] = (args ? args.metadataUrl : undefined) || (utilities.getEnv("ARM_METADATA_URL") || "");
+            inputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
+            inputs["partnerId"] = args ? args.partnerId : undefined;
+            inputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify);
+            inputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) || (<any>utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
+            inputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) || (<any>utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
+            inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
+            inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
+        }
         if (!opts) {
             opts = {}
         }

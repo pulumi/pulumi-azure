@@ -5,36 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['ApiSchema']
 
 
 class ApiSchema(pulumi.CustomResource):
-    api_management_name: pulumi.Output[str]
-    """
-    The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
-    """
-    api_name: pulumi.Output[str]
-    """
-    The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
-    """
-    content_type: pulumi.Output[str]
-    """
-    The content type of the API Schema.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-    """
-    schema_id: pulumi.Output[str]
-    """
-    A unique identifier for this API Schema. Changing this forces a new resource to be created.
-    """
-    value: pulumi.Output[str]
-    """
-    The JSON escaped string defining the document representing the Schema.
-    """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, api_name=None, content_type=None, resource_group_name=None, schema_id=None, value=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_name: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema_id: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an API Schema within an API Management Service.
 
@@ -77,7 +66,7 @@ class ApiSchema(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -108,13 +97,21 @@ class ApiSchema(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_management_name=None, api_name=None, content_type=None, resource_group_name=None, schema_id=None, value=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_management_name: Optional[pulumi.Input[str]] = None,
+            api_name: Optional[pulumi.Input[str]] = None,
+            content_type: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            schema_id: Optional[pulumi.Input[str]] = None,
+            value: Optional[pulumi.Input[str]] = None) -> 'ApiSchema':
         """
         Get an existing ApiSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
@@ -135,8 +132,57 @@ class ApiSchema(pulumi.CustomResource):
         __props__["value"] = value
         return ApiSchema(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> str:
+        """
+        The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> str:
+        """
+        The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_name")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        The content type of the API Schema.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> str:
+        """
+        A unique identifier for this API Schema. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The JSON escaped string defining the document representing the Schema.
+        """
+        return pulumi.get(self, "value")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

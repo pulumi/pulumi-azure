@@ -5,84 +5,37 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['NetworkSecurityRule']
 
 
 class NetworkSecurityRule(pulumi.CustomResource):
-    access: pulumi.Output[str]
-    """
-    Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
-    """
-    description: pulumi.Output[str]
-    """
-    A description for this rule. Restricted to 140 characters.
-    """
-    destination_address_prefix: pulumi.Output[str]
-    """
-    CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the cli: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
-    """
-    destination_address_prefixes: pulumi.Output[list]
-    """
-    List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-    """
-    destination_application_security_group_ids: pulumi.Output[str]
-    """
-    A List of destination Application Security Group ID's
-    """
-    destination_port_range: pulumi.Output[str]
-    """
-    Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-    """
-    destination_port_ranges: pulumi.Output[list]
-    """
-    List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
-    """
-    direction: pulumi.Output[str]
-    """
-    The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
-    """
-    network_security_group_name: pulumi.Output[str]
-    """
-    The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
-    """
-    priority: pulumi.Output[float]
-    """
-    Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-    """
-    protocol: pulumi.Output[str]
-    """
-    Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
-    """
-    source_address_prefix: pulumi.Output[str]
-    """
-    CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
-    """
-    source_address_prefixes: pulumi.Output[list]
-    """
-    List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-    """
-    source_application_security_group_ids: pulumi.Output[str]
-    """
-    A List of source Application Security Group ID's
-    """
-    source_port_range: pulumi.Output[str]
-    """
-    Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-    """
-    source_port_ranges: pulumi.Output[list]
-    """
-    List of source ports or port ranges. This is required if `source_port_range` is not specified.
-    """
-    def __init__(__self__, resource_name, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_group_ids=None, destination_port_range=None, destination_port_ranges=None, direction=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_group_ids=None, source_port_range=None, source_port_ranges=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 destination_address_prefix: Optional[pulumi.Input[str]] = None,
+                 destination_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 destination_application_security_group_ids: Optional[pulumi.Input[str]] = None,
+                 destination_port_range: Optional[pulumi.Input[str]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 direction: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_security_group_name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[float]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_address_prefix: Optional[pulumi.Input[str]] = None,
+                 source_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 source_application_security_group_ids: Optional[pulumi.Input[str]] = None,
+                 source_port_range: Optional[pulumi.Input[str]] = None,
+                 source_port_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Network Security Rule.
 
@@ -118,10 +71,10 @@ class NetworkSecurityRule(pulumi.CustomResource):
         :param pulumi.Input[str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 characters.
         :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the cli: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
-        :param pulumi.Input[list] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         :param pulumi.Input[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
         :param pulumi.Input[str] destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-        :param pulumi.Input[list] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         :param pulumi.Input[str] direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
         :param pulumi.Input[str] name: The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_name: The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
@@ -129,10 +82,10 @@ class NetworkSecurityRule(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
-        :param pulumi.Input[list] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         :param pulumi.Input[str] source_application_security_group_ids: A List of source Application Security Group ID's
         :param pulumi.Input[str] source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-        :param pulumi.Input[list] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -145,7 +98,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -188,21 +141,41 @@ class NetworkSecurityRule(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_group_ids=None, destination_port_range=None, destination_port_ranges=None, direction=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_group_ids=None, source_port_range=None, source_port_ranges=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            destination_address_prefix: Optional[pulumi.Input[str]] = None,
+            destination_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            destination_application_security_group_ids: Optional[pulumi.Input[str]] = None,
+            destination_port_range: Optional[pulumi.Input[str]] = None,
+            destination_port_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            direction: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            network_security_group_name: Optional[pulumi.Input[str]] = None,
+            priority: Optional[pulumi.Input[float]] = None,
+            protocol: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            source_address_prefix: Optional[pulumi.Input[str]] = None,
+            source_address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            source_application_security_group_ids: Optional[pulumi.Input[str]] = None,
+            source_port_range: Optional[pulumi.Input[str]] = None,
+            source_port_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'NetworkSecurityRule':
         """
         Get an existing NetworkSecurityRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 characters.
         :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the cli: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
-        :param pulumi.Input[list] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         :param pulumi.Input[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
         :param pulumi.Input[str] destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-        :param pulumi.Input[list] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         :param pulumi.Input[str] direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
         :param pulumi.Input[str] name: The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_security_group_name: The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
@@ -210,10 +183,10 @@ class NetworkSecurityRule(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
-        :param pulumi.Input[list] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         :param pulumi.Input[str] source_application_security_group_ids: A List of source Application Security Group ID's
         :param pulumi.Input[str] source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-        :param pulumi.Input[list] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        :param pulumi.Input[List[pulumi.Input[str]]] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -239,8 +212,153 @@ class NetworkSecurityRule(pulumi.CustomResource):
         __props__["source_port_ranges"] = source_port_ranges
         return NetworkSecurityRule(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def access(self) -> str:
+        """
+        Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this rule. Restricted to 140 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddressPrefix")
+    def destination_address_prefix(self) -> Optional[str]:
+        """
+        CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the cli: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
+        """
+        return pulumi.get(self, "destination_address_prefix")
+
+    @property
+    @pulumi.getter(name="destinationAddressPrefixes")
+    def destination_address_prefixes(self) -> Optional[List[str]]:
+        """
+        List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        """
+        return pulumi.get(self, "destination_address_prefixes")
+
+    @property
+    @pulumi.getter(name="destinationApplicationSecurityGroupIds")
+    def destination_application_security_group_ids(self) -> Optional[str]:
+        """
+        A List of destination Application Security Group ID's
+        """
+        return pulumi.get(self, "destination_application_security_group_ids")
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[str]:
+        """
+        Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[List[str]]:
+        """
+        List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupName")
+    def network_security_group_name(self) -> str:
+        """
+        The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_security_group_name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> float:
+        """
+        Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="sourceAddressPrefix")
+    def source_address_prefix(self) -> Optional[str]:
+        """
+        CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+        """
+        return pulumi.get(self, "source_address_prefix")
+
+    @property
+    @pulumi.getter(name="sourceAddressPrefixes")
+    def source_address_prefixes(self) -> Optional[List[str]]:
+        """
+        List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        """
+        return pulumi.get(self, "source_address_prefixes")
+
+    @property
+    @pulumi.getter(name="sourceApplicationSecurityGroupIds")
+    def source_application_security_group_ids(self) -> Optional[str]:
+        """
+        A List of source Application Security Group ID's
+        """
+        return pulumi.get(self, "source_application_security_group_ids")
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[str]:
+        """
+        Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+        """
+        return pulumi.get(self, "source_port_range")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[List[str]]:
+        """
+        List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

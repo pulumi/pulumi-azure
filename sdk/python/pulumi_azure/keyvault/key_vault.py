@@ -5,81 +5,34 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['KeyVault']
 
 
 class KeyVault(pulumi.CustomResource):
-    access_policies: pulumi.Output[list]
-    """
-    A list of up to 16 objects describing access policies, as described below.
-
-      * `application_id` (`str`) - The object ID of an Application in Azure Active Directory.
-      * `certificate_permissions` (`list`) - List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-      * `key_permissions` (`list`) - List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-      * `object_id` (`str`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-      * `secret_permissions` (`list`) - List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-      * `storage_permissions` (`list`) - List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-      * `tenant_id` (`str`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
-    """
-    enabled_for_deployment: pulumi.Output[bool]
-    """
-    Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
-    """
-    enabled_for_disk_encryption: pulumi.Output[bool]
-    """
-    Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
-    """
-    enabled_for_template_deployment: pulumi.Output[bool]
-    """
-    Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-    """
-    network_acls: pulumi.Output[dict]
-    """
-    A `network_acls` block as defined below.
-
-      * `bypass` (`str`) - Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
-      * `default_action` (`str`) - The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
-      * `ip_rules` (`list`) - One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-      * `virtual_network_subnet_ids` (`list`) - One or more Subnet ID's which should be able to access this Key Vault.
-    """
-    purge_protection_enabled: pulumi.Output[bool]
-    """
-    Is Purge Protection enabled for this Key Vault? Defaults to `false`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-    """
-    sku_name: pulumi.Output[str]
-    """
-    The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
-    """
-    soft_delete_enabled: pulumi.Output[bool]
-    """
-    Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-    """
-    vault_uri: pulumi.Output[str]
-    """
-    The URI of the Key Vault, used for performing operations on keys and secrets.
-    """
-    def __init__(__self__, resource_name, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
+                 enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
+                 enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
+                 enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']]] = None,
+                 purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Key Vault.
 
@@ -105,17 +58,17 @@ class KeyVault(pulumi.CustomResource):
             soft_delete_enabled=True,
             purge_protection_enabled=False,
             sku_name="standard",
-            access_policies=[{
-                "tenant_id": current.tenant_id,
-                "object_id": current.object_id,
-                "key_permissions": ["get"],
-                "secret_permissions": ["get"],
-                "storage_permissions": ["get"],
-            }],
-            network_acls={
-                "default_action": "Deny",
-                "bypass": "AzureServices",
-            },
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                key_permissions=["get"],
+                secret_permissions=["get"],
+                storage_permissions=["get"],
+            )],
+            network_acls=azure.keyvault.KeyVaultNetworkAclsArgs(
+                default_action="Deny",
+                bypass="AzureServices",
+            ),
             tags={
                 "environment": "Testing",
             })
@@ -123,36 +76,19 @@ class KeyVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
-
-        The **access_policies** object supports the following:
-
-          * `application_id` (`pulumi.Input[str]`) - The object ID of an Application in Azure Active Directory.
-          * `certificate_permissions` (`pulumi.Input[list]`) - List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-          * `key_permissions` (`pulumi.Input[list]`) - List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-          * `object_id` (`pulumi.Input[str]`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-          * `secret_permissions` (`pulumi.Input[list]`) - List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-          * `storage_permissions` (`pulumi.Input[list]`) - List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
-
-        The **network_acls** object supports the following:
-
-          * `bypass` (`pulumi.Input[str]`) - Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
-          * `default_action` (`pulumi.Input[str]`) - The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
-          * `ip_rules` (`pulumi.Input[list]`) - One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-          * `virtual_network_subnet_ids` (`pulumi.Input[list]`) - One or more Subnet ID's which should be able to access this Key Vault.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -165,7 +101,7 @@ class KeyVault(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -198,45 +134,44 @@ class KeyVault(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, soft_delete_enabled=None, tags=None, tenant_id=None, vault_uri=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
+            enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
+            enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
+            enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            network_acls: Optional[pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']]] = None,
+            purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            sku_name: Optional[pulumi.Input[str]] = None,
+            soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tenant_id: Optional[pulumi.Input[str]] = None,
+            vault_uri: Optional[pulumi.Input[str]] = None) -> 'KeyVault':
         """
         Get an existing KeyVault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
-
-        The **access_policies** object supports the following:
-
-          * `application_id` (`pulumi.Input[str]`) - The object ID of an Application in Azure Active Directory.
-          * `certificate_permissions` (`pulumi.Input[list]`) - List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-          * `key_permissions` (`pulumi.Input[list]`) - List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-          * `object_id` (`pulumi.Input[str]`) - The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
-          * `secret_permissions` (`pulumi.Input[list]`) - List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-          * `storage_permissions` (`pulumi.Input[list]`) - List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
-          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
-
-        The **network_acls** object supports the following:
-
-          * `bypass` (`pulumi.Input[str]`) - Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
-          * `default_action` (`pulumi.Input[str]`) - The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
-          * `ip_rules` (`pulumi.Input[list]`) - One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-          * `virtual_network_subnet_ids` (`pulumi.Input[list]`) - One or more Subnet ID's which should be able to access this Key Vault.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -258,8 +193,121 @@ class KeyVault(pulumi.CustomResource):
         __props__["vault_uri"] = vault_uri
         return KeyVault(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> List['outputs.KeyVaultAccessPolicy']:
+        """
+        A list of up to 16 objects describing access policies, as described below.
+        """
+        return pulumi.get(self, "access_policies")
+
+    @property
+    @pulumi.getter(name="enabledForDeployment")
+    def enabled_for_deployment(self) -> Optional[bool]:
+        """
+        Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled_for_deployment")
+
+    @property
+    @pulumi.getter(name="enabledForDiskEncryption")
+    def enabled_for_disk_encryption(self) -> Optional[bool]:
+        """
+        Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled_for_disk_encryption")
+
+    @property
+    @pulumi.getter(name="enabledForTemplateDeployment")
+    def enabled_for_template_deployment(self) -> Optional[bool]:
+        """
+        Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled_for_template_deployment")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> 'outputs.KeyVaultNetworkAcls':
+        """
+        A `network_acls` block as defined below.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @property
+    @pulumi.getter(name="purgeProtectionEnabled")
+    def purge_protection_enabled(self) -> Optional[bool]:
+        """
+        Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        """
+        return pulumi.get(self, "purge_protection_enabled")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> str:
+        """
+        The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter(name="softDeleteEnabled")
+    def soft_delete_enabled(self) -> Optional[bool]:
+        """
+        Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+        """
+        return pulumi.get(self, "soft_delete_enabled")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="vaultUri")
+    def vault_uri(self) -> str:
+        """
+        The URI of the Key Vault, used for performing operations on keys and secrets.
+        """
+        return pulumi.get(self, "vault_uri")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

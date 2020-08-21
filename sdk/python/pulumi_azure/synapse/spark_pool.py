@@ -5,68 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['SparkPool']
 
 
 class SparkPool(pulumi.CustomResource):
-    auto_pause: pulumi.Output[dict]
-    """
-    An `auto_pause` block as defined below.
-
-      * `delayInMinutes` (`float`) - Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
-    """
-    auto_scale: pulumi.Output[dict]
-    """
-    An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
-
-      * `maxNodeCount` (`float`) - The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-      * `minNodeCount` (`float`) - The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-    """
-    library_requirement: pulumi.Output[dict]
-    """
-    A `library_requirement` block as defined below.
-
-      * `content` (`str`) - The content of library requirements.
-      * `filename` (`str`) - The name of the library requirements file.
-    """
-    name: pulumi.Output[str]
-    """
-    The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
-    """
-    node_count: pulumi.Output[float]
-    """
-    The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
-    """
-    node_size: pulumi.Output[str]
-    """
-    The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
-    """
-    node_size_family: pulumi.Output[str]
-    """
-    The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
-    """
-    spark_events_folder: pulumi.Output[str]
-    """
-    The Spark events folder. Defaults to `/events`.
-    """
-    spark_log_folder: pulumi.Output[str]
-    """
-    The default folder where Spark logs will be written. Defaults to `/logs`.
-    """
-    spark_version: pulumi.Output[str]
-    """
-    The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
-    """
-    synapse_workspace_id: pulumi.Output[str]
-    """
-    The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags which should be assigned to the Synapse Spark Pool.
-    """
-    def __init__(__self__, resource_name, opts=None, auto_pause=None, auto_scale=None, library_requirement=None, name=None, node_count=None, node_size=None, node_size_family=None, spark_events_folder=None, spark_log_folder=None, spark_version=None, synapse_workspace_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_pause: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']]] = None,
+                 auto_scale: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']]] = None,
+                 library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_count: Optional[pulumi.Input[float]] = None,
+                 node_size: Optional[pulumi.Input[str]] = None,
+                 node_size_family: Optional[pulumi.Input[str]] = None,
+                 spark_events_folder: Optional[pulumi.Input[str]] = None,
+                 spark_log_folder: Optional[pulumi.Input[str]] = None,
+                 spark_version: Optional[pulumi.Input[str]] = None,
+                 synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Synapse Spark Pool.
 
@@ -83,7 +48,7 @@ class SparkPool(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
-            is_hns_enabled="true")
+            is_hns_enabled=True)
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
         example_workspace = azure.synapse.Workspace("exampleWorkspace",
             resource_group_name=example_resource_group.name,
@@ -95,13 +60,13 @@ class SparkPool(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             node_size_family="MemoryOptimized",
             node_size="Small",
-            auto_scale={
-                "maxNodeCount": 50,
-                "minNodeCount": 3,
-            },
-            auto_pause={
-                "delayInMinutes": 15,
-            },
+            auto_scale=azure.synapse.SparkPoolAutoScaleArgs(
+                max_node_count=50,
+                min_node_count=3,
+            ),
+            auto_pause=azure.synapse.SparkPoolAutoPauseArgs(
+                delay_in_minutes=15,
+            ),
             tags={
                 "ENV": "Production",
             })
@@ -109,9 +74,9 @@ class SparkPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] auto_pause: An `auto_pause` block as defined below.
-        :param pulumi.Input[dict] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
-        :param pulumi.Input[dict] library_requirement: A `library_requirement` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']] auto_pause: An `auto_pause` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[float] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
@@ -120,21 +85,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
         :param pulumi.Input[str] spark_version: The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
-
-        The **auto_pause** object supports the following:
-
-          * `delayInMinutes` (`pulumi.Input[float]`) - Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
-
-        The **auto_scale** object supports the following:
-
-          * `maxNodeCount` (`pulumi.Input[float]`) - The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-          * `minNodeCount` (`pulumi.Input[float]`) - The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-
-        The **library_requirement** object supports the following:
-
-          * `content` (`pulumi.Input[str]`) - The content of library requirements.
-          * `filename` (`pulumi.Input[str]`) - The name of the library requirements file.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -147,7 +98,7 @@ class SparkPool(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -178,17 +129,31 @@ class SparkPool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_pause=None, auto_scale=None, library_requirement=None, name=None, node_count=None, node_size=None, node_size_family=None, spark_events_folder=None, spark_log_folder=None, spark_version=None, synapse_workspace_id=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_pause: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']]] = None,
+            auto_scale: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']]] = None,
+            library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            node_count: Optional[pulumi.Input[float]] = None,
+            node_size: Optional[pulumi.Input[str]] = None,
+            node_size_family: Optional[pulumi.Input[str]] = None,
+            spark_events_folder: Optional[pulumi.Input[str]] = None,
+            spark_log_folder: Optional[pulumi.Input[str]] = None,
+            spark_version: Optional[pulumi.Input[str]] = None,
+            synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SparkPool':
         """
         Get an existing SparkPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] auto_pause: An `auto_pause` block as defined below.
-        :param pulumi.Input[dict] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
-        :param pulumi.Input[dict] library_requirement: A `library_requirement` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']] auto_pause: An `auto_pause` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[float] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
@@ -197,21 +162,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
         :param pulumi.Input[str] spark_version: The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
-
-        The **auto_pause** object supports the following:
-
-          * `delayInMinutes` (`pulumi.Input[float]`) - Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
-
-        The **auto_scale** object supports the following:
-
-          * `maxNodeCount` (`pulumi.Input[float]`) - The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-          * `minNodeCount` (`pulumi.Input[float]`) - The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-
-        The **library_requirement** object supports the following:
-
-          * `content` (`pulumi.Input[str]`) - The content of library requirements.
-          * `filename` (`pulumi.Input[str]`) - The name of the library requirements file.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -231,8 +182,105 @@ class SparkPool(pulumi.CustomResource):
         __props__["tags"] = tags
         return SparkPool(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoPause")
+    def auto_pause(self) -> Optional['outputs.SparkPoolAutoPause']:
+        """
+        An `auto_pause` block as defined below.
+        """
+        return pulumi.get(self, "auto_pause")
+
+    @property
+    @pulumi.getter(name="autoScale")
+    def auto_scale(self) -> Optional['outputs.SparkPoolAutoScale']:
+        """
+        An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        """
+        return pulumi.get(self, "auto_scale")
+
+    @property
+    @pulumi.getter(name="libraryRequirement")
+    def library_requirement(self) -> Optional['outputs.SparkPoolLibraryRequirement']:
+        """
+        A `library_requirement` block as defined below.
+        """
+        return pulumi.get(self, "library_requirement")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[float]:
+        """
+        The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        """
+        return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="nodeSize")
+    def node_size(self) -> str:
+        """
+        The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+        """
+        return pulumi.get(self, "node_size")
+
+    @property
+    @pulumi.getter(name="nodeSizeFamily")
+    def node_size_family(self) -> str:
+        """
+        The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        """
+        return pulumi.get(self, "node_size_family")
+
+    @property
+    @pulumi.getter(name="sparkEventsFolder")
+    def spark_events_folder(self) -> Optional[str]:
+        """
+        The Spark events folder. Defaults to `/events`.
+        """
+        return pulumi.get(self, "spark_events_folder")
+
+    @property
+    @pulumi.getter(name="sparkLogFolder")
+    def spark_log_folder(self) -> Optional[str]:
+        """
+        The default folder where Spark logs will be written. Defaults to `/logs`.
+        """
+        return pulumi.get(self, "spark_log_folder")
+
+    @property
+    @pulumi.getter(name="sparkVersion")
+    def spark_version(self) -> Optional[str]:
+        """
+        The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
+        """
+        return pulumi.get(self, "spark_version")
+
+    @property
+    @pulumi.getter(name="synapseWorkspaceId")
+    def synapse_workspace_id(self) -> str:
+        """
+        The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
+        """
+        return pulumi.get(self, "synapse_workspace_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags which should be assigned to the Synapse Spark Pool.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

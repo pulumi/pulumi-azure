@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetSubscriptionResult',
+    'AwaitableGetSubscriptionResult',
+    'get_subscription',
+]
+
+@pulumi.output_type
 class GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
@@ -15,52 +22,94 @@ class GetSubscriptionResult:
     def __init__(__self__, display_name=None, id=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None, tenant_id=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
-        __self__.display_name = display_name
+        pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if location_placement_id and not isinstance(location_placement_id, str):
+            raise TypeError("Expected argument 'location_placement_id' to be a str")
+        pulumi.set(__self__, "location_placement_id", location_placement_id)
+        if quota_id and not isinstance(quota_id, str):
+            raise TypeError("Expected argument 'quota_id' to be a str")
+        pulumi.set(__self__, "quota_id", quota_id)
+        if spending_limit and not isinstance(spending_limit, str):
+            raise TypeError("Expected argument 'spending_limit' to be a str")
+        pulumi.set(__self__, "spending_limit", spending_limit)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
+        if subscription_id and not isinstance(subscription_id, str):
+            raise TypeError("Expected argument 'subscription_id' to be a str")
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
         """
         The subscription display name.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if location_placement_id and not isinstance(location_placement_id, str):
-            raise TypeError("Expected argument 'location_placement_id' to be a str")
-        __self__.location_placement_id = location_placement_id
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="locationPlacementId")
+    def location_placement_id(self) -> str:
         """
         The subscription location placement ID.
         """
-        if quota_id and not isinstance(quota_id, str):
-            raise TypeError("Expected argument 'quota_id' to be a str")
-        __self__.quota_id = quota_id
+        return pulumi.get(self, "location_placement_id")
+
+    @property
+    @pulumi.getter(name="quotaId")
+    def quota_id(self) -> str:
         """
         The subscription quota ID.
         """
-        if spending_limit and not isinstance(spending_limit, str):
-            raise TypeError("Expected argument 'spending_limit' to be a str")
-        __self__.spending_limit = spending_limit
+        return pulumi.get(self, "quota_id")
+
+    @property
+    @pulumi.getter(name="spendingLimit")
+    def spending_limit(self) -> str:
         """
         The subscription spending limit.
         """
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        __self__.state = state
+        return pulumi.get(self, "spending_limit")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
         """
         The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
         """
-        if subscription_id and not isinstance(subscription_id, str):
-            raise TypeError("Expected argument 'subscription_id' to be a str")
-        __self__.subscription_id = subscription_id
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> str:
         """
         The subscription GUID.
         """
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        __self__.tenant_id = tenant_id
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
         """
         The subscription tenant ID.
         """
+        return pulumi.get(self, "tenant_id")
+
+
 class AwaitableGetSubscriptionResult(GetSubscriptionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -76,7 +125,9 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             subscription_id=self.subscription_id,
             tenant_id=self.tenant_id)
 
-def get_subscription(subscription_id=None,opts=None):
+
+def get_subscription(subscription_id: Optional[str] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Use this data source to access information about an existing Subscription.
 
@@ -94,21 +145,19 @@ def get_subscription(subscription_id=None,opts=None):
     :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
     """
     __args__ = dict()
-
-
     __args__['subscriptionId'] = subscription_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:core/getSubscription:getSubscription', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:core/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult).value
 
     return AwaitableGetSubscriptionResult(
-        display_name=__ret__.get('displayName'),
-        id=__ret__.get('id'),
-        location_placement_id=__ret__.get('locationPlacementId'),
-        quota_id=__ret__.get('quotaId'),
-        spending_limit=__ret__.get('spendingLimit'),
-        state=__ret__.get('state'),
-        subscription_id=__ret__.get('subscriptionId'),
-        tenant_id=__ret__.get('tenantId'))
+        display_name=__ret__.display_name,
+        id=__ret__.id,
+        location_placement_id=__ret__.location_placement_id,
+        quota_id=__ret__.quota_id,
+        spending_limit=__ret__.spending_limit,
+        state=__ret__.state,
+        subscription_id=__ret__.subscription_id,
+        tenant_id=__ret__.tenant_id)

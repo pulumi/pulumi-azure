@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetAccountResult',
+    'AwaitableGetAccountResult',
+    'get_account',
+]
+
+@pulumi.output_type
 class GetAccountResult:
     """
     A collection of values returned by getAccount.
@@ -15,130 +23,247 @@ class GetAccountResult:
     def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
-        __self__.capabilities = capabilities
+        pulumi.set(__self__, "capabilities", capabilities)
+        if consistency_policies and not isinstance(consistency_policies, list):
+            raise TypeError("Expected argument 'consistency_policies' to be a list")
+        pulumi.set(__self__, "consistency_policies", consistency_policies)
+        if enable_automatic_failover and not isinstance(enable_automatic_failover, bool):
+            raise TypeError("Expected argument 'enable_automatic_failover' to be a bool")
+        pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_free_tier and not isinstance(enable_free_tier, bool):
+            raise TypeError("Expected argument 'enable_free_tier' to be a bool")
+        pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_multiple_write_locations and not isinstance(enable_multiple_write_locations, bool):
+            raise TypeError("Expected argument 'enable_multiple_write_locations' to be a bool")
+        pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        pulumi.set(__self__, "endpoint", endpoint)
+        if geo_locations and not isinstance(geo_locations, list):
+            raise TypeError("Expected argument 'geo_locations' to be a list")
+        pulumi.set(__self__, "geo_locations", geo_locations)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if ip_range_filter and not isinstance(ip_range_filter, str):
+            raise TypeError("Expected argument 'ip_range_filter' to be a str")
+        pulumi.set(__self__, "ip_range_filter", ip_range_filter)
+        if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
+            raise TypeError("Expected argument 'is_virtual_network_filter_enabled' to be a bool")
+        pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if offer_type and not isinstance(offer_type, str):
+            raise TypeError("Expected argument 'offer_type' to be a str")
+        pulumi.set(__self__, "offer_type", offer_type)
+        if primary_master_key and not isinstance(primary_master_key, str):
+            raise TypeError("Expected argument 'primary_master_key' to be a str")
+        pulumi.set(__self__, "primary_master_key", primary_master_key)
+        if primary_readonly_master_key and not isinstance(primary_readonly_master_key, str):
+            raise TypeError("Expected argument 'primary_readonly_master_key' to be a str")
+        pulumi.set(__self__, "primary_readonly_master_key", primary_readonly_master_key)
+        if read_endpoints and not isinstance(read_endpoints, list):
+            raise TypeError("Expected argument 'read_endpoints' to be a list")
+        pulumi.set(__self__, "read_endpoints", read_endpoints)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_master_key and not isinstance(secondary_master_key, str):
+            raise TypeError("Expected argument 'secondary_master_key' to be a str")
+        pulumi.set(__self__, "secondary_master_key", secondary_master_key)
+        if secondary_readonly_master_key and not isinstance(secondary_readonly_master_key, str):
+            raise TypeError("Expected argument 'secondary_readonly_master_key' to be a str")
+        pulumi.set(__self__, "secondary_readonly_master_key", secondary_readonly_master_key)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
+        if virtual_network_rules and not isinstance(virtual_network_rules, list):
+            raise TypeError("Expected argument 'virtual_network_rules' to be a list")
+        pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+        if write_endpoints and not isinstance(write_endpoints, list):
+            raise TypeError("Expected argument 'write_endpoints' to be a list")
+        pulumi.set(__self__, "write_endpoints", write_endpoints)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> List['outputs.GetAccountCapabilityResult']:
         """
         Capabilities enabled on this Cosmos DB account.
         """
-        if consistency_policies and not isinstance(consistency_policies, list):
-            raise TypeError("Expected argument 'consistency_policies' to be a list")
-        __self__.consistency_policies = consistency_policies
-        if enable_automatic_failover and not isinstance(enable_automatic_failover, bool):
-            raise TypeError("Expected argument 'enable_automatic_failover' to be a bool")
-        __self__.enable_automatic_failover = enable_automatic_failover
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="consistencyPolicies")
+    def consistency_policies(self) -> List['outputs.GetAccountConsistencyPolicyResult']:
+        return pulumi.get(self, "consistency_policies")
+
+    @property
+    @pulumi.getter(name="enableAutomaticFailover")
+    def enable_automatic_failover(self) -> bool:
         """
         If automatic failover is enabled for this CosmosDB Account.
         """
-        if enable_free_tier and not isinstance(enable_free_tier, bool):
-            raise TypeError("Expected argument 'enable_free_tier' to be a bool")
-        __self__.enable_free_tier = enable_free_tier
+        return pulumi.get(self, "enable_automatic_failover")
+
+    @property
+    @pulumi.getter(name="enableFreeTier")
+    def enable_free_tier(self) -> bool:
         """
         If Free Tier pricing option is enabled for this CosmosDB Account.
         """
-        if enable_multiple_write_locations and not isinstance(enable_multiple_write_locations, bool):
-            raise TypeError("Expected argument 'enable_multiple_write_locations' to be a bool")
-        __self__.enable_multiple_write_locations = enable_multiple_write_locations
+        return pulumi.get(self, "enable_free_tier")
+
+    @property
+    @pulumi.getter(name="enableMultipleWriteLocations")
+    def enable_multiple_write_locations(self) -> bool:
         """
         If multi-master is enabled for this Cosmos DB account.
         """
-        if endpoint and not isinstance(endpoint, str):
-            raise TypeError("Expected argument 'endpoint' to be a str")
-        __self__.endpoint = endpoint
+        return pulumi.get(self, "enable_multiple_write_locations")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
         """
         The endpoint used to connect to the CosmosDB account.
         """
-        if geo_locations and not isinstance(geo_locations, list):
-            raise TypeError("Expected argument 'geo_locations' to be a list")
-        __self__.geo_locations = geo_locations
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="geoLocations")
+    def geo_locations(self) -> List['outputs.GetAccountGeoLocationResult']:
+        return pulumi.get(self, "geo_locations")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if ip_range_filter and not isinstance(ip_range_filter, str):
-            raise TypeError("Expected argument 'ip_range_filter' to be a str")
-        __self__.ip_range_filter = ip_range_filter
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipRangeFilter")
+    def ip_range_filter(self) -> str:
         """
         The current IP Filter for this CosmosDB account
         """
-        if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
-            raise TypeError("Expected argument 'is_virtual_network_filter_enabled' to be a bool")
-        __self__.is_virtual_network_filter_enabled = is_virtual_network_filter_enabled
+        return pulumi.get(self, "ip_range_filter")
+
+    @property
+    @pulumi.getter(name="isVirtualNetworkFilterEnabled")
+    def is_virtual_network_filter_enabled(self) -> bool:
         """
         If virtual network filtering is enabled for this Cosmos DB account.
         """
-        if kind and not isinstance(kind, str):
-            raise TypeError("Expected argument 'kind' to be a str")
-        __self__.kind = kind
+        return pulumi.get(self, "is_virtual_network_filter_enabled")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
         """
         The Kind of the CosmosDB account.
         """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
         """
         The name of the Azure region hosting replicated data.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if offer_type and not isinstance(offer_type, str):
-            raise TypeError("Expected argument 'offer_type' to be a str")
-        __self__.offer_type = offer_type
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="offerType")
+    def offer_type(self) -> str:
         """
         The Offer Type to used by this CosmosDB Account.
         """
-        if primary_master_key and not isinstance(primary_master_key, str):
-            raise TypeError("Expected argument 'primary_master_key' to be a str")
-        __self__.primary_master_key = primary_master_key
+        return pulumi.get(self, "offer_type")
+
+    @property
+    @pulumi.getter(name="primaryMasterKey")
+    def primary_master_key(self) -> str:
         """
         The Primary master key for the CosmosDB Account.
         """
-        if primary_readonly_master_key and not isinstance(primary_readonly_master_key, str):
-            raise TypeError("Expected argument 'primary_readonly_master_key' to be a str")
-        __self__.primary_readonly_master_key = primary_readonly_master_key
+        return pulumi.get(self, "primary_master_key")
+
+    @property
+    @pulumi.getter(name="primaryReadonlyMasterKey")
+    def primary_readonly_master_key(self) -> str:
         """
         The Primary read-only master Key for the CosmosDB Account.
         """
-        if read_endpoints and not isinstance(read_endpoints, list):
-            raise TypeError("Expected argument 'read_endpoints' to be a list")
-        __self__.read_endpoints = read_endpoints
+        return pulumi.get(self, "primary_readonly_master_key")
+
+    @property
+    @pulumi.getter(name="readEndpoints")
+    def read_endpoints(self) -> List[str]:
         """
         A list of read endpoints available for this CosmosDB account.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if secondary_master_key and not isinstance(secondary_master_key, str):
-            raise TypeError("Expected argument 'secondary_master_key' to be a str")
-        __self__.secondary_master_key = secondary_master_key
+        return pulumi.get(self, "read_endpoints")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryMasterKey")
+    def secondary_master_key(self) -> str:
         """
         The Secondary master key for the CosmosDB Account.
         """
-        if secondary_readonly_master_key and not isinstance(secondary_readonly_master_key, str):
-            raise TypeError("Expected argument 'secondary_readonly_master_key' to be a str")
-        __self__.secondary_readonly_master_key = secondary_readonly_master_key
+        return pulumi.get(self, "secondary_master_key")
+
+    @property
+    @pulumi.getter(name="secondaryReadonlyMasterKey")
+    def secondary_readonly_master_key(self) -> str:
         """
         The Secondary read-only master key for the CosmosDB Account.
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        return pulumi.get(self, "secondary_readonly_master_key")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the resource.
         """
-        if virtual_network_rules and not isinstance(virtual_network_rules, list):
-            raise TypeError("Expected argument 'virtual_network_rules' to be a list")
-        __self__.virtual_network_rules = virtual_network_rules
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> List['outputs.GetAccountVirtualNetworkRuleResult']:
         """
         Subnets that are allowed to access this CosmosDB account.
         """
-        if write_endpoints and not isinstance(write_endpoints, list):
-            raise TypeError("Expected argument 'write_endpoints' to be a list")
-        __self__.write_endpoints = write_endpoints
+        return pulumi.get(self, "virtual_network_rules")
+
+    @property
+    @pulumi.getter(name="writeEndpoints")
+    def write_endpoints(self) -> List[str]:
         """
         A list of write endpoints available for this CosmosDB account.
         """
+        return pulumi.get(self, "write_endpoints")
+
+
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -169,7 +294,10 @@ class AwaitableGetAccountResult(GetAccountResult):
             virtual_network_rules=self.virtual_network_rules,
             write_endpoints=self.write_endpoints)
 
-def get_account(name=None,resource_group_name=None,opts=None):
+
+def get_account(name: Optional[str] = None,
+                resource_group_name: Optional[str] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
 
@@ -189,37 +317,35 @@ def get_account(name=None,resource_group_name=None,opts=None):
     :param str resource_group_name: Specifies the name of the resource group in which the CosmosDB Account resides.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        capabilities=__ret__.get('capabilities'),
-        consistency_policies=__ret__.get('consistencyPolicies'),
-        enable_automatic_failover=__ret__.get('enableAutomaticFailover'),
-        enable_free_tier=__ret__.get('enableFreeTier'),
-        enable_multiple_write_locations=__ret__.get('enableMultipleWriteLocations'),
-        endpoint=__ret__.get('endpoint'),
-        geo_locations=__ret__.get('geoLocations'),
-        id=__ret__.get('id'),
-        ip_range_filter=__ret__.get('ipRangeFilter'),
-        is_virtual_network_filter_enabled=__ret__.get('isVirtualNetworkFilterEnabled'),
-        kind=__ret__.get('kind'),
-        location=__ret__.get('location'),
-        name=__ret__.get('name'),
-        offer_type=__ret__.get('offerType'),
-        primary_master_key=__ret__.get('primaryMasterKey'),
-        primary_readonly_master_key=__ret__.get('primaryReadonlyMasterKey'),
-        read_endpoints=__ret__.get('readEndpoints'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        secondary_master_key=__ret__.get('secondaryMasterKey'),
-        secondary_readonly_master_key=__ret__.get('secondaryReadonlyMasterKey'),
-        tags=__ret__.get('tags'),
-        virtual_network_rules=__ret__.get('virtualNetworkRules'),
-        write_endpoints=__ret__.get('writeEndpoints'))
+        capabilities=__ret__.capabilities,
+        consistency_policies=__ret__.consistency_policies,
+        enable_automatic_failover=__ret__.enable_automatic_failover,
+        enable_free_tier=__ret__.enable_free_tier,
+        enable_multiple_write_locations=__ret__.enable_multiple_write_locations,
+        endpoint=__ret__.endpoint,
+        geo_locations=__ret__.geo_locations,
+        id=__ret__.id,
+        ip_range_filter=__ret__.ip_range_filter,
+        is_virtual_network_filter_enabled=__ret__.is_virtual_network_filter_enabled,
+        kind=__ret__.kind,
+        location=__ret__.location,
+        name=__ret__.name,
+        offer_type=__ret__.offer_type,
+        primary_master_key=__ret__.primary_master_key,
+        primary_readonly_master_key=__ret__.primary_readonly_master_key,
+        read_endpoints=__ret__.read_endpoints,
+        resource_group_name=__ret__.resource_group_name,
+        secondary_master_key=__ret__.secondary_master_key,
+        secondary_readonly_master_key=__ret__.secondary_readonly_master_key,
+        tags=__ret__.tags,
+        virtual_network_rules=__ret__.virtual_network_rules,
+        write_endpoints=__ret__.write_endpoints)

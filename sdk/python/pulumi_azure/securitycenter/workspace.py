@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Workspace']
 
 
 class Workspace(pulumi.CustomResource):
-    scope: pulumi.Output[str]
-    """
-    The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
-    """
-    workspace_id: pulumi.Output[str]
-    """
-    The ID of the Log Analytics Workspace to save the data in.
-    """
-    def __init__(__self__, resource_name, opts=None, scope=None, workspace_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages the subscription's Security Center Workspace.
 
@@ -58,7 +59,7 @@ class Workspace(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -77,13 +78,17 @@ class Workspace(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, scope=None, workspace_id=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            scope: Optional[pulumi.Input[str]] = None,
+            workspace_id: Optional[pulumi.Input[str]] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scope: The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace to save the data in.
@@ -96,8 +101,25 @@ class Workspace(pulumi.CustomResource):
         __props__["workspace_id"] = workspace_id
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> str:
+        """
+        The ID of the Log Analytics Workspace to save the data in.
+        """
+        return pulumi.get(self, "workspace_id")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

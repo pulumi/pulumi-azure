@@ -5,114 +5,44 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Server']
 
 
 class Server(pulumi.CustomResource):
-    administrator_login: pulumi.Output[str]
-    """
-    The Administrator Login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
-    """
-    administrator_login_password: pulumi.Output[str]
-    """
-    The Password associated with the `administrator_login` for the MySQL Server. Required when `create_mode` is `Default`.
-    """
-    auto_grow_enabled: pulumi.Output[bool]
-    """
-    Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
-    """
-    backup_retention_days: pulumi.Output[float]
-    """
-    Backup retention days for the server, supported values are between `7` and `35` days.
-    """
-    create_mode: pulumi.Output[str]
-    """
-    The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
-    """
-    creation_source_server_id: pulumi.Output[str]
-    """
-    For creation modes other than `Default`, the source server ID to use.
-    """
-    fqdn: pulumi.Output[str]
-    """
-    The FQDN of the MySQL Server.
-    """
-    geo_redundant_backup_enabled: pulumi.Output[bool]
-    """
-    Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
-    """
-    identity: pulumi.Output[dict]
-    """
-    An `identity` block as defined below.
-
-      * `principal_id` (`str`) - The Client ID of the Service Principal assigned to this MySQL Server.
-      * `tenant_id` (`str`) - The ID of the Tenant the Service Principal is assigned in.
-      * `type` (`str`) - The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
-    """
-    infrastructure_encryption_enabled: pulumi.Output[bool]
-    """
-    Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
-    """
-    location: pulumi.Output[str]
-    """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
-    """
-    public_network_access_enabled: pulumi.Output[bool]
-    """
-    Whether or not public network access is allowed for this server. Defaults to `true`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
-    """
-    restore_point_in_time: pulumi.Output[str]
-    """
-    When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
-    """
-    sku_name: pulumi.Output[str]
-    """
-    Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
-    """
-    ssl_enforcement: pulumi.Output[str]
-    ssl_enforcement_enabled: pulumi.Output[bool]
-    """
-    Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
-    """
-    ssl_minimal_tls_version_enforced: pulumi.Output[str]
-    """
-    The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
-    """
-    storage_mb: pulumi.Output[float]
-    """
-    Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-    """
-    storage_profile: pulumi.Output[dict]
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    threat_detection_policy: pulumi.Output[dict]
-    """
-    Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
-
-      * `disabled_alerts` (`list`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-      * `email_account_admins` (`bool`) - Should the account administrators be emailed when this alert is triggered?
-      * `email_addresses` (`list`) - A list of email addresses which alerts should be sent to.
-      * `enabled` (`bool`) - Is the policy enabled?
-      * `retention_days` (`float`) - Specifies the number of days to keep in the Threat Detection audit logs.
-      * `storage_account_access_key` (`str`) - Specifies the identifier key of the Threat Detection audit storage account.
-      * `storage_endpoint` (`str`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
-    """
-    version: pulumi.Output[str]
-    """
-    Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
-    """
-    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, geo_redundant_backup_enabled=None, identity=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, threat_detection_policy=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup_retention_days: Optional[pulumi.Input[float]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 creation_source_server_id: Optional[pulumi.Input[str]] = None,
+                 geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
+                 storage_mb: Optional[pulumi.Input[float]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['ServerStorageProfileArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a MySQL Server.
 
@@ -149,7 +79,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
         :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
-        :param pulumi.Input[dict] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
@@ -160,32 +90,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         :param pulumi.Input[float] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The Client ID of the Service Principal assigned to this MySQL Server.
-          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
-
-        The **storage_profile** object supports the following:
-
-          * `autoGrow` (`pulumi.Input[str]`)
-          * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
-          * `geoRedundantBackup` (`pulumi.Input[str]`)
-          * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-
-        The **threat_detection_policy** object supports the following:
-
-          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-          * `email_account_admins` (`pulumi.Input[bool]`) - Should the account administrators be emailed when this alert is triggered?
-          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
-          * `enabled` (`pulumi.Input[bool]`) - Is the policy enabled?
-          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
-          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account.
-          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -198,7 +105,7 @@ class Server(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -247,13 +154,39 @@ class Server(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, administrator_login=None, administrator_login_password=None, auto_grow_enabled=None, backup_retention_days=None, create_mode=None, creation_source_server_id=None, fqdn=None, geo_redundant_backup_enabled=None, identity=None, infrastructure_encryption_enabled=None, location=None, name=None, public_network_access_enabled=None, resource_group_name=None, restore_point_in_time=None, sku_name=None, ssl_enforcement=None, ssl_enforcement_enabled=None, ssl_minimal_tls_version_enforced=None, storage_mb=None, storage_profile=None, tags=None, threat_detection_policy=None, version=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            administrator_login: Optional[pulumi.Input[str]] = None,
+            administrator_login_password: Optional[pulumi.Input[str]] = None,
+            auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
+            backup_retention_days: Optional[pulumi.Input[float]] = None,
+            create_mode: Optional[pulumi.Input[str]] = None,
+            creation_source_server_id: Optional[pulumi.Input[str]] = None,
+            fqdn: Optional[pulumi.Input[str]] = None,
+            geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+            infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            restore_point_in_time: Optional[pulumi.Input[str]] = None,
+            sku_name: Optional[pulumi.Input[str]] = None,
+            ssl_enforcement: Optional[pulumi.Input[str]] = None,
+            ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+            ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
+            storage_mb: Optional[pulumi.Input[float]] = None,
+            storage_profile: Optional[pulumi.Input[pulumi.InputType['ServerStorageProfileArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
+            version: Optional[pulumi.Input[str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the MySQL Server. Required when `create_mode` is `Default`.
@@ -263,7 +196,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
         :param pulumi.Input[str] fqdn: The FQDN of the MySQL Server.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
-        :param pulumi.Input[dict] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
@@ -274,32 +207,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         :param pulumi.Input[float] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[dict] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
-
-        The **identity** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The Client ID of the Service Principal assigned to this MySQL Server.
-          * `tenant_id` (`pulumi.Input[str]`) - The ID of the Tenant the Service Principal is assigned in.
-          * `type` (`pulumi.Input[str]`) - The Type of Identity which should be used for this MySQL Server. At this time the only possible value is `SystemAssigned`.
-
-        The **storage_profile** object supports the following:
-
-          * `autoGrow` (`pulumi.Input[str]`)
-          * `backup_retention_days` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
-          * `geoRedundantBackup` (`pulumi.Input[str]`)
-          * `storage_mb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
-
-        The **threat_detection_policy** object supports the following:
-
-          * `disabled_alerts` (`pulumi.Input[list]`) - Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-          * `email_account_admins` (`pulumi.Input[bool]`) - Should the account administrators be emailed when this alert is triggered?
-          * `email_addresses` (`pulumi.Input[list]`) - A list of email addresses which alerts should be sent to.
-          * `enabled` (`pulumi.Input[bool]`) - Is the policy enabled?
-          * `retention_days` (`pulumi.Input[float]`) - Specifies the number of days to keep in the Threat Detection audit logs.
-          * `storage_account_access_key` (`pulumi.Input[str]`) - Specifies the identifier key of the Threat Detection audit storage account.
-          * `storage_endpoint` (`pulumi.Input[str]`) - Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -331,8 +241,195 @@ class Server(pulumi.CustomResource):
         __props__["version"] = version
         return Server(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> str:
+        """
+        The Administrator Login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[str]:
+        """
+        The Password associated with the `administrator_login` for the MySQL Server. Required when `create_mode` is `Default`.
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> bool:
+        """
+        Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        """
+        return pulumi.get(self, "auto_grow_enabled")
+
+    @property
+    @pulumi.getter(name="backupRetentionDays")
+    def backup_retention_days(self) -> float:
+        """
+        Backup retention days for the server, supported values are between `7` and `35` days.
+        """
+        return pulumi.get(self, "backup_retention_days")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="creationSourceServerId")
+    def creation_source_server_id(self) -> Optional[str]:
+        """
+        For creation modes other than `Default`, the source server ID to use.
+        """
+        return pulumi.get(self, "creation_source_server_id")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The FQDN of the MySQL Server.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="geoRedundantBackupEnabled")
+    def geo_redundant_backup_enabled(self) -> bool:
+        """
+        Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+        """
+        return pulumi.get(self, "geo_redundant_backup_enabled")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ServerIdentity']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> Optional[bool]:
+        """
+        Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[bool]:
+        """
+        Whether or not public network access is allowed for this server. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> Optional[str]:
+        """
+        When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> str:
+        """
+        Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
+        """
+        return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter(name="sslEnforcement")
+    def ssl_enforcement(self) -> str:
+        return pulumi.get(self, "ssl_enforcement")
+
+    @property
+    @pulumi.getter(name="sslEnforcementEnabled")
+    def ssl_enforcement_enabled(self) -> Optional[bool]:
+        """
+        Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "ssl_enforcement_enabled")
+
+    @property
+    @pulumi.getter(name="sslMinimalTlsVersionEnforced")
+    def ssl_minimal_tls_version_enforced(self) -> Optional[str]:
+        """
+        The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        """
+        return pulumi.get(self, "ssl_minimal_tls_version_enforced")
+
+    @property
+    @pulumi.getter(name="storageMb")
+    def storage_mb(self) -> float:
+        """
+        Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+        """
+        return pulumi.get(self, "storage_mb")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> 'outputs.ServerStorageProfile':
+        return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="threatDetectionPolicy")
+    def threat_detection_policy(self) -> Optional['outputs.ServerThreatDetectionPolicy']:
+        """
+        Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        """
+        return pulumi.get(self, "threat_detection_policy")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

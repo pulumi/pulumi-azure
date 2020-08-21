@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetSubnetResult',
+    'AwaitableGetSubnetResult',
+    'get_subnet',
+]
+
+@pulumi.output_type
 class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
@@ -15,61 +22,118 @@ class GetSubnetResult:
     def __init__(__self__, address_prefix=None, address_prefixes=None, enforce_private_link_endpoint_network_policies=None, enforce_private_link_service_network_policies=None, id=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
-        __self__.address_prefix = address_prefix
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        if address_prefixes and not isinstance(address_prefixes, list):
+            raise TypeError("Expected argument 'address_prefixes' to be a list")
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if enforce_private_link_endpoint_network_policies and not isinstance(enforce_private_link_endpoint_network_policies, bool):
+            raise TypeError("Expected argument 'enforce_private_link_endpoint_network_policies' to be a bool")
+        pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
+        if enforce_private_link_service_network_policies and not isinstance(enforce_private_link_service_network_policies, bool):
+            raise TypeError("Expected argument 'enforce_private_link_service_network_policies' to be a bool")
+        pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if network_security_group_id and not isinstance(network_security_group_id, str):
+            raise TypeError("Expected argument 'network_security_group_id' to be a str")
+        pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if route_table_id and not isinstance(route_table_id, str):
+            raise TypeError("Expected argument 'route_table_id' to be a str")
+        pulumi.set(__self__, "route_table_id", route_table_id)
+        if service_endpoints and not isinstance(service_endpoints, list):
+            raise TypeError("Expected argument 'service_endpoints' to be a list")
+        pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if virtual_network_name and not isinstance(virtual_network_name, str):
+            raise TypeError("Expected argument 'virtual_network_name' to be a str")
+        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> str:
         """
         (Deprecated) The address prefix used for the subnet.
         """
-        if address_prefixes and not isinstance(address_prefixes, list):
-            raise TypeError("Expected argument 'address_prefixes' to be a list")
-        __self__.address_prefixes = address_prefixes
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> List[str]:
         """
         The address prefixes for the subnet.
         """
-        if enforce_private_link_endpoint_network_policies and not isinstance(enforce_private_link_endpoint_network_policies, bool):
-            raise TypeError("Expected argument 'enforce_private_link_endpoint_network_policies' to be a bool")
-        __self__.enforce_private_link_endpoint_network_policies = enforce_private_link_endpoint_network_policies
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
+    def enforce_private_link_endpoint_network_policies(self) -> bool:
         """
         Enable or Disable network policies for the private link endpoint on the subnet.
         """
-        if enforce_private_link_service_network_policies and not isinstance(enforce_private_link_service_network_policies, bool):
-            raise TypeError("Expected argument 'enforce_private_link_service_network_policies' to be a bool")
-        __self__.enforce_private_link_service_network_policies = enforce_private_link_service_network_policies
+        return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
+
+    @property
+    @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
+    def enforce_private_link_service_network_policies(self) -> bool:
         """
         Enable or Disable network policies for the private link service on the subnet.
         """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        return pulumi.get(self, "enforce_private_link_service_network_policies")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if network_security_group_id and not isinstance(network_security_group_id, str):
-            raise TypeError("Expected argument 'network_security_group_id' to be a str")
-        __self__.network_security_group_id = network_security_group_id
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> str:
         """
         The ID of the Network Security Group associated with the subnet.
         """
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        __self__.resource_group_name = resource_group_name
-        if route_table_id and not isinstance(route_table_id, str):
-            raise TypeError("Expected argument 'route_table_id' to be a str")
-        __self__.route_table_id = route_table_id
+        return pulumi.get(self, "network_security_group_id")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> str:
         """
         The ID of the Route Table associated with this subnet.
         """
-        if service_endpoints and not isinstance(service_endpoints, list):
-            raise TypeError("Expected argument 'service_endpoints' to be a list")
-        __self__.service_endpoints = service_endpoints
+        return pulumi.get(self, "route_table_id")
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> List[str]:
         """
         A list of Service Endpoints within this subnet.
         """
-        if virtual_network_name and not isinstance(virtual_network_name, str):
-            raise TypeError("Expected argument 'virtual_network_name' to be a str")
-        __self__.virtual_network_name = virtual_network_name
+        return pulumi.get(self, "service_endpoints")
+
+    @property
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> str:
+        return pulumi.get(self, "virtual_network_name")
+
+
 class AwaitableGetSubnetResult(GetSubnetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -88,7 +152,11 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             service_endpoints=self.service_endpoints,
             virtual_network_name=self.virtual_network_name)
 
-def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts=None):
+
+def get_subnet(name: Optional[str] = None,
+               resource_group_name: Optional[str] = None,
+               virtual_network_name: Optional[str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetResult:
     """
     Use this data source to access information about an existing Subnet within a Virtual Network.
 
@@ -110,26 +178,24 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
     :param str virtual_network_name: Specifies the name of the Virtual Network this Subnet is located within.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__, opts=opts, typ=GetSubnetResult).value
 
     return AwaitableGetSubnetResult(
-        address_prefix=__ret__.get('addressPrefix'),
-        address_prefixes=__ret__.get('addressPrefixes'),
-        enforce_private_link_endpoint_network_policies=__ret__.get('enforcePrivateLinkEndpointNetworkPolicies'),
-        enforce_private_link_service_network_policies=__ret__.get('enforcePrivateLinkServiceNetworkPolicies'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        network_security_group_id=__ret__.get('networkSecurityGroupId'),
-        resource_group_name=__ret__.get('resourceGroupName'),
-        route_table_id=__ret__.get('routeTableId'),
-        service_endpoints=__ret__.get('serviceEndpoints'),
-        virtual_network_name=__ret__.get('virtualNetworkName'))
+        address_prefix=__ret__.address_prefix,
+        address_prefixes=__ret__.address_prefixes,
+        enforce_private_link_endpoint_network_policies=__ret__.enforce_private_link_endpoint_network_policies,
+        enforce_private_link_service_network_policies=__ret__.enforce_private_link_service_network_policies,
+        id=__ret__.id,
+        name=__ret__.name,
+        network_security_group_id=__ret__.network_security_group_id,
+        resource_group_name=__ret__.resource_group_name,
+        route_table_id=__ret__.route_table_id,
+        service_endpoints=__ret__.service_endpoints,
+        virtual_network_name=__ret__.virtual_network_name)

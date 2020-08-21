@@ -5,168 +5,41 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['EventSubscription']
 
 
 class EventSubscription(pulumi.CustomResource):
-    advanced_filter: pulumi.Output[dict]
-    """
-    A `advanced_filter` block as defined below.
-
-      * `boolEquals` (`list`) - Compares a value of an event using a single boolean value.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `value` (`bool`) - Specifies a single value to compare to when using a single value operator.
-
-      * `numberGreaterThanOrEquals` (`list`) - Compares a value of an event using a single floating point number.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `value` (`float`) - Specifies a single value to compare to when using a single value operator.
-
-      * `numberGreaterThans` (`list`) - Compares a value of an event using a single floating point number.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `value` (`float`) - Specifies a single value to compare to when using a single value operator.
-
-      * `numberIns` (`list`) - Compares a value of an event using multiple floating point numbers.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
-
-      * `numberLessThanOrEquals` (`list`) - Compares a value of an event using a single floating point number.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `value` (`float`) - Specifies a single value to compare to when using a single value operator.
-
-      * `numberLessThans` (`list`) - Compares a value of an event using a single floating point number.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `value` (`float`) - Specifies a single value to compare to when using a single value operator.
-
-      * `numberNotIns` (`list`) - Compares a value of an event using multiple floating point numbers.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
-
-      * `stringBeginsWiths` (`list`) - Compares a value of an event using multiple string values.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
-
-      * `stringContains` (`list`) - Compares a value of an event using multiple string values.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
-
-      * `stringEndsWiths` (`list`) - Compares a value of an event using multiple string values.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
-
-      * `stringIns` (`list`) - Compares a value of an event using multiple string values.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
-
-      * `stringNotIns` (`list`) - Compares a value of an event using multiple string values.
-        * `key` (`str`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        * `values` (`list`) - Specifies an array of values to compare to when using a multiple values operator.
-    """
-    azure_function_endpoint: pulumi.Output[dict]
-    """
-    An `azure_function_endpoint` block as defined below.
-
-      * `functionId` (`str`) - Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
-      * `maxEventsPerBatch` (`float`) - Maximum number of events per batch.
-      * `preferredBatchSizeInKilobytes` (`float`) - Preferred batch size in Kilobytes.
-    """
-    event_delivery_schema: pulumi.Output[str]
-    """
-    Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
-    """
-    eventhub_endpoint: pulumi.Output[dict]
-    """
-    A `eventhub_endpoint` block as defined below.
-
-      * `eventhub_id` (`str`) - Specifies the id of the eventhub where the Event Subscription will receive events.
-    """
-    eventhub_endpoint_id: pulumi.Output[str]
-    """
-    Specifies the id where the Event Hub is located.
-    """
-    expiration_time_utc: pulumi.Output[str]
-    """
-    Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
-    """
-    hybrid_connection_endpoint: pulumi.Output[dict]
-    """
-    A `hybrid_connection_endpoint` block as defined below.
-
-      * `hybridConnectionId` (`str`) - Specifies the id of the hybrid connection where the Event Subscription will receive events.
-    """
-    hybrid_connection_endpoint_id: pulumi.Output[str]
-    """
-    Specifies the id where the Hybrid Connection is located.
-    """
-    included_event_types: pulumi.Output[list]
-    """
-    A list of applicable event types that need to be part of the event subscription.
-    """
-    labels: pulumi.Output[list]
-    """
-    A list of labels to assign to the event subscription.
-    """
-    name: pulumi.Output[str]
-    """
-    Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-    """
-    retry_policy: pulumi.Output[dict]
-    """
-    A `retry_policy` block as defined below.
-
-      * `eventTimeToLive` (`float`) - Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
-      * `maxDeliveryAttempts` (`float`) - Specifies the maximum number of delivery retry attempts for events.
-    """
-    scope: pulumi.Output[str]
-    """
-    Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
-    """
-    service_bus_queue_endpoint_id: pulumi.Output[str]
-    """
-    Specifies the id where the Service Bus Queue is located.
-    """
-    service_bus_topic_endpoint_id: pulumi.Output[str]
-    """
-    Specifies the id where the Service Bus Topic is located.
-    """
-    storage_blob_dead_letter_destination: pulumi.Output[dict]
-    """
-    A `storage_blob_dead_letter_destination` block as defined below.
-
-      * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage blob is located.
-      * `storageBlobContainerName` (`str`) - Specifies the name of the Storage blob container that is the destination of the deadletter events.
-    """
-    storage_queue_endpoint: pulumi.Output[dict]
-    """
-    A `storage_queue_endpoint` block as defined below.
-
-      * `queue_name` (`str`) - Specifies the name of the storage queue where the Event Subscription will receive events.
-      * `storage_account_id` (`str`) - Specifies the id of the storage account id where the storage queue is located.
-    """
-    subject_filter: pulumi.Output[dict]
-    """
-    A `subject_filter` block as defined below.
-
-      * `caseSensitive` (`bool`) - Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
-      * `subjectBeginsWith` (`str`) - A string to filter events for an event subscription based on a resource path prefix.
-      * `subjectEndsWith` (`str`) - A string to filter events for an event subscription based on a resource path suffix.
-    """
-    topic_name: pulumi.Output[str]
-    """
-    (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-    """
-    webhook_endpoint: pulumi.Output[dict]
-    """
-    A `webhook_endpoint` block as defined below.
-
-      * `activeDirectoryAppIdOrUri` (`str`) - The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
-      * `activeDirectoryTenantId` (`str`) - The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
-      * `baseUrl` (`str`) - The base url of the webhook where the Event Subscription will receive events.
-      * `maxEventsPerBatch` (`float`) - Maximum number of events per batch.
-      * `preferredBatchSizeInKilobytes` (`float`) - Preferred batch size in Kilobytes.
-      * `url` (`str`) - Specifies the url of the webhook where the Event Subscription will receive events.
-    """
-    def __init__(__self__, resource_name, opts=None, advanced_filter=None, azure_function_endpoint=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 advanced_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAdvancedFilterArgs']]] = None,
+                 azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']]] = None,
+                 event_delivery_schema: Optional[pulumi.Input[str]] = None,
+                 eventhub_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']]] = None,
+                 eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 expiration_time_utc: Optional[pulumi.Input[str]] = None,
+                 hybrid_connection_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']]] = None,
+                 hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 included_event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 retry_policy: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionRetryPolicyArgs']]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 service_bus_queue_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 service_bus_topic_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 storage_blob_dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']]] = None,
+                 storage_queue_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']]] = None,
+                 subject_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']]] = None,
+                 topic_name: Optional[pulumi.Input[str]] = None,
+                 webhook_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an EventGrid Event Subscription
 
@@ -188,128 +61,34 @@ class EventSubscription(pulumi.CustomResource):
         default_queue = azure.storage.Queue("defaultQueue", storage_account_name=default_account.name)
         default_event_subscription = azure.eventgrid.EventSubscription("defaultEventSubscription",
             scope=default_resource_group.id,
-            storage_queue_endpoint={
-                "storage_account_id": default_account.id,
-                "queue_name": default_queue.name,
-            })
+            storage_queue_endpoint=azure.eventgrid.EventSubscriptionStorageQueueEndpointArgs(
+                storage_account_id=default_account.id,
+                queue_name=default_queue.name,
+            ))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] advanced_filter: A `advanced_filter` block as defined below.
-        :param pulumi.Input[dict] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionAdvancedFilterArgs']] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
-        :param pulumi.Input[dict] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[str] hybrid_connection_endpoint_id: Specifies the id where the Hybrid Connection is located.
-        :param pulumi.Input[list] included_event_types: A list of applicable event types that need to be part of the event subscription.
-        :param pulumi.Input[list] labels: A list of labels to assign to the event subscription.
+        :param pulumi.Input[List[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
+        :param pulumi.Input[List[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] retry_policy: A `retry_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionRetryPolicyArgs']] retry_policy: A `retry_policy` block as defined below.
         :param pulumi.Input[str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_bus_queue_endpoint_id: Specifies the id where the Service Bus Queue is located.
         :param pulumi.Input[str] service_bus_topic_endpoint_id: Specifies the id where the Service Bus Topic is located.
-        :param pulumi.Input[dict] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
-        :param pulumi.Input[dict] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
-        :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']] subject_filter: A `subject_filter` block as defined below.
         :param pulumi.Input[str] topic_name: (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-        :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
-
-        The **advanced_filter** object supports the following:
-
-          * `boolEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single boolean value.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[bool]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberGreaterThanOrEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberGreaterThans` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple floating point numbers.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `numberLessThanOrEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberLessThans` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberNotIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple floating point numbers.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringBeginsWiths` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringContains` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringEndsWiths` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringNotIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-        The **azure_function_endpoint** object supports the following:
-
-          * `functionId` (`pulumi.Input[str]`) - Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
-          * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
-          * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
-
-        The **eventhub_endpoint** object supports the following:
-
-          * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
-
-        The **hybrid_connection_endpoint** object supports the following:
-
-          * `hybridConnectionId` (`pulumi.Input[str]`) - Specifies the id of the hybrid connection where the Event Subscription will receive events.
-
-        The **retry_policy** object supports the following:
-
-          * `eventTimeToLive` (`pulumi.Input[float]`) - Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
-          * `maxDeliveryAttempts` (`pulumi.Input[float]`) - Specifies the maximum number of delivery retry attempts for events.
-
-        The **storage_blob_dead_letter_destination** object supports the following:
-
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
-          * `storageBlobContainerName` (`pulumi.Input[str]`) - Specifies the name of the Storage blob container that is the destination of the deadletter events.
-
-        The **storage_queue_endpoint** object supports the following:
-
-          * `queue_name` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscription will receive events.
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage queue is located.
-
-        The **subject_filter** object supports the following:
-
-          * `caseSensitive` (`pulumi.Input[bool]`) - Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
-          * `subjectBeginsWith` (`pulumi.Input[str]`) - A string to filter events for an event subscription based on a resource path prefix.
-          * `subjectEndsWith` (`pulumi.Input[str]`) - A string to filter events for an event subscription based on a resource path suffix.
-
-        The **webhook_endpoint** object supports the following:
-
-          * `activeDirectoryAppIdOrUri` (`pulumi.Input[str]`) - The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
-          * `activeDirectoryTenantId` (`pulumi.Input[str]`) - The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
-          * `baseUrl` (`pulumi.Input[str]`) - The base url of the webhook where the Event Subscription will receive events.
-          * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
-          * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
-          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']] webhook_endpoint: A `webhook_endpoint` block as defined below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -322,7 +101,7 @@ class EventSubscription(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -368,128 +147,56 @@ class EventSubscription(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, advanced_filter=None, azure_function_endpoint=None, event_delivery_schema=None, eventhub_endpoint=None, eventhub_endpoint_id=None, expiration_time_utc=None, hybrid_connection_endpoint=None, hybrid_connection_endpoint_id=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, service_bus_queue_endpoint_id=None, service_bus_topic_endpoint_id=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            advanced_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAdvancedFilterArgs']]] = None,
+            azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']]] = None,
+            event_delivery_schema: Optional[pulumi.Input[str]] = None,
+            eventhub_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']]] = None,
+            eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
+            expiration_time_utc: Optional[pulumi.Input[str]] = None,
+            hybrid_connection_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']]] = None,
+            hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
+            included_event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            retry_policy: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionRetryPolicyArgs']]] = None,
+            scope: Optional[pulumi.Input[str]] = None,
+            service_bus_queue_endpoint_id: Optional[pulumi.Input[str]] = None,
+            service_bus_topic_endpoint_id: Optional[pulumi.Input[str]] = None,
+            storage_blob_dead_letter_destination: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']]] = None,
+            storage_queue_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']]] = None,
+            subject_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']]] = None,
+            topic_name: Optional[pulumi.Input[str]] = None,
+            webhook_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']]] = None) -> 'EventSubscription':
         """
         Get an existing EventSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] advanced_filter: A `advanced_filter` block as defined below.
-        :param pulumi.Input[dict] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionAdvancedFilterArgs']] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
         :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionEventhubEndpointArgs']] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
         :param pulumi.Input[str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
-        :param pulumi.Input[dict] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[str] hybrid_connection_endpoint_id: Specifies the id where the Hybrid Connection is located.
-        :param pulumi.Input[list] included_event_types: A list of applicable event types that need to be part of the event subscription.
-        :param pulumi.Input[list] labels: A list of labels to assign to the event subscription.
+        :param pulumi.Input[List[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
+        :param pulumi.Input[List[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] retry_policy: A `retry_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionRetryPolicyArgs']] retry_policy: A `retry_policy` block as defined below.
         :param pulumi.Input[str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_bus_queue_endpoint_id: Specifies the id where the Service Bus Queue is located.
         :param pulumi.Input[str] service_bus_topic_endpoint_id: Specifies the id where the Service Bus Topic is located.
-        :param pulumi.Input[dict] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
-        :param pulumi.Input[dict] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
-        :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionStorageBlobDeadLetterDestinationArgs']] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionStorageQueueEndpointArgs']] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']] subject_filter: A `subject_filter` block as defined below.
         :param pulumi.Input[str] topic_name: (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
-        :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
-
-        The **advanced_filter** object supports the following:
-
-          * `boolEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single boolean value.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[bool]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberGreaterThanOrEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberGreaterThans` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple floating point numbers.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `numberLessThanOrEquals` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberLessThans` (`pulumi.Input[list]`) - Compares a value of an event using a single floating point number.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `value` (`pulumi.Input[float]`) - Specifies a single value to compare to when using a single value operator.
-
-          * `numberNotIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple floating point numbers.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringBeginsWiths` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringContains` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringEndsWiths` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-          * `stringNotIns` (`pulumi.Input[list]`) - Compares a value of an event using multiple string values.
-            * `key` (`pulumi.Input[str]`) - Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-            * `values` (`pulumi.Input[list]`) - Specifies an array of values to compare to when using a multiple values operator.
-
-        The **azure_function_endpoint** object supports the following:
-
-          * `functionId` (`pulumi.Input[str]`) - Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
-          * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
-          * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
-
-        The **eventhub_endpoint** object supports the following:
-
-          * `eventhub_id` (`pulumi.Input[str]`) - Specifies the id of the eventhub where the Event Subscription will receive events.
-
-        The **hybrid_connection_endpoint** object supports the following:
-
-          * `hybridConnectionId` (`pulumi.Input[str]`) - Specifies the id of the hybrid connection where the Event Subscription will receive events.
-
-        The **retry_policy** object supports the following:
-
-          * `eventTimeToLive` (`pulumi.Input[float]`) - Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
-          * `maxDeliveryAttempts` (`pulumi.Input[float]`) - Specifies the maximum number of delivery retry attempts for events.
-
-        The **storage_blob_dead_letter_destination** object supports the following:
-
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage blob is located.
-          * `storageBlobContainerName` (`pulumi.Input[str]`) - Specifies the name of the Storage blob container that is the destination of the deadletter events.
-
-        The **storage_queue_endpoint** object supports the following:
-
-          * `queue_name` (`pulumi.Input[str]`) - Specifies the name of the storage queue where the Event Subscription will receive events.
-          * `storage_account_id` (`pulumi.Input[str]`) - Specifies the id of the storage account id where the storage queue is located.
-
-        The **subject_filter** object supports the following:
-
-          * `caseSensitive` (`pulumi.Input[bool]`) - Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
-          * `subjectBeginsWith` (`pulumi.Input[str]`) - A string to filter events for an event subscription based on a resource path prefix.
-          * `subjectEndsWith` (`pulumi.Input[str]`) - A string to filter events for an event subscription based on a resource path suffix.
-
-        The **webhook_endpoint** object supports the following:
-
-          * `activeDirectoryAppIdOrUri` (`pulumi.Input[str]`) - The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
-          * `activeDirectoryTenantId` (`pulumi.Input[str]`) - The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
-          * `baseUrl` (`pulumi.Input[str]`) - The base url of the webhook where the Event Subscription will receive events.
-          * `maxEventsPerBatch` (`pulumi.Input[float]`) - Maximum number of events per batch.
-          * `preferredBatchSizeInKilobytes` (`pulumi.Input[float]`) - Preferred batch size in Kilobytes.
-          * `url` (`pulumi.Input[str]`) - Specifies the url of the webhook where the Event Subscription will receive events.
+        :param pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']] webhook_endpoint: A `webhook_endpoint` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -517,8 +224,169 @@ class EventSubscription(pulumi.CustomResource):
         __props__["webhook_endpoint"] = webhook_endpoint
         return EventSubscription(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="advancedFilter")
+    def advanced_filter(self) -> Optional['outputs.EventSubscriptionAdvancedFilter']:
+        """
+        A `advanced_filter` block as defined below.
+        """
+        return pulumi.get(self, "advanced_filter")
+
+    @property
+    @pulumi.getter(name="azureFunctionEndpoint")
+    def azure_function_endpoint(self) -> Optional['outputs.EventSubscriptionAzureFunctionEndpoint']:
+        """
+        An `azure_function_endpoint` block as defined below.
+        """
+        return pulumi.get(self, "azure_function_endpoint")
+
+    @property
+    @pulumi.getter(name="eventDeliverySchema")
+    def event_delivery_schema(self) -> Optional[str]:
+        """
+        Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "event_delivery_schema")
+
+    @property
+    @pulumi.getter(name="eventhubEndpoint")
+    def eventhub_endpoint(self) -> 'outputs.EventSubscriptionEventhubEndpoint':
+        """
+        A `eventhub_endpoint` block as defined below.
+        """
+        return pulumi.get(self, "eventhub_endpoint")
+
+    @property
+    @pulumi.getter(name="eventhubEndpointId")
+    def eventhub_endpoint_id(self) -> str:
+        """
+        Specifies the id where the Event Hub is located.
+        """
+        return pulumi.get(self, "eventhub_endpoint_id")
+
+    @property
+    @pulumi.getter(name="expirationTimeUtc")
+    def expiration_time_utc(self) -> Optional[str]:
+        """
+        Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
+        """
+        return pulumi.get(self, "expiration_time_utc")
+
+    @property
+    @pulumi.getter(name="hybridConnectionEndpoint")
+    def hybrid_connection_endpoint(self) -> 'outputs.EventSubscriptionHybridConnectionEndpoint':
+        """
+        A `hybrid_connection_endpoint` block as defined below.
+        """
+        return pulumi.get(self, "hybrid_connection_endpoint")
+
+    @property
+    @pulumi.getter(name="hybridConnectionEndpointId")
+    def hybrid_connection_endpoint_id(self) -> str:
+        """
+        Specifies the id where the Hybrid Connection is located.
+        """
+        return pulumi.get(self, "hybrid_connection_endpoint_id")
+
+    @property
+    @pulumi.getter(name="includedEventTypes")
+    def included_event_types(self) -> List[str]:
+        """
+        A list of applicable event types that need to be part of the event subscription.
+        """
+        return pulumi.get(self, "included_event_types")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[List[str]]:
+        """
+        A list of labels to assign to the event subscription.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="retryPolicy")
+    def retry_policy(self) -> 'outputs.EventSubscriptionRetryPolicy':
+        """
+        A `retry_policy` block as defined below.
+        """
+        return pulumi.get(self, "retry_policy")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="serviceBusQueueEndpointId")
+    def service_bus_queue_endpoint_id(self) -> Optional[str]:
+        """
+        Specifies the id where the Service Bus Queue is located.
+        """
+        return pulumi.get(self, "service_bus_queue_endpoint_id")
+
+    @property
+    @pulumi.getter(name="serviceBusTopicEndpointId")
+    def service_bus_topic_endpoint_id(self) -> Optional[str]:
+        """
+        Specifies the id where the Service Bus Topic is located.
+        """
+        return pulumi.get(self, "service_bus_topic_endpoint_id")
+
+    @property
+    @pulumi.getter(name="storageBlobDeadLetterDestination")
+    def storage_blob_dead_letter_destination(self) -> Optional['outputs.EventSubscriptionStorageBlobDeadLetterDestination']:
+        """
+        A `storage_blob_dead_letter_destination` block as defined below.
+        """
+        return pulumi.get(self, "storage_blob_dead_letter_destination")
+
+    @property
+    @pulumi.getter(name="storageQueueEndpoint")
+    def storage_queue_endpoint(self) -> Optional['outputs.EventSubscriptionStorageQueueEndpoint']:
+        """
+        A `storage_queue_endpoint` block as defined below.
+        """
+        return pulumi.get(self, "storage_queue_endpoint")
+
+    @property
+    @pulumi.getter(name="subjectFilter")
+    def subject_filter(self) -> Optional['outputs.EventSubscriptionSubjectFilter']:
+        """
+        A `subject_filter` block as defined below.
+        """
+        return pulumi.get(self, "subject_filter")
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> str:
+        """
+        (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @property
+    @pulumi.getter(name="webhookEndpoint")
+    def webhook_endpoint(self) -> Optional['outputs.EventSubscriptionWebhookEndpoint']:
+        """
+        A `webhook_endpoint` block as defined below.
+        """
+        return pulumi.get(self, "webhook_endpoint")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

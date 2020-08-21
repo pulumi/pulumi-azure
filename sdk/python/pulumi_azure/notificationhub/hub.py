@@ -5,48 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Hub']
 
 
 class Hub(pulumi.CustomResource):
-    apns_credential: pulumi.Output[dict]
-    """
-    A `apns_credential` block as defined below.
-
-      * `applicationMode` (`str`) - The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
-      * `bundleId` (`str`) - The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-      * `keyId` (`str`) - The Apple Push Notifications Service (APNS) Key.
-      * `teamId` (`str`) - The ID of the team the Token.
-      * `token` (`str`) - The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
-    """
-    gcm_credential: pulumi.Output[dict]
-    """
-    A `gcm_credential` block as defined below.
-
-      * `api_key` (`str`) - The API Key associated with the Google Cloud Messaging service.
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
-    """
-    name: pulumi.Output[str]
-    """
-    The name to use for this Notification Hub. Changing this forces a new resource to be created.
-    """
-    namespace_name: pulumi.Output[str]
-    """
-    The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource.
-    """
-    def __init__(__self__, resource_name, opts=None, apns_credential=None, gcm_credential=None, location=None, name=None, namespace_name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 apns_credential: Optional[pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']]] = None,
+                 gcm_credential: Optional[pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Notification Hub within a Notification Hub Namespace.
 
@@ -70,25 +50,13 @@ class Hub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] apns_credential: A `apns_credential` block as defined below.
-        :param pulumi.Input[dict] gcm_credential: A `gcm_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']] apns_credential: A `apns_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']] gcm_credential: A `gcm_credential` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **apns_credential** object supports the following:
-
-          * `applicationMode` (`pulumi.Input[str]`) - The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
-          * `bundleId` (`pulumi.Input[str]`) - The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-          * `keyId` (`pulumi.Input[str]`) - The Apple Push Notifications Service (APNS) Key.
-          * `teamId` (`pulumi.Input[str]`) - The ID of the team the Token.
-          * `token` (`pulumi.Input[str]`) - The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
-
-        The **gcm_credential** object supports the following:
-
-          * `api_key` (`pulumi.Input[str]`) - The API Key associated with the Google Cloud Messaging service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -101,7 +69,7 @@ class Hub(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -125,33 +93,30 @@ class Hub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, apns_credential=None, gcm_credential=None, location=None, name=None, namespace_name=None, resource_group_name=None, tags=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apns_credential: Optional[pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']]] = None,
+            gcm_credential: Optional[pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            namespace_name: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Hub':
         """
         Get an existing Hub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] apns_credential: A `apns_credential` block as defined below.
-        :param pulumi.Input[dict] gcm_credential: A `gcm_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']] apns_credential: A `apns_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']] gcm_credential: A `gcm_credential` block as defined below.
         :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-
-        The **apns_credential** object supports the following:
-
-          * `applicationMode` (`pulumi.Input[str]`) - The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
-          * `bundleId` (`pulumi.Input[str]`) - The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-          * `keyId` (`pulumi.Input[str]`) - The Apple Push Notifications Service (APNS) Key.
-          * `teamId` (`pulumi.Input[str]`) - The ID of the team the Token.
-          * `token` (`pulumi.Input[str]`) - The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
-
-        The **gcm_credential** object supports the following:
-
-          * `api_key` (`pulumi.Input[str]`) - The API Key associated with the Google Cloud Messaging service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -166,8 +131,65 @@ class Hub(pulumi.CustomResource):
         __props__["tags"] = tags
         return Hub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="apnsCredential")
+    def apns_credential(self) -> Optional['outputs.HubApnsCredential']:
+        """
+        A `apns_credential` block as defined below.
+        """
+        return pulumi.get(self, "apns_credential")
+
+    @property
+    @pulumi.getter(name="gcmCredential")
+    def gcm_credential(self) -> Optional['outputs.HubGcmCredential']:
+        """
+        A `gcm_credential` block as defined below.
+        """
+        return pulumi.get(self, "gcm_credential")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name to use for this Notification Hub. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> str:
+        """
+        The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

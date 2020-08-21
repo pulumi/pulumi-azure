@@ -32,13 +32,13 @@ import (
 // 			return err
 // 		}
 // 		testZone, err := privatedns.NewZone(ctx, "testZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = privatedns.NewSRVRecord(ctx, "testSRVRecord", &privatedns.SRVRecordArgs{
-// 			ResourceGroupName: pulumi.String(azurerm_resource_group.Test.Name),
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
 // 			ZoneName:          testZone.Name,
 // 			Ttl:               pulumi.Int(300),
 // 			Records: privatedns.SRVRecordRecordArray{

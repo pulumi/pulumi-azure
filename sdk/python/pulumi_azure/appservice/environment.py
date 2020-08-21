@@ -5,49 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Environment']
 
 
 class Environment(pulumi.CustomResource):
-    allowed_user_ip_cidrs: pulumi.Output[list]
-    """
-    Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
-    """
-    front_end_scale_factor: pulumi.Output[float]
-    """
-    Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
-    """
-    internal_load_balancing_mode: pulumi.Output[str]
-    """
-    Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
-    """
-    location: pulumi.Output[str]
-    """
-    The location where the App Service Environment exists.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the App Service Environment. Changing this forces a new resource to be created.
-    """
-    pricing_tier: pulumi.Output[str]
-    """
-    Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
-    """
-    resource_group_name: pulumi.Output[str]
-    """
-    The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
-    """
-    subnet_id: pulumi.Output[str]
-    """
-    The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
-    """
-    tags: pulumi.Output[dict]
-    """
-    A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-    """
-    user_whitelisted_ip_ranges: pulumi.Output[list]
-    def __init__(__self__, resource_name, opts=None, allowed_user_ip_cidrs=None, front_end_scale_factor=None, internal_load_balancing_mode=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None, user_whitelisted_ip_ranges=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_user_ip_cidrs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 front_end_scale_factor: Optional[pulumi.Input[float]] = None,
+                 internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pricing_tier: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_whitelisted_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages an App Service Environment.
 
@@ -83,14 +62,14 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+        :param pulumi.Input[List[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         :param pulumi.Input[float] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,7 +82,7 @@ class Environment(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -131,15 +110,27 @@ class Environment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allowed_user_ip_cidrs=None, front_end_scale_factor=None, internal_load_balancing_mode=None, location=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None, user_whitelisted_ip_ranges=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_user_ip_cidrs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            front_end_scale_factor: Optional[pulumi.Input[float]] = None,
+            internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
+            location: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            pricing_tier: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            subnet_id: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            user_whitelisted_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+        :param pulumi.Input[List[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         :param pulumi.Input[float] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
@@ -147,7 +138,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -165,8 +156,86 @@ class Environment(pulumi.CustomResource):
         __props__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
         return Environment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowedUserIpCidrs")
+    def allowed_user_ip_cidrs(self) -> List[str]:
+        """
+        Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+        """
+        return pulumi.get(self, "allowed_user_ip_cidrs")
+
+    @property
+    @pulumi.getter(name="frontEndScaleFactor")
+    def front_end_scale_factor(self) -> Optional[float]:
+        """
+        Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
+        """
+        return pulumi.get(self, "front_end_scale_factor")
+
+    @property
+    @pulumi.getter(name="internalLoadBalancingMode")
+    def internal_load_balancing_mode(self) -> Optional[str]:
+        """
+        Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
+        """
+        return pulumi.get(self, "internal_load_balancing_mode")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location where the App Service Environment exists.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the App Service Environment. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pricingTier")
+    def pricing_tier(self) -> Optional[str]:
+        """
+        Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
+        """
+        return pulumi.get(self, "pricing_tier")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> str:
+        """
+        The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="userWhitelistedIpRanges")
+    def user_whitelisted_ip_ranges(self) -> List[str]:
+        return pulumi.get(self, "user_whitelisted_ip_ranges")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

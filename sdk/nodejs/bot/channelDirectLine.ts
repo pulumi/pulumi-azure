@@ -37,9 +37,21 @@ export class ChannelDirectLine extends pulumi.CustomResource {
         return obj['__pulumiType'] === ChannelDirectLine.__pulumiType;
     }
 
+    /**
+     * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+     */
     public readonly botName!: pulumi.Output<string>;
+    /**
+     * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     */
     public readonly sites!: pulumi.Output<outputs.bot.ChannelDirectLineSite[]>;
 
     /**
@@ -89,9 +101,21 @@ export class ChannelDirectLine extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ChannelDirectLine resources.
  */
 export interface ChannelDirectLineState {
+    /**
+     * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+     */
     readonly botName?: pulumi.Input<string>;
+    /**
+     * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+     */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     */
     readonly sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelDirectLineSite>[]>;
 }
 
@@ -99,8 +123,20 @@ export interface ChannelDirectLineState {
  * The set of arguments for constructing a ChannelDirectLine resource.
  */
 export interface ChannelDirectLineArgs {
+    /**
+     * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+     */
     readonly botName: pulumi.Input<string>;
+    /**
+     * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+     */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     */
     readonly sites: pulumi.Input<pulumi.Input<inputs.bot.ChannelDirectLineSite>[]>;
 }

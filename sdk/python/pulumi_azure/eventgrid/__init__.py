@@ -8,3 +8,5 @@ from .domain_topic import *
 from .event_subscription import *
 from .get_topic import *
 from .topic import *
+from ._inputs import *
+from . import outputs

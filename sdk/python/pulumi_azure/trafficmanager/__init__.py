@@ -6,3 +6,5 @@
 from .endpoint import *
 from .get_geographical_location import *
 from .profile import *
+from ._inputs import *
+from . import outputs

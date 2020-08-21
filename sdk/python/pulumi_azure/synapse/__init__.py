@@ -7,3 +7,5 @@ from .firewall_rule import *
 from .get_workspace import *
 from .spark_pool import *
 from .workspace import *
+from ._inputs import *
+from . import outputs
