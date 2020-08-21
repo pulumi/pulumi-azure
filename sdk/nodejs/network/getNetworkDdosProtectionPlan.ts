@@ -74,7 +74,7 @@ export interface GetNetworkDdosProtectionPlanResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+     * A list of ID's of the Virtual Networks associated with this DDoS Protection Plan.
      */
     readonly virtualNetworkIds: string[];
 }

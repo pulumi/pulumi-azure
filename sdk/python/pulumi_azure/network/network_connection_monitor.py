@@ -12,50 +12,50 @@ from .. import utilities, tables
 class NetworkConnectionMonitor(pulumi.CustomResource):
     auto_start: pulumi.Output[bool]
     """
-    Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+    Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
     """
     destination: pulumi.Output[dict]
     """
     A `destination` block as defined below.
 
-      * `address` (`str`) - IP address or domain name to monitor connectivity to.
-      * `port` (`float`) - The port on the destination to monitor connectivity to.
-      * `virtual_machine_id` (`str`) - The ID of the Virtual Machine to monitor connectivity to.
+      * `address` (`str`) - The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+      * `port` (`float`) - The destination port used by connection monitor.
+      * `virtual_machine_id` (`str`) - The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
     """
     interval_in_seconds: pulumi.Output[float]
     """
-    Monitoring interval in seconds. Defaults to `60`.
+    Monitoring interval in seconds.
     """
     location: pulumi.Output[str]
     """
-    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+    The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
     """
     name: pulumi.Output[str]
     """
-    The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+    The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
     """
     network_watcher_name: pulumi.Output[str]
     """
-    The name of the Network Watcher. Changing this forces a new resource to be created.
+    The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+    The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
     """
     source: pulumi.Output[dict]
     """
     A `source` block as defined below.
 
-      * `port` (`float`) - The port on the destination to monitor connectivity to.
-      * `virtual_machine_id` (`str`) - The ID of the Virtual Machine to monitor connectivity to.
+      * `port` (`float`) - The source port used by connection monitor.
+      * `virtual_machine_id` (`str`) - The ID of the virtual machine used as the source by connection monitor.
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A mapping of tags which should be assigned to the Network Connection Monitor.
     """
     def __init__(__self__, resource_name, opts=None, auto_start=None, destination=None, interval_in_seconds=None, location=None, name=None, network_watcher_name=None, resource_group_name=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Configures a Network Connection Monitor to monitor communication between a Virtual Machine and an endpoint using a Network Watcher.
+        Manages a Network Connection Monitor.
 
         ## Example Usage
 
@@ -63,97 +63,60 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_resource_group = azure.core.get_resource_group(name="example-resources")
         example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
+        src_virtual_machine = azure.compute.get_virtual_machine(name="example-vm",
             resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.2.0/24")
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            ip_configurations=[{
-                "name": "testconfiguration1",
-                "subnet_id": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
-            }])
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_F2",
-            storage_image_reference={
-                "publisher": "Canonical",
-                "offer": "UbuntuServer",
-                "sku": "16.04-LTS",
-                "version": "latest",
-            },
-            storage_os_disk={
-                "name": "osdisk",
-                "caching": "ReadWrite",
-                "create_option": "FromImage",
-                "managedDiskType": "Standard_LRS",
-            },
-            os_profile={
-                "computer_name": "cmtest-vm",
-                "admin_username": "testadmin",
-                "admin_password": "Password1234!",
-            },
-            os_profile_linux_config={
-                "disable_password_authentication": False,
-            })
-        example_extension = azure.compute.Extension("exampleExtension",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            virtual_machine_name=example_virtual_machine.name,
+        src_extension = azure.compute.Extension("srcExtension",
+            virtual_machine_id=src_virtual_machine.id,
             publisher="Microsoft.Azure.NetworkWatcher",
             type="NetworkWatcherAgentLinux",
             type_handler_version="1.4",
             auto_upgrade_minor_version=True)
         example_network_connection_monitor = azure.network.NetworkConnectionMonitor("exampleNetworkConnectionMonitor",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             network_watcher_name=example_network_watcher.name,
+            resource_group_name=example_resource_group.name,
+            location=example_network_watcher.location,
+            auto_start=False,
+            interval_in_seconds=30,
             source={
-                "virtual_machine_id": example_virtual_machine.id,
+                "virtual_machine_id": src_virtual_machine.id,
+                "port": 20020,
             },
             destination={
-                "address": "exmaple.com",
-                "port": 80,
+                "address": "mycompany.io",
+                "port": 443,
             },
-            opts=ResourceOptions(depends_on=[example_extension]))
+            tags={
+                "foo": "bar",
+            },
+            opts=ResourceOptions(depends_on=[src_extension]))
         ```
-
-        > **NOTE:** This Resource requires that [the Network Watcher Agent Virtual Machine Extension](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor) is installed on the Virtual Machine before monitoring can be started. The extension can be installed via the `compute.Extension` resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_start: Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] auto_start: Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[dict] destination: A `destination` block as defined below.
-        :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds. Defaults to `60`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Network Connection Monitor. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds.
+        :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+        :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[dict] source: A `source` block as defined below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
 
         The **destination** object supports the following:
 
-          * `address` (`pulumi.Input[str]`) - IP address or domain name to monitor connectivity to.
-          * `port` (`pulumi.Input[float]`) - The port on the destination to monitor connectivity to.
-          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the Virtual Machine to monitor connectivity to.
+          * `address` (`pulumi.Input[str]`) - The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+          * `port` (`pulumi.Input[float]`) - The destination port used by connection monitor.
+          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
 
         The **source** object supports the following:
 
-          * `port` (`pulumi.Input[float]`) - The port on the destination to monitor connectivity to.
-          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the Virtual Machine to monitor connectivity to.
+          * `port` (`pulumi.Input[float]`) - The source port used by connection monitor.
+          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the virtual machine used as the source by connection monitor.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -204,26 +167,26 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_start: Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] auto_start: Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[dict] destination: A `destination` block as defined below.
-        :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds. Defaults to `60`.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Network Connection Monitor. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds.
+        :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
+        :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[dict] source: A `source` block as defined below.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[dict] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
 
         The **destination** object supports the following:
 
-          * `address` (`pulumi.Input[str]`) - IP address or domain name to monitor connectivity to.
-          * `port` (`pulumi.Input[float]`) - The port on the destination to monitor connectivity to.
-          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the Virtual Machine to monitor connectivity to.
+          * `address` (`pulumi.Input[str]`) - The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+          * `port` (`pulumi.Input[float]`) - The destination port used by connection monitor.
+          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
 
         The **source** object supports the following:
 
-          * `port` (`pulumi.Input[float]`) - The port on the destination to monitor connectivity to.
-          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the Virtual Machine to monitor connectivity to.
+          * `port` (`pulumi.Input[float]`) - The source port used by connection monitor.
+          * `virtual_machine_id` (`pulumi.Input[str]`) - The ID of the virtual machine used as the source by connection monitor.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Configures a Network Connection Monitor to monitor communication between a Virtual Machine and an endpoint using a Network Watcher.
+ * Manages a Network Connection Monitor.
  *
  * ## Example Usage
  *
@@ -15,82 +15,45 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
+ * const exampleResourceGroup = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
  * const exampleNetworkWatcher = new azure.network.NetworkWatcher("exampleNetworkWatcher", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
+ * const srcVirtualMachine = exampleResourceGroup.then(exampleResourceGroup => azure.compute.getVirtualMachine({
+ *     name: "example-vm",
  *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.2.0/24",
- * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ipConfigurations: [{
- *         name: "testconfiguration1",
- *         subnetId: exampleSubnet.id,
- *         privateIpAddressAllocation: "Dynamic",
- *     }],
- * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     vmSize: "Standard_F2",
- *     storageImageReference: {
- *         publisher: "Canonical",
- *         offer: "UbuntuServer",
- *         sku: "16.04-LTS",
- *         version: "latest",
- *     },
- *     storageOsDisk: {
- *         name: "osdisk",
- *         caching: "ReadWrite",
- *         createOption: "FromImage",
- *         managedDiskType: "Standard_LRS",
- *     },
- *     osProfile: {
- *         computerName: "cmtest-vm",
- *         adminUsername: "testadmin",
- *         adminPassword: "Password1234!",
- *     },
- *     osProfileLinuxConfig: {
- *         disablePasswordAuthentication: false,
- *     },
- * });
- * const exampleExtension = new azure.compute.Extension("exampleExtension", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualMachineName: exampleVirtualMachine.name,
+ * }));
+ * const srcExtension = new azure.compute.Extension("srcExtension", {
+ *     virtualMachineId: srcVirtualMachine.then(srcVirtualMachine => srcVirtualMachine.id),
  *     publisher: "Microsoft.Azure.NetworkWatcher",
  *     type: "NetworkWatcherAgentLinux",
  *     typeHandlerVersion: "1.4",
  *     autoUpgradeMinorVersion: true,
  * });
  * const exampleNetworkConnectionMonitor = new azure.network.NetworkConnectionMonitor("exampleNetworkConnectionMonitor", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     networkWatcherName: exampleNetworkWatcher.name,
+ *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ *     location: exampleNetworkWatcher.location,
+ *     autoStart: false,
+ *     intervalInSeconds: 30,
  *     source: {
- *         virtualMachineId: exampleVirtualMachine.id,
+ *         virtualMachineId: srcVirtualMachine.then(srcVirtualMachine => srcVirtualMachine.id),
+ *         port: 20020,
  *     },
  *     destination: {
- *         address: "exmaple.com",
- *         port: 80,
+ *         address: "mycompany.io",
+ *         port: 443,
+ *     },
+ *     tags: {
+ *         foo: "bar",
  *     },
  * }, {
- *     dependsOn: [exampleExtension],
+ *     dependsOn: [srcExtension],
  * });
  * ```
- *
- * > **NOTE:** This Resource requires that [the Network Watcher Agent Virtual Machine Extension](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor) is installed on the Virtual Machine before monitoring can be started. The extension can be installed via the `azure.compute.Extension` resource.
  */
 export class NetworkConnectionMonitor extends pulumi.CustomResource {
     /**
@@ -121,7 +84,7 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+     * Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
      */
     public readonly autoStart!: pulumi.Output<boolean | undefined>;
     /**
@@ -129,23 +92,23 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
      */
     public readonly destination!: pulumi.Output<outputs.network.NetworkConnectionMonitorDestination>;
     /**
-     * Monitoring interval in seconds. Defaults to `60`.
+     * Monitoring interval in seconds.
      */
     public readonly intervalInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+     * The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Network Watcher. Changing this forces a new resource to be created.
+     * The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
      */
     public readonly networkWatcherName!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -153,7 +116,7 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.network.NetworkConnectionMonitorSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -218,7 +181,7 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
  */
 export interface NetworkConnectionMonitorState {
     /**
-     * Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+     * Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
      */
     readonly autoStart?: pulumi.Input<boolean>;
     /**
@@ -226,23 +189,23 @@ export interface NetworkConnectionMonitorState {
      */
     readonly destination?: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
     /**
-     * Monitoring interval in seconds. Defaults to `60`.
+     * Monitoring interval in seconds.
      */
     readonly intervalInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+     * The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the Network Watcher. Changing this forces a new resource to be created.
+     * The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
      */
     readonly networkWatcherName?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -250,7 +213,7 @@ export interface NetworkConnectionMonitorState {
      */
     readonly source?: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -260,7 +223,7 @@ export interface NetworkConnectionMonitorState {
  */
 export interface NetworkConnectionMonitorArgs {
     /**
-     * Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+     * Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
      */
     readonly autoStart?: pulumi.Input<boolean>;
     /**
@@ -268,23 +231,23 @@ export interface NetworkConnectionMonitorArgs {
      */
     readonly destination: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
     /**
-     * Monitoring interval in seconds. Defaults to `60`.
+     * Monitoring interval in seconds.
      */
     readonly intervalInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+     * The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the Network Watcher. Changing this forces a new resource to be created.
+     * The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
      */
     readonly networkWatcherName: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+     * The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -292,7 +255,7 @@ export interface NetworkConnectionMonitorArgs {
      */
     readonly source: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

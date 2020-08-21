@@ -82,7 +82,7 @@ type DiagnosticSetting struct {
 	Metrics DiagnosticSettingMetricArrayOutput `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
@@ -133,7 +133,7 @@ type diagnosticSettingState struct {
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -154,7 +154,7 @@ type DiagnosticSettingState struct {
 	Metrics DiagnosticSettingMetricArrayInput
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type diagnosticSettingArgs struct {
 	Metrics []DiagnosticSettingMetric `pulumi:"metrics"`
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId string `pulumi:"targetResourceId"`
@@ -201,7 +201,7 @@ type DiagnosticSettingArgs struct {
 	Metrics DiagnosticSettingMetricArrayInput
 	// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+	// The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringInput

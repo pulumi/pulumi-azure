@@ -62,6 +62,6 @@ type GetNetworkDdosProtectionPlanResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+	// A list of ID's of the Virtual Networks associated with this DDoS Protection Plan.
 	VirtualNetworkIds []string `pulumi:"virtualNetworkIds"`
 }

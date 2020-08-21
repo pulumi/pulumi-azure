@@ -21,7 +21,6 @@ class Assignment(pulumi.CustomResource):
     enforcement_mode: pulumi.Output[bool]
     """
     Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-    ---
     """
     identity: pulumi.Output[dict]
     """
@@ -119,7 +118,6 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-               ---
         :param pulumi.Input[dict] identity: An `identity` block.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
@@ -185,7 +183,6 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-               ---
         :param pulumi.Input[dict] identity: An `identity` block.
         :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.

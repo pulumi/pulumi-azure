@@ -19,13 +19,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The private IP address of the Azure Firewall.
+        /// The Private IP address of the Azure Firewall.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
         /// <summary>
-        /// The Resource ID of the Public IP Address associated with the firewall.
+        /// The ID of the Public IP Address associated with the firewall.
         /// </summary>
         [Input("publicIpAddressId", required: true)]
         public Input<string> PublicIpAddressId { get; set; } = null!;

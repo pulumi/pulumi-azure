@@ -100,7 +100,6 @@ export class Assignment extends pulumi.CustomResource {
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-     * ---
      */
     public readonly enforcementMode!: pulumi.Output<boolean | undefined>;
     /**
@@ -204,7 +203,6 @@ export interface AssignmentState {
     readonly displayName?: pulumi.Input<string>;
     /**
      * Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-     * ---
      */
     readonly enforcementMode?: pulumi.Input<boolean>;
     /**
@@ -255,7 +253,6 @@ export interface AssignmentArgs {
     readonly displayName?: pulumi.Input<string>;
     /**
      * Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
-     * ---
      */
     readonly enforcementMode?: pulumi.Input<boolean>;
     /**

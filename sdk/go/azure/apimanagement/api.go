@@ -79,6 +79,10 @@ type Api struct {
 	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An `oauth2Authorization` block as documented below.
+	Oauth2Authorization ApiOauth2AuthorizationPtrOutput `pulumi:"oauth2Authorization"`
+	// An `openidAuthentication` block as documented below.
+	OpenidAuthentication ApiOpenidAuthenticationPtrOutput `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringOutput `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
@@ -161,6 +165,10 @@ type apiState struct {
 	IsOnline *bool `pulumi:"isOnline"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An `oauth2Authorization` block as documented below.
+	Oauth2Authorization *ApiOauth2Authorization `pulumi:"oauth2Authorization"`
+	// An `openidAuthentication` block as documented below.
+	OpenidAuthentication *ApiOpenidAuthentication `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path *string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
@@ -198,6 +206,10 @@ type ApiState struct {
 	IsOnline pulumi.BoolPtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An `oauth2Authorization` block as documented below.
+	Oauth2Authorization ApiOauth2AuthorizationPtrInput
+	// An `openidAuthentication` block as documented below.
+	OpenidAuthentication ApiOpenidAuthenticationPtrInput
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringPtrInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
@@ -235,6 +247,10 @@ type apiArgs struct {
 	Import *ApiImport `pulumi:"import"`
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// An `oauth2Authorization` block as documented below.
+	Oauth2Authorization *ApiOauth2Authorization `pulumi:"oauth2Authorization"`
+	// An `openidAuthentication` block as documented below.
+	OpenidAuthentication *ApiOpenidAuthentication `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
@@ -269,6 +285,10 @@ type ApiArgs struct {
 	Import ApiImportPtrInput
 	// The name of the API Management API. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// An `oauth2Authorization` block as documented below.
+	Oauth2Authorization ApiOauth2AuthorizationPtrInput
+	// An `openidAuthentication` block as documented below.
+	OpenidAuthentication ApiOpenidAuthenticationPtrInput
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.

@@ -100,7 +100,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
@@ -188,7 +188,7 @@ export interface DiagnosticSettingState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface DiagnosticSettingArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
     /**

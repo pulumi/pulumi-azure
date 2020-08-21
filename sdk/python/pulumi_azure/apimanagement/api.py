@@ -44,6 +44,20 @@ class Api(pulumi.CustomResource):
     """
     The name of the API Management API. Changing this forces a new resource to be created.
     """
+    oauth2_authorization: pulumi.Output[dict]
+    """
+    An `oauth2_authorization` block as documented below.
+
+      * `authorizationServerName` (`str`)
+      * `scope` (`str`) - Operations scope.
+    """
+    openid_authentication: pulumi.Output[dict]
+    """
+    An `openid_authentication` block as documented below.
+
+      * `bearer_token_sending_methods` (`list`) - How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+      * `openidProviderName` (`str`)
+    """
     path: pulumi.Output[str]
     """
     The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
@@ -87,7 +101,7 @@ class Api(pulumi.CustomResource):
     """
     The ID of the Version Set which this API is associated with.
     """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, description=None, display_name=None, import_=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, subscription_required=None, version=None, version_set_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_management_name=None, description=None, display_name=None, import_=None, name=None, oauth2_authorization=None, openid_authentication=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, subscription_required=None, version=None, version_set_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API within an API Management Service.
 
@@ -124,6 +138,8 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input[dict] import_: A `import` block as documented below.
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] oauth2_authorization: An `oauth2_authorization` block as documented below.
+        :param pulumi.Input[dict] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[list] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
@@ -142,6 +158,16 @@ class Api(pulumi.CustomResource):
           * `wsdlSelector` (`pulumi.Input[dict]`) - A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
             * `endpointName` (`pulumi.Input[str]`) - The name of endpoint (port) to import from WSDL.
             * `service_name` (`pulumi.Input[str]`) - The name of service to import from WSDL.
+
+        The **oauth2_authorization** object supports the following:
+
+          * `authorizationServerName` (`pulumi.Input[str]`)
+          * `scope` (`pulumi.Input[str]`) - Operations scope.
+
+        The **openid_authentication** object supports the following:
+
+          * `bearer_token_sending_methods` (`pulumi.Input[list]`) - How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+          * `openidProviderName` (`pulumi.Input[str]`)
 
         The **subscription_key_parameter_names** object supports the following:
 
@@ -174,6 +200,8 @@ class Api(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['import_'] = import_
             __props__['name'] = name
+            __props__['oauth2_authorization'] = oauth2_authorization
+            __props__['openid_authentication'] = openid_authentication
             if path is None:
                 raise TypeError("Missing required property 'path'")
             __props__['path'] = path
@@ -201,7 +229,7 @@ class Api(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, api_management_name=None, description=None, display_name=None, import_=None, is_current=None, is_online=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, subscription_required=None, version=None, version_set_id=None):
+    def get(resource_name, id, opts=None, api_management_name=None, description=None, display_name=None, import_=None, is_current=None, is_online=None, name=None, oauth2_authorization=None, openid_authentication=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, subscription_required=None, version=None, version_set_id=None):
         """
         Get an existing Api resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -216,6 +244,8 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[bool] is_current: Is this the current API Revision?
         :param pulumi.Input[bool] is_online: Is this API Revision online/accessible via the Gateway?
         :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] oauth2_authorization: An `oauth2_authorization` block as documented below.
+        :param pulumi.Input[dict] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         :param pulumi.Input[list] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
@@ -235,6 +265,16 @@ class Api(pulumi.CustomResource):
             * `endpointName` (`pulumi.Input[str]`) - The name of endpoint (port) to import from WSDL.
             * `service_name` (`pulumi.Input[str]`) - The name of service to import from WSDL.
 
+        The **oauth2_authorization** object supports the following:
+
+          * `authorizationServerName` (`pulumi.Input[str]`)
+          * `scope` (`pulumi.Input[str]`) - Operations scope.
+
+        The **openid_authentication** object supports the following:
+
+          * `bearer_token_sending_methods` (`pulumi.Input[list]`) - How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+          * `openidProviderName` (`pulumi.Input[str]`)
+
         The **subscription_key_parameter_names** object supports the following:
 
           * `header` (`pulumi.Input[str]`) - The name of the HTTP Header which should be used for the Subscription Key.
@@ -251,6 +291,8 @@ class Api(pulumi.CustomResource):
         __props__["is_current"] = is_current
         __props__["is_online"] = is_online
         __props__["name"] = name
+        __props__["oauth2_authorization"] = oauth2_authorization
+        __props__["openid_authentication"] = openid_authentication
         __props__["path"] = path
         __props__["protocols"] = protocols
         __props__["resource_group_name"] = resource_group_name

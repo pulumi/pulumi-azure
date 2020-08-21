@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Backup
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Resource ID of the storage account to be registered
+        /// The ID of the Storage Account to be registered
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Backup
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Azure Resource ID of the storage account to be registered
+        /// The ID of the Storage Account to be registered
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Backup
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Azure Resource ID of the storage account to be registered
+        /// The ID of the Storage Account to be registered
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

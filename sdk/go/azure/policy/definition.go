@@ -30,7 +30,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
 // 			DisplayName: pulumi.String("acceptance test policy definition"),
-// 			Metadata:    pulumi.String(fmt.Sprintf("%v%v%v%v%v", "    {\n", "    \"category\": \"General\"\n", "    }\n", "  \n", "\n")),
+// 			Metadata:    pulumi.String(fmt.Sprintf("%v%v%v%v%v", "    {\n", "    \"category\": \"General\"\n", "    }\n", "\n", "\n")),
 // 			Mode:        pulumi.String("Indexed"),
 // 			Parameters: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"allowedLocations\": {\n", "      \"type\": \"Array\",\n", "      \"metadata\": {\n", "        \"description\": \"The list of allowed locations for resources.\",\n", "        \"displayName\": \"Allowed locations\",\n", "        \"strongType\": \"location\"\n", "      }\n", "    }\n", "  }\n", "\n")),
 // 			PolicyRule: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "    \"if\": {\n", "      \"not\": {\n", "        \"field\": \"location\",\n", "        \"in\": \"[parameters('allowedLocations')]\"\n", "      }\n", "    },\n", "    \"then\": {\n", "      \"effect\": \"audit\"\n", "    }\n", "  }\n", "\n")),
@@ -62,8 +62,7 @@ type Definition struct {
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
 	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified". Changing this resource forces a new resource to be
-	// created.
+	// "NotSpecified".
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -132,8 +131,7 @@ type definitionState struct {
 	Metadata *string `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
 	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified". Changing this resource forces a new resource to be
-	// created.
+	// "NotSpecified".
 	Mode *string `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -166,8 +164,7 @@ type DefinitionState struct {
 	Metadata pulumi.StringPtrInput
 	// The policy mode that allows you to specify which resource
 	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified". Changing this resource forces a new resource to be
-	// created.
+	// "NotSpecified".
 	Mode pulumi.StringPtrInput
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -204,8 +201,7 @@ type definitionArgs struct {
 	Metadata *string `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
 	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified". Changing this resource forces a new resource to be
-	// created.
+	// "NotSpecified".
 	Mode string `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -239,8 +235,7 @@ type DefinitionArgs struct {
 	Metadata pulumi.StringPtrInput
 	// The policy mode that allows you to specify which resource
 	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified". Changing this resource forces a new resource to be
-	// created.
+	// "NotSpecified".
 	Mode pulumi.StringInput
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.

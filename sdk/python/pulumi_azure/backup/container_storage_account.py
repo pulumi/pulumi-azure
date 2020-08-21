@@ -20,7 +20,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
     """
     storage_account_id: pulumi.Output[str]
     """
-    Azure Resource ID of the storage account to be registered
+    The ID of the Storage Account to be registered
     """
     def __init__(__self__, resource_name, opts=None, recovery_vault_name=None, resource_group_name=None, storage_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -54,7 +54,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
-        :param pulumi.Input[str] storage_account_id: Azure Resource ID of the storage account to be registered
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,7 +99,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
-        :param pulumi.Input[str] storage_account_id: Azure Resource ID of the storage account to be registered
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

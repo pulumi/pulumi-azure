@@ -32,7 +32,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
     """
     virtual_network_id: pulumi.Output[str]
     """
-    The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+    The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, name=None, private_dns_zone_name=None, registration_enabled=None, resource_group_name=None, tags=None, virtual_network_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -59,7 +59,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] virtual_network_id: The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,7 +110,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] virtual_network_id: The Resource ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

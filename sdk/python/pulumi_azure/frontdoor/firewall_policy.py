@@ -44,11 +44,11 @@ class FirewallPolicy(pulumi.CustomResource):
     """
     frontend_endpoint_ids: pulumi.Output[list]
     """
-    the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
+    The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
     """
     location: pulumi.Output[str]
     """
-    Resource location.
+    The Azure Region where this FrontDoor Firewall Policy exists.
     """
     managed_rules: pulumi.Output[list]
     """
@@ -317,8 +317,8 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[float] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[list] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
-        :param pulumi.Input[list] frontend_endpoint_ids: the Frontend Endpoints associated with this Front Door Web Application Firewall policy.
-        :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[list] frontend_endpoint_ids: The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
+        :param pulumi.Input[str] location: The Azure Region where this FrontDoor Firewall Policy exists.
         :param pulumi.Input[list] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.

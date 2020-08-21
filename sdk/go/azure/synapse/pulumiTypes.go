@@ -10,6 +10,437 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type SparkPoolAutoPause struct {
+	// Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
+	DelayInMinutes int `pulumi:"delayInMinutes"`
+}
+
+// SparkPoolAutoPauseInput is an input type that accepts SparkPoolAutoPauseArgs and SparkPoolAutoPauseOutput values.
+// You can construct a concrete instance of `SparkPoolAutoPauseInput` via:
+//
+//          SparkPoolAutoPauseArgs{...}
+type SparkPoolAutoPauseInput interface {
+	pulumi.Input
+
+	ToSparkPoolAutoPauseOutput() SparkPoolAutoPauseOutput
+	ToSparkPoolAutoPauseOutputWithContext(context.Context) SparkPoolAutoPauseOutput
+}
+
+type SparkPoolAutoPauseArgs struct {
+	// Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
+	DelayInMinutes pulumi.IntInput `pulumi:"delayInMinutes"`
+}
+
+func (SparkPoolAutoPauseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolAutoPause)(nil)).Elem()
+}
+
+func (i SparkPoolAutoPauseArgs) ToSparkPoolAutoPauseOutput() SparkPoolAutoPauseOutput {
+	return i.ToSparkPoolAutoPauseOutputWithContext(context.Background())
+}
+
+func (i SparkPoolAutoPauseArgs) ToSparkPoolAutoPauseOutputWithContext(ctx context.Context) SparkPoolAutoPauseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoPauseOutput)
+}
+
+func (i SparkPoolAutoPauseArgs) ToSparkPoolAutoPausePtrOutput() SparkPoolAutoPausePtrOutput {
+	return i.ToSparkPoolAutoPausePtrOutputWithContext(context.Background())
+}
+
+func (i SparkPoolAutoPauseArgs) ToSparkPoolAutoPausePtrOutputWithContext(ctx context.Context) SparkPoolAutoPausePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoPauseOutput).ToSparkPoolAutoPausePtrOutputWithContext(ctx)
+}
+
+// SparkPoolAutoPausePtrInput is an input type that accepts SparkPoolAutoPauseArgs, SparkPoolAutoPausePtr and SparkPoolAutoPausePtrOutput values.
+// You can construct a concrete instance of `SparkPoolAutoPausePtrInput` via:
+//
+//          SparkPoolAutoPauseArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkPoolAutoPausePtrInput interface {
+	pulumi.Input
+
+	ToSparkPoolAutoPausePtrOutput() SparkPoolAutoPausePtrOutput
+	ToSparkPoolAutoPausePtrOutputWithContext(context.Context) SparkPoolAutoPausePtrOutput
+}
+
+type sparkPoolAutoPausePtrType SparkPoolAutoPauseArgs
+
+func SparkPoolAutoPausePtr(v *SparkPoolAutoPauseArgs) SparkPoolAutoPausePtrInput {
+	return (*sparkPoolAutoPausePtrType)(v)
+}
+
+func (*sparkPoolAutoPausePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkPoolAutoPause)(nil)).Elem()
+}
+
+func (i *sparkPoolAutoPausePtrType) ToSparkPoolAutoPausePtrOutput() SparkPoolAutoPausePtrOutput {
+	return i.ToSparkPoolAutoPausePtrOutputWithContext(context.Background())
+}
+
+func (i *sparkPoolAutoPausePtrType) ToSparkPoolAutoPausePtrOutputWithContext(ctx context.Context) SparkPoolAutoPausePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoPausePtrOutput)
+}
+
+type SparkPoolAutoPauseOutput struct{ *pulumi.OutputState }
+
+func (SparkPoolAutoPauseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolAutoPause)(nil)).Elem()
+}
+
+func (o SparkPoolAutoPauseOutput) ToSparkPoolAutoPauseOutput() SparkPoolAutoPauseOutput {
+	return o
+}
+
+func (o SparkPoolAutoPauseOutput) ToSparkPoolAutoPauseOutputWithContext(ctx context.Context) SparkPoolAutoPauseOutput {
+	return o
+}
+
+func (o SparkPoolAutoPauseOutput) ToSparkPoolAutoPausePtrOutput() SparkPoolAutoPausePtrOutput {
+	return o.ToSparkPoolAutoPausePtrOutputWithContext(context.Background())
+}
+
+func (o SparkPoolAutoPauseOutput) ToSparkPoolAutoPausePtrOutputWithContext(ctx context.Context) SparkPoolAutoPausePtrOutput {
+	return o.ApplyT(func(v SparkPoolAutoPause) *SparkPoolAutoPause {
+		return &v
+	}).(SparkPoolAutoPausePtrOutput)
+}
+
+// Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
+func (o SparkPoolAutoPauseOutput) DelayInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v SparkPoolAutoPause) int { return v.DelayInMinutes }).(pulumi.IntOutput)
+}
+
+type SparkPoolAutoPausePtrOutput struct{ *pulumi.OutputState }
+
+func (SparkPoolAutoPausePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkPoolAutoPause)(nil)).Elem()
+}
+
+func (o SparkPoolAutoPausePtrOutput) ToSparkPoolAutoPausePtrOutput() SparkPoolAutoPausePtrOutput {
+	return o
+}
+
+func (o SparkPoolAutoPausePtrOutput) ToSparkPoolAutoPausePtrOutputWithContext(ctx context.Context) SparkPoolAutoPausePtrOutput {
+	return o
+}
+
+func (o SparkPoolAutoPausePtrOutput) Elem() SparkPoolAutoPauseOutput {
+	return o.ApplyT(func(v *SparkPoolAutoPause) SparkPoolAutoPause { return *v }).(SparkPoolAutoPauseOutput)
+}
+
+// Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
+func (o SparkPoolAutoPausePtrOutput) DelayInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SparkPoolAutoPause) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DelayInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type SparkPoolAutoScale struct {
+	// The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+	MaxNodeCount int `pulumi:"maxNodeCount"`
+	// The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+	MinNodeCount int `pulumi:"minNodeCount"`
+}
+
+// SparkPoolAutoScaleInput is an input type that accepts SparkPoolAutoScaleArgs and SparkPoolAutoScaleOutput values.
+// You can construct a concrete instance of `SparkPoolAutoScaleInput` via:
+//
+//          SparkPoolAutoScaleArgs{...}
+type SparkPoolAutoScaleInput interface {
+	pulumi.Input
+
+	ToSparkPoolAutoScaleOutput() SparkPoolAutoScaleOutput
+	ToSparkPoolAutoScaleOutputWithContext(context.Context) SparkPoolAutoScaleOutput
+}
+
+type SparkPoolAutoScaleArgs struct {
+	// The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+	MaxNodeCount pulumi.IntInput `pulumi:"maxNodeCount"`
+	// The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+	MinNodeCount pulumi.IntInput `pulumi:"minNodeCount"`
+}
+
+func (SparkPoolAutoScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolAutoScale)(nil)).Elem()
+}
+
+func (i SparkPoolAutoScaleArgs) ToSparkPoolAutoScaleOutput() SparkPoolAutoScaleOutput {
+	return i.ToSparkPoolAutoScaleOutputWithContext(context.Background())
+}
+
+func (i SparkPoolAutoScaleArgs) ToSparkPoolAutoScaleOutputWithContext(ctx context.Context) SparkPoolAutoScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoScaleOutput)
+}
+
+func (i SparkPoolAutoScaleArgs) ToSparkPoolAutoScalePtrOutput() SparkPoolAutoScalePtrOutput {
+	return i.ToSparkPoolAutoScalePtrOutputWithContext(context.Background())
+}
+
+func (i SparkPoolAutoScaleArgs) ToSparkPoolAutoScalePtrOutputWithContext(ctx context.Context) SparkPoolAutoScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoScaleOutput).ToSparkPoolAutoScalePtrOutputWithContext(ctx)
+}
+
+// SparkPoolAutoScalePtrInput is an input type that accepts SparkPoolAutoScaleArgs, SparkPoolAutoScalePtr and SparkPoolAutoScalePtrOutput values.
+// You can construct a concrete instance of `SparkPoolAutoScalePtrInput` via:
+//
+//          SparkPoolAutoScaleArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkPoolAutoScalePtrInput interface {
+	pulumi.Input
+
+	ToSparkPoolAutoScalePtrOutput() SparkPoolAutoScalePtrOutput
+	ToSparkPoolAutoScalePtrOutputWithContext(context.Context) SparkPoolAutoScalePtrOutput
+}
+
+type sparkPoolAutoScalePtrType SparkPoolAutoScaleArgs
+
+func SparkPoolAutoScalePtr(v *SparkPoolAutoScaleArgs) SparkPoolAutoScalePtrInput {
+	return (*sparkPoolAutoScalePtrType)(v)
+}
+
+func (*sparkPoolAutoScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkPoolAutoScale)(nil)).Elem()
+}
+
+func (i *sparkPoolAutoScalePtrType) ToSparkPoolAutoScalePtrOutput() SparkPoolAutoScalePtrOutput {
+	return i.ToSparkPoolAutoScalePtrOutputWithContext(context.Background())
+}
+
+func (i *sparkPoolAutoScalePtrType) ToSparkPoolAutoScalePtrOutputWithContext(ctx context.Context) SparkPoolAutoScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoScalePtrOutput)
+}
+
+type SparkPoolAutoScaleOutput struct{ *pulumi.OutputState }
+
+func (SparkPoolAutoScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolAutoScale)(nil)).Elem()
+}
+
+func (o SparkPoolAutoScaleOutput) ToSparkPoolAutoScaleOutput() SparkPoolAutoScaleOutput {
+	return o
+}
+
+func (o SparkPoolAutoScaleOutput) ToSparkPoolAutoScaleOutputWithContext(ctx context.Context) SparkPoolAutoScaleOutput {
+	return o
+}
+
+func (o SparkPoolAutoScaleOutput) ToSparkPoolAutoScalePtrOutput() SparkPoolAutoScalePtrOutput {
+	return o.ToSparkPoolAutoScalePtrOutputWithContext(context.Background())
+}
+
+func (o SparkPoolAutoScaleOutput) ToSparkPoolAutoScalePtrOutputWithContext(ctx context.Context) SparkPoolAutoScalePtrOutput {
+	return o.ApplyT(func(v SparkPoolAutoScale) *SparkPoolAutoScale {
+		return &v
+	}).(SparkPoolAutoScalePtrOutput)
+}
+
+// The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+func (o SparkPoolAutoScaleOutput) MaxNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v SparkPoolAutoScale) int { return v.MaxNodeCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+func (o SparkPoolAutoScaleOutput) MinNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v SparkPoolAutoScale) int { return v.MinNodeCount }).(pulumi.IntOutput)
+}
+
+type SparkPoolAutoScalePtrOutput struct{ *pulumi.OutputState }
+
+func (SparkPoolAutoScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkPoolAutoScale)(nil)).Elem()
+}
+
+func (o SparkPoolAutoScalePtrOutput) ToSparkPoolAutoScalePtrOutput() SparkPoolAutoScalePtrOutput {
+	return o
+}
+
+func (o SparkPoolAutoScalePtrOutput) ToSparkPoolAutoScalePtrOutputWithContext(ctx context.Context) SparkPoolAutoScalePtrOutput {
+	return o
+}
+
+func (o SparkPoolAutoScalePtrOutput) Elem() SparkPoolAutoScaleOutput {
+	return o.ApplyT(func(v *SparkPoolAutoScale) SparkPoolAutoScale { return *v }).(SparkPoolAutoScaleOutput)
+}
+
+// The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+func (o SparkPoolAutoScalePtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SparkPoolAutoScale) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxNodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+func (o SparkPoolAutoScalePtrOutput) MinNodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SparkPoolAutoScale) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinNodeCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type SparkPoolLibraryRequirement struct {
+	// The content of library requirements.
+	Content string `pulumi:"content"`
+	// The name of the library requirements file.
+	Filename string `pulumi:"filename"`
+}
+
+// SparkPoolLibraryRequirementInput is an input type that accepts SparkPoolLibraryRequirementArgs and SparkPoolLibraryRequirementOutput values.
+// You can construct a concrete instance of `SparkPoolLibraryRequirementInput` via:
+//
+//          SparkPoolLibraryRequirementArgs{...}
+type SparkPoolLibraryRequirementInput interface {
+	pulumi.Input
+
+	ToSparkPoolLibraryRequirementOutput() SparkPoolLibraryRequirementOutput
+	ToSparkPoolLibraryRequirementOutputWithContext(context.Context) SparkPoolLibraryRequirementOutput
+}
+
+type SparkPoolLibraryRequirementArgs struct {
+	// The content of library requirements.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The name of the library requirements file.
+	Filename pulumi.StringInput `pulumi:"filename"`
+}
+
+func (SparkPoolLibraryRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolLibraryRequirement)(nil)).Elem()
+}
+
+func (i SparkPoolLibraryRequirementArgs) ToSparkPoolLibraryRequirementOutput() SparkPoolLibraryRequirementOutput {
+	return i.ToSparkPoolLibraryRequirementOutputWithContext(context.Background())
+}
+
+func (i SparkPoolLibraryRequirementArgs) ToSparkPoolLibraryRequirementOutputWithContext(ctx context.Context) SparkPoolLibraryRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolLibraryRequirementOutput)
+}
+
+func (i SparkPoolLibraryRequirementArgs) ToSparkPoolLibraryRequirementPtrOutput() SparkPoolLibraryRequirementPtrOutput {
+	return i.ToSparkPoolLibraryRequirementPtrOutputWithContext(context.Background())
+}
+
+func (i SparkPoolLibraryRequirementArgs) ToSparkPoolLibraryRequirementPtrOutputWithContext(ctx context.Context) SparkPoolLibraryRequirementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolLibraryRequirementOutput).ToSparkPoolLibraryRequirementPtrOutputWithContext(ctx)
+}
+
+// SparkPoolLibraryRequirementPtrInput is an input type that accepts SparkPoolLibraryRequirementArgs, SparkPoolLibraryRequirementPtr and SparkPoolLibraryRequirementPtrOutput values.
+// You can construct a concrete instance of `SparkPoolLibraryRequirementPtrInput` via:
+//
+//          SparkPoolLibraryRequirementArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkPoolLibraryRequirementPtrInput interface {
+	pulumi.Input
+
+	ToSparkPoolLibraryRequirementPtrOutput() SparkPoolLibraryRequirementPtrOutput
+	ToSparkPoolLibraryRequirementPtrOutputWithContext(context.Context) SparkPoolLibraryRequirementPtrOutput
+}
+
+type sparkPoolLibraryRequirementPtrType SparkPoolLibraryRequirementArgs
+
+func SparkPoolLibraryRequirementPtr(v *SparkPoolLibraryRequirementArgs) SparkPoolLibraryRequirementPtrInput {
+	return (*sparkPoolLibraryRequirementPtrType)(v)
+}
+
+func (*sparkPoolLibraryRequirementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkPoolLibraryRequirement)(nil)).Elem()
+}
+
+func (i *sparkPoolLibraryRequirementPtrType) ToSparkPoolLibraryRequirementPtrOutput() SparkPoolLibraryRequirementPtrOutput {
+	return i.ToSparkPoolLibraryRequirementPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkPoolLibraryRequirementPtrType) ToSparkPoolLibraryRequirementPtrOutputWithContext(ctx context.Context) SparkPoolLibraryRequirementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolLibraryRequirementPtrOutput)
+}
+
+type SparkPoolLibraryRequirementOutput struct{ *pulumi.OutputState }
+
+func (SparkPoolLibraryRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkPoolLibraryRequirement)(nil)).Elem()
+}
+
+func (o SparkPoolLibraryRequirementOutput) ToSparkPoolLibraryRequirementOutput() SparkPoolLibraryRequirementOutput {
+	return o
+}
+
+func (o SparkPoolLibraryRequirementOutput) ToSparkPoolLibraryRequirementOutputWithContext(ctx context.Context) SparkPoolLibraryRequirementOutput {
+	return o
+}
+
+func (o SparkPoolLibraryRequirementOutput) ToSparkPoolLibraryRequirementPtrOutput() SparkPoolLibraryRequirementPtrOutput {
+	return o.ToSparkPoolLibraryRequirementPtrOutputWithContext(context.Background())
+}
+
+func (o SparkPoolLibraryRequirementOutput) ToSparkPoolLibraryRequirementPtrOutputWithContext(ctx context.Context) SparkPoolLibraryRequirementPtrOutput {
+	return o.ApplyT(func(v SparkPoolLibraryRequirement) *SparkPoolLibraryRequirement {
+		return &v
+	}).(SparkPoolLibraryRequirementPtrOutput)
+}
+
+// The content of library requirements.
+func (o SparkPoolLibraryRequirementOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkPoolLibraryRequirement) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The name of the library requirements file.
+func (o SparkPoolLibraryRequirementOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkPoolLibraryRequirement) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+type SparkPoolLibraryRequirementPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkPoolLibraryRequirementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkPoolLibraryRequirement)(nil)).Elem()
+}
+
+func (o SparkPoolLibraryRequirementPtrOutput) ToSparkPoolLibraryRequirementPtrOutput() SparkPoolLibraryRequirementPtrOutput {
+	return o
+}
+
+func (o SparkPoolLibraryRequirementPtrOutput) ToSparkPoolLibraryRequirementPtrOutputWithContext(ctx context.Context) SparkPoolLibraryRequirementPtrOutput {
+	return o
+}
+
+func (o SparkPoolLibraryRequirementPtrOutput) Elem() SparkPoolLibraryRequirementOutput {
+	return o.ApplyT(func(v *SparkPoolLibraryRequirement) SparkPoolLibraryRequirement { return *v }).(SparkPoolLibraryRequirementOutput)
+}
+
+// The content of library requirements.
+func (o SparkPoolLibraryRequirementPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkPoolLibraryRequirement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the library requirements file.
+func (o SparkPoolLibraryRequirementPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkPoolLibraryRequirement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceAadAdmin struct {
 	// The login name of the Azure AD Administrator of this Synapse Workspace.
 	Login string `pulumi:"login"`
@@ -295,6 +726,12 @@ func (o WorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) WorkspaceIdentity
 }
 
 func init() {
+	pulumi.RegisterOutputType(SparkPoolAutoPauseOutput{})
+	pulumi.RegisterOutputType(SparkPoolAutoPausePtrOutput{})
+	pulumi.RegisterOutputType(SparkPoolAutoScaleOutput{})
+	pulumi.RegisterOutputType(SparkPoolAutoScalePtrOutput{})
+	pulumi.RegisterOutputType(SparkPoolLibraryRequirementOutput{})
+	pulumi.RegisterOutputType(SparkPoolLibraryRequirementPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})

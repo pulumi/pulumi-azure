@@ -15,8 +15,8 @@ class Firewall(pulumi.CustomResource):
     A `ip_configuration` block as documented below.
 
       * `name` (`str`) - Specifies the name of the IP Configuration.
-      * `private_ip_address` (`str`) - The private IP address of the Azure Firewall.
-      * `public_ip_address_id` (`str`) - The Resource ID of the Public IP Address associated with the firewall.
+      * `private_ip_address` (`str`) - The Private IP address of the Azure Firewall.
+      * `public_ip_address_id` (`str`) - The ID of the Public IP Address associated with the firewall.
       * `subnet_id` (`str`) - Reference to the subnet associated with the IP Configuration.
     """
     location: pulumi.Output[str]
@@ -90,8 +90,8 @@ class Firewall(pulumi.CustomResource):
         The **ip_configurations** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - Specifies the name of the IP Configuration.
-          * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the Azure Firewall.
-          * `public_ip_address_id` (`pulumi.Input[str]`) - The Resource ID of the Public IP Address associated with the firewall.
+          * `private_ip_address` (`pulumi.Input[str]`) - The Private IP address of the Azure Firewall.
+          * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of the Public IP Address associated with the firewall.
           * `subnet_id` (`pulumi.Input[str]`) - Reference to the subnet associated with the IP Configuration.
         """
         if __name__ is not None:
@@ -148,8 +148,8 @@ class Firewall(pulumi.CustomResource):
         The **ip_configurations** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - Specifies the name of the IP Configuration.
-          * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the Azure Firewall.
-          * `public_ip_address_id` (`pulumi.Input[str]`) - The Resource ID of the Public IP Address associated with the firewall.
+          * `private_ip_address` (`pulumi.Input[str]`) - The Private IP address of the Azure Firewall.
+          * `public_ip_address_id` (`pulumi.Input[str]`) - The ID of the Public IP Address associated with the firewall.
           * `subnet_id` (`pulumi.Input[str]`) - Reference to the subnet associated with the IP Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

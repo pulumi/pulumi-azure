@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<bool> Enable { get; set; } = null!;
 
         /// <summary>
-        /// The Resource ID of DDoS Protection Plan.
+        /// The ID of DDoS Protection Plan.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

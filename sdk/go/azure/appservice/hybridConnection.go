@@ -95,7 +95,7 @@ type HybridConnection struct {
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The port of the endpoint.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
+	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId   pulumi.StringOutput `pulumi:"relayId"`
 	RelayName pulumi.StringOutput `pulumi:"relayName"`
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
@@ -161,7 +161,7 @@ type hybridConnectionState struct {
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The port of the endpoint.
 	Port *int `pulumi:"port"`
-	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
+	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId   *string `pulumi:"relayId"`
 	RelayName *string `pulumi:"relayName"`
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
@@ -185,7 +185,7 @@ type HybridConnectionState struct {
 	NamespaceName pulumi.StringPtrInput
 	// The port of the endpoint.
 	Port pulumi.IntPtrInput
-	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
+	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId   pulumi.StringPtrInput
 	RelayName pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
@@ -211,7 +211,7 @@ type hybridConnectionArgs struct {
 	Hostname string `pulumi:"hostname"`
 	// The port of the endpoint.
 	Port int `pulumi:"port"`
-	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
+	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId string `pulumi:"relayId"`
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -227,7 +227,7 @@ type HybridConnectionArgs struct {
 	Hostname pulumi.StringInput
 	// The port of the endpoint.
 	Port pulumi.IntInput
-	// The Resource ID of Service Bus relay. Changing this forces a new resource to be created.
+	// The ID of the Service Bus Relay. Changing this forces a new resource to be created.
 	RelayId pulumi.StringInput
 	// The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

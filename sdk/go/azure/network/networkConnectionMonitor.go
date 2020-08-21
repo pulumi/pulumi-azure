@@ -10,27 +10,99 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Configures a Network Connection Monitor to monitor communication between a Virtual Machine and an endpoint using a Network Watcher.
+// Manages a Network Connection Monitor.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/compute"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+// 			Name: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "exampleNetworkWatcher", &network.NetworkWatcherArgs{
+// 			Location:          pulumi.String(exampleResourceGroup.Location),
+// 			ResourceGroupName: pulumi.String(exampleResourceGroup.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		srcVirtualMachine, err := compute.LookupVirtualMachine(ctx, &compute.LookupVirtualMachineArgs{
+// 			Name:              "example-vm",
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		srcExtension, err := compute.NewExtension(ctx, "srcExtension", &compute.ExtensionArgs{
+// 			VirtualMachineId:        pulumi.String(srcVirtualMachine.Id),
+// 			Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
+// 			Type:                    pulumi.String("NetworkWatcherAgentLinux"),
+// 			TypeHandlerVersion:      pulumi.String("1.4"),
+// 			AutoUpgradeMinorVersion: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = network.NewNetworkConnectionMonitor(ctx, "exampleNetworkConnectionMonitor", &network.NetworkConnectionMonitorArgs{
+// 			NetworkWatcherName: exampleNetworkWatcher.Name,
+// 			ResourceGroupName:  pulumi.String(exampleResourceGroup.Name),
+// 			Location:           exampleNetworkWatcher.Location,
+// 			AutoStart:          pulumi.Bool(false),
+// 			IntervalInSeconds:  pulumi.Int(30),
+// 			Source: &network.NetworkConnectionMonitorSourceArgs{
+// 				VirtualMachineId: pulumi.String(srcVirtualMachine.Id),
+// 				Port:             pulumi.Int(20020),
+// 			},
+// 			Destination: &network.NetworkConnectionMonitorDestinationArgs{
+// 				Address: pulumi.String("mycompany.io"),
+// 				Port:    pulumi.Int(443),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"foo": pulumi.String("bar"),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			srcExtension,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type NetworkConnectionMonitor struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
 	AutoStart pulumi.BoolPtrOutput `pulumi:"autoStart"`
 	// A `destination` block as defined below.
 	Destination NetworkConnectionMonitorDestinationOutput `pulumi:"destination"`
-	// Monitoring interval in seconds. Defaults to `60`.
+	// Monitoring interval in seconds.
 	IntervalInSeconds pulumi.IntPtrOutput `pulumi:"intervalInSeconds"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Network Watcher. Changing this forces a new resource to be created.
+	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
 	NetworkWatcherName pulumi.StringOutput `pulumi:"networkWatcherName"`
-	// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `source` block as defined below.
 	Source NetworkConnectionMonitorSourceOutput `pulumi:"source"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -74,44 +146,44 @@ func GetNetworkConnectionMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkConnectionMonitor resources.
 type networkConnectionMonitorState struct {
-	// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
 	AutoStart *bool `pulumi:"autoStart"`
 	// A `destination` block as defined below.
 	Destination *NetworkConnectionMonitorDestination `pulumi:"destination"`
-	// Monitoring interval in seconds. Defaults to `60`.
+	// Monitoring interval in seconds.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Network Watcher. Changing this forces a new resource to be created.
+	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
 	NetworkWatcherName *string `pulumi:"networkWatcherName"`
-	// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `source` block as defined below.
 	Source *NetworkConnectionMonitorSource `pulumi:"source"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type NetworkConnectionMonitorState struct {
-	// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
 	AutoStart pulumi.BoolPtrInput
 	// A `destination` block as defined below.
 	Destination NetworkConnectionMonitorDestinationPtrInput
-	// Monitoring interval in seconds. Defaults to `60`.
+	// Monitoring interval in seconds.
 	IntervalInSeconds pulumi.IntPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Network Watcher. Changing this forces a new resource to be created.
+	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
 	NetworkWatcherName pulumi.StringPtrInput
-	// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `source` block as defined below.
 	Source NetworkConnectionMonitorSourcePtrInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags pulumi.StringMapInput
 }
 
@@ -120,45 +192,45 @@ func (NetworkConnectionMonitorState) ElementType() reflect.Type {
 }
 
 type networkConnectionMonitorArgs struct {
-	// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
 	AutoStart *bool `pulumi:"autoStart"`
 	// A `destination` block as defined below.
 	Destination NetworkConnectionMonitorDestination `pulumi:"destination"`
-	// Monitoring interval in seconds. Defaults to `60`.
+	// Monitoring interval in seconds.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Network Watcher. Changing this forces a new resource to be created.
+	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `source` block as defined below.
 	Source NetworkConnectionMonitorSource `pulumi:"source"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkConnectionMonitor resource.
 type NetworkConnectionMonitorArgs struct {
-	// Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
+	// Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
 	AutoStart pulumi.BoolPtrInput
 	// A `destination` block as defined below.
 	Destination NetworkConnectionMonitorDestinationInput
-	// Monitoring interval in seconds. Defaults to `60`.
+	// Monitoring interval in seconds.
 	IntervalInSeconds pulumi.IntPtrInput
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Network Connection Monitor. Changing this forces a new resource to be created.
+	// The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Network Watcher. Changing this forces a new resource to be created.
+	// The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
 	NetworkWatcherName pulumi.StringInput
-	// The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
+	// The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `source` block as defined below.
 	Source NetworkConnectionMonitorSourceInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags which should be assigned to the Network Connection Monitor.
 	Tags pulumi.StringMapInput
 }
 

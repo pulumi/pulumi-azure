@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool Enable;
         /// <summary>
-        /// The Resource ID of DDoS Protection Plan.
+        /// The ID of DDoS Protection Plan.
         /// </summary>
         public readonly string Id;
 

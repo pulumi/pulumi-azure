@@ -170,10 +170,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     """
     A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
-      * `offer` (`str`) - (Optional) Specifies the offer of the image used to create the virtual machines.
-      * `publisher` (`str`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-      * `sku` (`str`) - (Optional) Specifies the SKU of the image used to create the virtual machines.
-      * `version` (`str`) - (Optional) Specifies the version of the image used to create the virtual machines.
+      * `offer` (`str`) - Specifies the offer of the image used to create the virtual machines.
+      * `publisher` (`str`) - Specifies the publisher of the image used to create the virtual machines.
+      * `sku` (`str`) - Specifies the SKU of the image used to create the virtual machines.
+      * `version` (`str`) - Specifies the version of the image used to create the virtual machines.
     """
     tags: pulumi.Output[dict]
     """
@@ -344,10 +344,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`) - (Optional) Specifies the offer of the image used to create the virtual machines.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`) - (Optional) Specifies the SKU of the image used to create the virtual machines.
-          * `version` (`pulumi.Input[str]`) - (Optional) Specifies the version of the image used to create the virtual machines.
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
 
         The **winrm_listeners** object supports the following:
 
@@ -523,10 +523,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
         The **source_image_reference** object supports the following:
 
-          * `offer` (`pulumi.Input[str]`) - (Optional) Specifies the offer of the image used to create the virtual machines.
-          * `publisher` (`pulumi.Input[str]`) - Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-          * `sku` (`pulumi.Input[str]`) - (Optional) Specifies the SKU of the image used to create the virtual machines.
-          * `version` (`pulumi.Input[str]`) - (Optional) Specifies the version of the image used to create the virtual machines.
+          * `offer` (`pulumi.Input[str]`) - Specifies the offer of the image used to create the virtual machines.
+          * `publisher` (`pulumi.Input[str]`) - Specifies the publisher of the image used to create the virtual machines.
+          * `sku` (`pulumi.Input[str]`) - Specifies the SKU of the image used to create the virtual machines.
+          * `version` (`pulumi.Input[str]`) - Specifies the version of the image used to create the virtual machines.
 
         The **winrm_listeners** object supports the following:
 

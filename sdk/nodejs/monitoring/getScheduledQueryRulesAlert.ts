@@ -60,7 +60,7 @@ export interface GetScheduledQueryRulesAlertResult {
      */
     readonly actions: outputs.monitoring.GetScheduledQueryRulesAlertAction[];
     /**
-     * List of Resource IDs referred into query.
+     * The list of Resource IDs referred into query.
      */
     readonly authorizedResourceIds: string[];
     /**

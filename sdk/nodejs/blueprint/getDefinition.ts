@@ -46,11 +46,11 @@ export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetDefinitionArgs {
     /**
-     * The name of the Blueprint
+     * The name of the Blueprint.
      */
     readonly name: string;
     /**
-     * The Resource ID of the scope at which the blueprint definition is stored. This will be with either a Subscription ID or Management Group ID.
+     * The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
      */
     readonly scopeId: string;
 }

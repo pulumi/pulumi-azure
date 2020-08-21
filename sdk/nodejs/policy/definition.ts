@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     metadata: `    {
  *     "category": "General"
  *     }
- *   
+ *
  * `,
  *     mode: "Indexed",
  *     parameters: `	{
@@ -105,8 +105,7 @@ export class Definition extends pulumi.CustomResource {
     /**
      * The policy mode that allows you to specify which resource
      * types will be evaluated.  The value can be "All", "Indexed" or
-     * "NotSpecified". Changing this resource forces a new resource to be
-     * created.
+     * "NotSpecified".
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -216,8 +215,7 @@ export interface DefinitionState {
     /**
      * The policy mode that allows you to specify which resource
      * types will be evaluated.  The value can be "All", "Indexed" or
-     * "NotSpecified". Changing this resource forces a new resource to be
-     * created.
+     * "NotSpecified".
      */
     readonly mode?: pulumi.Input<string>;
     /**
@@ -273,8 +271,7 @@ export interface DefinitionArgs {
     /**
      * The policy mode that allows you to specify which resource
      * types will be evaluated.  The value can be "All", "Indexed" or
-     * "NotSpecified". Changing this resource forces a new resource to be
-     * created.
+     * "NotSpecified".
      */
     readonly mode: pulumi.Input<string>;
     /**

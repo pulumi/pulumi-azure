@@ -41,7 +41,7 @@ class GetNetworkDdosProtectionPlanResult:
             raise TypeError("Expected argument 'virtual_network_ids' to be a list")
         __self__.virtual_network_ids = virtual_network_ids
         """
-        The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+        A list of ID's of the Virtual Networks associated with this DDoS Protection Plan.
         """
 class AwaitableGetNetworkDdosProtectionPlanResult(GetNetworkDdosProtectionPlanResult):
     # pylint: disable=using-constant-test

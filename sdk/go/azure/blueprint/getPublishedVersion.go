@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to access information about an existing Azure Blueprint Published Version
+// Use this data source to access information about an existing Blueprint Published Version
 //
 // > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 //
@@ -53,7 +53,7 @@ func GetPublishedVersion(ctx *pulumi.Context, args *GetPublishedVersionArgs, opt
 type GetPublishedVersionArgs struct {
 	// The name of the Blueprint Definition
 	BlueprintName string `pulumi:"blueprintName"`
-	// The Resource ID of the scope where the Blueprint Definition is stored. This will be with either a Subscription ID or Management Group ID.
+	// The ID of the Management Group / Subscription where this Blueprint Definition is stored.
 	ScopeId string `pulumi:"scopeId"`
 	// The Version name of the Published Version of the Blueprint Definition
 	Version string `pulumi:"version"`

@@ -77,7 +77,7 @@ class AwaitableGetPublishedVersionResult(GetPublishedVersionResult):
 
 def get_published_version(blueprint_name=None,scope_id=None,version=None,opts=None):
     """
-    Use this data source to access information about an existing Azure Blueprint Published Version
+    Use this data source to access information about an existing Blueprint Published Version
 
     > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
@@ -95,7 +95,7 @@ def get_published_version(blueprint_name=None,scope_id=None,version=None,opts=No
 
 
     :param str blueprint_name: The name of the Blueprint Definition
-    :param str scope_id: The Resource ID of the scope where the Blueprint Definition is stored. This will be with either a Subscription ID or Management Group ID.
+    :param str scope_id: The ID of the Management Group / Subscription where this Blueprint Definition is stored.
     :param str version: The Version name of the Published Version of the Blueprint Definition
     """
     __args__ = dict()

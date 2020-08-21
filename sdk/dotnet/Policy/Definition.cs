@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Policy
     ///             Metadata = @"    {
     ///     ""category"": ""General""
     ///     }
-    ///   
+    /// 
     /// 
     /// ",
     ///             Mode = "Indexed",
@@ -103,8 +103,7 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// The policy mode that allows you to specify which resource
         /// types will be evaluated.  The value can be "All", "Indexed" or
-        /// "NotSpecified". Changing this resource forces a new resource to be
-        /// created.
+        /// "NotSpecified".
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -218,8 +217,7 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// The policy mode that allows you to specify which resource
         /// types will be evaluated.  The value can be "All", "Indexed" or
-        /// "NotSpecified". Changing this resource forces a new resource to be
-        /// created.
+        /// "NotSpecified".
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -294,8 +292,7 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// The policy mode that allows you to specify which resource
         /// types will be evaluated.  The value can be "All", "Indexed" or
-        /// "NotSpecified". Changing this resource forces a new resource to be
-        /// created.
+        /// "NotSpecified".
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

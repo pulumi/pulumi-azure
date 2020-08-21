@@ -16205,13 +16205,13 @@ func (o WindowsVirtualMachineSecretCertificateArrayOutput) Index(i pulumi.IntInp
 }
 
 type WindowsVirtualMachineSourceImageReference struct {
-	// (Optional) Specifies the offer of the image used to create the virtual machines.
+	// Specifies the offer of the image used to create the virtual machines.
 	Offer string `pulumi:"offer"`
-	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher string `pulumi:"publisher"`
-	// (Optional) Specifies the SKU of the image used to create the virtual machines.
+	// Specifies the SKU of the image used to create the virtual machines.
 	Sku string `pulumi:"sku"`
-	// (Optional) Specifies the version of the image used to create the virtual machines.
+	// Specifies the version of the image used to create the virtual machines.
 	Version string `pulumi:"version"`
 }
 
@@ -16227,13 +16227,13 @@ type WindowsVirtualMachineSourceImageReferenceInput interface {
 }
 
 type WindowsVirtualMachineSourceImageReferenceArgs struct {
-	// (Optional) Specifies the offer of the image used to create the virtual machines.
+	// Specifies the offer of the image used to create the virtual machines.
 	Offer pulumi.StringInput `pulumi:"offer"`
-	// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// Specifies the publisher of the image used to create the virtual machines.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// (Optional) Specifies the SKU of the image used to create the virtual machines.
+	// Specifies the SKU of the image used to create the virtual machines.
 	Sku pulumi.StringInput `pulumi:"sku"`
-	// (Optional) Specifies the version of the image used to create the virtual machines.
+	// Specifies the version of the image used to create the virtual machines.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -16314,22 +16314,22 @@ func (o WindowsVirtualMachineSourceImageReferenceOutput) ToWindowsVirtualMachine
 	}).(WindowsVirtualMachineSourceImageReferencePtrOutput)
 }
 
-// (Optional) Specifies the offer of the image used to create the virtual machines.
+// Specifies the offer of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
-// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+// Specifies the publisher of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// (Optional) Specifies the SKU of the image used to create the virtual machines.
+// Specifies the SKU of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-// (Optional) Specifies the version of the image used to create the virtual machines.
+// Specifies the version of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -16354,7 +16354,7 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Elem() WindowsVirtua
 	}).(WindowsVirtualMachineSourceImageReferenceOutput)
 }
 
-// (Optional) Specifies the offer of the image used to create the virtual machines.
+// Specifies the offer of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -16364,7 +16364,7 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Offer() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+// Specifies the publisher of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -16374,7 +16374,7 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Publisher() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Specifies the SKU of the image used to create the virtual machines.
+// Specifies the SKU of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) *string {
 		if v == nil {
@@ -16384,7 +16384,7 @@ func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Sku() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Specifies the version of the image used to create the virtual machines.
+// Specifies the version of the image used to create the virtual machines.
 func (o WindowsVirtualMachineSourceImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineSourceImageReference) *string {
 		if v == nil {

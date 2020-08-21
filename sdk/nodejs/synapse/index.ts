@@ -4,4 +4,5 @@
 // Export members:
 export * from "./firewallRule";
 export * from "./getWorkspace";
+export * from "./sparkPool";
 export * from "./workspace";

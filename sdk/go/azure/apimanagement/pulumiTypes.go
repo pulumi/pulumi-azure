@@ -329,6 +329,297 @@ func (o ApiImportWsdlSelectorPtrOutput) ServiceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApiOauth2Authorization struct {
+	AuthorizationServerName string `pulumi:"authorizationServerName"`
+	// Operations scope.
+	Scope *string `pulumi:"scope"`
+}
+
+// ApiOauth2AuthorizationInput is an input type that accepts ApiOauth2AuthorizationArgs and ApiOauth2AuthorizationOutput values.
+// You can construct a concrete instance of `ApiOauth2AuthorizationInput` via:
+//
+//          ApiOauth2AuthorizationArgs{...}
+type ApiOauth2AuthorizationInput interface {
+	pulumi.Input
+
+	ToApiOauth2AuthorizationOutput() ApiOauth2AuthorizationOutput
+	ToApiOauth2AuthorizationOutputWithContext(context.Context) ApiOauth2AuthorizationOutput
+}
+
+type ApiOauth2AuthorizationArgs struct {
+	AuthorizationServerName pulumi.StringInput `pulumi:"authorizationServerName"`
+	// Operations scope.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (ApiOauth2AuthorizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOauth2Authorization)(nil)).Elem()
+}
+
+func (i ApiOauth2AuthorizationArgs) ToApiOauth2AuthorizationOutput() ApiOauth2AuthorizationOutput {
+	return i.ToApiOauth2AuthorizationOutputWithContext(context.Background())
+}
+
+func (i ApiOauth2AuthorizationArgs) ToApiOauth2AuthorizationOutputWithContext(ctx context.Context) ApiOauth2AuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOauth2AuthorizationOutput)
+}
+
+func (i ApiOauth2AuthorizationArgs) ToApiOauth2AuthorizationPtrOutput() ApiOauth2AuthorizationPtrOutput {
+	return i.ToApiOauth2AuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (i ApiOauth2AuthorizationArgs) ToApiOauth2AuthorizationPtrOutputWithContext(ctx context.Context) ApiOauth2AuthorizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOauth2AuthorizationOutput).ToApiOauth2AuthorizationPtrOutputWithContext(ctx)
+}
+
+// ApiOauth2AuthorizationPtrInput is an input type that accepts ApiOauth2AuthorizationArgs, ApiOauth2AuthorizationPtr and ApiOauth2AuthorizationPtrOutput values.
+// You can construct a concrete instance of `ApiOauth2AuthorizationPtrInput` via:
+//
+//          ApiOauth2AuthorizationArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiOauth2AuthorizationPtrInput interface {
+	pulumi.Input
+
+	ToApiOauth2AuthorizationPtrOutput() ApiOauth2AuthorizationPtrOutput
+	ToApiOauth2AuthorizationPtrOutputWithContext(context.Context) ApiOauth2AuthorizationPtrOutput
+}
+
+type apiOauth2AuthorizationPtrType ApiOauth2AuthorizationArgs
+
+func ApiOauth2AuthorizationPtr(v *ApiOauth2AuthorizationArgs) ApiOauth2AuthorizationPtrInput {
+	return (*apiOauth2AuthorizationPtrType)(v)
+}
+
+func (*apiOauth2AuthorizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOauth2Authorization)(nil)).Elem()
+}
+
+func (i *apiOauth2AuthorizationPtrType) ToApiOauth2AuthorizationPtrOutput() ApiOauth2AuthorizationPtrOutput {
+	return i.ToApiOauth2AuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (i *apiOauth2AuthorizationPtrType) ToApiOauth2AuthorizationPtrOutputWithContext(ctx context.Context) ApiOauth2AuthorizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOauth2AuthorizationPtrOutput)
+}
+
+type ApiOauth2AuthorizationOutput struct{ *pulumi.OutputState }
+
+func (ApiOauth2AuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOauth2Authorization)(nil)).Elem()
+}
+
+func (o ApiOauth2AuthorizationOutput) ToApiOauth2AuthorizationOutput() ApiOauth2AuthorizationOutput {
+	return o
+}
+
+func (o ApiOauth2AuthorizationOutput) ToApiOauth2AuthorizationOutputWithContext(ctx context.Context) ApiOauth2AuthorizationOutput {
+	return o
+}
+
+func (o ApiOauth2AuthorizationOutput) ToApiOauth2AuthorizationPtrOutput() ApiOauth2AuthorizationPtrOutput {
+	return o.ToApiOauth2AuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (o ApiOauth2AuthorizationOutput) ToApiOauth2AuthorizationPtrOutputWithContext(ctx context.Context) ApiOauth2AuthorizationPtrOutput {
+	return o.ApplyT(func(v ApiOauth2Authorization) *ApiOauth2Authorization {
+		return &v
+	}).(ApiOauth2AuthorizationPtrOutput)
+}
+func (o ApiOauth2AuthorizationOutput) AuthorizationServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOauth2Authorization) string { return v.AuthorizationServerName }).(pulumi.StringOutput)
+}
+
+// Operations scope.
+func (o ApiOauth2AuthorizationOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOauth2Authorization) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+type ApiOauth2AuthorizationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiOauth2AuthorizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOauth2Authorization)(nil)).Elem()
+}
+
+func (o ApiOauth2AuthorizationPtrOutput) ToApiOauth2AuthorizationPtrOutput() ApiOauth2AuthorizationPtrOutput {
+	return o
+}
+
+func (o ApiOauth2AuthorizationPtrOutput) ToApiOauth2AuthorizationPtrOutputWithContext(ctx context.Context) ApiOauth2AuthorizationPtrOutput {
+	return o
+}
+
+func (o ApiOauth2AuthorizationPtrOutput) Elem() ApiOauth2AuthorizationOutput {
+	return o.ApplyT(func(v *ApiOauth2Authorization) ApiOauth2Authorization { return *v }).(ApiOauth2AuthorizationOutput)
+}
+
+func (o ApiOauth2AuthorizationPtrOutput) AuthorizationServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOauth2Authorization) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operations scope.
+func (o ApiOauth2AuthorizationPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOauth2Authorization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiOpenidAuthentication struct {
+	// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+	BearerTokenSendingMethods []string `pulumi:"bearerTokenSendingMethods"`
+	OpenidProviderName        string   `pulumi:"openidProviderName"`
+}
+
+// ApiOpenidAuthenticationInput is an input type that accepts ApiOpenidAuthenticationArgs and ApiOpenidAuthenticationOutput values.
+// You can construct a concrete instance of `ApiOpenidAuthenticationInput` via:
+//
+//          ApiOpenidAuthenticationArgs{...}
+type ApiOpenidAuthenticationInput interface {
+	pulumi.Input
+
+	ToApiOpenidAuthenticationOutput() ApiOpenidAuthenticationOutput
+	ToApiOpenidAuthenticationOutputWithContext(context.Context) ApiOpenidAuthenticationOutput
+}
+
+type ApiOpenidAuthenticationArgs struct {
+	// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+	BearerTokenSendingMethods pulumi.StringArrayInput `pulumi:"bearerTokenSendingMethods"`
+	OpenidProviderName        pulumi.StringInput      `pulumi:"openidProviderName"`
+}
+
+func (ApiOpenidAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOpenidAuthentication)(nil)).Elem()
+}
+
+func (i ApiOpenidAuthenticationArgs) ToApiOpenidAuthenticationOutput() ApiOpenidAuthenticationOutput {
+	return i.ToApiOpenidAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ApiOpenidAuthenticationArgs) ToApiOpenidAuthenticationOutputWithContext(ctx context.Context) ApiOpenidAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOpenidAuthenticationOutput)
+}
+
+func (i ApiOpenidAuthenticationArgs) ToApiOpenidAuthenticationPtrOutput() ApiOpenidAuthenticationPtrOutput {
+	return i.ToApiOpenidAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ApiOpenidAuthenticationArgs) ToApiOpenidAuthenticationPtrOutputWithContext(ctx context.Context) ApiOpenidAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOpenidAuthenticationOutput).ToApiOpenidAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ApiOpenidAuthenticationPtrInput is an input type that accepts ApiOpenidAuthenticationArgs, ApiOpenidAuthenticationPtr and ApiOpenidAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ApiOpenidAuthenticationPtrInput` via:
+//
+//          ApiOpenidAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiOpenidAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToApiOpenidAuthenticationPtrOutput() ApiOpenidAuthenticationPtrOutput
+	ToApiOpenidAuthenticationPtrOutputWithContext(context.Context) ApiOpenidAuthenticationPtrOutput
+}
+
+type apiOpenidAuthenticationPtrType ApiOpenidAuthenticationArgs
+
+func ApiOpenidAuthenticationPtr(v *ApiOpenidAuthenticationArgs) ApiOpenidAuthenticationPtrInput {
+	return (*apiOpenidAuthenticationPtrType)(v)
+}
+
+func (*apiOpenidAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOpenidAuthentication)(nil)).Elem()
+}
+
+func (i *apiOpenidAuthenticationPtrType) ToApiOpenidAuthenticationPtrOutput() ApiOpenidAuthenticationPtrOutput {
+	return i.ToApiOpenidAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *apiOpenidAuthenticationPtrType) ToApiOpenidAuthenticationPtrOutputWithContext(ctx context.Context) ApiOpenidAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOpenidAuthenticationPtrOutput)
+}
+
+type ApiOpenidAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ApiOpenidAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOpenidAuthentication)(nil)).Elem()
+}
+
+func (o ApiOpenidAuthenticationOutput) ToApiOpenidAuthenticationOutput() ApiOpenidAuthenticationOutput {
+	return o
+}
+
+func (o ApiOpenidAuthenticationOutput) ToApiOpenidAuthenticationOutputWithContext(ctx context.Context) ApiOpenidAuthenticationOutput {
+	return o
+}
+
+func (o ApiOpenidAuthenticationOutput) ToApiOpenidAuthenticationPtrOutput() ApiOpenidAuthenticationPtrOutput {
+	return o.ToApiOpenidAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ApiOpenidAuthenticationOutput) ToApiOpenidAuthenticationPtrOutputWithContext(ctx context.Context) ApiOpenidAuthenticationPtrOutput {
+	return o.ApplyT(func(v ApiOpenidAuthentication) *ApiOpenidAuthentication {
+		return &v
+	}).(ApiOpenidAuthenticationPtrOutput)
+}
+
+// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+func (o ApiOpenidAuthenticationOutput) BearerTokenSendingMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiOpenidAuthentication) []string { return v.BearerTokenSendingMethods }).(pulumi.StringArrayOutput)
+}
+
+func (o ApiOpenidAuthenticationOutput) OpenidProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOpenidAuthentication) string { return v.OpenidProviderName }).(pulumi.StringOutput)
+}
+
+type ApiOpenidAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiOpenidAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOpenidAuthentication)(nil)).Elem()
+}
+
+func (o ApiOpenidAuthenticationPtrOutput) ToApiOpenidAuthenticationPtrOutput() ApiOpenidAuthenticationPtrOutput {
+	return o
+}
+
+func (o ApiOpenidAuthenticationPtrOutput) ToApiOpenidAuthenticationPtrOutputWithContext(ctx context.Context) ApiOpenidAuthenticationPtrOutput {
+	return o
+}
+
+func (o ApiOpenidAuthenticationPtrOutput) Elem() ApiOpenidAuthenticationOutput {
+	return o.ApplyT(func(v *ApiOpenidAuthentication) ApiOpenidAuthentication { return *v }).(ApiOpenidAuthenticationOutput)
+}
+
+// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+func (o ApiOpenidAuthenticationPtrOutput) BearerTokenSendingMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiOpenidAuthentication) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BearerTokenSendingMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApiOpenidAuthenticationPtrOutput) OpenidProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOpenidAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OpenidProviderName
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApiOperationRequest struct {
 	// A description of the HTTP Request, which may include HTML tags.
 	Description *string `pulumi:"description"`
@@ -6751,6 +7042,10 @@ func init() {
 	pulumi.RegisterOutputType(ApiImportPtrOutput{})
 	pulumi.RegisterOutputType(ApiImportWsdlSelectorOutput{})
 	pulumi.RegisterOutputType(ApiImportWsdlSelectorPtrOutput{})
+	pulumi.RegisterOutputType(ApiOauth2AuthorizationOutput{})
+	pulumi.RegisterOutputType(ApiOauth2AuthorizationPtrOutput{})
+	pulumi.RegisterOutputType(ApiOpenidAuthenticationOutput{})
+	pulumi.RegisterOutputType(ApiOpenidAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ApiOperationRequestOutput{})
 	pulumi.RegisterOutputType(ApiOperationRequestPtrOutput{})
 	pulumi.RegisterOutputType(ApiOperationRequestHeaderOutput{})

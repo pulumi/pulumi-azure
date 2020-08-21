@@ -23,7 +23,7 @@ class GetScheduledQueryRulesAlertResult:
             raise TypeError("Expected argument 'authorized_resource_ids' to be a list")
         __self__.authorized_resource_ids = authorized_resource_ids
         """
-        List of Resource IDs referred into query.
+        The list of Resource IDs referred into query.
         """
         if data_source_id and not isinstance(data_source_id, str):
             raise TypeError("Expected argument 'data_source_id' to be a str")

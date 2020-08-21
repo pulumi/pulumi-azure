@@ -1438,6 +1438,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Synapse
 			"azurerm_synapse_workspace":     {Tok: azureResource(azureSynapse, "Workspace")},
 			"azurerm_synapse_firewall_rule": {Tok: azureResource(azureSynapse, "FirewallRule")},
+			"azurerm_synapse_spark_pool":    {Tok: azureResource(azureSynapse, "SparkPool")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},

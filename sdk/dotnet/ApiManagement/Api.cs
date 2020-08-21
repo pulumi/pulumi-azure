@@ -101,6 +101,18 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// An `oauth2_authorization` block as documented below.
+        /// </summary>
+        [Output("oauth2Authorization")]
+        public Output<Outputs.ApiOauth2Authorization?> Oauth2Authorization { get; private set; } = null!;
+
+        /// <summary>
+        /// An `openid_authentication` block as documented below.
+        /// </summary>
+        [Output("openidAuthentication")]
+        public Output<Outputs.ApiOpenidAuthentication?> OpenidAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         /// </summary>
         [Output("path")]
@@ -237,6 +249,18 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// An `oauth2_authorization` block as documented below.
+        /// </summary>
+        [Input("oauth2Authorization")]
+        public Input<Inputs.ApiOauth2AuthorizationArgs>? Oauth2Authorization { get; set; }
+
+        /// <summary>
+        /// An `openid_authentication` block as documented below.
+        /// </summary>
+        [Input("openidAuthentication")]
+        public Input<Inputs.ApiOpenidAuthenticationArgs>? OpenidAuthentication { get; set; }
+
+        /// <summary>
         /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         /// </summary>
         [Input("path", required: true)]
@@ -350,6 +374,18 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An `oauth2_authorization` block as documented below.
+        /// </summary>
+        [Input("oauth2Authorization")]
+        public Input<Inputs.ApiOauth2AuthorizationGetArgs>? Oauth2Authorization { get; set; }
+
+        /// <summary>
+        /// An `openid_authentication` block as documented below.
+        /// </summary>
+        [Input("openidAuthentication")]
+        public Input<Inputs.ApiOpenidAuthenticationGetArgs>? OpenidAuthentication { get; set; }
 
         /// <summary>
         /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
