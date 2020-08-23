@@ -4,7 +4,6 @@
 package examples
 
 import (
-	"path"
 	"path/filepath"
 	"testing"
 
@@ -25,7 +24,7 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 func TestAccDatasourcePy(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "datasource-py"),
+			Dir:           filepath.Join(getCwd(t), "datasource-py"),
 			RunUpdateTest: true,
 		})
 
@@ -35,7 +34,7 @@ func TestAccDatasourcePy(t *testing.T) {
 func TestAccEventhubPy(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "eventhub-py"),
+			Dir:           filepath.Join(getCwd(t), "eventhub-py"),
 			RunUpdateTest: true,
 			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
 			AllowEmptyPreviewChanges: true,
@@ -48,7 +47,7 @@ func TestAccEventhubPy(t *testing.T) {
 func TestAccMinimalPy(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "minimal-py"),
+			Dir: filepath.Join(getCwd(t), "minimal-py"),
 		})
 
 	integration.ProgramTest(t, &test)
