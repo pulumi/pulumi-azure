@@ -52,3 +52,19 @@ func TestAccMinimalPy(t *testing.T) {
 
 	integration.ProgramTest(t, &test)
 }
+
+func TestAccWebserverPy(t *testing.T) {
+	for _, dir := range []string{"webserver-py", "webserver-py-old"} {
+		t.Run(dir, func(t *testing.T) {
+			test := getPythonBaseOptions(t).
+				With(integration.ProgramTestOptions{
+					Dir: filepath.Join(getCwd(t), dir),
+					// TODO[pulumi/pulumi-azure#673]: Set RunUpdateTest to true.
+					RunUpdateTest:        dir != "webserver-py",
+					ExpectRefreshChanges: true,
+				})
+
+			integration.ProgramTest(t, &test)
+		})
+	}
+}
