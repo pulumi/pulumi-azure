@@ -4,7 +4,7 @@
 package examples
 
 import (
-	"path"
+	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v2/testing/integration"
@@ -27,7 +27,7 @@ func TestAccMultiCallback(t *testing.T) {
 	t.Skip("Skipping due to Azure capacity issues")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "multi-callback-all"),
+			Dir: filepath.Join(getCwd(t), "multi-callback-all"),
 			// Removed until the next release after 1.4.0,
 			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
@@ -43,7 +43,7 @@ func TestAccLoadbalancer(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "loadbalancer"),
+			Dir:           filepath.Join(getCwd(t), "loadbalancer"),
 			RunUpdateTest: true,
 		})
 
@@ -55,7 +55,7 @@ func TestAccCosmosDb(t *testing.T) {
 	t.Skip("Skipping due to Azure capacity issues")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "cosmosdb"),
+			Dir:           filepath.Join(getCwd(t), "cosmosdb"),
 			RunUpdateTest: true,
 		})
 
@@ -66,7 +66,7 @@ func TestAccAciVolumeMount(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "aci-volume-mount"),
+			Dir:           filepath.Join(getCwd(t), "aci-volume-mount"),
 			RunUpdateTest: true,
 		})
 
@@ -77,7 +77,7 @@ func TestAccAciMulti(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "aci-multi"),
+			Dir:           filepath.Join(getCwd(t), "aci-multi"),
 			RunUpdateTest: true,
 		})
 
@@ -87,7 +87,7 @@ func TestAccAciMulti(t *testing.T) {
 func TestAccTable(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "table"),
+			Dir:           filepath.Join(getCwd(t), "table"),
 			RunUpdateTest: true,
 		})
 
@@ -97,7 +97,7 @@ func TestAccTable(t *testing.T) {
 func TestAccServicebusMigration(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "servicebus-migration-test"),
+			Dir: filepath.Join(getCwd(t), "servicebus-migration-test"),
 			// Removed until the next release after 1.4.0,
 			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
@@ -116,7 +116,7 @@ func TestAccServicebusMigration(t *testing.T) {
 func TestAccMsiRenamed(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "msi-renamed-to-authorization"),
+			Dir:           filepath.Join(getCwd(t), "msi-renamed-to-authorization"),
 			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
@@ -133,7 +133,7 @@ func TestAccMsiRenamed(t *testing.T) {
 func TestAccBlob(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "blob"),
+			Dir:           filepath.Join(getCwd(t), "blob"),
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "A File from Blob Storage")
@@ -146,7 +146,7 @@ func TestAccBlob(t *testing.T) {
 func TestAccHttp(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "http"),
+			Dir:           filepath.Join(getCwd(t), "http"),
 			RunUpdateTest: true,
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "Hello World!")
@@ -159,7 +159,7 @@ func TestAccHttp(t *testing.T) {
 func TestAccNetwork(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:                  path.Join(getCwd(t), "network"),
+			Dir:                  filepath.Join(getCwd(t), "network"),
 			RunUpdateTest:        true,
 			ExpectRefreshChanges: true,
 		})
@@ -170,7 +170,7 @@ func TestAccNetwork(t *testing.T) {
 func TestAccWebserver(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:                  path.Join(getCwd(t), "webserver"),
+			Dir:                  filepath.Join(getCwd(t), "webserver"),
 			RunUpdateTest:        true,
 			ExpectRefreshChanges: true,
 		})
@@ -181,7 +181,7 @@ func TestAccWebserver(t *testing.T) {
 func TestAccTopic(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "topic"),
+			Dir: filepath.Join(getCwd(t), "topic"),
 			// Removed until the next release after 1.4.0,
 			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
@@ -193,7 +193,7 @@ func TestAccTopic(t *testing.T) {
 func TestAccTimer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "timer"),
+			Dir:           filepath.Join(getCwd(t), "timer"),
 			RunUpdateTest: true,
 		})
 
@@ -203,7 +203,7 @@ func TestAccTimer(t *testing.T) {
 func TestAccQueue(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "queue"),
+			Dir:           filepath.Join(getCwd(t), "queue"),
 			RunUpdateTest: true,
 		})
 
@@ -213,7 +213,7 @@ func TestAccQueue(t *testing.T) {
 func TestAccIot(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "iot"),
+			Dir:           filepath.Join(getCwd(t), "iot"),
 			RunUpdateTest: true,
 		})
 
@@ -223,7 +223,7 @@ func TestAccIot(t *testing.T) {
 func TestAccMinimal(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "minimal"),
+			Dir: filepath.Join(getCwd(t), "minimal"),
 		})
 
 	integration.ProgramTest(t, &test)
@@ -232,7 +232,7 @@ func TestAccMinimal(t *testing.T) {
 func TestAccDurableFunctions(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "durable-functions"),
+			Dir:           filepath.Join(getCwd(t), "durable-functions"),
 			RunUpdateTest: false,
 		})
 
@@ -242,7 +242,7 @@ func TestAccDurableFunctions(t *testing.T) {
 func TestAccEventgrid(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:                      path.Join(getCwd(t), "eventgrid"),
+			Dir:                      filepath.Join(getCwd(t), "eventgrid"),
 			RunUpdateTest:            false,
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
@@ -254,7 +254,7 @@ func TestAccEventgrid(t *testing.T) {
 func TestAccEventhub(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "eventhub"),
+			Dir: filepath.Join(getCwd(t), "eventhub"),
 			// Removed until the next release after 1.4.0,
 			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
@@ -269,7 +269,7 @@ func TestAccEventhub(t *testing.T) {
 func TestAccHttpExternal(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "http-external"),
+			Dir:           filepath.Join(getCwd(t), "http-external"),
 			RunUpdateTest: true,
 		})
 
@@ -279,7 +279,7 @@ func TestAccHttpExternal(t *testing.T) {
 func TestAccHttpMulti(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           path.Join(getCwd(t), "http-multi"),
+			Dir:           filepath.Join(getCwd(t), "http-multi"),
 			RunUpdateTest: true,
 		})
 
