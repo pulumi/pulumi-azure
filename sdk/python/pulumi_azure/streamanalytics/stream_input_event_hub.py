@@ -15,7 +15,7 @@ __all__ = ['StreamInputEventHub']
 
 class StreamInputEventHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
@@ -176,7 +176,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubConsumerGroupName")
-    def eventhub_consumer_group_name(self) -> str:
+    def eventhub_consumer_group_name(self) -> pulumi.Output[str]:
         """
         The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
         """
@@ -184,7 +184,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubName")
-    def eventhub_name(self) -> str:
+    def eventhub_name(self) -> pulumi.Output[str]:
         """
         The name of the Event Hub.
         """
@@ -192,7 +192,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Stream Input EventHub. Changing this forces a new resource to be created.
         """
@@ -200,7 +200,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         """
@@ -208,7 +208,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def serialization(self) -> 'outputs.StreamInputEventHubSerialization':
+    def serialization(self) -> pulumi.Output['outputs.StreamInputEventHubSerialization']:
         """
         A `serialization` block as defined below.
         """
@@ -216,7 +216,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicebusNamespace")
-    def servicebus_namespace(self) -> str:
+    def servicebus_namespace(self) -> pulumi.Output[str]:
         """
         The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         """
@@ -224,7 +224,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> str:
+    def shared_access_policy_key(self) -> pulumi.Output[str]:
         """
         The shared access policy key for the specified shared access policy.
         """
@@ -232,7 +232,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> str:
+    def shared_access_policy_name(self) -> pulumi.Output[str]:
         """
         The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         """
@@ -240,7 +240,7 @@ class StreamInputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> str:
+    def stream_analytics_job_name(self) -> pulumi.Output[str]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['VirtualNetwork']
 
 class VirtualNetwork(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for the Virtual Network.
         """
@@ -143,7 +143,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="labName")
-    def lab_name(self) -> str:
+    def lab_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         """
@@ -159,7 +159,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         """
@@ -167,7 +167,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> 'outputs.VirtualNetworkSubnet':
+    def subnet(self) -> pulumi.Output['outputs.VirtualNetworkSubnet']:
         """
         A `subnet` block as defined below.
         """
@@ -175,7 +175,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -183,7 +183,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of the Dev Test Virtual Network.
         """

@@ -13,7 +13,7 @@ __all__ = ['Fabric']
 
 class Fabric(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class Fabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         In what region should the fabric be located.
         """
@@ -121,7 +121,7 @@ class Fabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the network mapping.
         """
@@ -129,7 +129,7 @@ class Fabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         The name of the vault that should be updated.
         """
@@ -137,7 +137,7 @@ class Fabric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Name of the resource group where the vault that should be updated is located.
         """

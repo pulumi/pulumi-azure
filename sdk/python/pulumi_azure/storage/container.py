@@ -13,7 +13,7 @@ __all__ = ['Container']
 
 class Container(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_access_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -125,7 +125,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerAccessType")
-    def container_access_type(self) -> Optional[str]:
+    def container_access_type(self) -> pulumi.Output[Optional[str]]:
         """
         The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         """
@@ -133,7 +133,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasImmutabilityPolicy")
-    def has_immutability_policy(self) -> bool:
+    def has_immutability_policy(self) -> pulumi.Output[bool]:
         """
         Is there an Immutability Policy configured on this Storage Container?
         """
@@ -141,7 +141,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hasLegalHold")
-    def has_legal_hold(self) -> bool:
+    def has_legal_hold(self) -> pulumi.Output[bool]:
         """
         Is there a Legal Hold configured on this Storage Container?
         """
@@ -149,7 +149,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Mapping[str, str]:
+    def metadata(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A mapping of MetaData for this Container.
         """
@@ -157,7 +157,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Container which should be created within the Storage Account.
         """
@@ -165,7 +165,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceManagerId")
-    def resource_manager_id(self) -> str:
+    def resource_manager_id(self) -> pulumi.Output[str]:
         """
         The Resource Manager ID of this Storage Container.
         """
@@ -173,7 +173,7 @@ class Container(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         The name of the Storage Account where the Container should be created.
         """

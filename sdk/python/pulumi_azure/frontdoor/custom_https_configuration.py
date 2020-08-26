@@ -15,7 +15,7 @@ __all__ = ['CustomHttpsConfiguration']
 
 class CustomHttpsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_https_configuration: Optional[pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]] = None,
                  custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
@@ -166,7 +166,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHttpsConfiguration")
-    def custom_https_configuration(self) -> Optional['outputs.CustomHttpsConfigurationCustomHttpsConfiguration']:
+    def custom_https_configuration(self) -> pulumi.Output[Optional['outputs.CustomHttpsConfigurationCustomHttpsConfiguration']]:
         """
         A `custom_https_configuration` block as defined below.
         """
@@ -174,7 +174,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHttpsProvisioningEnabled")
-    def custom_https_provisioning_enabled(self) -> bool:
+    def custom_https_provisioning_enabled(self) -> pulumi.Output[bool]:
         """
         Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         """
@@ -182,7 +182,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendEndpointId")
-    def frontend_endpoint_id(self) -> str:
+    def frontend_endpoint_id(self) -> pulumi.Output[str]:
         """
         The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
         """
@@ -190,7 +190,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[str]:
+    def resource_group_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "resource_group_name")
 
     def translate_output_property(self, prop):

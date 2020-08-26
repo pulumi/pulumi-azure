@@ -15,7 +15,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.AccountIdentity':
+    def identity(self) -> pulumi.Output['outputs.AccountIdentity']:
         """
         An `identity` block as defined below.
         """
@@ -129,7 +129,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
         """
@@ -137,7 +137,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
         """
@@ -145,7 +145,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
         """
@@ -153,7 +153,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Data Share Account.
         """

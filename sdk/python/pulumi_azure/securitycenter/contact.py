@@ -13,7 +13,7 @@ __all__ = ['Contact']
 
 class Contact(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_notifications: Optional[pulumi.Input[bool]] = None,
                  alerts_to_admins: Optional[pulumi.Input[bool]] = None,
@@ -112,7 +112,7 @@ class Contact(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertNotifications")
-    def alert_notifications(self) -> bool:
+    def alert_notifications(self) -> pulumi.Output[bool]:
         """
         Whether to send security alerts notifications to the security contact.
         """
@@ -120,7 +120,7 @@ class Contact(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertsToAdmins")
-    def alerts_to_admins(self) -> bool:
+    def alerts_to_admins(self) -> pulumi.Output[bool]:
         """
         Whether to send security alerts notifications to subscription admins.
         """
@@ -128,7 +128,7 @@ class Contact(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The email of the Security Center Contact.
         """
@@ -136,7 +136,7 @@ class Contact(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def phone(self) -> Optional[str]:
+    def phone(self) -> pulumi.Output[Optional[str]]:
         """
         The phone number of the Security Center Contact.
         """

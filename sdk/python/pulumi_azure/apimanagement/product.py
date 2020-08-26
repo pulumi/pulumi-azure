@@ -13,7 +13,7 @@ __all__ = ['Product']
 
 class Product(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  approval_required: Optional[pulumi.Input[bool]] = None,
@@ -162,7 +162,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
@@ -170,7 +170,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="approvalRequired")
-    def approval_required(self) -> Optional[bool]:
+    def approval_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Do subscribers need to be approved prior to being able to use the Product?
         """
@@ -178,7 +178,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of this Product, which may include HTML formatting tags.
         """
@@ -186,7 +186,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The Display Name for this API Management Product.
         """
@@ -194,7 +194,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productId")
-    def product_id(self) -> str:
+    def product_id(self) -> pulumi.Output[str]:
         """
         The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
@@ -202,7 +202,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def published(self) -> bool:
+    def published(self) -> pulumi.Output[bool]:
         """
         Is this Product Published?
         """
@@ -210,7 +210,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         """
@@ -218,7 +218,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> bool:
+    def subscription_required(self) -> pulumi.Output[bool]:
         """
         Is a Subscription required to access API's included in this Product?
         """
@@ -226,7 +226,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionsLimit")
-    def subscriptions_limit(self) -> Optional[float]:
+    def subscriptions_limit(self) -> pulumi.Output[Optional[float]]:
         """
         The number of subscriptions a user can have to this Product at the same time.
         """
@@ -234,7 +234,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> Optional[str]:
+    def terms(self) -> pulumi.Output[Optional[str]]:
         """
         The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """

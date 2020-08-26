@@ -13,7 +13,7 @@ __all__ = ['TriggerRecurrence']
 
 class TriggerRecurrence(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[float]] = None,
@@ -119,7 +119,7 @@ class TriggerRecurrence(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> str:
+    def frequency(self) -> pulumi.Output[str]:
         """
         Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
         """
@@ -127,7 +127,7 @@ class TriggerRecurrence(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> pulumi.Output[float]:
         """
         Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
         """
@@ -135,7 +135,7 @@ class TriggerRecurrence(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicAppId")
-    def logic_app_id(self) -> str:
+    def logic_app_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         """
@@ -143,7 +143,7 @@ class TriggerRecurrence(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class TriggerRecurrence(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
+    def start_time(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
         """

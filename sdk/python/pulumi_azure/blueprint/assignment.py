@@ -15,7 +15,7 @@ __all__ = ['Assignment']
 
 class Assignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blueprintName")
-    def blueprint_name(self) -> str:
+    def blueprint_name(self) -> pulumi.Output[str]:
         """
         The name of the blueprint assigned
         """
@@ -148,7 +148,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         The Description on the Blueprint
         """
@@ -156,7 +156,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the blueprint
         """
@@ -164,12 +164,12 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.AssignmentIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.AssignmentIdentity']]:
         return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure location of the Assignment.
         """
@@ -177,7 +177,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockExcludePrincipals")
-    def lock_exclude_principals(self) -> Optional[List[str]]:
+    def lock_exclude_principals(self) -> pulumi.Output[Optional[List[str]]]:
         """
         a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         """
@@ -185,7 +185,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockMode")
-    def lock_mode(self) -> Optional[str]:
+    def lock_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
         """
@@ -193,7 +193,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Blueprint Assignment
         """
@@ -201,7 +201,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parameterValues")
-    def parameter_values(self) -> Optional[str]:
+    def parameter_values(self) -> pulumi.Output[Optional[str]]:
         """
         a JSON string to supply Blueprint Assignment parameter values.
         """
@@ -209,7 +209,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroups")
-    def resource_groups(self) -> Optional[str]:
+    def resource_groups(self) -> pulumi.Output[Optional[str]]:
         """
         a JSON string to supply the Blueprint Resource Group information.
         """
@@ -217,7 +217,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetSubscriptionId")
-    def target_subscription_id(self) -> str:
+    def target_subscription_id(self) -> pulumi.Output[str]:
         """
         The Subscription ID the Blueprint Published Version is to be applied to.
         """
@@ -225,7 +225,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
         """
@@ -233,7 +233,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> str:
+    def version_id(self) -> pulumi.Output[str]:
         """
         The ID of the Published Version of the blueprint to be assigned.
         """

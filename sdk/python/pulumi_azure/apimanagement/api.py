@@ -15,7 +15,7 @@ __all__ = ['Api']
 
 class Api(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         """
@@ -225,7 +225,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the API Management API, which may include HTML formatting tags.
         """
@@ -233,7 +233,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the API.
         """
@@ -241,7 +241,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="import")
-    def import_(self) -> Optional['outputs.ApiImport']:
+    def import_(self) -> pulumi.Output[Optional['outputs.ApiImport']]:
         """
         A `import` block as documented below.
         """
@@ -249,7 +249,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isCurrent")
-    def is_current(self) -> bool:
+    def is_current(self) -> pulumi.Output[bool]:
         """
         Is this the current API Revision?
         """
@@ -257,7 +257,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isOnline")
-    def is_online(self) -> bool:
+    def is_online(self) -> pulumi.Output[bool]:
         """
         Is this API Revision online/accessible via the Gateway?
         """
@@ -265,7 +265,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the API Management API. Changing this forces a new resource to be created.
         """
@@ -273,7 +273,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oauth2Authorization")
-    def oauth2_authorization(self) -> Optional['outputs.ApiOauth2Authorization']:
+    def oauth2_authorization(self) -> pulumi.Output[Optional['outputs.ApiOauth2Authorization']]:
         """
         An `oauth2_authorization` block as documented below.
         """
@@ -281,7 +281,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="openidAuthentication")
-    def openid_authentication(self) -> Optional['outputs.ApiOpenidAuthentication']:
+    def openid_authentication(self) -> pulumi.Output[Optional['outputs.ApiOpenidAuthentication']]:
         """
         An `openid_authentication` block as documented below.
         """
@@ -289,7 +289,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def path(self) -> str:
+    def path(self) -> pulumi.Output[str]:
         """
         The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         """
@@ -297,7 +297,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocols(self) -> List[str]:
+    def protocols(self) -> pulumi.Output[List[str]]:
         """
         A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         """
@@ -305,7 +305,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         """
@@ -313,7 +313,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def revision(self) -> str:
+    def revision(self) -> pulumi.Output[str]:
         """
         The Revision which used for this API.
         """
@@ -321,7 +321,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceUrl")
-    def service_url(self) -> str:
+    def service_url(self) -> pulumi.Output[str]:
         """
         Absolute URL of the backend service implementing this API.
         """
@@ -329,7 +329,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="soapPassThrough")
-    def soap_pass_through(self) -> Optional[bool]:
+    def soap_pass_through(self) -> pulumi.Output[Optional[bool]]:
         """
         Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         """
@@ -337,7 +337,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionKeyParameterNames")
-    def subscription_key_parameter_names(self) -> 'outputs.ApiSubscriptionKeyParameterNames':
+    def subscription_key_parameter_names(self) -> pulumi.Output['outputs.ApiSubscriptionKeyParameterNames']:
         """
         A `subscription_key_parameter_names` block as documented below.
         """
@@ -345,7 +345,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> bool:
+    def subscription_required(self) -> pulumi.Output[bool]:
         """
         Should this API require a subscription key?
         """
@@ -353,7 +353,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The Version number of this API, if this API is versioned.
         """
@@ -361,7 +361,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionSetId")
-    def version_set_id(self) -> str:
+    def version_set_id(self) -> pulumi.Output[str]:
         """
         The ID of the Version Set which this API is associated with.
         """

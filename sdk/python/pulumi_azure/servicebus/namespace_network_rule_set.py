@@ -15,7 +15,7 @@ __all__ = ['NamespaceNetworkRuleSet']
 
 class NamespaceNetworkRuleSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -139,7 +139,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[str]:
+    def default_action(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         """
@@ -147,7 +147,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List[str]]:
+    def ip_rules(self) -> pulumi.Output[Optional[List[str]]]:
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         """
@@ -155,7 +155,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
         """
@@ -163,7 +163,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[List['outputs.NamespaceNetworkRuleSetNetworkRule']]:
+    def network_rules(self) -> pulumi.Output[Optional[List['outputs.NamespaceNetworkRuleSetNetworkRule']]]:
         """
         One or more `network_rules` blocks as defined below.
         """
@@ -171,7 +171,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
         """

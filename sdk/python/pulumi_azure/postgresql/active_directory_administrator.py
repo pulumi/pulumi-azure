@@ -13,7 +13,7 @@ __all__ = ['ActiveDirectoryAdministrator']
 
 class ActiveDirectoryAdministrator(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  login: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def login(self) -> str:
+    def login(self) -> pulumi.Output[str]:
         """
         The login name of the principal to set as the server administrator
         """
@@ -137,7 +137,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> str:
+    def object_id(self) -> pulumi.Output[str]:
         """
         The ID of the principal to set as the server administrator
         """
@@ -145,7 +145,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
         """
@@ -153,7 +153,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
         """
@@ -161,7 +161,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The Azure Tenant ID
         """

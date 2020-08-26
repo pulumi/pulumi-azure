@@ -13,7 +13,7 @@ __all__ = ['Queue']
 
 class Queue(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -201,7 +201,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> str:
+    def auto_delete_on_idle(self) -> pulumi.Output[str]:
         """
         The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
         """
@@ -209,7 +209,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
-    def dead_lettering_on_message_expiration(self) -> Optional[bool]:
+    def dead_lettering_on_message_expiration(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
         """
@@ -217,7 +217,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultMessageTtl")
-    def default_message_ttl(self) -> str:
+    def default_message_ttl(self) -> pulumi.Output[str]:
         """
         The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
         """
@@ -225,7 +225,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> str:
+    def duplicate_detection_history_time_window(self) -> pulumi.Output[str]:
         """
         The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         """
@@ -233,7 +233,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> Optional[bool]:
+    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         """
@@ -241,7 +241,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableExpress")
-    def enable_express(self) -> Optional[bool]:
+    def enable_express(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
         """
@@ -249,7 +249,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePartitioning")
-    def enable_partitioning(self) -> Optional[bool]:
+    def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `true`.
         """
@@ -257,7 +257,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardDeadLetteredMessagesTo")
-    def forward_dead_lettered_messages_to(self) -> Optional[str]:
+    def forward_dead_lettered_messages_to(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a Queue or Topic to automatically forward dead lettered messages to.
         """
@@ -265,7 +265,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardTo")
-    def forward_to(self) -> Optional[str]:
+    def forward_to(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         """
@@ -273,7 +273,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> str:
+    def lock_duration(self) -> pulumi.Output[str]:
         """
         The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
         """
@@ -281,7 +281,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> pulumi.Output[Optional[float]]:
         """
         Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
         """
@@ -289,7 +289,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> float:
+    def max_size_in_megabytes(self) -> pulumi.Output[float]:
         """
         Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas). Defaults to `1024`.
         """
@@ -297,7 +297,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
         """
@@ -305,7 +305,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
         """
@@ -313,7 +313,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresDuplicateDetection")
-    def requires_duplicate_detection(self) -> Optional[bool]:
+    def requires_duplicate_detection(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         """
@@ -321,7 +321,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresSession")
-    def requires_session(self) -> Optional[bool]:
+    def requires_session(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
         """
@@ -329,7 +329,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         """
@@ -337,7 +337,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
         """

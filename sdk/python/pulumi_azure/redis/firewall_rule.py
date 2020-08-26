@@ -13,7 +13,7 @@ __all__ = ['FirewallRule']
 
 class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_ip: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -138,7 +138,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endIp")
-    def end_ip(self) -> str:
+    def end_ip(self) -> pulumi.Output[str]:
         """
         The highest IP address included in the range.
         """
@@ -146,7 +146,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Firewall Rule. Changing this forces a new resource to be created.
         """
@@ -154,7 +154,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redisCacheName")
-    def redis_cache_name(self) -> str:
+    def redis_cache_name(self) -> pulumi.Output[str]:
         """
         The name of the Redis Cache. Changing this forces a new resource to be created.
         """
@@ -162,7 +162,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which this Redis Cache exists.
         """
@@ -170,7 +170,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startIp")
-    def start_ip(self) -> str:
+    def start_ip(self) -> pulumi.Output[str]:
         """
         The lowest IP address included in the range
         """

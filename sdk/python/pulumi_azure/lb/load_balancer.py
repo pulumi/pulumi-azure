@@ -15,7 +15,7 @@ __all__ = ['LoadBalancer']
 
 class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LoadBalancerFrontendIpConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendIpConfigurations")
-    def frontend_ip_configurations(self) -> Optional[List['outputs.LoadBalancerFrontendIpConfiguration']]:
+    def frontend_ip_configurations(self) -> pulumi.Output[Optional[List['outputs.LoadBalancerFrontendIpConfiguration']]]:
         """
         One or multiple `frontend_ip_configuration` blocks as documented below.
         """
@@ -143,7 +143,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure Region where the Load Balancer should be created.
         """
@@ -151,7 +151,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Load Balancer.
         """
@@ -159,7 +159,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
+    def private_ip_address(self) -> pulumi.Output[str]:
         """
         Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
         """
@@ -167,7 +167,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
         """
@@ -175,7 +175,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which to create the Load Balancer.
         """
@@ -183,7 +183,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[str]:
+    def sku(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         """
@@ -191,7 +191,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

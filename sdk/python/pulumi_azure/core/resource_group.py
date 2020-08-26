@@ -13,7 +13,7 @@ __all__ = ['ResourceGroup']
 
 class ResourceGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         """
@@ -102,7 +102,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
         """
@@ -110,7 +110,7 @@ class ResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Resource Group.
         """

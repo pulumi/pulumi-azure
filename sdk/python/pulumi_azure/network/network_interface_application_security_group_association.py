@@ -13,7 +13,7 @@ __all__ = ['NetworkInterfaceApplicationSecurityGroupAssociation']
 
 class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_security_group_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
 
     @property
     @pulumi.getter(name="applicationSecurityGroupId")
-    def application_security_group_id(self) -> str:
+    def application_security_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         """
@@ -122,7 +122,7 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> str:
+    def network_interface_id(self) -> pulumi.Output[str]:
         """
         The ID of the Network Interface. Changing this forces a new resource to be created.
         """

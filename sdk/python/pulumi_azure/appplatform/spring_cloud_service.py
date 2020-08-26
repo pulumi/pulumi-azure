@@ -15,7 +15,7 @@ __all__ = ['SpringCloudService']
 
 class SpringCloudService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -144,7 +144,7 @@ class SpringCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configServerGitSetting")
-    def config_server_git_setting(self) -> Optional['outputs.SpringCloudServiceConfigServerGitSetting']:
+    def config_server_git_setting(self) -> pulumi.Output[Optional['outputs.SpringCloudServiceConfigServerGitSetting']]:
         """
         A `config_server_git_setting` block as defined below.
         """
@@ -152,7 +152,7 @@ class SpringCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -160,7 +160,7 @@ class SpringCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
@@ -168,7 +168,7 @@ class SpringCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         """
@@ -176,7 +176,7 @@ class SpringCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[str]:
+    def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
         """
@@ -184,7 +184,7 @@ class SpringCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -192,7 +192,7 @@ class SpringCloudService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def trace(self) -> Optional['outputs.SpringCloudServiceTrace']:
+    def trace(self) -> pulumi.Output[Optional['outputs.SpringCloudServiceTrace']]:
         """
         A `trace` block as defined below.
         """

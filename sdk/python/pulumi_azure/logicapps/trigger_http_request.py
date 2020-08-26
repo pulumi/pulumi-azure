@@ -13,7 +13,7 @@ __all__ = ['TriggerHttpRequest']
 
 class TriggerHttpRequest(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  logic_app_id: Optional[pulumi.Input[str]] = None,
                  method: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicAppId")
-    def logic_app_id(self) -> str:
+    def logic_app_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         """
@@ -132,7 +132,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def method(self) -> Optional[str]:
+    def method(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         """
@@ -140,7 +140,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         """
@@ -148,7 +148,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relativePath")
-    def relative_path(self) -> Optional[str]:
+    def relative_path(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Relative Path used for this Request.
         """
@@ -156,7 +156,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schema(self) -> str:
+    def schema(self) -> pulumi.Output[str]:
         """
         A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         """

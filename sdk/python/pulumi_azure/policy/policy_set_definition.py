@@ -15,7 +15,7 @@ __all__ = ['PolicySetDefinition']
 
 class PolicySetDefinition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -170,7 +170,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the policy set definition.
         """
@@ -178,7 +178,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the policy set definition.
         """
@@ -186,7 +186,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementGroupId")
-    def management_group_id(self) -> str:
+    def management_group_id(self) -> pulumi.Output[str]:
         """
         The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         """
@@ -194,7 +194,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementGroupName")
-    def management_group_name(self) -> str:
+    def management_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         """
@@ -202,7 +202,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> str:
+    def metadata(self) -> pulumi.Output[str]:
         """
         The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
         """
@@ -210,7 +210,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy set definition. Changing this forces a new resource to be created.
         """
@@ -218,7 +218,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[str]:
+    def parameters(self) -> pulumi.Output[Optional[str]]:
         """
         Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         """
@@ -226,7 +226,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionReferences")
-    def policy_definition_references(self) -> List['outputs.PolicySetDefinitionPolicyDefinitionReference']:
+    def policy_definition_references(self) -> pulumi.Output[List['outputs.PolicySetDefinitionPolicyDefinitionReference']]:
         """
         One or more `policy_definition_reference` blocks as defined below.
         """
@@ -234,7 +234,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitions")
-    def policy_definitions(self) -> str:
+    def policy_definitions(self) -> pulumi.Output[str]:
         """
         The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         """
@@ -242,7 +242,7 @@ class PolicySetDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> str:
+    def policy_type(self) -> pulumi.Output[str]:
         """
         The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
         """

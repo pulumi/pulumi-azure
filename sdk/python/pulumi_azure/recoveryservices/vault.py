@@ -13,7 +13,7 @@ __all__ = ['Vault']
 
 class Vault(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -129,7 +129,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
         """
@@ -137,7 +137,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         """
@@ -145,7 +145,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> str:
+    def sku(self) -> pulumi.Output[str]:
         """
         Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         """
@@ -153,7 +153,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="softDeleteEnabled")
-    def soft_delete_enabled(self) -> Optional[bool]:
+    def soft_delete_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is soft delete enable for this Vault? Defaults to `true`.
         """
@@ -161,7 +161,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

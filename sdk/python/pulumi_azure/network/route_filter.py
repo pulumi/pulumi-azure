@@ -15,7 +15,7 @@ __all__ = ['RouteFilter']
 
 class RouteFilter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         """
@@ -126,7 +126,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Name which should be used for this Route Filter.
         """
@@ -134,7 +134,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         """
@@ -142,7 +142,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rule(self) -> 'outputs.RouteFilterRule':
+    def rule(self) -> pulumi.Output['outputs.RouteFilterRule']:
         """
         A `rules` block as defined below.
         """
@@ -150,7 +150,7 @@ class RouteFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Route Filter.
         """

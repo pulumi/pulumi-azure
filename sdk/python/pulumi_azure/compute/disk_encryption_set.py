@@ -15,7 +15,7 @@ __all__ = ['DiskEncryptionSet']
 
 class DiskEncryptionSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.DiskEncryptionSetIdentity':
+    def identity(self) -> pulumi.Output['outputs.DiskEncryptionSetIdentity']:
         """
         A `identity` block defined below.
         """
@@ -121,7 +121,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> str:
+    def key_vault_key_id(self) -> pulumi.Output[str]:
         """
         Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
         """
@@ -129,7 +129,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         """
@@ -137,7 +137,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         """
@@ -145,7 +145,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         """
@@ -153,7 +153,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Disk Encryption Set.
         """

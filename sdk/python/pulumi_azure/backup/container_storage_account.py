@@ -13,7 +13,7 @@ __all__ = ['ContainerStorageAccount']
 
 class ContainerStorageAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         The name of the vault where the storage account will be registered.
         """
@@ -123,7 +123,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Name of the resource group where the vault is located.
         """
@@ -131,7 +131,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> str:
+    def storage_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Storage Account to be registered
         """

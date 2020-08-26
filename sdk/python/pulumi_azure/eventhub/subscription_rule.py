@@ -19,7 +19,7 @@ class SubscriptionRule(pulumi.CustomResource):
     warnings.warn("azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
                  correlation_filter: Optional[pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']]] = None,
@@ -205,7 +205,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[str]:
+    def action(self) -> pulumi.Output[Optional[str]]:
         """
         Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
         """
@@ -213,7 +213,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="correlationFilter")
-    def correlation_filter(self) -> Optional['outputs.SubscriptionRuleCorrelationFilter']:
+    def correlation_filter(self) -> pulumi.Output[Optional['outputs.SubscriptionRuleCorrelationFilter']]:
         """
         A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
         """
@@ -221,7 +221,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> str:
+    def filter_type(self) -> pulumi.Output[str]:
         """
         Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
         """
@@ -229,7 +229,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
         """
@@ -237,7 +237,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
         """
@@ -245,7 +245,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         """
@@ -253,7 +253,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlFilter")
-    def sql_filter(self) -> Optional[str]:
+    def sql_filter(self) -> pulumi.Output[Optional[str]]:
         """
         Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         """
@@ -261,7 +261,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionName")
-    def subscription_name(self) -> str:
+    def subscription_name(self) -> pulumi.Output[str]:
         """
         The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         """
@@ -269,7 +269,7 @@ class SubscriptionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> str:
+    def topic_name(self) -> pulumi.Output[str]:
         """
         The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
         """

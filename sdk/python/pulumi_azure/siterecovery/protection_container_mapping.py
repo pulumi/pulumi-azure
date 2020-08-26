@@ -13,7 +13,7 @@ __all__ = ['ProtectionContainerMapping']
 
 class ProtectionContainerMapping(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_fabric_name: Optional[pulumi.Input[str]] = None,
@@ -163,7 +163,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the network mapping.
         """
@@ -171,7 +171,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryFabricName")
-    def recovery_fabric_name(self) -> str:
+    def recovery_fabric_name(self) -> pulumi.Output[str]:
         """
         Name of fabric that should contains the protection container to map.
         """
@@ -179,7 +179,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryReplicationPolicyId")
-    def recovery_replication_policy_id(self) -> str:
+    def recovery_replication_policy_id(self) -> pulumi.Output[str]:
         """
         Id of the policy to use for this mapping.
         """
@@ -187,7 +187,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoverySourceProtectionContainerName")
-    def recovery_source_protection_container_name(self) -> str:
+    def recovery_source_protection_container_name(self) -> pulumi.Output[str]:
         """
         Name of the source protection container to map.
         """
@@ -195,7 +195,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryTargetProtectionContainerId")
-    def recovery_target_protection_container_id(self) -> str:
+    def recovery_target_protection_container_id(self) -> pulumi.Output[str]:
         """
         Id of target protection container to map to.
         """
@@ -203,7 +203,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         The name of the vault that should be updated.
         """
@@ -211,7 +211,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Name of the resource group where the vault that should be updated is located.
         """

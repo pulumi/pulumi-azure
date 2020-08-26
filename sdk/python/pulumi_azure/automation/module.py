@@ -15,7 +15,7 @@ __all__ = ['Module']
 
 class Module(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  module_link: Optional[pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']]] = None,
@@ -99,7 +99,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
         """
@@ -107,7 +107,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="moduleLink")
-    def module_link(self) -> 'outputs.ModuleModuleLink':
+    def module_link(self) -> pulumi.Output['outputs.ModuleModuleLink']:
         """
         The published Module link.
         """
@@ -115,7 +115,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Module. Changing this forces a new resource to be created.
         """
@@ -123,7 +123,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         """

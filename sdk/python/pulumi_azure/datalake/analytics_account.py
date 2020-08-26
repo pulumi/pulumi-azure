@@ -13,7 +13,7 @@ __all__ = ['AnalyticsAccount']
 
 class AnalyticsAccount(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_store_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class AnalyticsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultStoreAccountName")
-    def default_store_account_name(self) -> str:
+    def default_store_account_name(self) -> pulumi.Output[str]:
         """
         Specifies the data lake store to use by default. Changing this forces a new resource to be created.
         """
@@ -131,7 +131,7 @@ class AnalyticsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class AnalyticsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Lake Analytics Account. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
         """
@@ -147,7 +147,7 @@ class AnalyticsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Data Lake Analytics Account.
         """
@@ -155,7 +155,7 @@ class AnalyticsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -163,7 +163,7 @@ class AnalyticsAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[str]:
+    def tier(self) -> pulumi.Output[Optional[str]]:
         """
         The monthly commitment tier for Data Lake Analytics Account. Accepted values are `Consumption`, `Commitment_100000AUHours`, `Commitment_10000AUHours`, `Commitment_1000AUHours`, `Commitment_100AUHours`, `Commitment_500000AUHours`, `Commitment_50000AUHours`, `Commitment_5000AUHours`, or `Commitment_500AUHours`.
         """

@@ -13,7 +13,7 @@ __all__ = ['ProductApi']
 
 class ProductApi(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class ProductApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
@@ -129,7 +129,7 @@ class ProductApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> str:
+    def api_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         """
@@ -137,7 +137,7 @@ class ProductApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productId")
-    def product_id(self) -> str:
+    def product_id(self) -> pulumi.Output[str]:
         """
         The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
         """
@@ -145,7 +145,7 @@ class ProductApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """

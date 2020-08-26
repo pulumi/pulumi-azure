@@ -13,7 +13,7 @@ __all__ = ['DataLakeGen2Filesystem']
 
 class DataLakeGen2Filesystem(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -110,7 +110,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         """
@@ -118,7 +118,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, str]]:
+    def properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
         """
@@ -126,7 +126,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> str:
+    def storage_account_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """

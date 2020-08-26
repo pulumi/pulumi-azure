@@ -13,7 +13,7 @@ __all__ = ['ApiSchema']
 
 class ApiSchema(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         """
@@ -142,7 +142,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> str:
+    def api_name(self) -> pulumi.Output[str]:
         """
         The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
         """
@@ -150,7 +150,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
+    def content_type(self) -> pulumi.Output[str]:
         """
         The content type of the API Schema.
         """
@@ -158,7 +158,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -166,7 +166,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaId")
-    def schema_id(self) -> str:
+    def schema_id(self) -> pulumi.Output[str]:
         """
         A unique identifier for this API Schema. Changing this forces a new resource to be created.
         """
@@ -174,7 +174,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Output[str]:
         """
         The JSON escaped string defining the document representing the Schema.
         """

@@ -15,7 +15,7 @@ __all__ = ['Endpoint']
 
 class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_types_to_compresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  delivery_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointDeliveryRuleArgs']]]]] = None,
@@ -208,7 +208,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentTypesToCompresses")
-    def content_types_to_compresses(self) -> List[str]:
+    def content_types_to_compresses(self) -> pulumi.Output[List[str]]:
         """
         An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
         """
@@ -216,7 +216,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryRules")
-    def delivery_rules(self) -> Optional[List['outputs.EndpointDeliveryRule']]:
+    def delivery_rules(self) -> pulumi.Output[Optional[List['outputs.EndpointDeliveryRule']]]:
         """
         Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         """
@@ -224,7 +224,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoFilters")
-    def geo_filters(self) -> Optional[List['outputs.EndpointGeoFilter']]:
+    def geo_filters(self) -> pulumi.Output[Optional[List['outputs.EndpointGeoFilter']]]:
         """
         A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         """
@@ -232,7 +232,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="globalDeliveryRule")
-    def global_delivery_rule(self) -> Optional['outputs.EndpointGlobalDeliveryRule']:
+    def global_delivery_rule(self) -> pulumi.Output[Optional['outputs.EndpointGlobalDeliveryRule']]:
         """
         Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         """
@@ -240,7 +240,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> str:
+    def host_name(self) -> pulumi.Output[str]:
         """
         A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
         """
@@ -248,7 +248,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isCompressionEnabled")
-    def is_compression_enabled(self) -> Optional[bool]:
+    def is_compression_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether compression is to be enabled. Defaults to false.
         """
@@ -256,7 +256,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isHttpAllowed")
-    def is_http_allowed(self) -> Optional[bool]:
+    def is_http_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
         Defaults to `true`.
         """
@@ -264,7 +264,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isHttpsAllowed")
-    def is_https_allowed(self) -> Optional[bool]:
+    def is_https_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
         Defaults to `true`.
         """
@@ -272,7 +272,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -280,7 +280,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         """
@@ -288,7 +288,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optimizationType")
-    def optimization_type(self) -> Optional[str]:
+    def optimization_type(self) -> pulumi.Output[Optional[str]]:
         """
         What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         """
@@ -296,7 +296,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originHostHeader")
-    def origin_host_header(self) -> Optional[str]:
+    def origin_host_header(self) -> pulumi.Output[Optional[str]]:
         """
         The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
         """
@@ -304,7 +304,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="originPath")
-    def origin_path(self) -> str:
+    def origin_path(self) -> pulumi.Output[str]:
         """
         The path used at for origin requests.
         """
@@ -312,7 +312,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> List['outputs.EndpointOrigin']:
+    def origins(self) -> pulumi.Output[List['outputs.EndpointOrigin']]:
         """
         The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
         """
@@ -320,7 +320,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="probePath")
-    def probe_path(self) -> str:
+    def probe_path(self) -> pulumi.Output[str]:
         """
         the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         """
@@ -328,7 +328,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileName")
-    def profile_name(self) -> str:
+    def profile_name(self) -> pulumi.Output[str]:
         """
         The CDN Profile to which to attach the CDN Endpoint.
         """
@@ -336,7 +336,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="querystringCachingBehaviour")
-    def querystring_caching_behaviour(self) -> Optional[str]:
+    def querystring_caching_behaviour(self) -> pulumi.Output[Optional[str]]:
         """
         Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
         """
@@ -344,7 +344,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the CDN Endpoint.
         """
@@ -352,7 +352,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

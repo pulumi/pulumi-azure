@@ -19,7 +19,7 @@ class EventSubscription(pulumi.CustomResource):
     warnings.warn("azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAdvancedFilterArgs']]] = None,
                  azure_function_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionAzureFunctionEndpointArgs']]] = None,
@@ -229,7 +229,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advancedFilter")
-    def advanced_filter(self) -> Optional['outputs.EventSubscriptionAdvancedFilter']:
+    def advanced_filter(self) -> pulumi.Output[Optional['outputs.EventSubscriptionAdvancedFilter']]:
         """
         A `advanced_filter` block as defined below.
         """
@@ -237,7 +237,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureFunctionEndpoint")
-    def azure_function_endpoint(self) -> Optional['outputs.EventSubscriptionAzureFunctionEndpoint']:
+    def azure_function_endpoint(self) -> pulumi.Output[Optional['outputs.EventSubscriptionAzureFunctionEndpoint']]:
         """
         An `azure_function_endpoint` block as defined below.
         """
@@ -245,7 +245,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventDeliverySchema")
-    def event_delivery_schema(self) -> Optional[str]:
+    def event_delivery_schema(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         """
@@ -253,7 +253,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubEndpoint")
-    def eventhub_endpoint(self) -> 'outputs.EventSubscriptionEventhubEndpoint':
+    def eventhub_endpoint(self) -> pulumi.Output['outputs.EventSubscriptionEventhubEndpoint']:
         """
         A `eventhub_endpoint` block as defined below.
         """
@@ -261,7 +261,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubEndpointId")
-    def eventhub_endpoint_id(self) -> str:
+    def eventhub_endpoint_id(self) -> pulumi.Output[str]:
         """
         Specifies the id where the Event Hub is located.
         """
@@ -269,7 +269,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationTimeUtc")
-    def expiration_time_utc(self) -> Optional[str]:
+    def expiration_time_utc(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
         """
@@ -277,7 +277,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hybridConnectionEndpoint")
-    def hybrid_connection_endpoint(self) -> 'outputs.EventSubscriptionHybridConnectionEndpoint':
+    def hybrid_connection_endpoint(self) -> pulumi.Output['outputs.EventSubscriptionHybridConnectionEndpoint']:
         """
         A `hybrid_connection_endpoint` block as defined below.
         """
@@ -285,7 +285,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hybridConnectionEndpointId")
-    def hybrid_connection_endpoint_id(self) -> str:
+    def hybrid_connection_endpoint_id(self) -> pulumi.Output[str]:
         """
         Specifies the id where the Hybrid Connection is located.
         """
@@ -293,7 +293,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includedEventTypes")
-    def included_event_types(self) -> List[str]:
+    def included_event_types(self) -> pulumi.Output[List[str]]:
         """
         A list of applicable event types that need to be part of the event subscription.
         """
@@ -301,7 +301,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> Optional[List[str]]:
+    def labels(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of labels to assign to the event subscription.
         """
@@ -309,7 +309,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
         """
@@ -317,7 +317,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retryPolicy")
-    def retry_policy(self) -> 'outputs.EventSubscriptionRetryPolicy':
+    def retry_policy(self) -> pulumi.Output['outputs.EventSubscriptionRetryPolicy']:
         """
         A `retry_policy` block as defined below.
         """
@@ -325,7 +325,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
         """
@@ -333,7 +333,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusQueueEndpointId")
-    def service_bus_queue_endpoint_id(self) -> Optional[str]:
+    def service_bus_queue_endpoint_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the id where the Service Bus Queue is located.
         """
@@ -341,7 +341,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusTopicEndpointId")
-    def service_bus_topic_endpoint_id(self) -> Optional[str]:
+    def service_bus_topic_endpoint_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the id where the Service Bus Topic is located.
         """
@@ -349,7 +349,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageBlobDeadLetterDestination")
-    def storage_blob_dead_letter_destination(self) -> Optional['outputs.EventSubscriptionStorageBlobDeadLetterDestination']:
+    def storage_blob_dead_letter_destination(self) -> pulumi.Output[Optional['outputs.EventSubscriptionStorageBlobDeadLetterDestination']]:
         """
         A `storage_blob_dead_letter_destination` block as defined below.
         """
@@ -357,7 +357,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageQueueEndpoint")
-    def storage_queue_endpoint(self) -> Optional['outputs.EventSubscriptionStorageQueueEndpoint']:
+    def storage_queue_endpoint(self) -> pulumi.Output[Optional['outputs.EventSubscriptionStorageQueueEndpoint']]:
         """
         A `storage_queue_endpoint` block as defined below.
         """
@@ -365,7 +365,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectFilter")
-    def subject_filter(self) -> Optional['outputs.EventSubscriptionSubjectFilter']:
+    def subject_filter(self) -> pulumi.Output[Optional['outputs.EventSubscriptionSubjectFilter']]:
         """
         A `subject_filter` block as defined below.
         """
@@ -373,7 +373,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> str:
+    def topic_name(self) -> pulumi.Output[str]:
         """
         (Optional/ **Deprecated) Specifies the name of the topic to associate with the event subscription.
         """
@@ -381,7 +381,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webhookEndpoint")
-    def webhook_endpoint(self) -> Optional['outputs.EventSubscriptionWebhookEndpoint']:
+    def webhook_endpoint(self) -> pulumi.Output[Optional['outputs.EventSubscriptionWebhookEndpoint']]:
         """
         A `webhook_endpoint` block as defined below.
         """

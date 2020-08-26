@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> str:
+    def expiration_date(self) -> pulumi.Output[str]:
         """
         The expiration date for the certificate.
         """
@@ -151,7 +151,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> str:
+    def friendly_name(self) -> pulumi.Output[str]:
         """
         The friendly name of the certificate.
         """
@@ -159,7 +159,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> List[str]:
+    def host_names(self) -> pulumi.Output[List[str]]:
         """
         List of host names the certificate applies to.
         """
@@ -167,7 +167,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostingEnvironmentProfileId")
-    def hosting_environment_profile_id(self) -> Optional[str]:
+    def hosting_environment_profile_id(self) -> pulumi.Output[Optional[str]]:
         """
         Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="issueDate")
-    def issue_date(self) -> str:
+    def issue_date(self) -> pulumi.Output[str]:
         """
         The issue date for the certificate.
         """
@@ -183,7 +183,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def issuer(self) -> str:
+    def issuer(self) -> pulumi.Output[str]:
         """
         The name of the certificate issuer.
         """
@@ -191,7 +191,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultSecretId")
-    def key_vault_secret_id(self) -> Optional[str]:
+    def key_vault_secret_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Key Vault secret. Changing this forces a new resource to be created.
         """
@@ -199,7 +199,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -207,7 +207,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the certificate. Changing this forces a new resource to be created.
         """
@@ -215,7 +215,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password to access the certificate's private key. Changing this forces a new resource to be created.
         """
@@ -223,7 +223,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pfxBlob")
-    def pfx_blob(self) -> Optional[str]:
+    def pfx_blob(self) -> pulumi.Output[Optional[str]]:
         """
         The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
         """
@@ -231,7 +231,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         """
@@ -239,7 +239,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subjectName")
-    def subject_name(self) -> str:
+    def subject_name(self) -> pulumi.Output[str]:
         """
         The subject name of the certificate.
         """
@@ -247,12 +247,12 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         The thumbprint for the certificate.
         """

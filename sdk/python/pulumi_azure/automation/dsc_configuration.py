@@ -13,7 +13,7 @@ __all__ = ['DscConfiguration']
 
 class DscConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content_embedded: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
         """
@@ -132,7 +132,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentEmbedded")
-    def content_embedded(self) -> str:
+    def content_embedded(self) -> pulumi.Output[str]:
         """
         The PowerShell DSC Configuration script.
         """
@@ -140,7 +140,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description to go with DSC Configuration.
         """
@@ -148,7 +148,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Must be the same location as the Automation Account.
         """
@@ -156,7 +156,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logVerbose")
-    def log_verbose(self) -> Optional[bool]:
+    def log_verbose(self) -> pulumi.Output[Optional[bool]]:
         """
         Verbose log option.
         """
@@ -164,7 +164,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
         """
@@ -172,7 +172,7 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
         """
@@ -180,12 +180,12 @@ class DscConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

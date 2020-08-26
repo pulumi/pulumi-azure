@@ -13,7 +13,7 @@ __all__ = ['DataSourceWindowsEvent']
 
 class DataSourceWindowsEvent(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_log_name: Optional[pulumi.Input[str]] = None,
                  event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -123,7 +123,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventLogName")
-    def event_log_name(self) -> str:
+    def event_log_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Windows Event Log to collect events from.
         """
@@ -131,7 +131,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventTypes")
-    def event_types(self) -> List[str]:
+    def event_types(self) -> pulumi.Output[List[str]]:
         """
         Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
         """
@@ -139,7 +139,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         """
@@ -147,7 +147,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         """
@@ -155,7 +155,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> str:
+    def workspace_name(self) -> pulumi.Output[str]:
         """
         The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  account_kind: Optional[pulumi.Input[str]] = None,
@@ -363,7 +363,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> str:
+    def access_tier(self) -> pulumi.Output[str]:
         """
         Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
         """
@@ -371,7 +371,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountKind")
-    def account_kind(self) -> Optional[str]:
+    def account_kind(self) -> pulumi.Output[Optional[str]]:
         """
         Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         """
@@ -379,7 +379,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountReplicationType")
-    def account_replication_type(self) -> str:
+    def account_replication_type(self) -> pulumi.Output[str]:
         """
         Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         """
@@ -387,7 +387,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountTier")
-    def account_tier(self) -> str:
+    def account_tier(self) -> pulumi.Output[str]:
         """
         Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         """
@@ -395,7 +395,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowBlobPublicAccess")
-    def allow_blob_public_access(self) -> Optional[bool]:
+    def allow_blob_public_access(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
         """
@@ -403,7 +403,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="blobProperties")
-    def blob_properties(self) -> 'outputs.AccountBlobProperties':
+    def blob_properties(self) -> pulumi.Output['outputs.AccountBlobProperties']:
         """
         A `blob_properties` block as defined below.
         """
@@ -411,7 +411,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> Optional['outputs.AccountCustomDomain']:
+    def custom_domain(self) -> pulumi.Output[Optional['outputs.AccountCustomDomain']]:
         """
         A `custom_domain` block as documented below.
         """
@@ -419,7 +419,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
-    def enable_https_traffic_only(self) -> Optional[bool]:
+    def enable_https_traffic_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
         for more information. Defaults to `true`.
@@ -428,7 +428,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.AccountIdentity':
+    def identity(self) -> pulumi.Output['outputs.AccountIdentity']:
         """
         A `identity` block as defined below.
         """
@@ -436,7 +436,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isHnsEnabled")
-    def is_hns_enabled(self) -> Optional[bool]:
+    def is_hns_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         """
@@ -444,7 +444,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -452,7 +452,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minTlsVersion")
-    def min_tls_version(self) -> Optional[str]:
+    def min_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         """
@@ -460,7 +460,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         """
@@ -468,7 +468,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> 'outputs.AccountNetworkRules':
+    def network_rules(self) -> pulumi.Output['outputs.AccountNetworkRules']:
         """
         A `network_rules` block as documented below.
         """
@@ -476,7 +476,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> str:
+    def primary_access_key(self) -> pulumi.Output[str]:
         """
         The primary access key for the storage account.
         """
@@ -484,7 +484,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryBlobConnectionString")
-    def primary_blob_connection_string(self) -> str:
+    def primary_blob_connection_string(self) -> pulumi.Output[str]:
         """
         The connection string associated with the primary blob location.
         """
@@ -492,7 +492,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryBlobEndpoint")
-    def primary_blob_endpoint(self) -> str:
+    def primary_blob_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for blob storage in the primary location.
         """
@@ -500,7 +500,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryBlobHost")
-    def primary_blob_host(self) -> str:
+    def primary_blob_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for blob storage in the primary location.
         """
@@ -508,7 +508,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> str:
+    def primary_connection_string(self) -> pulumi.Output[str]:
         """
         The connection string associated with the primary location.
         """
@@ -516,7 +516,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryDfsEndpoint")
-    def primary_dfs_endpoint(self) -> str:
+    def primary_dfs_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for DFS storage in the primary location.
         """
@@ -524,7 +524,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryDfsHost")
-    def primary_dfs_host(self) -> str:
+    def primary_dfs_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for DFS storage in the primary location.
         """
@@ -532,7 +532,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryFileEndpoint")
-    def primary_file_endpoint(self) -> str:
+    def primary_file_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for file storage in the primary location.
         """
@@ -540,7 +540,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryFileHost")
-    def primary_file_host(self) -> str:
+    def primary_file_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for file storage in the primary location.
         """
@@ -548,7 +548,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryLocation")
-    def primary_location(self) -> str:
+    def primary_location(self) -> pulumi.Output[str]:
         """
         The primary location of the storage account.
         """
@@ -556,7 +556,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryQueueEndpoint")
-    def primary_queue_endpoint(self) -> str:
+    def primary_queue_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for queue storage in the primary location.
         """
@@ -564,7 +564,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryQueueHost")
-    def primary_queue_host(self) -> str:
+    def primary_queue_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for queue storage in the primary location.
         """
@@ -572,7 +572,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryTableEndpoint")
-    def primary_table_endpoint(self) -> str:
+    def primary_table_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for table storage in the primary location.
         """
@@ -580,7 +580,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryTableHost")
-    def primary_table_host(self) -> str:
+    def primary_table_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for table storage in the primary location.
         """
@@ -588,7 +588,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryWebEndpoint")
-    def primary_web_endpoint(self) -> str:
+    def primary_web_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for web storage in the primary location.
         """
@@ -596,7 +596,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryWebHost")
-    def primary_web_host(self) -> str:
+    def primary_web_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for web storage in the primary location.
         """
@@ -604,7 +604,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queueProperties")
-    def queue_properties(self) -> 'outputs.AccountQueueProperties':
+    def queue_properties(self) -> pulumi.Output['outputs.AccountQueueProperties']:
         """
         A `queue_properties` block as defined below.
         """
@@ -612,7 +612,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         """
@@ -620,7 +620,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> str:
+    def secondary_access_key(self) -> pulumi.Output[str]:
         """
         The secondary access key for the storage account.
         """
@@ -628,7 +628,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryBlobConnectionString")
-    def secondary_blob_connection_string(self) -> str:
+    def secondary_blob_connection_string(self) -> pulumi.Output[str]:
         """
         The connection string associated with the secondary blob location.
         """
@@ -636,7 +636,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryBlobEndpoint")
-    def secondary_blob_endpoint(self) -> str:
+    def secondary_blob_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for blob storage in the secondary location.
         """
@@ -644,7 +644,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryBlobHost")
-    def secondary_blob_host(self) -> str:
+    def secondary_blob_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for blob storage in the secondary location.
         """
@@ -652,7 +652,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> str:
+    def secondary_connection_string(self) -> pulumi.Output[str]:
         """
         The connection string associated with the secondary location.
         """
@@ -660,7 +660,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryDfsEndpoint")
-    def secondary_dfs_endpoint(self) -> str:
+    def secondary_dfs_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for DFS storage in the secondary location.
         """
@@ -668,7 +668,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryDfsHost")
-    def secondary_dfs_host(self) -> str:
+    def secondary_dfs_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for DFS storage in the secondary location.
         """
@@ -676,7 +676,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryFileEndpoint")
-    def secondary_file_endpoint(self) -> str:
+    def secondary_file_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for file storage in the secondary location.
         """
@@ -684,7 +684,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryFileHost")
-    def secondary_file_host(self) -> str:
+    def secondary_file_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for file storage in the secondary location.
         """
@@ -692,7 +692,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryLocation")
-    def secondary_location(self) -> str:
+    def secondary_location(self) -> pulumi.Output[str]:
         """
         The secondary location of the storage account.
         """
@@ -700,7 +700,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryQueueEndpoint")
-    def secondary_queue_endpoint(self) -> str:
+    def secondary_queue_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for queue storage in the secondary location.
         """
@@ -708,7 +708,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryQueueHost")
-    def secondary_queue_host(self) -> str:
+    def secondary_queue_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for queue storage in the secondary location.
         """
@@ -716,7 +716,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryTableEndpoint")
-    def secondary_table_endpoint(self) -> str:
+    def secondary_table_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for table storage in the secondary location.
         """
@@ -724,7 +724,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryTableHost")
-    def secondary_table_host(self) -> str:
+    def secondary_table_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for table storage in the secondary location.
         """
@@ -732,7 +732,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryWebEndpoint")
-    def secondary_web_endpoint(self) -> str:
+    def secondary_web_endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint URL for web storage in the secondary location.
         """
@@ -740,7 +740,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryWebHost")
-    def secondary_web_host(self) -> str:
+    def secondary_web_host(self) -> pulumi.Output[str]:
         """
         The hostname with port if applicable for web storage in the secondary location.
         """
@@ -748,7 +748,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="staticWebsite")
-    def static_website(self) -> Optional['outputs.AccountStaticWebsite']:
+    def static_website(self) -> pulumi.Output[Optional['outputs.AccountStaticWebsite']]:
         """
         A `static_website` block as defined below.
         """
@@ -756,7 +756,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

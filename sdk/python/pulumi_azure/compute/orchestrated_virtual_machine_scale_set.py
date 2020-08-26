@@ -13,7 +13,7 @@ __all__ = ['OrchestratedVirtualMachineScaleSet']
 
 class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         """
@@ -149,7 +149,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> float:
+    def platform_fault_domain_count(self) -> pulumi.Output[float]:
         """
         Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[str]:
+    def proximity_placement_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="singlePlacementGroup")
-    def single_placement_group(self) -> Optional[bool]:
+    def single_placement_group(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
         """
@@ -189,7 +189,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         """
@@ -197,7 +197,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         The Unique ID for the Orchestrated Virtual Machine Scale Set.
         """
@@ -205,7 +205,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[str]:
+    def zones(self) -> pulumi.Output[Optional[str]]:
         """
         A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """

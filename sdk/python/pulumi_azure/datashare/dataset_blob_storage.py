@@ -15,7 +15,7 @@ __all__ = ['DatasetBlobStorage']
 
 class DatasetBlobStorage(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  data_share_id: Optional[pulumi.Input[str]] = None,
@@ -157,7 +157,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> str:
+    def container_name(self) -> pulumi.Output[str]:
         """
         The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
@@ -165,7 +165,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataShareId")
-    def data_share_id(self) -> str:
+    def data_share_id(self) -> pulumi.Output[str]:
         """
         The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
@@ -173,7 +173,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The name of the Data Share Dataset.
         """
@@ -181,7 +181,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="filePath")
-    def file_path(self) -> Optional[str]:
+    def file_path(self) -> pulumi.Output[Optional[str]]:
         """
         The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
@@ -189,7 +189,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[str]:
+    def folder_path(self) -> pulumi.Output[Optional[str]]:
         """
         The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
@@ -197,7 +197,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
         """
@@ -205,7 +205,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> 'outputs.DatasetBlobStorageStorageAccount':
+    def storage_account(self) -> pulumi.Output['outputs.DatasetBlobStorageStorageAccount']:
         """
         A `storage_account` block as defined below.
         """

@@ -13,7 +13,7 @@ __all__ = ['ConnectionServicePrincipal']
 
 class ConnectionServicePrincipal(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> str:
+    def application_id(self) -> pulumi.Output[str]:
         """
         The (Client) ID of the Service Principal.
         """
@@ -135,7 +135,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         """
@@ -143,7 +143,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateThumbprint")
-    def certificate_thumbprint(self) -> str:
+    def certificate_thumbprint(self) -> pulumi.Output[str]:
         """
         The thumbprint of the Service Principal Certificate.
         """
@@ -151,7 +151,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for this Connection.
         """
@@ -159,7 +159,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Connection. Changing this forces a new resource to be created.
         """
@@ -167,7 +167,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
+    def subscription_id(self) -> pulumi.Output[str]:
         """
         The subscription GUID.
         """
@@ -183,7 +183,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The ID of the Tenant the Service Principal is assigned in.
         """

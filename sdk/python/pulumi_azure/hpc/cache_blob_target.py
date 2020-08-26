@@ -13,7 +13,7 @@ __all__ = ['CacheBlobTarget']
 
 class CacheBlobTarget(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheName")
-    def cache_name(self) -> str:
+    def cache_name(self) -> pulumi.Output[str]:
         """
         The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         """
@@ -159,7 +159,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         """
@@ -167,7 +167,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespacePath")
-    def namespace_path(self) -> str:
+    def namespace_path(self) -> pulumi.Output[str]:
         """
         The client-facing file path of the HPC Cache Blob Target.
         """
@@ -175,7 +175,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> str:
+    def storage_container_id(self) -> pulumi.Output[str]:
         """
         The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
         """

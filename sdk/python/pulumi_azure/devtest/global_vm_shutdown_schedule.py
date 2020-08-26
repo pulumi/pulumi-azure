@@ -15,7 +15,7 @@ __all__ = ['GlobalVMShutdownSchedule']
 
 class GlobalVMShutdownSchedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_recurrence_time: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -174,7 +174,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyRecurrenceTime")
-    def daily_recurrence_time(self) -> str:
+    def daily_recurrence_time(self) -> pulumi.Output[str]:
         """
         The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
         """
@@ -182,7 +182,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
         """
@@ -190,7 +190,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location where the schedule is created. Changing this forces a new resource to be created.
         """
@@ -198,12 +198,12 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> 'outputs.GlobalVMShutdownScheduleNotificationSettings':
+    def notification_settings(self) -> pulumi.Output['outputs.GlobalVMShutdownScheduleNotificationSettings']:
         return pulumi.get(self, "notification_settings")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -211,7 +211,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> str:
+    def timezone(self) -> pulumi.Output[str]:
         """
         The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
@@ -219,7 +219,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> str:
+    def virtual_machine_id(self) -> pulumi.Output[str]:
         """
         The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
         """

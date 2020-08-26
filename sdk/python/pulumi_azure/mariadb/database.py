@@ -13,7 +13,7 @@ __all__ = ['Database']
 
 class Database(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  charset: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def charset(self) -> str:
+    def charset(self) -> pulumi.Output[str]:
         """
         Specifies the Charset for the MariaDB Database, which needs [to be a valid MariaDB Charset](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
         """
@@ -140,7 +140,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def collation(self) -> str:
+    def collation(self) -> pulumi.Output[str]:
         """
         Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
         """
@@ -148,7 +148,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a
         new resource to be created.
@@ -157,7 +157,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
         """

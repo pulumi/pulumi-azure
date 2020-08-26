@@ -13,7 +13,7 @@ __all__ = ['Lock']
 
 class Lock(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lock_level: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class Lock(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockLevel")
-    def lock_level(self) -> str:
+    def lock_level(self) -> pulumi.Output[str]:
         """
         Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
         """
@@ -149,7 +149,7 @@ class Lock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class Lock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notes(self) -> Optional[str]:
+    def notes(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class Lock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
         """

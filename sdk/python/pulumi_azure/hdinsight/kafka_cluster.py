@@ -15,7 +15,7 @@ __all__ = ['KafkaCluster']
 
 class KafkaCluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']]] = None,
@@ -225,7 +225,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> str:
+    def cluster_version(self) -> pulumi.Output[str]:
         """
         Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         """
@@ -233,7 +233,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> 'outputs.KafkaClusterComponentVersion':
+    def component_version(self) -> pulumi.Output['outputs.KafkaClusterComponentVersion']:
         """
         A `component_version` block as defined below.
         """
@@ -241,7 +241,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def gateway(self) -> 'outputs.KafkaClusterGateway':
+    def gateway(self) -> pulumi.Output['outputs.KafkaClusterGateway']:
         """
         A `gateway` block as defined below.
         """
@@ -249,7 +249,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsEndpoint")
-    def https_endpoint(self) -> str:
+    def https_endpoint(self) -> pulumi.Output[str]:
         """
         The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
         """
@@ -257,7 +257,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -265,7 +265,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metastores(self) -> Optional['outputs.KafkaClusterMetastores']:
+    def metastores(self) -> pulumi.Output[Optional['outputs.KafkaClusterMetastores']]:
         """
         A `metastores` block as defined below.
         """
@@ -273,7 +273,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitor(self) -> Optional['outputs.KafkaClusterMonitor']:
+    def monitor(self) -> pulumi.Output[Optional['outputs.KafkaClusterMonitor']]:
         """
         A `monitor` block as defined below.
         """
@@ -281,7 +281,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         """
@@ -289,7 +289,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -297,7 +297,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> 'outputs.KafkaClusterRoles':
+    def roles(self) -> pulumi.Output['outputs.KafkaClusterRoles']:
         """
         A `roles` block as defined below.
         """
@@ -305,7 +305,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshEndpoint")
-    def ssh_endpoint(self) -> str:
+    def ssh_endpoint(self) -> pulumi.Output[str]:
         """
         The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
         """
@@ -313,7 +313,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountGen2")
-    def storage_account_gen2(self) -> Optional['outputs.KafkaClusterStorageAccountGen2']:
+    def storage_account_gen2(self) -> pulumi.Output[Optional['outputs.KafkaClusterStorageAccountGen2']]:
         """
         A `storage_account_gen2` block as defined below.
         """
@@ -321,7 +321,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.KafkaClusterStorageAccount']]:
+    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.KafkaClusterStorageAccount']]]:
         """
         One or more `storage_account` block as defined below.
         """
@@ -329,7 +329,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Tags which should be assigned to this HDInsight Kafka Cluster.
         """
@@ -337,7 +337,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> str:
+    def tier(self) -> pulumi.Output[str]:
         """
         Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
@@ -345,7 +345,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> Optional[str]:
+    def tls_min_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "tls_min_version")
 
     def translate_output_property(self, prop):

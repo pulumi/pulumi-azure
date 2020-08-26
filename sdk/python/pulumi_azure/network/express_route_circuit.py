@@ -15,7 +15,7 @@ __all__ = ['ExpressRouteCircuit']
 
 class ExpressRouteCircuit(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
                  bandwidth_in_mbps: Optional[pulumi.Input[float]] = None,
@@ -163,7 +163,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowClassicOperations")
-    def allow_classic_operations(self) -> Optional[bool]:
+    def allow_classic_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
         """
@@ -171,7 +171,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
-    def bandwidth_in_mbps(self) -> float:
+    def bandwidth_in_mbps(self) -> pulumi.Output[float]:
         """
         The bandwidth in Mbps of the circuit being created.
         """
@@ -179,7 +179,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -187,7 +187,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
@@ -195,7 +195,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peeringLocation")
-    def peering_location(self) -> str:
+    def peering_location(self) -> pulumi.Output[str]:
         """
         The name of the peering location and **not** the Azure resource location.
         """
@@ -203,7 +203,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
@@ -211,7 +211,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceKey")
-    def service_key(self) -> str:
+    def service_key(self) -> pulumi.Output[str]:
         """
         The string needed by the service provider to provision the ExpressRoute circuit.
         """
@@ -219,7 +219,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceProviderName")
-    def service_provider_name(self) -> str:
+    def service_provider_name(self) -> pulumi.Output[str]:
         """
         The name of the ExpressRoute Service Provider.
         """
@@ -227,7 +227,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceProviderProvisioningState")
-    def service_provider_provisioning_state(self) -> str:
+    def service_provider_provisioning_state(self) -> pulumi.Output[str]:
         """
         The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
         """
@@ -235,7 +235,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ExpressRouteCircuitSku':
+    def sku(self) -> pulumi.Output['outputs.ExpressRouteCircuitSku']:
         """
         A `sku` block for the ExpressRoute circuit as documented below.
         """
@@ -243,7 +243,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

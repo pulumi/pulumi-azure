@@ -13,7 +13,7 @@ __all__ = ['SharedImageGallery']
 
 class SharedImageGallery(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class SharedImageGallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for this Shared Image Gallery.
         """
@@ -128,7 +128,7 @@ class SharedImageGallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -136,7 +136,7 @@ class SharedImageGallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
         """
@@ -144,7 +144,7 @@ class SharedImageGallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
         """
@@ -152,7 +152,7 @@ class SharedImageGallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Shared Image Gallery.
         """
@@ -160,7 +160,7 @@ class SharedImageGallery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueName")
-    def unique_name(self) -> str:
+    def unique_name(self) -> pulumi.Output[str]:
         """
         The Unique Name for this Shared Image Gallery.
         """

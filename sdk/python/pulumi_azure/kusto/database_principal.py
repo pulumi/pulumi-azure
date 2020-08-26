@@ -13,7 +13,7 @@ __all__ = ['DatabasePrincipal']
 
 class DatabasePrincipal(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appId")
-    def app_id(self) -> str:
+    def app_id(self) -> pulumi.Output[str]:
         """
         The app id, if not empty, of the principal.
         """
@@ -180,7 +180,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         The Client ID that owns the specified `object_id`. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
         """
@@ -196,7 +196,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
         """
@@ -204,7 +204,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The email, if not empty, of the principal.
         """
@@ -212,7 +212,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> str:
+    def fully_qualified_name(self) -> pulumi.Output[str]:
         """
         The fully qualified name of the principal.
         """
@@ -220,7 +220,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Kusto Database Principal.
         """
@@ -228,7 +228,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> str:
+    def object_id(self) -> pulumi.Output[str]:
         """
         An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
         """
@@ -236,7 +236,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
         """
@@ -244,7 +244,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         Specifies the permissions the Principal will have. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User`, `Viewer`. Changing this forces a new resource to be created.
         """
@@ -252,7 +252,7 @@ class DatabasePrincipal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Specifies the type of object the principal is. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         """

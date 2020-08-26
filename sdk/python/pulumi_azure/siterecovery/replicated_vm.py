@@ -15,7 +15,7 @@ __all__ = ['ReplicatedVM']
 
 class ReplicatedVM(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  managed_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedDisks")
-    def managed_disks(self) -> Optional[List['outputs.ReplicatedVMManagedDisk']]:
+    def managed_disks(self) -> pulumi.Output[Optional[List['outputs.ReplicatedVMManagedDisk']]]:
         """
         One or more `managed_disk` block.
         """
@@ -177,7 +177,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the network mapping.
         """
@@ -185,7 +185,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.ReplicatedVMNetworkInterface']:
+    def network_interfaces(self) -> pulumi.Output[List['outputs.ReplicatedVMNetworkInterface']]:
         """
         One or more `network_interface` block.
         """
@@ -193,12 +193,12 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryReplicationPolicyId")
-    def recovery_replication_policy_id(self) -> str:
+    def recovery_replication_policy_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "recovery_replication_policy_id")
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         The name of the vault that should be updated.
         """
@@ -206,7 +206,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Name of the resource group where the vault that should be updated is located.
         """
@@ -214,7 +214,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceRecoveryFabricName")
-    def source_recovery_fabric_name(self) -> str:
+    def source_recovery_fabric_name(self) -> pulumi.Output[str]:
         """
         Name of fabric that should contains this replication.
         """
@@ -222,7 +222,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceRecoveryProtectionContainerName")
-    def source_recovery_protection_container_name(self) -> str:
+    def source_recovery_protection_container_name(self) -> pulumi.Output[str]:
         """
         Name of the protection container to use.
         """
@@ -230,7 +230,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceVmId")
-    def source_vm_id(self) -> str:
+    def source_vm_id(self) -> pulumi.Output[str]:
         """
         Id of the VM to replicate
         """
@@ -238,7 +238,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetAvailabilitySetId")
-    def target_availability_set_id(self) -> Optional[str]:
+    def target_availability_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         Id of availability set that the new VM should belong to when a failover is done.
         """
@@ -246,7 +246,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> str:
+    def target_network_id(self) -> pulumi.Output[str]:
         """
         Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
         """
@@ -254,7 +254,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetRecoveryFabricId")
-    def target_recovery_fabric_id(self) -> str:
+    def target_recovery_fabric_id(self) -> pulumi.Output[str]:
         """
         Id of fabric where the VM replication should be handled when a failover is done.
         """
@@ -262,7 +262,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetRecoveryProtectionContainerId")
-    def target_recovery_protection_container_id(self) -> str:
+    def target_recovery_protection_container_id(self) -> pulumi.Output[str]:
         """
         Id of protection container where the VM replication should be created when a failover is done.
         """
@@ -270,7 +270,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceGroupId")
-    def target_resource_group_id(self) -> str:
+    def target_resource_group_id(self) -> pulumi.Output[str]:
         """
         Id of resource group where the VM should be created when a failover is done.
         """

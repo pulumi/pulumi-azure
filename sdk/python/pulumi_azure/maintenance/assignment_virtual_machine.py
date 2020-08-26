@@ -13,7 +13,7 @@ __all__ = ['AssignmentVirtualMachine']
 
 class AssignmentVirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -150,7 +150,7 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maintenanceConfigurationId")
-    def maintenance_configuration_id(self) -> str:
+    def maintenance_configuration_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         """
@@ -158,7 +158,7 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> str:
+    def virtual_machine_id(self) -> pulumi.Output[str]:
         """
         Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         """

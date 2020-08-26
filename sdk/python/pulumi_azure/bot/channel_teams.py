@@ -13,7 +13,7 @@ __all__ = ['ChannelTeams']
 
 class ChannelTeams(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  calling_web_hook: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class ChannelTeams(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> str:
+    def bot_name(self) -> pulumi.Output[str]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
@@ -130,7 +130,7 @@ class ChannelTeams(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callingWebHook")
-    def calling_web_hook(self) -> str:
+    def calling_web_hook(self) -> pulumi.Output[str]:
         """
         Specifies the webhook for Microsoft Teams channel calls.
         """
@@ -138,7 +138,7 @@ class ChannelTeams(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableCalling")
-    def enable_calling(self) -> Optional[bool]:
+    def enable_calling(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         """
@@ -146,7 +146,7 @@ class ChannelTeams(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -154,7 +154,7 @@ class ChannelTeams(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """

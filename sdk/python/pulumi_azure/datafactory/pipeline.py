@@ -13,7 +13,7 @@ __all__ = ['Pipeline']
 
 class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activities_json: Optional[pulumi.Input[str]] = None,
                  annotations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -160,7 +160,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activitiesJson")
-    def activities_json(self) -> Optional[str]:
+    def activities_json(self) -> pulumi.Output[Optional[str]]:
         """
         A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         """
@@ -168,7 +168,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[str]]:
+    def annotations(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of tags that can be used for describing the Data Factory Pipeline.
         """
@@ -176,7 +176,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> str:
+    def data_factory_name(self) -> pulumi.Output[str]:
         """
         The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
         """
@@ -184,7 +184,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description for the Data Factory Pipeline.
         """
@@ -192,7 +192,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         """
@@ -200,7 +200,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of parameters to associate with the Data Factory Pipeline.
         """
@@ -208,7 +208,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
         """
@@ -216,7 +216,7 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Mapping[str, str]]:
+    def variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of variables to associate with the Data Factory Pipeline.
         """

@@ -13,7 +13,7 @@ __all__ = ['AlertRuleScheduled']
 
 class AlertRuleScheduled(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -181,7 +181,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this Sentinel Scheduled Alert Rule.
         """
@@ -189,7 +189,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The friendly name of this Sentinel Scheduled Alert Rule.
         """
@@ -197,7 +197,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
         """
@@ -205,7 +205,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> str:
+    def log_analytics_workspace_id(self) -> pulumi.Output[str]:
         """
         The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         """
@@ -213,7 +213,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
         """
@@ -221,7 +221,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> pulumi.Output[str]:
         """
         The query of this Sentinel Scheduled Alert Rule.
         """
@@ -229,7 +229,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryFrequency")
-    def query_frequency(self) -> Optional[str]:
+    def query_frequency(self) -> pulumi.Output[Optional[str]]:
         """
         The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
         """
@@ -237,7 +237,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryPeriod")
-    def query_period(self) -> Optional[str]:
+    def query_period(self) -> pulumi.Output[Optional[str]]:
         """
         The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
         """
@@ -245,7 +245,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> str:
+    def severity(self) -> pulumi.Output[str]:
         """
         The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         """
@@ -253,7 +253,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="suppressionDuration")
-    def suppression_duration(self) -> Optional[str]:
+    def suppression_duration(self) -> pulumi.Output[Optional[str]]:
         """
         If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         """
@@ -261,7 +261,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="suppressionEnabled")
-    def suppression_enabled(self) -> Optional[bool]:
+    def suppression_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
         """
@@ -269,7 +269,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tactics(self) -> Optional[List[str]]:
+    def tactics(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
         """
@@ -277,7 +277,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="triggerOperator")
-    def trigger_operator(self) -> Optional[str]:
+    def trigger_operator(self) -> pulumi.Output[Optional[str]]:
         """
         The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
         """
@@ -285,7 +285,7 @@ class AlertRuleScheduled(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="triggerThreshold")
-    def trigger_threshold(self) -> Optional[float]:
+    def trigger_threshold(self) -> pulumi.Output[Optional[float]]:
         """
         The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
         """

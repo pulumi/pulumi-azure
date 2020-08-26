@@ -15,7 +15,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountEndpoint")
-    def account_endpoint(self) -> str:
+    def account_endpoint(self) -> pulumi.Output[str]:
         """
         The account endpoint used to interact with the Batch service.
         """
@@ -155,7 +155,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultReference")
-    def key_vault_reference(self) -> Optional['outputs.AccountKeyVaultReference']:
+    def key_vault_reference(self) -> pulumi.Output[Optional['outputs.AccountKeyVaultReference']]:
         """
         A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         """
@@ -163,7 +163,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -171,7 +171,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Batch account. Changing this forces a new resource to be created.
         """
@@ -179,7 +179,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolAllocationMode")
-    def pool_allocation_mode(self) -> Optional[str]:
+    def pool_allocation_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         """
@@ -187,7 +187,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> str:
+    def primary_access_key(self) -> pulumi.Output[str]:
         """
         The Batch account primary access key.
         """
@@ -195,7 +195,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         """
@@ -203,7 +203,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> str:
+    def secondary_access_key(self) -> pulumi.Output[str]:
         """
         The Batch account secondary access key.
         """
@@ -211,7 +211,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> str:
+    def storage_account_id(self) -> pulumi.Output[str]:
         """
         Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         """
@@ -219,7 +219,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

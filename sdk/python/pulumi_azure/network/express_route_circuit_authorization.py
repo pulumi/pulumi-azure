@@ -13,7 +13,7 @@ __all__ = ['ExpressRouteCircuitAuthorization']
 
 class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  express_route_circuit_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> str:
+    def authorization_key(self) -> pulumi.Output[str]:
         """
         The Authorization Key.
         """
@@ -135,7 +135,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationUseStatus")
-    def authorization_use_status(self) -> str:
+    def authorization_use_status(self) -> pulumi.Output[str]:
         """
         The authorization use status.
         """
@@ -143,7 +143,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteCircuitName")
-    def express_route_circuit_name(self) -> str:
+    def express_route_circuit_name(self) -> pulumi.Output[str]:
         """
         The name of the Express Route Circuit in which to create the Authorization.
         """
@@ -151,7 +151,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the ExpressRoute circuit. Changing this forces a
         new resource to be created.
@@ -160,7 +160,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the ExpressRoute circuit. Changing this forces a new resource to be created.

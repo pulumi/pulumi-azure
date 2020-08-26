@@ -15,7 +15,7 @@ __all__ = ['LogProfile']
 
 class LogProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -150,7 +150,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def categories(self) -> List[str]:
+    def categories(self) -> pulumi.Output[List[str]]:
         """
         List of categories of the logs.
         """
@@ -158,7 +158,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> List[str]:
+    def locations(self) -> pulumi.Output[List[str]]:
         """
         List of regions for which Activity Log events are stored or streamed.
         """
@@ -166,7 +166,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Log Profile. Changing this forces a
         new resource to be created.
@@ -175,7 +175,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> 'outputs.LogProfileRetentionPolicy':
+    def retention_policy(self) -> pulumi.Output['outputs.LogProfileRetentionPolicy']:
         """
         A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
         """
@@ -183,7 +183,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicebusRuleId")
-    def servicebus_rule_id(self) -> Optional[str]:
+    def servicebus_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         """
@@ -191,7 +191,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
         """

@@ -15,7 +15,7 @@ __all__ = ['SqlContainer']
 
 class SqlContainer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         """
@@ -159,7 +159,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultTtl")
-    def default_ttl(self) -> float:
+    def default_ttl(self) -> pulumi.Output[float]:
         """
         The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
@@ -167,7 +167,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKeyPath")
-    def partition_key_path(self) -> Optional[str]:
+    def partition_key_path(self) -> pulumi.Output[Optional[str]]:
         """
         Define a partition key. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
         """
@@ -191,7 +191,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def throughput(self) -> float:
+    def throughput(self) -> pulumi.Output[float]:
         """
         The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
@@ -199,7 +199,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueKeys")
-    def unique_keys(self) -> Optional[List['outputs.SqlContainerUniqueKey']]:
+    def unique_keys(self) -> pulumi.Output[Optional[List['outputs.SqlContainerUniqueKey']]]:
         """
         One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """

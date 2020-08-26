@@ -13,7 +13,7 @@ __all__ = ['AccessPolicy']
 
 class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  certificate_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -147,7 +147,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[str]:
+    def application_id(self) -> pulumi.Output[Optional[str]]:
         """
         The object ID of an Application in Azure Active Directory.
         """
@@ -155,7 +155,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificatePermissions")
-    def certificate_permissions(self) -> Optional[List[str]]:
+    def certificate_permissions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of certificate permissions, must be one or more from
         the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
@@ -165,7 +165,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyPermissions")
-    def key_permissions(self) -> Optional[List[str]]:
+    def key_permissions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of key permissions, must be one or more from
         the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
@@ -175,7 +175,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> str:
+    def key_vault_id(self) -> pulumi.Output[str]:
         """
         Specifies the id of the Key Vault resource. Changing this
         forces a new resource to be created.
@@ -184,7 +184,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> str:
+    def object_id(self) -> pulumi.Output[str]:
         """
         The object ID of a user, service principal or security
         group in the Azure Active Directory tenant for the vault. The object ID must
@@ -195,7 +195,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secretPermissions")
-    def secret_permissions(self) -> Optional[List[str]]:
+    def secret_permissions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of secret permissions, must be one or more
         from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
@@ -204,7 +204,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storagePermissions")
-    def storage_permissions(self) -> Optional[List[str]]:
+    def storage_permissions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
         """
@@ -212,7 +212,7 @@ class AccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The Azure Active Directory tenant ID that should be used
         for authenticating requests to the key vault. Changing this forces a new resource

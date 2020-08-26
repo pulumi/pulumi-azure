@@ -15,7 +15,7 @@ __all__ = ['Service']
 
 class Service(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
                  features: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
@@ -170,7 +170,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cors(self) -> List['outputs.ServiceCor']:
+    def cors(self) -> pulumi.Output[List['outputs.ServiceCor']]:
         """
         A `cors` block as documented below.
         """
@@ -178,7 +178,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> List['outputs.ServiceFeature']:
+    def features(self) -> pulumi.Output[List['outputs.ServiceFeature']]:
         """
         A `features` block as documented below.
         """
@@ -186,7 +186,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hostname(self) -> str:
+    def hostname(self) -> pulumi.Output[str]:
         """
         The FQDN of the SignalR service.
         """
@@ -194,7 +194,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> pulumi.Output[str]:
         """
         The publicly accessible IP of the SignalR service.
         """
@@ -202,7 +202,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         """
@@ -210,7 +210,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the SignalR service. Changing this forces a new resource to be created.
         """
@@ -218,7 +218,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> str:
+    def primary_access_key(self) -> pulumi.Output[str]:
         """
         The primary access key for the SignalR service.
         """
@@ -226,7 +226,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> str:
+    def primary_connection_string(self) -> pulumi.Output[str]:
         """
         The primary connection string for the SignalR service.
         """
@@ -234,7 +234,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> float:
+    def public_port(self) -> pulumi.Output[float]:
         """
         The publicly accessible port of the SignalR service which is designed for browser/client use.
         """
@@ -242,7 +242,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         """
@@ -250,7 +250,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> str:
+    def secondary_access_key(self) -> pulumi.Output[str]:
         """
         The secondary access key for the SignalR service.
         """
@@ -258,7 +258,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> str:
+    def secondary_connection_string(self) -> pulumi.Output[str]:
         """
         The secondary connection string for the SignalR service.
         """
@@ -266,7 +266,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> float:
+    def server_port(self) -> pulumi.Output[float]:
         """
         The publicly accessible port of the SignalR service which is designed for customer server side use.
         """
@@ -274,7 +274,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ServiceSku':
+    def sku(self) -> pulumi.Output['outputs.ServiceSku']:
         """
         A `sku` block as documented below.
         """
@@ -282,7 +282,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

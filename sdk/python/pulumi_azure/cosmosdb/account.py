@@ -15,7 +15,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capabilities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
@@ -234,7 +234,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[List['outputs.AccountCapability']]:
+    def capabilities(self) -> pulumi.Output[Optional[List['outputs.AccountCapability']]]:
         """
         The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
         """
@@ -242,7 +242,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> List[str]:
+    def connection_strings(self) -> pulumi.Output[List[str]]:
         """
         A list of connection strings available for this CosmosDB account.
         """
@@ -250,7 +250,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="consistencyPolicy")
-    def consistency_policy(self) -> 'outputs.AccountConsistencyPolicy':
+    def consistency_policy(self) -> pulumi.Output['outputs.AccountConsistencyPolicy']:
         """
         Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         """
@@ -258,7 +258,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
-    def enable_automatic_failover(self) -> Optional[bool]:
+    def enable_automatic_failover(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable automatic fail over for this Cosmos DB account.
         """
@@ -266,7 +266,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableFreeTier")
-    def enable_free_tier(self) -> Optional[bool]:
+    def enable_free_tier(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         """
@@ -274,7 +274,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableMultipleWriteLocations")
-    def enable_multiple_write_locations(self) -> Optional[bool]:
+    def enable_multiple_write_locations(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable multi-master support for this Cosmos DB account.
         """
@@ -282,7 +282,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The endpoint used to connect to the CosmosDB account.
         """
@@ -290,7 +290,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoLocations")
-    def geo_locations(self) -> List['outputs.AccountGeoLocation']:
+    def geo_locations(self) -> pulumi.Output[List['outputs.AccountGeoLocation']]:
         """
         Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
         """
@@ -298,7 +298,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipRangeFilter")
-    def ip_range_filter(self) -> Optional[str]:
+    def ip_range_filter(self) -> pulumi.Output[Optional[str]]:
         """
         CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         """
@@ -306,7 +306,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
-    def is_virtual_network_filter_enabled(self) -> Optional[bool]:
+    def is_virtual_network_filter_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Enables virtual network filtering for this Cosmos DB account.
         """
@@ -314,7 +314,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         """
@@ -322,7 +322,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -330,7 +330,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         """
@@ -338,7 +338,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="offerType")
-    def offer_type(self) -> str:
+    def offer_type(self) -> pulumi.Output[str]:
         """
         Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         """
@@ -346,7 +346,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryMasterKey")
-    def primary_master_key(self) -> str:
+    def primary_master_key(self) -> pulumi.Output[str]:
         """
         The Primary master key for the CosmosDB Account.
         """
@@ -354,7 +354,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryReadonlyMasterKey")
-    def primary_readonly_master_key(self) -> str:
+    def primary_readonly_master_key(self) -> pulumi.Output[str]:
         """
         The Primary read-only master Key for the CosmosDB Account.
         """
@@ -362,7 +362,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readEndpoints")
-    def read_endpoints(self) -> List[str]:
+    def read_endpoints(self) -> pulumi.Output[List[str]]:
         """
         A list of read endpoints available for this CosmosDB account.
         """
@@ -370,7 +370,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         """
@@ -378,7 +378,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryMasterKey")
-    def secondary_master_key(self) -> str:
+    def secondary_master_key(self) -> pulumi.Output[str]:
         """
         The Secondary master key for the CosmosDB Account.
         """
@@ -386,7 +386,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryReadonlyMasterKey")
-    def secondary_readonly_master_key(self) -> str:
+    def secondary_readonly_master_key(self) -> pulumi.Output[str]:
         """
         The Secondary read-only master key for the CosmosDB Account.
         """
@@ -394,7 +394,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -402,7 +402,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.AccountVirtualNetworkRule']]:
+    def virtual_network_rules(self) -> pulumi.Output[Optional[List['outputs.AccountVirtualNetworkRule']]]:
         """
         Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         """
@@ -410,7 +410,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeEndpoints")
-    def write_endpoints(self) -> List[str]:
+    def write_endpoints(self) -> pulumi.Output[List[str]]:
         """
         A list of write endpoints available for this CosmosDB account.
         """

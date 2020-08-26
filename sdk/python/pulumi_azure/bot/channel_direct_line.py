@@ -15,7 +15,7 @@ __all__ = ['ChannelDirectLine']
 
 class ChannelDirectLine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class ChannelDirectLine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> str:
+    def bot_name(self) -> pulumi.Output[str]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
@@ -107,7 +107,7 @@ class ChannelDirectLine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -115,7 +115,7 @@ class ChannelDirectLine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
@@ -123,7 +123,7 @@ class ChannelDirectLine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sites(self) -> List['outputs.ChannelDirectLineSite']:
+    def sites(self) -> pulumi.Output[List['outputs.ChannelDirectLineSite']]:
         """
         A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
         """

@@ -13,7 +13,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  evaluator_type: Optional[pulumi.Input[str]] = None,
@@ -156,7 +156,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for the Policy.
         """
@@ -164,7 +164,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluatorType")
-    def evaluator_type(self) -> str:
+    def evaluator_type(self) -> pulumi.Output[str]:
         """
         The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
         """
@@ -172,7 +172,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="factData")
-    def fact_data(self) -> Optional[str]:
+    def fact_data(self) -> pulumi.Output[Optional[str]]:
         """
         The Fact Data for this Policy.
         """
@@ -180,7 +180,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="labName")
-    def lab_name(self) -> str:
+    def lab_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
         """
@@ -196,7 +196,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policySetName")
-    def policy_set_name(self) -> str:
+    def policy_set_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
         """
@@ -204,7 +204,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         """
@@ -212,7 +212,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -220,7 +220,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def threshold(self) -> str:
+    def threshold(self) -> pulumi.Output[str]:
         """
         The Threshold for this Policy.
         """

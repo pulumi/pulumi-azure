@@ -13,7 +13,7 @@ __all__ = ['Diagnostic']
 
 class Diagnostic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_logger_id: Optional[pulumi.Input[str]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
@@ -136,7 +136,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementLoggerId")
-    def api_management_logger_id(self) -> str:
+    def api_management_logger_id(self) -> pulumi.Output[str]:
         """
         The id of the target API Management Logger where the API Management Diagnostic should be saved.
         """
@@ -144,7 +144,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
         """
@@ -152,12 +152,12 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
-    def identifier(self) -> str:
+    def identifier(self) -> pulumi.Output[str]:
         """
         The diagnostic identifier for the API Management Service. At this time the only supported value is `applicationinsights`. Changing this forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class Diagnostic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """

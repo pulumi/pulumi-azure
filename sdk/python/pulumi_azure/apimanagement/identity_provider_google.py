@@ -13,7 +13,7 @@ __all__ = ['IdentityProviderGoogle']
 
 class IdentityProviderGoogle(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class IdentityProviderGoogle(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where this Google Identity Provider should be created. Changing this forces a new resource to be created.
         """
@@ -127,7 +127,7 @@ class IdentityProviderGoogle(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         Client Id for Google Sign-in.
         """
@@ -135,7 +135,7 @@ class IdentityProviderGoogle(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> pulumi.Output[str]:
         """
         Client secret for Google Sign-in.
         """
@@ -143,7 +143,7 @@ class IdentityProviderGoogle(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """

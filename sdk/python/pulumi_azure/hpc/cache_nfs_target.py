@@ -15,7 +15,7 @@ __all__ = ['CacheNfsTarget']
 
 class CacheNfsTarget(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -117,7 +117,7 @@ class CacheNfsTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheName")
-    def cache_name(self) -> str:
+    def cache_name(self) -> pulumi.Output[str]:
         """
         The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         """
@@ -125,7 +125,7 @@ class CacheNfsTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
         """
@@ -133,7 +133,7 @@ class CacheNfsTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceJunctions")
-    def namespace_junctions(self) -> List['outputs.CacheNfsTargetNamespaceJunction']:
+    def namespace_junctions(self) -> pulumi.Output[List['outputs.CacheNfsTargetNamespaceJunction']]:
         """
         Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         """
@@ -141,7 +141,7 @@ class CacheNfsTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         """
@@ -149,7 +149,7 @@ class CacheNfsTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetHostName")
-    def target_host_name(self) -> str:
+    def target_host_name(self) -> pulumi.Output[str]:
         """
         The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class CacheNfsTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usageModel")
-    def usage_model(self) -> str:
+    def usage_model(self) -> pulumi.Output[str]:
         """
         The type of usage of the HPC Cache NFS Target.
         """

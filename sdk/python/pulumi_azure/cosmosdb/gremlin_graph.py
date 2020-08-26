@@ -15,7 +15,7 @@ __all__ = ['GremlinGraph']
 
 class GremlinGraph(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  conflict_resolution_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]]]] = None,
@@ -170,7 +170,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
         """
@@ -178,7 +178,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="conflictResolutionPolicies")
-    def conflict_resolution_policies(self) -> List['outputs.GremlinGraphConflictResolutionPolicy']:
+    def conflict_resolution_policies(self) -> pulumi.Output[List['outputs.GremlinGraphConflictResolutionPolicy']]:
         """
         The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         """
@@ -186,7 +186,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         """
@@ -194,7 +194,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="indexPolicies")
-    def index_policies(self) -> List['outputs.GremlinGraphIndexPolicy']:
+    def index_policies(self) -> pulumi.Output[List['outputs.GremlinGraphIndexPolicy']]:
         """
         The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
         """
@@ -202,7 +202,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         """
@@ -210,7 +210,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKeyPath")
-    def partition_key_path(self) -> Optional[str]:
+    def partition_key_path(self) -> pulumi.Output[Optional[str]]:
         """
         Define a partition key. Changing this forces a new resource to be created.
         """
@@ -218,7 +218,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         """
@@ -226,7 +226,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def throughput(self) -> float:
+    def throughput(self) -> pulumi.Output[float]:
         """
         The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
@@ -234,7 +234,7 @@ class GremlinGraph(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueKeys")
-    def unique_keys(self) -> Optional[List['outputs.GremlinGraphUniqueKey']]:
+    def unique_keys(self) -> pulumi.Output[Optional[List['outputs.GremlinGraphUniqueKey']]]:
         """
         One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """

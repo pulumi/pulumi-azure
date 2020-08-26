@@ -13,7 +13,7 @@ __all__ = ['Secret']
 
 class Secret(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -117,7 +117,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[str]:
+    def content_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the content type for the Key Vault Secret.
         """
@@ -125,7 +125,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[str]:
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
         Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         """
@@ -133,7 +133,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> str:
+    def key_vault_id(self) -> pulumi.Output[str]:
         """
         The ID of the Key Vault where the Secret should be created.
         """
@@ -141,7 +141,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         """
@@ -149,7 +149,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notBeforeDate")
-    def not_before_date(self) -> Optional[str]:
+    def not_before_date(self) -> pulumi.Output[Optional[str]]:
         """
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         """
@@ -157,7 +157,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -165,7 +165,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Output[str]:
         """
         Specifies the value of the Key Vault Secret.
         """
@@ -173,7 +173,7 @@ class Secret(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The current version of the Key Vault Secret.
         """

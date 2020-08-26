@@ -13,7 +13,7 @@ __all__ = ['ApiVersionSet']
 
 class ApiVersionSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of API Version Set.
         """
@@ -159,7 +159,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of this API Version Set.
         """
@@ -167,7 +167,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the API Version Set. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionHeaderName")
-    def version_header_name(self) -> Optional[str]:
+    def version_header_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Header which should be read from Inbound Requests which defines the API Version.
         """
@@ -191,7 +191,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionQueryName")
-    def version_query_name(self) -> Optional[str]:
+    def version_query_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Query String which should be read from Inbound Requests which defines the API Version.
         """
@@ -199,7 +199,7 @@ class ApiVersionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versioningScheme")
-    def versioning_scheme(self) -> str:
+    def versioning_scheme(self) -> pulumi.Output[str]:
         """
         Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
         """

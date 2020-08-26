@@ -15,7 +15,7 @@ __all__ = ['Schedule']
 
 class Schedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for this Schedule.
         """
@@ -163,7 +163,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expiryTime")
-    def expiry_time(self) -> str:
+    def expiry_time(self) -> pulumi.Output[str]:
         """
         The end time of the schedule.
         """
@@ -171,7 +171,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> str:
+    def frequency(self) -> pulumi.Output[str]:
         """
         The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         """
@@ -179,7 +179,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> pulumi.Output[float]:
         """
         The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
         """
@@ -187,7 +187,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> Optional[List[float]]:
+    def month_days(self) -> pulumi.Output[Optional[List[float]]]:
         """
         List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
         """
@@ -195,7 +195,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[List['outputs.ScheduleMonthlyOccurrence']]:
+    def monthly_occurrences(self) -> pulumi.Output[Optional[List['outputs.ScheduleMonthlyOccurrence']]]:
         """
         List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         """
@@ -203,7 +203,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Schedule. Changing this forces a new resource to be created.
         """
@@ -211,7 +211,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         """
@@ -219,7 +219,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
+    def start_time(self) -> pulumi.Output[str]:
         """
         Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         """
@@ -227,7 +227,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> Optional[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
         """
@@ -235,7 +235,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[List[str]]:
+    def week_days(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of days of the week that the job should execute on. Only valid when frequency is `Week`.
         """

@@ -13,7 +13,7 @@ __all__ = ['ZoneVirtualNetworkLink']
 
 class ZoneVirtualNetworkLink(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_name: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
         """
@@ -131,7 +131,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsZoneName")
-    def private_dns_zone_name(self) -> str:
+    def private_dns_zone_name(self) -> pulumi.Output[str]:
         """
         The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationEnabled")
-    def registration_enabled(self) -> Optional[bool]:
+    def registration_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
         """
@@ -147,7 +147,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -163,7 +163,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkId")
-    def virtual_network_id(self) -> str:
+    def virtual_network_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """

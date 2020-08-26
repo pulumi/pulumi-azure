@@ -15,7 +15,7 @@ __all__ = ['NetworkConnectionMonitor']
 
 class NetworkConnectionMonitor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  destination: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']]] = None,
@@ -169,7 +169,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoStart")
-    def auto_start(self) -> Optional[bool]:
+    def auto_start(self) -> pulumi.Output[Optional[bool]]:
         """
         Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
         """
@@ -177,7 +177,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> 'outputs.NetworkConnectionMonitorDestination':
+    def destination(self) -> pulumi.Output['outputs.NetworkConnectionMonitorDestination']:
         """
         A `destination` block as defined below.
         """
@@ -185,7 +185,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Monitoring interval in seconds.
         """
@@ -193,7 +193,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
         """
@@ -201,7 +201,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
         """
@@ -209,7 +209,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkWatcherName")
-    def network_watcher_name(self) -> str:
+    def network_watcher_name(self) -> pulumi.Output[str]:
         """
         The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
         """
@@ -217,7 +217,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
         """
@@ -225,7 +225,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> 'outputs.NetworkConnectionMonitorSource':
+    def source(self) -> pulumi.Output['outputs.NetworkConnectionMonitorSource']:
         """
         A `source` block as defined below.
         """
@@ -233,7 +233,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Network Connection Monitor.
         """

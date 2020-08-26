@@ -13,7 +13,7 @@ __all__ = ['Extension']
 
 class Extension(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -224,7 +224,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[bool]:
+    def auto_upgrade_minor_version(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the platform deploys
         the latest minor version update to the `type_handler_version` specified.
@@ -233,7 +233,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the virtual machine extension peering. Changing
         this forces a new resource to be created.
@@ -242,7 +242,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[str]:
+    def protected_settings(self) -> pulumi.Output[Optional[str]]:
         """
         The protected_settings passed to the
         extension, like settings, these are specified as a JSON object in a string.
@@ -251,7 +251,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def publisher(self) -> str:
+    def publisher(self) -> pulumi.Output[str]:
         """
         The publisher of the extension, available publishers
         can be found by using the Azure CLI.
@@ -260,7 +260,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[str]:
+    def settings(self) -> pulumi.Output[Optional[str]]:
         """
         The settings passed to the extension, these are
         specified as a JSON object in a string.
@@ -269,7 +269,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -277,7 +277,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of extension, available types for a publisher can
         be found using the Azure CLI.
@@ -286,7 +286,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> str:
+    def type_handler_version(self) -> pulumi.Output[str]:
         """
         Specifies the version of the extension to
         use, available versions can be found using the Azure CLI.
@@ -295,7 +295,7 @@ class Extension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> str:
+    def virtual_machine_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Machine. Changing this forces a new resource to be created
         """

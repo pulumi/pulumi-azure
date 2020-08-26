@@ -13,7 +13,7 @@ __all__ = ['LinkedService']
 
 class LinkedService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> Optional[str]:
+    def linked_service_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
         """
@@ -115,7 +115,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
         """
@@ -123,7 +123,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         """
@@ -131,7 +131,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> str:
+    def resource_id(self) -> pulumi.Output[str]:
         """
         The ID of the Resource that will be linked to the workspace. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -147,7 +147,7 @@ class LinkedService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> str:
+    def workspace_name(self) -> pulumi.Output[str]:
         """
         Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
         """

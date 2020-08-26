@@ -13,7 +13,7 @@ __all__ = ['DpsSharedAccessPolicy']
 
 class DpsSharedAccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enrollment_read: Optional[pulumi.Input[bool]] = None,
                  enrollment_write: Optional[pulumi.Input[bool]] = None,
@@ -156,7 +156,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enrollmentRead")
-    def enrollment_read(self) -> Optional[bool]:
+    def enrollment_read(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
         """
@@ -164,7 +164,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enrollmentWrite")
-    def enrollment_write(self) -> Optional[bool]:
+    def enrollment_write(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
         """
@@ -172,7 +172,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iothubDpsName")
-    def iothub_dps_name(self) -> str:
+    def iothub_dps_name(self) -> pulumi.Output[str]:
         """
         The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         """
@@ -180,7 +180,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> str:
+    def primary_connection_string(self) -> pulumi.Output[str]:
         """
         The primary connection string of the Shared Access Policy.
         """
@@ -196,7 +196,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
+    def primary_key(self) -> pulumi.Output[str]:
         """
         The primary key used to create the authentication token.
         """
@@ -204,7 +204,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationRead")
-    def registration_read(self) -> Optional[bool]:
+    def registration_read(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
         """
@@ -212,7 +212,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationWrite")
-    def registration_write(self) -> Optional[bool]:
+    def registration_write(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
         """
@@ -220,7 +220,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         """
@@ -228,7 +228,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> str:
+    def secondary_connection_string(self) -> pulumi.Output[str]:
         """
         The secondary connection string of the Shared Access Policy.
         """
@@ -236,7 +236,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
+    def secondary_key(self) -> pulumi.Output[str]:
         """
         The secondary key used to create the authentication token.
         """
@@ -244,7 +244,7 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceConfig")
-    def service_config(self) -> Optional[bool]:
+    def service_config(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
         """

@@ -13,7 +13,7 @@ __all__ = ['Embedded']
 
 class Embedded(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrators: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class Embedded(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def administrators(self) -> List[str]:
+    def administrators(self) -> pulumi.Output[List[str]]:
         """
         A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         """
@@ -131,7 +131,7 @@ class Embedded(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class Embedded(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         """
@@ -147,7 +147,7 @@ class Embedded(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class Embedded(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
         """
@@ -163,7 +163,7 @@ class Embedded(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

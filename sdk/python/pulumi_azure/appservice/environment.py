@@ -13,7 +13,7 @@ __all__ = ['Environment']
 
 class Environment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_user_ip_cidrs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[float]] = None,
@@ -158,7 +158,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedUserIpCidrs")
-    def allowed_user_ip_cidrs(self) -> List[str]:
+    def allowed_user_ip_cidrs(self) -> pulumi.Output[List[str]]:
         """
         Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         """
@@ -166,7 +166,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontEndScaleFactor")
-    def front_end_scale_factor(self) -> Optional[float]:
+    def front_end_scale_factor(self) -> pulumi.Output[Optional[float]]:
         """
         Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         """
@@ -174,7 +174,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="internalLoadBalancingMode")
-    def internal_load_balancing_mode(self) -> Optional[str]:
+    def internal_load_balancing_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         """
@@ -182,7 +182,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location where the App Service Environment exists.
         """
@@ -190,7 +190,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the App Service Environment. Changing this forces a new resource to be created.
         """
@@ -198,7 +198,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingTier")
-    def pricing_tier(self) -> Optional[str]:
+    def pricing_tier(self) -> pulumi.Output[Optional[str]]:
         """
         Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         """
@@ -206,7 +206,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         """
@@ -214,7 +214,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         """
@@ -222,7 +222,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
@@ -230,7 +230,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userWhitelistedIpRanges")
-    def user_whitelisted_ip_ranges(self) -> List[str]:
+    def user_whitelisted_ip_ranges(self) -> pulumi.Output[List[str]]:
         return pulumi.get(self, "user_whitelisted_ip_ranges")
 
     def translate_output_property(self, prop):

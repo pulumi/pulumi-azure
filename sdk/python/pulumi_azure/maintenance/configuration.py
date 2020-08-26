@@ -13,7 +13,7 @@ __all__ = ['Configuration']
 
 class Configuration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -123,7 +123,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
         """
@@ -131,7 +131,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[str]:
+    def scope(self) -> pulumi.Output[Optional[str]]:
         """
         The scope of the Maintenance Configuration. Possible values are `All`, `Host`, `Resource` or `InResource`. Default to `All`.
         """
@@ -147,7 +147,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource. The key could not contain upper case letter.
         """

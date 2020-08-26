@@ -15,7 +15,7 @@ __all__ = ['Service']
 
 class Service(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy_object_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
@@ -162,12 +162,12 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicyObjectIds")
-    def access_policy_object_ids(self) -> Optional[List[str]]:
+    def access_policy_object_ids(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "access_policy_object_ids")
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> 'outputs.ServiceAuthenticationConfiguration':
+    def authentication_configuration(self) -> pulumi.Output['outputs.ServiceAuthenticationConfiguration']:
         """
         An `authentication_configuration` block as defined below.
         """
@@ -175,7 +175,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> 'outputs.ServiceCorsConfiguration':
+    def cors_configuration(self) -> pulumi.Output['outputs.ServiceCorsConfiguration']:
         """
         A `cors_configuration` block as defined below.
         """
@@ -183,7 +183,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cosmosdbThroughput")
-    def cosmosdb_throughput(self) -> Optional[float]:
+    def cosmosdb_throughput(self) -> pulumi.Output[Optional[float]]:
         """
         The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         """
@@ -191,7 +191,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         """
@@ -199,7 +199,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure Region where the Service should be created.
         """
@@ -207,7 +207,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the service instance. Used for service endpoint, must be unique within the audience.
         """
@@ -215,7 +215,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which to create the Service.
         """
@@ -223,7 +223,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

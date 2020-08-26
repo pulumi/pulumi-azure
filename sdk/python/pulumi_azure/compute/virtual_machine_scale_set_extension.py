@@ -13,7 +13,7 @@ __all__ = ['VirtualMachineScaleSetExtension']
 
 class VirtualMachineScaleSetExtension(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
@@ -156,7 +156,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> Optional[bool]:
+    def auto_upgrade_minor_version(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         """
@@ -164,7 +164,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> Optional[str]:
+    def force_update_tag(self) -> pulumi.Output[Optional[str]]:
         """
         A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         """
@@ -172,7 +172,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         """
@@ -180,7 +180,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="protectedSettings")
-    def protected_settings(self) -> Optional[str]:
+    def protected_settings(self) -> pulumi.Output[Optional[str]]:
         """
         A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         """
@@ -188,7 +188,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[List[str]]:
+    def provision_after_extensions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         An ordered list of Extension names which this should be provisioned after.
         """
@@ -196,7 +196,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def publisher(self) -> str:
+    def publisher(self) -> pulumi.Output[str]:
         """
         Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         """
@@ -204,7 +204,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[str]:
+    def settings(self) -> pulumi.Output[Optional[str]]:
         """
         A JSON String which specifies Settings for the Extension.
         """
@@ -212,7 +212,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         Specifies the Type of the Extension. Changing this forces a new resource to be created.
         """
@@ -220,7 +220,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> str:
+    def type_handler_version(self) -> pulumi.Output[str]:
         """
         Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         """
@@ -228,7 +228,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineScaleSetId")
-    def virtual_machine_scale_set_id(self) -> str:
+    def virtual_machine_scale_set_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """

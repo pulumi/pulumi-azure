@@ -17,7 +17,7 @@ class Topic(pulumi.CustomResource):
     warnings.warn("azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
@@ -208,7 +208,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> str:
+    def auto_delete_on_idle(self) -> pulumi.Output[str]:
         """
         The ISO 8601 timespan duration of the idle interval after which the
         Topic is automatically deleted, minimum of 5 minutes.
@@ -217,7 +217,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultMessageTtl")
-    def default_message_ttl(self) -> str:
+    def default_message_ttl(self) -> pulumi.Output[str]:
         """
         The ISO 8601 timespan duration of TTL of messages sent to this topic if no
         TTL value is set on the message itself.
@@ -226,7 +226,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> str:
+    def duplicate_detection_history_time_window(self) -> pulumi.Output[str]:
         """
         The ISO 8601 timespan duration during which
         duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
@@ -235,7 +235,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> Optional[bool]:
+    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls if server-side
         batched operations are enabled. Defaults to false.
@@ -244,7 +244,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableExpress")
-    def enable_express(self) -> Optional[bool]:
+    def enable_express(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether Express Entities
         are enabled. An express topic holds a message in memory temporarily before writing
@@ -254,7 +254,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePartitioning")
-    def enable_partitioning(self) -> Optional[bool]:
+    def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether to enable
         the topic to be partitioned across multiple message brokers. Defaults to false.
@@ -264,7 +264,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> float:
+    def max_size_in_megabytes(self) -> pulumi.Output[float]:
         """
         Integer value which controls the size of
         memory allocated for the topic. For supported values see the "Queue/topic size"
@@ -274,7 +274,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the ServiceBus Topic resource. Changing this forces a
         new resource to be created.
@@ -283,7 +283,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the ServiceBus Namespace to create
         this topic in. Changing this forces a new resource to be created.
@@ -292,7 +292,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresDuplicateDetection")
-    def requires_duplicate_detection(self) -> Optional[bool]:
+    def requires_duplicate_detection(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether
         the Topic requires duplicate detection. Defaults to false. Changing this forces
@@ -302,7 +302,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the namespace. Changing this forces a new resource to be created.
@@ -311,7 +311,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         """
@@ -319,7 +319,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportOrdering")
-    def support_ordering(self) -> Optional[bool]:
+    def support_ordering(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether the Topic
         supports ordering. Defaults to false.

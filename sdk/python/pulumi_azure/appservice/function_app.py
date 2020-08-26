@@ -15,7 +15,7 @@ __all__ = ['FunctionApp']
 
 class FunctionApp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -301,7 +301,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServicePlanId")
-    def app_service_plan_id(self) -> str:
+    def app_service_plan_id(self) -> pulumi.Output[str]:
         """
         The ID of the App Service Plan within which to create this Function App.
         """
@@ -309,7 +309,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[Mapping[str, str]]:
+    def app_settings(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
@@ -317,7 +317,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> 'outputs.FunctionAppAuthSettings':
+    def auth_settings(self) -> pulumi.Output['outputs.FunctionAppAuthSettings']:
         """
         A `auth_settings` block as defined below.
         """
@@ -325,7 +325,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> bool:
+    def client_affinity_enabled(self) -> pulumi.Output[bool]:
         """
         Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         """
@@ -333,7 +333,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> List['outputs.FunctionAppConnectionString']:
+    def connection_strings(self) -> pulumi.Output[List['outputs.FunctionAppConnectionString']]:
         """
         An `connection_string` block as defined below.
         """
@@ -341,7 +341,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyMemoryTimeQuota")
-    def daily_memory_time_quota(self) -> Optional[float]:
+    def daily_memory_time_quota(self) -> pulumi.Output[Optional[float]]:
         """
         The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         """
@@ -349,7 +349,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultHostname")
-    def default_hostname(self) -> str:
+    def default_hostname(self) -> pulumi.Output[str]:
         """
         The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         """
@@ -357,7 +357,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBuiltinLogging")
-    def enable_builtin_logging(self) -> Optional[bool]:
+    def enable_builtin_logging(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the built-in logging of this Function App be enabled? Defaults to `true`.
         """
@@ -365,7 +365,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the Function App enabled?
         """
@@ -373,7 +373,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[bool]:
+    def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Can the Function App only be accessed via HTTPS? Defaults to `false`.
         """
@@ -381,7 +381,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.FunctionAppIdentity':
+    def identity(self) -> pulumi.Output['outputs.FunctionAppIdentity']:
         """
         An `identity` block as defined below.
         """
@@ -389,7 +389,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The Function App kind - such as `functionapp,linux,container`
         """
@@ -397,7 +397,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -405,7 +405,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Function App. Changing this forces a new resource to be created.
         """
@@ -413,7 +413,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         A string indicating the Operating System type for this function app.
         """
@@ -421,7 +421,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> str:
+    def outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         """
@@ -429,7 +429,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="possibleOutboundIpAddresses")
-    def possible_outbound_ip_addresses(self) -> str:
+    def possible_outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
@@ -437,7 +437,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Function App.
         """
@@ -445,7 +445,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> 'outputs.FunctionAppSiteConfig':
+    def site_config(self) -> pulumi.Output['outputs.FunctionAppSiteConfig']:
         """
         A `site_config` object as defined below.
         """
@@ -453,7 +453,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> List['outputs.FunctionAppSiteCredential']:
+    def site_credentials(self) -> pulumi.Output[List['outputs.FunctionAppSiteCredential']]:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         """
@@ -461,7 +461,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceControl")
-    def source_control(self) -> 'outputs.FunctionAppSourceControl':
+    def source_control(self) -> pulumi.Output['outputs.FunctionAppSourceControl']:
         """
         A `source_control` block, as defined below.
         """
@@ -469,7 +469,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> str:
+    def storage_account_access_key(self) -> pulumi.Output[str]:
         """
         The access key which will be used to access the backend storage account for the Function App.
         """
@@ -477,7 +477,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         The backend storage account name which will be used by this Function App (such as the dashboard, logs).
         """
@@ -485,12 +485,12 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageConnectionString")
-    def storage_connection_string(self) -> str:
+    def storage_connection_string(self) -> pulumi.Output[str]:
         return pulumi.get(self, "storage_connection_string")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -498,7 +498,7 @@ class FunctionApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The runtime version associated with the Function App. Defaults to `~1`.
         """

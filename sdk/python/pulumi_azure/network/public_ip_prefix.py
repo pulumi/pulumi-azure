@@ -13,7 +13,7 @@ __all__ = ['PublicIpPrefix']
 
 class PublicIpPrefix(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipPrefix")
-    def ip_prefix(self) -> str:
+    def ip_prefix(self) -> pulumi.Output[str]:
         """
         The IP address prefix value that was allocated.
         """
@@ -139,7 +139,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -147,7 +147,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> Optional[float]:
+    def prefix_length(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         """
@@ -163,7 +163,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Public IP Prefix.
         """
@@ -171,7 +171,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[str]:
+    def sku(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
@@ -179,7 +179,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -187,7 +187,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[str]:
+    def zones(self) -> pulumi.Output[Optional[str]]:
         """
         A collection containing the availability zone to allocate the Public IP Prefix in.
         """

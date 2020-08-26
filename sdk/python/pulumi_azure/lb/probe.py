@@ -13,7 +13,7 @@ __all__ = ['Probe']
 
 class Probe(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  interval_in_seconds: Optional[pulumi.Input[float]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
@@ -150,7 +150,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         """
@@ -158,12 +158,12 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerRules")
-    def load_balancer_rules(self) -> List[str]:
+    def load_balancer_rules(self) -> pulumi.Output[List[str]]:
         return pulumi.get(self, "load_balancer_rules")
 
     @property
     @pulumi.getter(name="loadbalancerId")
-    def loadbalancer_id(self) -> str:
+    def loadbalancer_id(self) -> pulumi.Output[str]:
         """
         The ID of the LoadBalancer in which to create the NAT Rule.
         """
@@ -171,7 +171,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Probe.
         """
@@ -179,7 +179,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfProbes")
-    def number_of_probes(self) -> Optional[float]:
+    def number_of_probes(self) -> pulumi.Output[Optional[float]]:
         """
         The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         """
@@ -187,7 +187,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         """
@@ -195,7 +195,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         """
@@ -203,7 +203,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestPath")
-    def request_path(self) -> Optional[str]:
+    def request_path(self) -> pulumi.Output[Optional[str]]:
         """
         The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         """
@@ -211,7 +211,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the resource.
         """

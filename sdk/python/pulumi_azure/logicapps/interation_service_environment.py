@@ -13,7 +13,7 @@ __all__ = ['InterationServiceEnvironment']
 
 class InterationServiceEnvironment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoint_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessEndpointType")
-    def access_endpoint_type(self) -> str:
+    def access_endpoint_type(self) -> pulumi.Output[str]:
         """
         The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
         """
@@ -188,7 +188,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorEndpointIpAddresses")
-    def connector_endpoint_ip_addresses(self) -> List[str]:
+    def connector_endpoint_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of access endpoint ip addresses of connector.
         """
@@ -196,7 +196,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorOutboundIpAddresses")
-    def connector_outbound_ip_addresses(self) -> List[str]:
+    def connector_outbound_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of outgoing ip addresses of connector.
         """
@@ -204,7 +204,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         """
@@ -212,7 +212,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
         """
@@ -220,7 +220,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         """
@@ -228,7 +228,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[str]:
+    def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
         The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
         """
@@ -236,7 +236,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Integration Service Environment.
         """
@@ -244,7 +244,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> List[str]:
+    def virtual_network_subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         """
@@ -252,7 +252,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowEndpointIpAddresses")
-    def workflow_endpoint_ip_addresses(self) -> List[str]:
+    def workflow_endpoint_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of access endpoint ip addresses of workflow.
         """
@@ -260,7 +260,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowOutboundIpAddresses")
-    def workflow_outbound_ip_addresses(self) -> List[str]:
+    def workflow_outbound_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of outgoing ip addresses of workflow.
         """

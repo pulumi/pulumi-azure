@@ -13,7 +13,7 @@ __all__ = ['Agreement']
 
 class Agreement(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  offer: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[str]] = None,
@@ -109,12 +109,12 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseTextLink")
-    def license_text_link(self) -> str:
+    def license_text_link(self) -> pulumi.Output[str]:
         return pulumi.get(self, "license_text_link")
 
     @property
     @pulumi.getter
-    def offer(self) -> str:
+    def offer(self) -> pulumi.Output[str]:
         """
         The Offer of the Marketplace Image. Changing this forces a new resource to be created.
         """
@@ -122,7 +122,7 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> str:
+    def plan(self) -> pulumi.Output[str]:
         """
         The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         """
@@ -130,12 +130,12 @@ class Agreement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privacyPolicyLink")
-    def privacy_policy_link(self) -> str:
+    def privacy_policy_link(self) -> pulumi.Output[str]:
         return pulumi.get(self, "privacy_policy_link")
 
     @property
     @pulumi.getter
-    def publisher(self) -> str:
+    def publisher(self) -> pulumi.Output[str]:
         """
         The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         """

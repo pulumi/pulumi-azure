@@ -13,7 +13,7 @@ __all__ = ['ApiOperationPolicy']
 
 class ApiOperationPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
@@ -138,7 +138,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> str:
+    def api_name(self) -> pulumi.Output[str]:
         """
         The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
         """
@@ -146,12 +146,12 @@ class ApiOperationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operationId")
-    def operation_id(self) -> str:
+    def operation_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "operation_id")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -159,7 +159,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xmlContent")
-    def xml_content(self) -> str:
+    def xml_content(self) -> pulumi.Output[str]:
         """
         The XML Content for this Policy.
         """
@@ -167,7 +167,7 @@ class ApiOperationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xmlLink")
-    def xml_link(self) -> Optional[str]:
+    def xml_link(self) -> pulumi.Output[Optional[str]]:
         """
         A link to a Policy XML Document, which must be publicly available.
         """

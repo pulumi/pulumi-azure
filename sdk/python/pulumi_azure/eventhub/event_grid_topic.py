@@ -19,7 +19,7 @@ class EventGridTopic(pulumi.CustomResource):
     warnings.warn("azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
                  input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
@@ -147,7 +147,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The Endpoint associated with the EventGrid Topic.
         """
@@ -155,7 +155,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputMappingDefaultValues")
-    def input_mapping_default_values(self) -> Optional['outputs.EventGridTopicInputMappingDefaultValues']:
+    def input_mapping_default_values(self) -> pulumi.Output[Optional['outputs.EventGridTopicInputMappingDefaultValues']]:
         """
         A `input_mapping_default_values` block as defined below.
         """
@@ -163,7 +163,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputMappingFields")
-    def input_mapping_fields(self) -> Optional['outputs.EventGridTopicInputMappingFields']:
+    def input_mapping_fields(self) -> pulumi.Output[Optional['outputs.EventGridTopicInputMappingFields']]:
         """
         A `input_mapping_fields` block as defined below.
         """
@@ -171,7 +171,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputSchema")
-    def input_schema(self) -> Optional[str]:
+    def input_schema(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         """
@@ -179,7 +179,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -187,7 +187,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
         """
@@ -195,7 +195,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> str:
+    def primary_access_key(self) -> pulumi.Output[str]:
         """
         The Primary Shared Access Key associated with the EventGrid Topic.
         """
@@ -203,7 +203,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
         """
@@ -211,7 +211,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> str:
+    def secondary_access_key(self) -> pulumi.Output[str]:
         """
         The Secondary Shared Access Key associated with the EventGrid Topic.
         """
@@ -219,7 +219,7 @@ class EventGridTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

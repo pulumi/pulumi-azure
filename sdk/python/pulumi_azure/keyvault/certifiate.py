@@ -19,7 +19,7 @@ class Certifiate(pulumi.CustomResource):
     warnings.warn("azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']]] = None,
                  certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']]] = None,
@@ -236,7 +236,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional['outputs.CertifiateCertificate']:
+    def certificate(self) -> pulumi.Output[Optional['outputs.CertifiateCertificate']]:
         """
         A `certificate` block as defined below, used to Import an existing certificate.
         """
@@ -244,7 +244,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateAttributes")
-    def certificate_attributes(self) -> List['outputs.CertifiateCertificateAttribute']:
+    def certificate_attributes(self) -> pulumi.Output[List['outputs.CertifiateCertificateAttribute']]:
         """
         A `certificate_attribute` block as defined below.
         """
@@ -252,7 +252,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateData")
-    def certificate_data(self) -> str:
+    def certificate_data(self) -> pulumi.Output[str]:
         """
         The raw Key Vault Certificate data represented as a hexadecimal string.
         """
@@ -260,7 +260,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificatePolicy")
-    def certificate_policy(self) -> 'outputs.CertifiateCertificatePolicy':
+    def certificate_policy(self) -> pulumi.Output['outputs.CertifiateCertificatePolicy']:
         """
         A `certificate_policy` block as defined below.
         """
@@ -268,7 +268,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> str:
+    def key_vault_id(self) -> pulumi.Output[str]:
         """
         The ID of the Key Vault where the Certificate should be created.
         """
@@ -276,7 +276,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         """
@@ -284,7 +284,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secretId")
-    def secret_id(self) -> str:
+    def secret_id(self) -> pulumi.Output[str]:
         """
         The ID of the associated Key Vault Secret.
         """
@@ -292,7 +292,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -300,7 +300,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
         """
@@ -308,7 +308,7 @@ class Certifiate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The current version of the Key Vault Certificate.
         """

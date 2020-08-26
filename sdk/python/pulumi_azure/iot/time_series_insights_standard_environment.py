@@ -13,7 +13,7 @@ __all__ = ['TimeSeriesInsightsStandardEnvironment']
 
 class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_retention_time: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataRetentionTime")
-    def data_retention_time(self) -> str:
+    def data_retention_time(self) -> pulumi.Output[str]:
         """
         Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
         """
@@ -143,7 +143,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Azure IoT Time Series Insights Standard Environment. Changing this forces a new resource to be created. Must be globally unique.
         """
@@ -159,7 +159,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> Optional[str]:
+    def partition_key(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the event property which will be used to partition data. Changing this forces a new resource to be created.
         """
@@ -167,7 +167,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
         """
@@ -175,7 +175,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         Specifies the SKU Name for this IoT Time Series Insights Standard Environment. It is string consisting of two parts separated by an underscore(\_).The fist part is the `name`, valid values include: `S1` and `S2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `S1_1`). Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageLimitExceededBehavior")
-    def storage_limit_exceeded_behavior(self) -> Optional[str]:
+    def storage_limit_exceeded_behavior(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         """
@@ -191,7 +191,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['EventHub']
 
 class EventHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
                  message_retention: Optional[pulumi.Input[float]] = None,
@@ -139,7 +139,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="captureDescription")
-    def capture_description(self) -> Optional['outputs.EventHubCaptureDescription']:
+    def capture_description(self) -> pulumi.Output[Optional['outputs.EventHubCaptureDescription']]:
         """
         A `capture_description` block as defined below.
         """
@@ -147,7 +147,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="messageRetention")
-    def message_retention(self) -> float:
+    def message_retention(self) -> pulumi.Output[float]:
         """
         Specifies the number of days to retain the events for this Event Hub.
         """
@@ -155,7 +155,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         """
@@ -163,7 +163,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
         """
@@ -171,7 +171,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> float:
+    def partition_count(self) -> pulumi.Output[float]:
         """
         Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
         """
@@ -179,7 +179,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionIds")
-    def partition_ids(self) -> List[str]:
+    def partition_ids(self) -> pulumi.Output[List[str]]:
         """
         The identifiers for partitions created for Event Hubs.
         """
@@ -187,7 +187,7 @@ class EventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
         """

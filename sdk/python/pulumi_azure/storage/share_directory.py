@@ -13,7 +13,7 @@ __all__ = ['ShareDirectory']
 
 class ShareDirectory(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class ShareDirectory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of metadata to assign to this Directory.
         """
@@ -123,7 +123,7 @@ class ShareDirectory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
         """
@@ -131,7 +131,7 @@ class ShareDirectory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> str:
+    def share_name(self) -> pulumi.Output[str]:
         """
         The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class ShareDirectory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
         """

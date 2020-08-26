@@ -15,7 +15,7 @@ __all__ = ['Endpoint']
 
 class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -181,12 +181,12 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDnsConfigs")
-    def custom_dns_configs(self) -> List['outputs.EndpointCustomDnsConfig']:
+    def custom_dns_configs(self) -> pulumi.Output[List['outputs.EndpointCustomDnsConfig']]:
         return pulumi.get(self, "custom_dns_configs")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -194,7 +194,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
@@ -202,12 +202,12 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")
-    def private_dns_zone_configs(self) -> List['outputs.EndpointPrivateDnsZoneConfig']:
+    def private_dns_zone_configs(self) -> pulumi.Output[List['outputs.EndpointPrivateDnsZoneConfig']]:
         return pulumi.get(self, "private_dns_zone_configs")
 
     @property
     @pulumi.getter(name="privateDnsZoneGroup")
-    def private_dns_zone_group(self) -> Optional['outputs.EndpointPrivateDnsZoneGroup']:
+    def private_dns_zone_group(self) -> pulumi.Output[Optional['outputs.EndpointPrivateDnsZoneGroup']]:
         """
         A `private_dns_zone_group` block as defined below.
         """
@@ -215,7 +215,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateServiceConnection")
-    def private_service_connection(self) -> 'outputs.EndpointPrivateServiceConnection':
+    def private_service_connection(self) -> pulumi.Output['outputs.EndpointPrivateServiceConnection']:
         """
         A `private_service_connection` block as defined below.
         """
@@ -223,7 +223,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         """
@@ -231,7 +231,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         """
@@ -239,7 +239,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

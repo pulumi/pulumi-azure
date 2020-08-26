@@ -15,7 +15,7 @@ __all__ = ['PointToPointVpnGateway']
 
 class PointToPointVpnGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_configuration: Optional[pulumi.Input[pulumi.InputType['PointToPointVpnGatewayConnectionConfigurationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionConfiguration")
-    def connection_configuration(self) -> 'outputs.PointToPointVpnGatewayConnectionConfiguration':
+    def connection_configuration(self) -> pulumi.Output['outputs.PointToPointVpnGatewayConnectionConfiguration']:
         """
         A `connection_configuration` block as defined below.
         """
@@ -149,7 +149,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> float:
+    def scale_unit(self) -> pulumi.Output[float]:
         """
         The Scale Unit for this Point-to-Site VPN Gateway.
         """
@@ -181,7 +181,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Point-to-Site VPN Gateway.
         """
@@ -189,7 +189,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHubId")
-    def virtual_hub_id(self) -> str:
+    def virtual_hub_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
         """
@@ -197,7 +197,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnServerConfigurationId")
-    def vpn_server_configuration_id(self) -> str:
+    def vpn_server_configuration_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['FunctionJavaScriptUDF']
 
 class FunctionJavaScriptUDF(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inputs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -139,7 +139,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def inputs(self) -> List['outputs.FunctionJavaScriptUDFInput']:
+    def inputs(self) -> pulumi.Output[List['outputs.FunctionJavaScriptUDFInput']]:
         """
         One or more `input` blocks as defined below.
         """
@@ -147,7 +147,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def output(self) -> 'outputs.FunctionJavaScriptUDFOutput':
+    def output(self) -> pulumi.Output['outputs.FunctionJavaScriptUDFOutput']:
         """
         An `output` blocks as defined below.
         """
@@ -163,7 +163,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         """
@@ -171,7 +171,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def script(self) -> str:
+    def script(self) -> pulumi.Output[str]:
         """
         The JavaScript of this UDF Function.
         """
@@ -179,7 +179,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> str:
+    def stream_analytics_job_name(self) -> pulumi.Output[str]:
         """
         The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
         """

@@ -13,7 +13,7 @@ __all__ = ['Job']
 
 class Job(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatibility_level: Optional[pulumi.Input[str]] = None,
                  data_locale: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="compatibilityLevel")
-    def compatibility_level(self) -> str:
+    def compatibility_level(self) -> pulumi.Output[str]:
         """
         Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
         """
@@ -183,7 +183,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataLocale")
-    def data_locale(self) -> str:
+    def data_locale(self) -> pulumi.Output[str]:
         """
         Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
         """
@@ -191,7 +191,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
-    def events_late_arrival_max_delay_in_seconds(self) -> Optional[float]:
+    def events_late_arrival_max_delay_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
         """
@@ -199,7 +199,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventsOutOfOrderMaxDelayInSeconds")
-    def events_out_of_order_max_delay_in_seconds(self) -> Optional[float]:
+    def events_out_of_order_max_delay_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
         """
@@ -207,7 +207,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventsOutOfOrderPolicy")
-    def events_out_of_order_policy(self) -> Optional[str]:
+    def events_out_of_order_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
         """
@@ -215,7 +215,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobId")
-    def job_id(self) -> str:
+    def job_id(self) -> pulumi.Output[str]:
         """
         The Job ID assigned by the Stream Analytics Job.
         """
@@ -223,7 +223,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         """
@@ -231,7 +231,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
@@ -239,7 +239,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outputErrorPolicy")
-    def output_error_policy(self) -> Optional[str]:
+    def output_error_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
         """
@@ -247,7 +247,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         """
@@ -255,7 +255,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamingUnits")
-    def streaming_units(self) -> float:
+    def streaming_units(self) -> pulumi.Output[float]:
         """
         Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         """
@@ -263,7 +263,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags assigned to the resource.
         """
@@ -271,7 +271,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transformationQuery")
-    def transformation_query(self) -> str:
+    def transformation_query(self) -> pulumi.Output[str]:
         """
         Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         """

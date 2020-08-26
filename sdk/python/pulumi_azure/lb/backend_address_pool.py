@@ -13,7 +13,7 @@ __all__ = ['BackendAddressPool']
 
 class BackendAddressPool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendIpConfigurations")
-    def backend_ip_configurations(self) -> List[str]:
+    def backend_ip_configurations(self) -> pulumi.Output[List[str]]:
         """
         The Backend IP Configurations associated with this Backend Address Pool.
         """
@@ -130,7 +130,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> List[str]:
+    def load_balancing_rules(self) -> pulumi.Output[List[str]]:
         """
         The Load Balancing Rules associated with this Backend Address Pool.
         """
@@ -138,7 +138,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadbalancerId")
-    def loadbalancer_id(self) -> str:
+    def loadbalancer_id(self) -> pulumi.Output[str]:
         """
         The ID of the Load Balancer in which to create the Backend Address Pool.
         """
@@ -146,7 +146,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Backend Address Pool.
         """
@@ -154,7 +154,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the resource.
         """

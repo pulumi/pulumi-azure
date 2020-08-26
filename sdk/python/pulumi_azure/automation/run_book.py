@@ -15,7 +15,7 @@ __all__ = ['RunBook']
 
 class RunBook(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
@@ -173,7 +173,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> pulumi.Output[str]:
         """
         The desired content of the runbook.
         """
@@ -189,7 +189,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for this credential.
         """
@@ -197,12 +197,12 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobSchedules")
-    def job_schedules(self) -> List['outputs.RunBookJobSchedule']:
+    def job_schedules(self) -> pulumi.Output[List['outputs.RunBookJobSchedule']]:
         return pulumi.get(self, "job_schedules")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -210,7 +210,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logProgress")
-    def log_progress(self) -> bool:
+    def log_progress(self) -> pulumi.Output[bool]:
         """
         Progress log option.
         """
@@ -218,7 +218,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logVerbose")
-    def log_verbose(self) -> bool:
+    def log_verbose(self) -> pulumi.Output[bool]:
         """
         Verbose log option.
         """
@@ -226,7 +226,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Runbook. Changing this forces a new resource to be created.
         """
@@ -234,7 +234,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional['outputs.RunBookPublishContentLink']:
+    def publish_content_link(self) -> pulumi.Output[Optional['outputs.RunBookPublishContentLink']]:
         """
         The published runbook content link.
         """
@@ -242,7 +242,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         """
@@ -250,7 +250,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runbookType")
-    def runbook_type(self) -> str:
+    def runbook_type(self) -> pulumi.Output[str]:
         """
         The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
         """
@@ -258,7 +258,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

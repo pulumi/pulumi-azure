@@ -15,7 +15,7 @@ __all__ = ['DatasetPostgresql']
 
 class DatasetPostgresql(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -161,7 +161,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[Mapping[str, str]]:
+    def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
         """
@@ -169,7 +169,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[str]]:
+    def annotations(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
         """
@@ -177,7 +177,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> str:
+    def data_factory_name(self) -> pulumi.Output[str]:
         """
         The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         """
@@ -185,7 +185,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description for the Data Factory Dataset PostgreSQL.
         """
@@ -193,7 +193,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def folder(self) -> Optional[str]:
+    def folder(self) -> pulumi.Output[Optional[str]]:
         """
         The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         """
@@ -201,7 +201,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> str:
+    def linked_service_name(self) -> pulumi.Output[str]:
         """
         The Data Factory Linked Service name in which to associate the Dataset with.
         """
@@ -209,7 +209,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         """
@@ -217,7 +217,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of parameters to associate with the Data Factory Dataset PostgreSQL.
         """
@@ -225,7 +225,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Data Factory Dataset PostgreSQL. Changing this forces a new resource
         """
@@ -233,7 +233,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[List['outputs.DatasetPostgresqlSchemaColumn']]:
+    def schema_columns(self) -> pulumi.Output[Optional[List['outputs.DatasetPostgresqlSchemaColumn']]]:
         """
         A `schema_column` block as defined below.
         """
@@ -241,7 +241,7 @@ class DatasetPostgresql(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[str]:
+    def table_name(self) -> pulumi.Output[Optional[str]]:
         """
         The table name of the Data Factory Dataset PostgreSQL.
         """

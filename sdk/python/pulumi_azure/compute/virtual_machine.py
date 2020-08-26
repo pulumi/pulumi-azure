@@ -15,7 +15,7 @@ __all__ = ['VirtualMachine']
 
 class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAdditionalCapabilitiesArgs']]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
@@ -287,7 +287,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional['outputs.VirtualMachineAdditionalCapabilities']:
+    def additional_capabilities(self) -> pulumi.Output[Optional['outputs.VirtualMachineAdditionalCapabilities']]:
         """
         A `additional_capabilities` block.
         """
@@ -295,7 +295,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilitySetId")
-    def availability_set_id(self) -> str:
+    def availability_set_id(self) -> pulumi.Output[str]:
         """
         The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         """
@@ -303,7 +303,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional['outputs.VirtualMachineBootDiagnostics']:
+    def boot_diagnostics(self) -> pulumi.Output[Optional['outputs.VirtualMachineBootDiagnostics']]:
         """
         A `boot_diagnostics` block.
         """
@@ -311,7 +311,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deleteDataDisksOnTermination")
-    def delete_data_disks_on_termination(self) -> Optional[bool]:
+    def delete_data_disks_on_termination(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
         """
@@ -319,7 +319,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deleteOsDiskOnTermination")
-    def delete_os_disk_on_termination(self) -> Optional[bool]:
+    def delete_os_disk_on_termination(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
         """
@@ -327,7 +327,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.VirtualMachineIdentity':
+    def identity(self) -> pulumi.Output['outputs.VirtualMachineIdentity']:
         """
         A `identity` block.
         """
@@ -335,7 +335,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> str:
+    def license_type(self) -> pulumi.Output[str]:
         """
         Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         """
@@ -343,7 +343,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
         """
@@ -351,7 +351,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -359,7 +359,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> List[str]:
+    def network_interface_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of Network Interface ID's which should be associated with the Virtual Machine.
         """
@@ -367,7 +367,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional['outputs.VirtualMachineOsProfile']:
+    def os_profile(self) -> pulumi.Output[Optional['outputs.VirtualMachineOsProfile']]:
         """
         An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         """
@@ -375,7 +375,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfileLinuxConfig")
-    def os_profile_linux_config(self) -> Optional['outputs.VirtualMachineOsProfileLinuxConfig']:
+    def os_profile_linux_config(self) -> pulumi.Output[Optional['outputs.VirtualMachineOsProfileLinuxConfig']]:
         """
         A `os_profile_linux_config` block.
         """
@@ -383,7 +383,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfileSecrets")
-    def os_profile_secrets(self) -> Optional[List['outputs.VirtualMachineOsProfileSecret']]:
+    def os_profile_secrets(self) -> pulumi.Output[Optional[List['outputs.VirtualMachineOsProfileSecret']]]:
         """
         One or more `os_profile_secrets` blocks.
         """
@@ -391,7 +391,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfileWindowsConfig")
-    def os_profile_windows_config(self) -> Optional['outputs.VirtualMachineOsProfileWindowsConfig']:
+    def os_profile_windows_config(self) -> pulumi.Output[Optional['outputs.VirtualMachineOsProfileWindowsConfig']]:
         """
         A `os_profile_windows_config` block.
         """
@@ -399,7 +399,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.VirtualMachinePlan']:
+    def plan(self) -> pulumi.Output[Optional['outputs.VirtualMachinePlan']]:
         """
         A `plan` block.
         """
@@ -407,7 +407,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryNetworkInterfaceId")
-    def primary_network_interface_id(self) -> Optional[str]:
+    def primary_network_interface_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
         """
@@ -415,7 +415,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[str]:
+    def proximity_placement_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         """
@@ -423,7 +423,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         """
@@ -431,7 +431,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageDataDisks")
-    def storage_data_disks(self) -> List['outputs.VirtualMachineStorageDataDisk']:
+    def storage_data_disks(self) -> pulumi.Output[List['outputs.VirtualMachineStorageDataDisk']]:
         """
         One or more `storage_data_disk` blocks.
         """
@@ -439,7 +439,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageImageReference")
-    def storage_image_reference(self) -> 'outputs.VirtualMachineStorageImageReference':
+    def storage_image_reference(self) -> pulumi.Output['outputs.VirtualMachineStorageImageReference']:
         """
         A `storage_image_reference` block.
         """
@@ -447,7 +447,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageOsDisk")
-    def storage_os_disk(self) -> 'outputs.VirtualMachineStorageOsDisk':
+    def storage_os_disk(self) -> pulumi.Output['outputs.VirtualMachineStorageOsDisk']:
         """
         A `storage_os_disk` block.
         """
@@ -455,7 +455,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Virtual Machine.
         """
@@ -463,7 +463,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
+    def vm_size(self) -> pulumi.Output[str]:
         """
         Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
         """
@@ -471,7 +471,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[str]:
+    def zones(self) -> pulumi.Output[Optional[str]]:
         """
         A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
         """

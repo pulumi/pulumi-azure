@@ -13,7 +13,7 @@ __all__ = ['IotHubCertificate']
 
 class IotHubCertificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_content: Optional[pulumi.Input[str]] = None,
                  iot_dps_name: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,7 @@ class IotHubCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateContent")
-    def certificate_content(self) -> str:
+    def certificate_content(self) -> pulumi.Output[str]:
         """
         The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
         """
@@ -105,7 +105,7 @@ class IotHubCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iotDpsName")
-    def iot_dps_name(self) -> str:
+    def iot_dps_name(self) -> pulumi.Output[str]:
         """
         The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
         """
@@ -113,7 +113,7 @@ class IotHubCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         """
@@ -121,7 +121,7 @@ class IotHubCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
         """

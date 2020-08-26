@@ -13,7 +13,7 @@ __all__ = ['AnalyticsFirewallRule']
 
 class AnalyticsFirewallRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class AnalyticsFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
         """
@@ -134,7 +134,7 @@ class AnalyticsFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> str:
+    def end_ip_address(self) -> pulumi.Output[str]:
         """
         The End IP Address for the firewall rule.
         """
@@ -142,7 +142,7 @@ class AnalyticsFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Lake Analytics. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
         """
@@ -150,7 +150,7 @@ class AnalyticsFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Data Lake Analytics.
         """
@@ -158,7 +158,7 @@ class AnalyticsFirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> str:
+    def start_ip_address(self) -> pulumi.Output[str]:
         """
         The Start IP address for the firewall rule.
         """

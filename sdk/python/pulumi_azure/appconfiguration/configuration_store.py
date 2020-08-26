@@ -15,7 +15,7 @@ __all__ = ['ConfigurationStore']
 
 class ConfigurationStore(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The URL of the App Configuration.
         """
@@ -141,7 +141,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -149,7 +149,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryReadKeys")
-    def primary_read_keys(self) -> List['outputs.ConfigurationStorePrimaryReadKey']:
+    def primary_read_keys(self) -> pulumi.Output[List['outputs.ConfigurationStorePrimaryReadKey']]:
         """
         A `primary_read_key` block as defined below containing the primary read access key.
         """
@@ -165,7 +165,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryWriteKeys")
-    def primary_write_keys(self) -> List['outputs.ConfigurationStorePrimaryWriteKey']:
+    def primary_write_keys(self) -> pulumi.Output[List['outputs.ConfigurationStorePrimaryWriteKey']]:
         """
         A `primary_write_key` block as defined below containing the primary write access key.
         """
@@ -173,7 +173,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryReadKeys")
-    def secondary_read_keys(self) -> List['outputs.ConfigurationStoreSecondaryReadKey']:
+    def secondary_read_keys(self) -> pulumi.Output[List['outputs.ConfigurationStoreSecondaryReadKey']]:
         """
         A `secondary_read_key` block as defined below containing the secondary read access key.
         """
@@ -189,7 +189,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryWriteKeys")
-    def secondary_write_keys(self) -> List['outputs.ConfigurationStoreSecondaryWriteKey']:
+    def secondary_write_keys(self) -> pulumi.Output[List['outputs.ConfigurationStoreSecondaryWriteKey']]:
         """
         A `secondary_write_key` block as defined below containing the secondary write access key.
         """
@@ -197,7 +197,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[str]:
+    def sku(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU name of the the App Configuration. Possible values are `free` and `standard`.
         """
@@ -205,7 +205,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

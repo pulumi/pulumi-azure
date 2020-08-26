@@ -13,7 +13,7 @@ __all__ = ['ProtectedFileShare']
 
 class ProtectedFileShare(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
@@ -150,7 +150,7 @@ class ProtectedFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> str:
+    def backup_policy_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
         """
@@ -158,7 +158,7 @@ class ProtectedFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
@@ -166,7 +166,7 @@ class ProtectedFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
         """
@@ -174,7 +174,7 @@ class ProtectedFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceFileShareName")
-    def source_file_share_name(self) -> str:
+    def source_file_share_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the file share to backup. Changing this forces a new resource to be created.
         """
@@ -182,7 +182,7 @@ class ProtectedFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceStorageAccountId")
-    def source_storage_account_id(self) -> str:
+    def source_storage_account_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
         """

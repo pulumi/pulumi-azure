@@ -19,7 +19,7 @@ class Definition(pulumi.CustomResource):
     warnings.warn("azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assignable_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assignableScopes")
-    def assignable_scopes(self) -> List[str]:
+    def assignable_scopes(self) -> pulumi.Output[List[str]]:
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         """
@@ -141,7 +141,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the Role Definition.
         """
@@ -149,7 +149,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Role Definition. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def permissions(self) -> List['outputs.DefinitionPermission']:
+    def permissions(self) -> pulumi.Output[List['outputs.DefinitionPermission']]:
         """
         A `permissions` block as defined below.
         """
@@ -165,7 +165,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> str:
+    def role_definition_id(self) -> pulumi.Output[str]:
         """
         A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         """

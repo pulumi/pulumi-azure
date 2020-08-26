@@ -15,7 +15,7 @@ __all__ = ['IoTHub']
 
 class IoTHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
                  event_hub_partition_count: Optional[pulumi.Input[float]] = None,
@@ -253,7 +253,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> List['outputs.IoTHubEndpoint']:
+    def endpoints(self) -> pulumi.Output[List['outputs.IoTHubEndpoint']]:
         """
         An `endpoint` block as defined below.
         """
@@ -261,7 +261,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubEventsEndpoint")
-    def event_hub_events_endpoint(self) -> str:
+    def event_hub_events_endpoint(self) -> pulumi.Output[str]:
         """
         The EventHub compatible endpoint for events data
         """
@@ -269,7 +269,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubEventsPath")
-    def event_hub_events_path(self) -> str:
+    def event_hub_events_path(self) -> pulumi.Output[str]:
         """
         The EventHub compatible path for events data
         """
@@ -277,7 +277,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubOperationsEndpoint")
-    def event_hub_operations_endpoint(self) -> str:
+    def event_hub_operations_endpoint(self) -> pulumi.Output[str]:
         """
         The EventHub compatible endpoint for operational data
         """
@@ -285,7 +285,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubOperationsPath")
-    def event_hub_operations_path(self) -> str:
+    def event_hub_operations_path(self) -> pulumi.Output[str]:
         """
         The EventHub compatible path for operational data
         """
@@ -293,7 +293,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubPartitionCount")
-    def event_hub_partition_count(self) -> float:
+    def event_hub_partition_count(self) -> pulumi.Output[float]:
         """
         The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         """
@@ -301,7 +301,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubRetentionInDays")
-    def event_hub_retention_in_days(self) -> float:
+    def event_hub_retention_in_days(self) -> pulumi.Output[float]:
         """
         The event hub retention to use in days. Must be between `1` and `7`.
         """
@@ -309,7 +309,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fallbackRoute")
-    def fallback_route(self) -> 'outputs.IoTHubFallbackRoute':
+    def fallback_route(self) -> pulumi.Output['outputs.IoTHubFallbackRoute']:
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         """
@@ -317,7 +317,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileUpload")
-    def file_upload(self) -> Optional['outputs.IoTHubFileUpload']:
+    def file_upload(self) -> pulumi.Output[Optional['outputs.IoTHubFileUpload']]:
         """
         A `file_upload` block as defined below.
         """
@@ -325,7 +325,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hostname(self) -> str:
+    def hostname(self) -> pulumi.Output[str]:
         """
         The hostname of the IotHub Resource.
         """
@@ -333,7 +333,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipFilterRules")
-    def ip_filter_rules(self) -> Optional[List['outputs.IoTHubIpFilterRule']]:
+    def ip_filter_rules(self) -> pulumi.Output[Optional[List['outputs.IoTHubIpFilterRule']]]:
         """
         One or more `ip_filter_rule` blocks as defined below.
         """
@@ -341,7 +341,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         """
@@ -349,7 +349,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         """
@@ -357,7 +357,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         """
@@ -365,7 +365,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> List['outputs.IoTHubRoute']:
+    def routes(self) -> pulumi.Output[List['outputs.IoTHubRoute']]:
         """
         A `route` block as defined below.
         """
@@ -373,7 +373,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicies")
-    def shared_access_policies(self) -> List['outputs.IoTHubSharedAccessPolicy']:
+    def shared_access_policies(self) -> pulumi.Output[List['outputs.IoTHubSharedAccessPolicy']]:
         """
         One or more `shared_access_policy` blocks as defined below.
         """
@@ -381,7 +381,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.IoTHubSku':
+    def sku(self) -> pulumi.Output['outputs.IoTHubSku']:
         """
         A `sku` block as defined below.
         """
@@ -389,7 +389,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -397,7 +397,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         """

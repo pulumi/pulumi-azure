@@ -13,7 +13,7 @@ __all__ = ['SqlDatabase']
 
 class SqlDatabase(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class SqlDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
         """
@@ -117,7 +117,7 @@ class SqlDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         """
@@ -125,7 +125,7 @@ class SqlDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
         """
@@ -133,7 +133,7 @@ class SqlDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def throughput(self) -> float:
+    def throughput(self) -> pulumi.Output[float]:
         """
         The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """

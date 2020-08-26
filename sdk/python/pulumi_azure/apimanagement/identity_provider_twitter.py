@@ -13,7 +13,7 @@ __all__ = ['IdentityProviderTwitter']
 
 class IdentityProviderTwitter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> str:
+    def api_key(self) -> pulumi.Output[str]:
         """
         App Consumer API key for Twitter.
         """
@@ -127,7 +127,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
         """
@@ -135,7 +135,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiSecretKey")
-    def api_secret_key(self) -> str:
+    def api_secret_key(self) -> pulumi.Output[str]:
         """
         App Consumer API secret key for Twitter.
         """
@@ -143,7 +143,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """

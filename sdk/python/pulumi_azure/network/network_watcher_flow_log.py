@@ -15,7 +15,7 @@ __all__ = ['NetworkWatcherFlowLog']
 
 class NetworkWatcherFlowLog(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Boolean flag to enable/disable traffic analytics.
         """
@@ -180,7 +180,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkSecurityGroupId")
-    def network_security_group_id(self) -> str:
+    def network_security_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkWatcherName")
-    def network_watcher_name(self) -> str:
+    def network_watcher_name(self) -> pulumi.Output[str]:
         """
         The name of the Network Watcher. Changing this forces a new resource to be created.
         """
@@ -196,7 +196,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
         """
@@ -204,7 +204,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> 'outputs.NetworkWatcherFlowLogRetentionPolicy':
+    def retention_policy(self) -> pulumi.Output['outputs.NetworkWatcherFlowLogRetentionPolicy']:
         """
         A `retention_policy` block as documented below.
         """
@@ -212,7 +212,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> str:
+    def storage_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Storage Account where flow logs are stored.
         """
@@ -220,7 +220,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficAnalytics")
-    def traffic_analytics(self) -> Optional['outputs.NetworkWatcherFlowLogTrafficAnalytics']:
+    def traffic_analytics(self) -> pulumi.Output[Optional['outputs.NetworkWatcherFlowLogTrafficAnalytics']]:
         """
         A `traffic_analytics` block as documented below.
         """
@@ -228,7 +228,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> float:
+    def version(self) -> pulumi.Output[float]:
         """
         The version (revision) of the flow log. Possible values are `1` and `2`.
         """

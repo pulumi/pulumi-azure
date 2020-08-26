@@ -15,7 +15,7 @@ __all__ = ['LocalNetworkGateway']
 
 class LocalNetworkGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']]] = None,
@@ -143,7 +143,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> List[str]:
+    def address_spaces(self) -> pulumi.Output[List[str]]:
         """
         The list of string CIDRs representing the
         address spaces the gateway exposes.
@@ -152,7 +152,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional['outputs.LocalNetworkGatewayBgpSettings']:
+    def bgp_settings(self) -> pulumi.Output[Optional['outputs.LocalNetworkGatewayBgpSettings']]:
         """
         A `bgp_settings` block as defined below containing the
         Local Network Gateway's BGP speaker settings.
@@ -161,7 +161,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayAddress")
-    def gateway_address(self) -> str:
+    def gateway_address(self) -> pulumi.Output[str]:
         """
         The IP address of the gateway to which to
         connect.
@@ -170,7 +170,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location/region where the local network gateway is
         created. Changing this forces a new resource to be created.
@@ -179,7 +179,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the local network gateway. Changing this
         forces a new resource to be created.
@@ -188,7 +188,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the local network gateway.
@@ -197,7 +197,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['ScaleSet']
 
 class ScaleSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']]] = None,
@@ -442,7 +442,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticOsUpgrade")
-    def automatic_os_upgrade(self) -> Optional[bool]:
+    def automatic_os_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         """
@@ -450,7 +450,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional['outputs.ScaleSetBootDiagnostics']:
+    def boot_diagnostics(self) -> pulumi.Output[Optional['outputs.ScaleSetBootDiagnostics']]:
         """
         A boot diagnostics profile block as referenced below.
         """
@@ -458,7 +458,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[str]:
+    def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
         """
@@ -466,7 +466,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[List['outputs.ScaleSetExtension']]:
+    def extensions(self) -> pulumi.Output[Optional[List['outputs.ScaleSetExtension']]]:
         """
         Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         """
@@ -474,7 +474,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthProbeId")
-    def health_probe_id(self) -> Optional[str]:
+    def health_probe_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         """
@@ -482,12 +482,12 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.ScaleSetIdentity':
+    def identity(self) -> pulumi.Output['outputs.ScaleSetIdentity']:
         return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> str:
+    def license_type(self) -> pulumi.Output[str]:
         """
         Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         """
@@ -495,7 +495,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -503,7 +503,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
         """
@@ -511,7 +511,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkProfiles")
-    def network_profiles(self) -> List['outputs.ScaleSetNetworkProfile']:
+    def network_profiles(self) -> pulumi.Output[List['outputs.ScaleSetNetworkProfile']]:
         """
         A collection of network profile block as documented below.
         """
@@ -519,7 +519,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> 'outputs.ScaleSetOsProfile':
+    def os_profile(self) -> pulumi.Output['outputs.ScaleSetOsProfile']:
         """
         A Virtual Machine OS Profile block as documented below.
         """
@@ -527,7 +527,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfileLinuxConfig")
-    def os_profile_linux_config(self) -> 'outputs.ScaleSetOsProfileLinuxConfig':
+    def os_profile_linux_config(self) -> pulumi.Output['outputs.ScaleSetOsProfileLinuxConfig']:
         """
         A Linux config block as documented below.
         """
@@ -535,7 +535,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfileSecrets")
-    def os_profile_secrets(self) -> Optional[List['outputs.ScaleSetOsProfileSecret']]:
+    def os_profile_secrets(self) -> pulumi.Output[Optional[List['outputs.ScaleSetOsProfileSecret']]]:
         """
         A collection of Secret blocks as documented below.
         """
@@ -543,7 +543,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osProfileWindowsConfig")
-    def os_profile_windows_config(self) -> Optional['outputs.ScaleSetOsProfileWindowsConfig']:
+    def os_profile_windows_config(self) -> pulumi.Output[Optional['outputs.ScaleSetOsProfileWindowsConfig']]:
         """
         A Windows config block as documented below.
         """
@@ -551,7 +551,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def overprovision(self) -> Optional[bool]:
+    def overprovision(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         """
@@ -559,7 +559,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.ScaleSetPlan']:
+    def plan(self) -> pulumi.Output[Optional['outputs.ScaleSetPlan']]:
         """
         A plan block as documented below.
         """
@@ -567,7 +567,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[str]:
+    def priority(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
         """
@@ -575,7 +575,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[str]:
+    def proximity_placement_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         """
@@ -583,7 +583,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
         """
@@ -591,7 +591,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rollingUpgradePolicy")
-    def rolling_upgrade_policy(self) -> Optional['outputs.ScaleSetRollingUpgradePolicy']:
+    def rolling_upgrade_policy(self) -> pulumi.Output[Optional['outputs.ScaleSetRollingUpgradePolicy']]:
         """
         A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         """
@@ -599,7 +599,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="singlePlacementGroup")
-    def single_placement_group(self) -> Optional[bool]:
+    def single_placement_group(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
         """
@@ -607,7 +607,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ScaleSetSku':
+    def sku(self) -> pulumi.Output['outputs.ScaleSetSku']:
         """
         A sku block as documented below.
         """
@@ -615,7 +615,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageProfileDataDisks")
-    def storage_profile_data_disks(self) -> Optional[List['outputs.ScaleSetStorageProfileDataDisk']]:
+    def storage_profile_data_disks(self) -> pulumi.Output[Optional[List['outputs.ScaleSetStorageProfileDataDisk']]]:
         """
         A storage profile data disk block as documented below
         """
@@ -623,7 +623,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageProfileImageReference")
-    def storage_profile_image_reference(self) -> 'outputs.ScaleSetStorageProfileImageReference':
+    def storage_profile_image_reference(self) -> pulumi.Output['outputs.ScaleSetStorageProfileImageReference']:
         """
         A storage profile image reference block as documented below.
         """
@@ -631,7 +631,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageProfileOsDisk")
-    def storage_profile_os_disk(self) -> 'outputs.ScaleSetStorageProfileOsDisk':
+    def storage_profile_os_disk(self) -> pulumi.Output['outputs.ScaleSetStorageProfileOsDisk']:
         """
         A storage profile os disk block as documented below
         """
@@ -639,7 +639,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -647,7 +647,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradePolicyMode")
-    def upgrade_policy_mode(self) -> str:
+    def upgrade_policy_mode(self) -> pulumi.Output[str]:
         """
         Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         """
@@ -655,7 +655,7 @@ class ScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A collection of availability zones to spread the Virtual Machines over.
         """

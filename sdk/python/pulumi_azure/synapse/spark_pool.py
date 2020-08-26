@@ -15,7 +15,7 @@ __all__ = ['SparkPool']
 
 class SparkPool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_pause: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoPauseArgs']]] = None,
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']]] = None,
@@ -184,7 +184,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoPause")
-    def auto_pause(self) -> Optional['outputs.SparkPoolAutoPause']:
+    def auto_pause(self) -> pulumi.Output[Optional['outputs.SparkPoolAutoPause']]:
         """
         An `auto_pause` block as defined below.
         """
@@ -192,7 +192,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScale")
-    def auto_scale(self) -> Optional['outputs.SparkPoolAutoScale']:
+    def auto_scale(self) -> pulumi.Output[Optional['outputs.SparkPoolAutoScale']]:
         """
         An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         """
@@ -200,7 +200,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="libraryRequirement")
-    def library_requirement(self) -> Optional['outputs.SparkPoolLibraryRequirement']:
+    def library_requirement(self) -> pulumi.Output[Optional['outputs.SparkPoolLibraryRequirement']]:
         """
         A `library_requirement` block as defined below.
         """
@@ -208,7 +208,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
         """
@@ -216,7 +216,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[float]:
+    def node_count(self) -> pulumi.Output[Optional[float]]:
         """
         The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         """
@@ -224,7 +224,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeSize")
-    def node_size(self) -> str:
+    def node_size(self) -> pulumi.Output[str]:
         """
         The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
         """
@@ -232,7 +232,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeSizeFamily")
-    def node_size_family(self) -> str:
+    def node_size_family(self) -> pulumi.Output[str]:
         """
         The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
         """
@@ -240,7 +240,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sparkEventsFolder")
-    def spark_events_folder(self) -> Optional[str]:
+    def spark_events_folder(self) -> pulumi.Output[Optional[str]]:
         """
         The Spark events folder. Defaults to `/events`.
         """
@@ -248,7 +248,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sparkLogFolder")
-    def spark_log_folder(self) -> Optional[str]:
+    def spark_log_folder(self) -> pulumi.Output[Optional[str]]:
         """
         The default folder where Spark logs will be written. Defaults to `/logs`.
         """
@@ -256,7 +256,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sparkVersion")
-    def spark_version(self) -> Optional[str]:
+    def spark_version(self) -> pulumi.Output[Optional[str]]:
         """
         The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
         """
@@ -264,7 +264,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> str:
+    def synapse_workspace_id(self) -> pulumi.Output[str]:
         """
         The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         """
@@ -272,7 +272,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Synapse Spark Pool.
         """

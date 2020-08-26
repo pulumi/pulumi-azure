@@ -13,7 +13,7 @@ __all__ = ['Property']
 
 class Property(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
         """
@@ -145,7 +145,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of this API Management Property.
         """
@@ -153,7 +153,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Property. Changing this forces a new resource to be created.
         """
@@ -161,7 +161,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
         """
@@ -169,7 +169,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secret(self) -> Optional[bool]:
+    def secret(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
         """
@@ -177,7 +177,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[List[str]]:
+    def tags(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of tags to be applied to the API Management Property.
         """
@@ -185,7 +185,7 @@ class Property(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> str:
+    def value(self) -> pulumi.Output[str]:
         """
         The value of this API Management Property.
         """

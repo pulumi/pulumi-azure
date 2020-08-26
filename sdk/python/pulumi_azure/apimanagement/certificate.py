@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         """
@@ -123,7 +123,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def data(self) -> str:
+    def data(self) -> pulumi.Output[str]:
         """
         The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         """
@@ -131,7 +131,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expiration(self) -> str:
+    def expiration(self) -> pulumi.Output[str]:
         """
         The Expiration Date of this Certificate, formatted as an RFC3339 string.
         """
@@ -139,7 +139,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Certificate. Changing this forces a new resource to be created.
         """
@@ -147,7 +147,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password used for this certificate. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -163,7 +163,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subject(self) -> str:
+    def subject(self) -> pulumi.Output[str]:
         """
         The Subject of this Certificate.
         """
@@ -171,7 +171,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         The Thumbprint of this Certificate.
         """

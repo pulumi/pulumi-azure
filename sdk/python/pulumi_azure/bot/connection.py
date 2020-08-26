@@ -13,7 +13,7 @@ __all__ = ['Connection']
 
 class Connection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> str:
+    def bot_name(self) -> pulumi.Output[str]:
         """
         The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
         """
@@ -167,7 +167,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         The Client ID that will be used to authenticate with the service provider.
         """
@@ -175,7 +175,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> pulumi.Output[str]:
         """
         The Client Secret that will be used to authenticate with the service provider.
         """
@@ -183,7 +183,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -191,7 +191,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
         """
@@ -199,7 +199,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional parameters to apply to the connection.
         """
@@ -207,7 +207,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
         """
@@ -215,7 +215,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[str]:
+    def scopes(self) -> pulumi.Output[Optional[str]]:
         """
         The Scopes at which the connection should be applied.
         """
@@ -223,7 +223,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceProviderName")
-    def service_provider_name(self) -> str:
+    def service_provider_name(self) -> pulumi.Output[str]:
         """
         The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
         """
@@ -231,7 +231,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

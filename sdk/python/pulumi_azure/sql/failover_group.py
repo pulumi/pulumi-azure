@@ -15,7 +15,7 @@ __all__ = ['FailoverGroup']
 
 class FailoverGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  databases: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[List[str]]:
+    def databases(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of database ids to add to the failover group
         """
@@ -177,7 +177,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         the location of the failover group.
         """
@@ -185,7 +185,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the failover group. Changing this forces a new resource to be created.
         """
@@ -193,7 +193,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerServers")
-    def partner_servers(self) -> List['outputs.FailoverGroupPartnerServer']:
+    def partner_servers(self) -> pulumi.Output[List['outputs.FailoverGroupPartnerServer']]:
         """
         A list of secondary servers as documented below
         """
@@ -201,7 +201,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readWriteEndpointFailoverPolicy")
-    def read_write_endpoint_failover_policy(self) -> 'outputs.FailoverGroupReadWriteEndpointFailoverPolicy':
+    def read_write_endpoint_failover_policy(self) -> pulumi.Output['outputs.FailoverGroupReadWriteEndpointFailoverPolicy']:
         """
         A read/write policy as documented below
         """
@@ -209,7 +209,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readonlyEndpointFailoverPolicy")
-    def readonly_endpoint_failover_policy(self) -> 'outputs.FailoverGroupReadonlyEndpointFailoverPolicy':
+    def readonly_endpoint_failover_policy(self) -> pulumi.Output['outputs.FailoverGroupReadonlyEndpointFailoverPolicy']:
         """
         a read-only policy as documented below
         """
@@ -217,7 +217,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group containing the SQL server
         """
@@ -225,7 +225,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         local replication role of the failover group instance.
         """
@@ -233,7 +233,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         The name of the primary SQL server. Changing this forces a new resource to be created.
         """
@@ -241,7 +241,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

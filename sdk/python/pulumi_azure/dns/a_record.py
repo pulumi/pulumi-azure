@@ -13,7 +13,7 @@ __all__ = ['ARecord']
 
 class ARecord(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -151,7 +151,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         The FQDN of the DNS A Record.
         """
@@ -159,7 +159,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the DNS A Record.
         """
@@ -167,7 +167,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def records(self) -> Optional[List[str]]:
+    def records(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of IPv4 Addresses. Conflicts with `target_resource_id`.
         """
@@ -175,7 +175,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -191,7 +191,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> Optional[str]:
+    def target_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Azure resource id of the target object. Conflicts with `records`
         """
@@ -199,12 +199,12 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> pulumi.Output[float]:
         return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter(name="zoneName")
-    def zone_name(self) -> str:
+    def zone_name(self) -> pulumi.Output[str]:
         """
         Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """

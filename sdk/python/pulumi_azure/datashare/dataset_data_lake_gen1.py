@@ -13,7 +13,7 @@ __all__ = ['DatasetDataLakeGen1']
 
 class DatasetDataLakeGen1(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_lake_store_id: Optional[pulumi.Input[str]] = None,
                  data_share_id: Optional[pulumi.Input[str]] = None,
@@ -145,7 +145,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataLakeStoreId")
-    def data_lake_store_id(self) -> str:
+    def data_lake_store_id(self) -> pulumi.Output[str]:
         """
         The resource ID of the Data Lake Store to be shared with the receiver.
         """
@@ -153,7 +153,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataShareId")
-    def data_share_id(self) -> str:
+    def data_share_id(self) -> pulumi.Output[str]:
         """
         The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
         """
@@ -161,7 +161,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The displayed name of the Data Share Dataset.
         """
@@ -169,7 +169,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> Optional[str]:
+    def file_name(self) -> pulumi.Output[Optional[str]]:
         """
         The file name of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
         """
@@ -177,7 +177,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> str:
+    def folder_path(self) -> pulumi.Output[str]:
         """
         The folder path of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
         """
@@ -185,7 +185,7 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Data Share Data Lake Gen1 Dataset. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
         """

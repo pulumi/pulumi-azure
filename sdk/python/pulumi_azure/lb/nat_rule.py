@@ -13,7 +13,7 @@ __all__ = ['NatRule']
 
 class NatRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_port: Optional[pulumi.Input[float]] = None,
                  enable_floating_ip: Optional[pulumi.Input[bool]] = None,
@@ -176,12 +176,12 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendIpConfigurationId")
-    def backend_ip_configuration_id(self) -> str:
+    def backend_ip_configuration_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "backend_ip_configuration_id")
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> float:
+    def backend_port(self) -> pulumi.Output[float]:
         """
         The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         """
@@ -189,7 +189,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableFloatingIp")
-    def enable_floating_ip(self) -> bool:
+    def enable_floating_ip(self) -> pulumi.Output[bool]:
         """
         Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         """
@@ -197,7 +197,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableTcpReset")
-    def enable_tcp_reset(self) -> Optional[bool]:
+    def enable_tcp_reset(self) -> pulumi.Output[Optional[bool]]:
         """
         Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
         """
@@ -205,12 +205,12 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendIpConfigurationId")
-    def frontend_ip_configuration_id(self) -> str:
+    def frontend_ip_configuration_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "frontend_ip_configuration_id")
 
     @property
     @pulumi.getter(name="frontendIpConfigurationName")
-    def frontend_ip_configuration_name(self) -> str:
+    def frontend_ip_configuration_name(self) -> pulumi.Output[str]:
         """
         The name of the frontend IP configuration exposing this rule.
         """
@@ -218,7 +218,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> float:
+    def frontend_port(self) -> pulumi.Output[float]:
         """
         The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         """
@@ -226,7 +226,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> float:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[float]:
         """
         Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         """
@@ -234,7 +234,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadbalancerId")
-    def loadbalancer_id(self) -> str:
+    def loadbalancer_id(self) -> pulumi.Output[str]:
         """
         The ID of the Load Balancer in which to create the NAT Rule.
         """
@@ -242,7 +242,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the NAT Rule.
         """
@@ -250,7 +250,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         """
@@ -258,7 +258,7 @@ class NatRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the resource.
         """

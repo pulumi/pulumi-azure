@@ -13,7 +13,7 @@ __all__ = ['Group']
 
 class Group(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
         """
@@ -143,7 +143,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this API Management Group.
         """
@@ -151,7 +151,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of this API Management Group.
         """
@@ -159,7 +159,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[str]:
+    def external_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
         """
@@ -167,7 +167,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Group. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
         """

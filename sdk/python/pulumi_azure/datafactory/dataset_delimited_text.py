@@ -15,7 +15,7 @@ __all__ = ['DatasetDelimitedText']
 
 class DatasetDelimitedText(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -222,7 +222,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[Mapping[str, str]]:
+    def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
         """
@@ -230,7 +230,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[str]]:
+    def annotations(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of tags that can be used for describing the Data Factory Dataset.
         """
@@ -238,7 +238,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureBlobStorageLocation")
-    def azure_blob_storage_location(self) -> Optional['outputs.DatasetDelimitedTextAzureBlobStorageLocation']:
+    def azure_blob_storage_location(self) -> pulumi.Output[Optional['outputs.DatasetDelimitedTextAzureBlobStorageLocation']]:
         """
         A `azure_blob_storage_location` block as defined below.
         """
@@ -246,7 +246,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="columnDelimiter")
-    def column_delimiter(self) -> Optional[str]:
+    def column_delimiter(self) -> pulumi.Output[Optional[str]]:
         """
         The column delimiter.
         """
@@ -254,7 +254,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> str:
+    def data_factory_name(self) -> pulumi.Output[str]:
         """
         The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         """
@@ -262,7 +262,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description for the Data Factory Dataset.
         """
@@ -270,7 +270,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[str]:
+    def encoding(self) -> pulumi.Output[Optional[str]]:
         """
         The encoding format for the file.
         """
@@ -278,7 +278,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="escapeCharacter")
-    def escape_character(self) -> Optional[str]:
+    def escape_character(self) -> pulumi.Output[Optional[str]]:
         """
         The escape character.
         """
@@ -286,7 +286,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firstRowAsHeader")
-    def first_row_as_header(self) -> Optional[bool]:
+    def first_row_as_header(self) -> pulumi.Output[Optional[bool]]:
         """
         When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
         """
@@ -294,7 +294,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def folder(self) -> Optional[str]:
+    def folder(self) -> pulumi.Output[Optional[str]]:
         """
         The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         """
@@ -302,7 +302,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpServerLocation")
-    def http_server_location(self) -> Optional['outputs.DatasetDelimitedTextHttpServerLocation']:
+    def http_server_location(self) -> pulumi.Output[Optional['outputs.DatasetDelimitedTextHttpServerLocation']]:
         """
         A `http_server_location` block as defined below.
         """
@@ -310,7 +310,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> str:
+    def linked_service_name(self) -> pulumi.Output[str]:
         """
         The Data Factory Linked Service name in which to associate the Dataset with.
         """
@@ -318,7 +318,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         """
@@ -326,7 +326,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nullValue")
-    def null_value(self) -> Optional[str]:
+    def null_value(self) -> pulumi.Output[Optional[str]]:
         """
         The null value string.
         """
@@ -334,7 +334,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of parameters to associate with the Data Factory Dataset.
         """
@@ -342,7 +342,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="quoteCharacter")
-    def quote_character(self) -> Optional[str]:
+    def quote_character(self) -> pulumi.Output[Optional[str]]:
         """
         The quote character.
         """
@@ -350,7 +350,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
         """
@@ -358,7 +358,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rowDelimiter")
-    def row_delimiter(self) -> Optional[str]:
+    def row_delimiter(self) -> pulumi.Output[Optional[str]]:
         """
         The row delimiter.
         """
@@ -366,7 +366,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[List['outputs.DatasetDelimitedTextSchemaColumn']]:
+    def schema_columns(self) -> pulumi.Output[Optional[List['outputs.DatasetDelimitedTextSchemaColumn']]]:
         """
         A `schema_column` block as defined below.
         """

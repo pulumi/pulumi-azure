@@ -13,7 +13,7 @@ __all__ = ['AnalyticsWorkspace']
 
 class AnalyticsWorkspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -145,7 +145,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         """
@@ -153,7 +153,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="portalUrl")
-    def portal_url(self) -> str:
+    def portal_url(self) -> pulumi.Output[str]:
         """
         The Portal URL for the Log Analytics Workspace.
         """
@@ -161,7 +161,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primarySharedKey")
-    def primary_shared_key(self) -> str:
+    def primary_shared_key(self) -> pulumi.Output[str]:
         """
         The Primary shared key for the Log Analytics Workspace.
         """
@@ -169,7 +169,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         """
@@ -177,7 +177,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> float:
+    def retention_in_days(self) -> pulumi.Output[float]:
         """
         The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         """
@@ -185,7 +185,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondarySharedKey")
-    def secondary_shared_key(self) -> str:
+    def secondary_shared_key(self) -> pulumi.Output[str]:
         """
         The Secondary shared key for the Log Analytics Workspace.
         """
@@ -193,7 +193,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> str:
+    def sku(self) -> pulumi.Output[str]:
         """
         Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
         """
@@ -201,7 +201,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -209,7 +209,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> str:
+    def workspace_id(self) -> pulumi.Output[str]:
         """
         The Workspace (or Customer) ID for the Log Analytics Workspace.
         """

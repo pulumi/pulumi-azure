@@ -13,7 +13,7 @@ __all__ = ['TimeSeriesInsightsAccessPolicy']
 
 class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the Azure IoT Time Series Insights Access Policy.
         """
@@ -129,7 +129,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
         """
@@ -137,7 +137,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalObjectId")
-    def principal_object_id(self) -> str:
+    def principal_object_id(self) -> pulumi.Output[str]:
         """
         The id of the principal in Azure Active Directory.
         """
@@ -145,7 +145,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> List[str]:
+    def roles(self) -> pulumi.Output[List[str]]:
         """
         A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         """
@@ -153,7 +153,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeSeriesInsightsEnvironmentId")
-    def time_series_insights_environment_id(self) -> str:
+    def time_series_insights_environment_id(self) -> pulumi.Output[str]:
         """
         The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['AnalyticsSolution']
 
 class AnalyticsSolution(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['AnalyticsSolutionPlanArgs']]] = None,
@@ -144,7 +144,7 @@ class AnalyticsSolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -152,7 +152,7 @@ class AnalyticsSolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> 'outputs.AnalyticsSolutionPlan':
+    def plan(self) -> pulumi.Output['outputs.AnalyticsSolutionPlan']:
         """
         A `plan` block as documented below.
         """
@@ -160,7 +160,7 @@ class AnalyticsSolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         """
@@ -168,7 +168,7 @@ class AnalyticsSolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="solutionName")
-    def solution_name(self) -> str:
+    def solution_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         """
@@ -176,7 +176,7 @@ class AnalyticsSolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> str:
+    def workspace_name(self) -> pulumi.Output[str]:
         """
         The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         """
@@ -184,7 +184,7 @@ class AnalyticsSolution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> str:
+    def workspace_resource_id(self) -> pulumi.Output[str]:
         """
         The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         """

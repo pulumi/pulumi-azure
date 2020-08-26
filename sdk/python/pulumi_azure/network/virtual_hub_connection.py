@@ -13,7 +13,7 @@ __all__ = ['VirtualHubConnection']
 
 class VirtualHubConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hub_to_vitual_network_traffic_allowed: Optional[pulumi.Input[bool]] = None,
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
@@ -131,7 +131,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hubToVitualNetworkTrafficAllowed")
-    def hub_to_vitual_network_traffic_allowed(self) -> Optional[bool]:
+    def hub_to_vitual_network_traffic_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="internetSecurityEnabled")
-    def internet_security_enabled(self) -> Optional[bool]:
+    def internet_security_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
         """
@@ -147,7 +147,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteVirtualNetworkId")
-    def remote_virtual_network_id(self) -> str:
+    def remote_virtual_network_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         """
@@ -163,7 +163,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualHubId")
-    def virtual_hub_id(self) -> str:
+    def virtual_hub_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         """
@@ -171,7 +171,7 @@ class VirtualHubConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vitualNetworkToHubGatewaysTrafficAllowed")
-    def vitual_network_to_hub_gateways_traffic_allowed(self) -> Optional[bool]:
+    def vitual_network_to_hub_gateways_traffic_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
         Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
         """

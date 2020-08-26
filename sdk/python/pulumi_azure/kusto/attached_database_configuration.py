@@ -13,7 +13,7 @@ __all__ = ['AttachedDatabaseConfiguration']
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachedDatabaseNames")
-    def attached_database_names(self) -> List[str]:
+    def attached_database_names(self) -> pulumi.Output[List[str]]:
         """
         The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
         """
@@ -129,7 +129,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         """
@@ -137,7 +137,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterResourceId")
-    def cluster_resource_id(self) -> str:
+    def cluster_resource_id(self) -> pulumi.Output[str]:
         """
         The resource id of the cluster where the databases you would like to attach reside.
         """
@@ -145,7 +145,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         """
@@ -153,7 +153,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPrincipalModificationKind")
-    def default_principal_modification_kind(self) -> Optional[str]:
+    def default_principal_modification_kind(self) -> pulumi.Output[Optional[str]]:
         """
         The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
         """
@@ -161,7 +161,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         """
@@ -169,7 +169,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
         """
@@ -177,7 +177,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['Plan']
 
 class Plan(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_environment_id: Optional[pulumi.Input[str]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
@@ -208,7 +208,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServiceEnvironmentId")
-    def app_service_environment_id(self) -> Optional[str]:
+    def app_service_environment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
         """
@@ -216,12 +216,12 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isXenon")
-    def is_xenon(self) -> Optional[bool]:
+    def is_xenon(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "is_xenon")
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[str]:
+    def kind(self) -> pulumi.Output[Optional[str]]:
         """
         The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         """
@@ -229,7 +229,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -237,7 +237,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumElasticWorkerCount")
-    def maximum_elastic_worker_count(self) -> float:
+    def maximum_elastic_worker_count(self) -> pulumi.Output[float]:
         """
         The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         """
@@ -245,7 +245,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> float:
+    def maximum_number_of_workers(self) -> pulumi.Output[float]:
         """
         The maximum number of workers supported with the App Service Plan's sku.
         """
@@ -253,7 +253,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         """
@@ -261,7 +261,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="perSiteScaling")
-    def per_site_scaling(self) -> Optional[bool]:
+    def per_site_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
         Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         """
@@ -269,7 +269,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def reserved(self) -> Optional[bool]:
+    def reserved(self) -> pulumi.Output[Optional[bool]]:
         """
         Is this App Service Plan `Reserved`. Defaults to `false`.
         """
@@ -277,7 +277,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the App Service Plan component.
         """
@@ -285,7 +285,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.PlanSku':
+    def sku(self) -> pulumi.Output['outputs.PlanSku']:
         """
         A `sku` block as documented below.
         """
@@ -293,7 +293,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

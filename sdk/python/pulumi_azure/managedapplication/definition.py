@@ -15,7 +15,7 @@ __all__ = ['Definition']
 
 class Definition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
                  create_ui_definition: Optional[pulumi.Input[str]] = None,
@@ -168,7 +168,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[List['outputs.DefinitionAuthorization']]:
+    def authorizations(self) -> pulumi.Output[Optional[List['outputs.DefinitionAuthorization']]]:
         """
         One or more `authorization` block defined below.
         """
@@ -176,7 +176,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createUiDefinition")
-    def create_ui_definition(self) -> Optional[str]:
+    def create_ui_definition(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
         """
@@ -184,7 +184,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the managed application definition description.
         """
@@ -192,7 +192,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         Specifies the managed application definition display name.
         """
@@ -200,7 +200,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -208,7 +208,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockLevel")
-    def lock_level(self) -> str:
+    def lock_level(self) -> pulumi.Output[str]:
         """
         Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
         """
@@ -216,7 +216,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mainTemplate")
-    def main_template(self) -> Optional[str]:
+    def main_template(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the inline main template json which has resources to be provisioned.
         """
@@ -224,7 +224,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
         """
@@ -232,7 +232,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="packageEnabled")
-    def package_enabled(self) -> Optional[bool]:
+    def package_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the package enabled? Defaults to `true`.
         """
@@ -240,7 +240,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="packageFileUri")
-    def package_file_uri(self) -> Optional[str]:
+    def package_file_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the managed application definition package file Uri.
         """
@@ -248,7 +248,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
         """
@@ -256,7 +256,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

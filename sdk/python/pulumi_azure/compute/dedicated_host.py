@@ -13,7 +13,7 @@ __all__ = ['DedicatedHost']
 
 class DedicatedHost(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
@@ -139,7 +139,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoReplaceOnFailure")
-    def auto_replace_on_failure(self) -> Optional[bool]:
+    def auto_replace_on_failure(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
         """
@@ -147,7 +147,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedHostGroupId")
-    def dedicated_host_group_id(self) -> str:
+    def dedicated_host_group_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[str]:
+    def license_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
         """
@@ -163,7 +163,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -171,7 +171,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of this Dedicated Host. Changing this forces a new resource to be created.
         """
@@ -179,7 +179,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomain")
-    def platform_fault_domain(self) -> float:
+    def platform_fault_domain(self) -> pulumi.Output[float]:
         """
         Specify the fault domain of the Dedicated Host Group in which to create the Dedicated Host. Changing this forces a new resource to be created.
         """
@@ -187,7 +187,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`. Changing this forces a new resource to be created.
         """
@@ -195,7 +195,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

@@ -13,7 +13,7 @@ __all__ = ['SubscriptionPricing']
 
 class SubscriptionPricing(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -88,7 +88,7 @@ class SubscriptionPricing(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> str:
+    def tier(self) -> pulumi.Output[str]:
         """
         The pricing tier to use. Possible values are `Free` and `Standard`.
         """

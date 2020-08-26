@@ -13,7 +13,7 @@ __all__ = ['ARecord']
 
 class ARecord(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -128,7 +128,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         The FQDN of the DNS A Record.
         """
@@ -136,7 +136,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the DNS A Record.
         """
@@ -144,7 +144,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def records(self) -> List[str]:
+    def records(self) -> pulumi.Output[List[str]]:
         """
         List of IPv4 Addresses.
         """
@@ -152,7 +152,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         """
@@ -160,7 +160,7 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -168,12 +168,12 @@ class ARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> pulumi.Output[float]:
         return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter(name="zoneName")
-    def zone_name(self) -> str:
+    def zone_name(self) -> pulumi.Output[str]:
         """
         Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """

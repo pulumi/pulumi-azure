@@ -15,7 +15,7 @@ __all__ = ['ActionRuleActionGroup']
 
 class ActionRuleActionGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_group_id: Optional[pulumi.Input[str]] = None,
                  condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']]] = None,
@@ -143,7 +143,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="actionGroupId")
-    def action_group_id(self) -> str:
+    def action_group_id(self) -> pulumi.Output[str]:
         """
         Specifies the resource id of monitor action group.
         """
@@ -151,7 +151,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional['outputs.ActionRuleActionGroupCondition']:
+    def condition(self) -> pulumi.Output[Optional['outputs.ActionRuleActionGroupCondition']]:
         """
         A `condition` block as defined below.
         """
@@ -159,7 +159,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies a description for the Action Rule.
         """
@@ -167,7 +167,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the Action Rule enabled? Defaults to `true`.
         """
@@ -175,7 +175,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
         """
@@ -191,7 +191,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional['outputs.ActionRuleActionGroupScope']:
+    def scope(self) -> pulumi.Output[Optional['outputs.ActionRuleActionGroupScope']]:
         """
         A `scope` block as defined below.
         """
@@ -199,7 +199,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

@@ -13,7 +13,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_updates: Optional[pulumi.Input[bool]] = None,
@@ -129,7 +129,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         The name of the Batch account. Changing this forces a new resource to be created.
         """
@@ -137,7 +137,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowUpdates")
-    def allow_updates(self) -> Optional[bool]:
+    def allow_updates(self) -> pulumi.Output[Optional[bool]]:
         """
         A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
         """
@@ -145,7 +145,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultVersion")
-    def default_version(self) -> Optional[str]:
+    def default_version(self) -> pulumi.Output[Optional[str]]:
         """
         The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
         """
@@ -153,7 +153,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         The display name for the application.
         """
@@ -161,7 +161,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
         """
@@ -169,7 +169,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
         """

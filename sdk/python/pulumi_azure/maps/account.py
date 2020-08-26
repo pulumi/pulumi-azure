@@ -13,7 +13,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Azure Maps Account. Changing this forces a new resource to be created.
         """
@@ -130,7 +130,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> str:
+    def primary_access_key(self) -> pulumi.Output[str]:
         """
         The primary key used to authenticate and authorize access to the Maps REST APIs.
         """
@@ -138,7 +138,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         """
@@ -146,7 +146,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> str:
+    def secondary_access_key(self) -> pulumi.Output[str]:
         """
         The secondary key used to authenticate and authorize access to the Maps REST APIs.
         """
@@ -154,7 +154,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         The sku of the Azure Maps Account. Possible values are `S0` and `S1`.
         """
@@ -162,7 +162,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Azure Maps Account.
         """
@@ -170,7 +170,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xMsClientId")
-    def x_ms_client_id(self) -> str:
+    def x_ms_client_id(self) -> pulumi.Output[str]:
         """
         A unique identifier for the Maps Account.
         """

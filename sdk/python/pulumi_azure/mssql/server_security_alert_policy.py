@@ -13,7 +13,7 @@ __all__ = ['ServerSecurityAlertPolicy']
 
 class ServerSecurityAlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disabled_alerts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  email_account_admins: Optional[pulumi.Input[bool]] = None,
@@ -160,7 +160,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[List[str]]:
+    def disabled_alerts(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         """
@@ -168,7 +168,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> Optional[bool]:
+    def email_account_admins(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         """
@@ -176,7 +176,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[List[str]]:
+    def email_addresses(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies an array of e-mail addresses to which the alert is sent.
         """
@@ -184,7 +184,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         """
@@ -192,7 +192,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[float]:
+    def retention_days(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         """
@@ -200,7 +200,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         """
@@ -208,7 +208,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
         """
@@ -216,7 +216,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> Optional[str]:
+    def storage_account_access_key(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the identifier key of the Threat Detection audit storage account.
         """
@@ -224,7 +224,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> Optional[str]:
+    def storage_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """

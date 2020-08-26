@@ -17,7 +17,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
     warnings.warn("azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubName")
-    def eventhub_name(self) -> str:
+    def eventhub_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventHub. Changing this forces a new resource to be created.
         """
@@ -143,7 +143,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
         """
@@ -159,7 +159,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
         """
@@ -167,7 +167,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> Optional[str]:
+    def user_metadata(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the user metadata.
         """

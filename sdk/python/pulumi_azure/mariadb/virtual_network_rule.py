@@ -13,7 +13,7 @@ __all__ = ['VirtualNetworkRule']
 
 class VirtualNetworkRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         """
@@ -142,7 +142,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
         """
@@ -150,7 +150,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
         """
@@ -158,7 +158,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the subnet that the MariaDB server will be connected to.
         """

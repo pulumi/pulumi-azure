@@ -15,7 +15,7 @@ __all__ = ['Database']
 
 class Database(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_pause_delay_in_minutes: Optional[pulumi.Input[float]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
@@ -222,7 +222,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoPauseDelayInMinutes")
-    def auto_pause_delay_in_minutes(self) -> float:
+    def auto_pause_delay_in_minutes(self) -> pulumi.Output[float]:
         """
         Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         """
@@ -230,7 +230,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def collation(self) -> str:
+    def collation(self) -> pulumi.Output[str]:
         """
         Specifies the collation of the database. Changing this forces a new resource to be created.
         """
@@ -238,7 +238,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> str:
+    def create_mode(self) -> pulumi.Output[str]:
         """
         The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         """
@@ -246,7 +246,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationSourceDatabaseId")
-    def creation_source_database_id(self) -> str:
+    def creation_source_database_id(self) -> pulumi.Output[str]:
         """
         The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         """
@@ -254,7 +254,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticPoolId")
-    def elastic_pool_id(self) -> Optional[str]:
+    def elastic_pool_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of the elastic pool containing this database.
         """
@@ -262,7 +262,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional['outputs.DatabaseExtendedAuditingPolicy']:
+    def extended_auditing_policy(self) -> pulumi.Output[Optional['outputs.DatabaseExtendedAuditingPolicy']]:
         """
         A `extended_auditing_policy` block as defined below.
         """
@@ -270,7 +270,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> str:
+    def license_type(self) -> pulumi.Output[str]:
         """
         Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         """
@@ -278,7 +278,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> float:
+    def max_size_gb(self) -> pulumi.Output[float]:
         """
         The max size of the database in gigabytes.
         """
@@ -286,7 +286,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> float:
+    def min_capacity(self) -> pulumi.Output[float]:
         """
         Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
         """
@@ -294,7 +294,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Ms SQL Database. Changing this forces a new resource to be created.
         """
@@ -302,7 +302,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readReplicaCount")
-    def read_replica_count(self) -> float:
+    def read_replica_count(self) -> pulumi.Output[float]:
         """
         The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         """
@@ -310,7 +310,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readScale")
-    def read_scale(self) -> bool:
+    def read_scale(self) -> pulumi.Output[bool]:
         """
         If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         """
@@ -318,7 +318,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> str:
+    def restore_point_in_time(self) -> pulumi.Output[str]:
         """
         Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
         """
@@ -326,7 +326,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sampleName")
-    def sample_name(self) -> str:
+    def sample_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         """
@@ -334,7 +334,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverId")
-    def server_id(self) -> str:
+    def server_id(self) -> pulumi.Output[str]:
         """
         The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
         """
@@ -342,7 +342,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
         """
@@ -350,7 +350,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -358,7 +358,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> 'outputs.DatabaseThreatDetectionPolicy':
+    def threat_detection_policy(self) -> pulumi.Output['outputs.DatabaseThreatDetectionPolicy']:
         """
         Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
@@ -366,7 +366,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> bool:
+    def zone_redundant(self) -> pulumi.Output[bool]:
         """
         Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """

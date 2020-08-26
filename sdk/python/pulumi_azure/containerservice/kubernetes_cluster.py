@@ -15,7 +15,7 @@ __all__ = ['KubernetesCluster']
 
 class KubernetesCluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']]] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -264,7 +264,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addonProfile")
-    def addon_profile(self) -> 'outputs.KubernetesClusterAddonProfile':
+    def addon_profile(self) -> pulumi.Output['outputs.KubernetesClusterAddonProfile']:
         """
         A `addon_profile` block as defined below.
         """
@@ -272,7 +272,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
-    def api_server_authorized_ip_ranges(self) -> Optional[List[str]]:
+    def api_server_authorized_ip_ranges(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The IP ranges to whitelist for incoming traffic to the masters.
         """
@@ -280,7 +280,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScalerProfile")
-    def auto_scaler_profile(self) -> 'outputs.KubernetesClusterAutoScalerProfile':
+    def auto_scaler_profile(self) -> pulumi.Output['outputs.KubernetesClusterAutoScalerProfile']:
         """
         A `auto_scaler_profile` block as defined below.
         """
@@ -288,7 +288,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultNodePool")
-    def default_node_pool(self) -> 'outputs.KubernetesClusterDefaultNodePool':
+    def default_node_pool(self) -> pulumi.Output['outputs.KubernetesClusterDefaultNodePool']:
         """
         A `default_node_pool` block as defined below.
         """
@@ -296,7 +296,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[str]:
+    def disk_encryption_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         """
@@ -304,7 +304,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsPrefix")
-    def dns_prefix(self) -> str:
+    def dns_prefix(self) -> pulumi.Output[str]:
         """
         DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         """
@@ -312,7 +312,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
-    def enable_pod_security_policy(self) -> Optional[bool]:
+    def enable_pod_security_policy(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
         """
@@ -320,7 +320,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         The FQDN of the Azure Kubernetes Managed Cluster.
         """
@@ -328,7 +328,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.KubernetesClusterIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.KubernetesClusterIdentity']]:
         """
         A `identity` block as defined below. Changing this forces a new resource to be created.
         """
@@ -336,7 +336,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubeAdminConfigRaw")
-    def kube_admin_config_raw(self) -> str:
+    def kube_admin_config_raw(self) -> pulumi.Output[str]:
         """
         Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         """
@@ -344,7 +344,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubeAdminConfigs")
-    def kube_admin_configs(self) -> List['outputs.KubernetesClusterKubeAdminConfig']:
+    def kube_admin_configs(self) -> pulumi.Output[List['outputs.KubernetesClusterKubeAdminConfig']]:
         """
         A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         """
@@ -352,7 +352,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubeConfigRaw")
-    def kube_config_raw(self) -> str:
+    def kube_config_raw(self) -> pulumi.Output[str]:
         """
         Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
         """
@@ -360,7 +360,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubeConfigs")
-    def kube_configs(self) -> List['outputs.KubernetesClusterKubeConfig']:
+    def kube_configs(self) -> pulumi.Output[List['outputs.KubernetesClusterKubeConfig']]:
         """
         A `kube_config` block as defined below.
         """
@@ -368,7 +368,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubeletIdentities")
-    def kubelet_identities(self) -> List['outputs.KubernetesClusterKubeletIdentity']:
+    def kubelet_identities(self) -> pulumi.Output[List['outputs.KubernetesClusterKubeletIdentity']]:
         """
         A `kubelet_identity` block as defined below.
         """
@@ -376,7 +376,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubernetesVersion")
-    def kubernetes_version(self) -> str:
+    def kubernetes_version(self) -> pulumi.Output[str]:
         """
         Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         """
@@ -384,7 +384,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional['outputs.KubernetesClusterLinuxProfile']:
+    def linux_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterLinuxProfile']]:
         """
         A `linux_profile` block as defined below.
         """
@@ -392,7 +392,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         """
@@ -400,7 +400,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         """
@@ -408,7 +408,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> 'outputs.KubernetesClusterNetworkProfile':
+    def network_profile(self) -> pulumi.Output['outputs.KubernetesClusterNetworkProfile']:
         """
         A `network_profile` block as defined below.
         """
@@ -416,7 +416,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeResourceGroup")
-    def node_resource_group(self) -> str:
+    def node_resource_group(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         """
@@ -424,7 +424,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateClusterEnabled")
-    def private_cluster_enabled(self) -> bool:
+    def private_cluster_enabled(self) -> pulumi.Output[bool]:
         """
         Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         """
@@ -432,7 +432,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateFqdn")
-    def private_fqdn(self) -> str:
+    def private_fqdn(self) -> pulumi.Output[str]:
         """
         The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         """
@@ -440,12 +440,12 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkEnabled")
-    def private_link_enabled(self) -> bool:
+    def private_link_enabled(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "private_link_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -453,7 +453,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleBasedAccessControl")
-    def role_based_access_control(self) -> 'outputs.KubernetesClusterRoleBasedAccessControl':
+    def role_based_access_control(self) -> pulumi.Output['outputs.KubernetesClusterRoleBasedAccessControl']:
         """
         A `role_based_access_control` block. Changing this forces a new resource to be created.
         """
@@ -461,7 +461,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional['outputs.KubernetesClusterServicePrincipal']:
+    def service_principal(self) -> pulumi.Output[Optional['outputs.KubernetesClusterServicePrincipal']]:
         """
         A `service_principal` block as documented below.
         """
@@ -469,7 +469,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuTier")
-    def sku_tier(self) -> Optional[str]:
+    def sku_tier(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         """
@@ -477,7 +477,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -485,7 +485,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> 'outputs.KubernetesClusterWindowsProfile':
+    def windows_profile(self) -> pulumi.Output['outputs.KubernetesClusterWindowsProfile']:
         """
         A `windows_profile` block as defined below.
         """

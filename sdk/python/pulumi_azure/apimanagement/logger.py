@@ -15,7 +15,7 @@ __all__ = ['Logger']
 
 class Logger(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  application_insights: Optional[pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArgs']]] = None,
@@ -140,7 +140,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
@@ -148,7 +148,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationInsights")
-    def application_insights(self) -> Optional['outputs.LoggerApplicationInsights']:
+    def application_insights(self) -> pulumi.Output[Optional['outputs.LoggerApplicationInsights']]:
         """
         An `application_insights` block as documented below.
         """
@@ -156,7 +156,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def buffered(self) -> Optional[bool]:
+    def buffered(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
         """
@@ -164,7 +164,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of this Logger.
         """
@@ -172,7 +172,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def eventhub(self) -> Optional['outputs.LoggerEventhub']:
+    def eventhub(self) -> pulumi.Output[Optional['outputs.LoggerEventhub']]:
         """
         An `eventhub` block as documented below.
         """
@@ -180,7 +180,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class Logger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """

@@ -13,7 +13,7 @@ __all__ = ['Key']
 
 class Key(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  curve: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -192,7 +192,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def curve(self) -> str:
+    def curve(self) -> pulumi.Output[str]:
         """
         Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         """
@@ -200,7 +200,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def e(self) -> str:
+    def e(self) -> pulumi.Output[str]:
         """
         The RSA public exponent of this Key Vault Key.
         """
@@ -208,7 +208,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> Optional[str]:
+    def expiration_date(self) -> pulumi.Output[Optional[str]]:
         """
         Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         """
@@ -216,7 +216,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyOpts")
-    def key_opts(self) -> List[str]:
+    def key_opts(self) -> pulumi.Output[List[str]]:
         """
         A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
         """
@@ -224,7 +224,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[float]:
+    def key_size(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         """
@@ -232,7 +232,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> str:
+    def key_type(self) -> pulumi.Output[str]:
         """
         Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         """
@@ -240,7 +240,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> str:
+    def key_vault_id(self) -> pulumi.Output[str]:
         """
         The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
         """
@@ -248,7 +248,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def n(self) -> str:
+    def n(self) -> pulumi.Output[str]:
         """
         The RSA modulus of this Key Vault Key.
         """
@@ -256,7 +256,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         """
@@ -264,7 +264,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notBeforeDate")
-    def not_before_date(self) -> Optional[str]:
+    def not_before_date(self) -> pulumi.Output[Optional[str]]:
         """
         Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         """
@@ -272,7 +272,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -280,7 +280,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The current version of the Key Vault Key.
         """
@@ -288,7 +288,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def x(self) -> str:
+    def x(self) -> pulumi.Output[str]:
         """
         The EC X component of this Key Vault Key.
         """
@@ -296,7 +296,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def y(self) -> str:
+    def y(self) -> pulumi.Output[str]:
         """
         The EC Y component of this Key Vault Key.
         """

@@ -15,7 +15,7 @@ __all__ = ['VpnServerConfiguration']
 
 class VpnServerConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_active_directory_authentications: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]]] = None,
                  client_revoked_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]]] = None,
@@ -176,7 +176,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureActiveDirectoryAuthentications")
-    def azure_active_directory_authentications(self) -> Optional[List['outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication']]:
+    def azure_active_directory_authentications(self) -> pulumi.Output[Optional[List['outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication']]]:
         """
         A `azure_active_directory_authentication` block as defined below.
         """
@@ -184,7 +184,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientRevokedCertificates")
-    def client_revoked_certificates(self) -> Optional[List['outputs.VpnServerConfigurationClientRevokedCertificate']]:
+    def client_revoked_certificates(self) -> pulumi.Output[Optional[List['outputs.VpnServerConfigurationClientRevokedCertificate']]]:
         """
         One or more `client_revoked_certificate` blocks as defined below.
         """
@@ -192,7 +192,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientRootCertificates")
-    def client_root_certificates(self) -> Optional[List['outputs.VpnServerConfigurationClientRootCertificate']]:
+    def client_root_certificates(self) -> pulumi.Output[Optional[List['outputs.VpnServerConfigurationClientRootCertificate']]]:
         """
         One or more `client_root_certificate` blocks as defined below.
         """
@@ -200,7 +200,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipsecPolicy")
-    def ipsec_policy(self) -> Optional['outputs.VpnServerConfigurationIpsecPolicy']:
+    def ipsec_policy(self) -> pulumi.Output[Optional['outputs.VpnServerConfigurationIpsecPolicy']]:
         """
         A `ipsec_policy` block as defined below.
         """
@@ -208,7 +208,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         """
@@ -216,7 +216,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
         """
@@ -224,7 +224,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="radiusServer")
-    def radius_server(self) -> Optional['outputs.VpnServerConfigurationRadiusServer']:
+    def radius_server(self) -> pulumi.Output[Optional['outputs.VpnServerConfigurationRadiusServer']]:
         """
         A `radius_server` block as defined below.
         """
@@ -232,7 +232,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         """
@@ -240,7 +240,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -248,7 +248,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnAuthenticationTypes")
-    def vpn_authentication_types(self) -> str:
+    def vpn_authentication_types(self) -> pulumi.Output[str]:
         """
         A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         """
@@ -256,7 +256,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpnProtocols")
-    def vpn_protocols(self) -> List[str]:
+    def vpn_protocols(self) -> pulumi.Output[List[str]]:
         """
         A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
         """
