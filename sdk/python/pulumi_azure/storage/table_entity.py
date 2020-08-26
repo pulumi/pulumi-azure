@@ -13,7 +13,7 @@ __all__ = ['TableEntity']
 
 class TableEntity(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  entity: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class TableEntity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entity(self) -> Mapping[str, str]:
+    def entity(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         """
@@ -119,7 +119,7 @@ class TableEntity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKey")
-    def partition_key(self) -> str:
+    def partition_key(self) -> pulumi.Output[str]:
         """
         The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
         """
@@ -127,7 +127,7 @@ class TableEntity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rowKey")
-    def row_key(self) -> str:
+    def row_key(self) -> pulumi.Output[str]:
         """
         The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
         """
@@ -135,7 +135,7 @@ class TableEntity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         Specifies the storage account in which to create the storage table entity.
         Changing this forces a new resource to be created.
@@ -144,7 +144,7 @@ class TableEntity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> str:
+    def table_name(self) -> pulumi.Output[str]:
         """
         The name of the storage table in which to create the storage table entity.
         Changing this forces a new resource to be created.

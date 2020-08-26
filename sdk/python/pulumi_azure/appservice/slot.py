@@ -15,7 +15,7 @@ __all__ = ['Slot']
 
 class Slot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
@@ -267,7 +267,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServiceName")
-    def app_service_name(self) -> str:
+    def app_service_name(self) -> pulumi.Output[str]:
         """
         The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
         """
@@ -275,7 +275,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServicePlanId")
-    def app_service_plan_id(self) -> str:
+    def app_service_plan_id(self) -> pulumi.Output[str]:
         """
         The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         """
@@ -283,7 +283,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Mapping[str, str]:
+    def app_settings(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A key-value pair of App Settings.
         """
@@ -291,7 +291,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> 'outputs.SlotAuthSettings':
+    def auth_settings(self) -> pulumi.Output['outputs.SlotAuthSettings']:
         """
         A `auth_settings` block as defined below.
         """
@@ -299,7 +299,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> bool:
+    def client_affinity_enabled(self) -> pulumi.Output[bool]:
         """
         Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         """
@@ -307,7 +307,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> List['outputs.SlotConnectionString']:
+    def connection_strings(self) -> pulumi.Output[List['outputs.SlotConnectionString']]:
         """
         An `connection_string` block as defined below.
         """
@@ -315,7 +315,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSiteHostname")
-    def default_site_hostname(self) -> str:
+    def default_site_hostname(self) -> pulumi.Output[str]:
         """
         The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
         """
@@ -323,7 +323,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the App Service Slot Enabled?
         """
@@ -331,7 +331,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[bool]:
+    def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         """
@@ -339,7 +339,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.SlotIdentity':
+    def identity(self) -> pulumi.Output['outputs.SlotIdentity']:
         """
         A Managed Service Identity block as defined below.
         """
@@ -347,7 +347,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -355,12 +355,12 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> 'outputs.SlotLogs':
+    def logs(self) -> pulumi.Output['outputs.SlotLogs']:
         return pulumi.get(self, "logs")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         """
@@ -368,7 +368,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the App Service Slot component.
         """
@@ -376,7 +376,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> 'outputs.SlotSiteConfig':
+    def site_config(self) -> pulumi.Output['outputs.SlotSiteConfig']:
         """
         A `site_config` object as defined below.
         """
@@ -384,7 +384,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> List['outputs.SlotSiteCredential']:
+    def site_credentials(self) -> pulumi.Output[List['outputs.SlotSiteCredential']]:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         """
@@ -392,7 +392,7 @@ class Slot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

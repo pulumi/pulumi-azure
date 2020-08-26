@@ -13,7 +13,7 @@ __all__ = ['Workflow']
 
 class Workflow(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -149,7 +149,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessEndpoint")
-    def access_endpoint(self) -> str:
+    def access_endpoint(self) -> pulumi.Output[str]:
         """
         The Access Endpoint for the Logic App Workflow.
         """
@@ -157,7 +157,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorEndpointIpAddresses")
-    def connector_endpoint_ip_addresses(self) -> List[str]:
+    def connector_endpoint_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of access endpoint ip addresses of connector.
         """
@@ -165,7 +165,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorOutboundIpAddresses")
-    def connector_outbound_ip_addresses(self) -> List[str]:
+    def connector_outbound_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of outgoing ip addresses of connector.
         """
@@ -173,7 +173,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicAppIntegrationAccountId")
-    def logic_app_integration_account_id(self) -> Optional[str]:
+    def logic_app_integration_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the integration account linked by this Logic App Workflow.
         """
@@ -189,7 +189,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         """
@@ -197,7 +197,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Key-Value pairs.
         """
@@ -205,7 +205,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         """
@@ -213,7 +213,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -221,7 +221,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowEndpointIpAddresses")
-    def workflow_endpoint_ip_addresses(self) -> List[str]:
+    def workflow_endpoint_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of access endpoint ip addresses of workflow.
         """
@@ -229,7 +229,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowOutboundIpAddresses")
-    def workflow_outbound_ip_addresses(self) -> List[str]:
+    def workflow_outbound_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The list of outgoing ip addresses of workflow.
         """
@@ -237,7 +237,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowSchema")
-    def workflow_schema(self) -> Optional[str]:
+    def workflow_schema(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         """
@@ -245,7 +245,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowVersion")
-    def workflow_version(self) -> Optional[str]:
+    def workflow_version(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['CaaRecord']
 
 class CaaRecord(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CaaRecordRecordArgs']]]]] = None,
@@ -156,7 +156,7 @@ class CaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         The FQDN of the DNS CAA Record.
         """
@@ -164,7 +164,7 @@ class CaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
         """
@@ -172,7 +172,7 @@ class CaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def records(self) -> List['outputs.CaaRecordRecord']:
+    def records(self) -> pulumi.Output[List['outputs.CaaRecordRecord']]:
         """
         A list of values that make up the CAA record. Each `record` block supports fields documented below.
         """
@@ -180,7 +180,7 @@ class CaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class CaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -196,7 +196,7 @@ class CaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> pulumi.Output[float]:
         """
         The Time To Live (TTL) of the DNS record in seconds.
         """
@@ -204,7 +204,7 @@ class CaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneName")
-    def zone_name(self) -> str:
+    def zone_name(self) -> pulumi.Output[str]:
         """
         Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """

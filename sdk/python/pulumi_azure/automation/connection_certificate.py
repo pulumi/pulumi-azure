@@ -13,7 +13,7 @@ __all__ = ['ConnectionCertificate']
 
 class ConnectionCertificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  automation_certificate_name: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class ConnectionCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         """
@@ -119,7 +119,7 @@ class ConnectionCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationCertificateName")
-    def automation_certificate_name(self) -> str:
+    def automation_certificate_name(self) -> pulumi.Output[str]:
         """
         The name of the automation certificate.
         """
@@ -127,7 +127,7 @@ class ConnectionCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for this Connection.
         """
@@ -135,7 +135,7 @@ class ConnectionCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Connection. Changing this forces a new resource to be created.
         """
@@ -143,7 +143,7 @@ class ConnectionCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class ConnectionCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
+    def subscription_id(self) -> pulumi.Output[str]:
         """
         The id of subscription where the automation certificate exists.
         """

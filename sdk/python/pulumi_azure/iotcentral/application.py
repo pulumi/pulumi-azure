@@ -13,7 +13,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -138,7 +138,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         """
@@ -146,7 +146,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         """
@@ -154,7 +154,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         """
@@ -162,7 +162,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         """
@@ -170,7 +170,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[str]:
+    def sku(self) -> pulumi.Output[Optional[str]]:
         """
         A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
         """
@@ -178,7 +178,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subDomain")
-    def sub_domain(self) -> str:
+    def sub_domain(self) -> pulumi.Output[str]:
         """
         A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         """
@@ -186,7 +186,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -194,7 +194,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def template(self) -> str:
+    def template(self) -> pulumi.Output[str]:
         """
         A `template` name. IoT Central application template name. Default is a custom application.
         """

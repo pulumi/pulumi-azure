@@ -15,7 +15,7 @@ __all__ = ['Factory']
 
 class Factory(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  github_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
@@ -125,7 +125,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="githubConfiguration")
-    def github_configuration(self) -> Optional['outputs.FactoryGithubConfiguration']:
+    def github_configuration(self) -> pulumi.Output[Optional['outputs.FactoryGithubConfiguration']]:
         """
         A `github_configuration` block as defined below.
         """
@@ -133,7 +133,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.FactoryIdentity':
+    def identity(self) -> pulumi.Output['outputs.FactoryIdentity']:
         """
         An `identity` block as defined below.
         """
@@ -141,7 +141,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -149,7 +149,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         """
@@ -157,7 +157,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Data Factory.
         """
@@ -165,7 +165,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -173,7 +173,7 @@ class Factory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vstsConfiguration")
-    def vsts_configuration(self) -> Optional['outputs.FactoryVstsConfiguration']:
+    def vsts_configuration(self) -> pulumi.Output[Optional['outputs.FactoryVstsConfiguration']]:
         """
         A `vsts_configuration` block as defined below.
         """

@@ -15,7 +15,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -203,7 +203,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[List['outputs.PolicyCustomRule']]:
+    def custom_rules(self) -> pulumi.Output[Optional[List['outputs.PolicyCustomRule']]]:
         """
         One or more `custom_rules` blocks as defined below.
         """
@@ -211,7 +211,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location. Changing this forces a new resource to be created.
         """
@@ -219,7 +219,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> 'outputs.PolicyManagedRules':
+    def managed_rules(self) -> pulumi.Output['outputs.PolicyManagedRules']:
         """
         A `managed_rules` blocks as defined below.
         """
@@ -227,7 +227,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy. Changing this forces a new resource to be created.
         """
@@ -235,7 +235,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policySettings")
-    def policy_settings(self) -> Optional['outputs.PolicyPolicySettings']:
+    def policy_settings(self) -> pulumi.Output[Optional['outputs.PolicyPolicySettings']]:
         """
         A `policy_settings` block as defined below.
         """
@@ -243,7 +243,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group. Changing this forces a new resource to be created.
         """
@@ -251,7 +251,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Web Application Firewall Policy.
         """

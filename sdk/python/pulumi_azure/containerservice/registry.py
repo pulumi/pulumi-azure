@@ -15,7 +15,7 @@ __all__ = ['Registry']
 
 class Registry(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
                  georeplication_locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -155,7 +155,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminEnabled")
-    def admin_enabled(self) -> Optional[bool]:
+    def admin_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the admin user is enabled. Defaults to `false`.
         """
@@ -163,7 +163,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> str:
+    def admin_password(self) -> pulumi.Output[str]:
         """
         The Password associated with the Container Registry Admin account - if the admin account is enabled.
         """
@@ -171,7 +171,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> str:
+    def admin_username(self) -> pulumi.Output[str]:
         """
         The Username associated with the Container Registry Admin account - if the admin account is enabled.
         """
@@ -179,7 +179,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="georeplicationLocations")
-    def georeplication_locations(self) -> Optional[List[str]]:
+    def georeplication_locations(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of Azure locations where the container registry should be geo-replicated.
         """
@@ -187,7 +187,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -195,7 +195,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loginServer")
-    def login_server(self) -> str:
+    def login_server(self) -> pulumi.Output[str]:
         """
         The URL that can be used to log into the container registry.
         """
@@ -203,7 +203,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         """
@@ -211,7 +211,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkRuleSet")
-    def network_rule_set(self) -> 'outputs.RegistryNetworkRuleSet':
+    def network_rule_set(self) -> pulumi.Output['outputs.RegistryNetworkRuleSet']:
         """
         A `network_rule_set` block as documented below.
         """
@@ -219,7 +219,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         """
@@ -227,7 +227,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[str]:
+    def sku(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
         """
@@ -235,7 +235,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
         """
@@ -243,7 +243,7 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

@@ -15,7 +15,7 @@ __all__ = ['VirtualMachine']
 
 class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
                  key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
@@ -158,7 +158,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoPatching")
-    def auto_patching(self) -> Optional['outputs.VirtualMachineAutoPatching']:
+    def auto_patching(self) -> pulumi.Output[Optional['outputs.VirtualMachineAutoPatching']]:
         """
         An `auto_patching` block as defined below.
         """
@@ -166,7 +166,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultCredential")
-    def key_vault_credential(self) -> Optional['outputs.VirtualMachineKeyVaultCredential']:
+    def key_vault_credential(self) -> pulumi.Output[Optional['outputs.VirtualMachineKeyVaultCredential']]:
         """
         (Optional) An `key_vault_credential` block as defined below.
         """
@@ -174,7 +174,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rServicesEnabled")
-    def r_services_enabled(self) -> Optional[bool]:
+    def r_services_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should R Services be enabled?
         """
@@ -182,7 +182,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlConnectivityPort")
-    def sql_connectivity_port(self) -> Optional[float]:
+    def sql_connectivity_port(self) -> pulumi.Output[Optional[float]]:
         """
         The SQL Server port. Defaults to `1433`.
         """
@@ -190,7 +190,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlConnectivityType")
-    def sql_connectivity_type(self) -> Optional[str]:
+    def sql_connectivity_type(self) -> pulumi.Output[Optional[str]]:
         """
         The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
         """
@@ -198,7 +198,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlConnectivityUpdatePassword")
-    def sql_connectivity_update_password(self) -> Optional[str]:
+    def sql_connectivity_update_password(self) -> pulumi.Output[Optional[str]]:
         """
         The SQL Server sysadmin login password.
         """
@@ -206,7 +206,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlConnectivityUpdateUsername")
-    def sql_connectivity_update_username(self) -> Optional[str]:
+    def sql_connectivity_update_username(self) -> pulumi.Output[Optional[str]]:
         """
         The SQL Server sysadmin login to create.
         """
@@ -214,7 +214,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlLicenseType")
-    def sql_license_type(self) -> str:
+    def sql_license_type(self) -> pulumi.Output[str]:
         """
         The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         """
@@ -222,7 +222,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -230,7 +230,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> str:
+    def virtual_machine_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Machine. Changing this forces a new resource to be created.
         """

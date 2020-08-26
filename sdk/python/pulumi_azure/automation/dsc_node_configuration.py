@@ -13,7 +13,7 @@ __all__ = ['DscNodeConfiguration']
 
 class DscNodeConfiguration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content_embedded: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
         """
@@ -108,12 +108,12 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> str:
+    def configuration_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "configuration_name")
 
     @property
     @pulumi.getter(name="contentEmbedded")
-    def content_embedded(self) -> str:
+    def content_embedded(self) -> pulumi.Output[str]:
         """
         The PowerShell DSC Node Configuration (mof content).
         """
@@ -121,7 +121,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
         """
@@ -129,7 +129,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
         """

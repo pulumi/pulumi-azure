@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Batch account. Changing this forces a new resource to be created.
         """
@@ -135,7 +135,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> str:
+    def certificate(self) -> pulumi.Output[str]:
         """
         The base64-encoded contents of the certificate.
         """
@@ -143,7 +143,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> str:
+    def format(self) -> pulumi.Output[str]:
         """
         The format of the certificate. Possible values are `Cer` or `Pfx`.
         """
@@ -151,7 +151,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The generated name of the certificate.
         """
@@ -159,7 +159,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
         """
@@ -167,7 +167,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicData")
-    def public_data(self) -> str:
+    def public_data(self) -> pulumi.Output[str]:
         """
         The public key of the certificate.
         """
@@ -175,7 +175,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
         """
@@ -191,7 +191,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="thumbprintAlgorithm")
-    def thumbprint_algorithm(self) -> str:
+    def thumbprint_algorithm(self) -> pulumi.Output[str]:
         return pulumi.get(self, "thumbprint_algorithm")
 
     def translate_output_property(self, prop):

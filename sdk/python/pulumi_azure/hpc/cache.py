@@ -13,7 +13,7 @@ __all__ = ['Cache']
 
 class Cache(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_size_in_gb: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheSizeInGb")
-    def cache_size_in_gb(self) -> float:
+    def cache_size_in_gb(self) -> pulumi.Output[float]:
         """
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         """
@@ -150,7 +150,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         """
@@ -158,7 +158,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountAddresses")
-    def mount_addresses(self) -> List[str]:
+    def mount_addresses(self) -> pulumi.Output[List[str]]:
         """
         A list of IP Addresses where the HPC Cache can be mounted.
         """
@@ -166,7 +166,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the HPC Cache. Changing this forces a new resource to be created.
         """
@@ -174,7 +174,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         """
@@ -182,7 +182,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
         """
@@ -190,7 +190,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         """

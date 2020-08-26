@@ -13,7 +13,7 @@ __all__ = ['Dashboard']
 
 class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_properties: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -236,7 +236,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dashboardProperties")
-    def dashboard_properties(self) -> str:
+    def dashboard_properties(self) -> pulumi.Output[str]:
         """
         JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         """
@@ -244,7 +244,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -252,7 +252,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
         """
@@ -260,7 +260,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the dashboard.
@@ -269,7 +269,7 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

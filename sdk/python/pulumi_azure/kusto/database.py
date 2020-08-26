@@ -13,7 +13,7 @@ __all__ = ['Database']
 
 class Database(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  hot_cache_period: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
         """
@@ -141,7 +141,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hotCachePeriod")
-    def hot_cache_period(self) -> Optional[str]:
+    def hot_cache_period(self) -> pulumi.Output[Optional[str]]:
         """
         The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
         """
@@ -149,7 +149,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Kusto Database to create. Changing this forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> pulumi.Output[float]:
         """
         The size of the database in bytes.
         """
@@ -181,7 +181,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="softDeletePeriod")
-    def soft_delete_period(self) -> Optional[str]:
+    def soft_delete_period(self) -> pulumi.Output[Optional[str]]:
         """
         The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
         """

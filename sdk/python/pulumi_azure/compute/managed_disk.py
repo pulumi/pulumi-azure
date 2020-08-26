@@ -15,7 +15,7 @@ __all__ = ['ManagedDisk']
 
 class ManagedDisk(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -223,7 +223,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> str:
+    def create_option(self) -> pulumi.Output[str]:
         """
         The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         """
@@ -231,7 +231,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[str]:
+    def disk_encryption_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         """
@@ -239,7 +239,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskIopsReadWrite")
-    def disk_iops_read_write(self) -> float:
+    def disk_iops_read_write(self) -> pulumi.Output[float]:
         """
         The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         """
@@ -247,7 +247,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskMbpsReadWrite")
-    def disk_mbps_read_write(self) -> float:
+    def disk_mbps_read_write(self) -> pulumi.Output[float]:
         """
         The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
         """
@@ -255,7 +255,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> float:
+    def disk_size_gb(self) -> pulumi.Output[float]:
         """
         Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         """
@@ -263,7 +263,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional['outputs.ManagedDiskEncryptionSettings']:
+    def encryption_settings(self) -> pulumi.Output[Optional['outputs.ManagedDiskEncryptionSettings']]:
         """
         A `encryption_settings` block as defined below.
         """
@@ -271,7 +271,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageReferenceId")
-    def image_reference_id(self) -> Optional[str]:
+    def image_reference_id(self) -> pulumi.Output[Optional[str]]:
         """
         ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         """
@@ -279,7 +279,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -287,7 +287,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         """
@@ -295,7 +295,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         """
@@ -303,7 +303,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Managed Disk should exist.
         """
@@ -311,7 +311,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[str]:
+    def source_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         """
@@ -319,7 +319,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> str:
+    def source_uri(self) -> pulumi.Output[str]:
         """
         URI to a valid VHD file to be used when `create_option` is `Import`.
         """
@@ -327,7 +327,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         """
@@ -335,7 +335,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> str:
+    def storage_account_type(self) -> pulumi.Output[str]:
         """
         The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         """
@@ -343,7 +343,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -351,7 +351,7 @@ class ManagedDisk(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[str]:
+    def zones(self) -> pulumi.Output[Optional[str]]:
         """
         A collection containing the availability zone to allocate the Managed Disk in.
         """

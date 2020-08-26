@@ -15,7 +15,7 @@ __all__ = ['DiagnosticSetting']
 
 class DiagnosticSetting(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubAuthorizationRuleId")
-    def eventhub_authorization_rule_id(self) -> Optional[str]:
+    def eventhub_authorization_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         """
@@ -162,7 +162,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubName")
-    def eventhub_name(self) -> Optional[str]:
+    def eventhub_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         """
@@ -170,7 +170,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logAnalyticsDestinationType")
-    def log_analytics_destination_type(self) -> Optional[str]:
+    def log_analytics_destination_type(self) -> pulumi.Output[Optional[str]]:
         """
         When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         """
@@ -178,7 +178,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
-    def log_analytics_workspace_id(self) -> Optional[str]:
+    def log_analytics_workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         """
@@ -186,7 +186,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[List['outputs.DiagnosticSettingLog']]:
+    def logs(self) -> pulumi.Output[Optional[List['outputs.DiagnosticSettingLog']]]:
         """
         One or more `log` blocks as defined below.
         """
@@ -194,7 +194,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metrics(self) -> Optional[List['outputs.DiagnosticSettingMetric']]:
+    def metrics(self) -> pulumi.Output[Optional[List['outputs.DiagnosticSettingMetric']]]:
         """
         One or more `metric` blocks as defined below.
         """
@@ -202,7 +202,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
         """
@@ -210,7 +210,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         """
@@ -218,7 +218,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceId")
-    def target_resource_id(self) -> str:
+    def target_resource_id(self) -> pulumi.Output[str]:
         """
         The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """

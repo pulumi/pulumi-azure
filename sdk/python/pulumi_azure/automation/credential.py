@@ -13,7 +13,7 @@ __all__ = ['Credential']
 
 class Credential(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
         """
@@ -138,7 +138,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description associated with this Automation Credential.
         """
@@ -146,7 +146,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
@@ -154,7 +154,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> str:
+    def password(self) -> pulumi.Output[str]:
         """
         The password associated with this Automation Credential.
         """
@@ -162,7 +162,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
         """
@@ -170,7 +170,7 @@ class Credential(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def username(self) -> pulumi.Output[str]:
         """
         The username associated with this Automation Credential.
         """

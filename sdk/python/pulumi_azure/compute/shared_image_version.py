@@ -15,7 +15,7 @@ __all__ = ['SharedImageVersion']
 
 class SharedImageVersion(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
@@ -161,7 +161,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludeFromLatest")
-    def exclude_from_latest(self) -> Optional[bool]:
+    def exclude_from_latest(self) -> pulumi.Output[Optional[bool]]:
         """
         Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         """
@@ -169,7 +169,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="galleryName")
-    def gallery_name(self) -> str:
+    def gallery_name(self) -> pulumi.Output[str]:
         """
         The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         """
@@ -177,7 +177,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> str:
+    def image_name(self) -> pulumi.Output[str]:
         """
         The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         """
@@ -185,7 +185,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
@@ -193,7 +193,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedImageId")
-    def managed_image_id(self) -> Optional[str]:
+    def managed_image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         """
@@ -201,7 +201,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         """
@@ -209,7 +209,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osDiskSnapshotId")
-    def os_disk_snapshot_id(self) -> Optional[str]:
+    def os_disk_snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         """
@@ -217,7 +217,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
@@ -225,7 +225,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A collection of tags which should be applied to this resource.
         """
@@ -233,7 +233,7 @@ class SharedImageVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> List['outputs.SharedImageVersionTargetRegion']:
+    def target_regions(self) -> pulumi.Output[List['outputs.SharedImageVersionTargetRegion']]:
         """
         One or more `target_region` blocks as documented below.
         """

@@ -15,7 +15,7 @@ __all__ = ['Volume']
 
 class Volume(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  export_policy_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
@@ -205,7 +205,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         """
@@ -213,7 +213,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="exportPolicyRules")
-    def export_policy_rules(self) -> Optional[List['outputs.VolumeExportPolicyRule']]:
+    def export_policy_rules(self) -> pulumi.Output[Optional[List['outputs.VolumeExportPolicyRule']]]:
         """
         One or more `export_policy_rule` block defined below.
         """
@@ -221,7 +221,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -229,7 +229,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mountIpAddresses")
-    def mount_ip_addresses(self) -> List[str]:
+    def mount_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         A list of IPv4 Addresses which should be used to mount the volume.
         """
@@ -237,7 +237,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the NetApp Volume. Changing this forces a new resource to be created.
         """
@@ -245,7 +245,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolName")
-    def pool_name(self) -> str:
+    def pool_name(self) -> pulumi.Output[str]:
         """
         The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         """
@@ -253,7 +253,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocols(self) -> List[str]:
+    def protocols(self) -> pulumi.Output[List[str]]:
         """
         The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost.
         """
@@ -261,7 +261,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         """
@@ -269,7 +269,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceLevel")
-    def service_level(self) -> str:
+    def service_level(self) -> pulumi.Output[str]:
         """
         The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
         """
@@ -277,7 +277,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageQuotaInGb")
-    def storage_quota_in_gb(self) -> float:
+    def storage_quota_in_gb(self) -> pulumi.Output[float]:
         """
         The maximum Storage Quota allowed for a file system in Gigabytes.
         """
@@ -285,7 +285,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         """
@@ -293,7 +293,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -301,7 +301,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumePath")
-    def volume_path(self) -> str:
+    def volume_path(self) -> pulumi.Output[str]:
         """
         A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         """

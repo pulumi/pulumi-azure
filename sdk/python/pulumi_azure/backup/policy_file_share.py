@@ -15,7 +15,7 @@ __all__ = ['PolicyFileShare']
 
 class PolicyFileShare(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareBackupArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -139,7 +139,7 @@ class PolicyFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def backup(self) -> 'outputs.PolicyFileShareBackup':
+    def backup(self) -> pulumi.Output['outputs.PolicyFileShareBackup']:
         """
         Configures the Policy backup frequency and times as documented in the `backup` block below.
         """
@@ -147,7 +147,7 @@ class PolicyFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the policy. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class PolicyFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
@@ -163,7 +163,7 @@ class PolicyFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         """
@@ -171,7 +171,7 @@ class PolicyFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionDaily")
-    def retention_daily(self) -> 'outputs.PolicyFileShareRetentionDaily':
+    def retention_daily(self) -> pulumi.Output['outputs.PolicyFileShareRetentionDaily']:
         """
         Configures the policy daily retention as documented in the `retention_daily` block below.
         """
@@ -179,7 +179,7 @@ class PolicyFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> Optional[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the timezone. Defaults to `UTC`
         """

@@ -13,7 +13,7 @@ __all__ = ['AuthorizationRule']
 
 class AuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
@@ -148,7 +148,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def listen(self) -> Optional[bool]:
+    def listen(self) -> pulumi.Output[Optional[bool]]:
         """
         Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
         """
@@ -156,7 +156,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def manage(self) -> Optional[bool]:
+    def manage(self) -> pulumi.Output[Optional[bool]]:
         """
         Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
         """
@@ -164,7 +164,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name to use for this Authorization Rule. Changing this forces a new resource to be created.
         """
@@ -172,7 +172,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         """
@@ -180,7 +180,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationHubName")
-    def notification_hub_name(self) -> str:
+    def notification_hub_name(self) -> pulumi.Output[str]:
         """
         The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> str:
+    def primary_access_key(self) -> pulumi.Output[str]:
         """
         The Primary Access Key associated with this Authorization Rule.
         """
@@ -196,7 +196,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         """
@@ -204,7 +204,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> str:
+    def secondary_access_key(self) -> pulumi.Output[str]:
         """
         The Secondary Access Key associated with this Authorization Rule.
         """
@@ -212,7 +212,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def send(self) -> Optional[bool]:
+    def send(self) -> pulumi.Output[Optional[bool]]:
         """
         Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
         """

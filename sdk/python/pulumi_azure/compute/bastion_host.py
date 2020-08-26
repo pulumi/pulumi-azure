@@ -15,7 +15,7 @@ __all__ = ['BastionHost']
 
 class BastionHost(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -139,7 +139,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsName")
-    def dns_name(self) -> str:
+    def dns_name(self) -> pulumi.Output[str]:
         """
         The FQDN for the Bastion Host.
         """
@@ -147,7 +147,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> Optional['outputs.BastionHostIpConfiguration']:
+    def ip_configuration(self) -> pulumi.Output[Optional['outputs.BastionHostIpConfiguration']]:
         """
         A `ip_configuration` block as defined below.
         """
@@ -155,7 +155,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -163,7 +163,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
         """
@@ -171,7 +171,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Bastion Host.
         """
@@ -179,7 +179,7 @@ class BastionHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

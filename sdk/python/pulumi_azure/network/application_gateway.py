@@ -15,7 +15,7 @@ __all__ = ['ApplicationGateway']
 
 class ApplicationGateway(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]]] = None,
                  autoscale_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']]] = None,
@@ -325,7 +325,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> Optional[List['outputs.ApplicationGatewayAuthenticationCertificate']]:
+    def authentication_certificates(self) -> pulumi.Output[Optional[List['outputs.ApplicationGatewayAuthenticationCertificate']]]:
         """
         One or more `authentication_certificate` blocks as defined below.
         """
@@ -333,7 +333,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoscaleConfiguration")
-    def autoscale_configuration(self) -> Optional['outputs.ApplicationGatewayAutoscaleConfiguration']:
+    def autoscale_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationGatewayAutoscaleConfiguration']]:
         """
         A `autoscale_configuration` block as defined below.
         """
@@ -341,7 +341,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendAddressPools")
-    def backend_address_pools(self) -> List['outputs.ApplicationGatewayBackendAddressPool']:
+    def backend_address_pools(self) -> pulumi.Output[List['outputs.ApplicationGatewayBackendAddressPool']]:
         """
         One or more `backend_address_pool` blocks as defined below.
         """
@@ -349,7 +349,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendHttpSettings")
-    def backend_http_settings(self) -> List['outputs.ApplicationGatewayBackendHttpSetting']:
+    def backend_http_settings(self) -> pulumi.Output[List['outputs.ApplicationGatewayBackendHttpSetting']]:
         """
         One or more `backend_http_settings` blocks as defined below.
         """
@@ -357,7 +357,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customErrorConfigurations")
-    def custom_error_configurations(self) -> Optional[List['outputs.ApplicationGatewayCustomErrorConfiguration']]:
+    def custom_error_configurations(self) -> pulumi.Output[Optional[List['outputs.ApplicationGatewayCustomErrorConfiguration']]]:
         """
         One or more `custom_error_configuration` blocks as defined below.
         """
@@ -365,7 +365,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableHttp2")
-    def enable_http2(self) -> Optional[bool]:
+    def enable_http2(self) -> pulumi.Output[Optional[bool]]:
         """
         Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         """
@@ -373,7 +373,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallPolicyId")
-    def firewall_policy_id(self) -> Optional[str]:
+    def firewall_policy_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Web Application Firewall Policy.
         """
@@ -381,7 +381,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendIpConfigurations")
-    def frontend_ip_configurations(self) -> List['outputs.ApplicationGatewayFrontendIpConfiguration']:
+    def frontend_ip_configurations(self) -> pulumi.Output[List['outputs.ApplicationGatewayFrontendIpConfiguration']]:
         """
         One or more `frontend_ip_configuration` blocks as defined below.
         """
@@ -389,7 +389,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendPorts")
-    def frontend_ports(self) -> List['outputs.ApplicationGatewayFrontendPort']:
+    def frontend_ports(self) -> pulumi.Output[List['outputs.ApplicationGatewayFrontendPort']]:
         """
         One or more `frontend_port` blocks as defined below.
         """
@@ -397,7 +397,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayIpConfigurations")
-    def gateway_ip_configurations(self) -> List['outputs.ApplicationGatewayGatewayIpConfiguration']:
+    def gateway_ip_configurations(self) -> pulumi.Output[List['outputs.ApplicationGatewayGatewayIpConfiguration']]:
         """
         One or more `gateway_ip_configuration` blocks as defined below.
         """
@@ -405,7 +405,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpListeners")
-    def http_listeners(self) -> List['outputs.ApplicationGatewayHttpListener']:
+    def http_listeners(self) -> pulumi.Output[List['outputs.ApplicationGatewayHttpListener']]:
         """
         One or more `http_listener` blocks as defined below.
         """
@@ -413,7 +413,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ApplicationGatewayIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ApplicationGatewayIdentity']]:
         """
         A `identity` block.
         """
@@ -421,7 +421,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         """
@@ -429,7 +429,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Application Gateway. Changing this forces a new resource to be created.
         """
@@ -437,7 +437,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def probes(self) -> Optional[List['outputs.ApplicationGatewayProbe']]:
+    def probes(self) -> pulumi.Output[Optional[List['outputs.ApplicationGatewayProbe']]]:
         """
         One or more `probe` blocks as defined below.
         """
@@ -445,7 +445,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redirectConfigurations")
-    def redirect_configurations(self) -> Optional[List['outputs.ApplicationGatewayRedirectConfiguration']]:
+    def redirect_configurations(self) -> pulumi.Output[Optional[List['outputs.ApplicationGatewayRedirectConfiguration']]]:
         """
         A `redirect_configuration` block as defined below.
         """
@@ -453,7 +453,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestRoutingRules")
-    def request_routing_rules(self) -> List['outputs.ApplicationGatewayRequestRoutingRule']:
+    def request_routing_rules(self) -> pulumi.Output[List['outputs.ApplicationGatewayRequestRoutingRule']]:
         """
         One or more `request_routing_rule` blocks as defined below.
         """
@@ -461,7 +461,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         """
@@ -469,7 +469,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rewriteRuleSets")
-    def rewrite_rule_sets(self) -> Optional[List['outputs.ApplicationGatewayRewriteRuleSet']]:
+    def rewrite_rule_sets(self) -> pulumi.Output[Optional[List['outputs.ApplicationGatewayRewriteRuleSet']]]:
         """
         One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
         """
@@ -477,7 +477,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ApplicationGatewaySku':
+    def sku(self) -> pulumi.Output['outputs.ApplicationGatewaySku']:
         """
         A `sku` block as defined below.
         """
@@ -485,7 +485,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslCertificates")
-    def ssl_certificates(self) -> Optional[List['outputs.ApplicationGatewaySslCertificate']]:
+    def ssl_certificates(self) -> pulumi.Output[Optional[List['outputs.ApplicationGatewaySslCertificate']]]:
         """
         One or more `ssl_certificate` blocks as defined below.
         """
@@ -493,7 +493,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslPolicies")
-    def ssl_policies(self) -> List['outputs.ApplicationGatewaySslPolicy']:
+    def ssl_policies(self) -> pulumi.Output[List['outputs.ApplicationGatewaySslPolicy']]:
         """
         a `ssl policy` block as defined below.
         """
@@ -501,7 +501,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -509,7 +509,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedRootCertificates")
-    def trusted_root_certificates(self) -> Optional[List['outputs.ApplicationGatewayTrustedRootCertificate']]:
+    def trusted_root_certificates(self) -> pulumi.Output[Optional[List['outputs.ApplicationGatewayTrustedRootCertificate']]]:
         """
         One or more `trusted_root_certificate` blocks as defined below.
         """
@@ -517,7 +517,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlPathMaps")
-    def url_path_maps(self) -> Optional[List['outputs.ApplicationGatewayUrlPathMap']]:
+    def url_path_maps(self) -> pulumi.Output[Optional[List['outputs.ApplicationGatewayUrlPathMap']]]:
         """
         One or more `url_path_map` blocks as defined below.
         """
@@ -525,7 +525,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="wafConfiguration")
-    def waf_configuration(self) -> Optional['outputs.ApplicationGatewayWafConfiguration']:
+    def waf_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationGatewayWafConfiguration']]:
         """
         A `waf_configuration` block as defined below.
         """
@@ -533,7 +533,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A collection of availability zones to spread the Application Gateway over.
         """

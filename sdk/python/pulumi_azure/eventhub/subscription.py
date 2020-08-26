@@ -17,7 +17,7 @@ class Subscription(pulumi.CustomResource):
     warnings.warn("azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -189,7 +189,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> str:
+    def auto_delete_on_idle(self) -> pulumi.Output[str]:
         """
         The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
         """
@@ -197,7 +197,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deadLetteringOnMessageExpiration")
-    def dead_lettering_on_message_expiration(self) -> Optional[bool]:
+    def dead_lettering_on_message_expiration(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         """
@@ -205,7 +205,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultMessageTtl")
-    def default_message_ttl(self) -> str:
+    def default_message_ttl(self) -> pulumi.Output[str]:
         """
         The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         """
@@ -213,7 +213,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> Optional[bool]:
+    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
         """
@@ -221,7 +221,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardDeadLetteredMessagesTo")
-    def forward_dead_lettered_messages_to(self) -> Optional[str]:
+    def forward_dead_lettered_messages_to(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a Queue or Topic to automatically forward Dead Letter messages to.
         """
@@ -229,7 +229,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardTo")
-    def forward_to(self) -> Optional[str]:
+    def forward_to(self) -> pulumi.Output[Optional[str]]:
         """
         The name of a Queue or Topic to automatically forward messages to.
         """
@@ -237,7 +237,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockDuration")
-    def lock_duration(self) -> str:
+    def lock_duration(self) -> pulumi.Output[str]:
         """
         The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
         """
@@ -245,7 +245,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> float:
+    def max_delivery_count(self) -> pulumi.Output[float]:
         """
         The maximum number of deliveries.
         """
@@ -253,7 +253,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         """
@@ -261,7 +261,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         """
@@ -269,7 +269,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresSession")
-    def requires_session(self) -> Optional[bool]:
+    def requires_session(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
         """
@@ -277,7 +277,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         """
@@ -285,7 +285,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         """
@@ -293,7 +293,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> str:
+    def topic_name(self) -> pulumi.Output[str]:
         """
         The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """

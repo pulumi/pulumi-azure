@@ -15,7 +15,7 @@ __all__ = ['OutputBlob']
 
 class OutputBlob(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateFormat")
-    def date_format(self) -> str:
+    def date_format(self) -> pulumi.Output[str]:
         """
         The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         """
@@ -188,7 +188,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Stream Output. Changing this forces a new resource to be created.
         """
@@ -196,7 +196,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pathPattern")
-    def path_pattern(self) -> str:
+    def path_pattern(self) -> pulumi.Output[str]:
         """
         The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         """
@@ -204,7 +204,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         """
@@ -212,7 +212,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def serialization(self) -> 'outputs.OutputBlobSerialization':
+    def serialization(self) -> pulumi.Output['outputs.OutputBlobSerialization']:
         """
         A `serialization` block as defined below.
         """
@@ -220,7 +220,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> str:
+    def storage_account_key(self) -> pulumi.Output[str]:
         """
         The Access Key which should be used to connect to this Storage Account.
         """
@@ -228,7 +228,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         The name of the Storage Account.
         """
@@ -236,7 +236,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> str:
+    def storage_container_name(self) -> pulumi.Output[str]:
         """
         The name of the Container within the Storage Account.
         """
@@ -244,7 +244,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> str:
+    def stream_analytics_job_name(self) -> pulumi.Output[str]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
@@ -252,7 +252,7 @@ class OutputBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeFormat")
-    def time_format(self) -> str:
+    def time_format(self) -> pulumi.Output[str]:
         """
         The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
         """

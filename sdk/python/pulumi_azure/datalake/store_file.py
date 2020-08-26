@@ -13,7 +13,7 @@ __all__ = ['StoreFile']
 
 class StoreFile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  local_file_path: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class StoreFile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Lake Store for which the File should created.
         """
@@ -102,7 +102,7 @@ class StoreFile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localFilePath")
-    def local_file_path(self) -> str:
+    def local_file_path(self) -> pulumi.Output[str]:
         """
         The path to the local file to be added to the Data Lake Store.
         """
@@ -110,7 +110,7 @@ class StoreFile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="remoteFilePath")
-    def remote_file_path(self) -> str:
+    def remote_file_path(self) -> pulumi.Output[str]:
         """
         The path created for the file on the Data Lake Store.
         """

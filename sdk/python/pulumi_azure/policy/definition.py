@@ -13,7 +13,7 @@ __all__ = ['Definition']
 
 class Definition(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -197,7 +197,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the policy definition.
         """
@@ -205,7 +205,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of the policy definition.
         """
@@ -213,7 +213,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementGroupId")
-    def management_group_id(self) -> str:
+    def management_group_id(self) -> pulumi.Output[str]:
         """
         The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         """
@@ -221,7 +221,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementGroupName")
-    def management_group_name(self) -> str:
+    def management_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         """
@@ -229,7 +229,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> str:
+    def metadata(self) -> pulumi.Output[str]:
         """
         The metadata for the policy definition. This
         is a json object representing additional metadata that should be stored
@@ -239,7 +239,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mode(self) -> str:
+    def mode(self) -> pulumi.Output[str]:
         """
         The policy mode that allows you to specify which resource
         types will be evaluated.  The value can be "All", "Indexed" or
@@ -249,7 +249,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy definition. Changing this forces a
         new resource to be created.
@@ -258,7 +258,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[str]:
+    def parameters(self) -> pulumi.Output[Optional[str]]:
         """
         Parameters for the policy definition. This field
         is a json object that allows you to parameterize your policy definition.
@@ -267,7 +267,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyRule")
-    def policy_rule(self) -> Optional[str]:
+    def policy_rule(self) -> pulumi.Output[Optional[str]]:
         """
         The policy rule for the policy definition. This
         is a json object representing the rule that contains an if and
@@ -277,7 +277,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> str:
+    def policy_type(self) -> pulumi.Output[str]:
         """
         The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['VirtualNetwork']
 
 class VirtualNetwork(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  ddos_protection_plan: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']]] = None,
@@ -175,7 +175,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> List[str]:
+    def address_spaces(self) -> pulumi.Output[List[str]]:
         """
         The address space that is used the virtual network. You can supply more than one address space.
         """
@@ -183,7 +183,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ddosProtectionPlan")
-    def ddos_protection_plan(self) -> Optional['outputs.VirtualNetworkDdosProtectionPlan']:
+    def ddos_protection_plan(self) -> pulumi.Output[Optional['outputs.VirtualNetworkDdosProtectionPlan']]:
         """
         A `ddos_protection_plan` block as documented below.
         """
@@ -191,7 +191,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of IP addresses of DNS servers
         """
@@ -199,7 +199,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def guid(self) -> str:
+    def guid(self) -> pulumi.Output[str]:
         """
         The GUID of the virtual network.
         """
@@ -207,7 +207,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location/region where the virtual network is created. Changing this forces a new resource to be created.
         """
@@ -215,7 +215,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the virtual network. Changing this forces a new resource to be created.
         """
@@ -223,7 +223,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the virtual network.
         """
@@ -231,7 +231,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> List['outputs.VirtualNetworkSubnet']:
+    def subnets(self) -> pulumi.Output[List['outputs.VirtualNetworkSubnet']]:
         """
         Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         """
@@ -239,7 +239,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

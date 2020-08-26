@@ -15,7 +15,7 @@ __all__ = ['ScheduledQueryRulesAlert']
 
 class ScheduledQueryRulesAlert(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']]] = None,
                  authorized_resource_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -173,7 +173,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> 'outputs.ScheduledQueryRulesAlertAction':
+    def action(self) -> pulumi.Output['outputs.ScheduledQueryRulesAlertAction']:
         """
         An `action` block as defined below.
         """
@@ -181,7 +181,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizedResourceIds")
-    def authorized_resource_ids(self) -> Optional[List[str]]:
+    def authorized_resource_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of Resource IDs referred into query.
         """
@@ -189,7 +189,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> str:
+    def data_source_id(self) -> pulumi.Output[str]:
         """
         The resource URI over which log search query is to be run.
         """
@@ -197,7 +197,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the scheduled query rule.
         """
@@ -205,7 +205,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether this scheduled query rule is enabled.  Default is `true`.
         """
@@ -213,7 +213,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> float:
+    def frequency(self) -> pulumi.Output[float]:
         """
         Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
         """
@@ -221,12 +221,12 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the scheduled query rule. Changing this forces a new resource to be created.
         """
@@ -234,7 +234,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> str:
+    def query(self) -> pulumi.Output[str]:
         """
         Log search query.
         """
@@ -242,12 +242,12 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryType")
-    def query_type(self) -> Optional[str]:
+    def query_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "query_type")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the scheduled query rule instance.
         """
@@ -255,7 +255,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> Optional[float]:
+    def severity(self) -> pulumi.Output[Optional[float]]:
         """
         Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
         """
@@ -263,12 +263,12 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def throttling(self) -> Optional[float]:
+    def throttling(self) -> pulumi.Output[Optional[float]]:
         """
         Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
         """
@@ -276,7 +276,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeWindow")
-    def time_window(self) -> float:
+    def time_window(self) -> pulumi.Output[float]:
         """
         Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
         """
@@ -284,7 +284,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def trigger(self) -> 'outputs.ScheduledQueryRulesAlertTrigger':
+    def trigger(self) -> pulumi.Output['outputs.ScheduledQueryRulesAlertTrigger']:
         """
         The condition that results in the alert rule being run.
         """

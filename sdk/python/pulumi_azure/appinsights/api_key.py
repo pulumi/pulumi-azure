@@ -13,7 +13,7 @@ __all__ = ['ApiKey']
 
 class ApiKey(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> str:
+    def api_key(self) -> pulumi.Output[str]:
         """
         The API Key secret (Sensitive).
         """
@@ -150,7 +150,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationInsightsId")
-    def application_insights_id(self) -> str:
+    def application_insights_id(self) -> pulumi.Output[str]:
         """
         The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
         """
@@ -158,7 +158,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Application Insights API key. Changing this forces a
         new resource to be created.
@@ -167,7 +167,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readPermissions")
-    def read_permissions(self) -> Optional[List[str]]:
+    def read_permissions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writePermissions")
-    def write_permissions(self) -> Optional[List[str]]:
+    def write_permissions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """

@@ -13,7 +13,7 @@ __all__ = ['PublicIp']
 
 class PublicIp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_method: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
@@ -171,7 +171,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationMethod")
-    def allocation_method(self) -> str:
+    def allocation_method(self) -> pulumi.Output[str]:
         """
         Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         """
@@ -179,7 +179,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainNameLabel")
-    def domain_name_label(self) -> Optional[str]:
+    def domain_name_label(self) -> pulumi.Output[Optional[str]]:
         """
         Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         """
@@ -187,7 +187,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         """
@@ -195,7 +195,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         """
@@ -203,7 +203,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> str:
+    def ip_address(self) -> pulumi.Output[str]:
         """
         The IP address value that was allocated.
         """
@@ -211,7 +211,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[str]:
+    def ip_version(self) -> pulumi.Output[Optional[str]]:
         """
         The IP Version to use, IPv6 or IPv4.
         """
@@ -219,7 +219,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -227,7 +227,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Public IP resource . Changing this forces a
         new resource to be created.
@@ -236,7 +236,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpPrefixId")
-    def public_ip_prefix_id(self) -> Optional[str]:
+    def public_ip_prefix_id(self) -> pulumi.Output[Optional[str]]:
         """
         If specified then public IP address allocated will be provided from the public IP prefix resource.
         """
@@ -244,7 +244,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the public ip.
@@ -253,7 +253,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reverseFqdn")
-    def reverse_fqdn(self) -> Optional[str]:
+    def reverse_fqdn(self) -> pulumi.Output[Optional[str]]:
         """
         A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
         """
@@ -261,7 +261,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[str]:
+    def sku(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         """
@@ -269,7 +269,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -277,7 +277,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[str]:
+    def zones(self) -> pulumi.Output[Optional[str]]:
         """
         A collection containing the availability zone to allocate the Public IP in.
         """

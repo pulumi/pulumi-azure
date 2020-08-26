@@ -15,7 +15,7 @@ __all__ = ['Module']
 
 class Module(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -192,7 +192,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
@@ -200,7 +200,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
@@ -208,7 +208,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> 'outputs.ModuleNetworkProfile':
+    def network_profile(self) -> pulumi.Output['outputs.ModuleNetworkProfile']:
         """
         A `network_profile` block as defined below.
         """
@@ -216,7 +216,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
@@ -224,7 +224,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
@@ -232,7 +232,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stampId")
-    def stamp_id(self) -> str:
+    def stamp_id(self) -> pulumi.Output[str]:
         """
         The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
@@ -240,7 +240,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
         """
@@ -248,7 +248,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
         """

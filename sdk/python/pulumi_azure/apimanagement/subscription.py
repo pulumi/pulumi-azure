@@ -13,7 +13,7 @@ __all__ = ['Subscription']
 
 class Subscription(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The display name of this Subscription.
         """
@@ -163,12 +163,12 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
+    def primary_key(self) -> pulumi.Output[str]:
         return pulumi.get(self, "primary_key")
 
     @property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[str]:
+    def product_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         """
@@ -176,7 +176,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -184,12 +184,12 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
+    def secondary_key(self) -> pulumi.Output[str]:
         return pulumi.get(self, "secondary_key")
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
         """
@@ -197,7 +197,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
+    def subscription_id(self) -> pulumi.Output[str]:
         """
         An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
         """
@@ -205,7 +205,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
         """

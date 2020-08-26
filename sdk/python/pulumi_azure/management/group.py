@@ -13,7 +13,7 @@ __all__ = ['Group']
 
 class Group(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
         """
@@ -127,7 +127,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> str:
+    def group_id(self) -> pulumi.Output[str]:
         """
         The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         """
@@ -135,7 +135,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
         """
@@ -143,7 +143,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parentManagementGroupId")
-    def parent_management_group_id(self) -> str:
+    def parent_management_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the Parent Management Group. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionIds")
-    def subscription_ids(self) -> Optional[List[str]]:
+    def subscription_ids(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of Subscription GUIDs which should be assigned to the Management Group.
         """

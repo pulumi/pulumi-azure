@@ -15,7 +15,7 @@ __all__ = ['OutputEventHub']
 
 class OutputEventHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class OutputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubName")
-    def eventhub_name(self) -> str:
+    def eventhub_name(self) -> pulumi.Output[str]:
         """
         The name of the Event Hub.
         """
@@ -170,7 +170,7 @@ class OutputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Stream Output. Changing this forces a new resource to be created.
         """
@@ -178,7 +178,7 @@ class OutputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         """
@@ -186,7 +186,7 @@ class OutputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def serialization(self) -> 'outputs.OutputEventHubSerialization':
+    def serialization(self) -> pulumi.Output['outputs.OutputEventHubSerialization']:
         """
         A `serialization` block as defined below.
         """
@@ -194,7 +194,7 @@ class OutputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicebusNamespace")
-    def servicebus_namespace(self) -> str:
+    def servicebus_namespace(self) -> pulumi.Output[str]:
         """
         The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         """
@@ -202,7 +202,7 @@ class OutputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicyKey")
-    def shared_access_policy_key(self) -> str:
+    def shared_access_policy_key(self) -> pulumi.Output[str]:
         """
         The shared access policy key for the specified shared access policy.
         """
@@ -210,7 +210,7 @@ class OutputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicyName")
-    def shared_access_policy_name(self) -> str:
+    def shared_access_policy_name(self) -> pulumi.Output[str]:
         """
         The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         """
@@ -218,7 +218,7 @@ class OutputEventHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamAnalyticsJobName")
-    def stream_analytics_job_name(self) -> str:
+    def stream_analytics_job_name(self) -> pulumi.Output[str]:
         """
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """

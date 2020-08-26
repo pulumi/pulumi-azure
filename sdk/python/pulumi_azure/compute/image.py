@@ -15,7 +15,7 @@ __all__ = ['Image']
 
 class Image(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ImageDataDiskArgs']]]]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[List['outputs.ImageDataDisk']]:
+    def data_disks(self) -> pulumi.Output[Optional[List['outputs.ImageDataDisk']]]:
         """
         One or more `data_disk` elements as defined below.
         """
@@ -170,7 +170,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[str]:
+    def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
         The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`.
         """
@@ -178,7 +178,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specified the supported Azure location where the resource exists.
         Changing this forces a new resource to be created.
@@ -187,7 +187,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the image. Changing this forces a
         new resource to be created.
@@ -196,7 +196,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional['outputs.ImageOsDisk']:
+    def os_disk(self) -> pulumi.Output[Optional['outputs.ImageOsDisk']]:
         """
         One or more `os_disk` elements as defined below.
         """
@@ -204,7 +204,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create
         the image. Changing this forces a new resource to be created.
@@ -213,7 +213,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceVirtualMachineId")
-    def source_virtual_machine_id(self) -> Optional[str]:
+    def source_virtual_machine_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Virtual Machine ID from which to create the image.
         """
@@ -221,7 +221,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -229,7 +229,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneResilient")
-    def zone_resilient(self) -> Optional[bool]:
+    def zone_resilient(self) -> pulumi.Output[Optional[bool]]:
         """
         Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
         """

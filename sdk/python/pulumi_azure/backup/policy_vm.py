@@ -15,7 +15,7 @@ __all__ = ['PolicyVM']
 
 class PolicyVM(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def backup(self) -> 'outputs.PolicyVMBackup':
+    def backup(self) -> pulumi.Output['outputs.PolicyVMBackup']:
         """
         Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         """
@@ -193,7 +193,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         """
@@ -201,7 +201,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
@@ -209,7 +209,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         """
@@ -217,7 +217,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionDaily")
-    def retention_daily(self) -> Optional['outputs.PolicyVMRetentionDaily']:
+    def retention_daily(self) -> pulumi.Output[Optional['outputs.PolicyVMRetentionDaily']]:
         """
         Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
         """
@@ -225,7 +225,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionMonthly")
-    def retention_monthly(self) -> Optional['outputs.PolicyVMRetentionMonthly']:
+    def retention_monthly(self) -> pulumi.Output[Optional['outputs.PolicyVMRetentionMonthly']]:
         """
         Configures the policy monthly retention as documented in the `retention_monthly` block below.
         """
@@ -233,7 +233,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionWeekly")
-    def retention_weekly(self) -> Optional['outputs.PolicyVMRetentionWeekly']:
+    def retention_weekly(self) -> pulumi.Output[Optional['outputs.PolicyVMRetentionWeekly']]:
         """
         Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         """
@@ -241,7 +241,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionYearly")
-    def retention_yearly(self) -> Optional['outputs.PolicyVMRetentionYearly']:
+    def retention_yearly(self) -> pulumi.Output[Optional['outputs.PolicyVMRetentionYearly']]:
         """
         Configures the policy yearly retention as documented in the `retention_yearly` block below.
         """
@@ -249,7 +249,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -257,7 +257,7 @@ class PolicyVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> Optional[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the timezone. Defaults to `UTC`
         """

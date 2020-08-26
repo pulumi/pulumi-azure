@@ -15,7 +15,7 @@ __all__ = ['WindowsVirtualMachine']
 
 class WindowsVirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalCapabilitiesArgs']]] = None,
                  additional_unattend_contents: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineAdditionalUnattendContentArgs']]]]] = None,
@@ -353,7 +353,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional['outputs.WindowsVirtualMachineAdditionalCapabilities']:
+    def additional_capabilities(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineAdditionalCapabilities']]:
         """
         A `additional_capabilities` block as defined below.
         """
@@ -361,7 +361,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalUnattendContents")
-    def additional_unattend_contents(self) -> Optional[List['outputs.WindowsVirtualMachineAdditionalUnattendContent']]:
+    def additional_unattend_contents(self) -> pulumi.Output[Optional[List['outputs.WindowsVirtualMachineAdditionalUnattendContent']]]:
         """
         One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         """
@@ -369,7 +369,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> str:
+    def admin_password(self) -> pulumi.Output[str]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -377,7 +377,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> str:
+    def admin_username(self) -> pulumi.Output[str]:
         """
         The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -385,7 +385,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowExtensionOperations")
-    def allow_extension_operations(self) -> Optional[bool]:
+    def allow_extension_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Extension Operations be allowed on this Virtual Machine?
         """
@@ -393,7 +393,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilitySetId")
-    def availability_set_id(self) -> Optional[str]:
+    def availability_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         """
@@ -401,7 +401,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional['outputs.WindowsVirtualMachineBootDiagnostics']:
+    def boot_diagnostics(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineBootDiagnostics']]:
         """
         A `boot_diagnostics` block as defined below.
         """
@@ -409,7 +409,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computerName")
-    def computer_name(self) -> str:
+    def computer_name(self) -> pulumi.Output[str]:
         """
         Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         """
@@ -417,7 +417,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[str]:
+    def custom_data(self) -> pulumi.Output[Optional[str]]:
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -425,7 +425,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedHostId")
-    def dedicated_host_id(self) -> Optional[str]:
+    def dedicated_host_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
         """
@@ -433,7 +433,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> Optional[bool]:
+    def enable_automatic_updates(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -441,7 +441,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[str]:
+    def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
         """
@@ -449,7 +449,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.WindowsVirtualMachineIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineIdentity']]:
         """
         An `identity` block as defined below.
         """
@@ -457,7 +457,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[str]:
+    def license_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
         """
@@ -465,7 +465,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
         """
@@ -473,7 +473,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxBidPrice")
-    def max_bid_price(self) -> Optional[float]:
+    def max_bid_price(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         """
@@ -481,7 +481,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -489,7 +489,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> List[str]:
+    def network_interface_ids(self) -> pulumi.Output[List[str]]:
         """
         . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         """
@@ -497,7 +497,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> 'outputs.WindowsVirtualMachineOsDisk':
+    def os_disk(self) -> pulumi.Output['outputs.WindowsVirtualMachineOsDisk']:
         """
         A `os_disk` block as defined below.
         """
@@ -505,7 +505,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.WindowsVirtualMachinePlan']:
+    def plan(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachinePlan']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
@@ -513,7 +513,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[str]:
+    def priority(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         """
@@ -521,7 +521,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
+    def private_ip_address(self) -> pulumi.Output[str]:
         """
         The Primary Private IP Address assigned to this Virtual Machine.
         """
@@ -529,7 +529,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         A list of Private IP Addresses assigned to this Virtual Machine.
         """
@@ -537,7 +537,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> Optional[bool]:
+    def provision_vm_agent(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         """
@@ -545,7 +545,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[str]:
+    def proximity_placement_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         """
@@ -553,7 +553,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddress")
-    def public_ip_address(self) -> str:
+    def public_ip_address(self) -> pulumi.Output[str]:
         """
         The Primary Public IP Address assigned to this Virtual Machine.
         """
@@ -561,7 +561,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> List[str]:
+    def public_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         A list of the Public IP Addresses assigned to this Virtual Machine.
         """
@@ -569,7 +569,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         """
@@ -577,7 +577,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List['outputs.WindowsVirtualMachineSecret']]:
+    def secrets(self) -> pulumi.Output[Optional[List['outputs.WindowsVirtualMachineSecret']]]:
         """
         One or more `secret` blocks as defined below.
         """
@@ -585,7 +585,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> str:
+    def size(self) -> pulumi.Output[str]:
         """
         The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         """
@@ -593,7 +593,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceImageId")
-    def source_image_id(self) -> Optional[str]:
+    def source_image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         """
@@ -601,7 +601,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional['outputs.WindowsVirtualMachineSourceImageReference']:
+    def source_image_reference(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineSourceImageReference']]:
         """
         A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         """
@@ -609,7 +609,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine.
         """
@@ -617,7 +617,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> Optional[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
@@ -625,7 +625,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> str:
+    def virtual_machine_id(self) -> pulumi.Output[str]:
         """
         A 128-bit identifier which uniquely identifies this Virtual Machine.
         """
@@ -633,7 +633,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineScaleSetId")
-    def virtual_machine_scale_set_id(self) -> Optional[str]:
+    def virtual_machine_scale_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
         """
@@ -641,7 +641,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="winrmListeners")
-    def winrm_listeners(self) -> Optional[List['outputs.WindowsVirtualMachineWinrmListener']]:
+    def winrm_listeners(self) -> pulumi.Output[Optional[List['outputs.WindowsVirtualMachineWinrmListener']]]:
         """
         One or more `winrm_listener` blocks as defined below.
         """
@@ -649,7 +649,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zone(self) -> str:
+    def zone(self) -> pulumi.Output[str]:
         """
         The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
         """

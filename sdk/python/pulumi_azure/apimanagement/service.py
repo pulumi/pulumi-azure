@@ -15,7 +15,7 @@ __all__ = ['Service']
 
 class Service(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
                  certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
@@ -246,7 +246,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> Optional[List['outputs.ServiceAdditionalLocation']]:
+    def additional_locations(self) -> pulumi.Output[Optional[List['outputs.ServiceAdditionalLocation']]]:
         """
         One or more `additional_location` blocks as defined below.
         """
@@ -254,7 +254,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List['outputs.ServiceCertificate']]:
+    def certificates(self) -> pulumi.Output[Optional[List['outputs.ServiceCertificate']]]:
         """
         One or more (up to 10) `certificate` blocks as defined below.
         """
@@ -262,7 +262,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="developerPortalUrl")
-    def developer_portal_url(self) -> str:
+    def developer_portal_url(self) -> pulumi.Output[str]:
         """
         The URL for the Developer Portal associated with this API Management service.
         """
@@ -270,7 +270,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayRegionalUrl")
-    def gateway_regional_url(self) -> str:
+    def gateway_regional_url(self) -> pulumi.Output[str]:
         """
         The URL of the Regional Gateway for the API Management Service in the specified region.
         """
@@ -278,7 +278,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayUrl")
-    def gateway_url(self) -> str:
+    def gateway_url(self) -> pulumi.Output[str]:
         """
         The URL of the Gateway for the API Management Service.
         """
@@ -286,7 +286,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostnameConfiguration")
-    def hostname_configuration(self) -> 'outputs.ServiceHostnameConfiguration':
+    def hostname_configuration(self) -> pulumi.Output['outputs.ServiceHostnameConfiguration']:
         """
         A `hostname_configuration` block as defined below.
         """
@@ -294,7 +294,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ServiceIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ServiceIdentity']]:
         """
         An `identity` block is documented below.
         """
@@ -302,7 +302,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -310,7 +310,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementApiUrl")
-    def management_api_url(self) -> str:
+    def management_api_url(self) -> pulumi.Output[str]:
         """
         The URL for the Management API associated with this API Management service.
         """
@@ -318,7 +318,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
@@ -326,7 +326,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationSenderEmail")
-    def notification_sender_email(self) -> str:
+    def notification_sender_email(self) -> pulumi.Output[str]:
         """
         Email address from which the notification will be sent.
         """
@@ -334,7 +334,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policy(self) -> 'outputs.ServicePolicy':
+    def policy(self) -> pulumi.Output['outputs.ServicePolicy']:
         """
         A `policy` block as defined below.
         """
@@ -342,7 +342,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="portalUrl")
-    def portal_url(self) -> str:
+    def portal_url(self) -> pulumi.Output[str]:
         """
         The URL for the Publisher Portal associated with this API Management service.
         """
@@ -350,12 +350,12 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> pulumi.Output[List[str]]:
         return pulumi.get(self, "private_ip_addresses")
 
     @property
     @pulumi.getter
-    def protocols(self) -> 'outputs.ServiceProtocols':
+    def protocols(self) -> pulumi.Output['outputs.ServiceProtocols']:
         """
         A `protocols` block as defined below.
         """
@@ -363,7 +363,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> List[str]:
+    def public_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """
@@ -371,7 +371,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherEmail")
-    def publisher_email(self) -> str:
+    def publisher_email(self) -> pulumi.Output[str]:
         """
         The email of publisher/company.
         """
@@ -379,7 +379,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> str:
+    def publisher_name(self) -> pulumi.Output[str]:
         """
         The name of publisher/company.
         """
@@ -387,7 +387,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         """
@@ -395,7 +395,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scmUrl")
-    def scm_url(self) -> str:
+    def scm_url(self) -> pulumi.Output[str]:
         """
         The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
         """
@@ -403,7 +403,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def security(self) -> 'outputs.ServiceSecurity':
+    def security(self) -> pulumi.Output['outputs.ServiceSecurity']:
         """
         A `security` block as defined below.
         """
@@ -411,7 +411,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signIn")
-    def sign_in(self) -> 'outputs.ServiceSignIn':
+    def sign_in(self) -> pulumi.Output['outputs.ServiceSignIn']:
         """
         A `sign_in` block as defined below.
         """
@@ -419,7 +419,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signUp")
-    def sign_up(self) -> 'outputs.ServiceSignUp':
+    def sign_up(self) -> pulumi.Output['outputs.ServiceSignUp']:
         """
         A `sign_up` block as defined below.
         """
@@ -427,7 +427,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         `sku_name` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         """
@@ -435,7 +435,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags assigned to the resource.
         """
@@ -443,7 +443,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional['outputs.ServiceVirtualNetworkConfiguration']:
+    def virtual_network_configuration(self) -> pulumi.Output[Optional['outputs.ServiceVirtualNetworkConfiguration']]:
         """
         A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
@@ -451,7 +451,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkType")
-    def virtual_network_type(self) -> Optional[str]:
+    def virtual_network_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
         """

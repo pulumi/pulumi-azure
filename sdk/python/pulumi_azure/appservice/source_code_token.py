@@ -13,7 +13,7 @@ __all__ = ['SourceCodeToken']
 
 class SourceCodeToken(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  token_secret: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class SourceCodeToken(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def token(self) -> str:
+    def token(self) -> pulumi.Output[str]:
         """
         The OAuth access token.
         """
@@ -110,7 +110,7 @@ class SourceCodeToken(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tokenSecret")
-    def token_secret(self) -> Optional[str]:
+    def token_secret(self) -> pulumi.Output[Optional[str]]:
         """
         The OAuth access token secret.
         """
@@ -118,7 +118,7 @@ class SourceCodeToken(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
         """

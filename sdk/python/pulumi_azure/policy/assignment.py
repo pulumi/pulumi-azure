@@ -15,7 +15,7 @@ __all__ = ['Assignment']
 
 class Assignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -190,7 +190,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description to use for this Policy Assignment. Changing this forces a new resource to be created.
         """
@@ -198,7 +198,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
         """
@@ -206,7 +206,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enforcementMode")
-    def enforcement_mode(self) -> Optional[bool]:
+    def enforcement_mode(self) -> pulumi.Output[Optional[bool]]:
         """
         Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
         """
@@ -214,7 +214,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.AssignmentIdentity':
+    def identity(self) -> pulumi.Output['outputs.AssignmentIdentity']:
         """
         An `identity` block.
         """
@@ -222,7 +222,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
         """
@@ -230,7 +230,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> str:
+    def metadata(self) -> pulumi.Output[str]:
         """
         The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
         """
@@ -238,7 +238,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Policy Assignment. Changing this forces a new resource to be created.
         """
@@ -246,7 +246,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notScopes")
-    def not_scopes(self) -> Optional[List[str]]:
+    def not_scopes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
         """
@@ -254,7 +254,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[str]:
+    def parameters(self) -> pulumi.Output[Optional[str]]:
         """
         Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
         """
@@ -262,7 +262,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionId")
-    def policy_definition_id(self) -> str:
+    def policy_definition_id(self) -> pulumi.Output[str]:
         """
         The ID of the Policy Definition to be applied at the specified Scope.
         """
@@ -270,7 +270,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
         """

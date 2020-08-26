@@ -15,7 +15,7 @@ __all__ = ['IotHubDps']
 
 class IotHubDps(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  linked_hubs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationPolicy")
-    def allocation_policy(self) -> str:
+    def allocation_policy(self) -> pulumi.Output[str]:
         """
         The allocation policy of the IoT Device Provisioning Service.
         """
@@ -149,7 +149,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceProvisioningHostName")
-    def device_provisioning_host_name(self) -> str:
+    def device_provisioning_host_name(self) -> pulumi.Output[str]:
         """
         The device endpoint of the IoT Device Provisioning Service.
         """
@@ -157,7 +157,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idScope")
-    def id_scope(self) -> str:
+    def id_scope(self) -> pulumi.Output[str]:
         """
         The unique identifier of the IoT Device Provisioning Service.
         """
@@ -165,7 +165,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedHubs")
-    def linked_hubs(self) -> Optional[List['outputs.IotHubDpsLinkedHub']]:
+    def linked_hubs(self) -> pulumi.Output[Optional[List['outputs.IotHubDpsLinkedHub']]]:
         """
         A `linked_hub` block as defined below.
         """
@@ -173,7 +173,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         """
@@ -189,7 +189,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         """
@@ -197,7 +197,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceOperationsHostName")
-    def service_operations_host_name(self) -> str:
+    def service_operations_host_name(self) -> pulumi.Output[str]:
         """
         The service endpoint of the IoT Device Provisioning Service.
         """
@@ -205,7 +205,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.IotHubDpsSku':
+    def sku(self) -> pulumi.Output['outputs.IotHubDpsSku']:
         """
         A `sku` block as defined below.
         """
@@ -213,7 +213,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

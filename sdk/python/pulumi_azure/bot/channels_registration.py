@@ -13,7 +13,7 @@ __all__ = ['ChannelsRegistration']
 
 class ChannelsRegistration(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="developerAppInsightsApiKey")
-    def developer_app_insights_api_key(self) -> str:
+    def developer_app_insights_api_key(self) -> pulumi.Output[str]:
         """
         The Application Insights API Key to associate with the Bot Channels Registration.
         """
@@ -162,7 +162,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="developerAppInsightsApplicationId")
-    def developer_app_insights_application_id(self) -> str:
+    def developer_app_insights_application_id(self) -> pulumi.Output[str]:
         """
         The Application Insights Application ID to associate with the Bot Channels Registration.
         """
@@ -170,7 +170,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="developerAppInsightsKey")
-    def developer_app_insights_key(self) -> str:
+    def developer_app_insights_key(self) -> pulumi.Output[str]:
         """
         The Application Insights Key to associate with the Bot Channels Registration.
         """
@@ -178,7 +178,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         """
@@ -186,7 +186,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> Optional[str]:
+    def endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The Bot Channels Registration endpoint.
         """
@@ -194,7 +194,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -202,7 +202,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="microsoftAppId")
-    def microsoft_app_id(self) -> str:
+    def microsoft_app_id(self) -> pulumi.Output[str]:
         """
         The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         """
@@ -210,7 +210,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         """
@@ -218,7 +218,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         """
@@ -226,7 +226,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> str:
+    def sku(self) -> pulumi.Output[str]:
         """
         The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         """
@@ -234,7 +234,7 @@ class ChannelsRegistration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

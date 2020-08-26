@@ -13,7 +13,7 @@ __all__ = ['ChannelEmail']
 
 class ChannelEmail(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  email_address: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class ChannelEmail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> str:
+    def bot_name(self) -> pulumi.Output[str]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
@@ -115,7 +115,7 @@ class ChannelEmail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> str:
+    def email_address(self) -> pulumi.Output[str]:
         """
         The email address that the Bot will authenticate with.
         """
@@ -123,7 +123,7 @@ class ChannelEmail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailPassword")
-    def email_password(self) -> str:
+    def email_password(self) -> pulumi.Output[str]:
         """
         The email password that the Bot will authenticate with.
         """
@@ -131,7 +131,7 @@ class ChannelEmail(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class ChannelEmail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """

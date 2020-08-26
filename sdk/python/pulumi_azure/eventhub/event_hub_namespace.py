@@ -15,7 +15,7 @@ __all__ = ['EventHubNamespace']
 
 class EventHubNamespace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[float]] = None,
@@ -190,7 +190,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoInflateEnabled")
-    def auto_inflate_enabled(self) -> Optional[bool]:
+    def auto_inflate_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is Auto Inflate enabled for the EventHub Namespace?
         """
@@ -198,7 +198,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from `1` - `20`.
         """
@@ -206,7 +206,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dedicatedClusterId")
-    def dedicated_cluster_id(self) -> Optional[str]:
+    def dedicated_cluster_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         """
@@ -214,7 +214,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPrimaryConnectionString")
-    def default_primary_connection_string(self) -> str:
+    def default_primary_connection_string(self) -> pulumi.Output[str]:
         """
         The primary connection string for the authorization
         rule `RootManageSharedAccessKey`.
@@ -223,7 +223,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPrimaryConnectionStringAlias")
-    def default_primary_connection_string_alias(self) -> str:
+    def default_primary_connection_string_alias(self) -> pulumi.Output[str]:
         """
         The alias of the primary connection string for the authorization
         rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
@@ -232,7 +232,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPrimaryKey")
-    def default_primary_key(self) -> str:
+    def default_primary_key(self) -> pulumi.Output[str]:
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
@@ -240,7 +240,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSecondaryConnectionString")
-    def default_secondary_connection_string(self) -> str:
+    def default_secondary_connection_string(self) -> pulumi.Output[str]:
         """
         The secondary connection string for the
         authorization rule `RootManageSharedAccessKey`.
@@ -249,7 +249,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSecondaryConnectionStringAlias")
-    def default_secondary_connection_string_alias(self) -> str:
+    def default_secondary_connection_string_alias(self) -> pulumi.Output[str]:
         """
         The alias of the secondary connection string for the
         authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
@@ -258,7 +258,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSecondaryKey")
-    def default_secondary_key(self) -> str:
+    def default_secondary_key(self) -> pulumi.Output[str]:
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
@@ -266,7 +266,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.EventHubNamespaceIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.EventHubNamespaceIdentity']]:
         """
         An `identity` block as defined below.
         """
@@ -274,7 +274,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -282,7 +282,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumThroughputUnits")
-    def maximum_throughput_units(self) -> float:
+    def maximum_throughput_units(self) -> pulumi.Output[float]:
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         """
@@ -290,7 +290,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         """
@@ -298,7 +298,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkRulesets")
-    def network_rulesets(self) -> 'outputs.EventHubNamespaceNetworkRulesets':
+    def network_rulesets(self) -> pulumi.Output['outputs.EventHubNamespaceNetworkRulesets']:
         """
         A `network_rulesets` block as defined below.
         """
@@ -306,7 +306,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         """
@@ -314,7 +314,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> str:
+    def sku(self) -> pulumi.Output[str]:
         """
         Defines which tier to use. Valid options are `Basic` and `Standard`.
         """
@@ -322,7 +322,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -330,7 +330,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[bool]:
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created.
         """

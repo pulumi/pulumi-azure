@@ -15,7 +15,7 @@ __all__ = ['WindowsVirtualMachineScaleSet']
 
 class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]] = None,
                  additional_unattend_contents: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]]] = None,
@@ -388,7 +388,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional['outputs.WindowsVirtualMachineScaleSetAdditionalCapabilities']:
+    def additional_capabilities(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetAdditionalCapabilities']]:
         """
         A `additional_capabilities` block as defined below.
         """
@@ -396,7 +396,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalUnattendContents")
-    def additional_unattend_contents(self) -> Optional[List['outputs.WindowsVirtualMachineScaleSetAdditionalUnattendContent']]:
+    def additional_unattend_contents(self) -> pulumi.Output[Optional[List['outputs.WindowsVirtualMachineScaleSetAdditionalUnattendContent']]]:
         """
         One or more `additional_unattend_content` blocks as defined below.
         """
@@ -404,7 +404,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> str:
+    def admin_password(self) -> pulumi.Output[str]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -412,7 +412,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> str:
+    def admin_username(self) -> pulumi.Output[str]:
         """
         The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         """
@@ -420,7 +420,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticInstanceRepair")
-    def automatic_instance_repair(self) -> 'outputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepair':
+    def automatic_instance_repair(self) -> pulumi.Output['outputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepair']:
         """
         A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         """
@@ -428,7 +428,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automaticOsUpgradePolicy")
-    def automatic_os_upgrade_policy(self) -> Optional['outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy']:
+    def automatic_os_upgrade_policy(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy']]:
         """
         A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
         """
@@ -436,7 +436,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional['outputs.WindowsVirtualMachineScaleSetBootDiagnostics']:
+    def boot_diagnostics(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetBootDiagnostics']]:
         """
         A `boot_diagnostics` block as defined below.
         """
@@ -444,7 +444,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computerNamePrefix")
-    def computer_name_prefix(self) -> str:
+    def computer_name_prefix(self) -> pulumi.Output[str]:
         """
         The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         """
@@ -452,7 +452,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[str]:
+    def custom_data(self) -> pulumi.Output[Optional[str]]:
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
         """
@@ -460,7 +460,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> Optional[List['outputs.WindowsVirtualMachineScaleSetDataDisk']]:
+    def data_disks(self) -> pulumi.Output[Optional[List['outputs.WindowsVirtualMachineScaleSetDataDisk']]]:
         """
         One or more `data_disk` blocks as defined below.
         """
@@ -468,7 +468,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="doNotRunExtensionsOnOverprovisionedMachines")
-    def do_not_run_extensions_on_overprovisioned_machines(self) -> Optional[bool]:
+    def do_not_run_extensions_on_overprovisioned_machines(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         """
@@ -476,7 +476,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> Optional[bool]:
+    def enable_automatic_updates(self) -> pulumi.Output[Optional[bool]]:
         """
         Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         """
@@ -484,7 +484,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[str]:
+    def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
         """
@@ -492,7 +492,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthProbeId")
-    def health_probe_id(self) -> Optional[str]:
+    def health_probe_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         """
@@ -500,7 +500,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.WindowsVirtualMachineScaleSetIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetIdentity']]:
         """
         A `identity` block as defined below.
         """
@@ -508,7 +508,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> float:
+    def instances(self) -> pulumi.Output[float]:
         """
         The number of Virtual Machines in the Scale Set.
         """
@@ -516,7 +516,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[str]:
+    def license_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
         """
@@ -524,7 +524,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         """
@@ -532,7 +532,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxBidPrice")
-    def max_bid_price(self) -> Optional[float]:
+    def max_bid_price(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         """
@@ -540,7 +540,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
@@ -548,7 +548,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> List['outputs.WindowsVirtualMachineScaleSetNetworkInterface']:
+    def network_interfaces(self) -> pulumi.Output[List['outputs.WindowsVirtualMachineScaleSetNetworkInterface']]:
         """
         One or more `network_interface` blocks as defined below.
         """
@@ -556,7 +556,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> 'outputs.WindowsVirtualMachineScaleSetOsDisk':
+    def os_disk(self) -> pulumi.Output['outputs.WindowsVirtualMachineScaleSetOsDisk']:
         """
         An `os_disk` block as defined below.
         """
@@ -564,7 +564,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def overprovision(self) -> Optional[bool]:
+    def overprovision(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         """
@@ -572,12 +572,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.WindowsVirtualMachineScaleSetPlan']:
+    def plan(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetPlan']]:
         return pulumi.get(self, "plan")
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[str]:
+    def priority(self) -> pulumi.Output[Optional[str]]:
         """
         The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         """
@@ -585,7 +585,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> Optional[bool]:
+    def provision_vm_agent(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         """
@@ -593,7 +593,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proximityPlacementGroupId")
-    def proximity_placement_group_id(self) -> Optional[str]:
+    def proximity_placement_group_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         """
@@ -601,7 +601,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         """
@@ -609,7 +609,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rollingUpgradePolicy")
-    def rolling_upgrade_policy(self) -> Optional['outputs.WindowsVirtualMachineScaleSetRollingUpgradePolicy']:
+    def rolling_upgrade_policy(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetRollingUpgradePolicy']]:
         """
         A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         """
@@ -617,7 +617,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleInPolicy")
-    def scale_in_policy(self) -> Optional[str]:
+    def scale_in_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
         """
@@ -625,7 +625,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[List['outputs.WindowsVirtualMachineScaleSetSecret']]:
+    def secrets(self) -> pulumi.Output[Optional[List['outputs.WindowsVirtualMachineScaleSetSecret']]]:
         """
         One or more `secret` blocks as defined below.
         """
@@ -633,7 +633,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="singlePlacementGroup")
-    def single_placement_group(self) -> Optional[bool]:
+    def single_placement_group(self) -> pulumi.Output[Optional[bool]]:
         """
         Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         """
@@ -641,7 +641,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> str:
+    def sku(self) -> pulumi.Output[str]:
         """
         The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         """
@@ -649,7 +649,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceImageId")
-    def source_image_id(self) -> Optional[str]:
+    def source_image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of an Image which each Virtual Machine in this Scale Set should be based on.
         """
@@ -657,7 +657,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional['outputs.WindowsVirtualMachineScaleSetSourceImageReference']:
+    def source_image_reference(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetSourceImageReference']]:
         """
         A `source_image_reference` block as defined below.
         """
@@ -665,7 +665,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         """
@@ -673,7 +673,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="terminateNotification")
-    def terminate_notification(self) -> 'outputs.WindowsVirtualMachineScaleSetTerminateNotification':
+    def terminate_notification(self) -> pulumi.Output['outputs.WindowsVirtualMachineScaleSetTerminateNotification']:
         """
         A `terminate_notification` block as defined below.
         """
@@ -681,7 +681,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> Optional[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
@@ -689,7 +689,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueId")
-    def unique_id(self) -> str:
+    def unique_id(self) -> pulumi.Output[str]:
         """
         The Unique ID for this Windows Virtual Machine Scale Set.
         """
@@ -697,7 +697,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[str]:
+    def upgrade_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         """
@@ -705,7 +705,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="winrmListeners")
-    def winrm_listeners(self) -> Optional[List['outputs.WindowsVirtualMachineScaleSetWinrmListener']]:
+    def winrm_listeners(self) -> pulumi.Output[Optional[List['outputs.WindowsVirtualMachineScaleSetWinrmListener']]]:
         """
         One or more `winrm_listener` blocks as defined below.
         """
@@ -713,7 +713,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneBalance")
-    def zone_balance(self) -> Optional[bool]:
+    def zone_balance(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         """
@@ -721,7 +721,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """

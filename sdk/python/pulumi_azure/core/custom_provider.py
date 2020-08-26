@@ -15,7 +15,7 @@ __all__ = ['CustomProvider']
 
 class CustomProvider(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CustomProviderActionArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class CustomProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.CustomProviderAction']]:
+    def actions(self) -> pulumi.Output[Optional[List['outputs.CustomProviderAction']]]:
         """
         Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         """
@@ -137,7 +137,7 @@ class CustomProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -145,7 +145,7 @@ class CustomProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
         """
@@ -153,7 +153,7 @@ class CustomProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Custom Provider.
         """
@@ -161,7 +161,7 @@ class CustomProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[List['outputs.CustomProviderResourceType']]:
+    def resource_types(self) -> pulumi.Output[Optional[List['outputs.CustomProviderResourceType']]]:
         """
         Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
         """
@@ -169,7 +169,7 @@ class CustomProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -177,7 +177,7 @@ class CustomProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def validations(self) -> Optional[List['outputs.CustomProviderValidation']]:
+    def validations(self) -> pulumi.Output[Optional[List['outputs.CustomProviderValidation']]]:
         """
         Any number of `validation` block as defined below.
         """

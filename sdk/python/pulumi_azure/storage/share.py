@@ -15,7 +15,7 @@ __all__ = ['Share']
 
 class Share(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acls: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ShareAclArgs']]]]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -136,7 +136,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def acls(self) -> Optional[List['outputs.ShareAcl']]:
+    def acls(self) -> pulumi.Output[Optional[List['outputs.ShareAcl']]]:
         """
         One or more `acl` blocks as defined below.
         """
@@ -144,7 +144,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of MetaData for this File Share.
         """
@@ -152,7 +152,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the share. Must be unique within the storage account where the share is located.
         """
@@ -160,7 +160,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def quota(self) -> Optional[float]:
+    def quota(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum size of the share, in gigabytes. For Standard storage accounts, this must be greater than 0 and less than 5120 GB (5 TB). For Premium FileStorage storage accounts, this must be greater than 100 GB and less than 102400 GB (100 TB). Default is 5120.
         """
@@ -168,7 +168,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceManagerId")
-    def resource_manager_id(self) -> str:
+    def resource_manager_id(self) -> pulumi.Output[str]:
         """
         The Resource Manager ID of this File Share.
         """
@@ -176,7 +176,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         Specifies the storage account in which to create the share.
         Changing this forces a new resource to be created.
@@ -185,7 +185,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         The URL of the File Share
         """

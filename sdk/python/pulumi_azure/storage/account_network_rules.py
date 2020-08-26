@@ -13,7 +13,7 @@ __all__ = ['AccountNetworkRules']
 
 class AccountNetworkRules(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bypasses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
@@ -148,7 +148,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def bypasses(self) -> List[str]:
+    def bypasses(self) -> pulumi.Output[List[str]]:
         """
         Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         """
@@ -156,7 +156,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> str:
+    def default_action(self) -> pulumi.Output[str]:
         """
         Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         """
@@ -164,7 +164,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> List[str]:
+    def ip_rules(self) -> pulumi.Output[List[str]]:
         """
         List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         """
@@ -172,7 +172,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         """
@@ -180,7 +180,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         """
@@ -188,7 +188,7 @@ class AccountNetworkRules(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> List[str]:
+    def virtual_network_subnet_ids(self) -> pulumi.Output[List[str]]:
         """
         A list of virtual network subnet ids to to secure the storage account.
         """

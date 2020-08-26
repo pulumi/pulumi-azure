@@ -15,7 +15,7 @@ __all__ = ['AuthorizationServer']
 
 class AuthorizationServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  authorization_endpoint: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
         """
@@ -225,7 +225,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
-    def authorization_endpoint(self) -> str:
+    def authorization_endpoint(self) -> pulumi.Output[str]:
         """
         The OAUTH Authorization Endpoint.
         """
@@ -233,7 +233,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationMethods")
-    def authorization_methods(self) -> List[str]:
+    def authorization_methods(self) -> pulumi.Output[List[str]]:
         """
         The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
         """
@@ -241,7 +241,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")
-    def bearer_token_sending_methods(self) -> Optional[List[str]]:
+    def bearer_token_sending_methods(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
         """
@@ -249,7 +249,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAuthenticationMethods")
-    def client_authentication_methods(self) -> Optional[List[str]]:
+    def client_authentication_methods(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
         """
@@ -257,7 +257,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         The Client/App ID registered with this Authorization Server.
         """
@@ -265,7 +265,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientRegistrationEndpoint")
-    def client_registration_endpoint(self) -> str:
+    def client_registration_endpoint(self) -> pulumi.Output[str]:
         """
         The URI of page where Client/App Registration is performed for this Authorization Server.
         """
@@ -273,7 +273,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[str]:
+    def client_secret(self) -> pulumi.Output[Optional[str]]:
         """
         The Client/App Secret registered with this Authorization Server.
         """
@@ -281,7 +281,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultScope")
-    def default_scope(self) -> Optional[str]:
+    def default_scope(self) -> pulumi.Output[Optional[str]]:
         """
         The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
         """
@@ -289,7 +289,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of the Authorization Server, which may contain HTML formatting tags.
         """
@@ -297,7 +297,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The user-friendly name of this Authorization Server.
         """
@@ -305,7 +305,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="grantTypes")
-    def grant_types(self) -> List[str]:
+    def grant_types(self) -> pulumi.Output[List[str]]:
         """
         Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
         """
@@ -313,7 +313,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of this Authorization Server. Changing this forces a new resource to be created.
         """
@@ -321,7 +321,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -329,7 +329,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceOwnerPassword")
-    def resource_owner_password(self) -> Optional[str]:
+    def resource_owner_password(self) -> pulumi.Output[Optional[str]]:
         """
         The password associated with the Resource Owner.
         """
@@ -337,7 +337,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceOwnerUsername")
-    def resource_owner_username(self) -> Optional[str]:
+    def resource_owner_username(self) -> pulumi.Output[Optional[str]]:
         """
         The username associated with the Resource Owner.
         """
@@ -345,7 +345,7 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportState")
-    def support_state(self) -> Optional[bool]:
+    def support_state(self) -> pulumi.Output[Optional[bool]]:
         """
         Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
         """
@@ -353,12 +353,12 @@ class AuthorizationServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tokenBodyParameters")
-    def token_body_parameters(self) -> Optional[List['outputs.AuthorizationServerTokenBodyParameter']]:
+    def token_body_parameters(self) -> pulumi.Output[Optional[List['outputs.AuthorizationServerTokenBodyParameter']]]:
         return pulumi.get(self, "token_body_parameters")
 
     @property
     @pulumi.getter(name="tokenEndpoint")
-    def token_endpoint(self) -> Optional[str]:
+    def token_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
         The OAUTH Token Endpoint.
         """

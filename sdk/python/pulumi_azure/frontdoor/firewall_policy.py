@@ -15,7 +15,7 @@ __all__ = ['FirewallPolicy']
 
 class FirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_block_response_body: Optional[pulumi.Input[str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[float]] = None,
@@ -245,7 +245,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customBlockResponseBody")
-    def custom_block_response_body(self) -> Optional[str]:
+    def custom_block_response_body(self) -> pulumi.Output[Optional[str]]:
         """
         If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         """
@@ -253,7 +253,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customBlockResponseStatusCode")
-    def custom_block_response_status_code(self) -> Optional[float]:
+    def custom_block_response_status_code(self) -> pulumi.Output[Optional[float]]:
         """
         If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         """
@@ -261,7 +261,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[List['outputs.FirewallPolicyCustomRule']]:
+    def custom_rules(self) -> pulumi.Output[Optional[List['outputs.FirewallPolicyCustomRule']]]:
         """
         One or more `custom_rule` blocks as defined below.
         """
@@ -269,7 +269,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the policy a enabled state or disabled state. Defaults to `true`.
         """
@@ -277,7 +277,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendEndpointIds")
-    def frontend_endpoint_ids(self) -> List[str]:
+    def frontend_endpoint_ids(self) -> pulumi.Output[List[str]]:
         """
         The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
         """
@@ -285,7 +285,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where this FrontDoor Firewall Policy exists.
         """
@@ -293,7 +293,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional[List['outputs.FirewallPolicyManagedRule']]:
+    def managed_rules(self) -> pulumi.Output[Optional[List['outputs.FirewallPolicyManagedRule']]]:
         """
         One or more `managed_rule` blocks as defined below.
         """
@@ -301,7 +301,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[str]:
+    def mode(self) -> pulumi.Output[Optional[str]]:
         """
         The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
         """
@@ -309,7 +309,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the policy. Changing this forces a new resource to be created.
         """
@@ -317,7 +317,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redirectUrl")
-    def redirect_url(self) -> Optional[str]:
+    def redirect_url(self) -> pulumi.Output[Optional[str]]:
         """
         If action type is redirect, this field represents redirect URL for the client.
         """
@@ -325,7 +325,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group. Changing this forces a new resource to be created.
         """
@@ -333,7 +333,7 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Web Application Firewall Policy.
         """

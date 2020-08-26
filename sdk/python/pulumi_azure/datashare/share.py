@@ -15,7 +15,7 @@ __all__ = ['Share']
 
 class Share(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> str:
+    def account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
         """
@@ -142,7 +142,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The Data Share's description.
         """
@@ -150,7 +150,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
         """
@@ -158,7 +158,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
         """
@@ -166,7 +166,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotSchedule")
-    def snapshot_schedule(self) -> Optional['outputs.ShareSnapshotSchedule']:
+    def snapshot_schedule(self) -> pulumi.Output[Optional['outputs.ShareSnapshotSchedule']]:
         """
         A `snapshot_schedule` block as defined below.
         """
@@ -174,7 +174,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def terms(self) -> Optional[str]:
+    def terms(self) -> pulumi.Output[Optional[str]]:
         """
         The terms of the Data Share.
         """

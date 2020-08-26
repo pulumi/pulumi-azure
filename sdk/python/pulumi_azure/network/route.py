@@ -13,7 +13,7 @@ __all__ = ['Route']
 
 class Route(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> str:
+    def address_prefix(self) -> pulumi.Output[str]:
         """
         The destination CIDR to which the route applies, such as `10.1.0.0/16`
         """
@@ -140,7 +140,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the route. Changing this forces a new resource to be created.
         """
@@ -148,7 +148,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextHopInIpAddress")
-    def next_hop_in_ip_address(self) -> Optional[str]:
+    def next_hop_in_ip_address(self) -> pulumi.Output[Optional[str]]:
         """
         Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
@@ -156,7 +156,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nextHopType")
-    def next_hop_type(self) -> str:
+    def next_hop_type(self) -> pulumi.Output[str]:
         """
         The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
         """
@@ -164,7 +164,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the route. Changing this forces a new resource to be created.
         """
@@ -172,7 +172,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routeTableName")
-    def route_table_name(self) -> str:
+    def route_table_name(self) -> pulumi.Output[str]:
         """
         The name of the route table within which create the route. Changing this forces a new resource to be created.
         """

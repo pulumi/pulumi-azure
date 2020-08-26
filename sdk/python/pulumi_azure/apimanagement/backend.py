@@ -15,7 +15,7 @@ __all__ = ['Backend']
 
 class Backend(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[pulumi.InputType['BackendCredentialsArgs']]] = None,
@@ -149,7 +149,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.BackendCredentials']:
+    def credentials(self) -> pulumi.Output[Optional['outputs.BackendCredentials']]:
         """
         A `credentials` block as documented below.
         """
@@ -165,7 +165,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the backend.
         """
@@ -173,7 +173,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the API Management backend. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         The protocol used by the backend host. Possible values are `http` or `soap`.
         """
@@ -189,7 +189,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def proxy(self) -> Optional['outputs.BackendProxy']:
+    def proxy(self) -> pulumi.Output[Optional['outputs.BackendProxy']]:
         """
         A `proxy` block as documented below.
         """
@@ -197,7 +197,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -205,7 +205,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
+    def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
         """
@@ -213,7 +213,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceFabricCluster")
-    def service_fabric_cluster(self) -> Optional['outputs.BackendServiceFabricCluster']:
+    def service_fabric_cluster(self) -> pulumi.Output[Optional['outputs.BackendServiceFabricCluster']]:
         """
         A `service_fabric_cluster` block as documented below.
         """
@@ -221,7 +221,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def title(self) -> Optional[str]:
+    def title(self) -> pulumi.Output[Optional[str]]:
         """
         The title of the backend.
         """
@@ -229,7 +229,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tls(self) -> Optional['outputs.BackendTls']:
+    def tls(self) -> pulumi.Output[Optional['outputs.BackendTls']]:
         """
         A `tls` block as documented below.
         """
@@ -237,7 +237,7 @@ class Backend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         The URL of the backend host.
         """

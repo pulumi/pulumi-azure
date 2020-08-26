@@ -15,7 +15,7 @@ __all__ = ['Cache']
 
 class Cache(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[float]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
@@ -246,7 +246,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> pulumi.Output[float]:
         """
         The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
         """
@@ -254,7 +254,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableNonSslPort")
-    def enable_non_ssl_port(self) -> Optional[bool]:
+    def enable_non_ssl_port(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable the non-SSL port (6379) - disabled by default.
         """
@@ -262,7 +262,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def family(self) -> str:
+    def family(self) -> pulumi.Output[str]:
         """
         The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         """
@@ -270,7 +270,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hostname(self) -> str:
+    def hostname(self) -> pulumi.Output[str]:
         """
         The Hostname of the Redis Instance
         """
@@ -278,7 +278,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource group.
         """
@@ -286,7 +286,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[str]:
+    def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
         The minimum TLS version.  Defaults to `1.0`.
         """
@@ -294,7 +294,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Redis instance. Changing this forces a
         new resource to be created.
@@ -303,7 +303,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="patchSchedules")
-    def patch_schedules(self) -> Optional[List['outputs.CachePatchSchedule']]:
+    def patch_schedules(self) -> pulumi.Output[Optional[List['outputs.CachePatchSchedule']]]:
         """
         A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         """
@@ -311,7 +311,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         The non-SSL Port of the Redis Instance
         """
@@ -319,7 +319,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryAccessKey")
-    def primary_access_key(self) -> str:
+    def primary_access_key(self) -> pulumi.Output[str]:
         """
         The Primary Access Key for the Redis Instance
         """
@@ -327,7 +327,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> str:
+    def primary_connection_string(self) -> pulumi.Output[str]:
         """
         The primary connection string of the Redis Instance.
         """
@@ -335,7 +335,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateStaticIpAddress")
-    def private_static_ip_address(self) -> str:
+    def private_static_ip_address(self) -> pulumi.Output[str]:
         """
         The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         """
@@ -343,7 +343,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> 'outputs.CacheRedisConfiguration':
+    def redis_configuration(self) -> pulumi.Output['outputs.CacheRedisConfiguration']:
         """
         A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         """
@@ -351,7 +351,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the Redis instance.
@@ -360,7 +360,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryAccessKey")
-    def secondary_access_key(self) -> str:
+    def secondary_access_key(self) -> pulumi.Output[str]:
         """
         The Secondary Access Key for the Redis Instance
         """
@@ -368,7 +368,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> str:
+    def secondary_connection_string(self) -> pulumi.Output[str]:
         """
         The secondary connection string of the Redis Instance.
         """
@@ -376,7 +376,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[float]:
+    def shard_count(self) -> pulumi.Output[Optional[float]]:
         """
         *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         """
@@ -384,7 +384,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         """
@@ -392,7 +392,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslPort")
-    def ssl_port(self) -> float:
+    def ssl_port(self) -> pulumi.Output[float]:
         """
         The SSL Port of the Redis Instance
         """
@@ -400,7 +400,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
+    def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         """
@@ -408,7 +408,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -416,7 +416,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[str]:
+    def zones(self) -> pulumi.Output[Optional[str]]:
         """
         A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
         """

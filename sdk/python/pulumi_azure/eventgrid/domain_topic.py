@@ -13,7 +13,7 @@ __all__ = ['DomainTopic']
 
 class DomainTopic(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class DomainTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> str:
+    def domain_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
         """
@@ -115,7 +115,7 @@ class DomainTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created.
         """
@@ -123,7 +123,7 @@ class DomainTopic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         """

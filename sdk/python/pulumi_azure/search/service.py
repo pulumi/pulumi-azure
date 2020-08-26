@@ -15,7 +15,7 @@ __all__ = ['Service']
 
 class Service(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -146,7 +146,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         """
@@ -154,7 +154,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         """
@@ -162,7 +162,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> float:
+    def partition_count(self) -> pulumi.Output[float]:
         """
         The number of partitions which should be created.
         """
@@ -170,7 +170,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
+    def primary_key(self) -> pulumi.Output[str]:
         """
         The Primary Key used for Search Service Administration.
         """
@@ -178,7 +178,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[bool]:
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not public network access is allowed for this resource. Defaults to `true`.
         """
@@ -186,7 +186,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryKeys")
-    def query_keys(self) -> List['outputs.ServiceQueryKey']:
+    def query_keys(self) -> pulumi.Output[List['outputs.ServiceQueryKey']]:
         """
         A `query_keys` block as defined below.
         """
@@ -194,7 +194,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> float:
+    def replica_count(self) -> pulumi.Output[float]:
         """
         The number of replica's which should be created.
         """
@@ -202,7 +202,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         """
@@ -210,7 +210,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
+    def secondary_key(self) -> pulumi.Output[str]:
         """
         The Secondary Key used for Search Service Administration.
         """
@@ -218,7 +218,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> str:
+    def sku(self) -> pulumi.Output[str]:
         """
         The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
         """
@@ -226,7 +226,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Search Service.
         """

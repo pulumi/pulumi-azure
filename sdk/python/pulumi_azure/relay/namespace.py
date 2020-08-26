@@ -13,7 +13,7 @@ __all__ = ['Namespace']
 
 class Namespace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
         """
@@ -145,7 +145,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricId")
-    def metric_id(self) -> str:
+    def metric_id(self) -> pulumi.Output[str]:
         """
         The Identifier for Azure Insights metrics.
         """
@@ -153,7 +153,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
         """
@@ -161,7 +161,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> str:
+    def primary_connection_string(self) -> pulumi.Output[str]:
         """
         The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
@@ -169,7 +169,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
+    def primary_key(self) -> pulumi.Output[str]:
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
@@ -177,7 +177,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Azure Relay Namespace.
         """
@@ -185,7 +185,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> str:
+    def secondary_connection_string(self) -> pulumi.Output[str]:
         """
         The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         """
@@ -193,7 +193,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
+    def secondary_key(self) -> pulumi.Output[str]:
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
@@ -201,7 +201,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         The name of the SKU to use. At this time the only supported value is `Standard`.
         """
@@ -209,7 +209,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

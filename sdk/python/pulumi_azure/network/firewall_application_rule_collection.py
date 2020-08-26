@@ -15,7 +15,7 @@ __all__ = ['FirewallApplicationRuleCollection']
 
 class FirewallApplicationRuleCollection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
                  azure_firewall_name: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> str:
+    def action(self) -> pulumi.Output[str]:
         """
         Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
         """
@@ -167,7 +167,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureFirewallName")
-    def azure_firewall_name(self) -> str:
+    def azure_firewall_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Firewall in which the Application Rule Collection should be created. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> pulumi.Output[float]:
         """
         Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         """
@@ -191,7 +191,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         """
@@ -199,7 +199,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.FirewallApplicationRuleCollectionRule']:
+    def rules(self) -> pulumi.Output[List['outputs.FirewallApplicationRuleCollectionRule']]:
         """
         One or more `rule` blocks as defined below.
         """

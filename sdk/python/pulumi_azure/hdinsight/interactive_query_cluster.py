@@ -15,7 +15,7 @@ __all__ = ['InteractiveQueryCluster']
 
 class InteractiveQueryCluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
@@ -224,7 +224,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> str:
+    def cluster_version(self) -> pulumi.Output[str]:
         """
         Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         """
@@ -232,7 +232,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> 'outputs.InteractiveQueryClusterComponentVersion':
+    def component_version(self) -> pulumi.Output['outputs.InteractiveQueryClusterComponentVersion']:
         """
         A `component_version` block as defined below.
         """
@@ -240,7 +240,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def gateway(self) -> 'outputs.InteractiveQueryClusterGateway':
+    def gateway(self) -> pulumi.Output['outputs.InteractiveQueryClusterGateway']:
         """
         A `gateway` block as defined below.
         """
@@ -248,7 +248,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsEndpoint")
-    def https_endpoint(self) -> str:
+    def https_endpoint(self) -> pulumi.Output[str]:
         """
         The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         """
@@ -256,7 +256,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -264,7 +264,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metastores(self) -> Optional['outputs.InteractiveQueryClusterMetastores']:
+    def metastores(self) -> pulumi.Output[Optional['outputs.InteractiveQueryClusterMetastores']]:
         """
         A `metastores` block as defined below.
         """
@@ -272,7 +272,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitor(self) -> Optional['outputs.InteractiveQueryClusterMonitor']:
+    def monitor(self) -> pulumi.Output[Optional['outputs.InteractiveQueryClusterMonitor']]:
         """
         A `monitor` block as defined below.
         """
@@ -280,7 +280,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         """
@@ -288,7 +288,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -296,7 +296,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> 'outputs.InteractiveQueryClusterRoles':
+    def roles(self) -> pulumi.Output['outputs.InteractiveQueryClusterRoles']:
         """
         A `roles` block as defined below.
         """
@@ -304,7 +304,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sshEndpoint")
-    def ssh_endpoint(self) -> str:
+    def ssh_endpoint(self) -> pulumi.Output[str]:
         """
         The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         """
@@ -312,7 +312,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountGen2")
-    def storage_account_gen2(self) -> Optional['outputs.InteractiveQueryClusterStorageAccountGen2']:
+    def storage_account_gen2(self) -> pulumi.Output[Optional['outputs.InteractiveQueryClusterStorageAccountGen2']]:
         """
         A `storage_account_gen2` block as defined below.
         """
@@ -320,7 +320,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[List['outputs.InteractiveQueryClusterStorageAccount']]:
+    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.InteractiveQueryClusterStorageAccount']]]:
         """
         One or more `storage_account` block as defined below.
         """
@@ -328,7 +328,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         """
@@ -336,7 +336,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> str:
+    def tier(self) -> pulumi.Output[str]:
         """
         Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
@@ -344,7 +344,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> Optional[str]:
+    def tls_min_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "tls_min_version")
 
     def translate_output_property(self, prop):

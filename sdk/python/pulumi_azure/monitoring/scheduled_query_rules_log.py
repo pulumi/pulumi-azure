@@ -15,7 +15,7 @@ __all__ = ['ScheduledQueryRulesLog']
 
 class ScheduledQueryRulesLog(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized_resource_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
@@ -123,12 +123,12 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizedResourceIds")
-    def authorized_resource_ids(self) -> Optional[List[str]]:
+    def authorized_resource_ids(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "authorized_resource_ids")
 
     @property
     @pulumi.getter
-    def criteria(self) -> 'outputs.ScheduledQueryRulesLogCriteria':
+    def criteria(self) -> pulumi.Output['outputs.ScheduledQueryRulesLogCriteria']:
         """
         A `criteria` block as defined below.
         """
@@ -136,7 +136,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> str:
+    def data_source_id(self) -> pulumi.Output[str]:
         """
         The resource uri over which log search query is to be run.
         """
@@ -144,7 +144,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the scheduled query rule.
         """
@@ -152,7 +152,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether this scheduled query rule is enabled.  Default is `true`.
         """
@@ -160,12 +160,12 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the scheduled query rule. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the scheduled query rule instance.
         """
@@ -181,7 +181,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):

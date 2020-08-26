@@ -13,7 +13,7 @@ __all__ = ['Lab']
 
 class Lab(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -138,7 +138,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="artifactsStorageAccountId")
-    def artifacts_storage_account_id(self) -> str:
+    def artifacts_storage_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Storage Account used for Artifact Storage.
         """
@@ -146,7 +146,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPremiumStorageAccountId")
-    def default_premium_storage_account_id(self) -> str:
+    def default_premium_storage_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Default Premium Storage Account for this Dev Test Lab.
         """
@@ -154,7 +154,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultStorageAccountId")
-    def default_storage_account_id(self) -> str:
+    def default_storage_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Default Storage Account for this Dev Test Lab.
         """
@@ -162,7 +162,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> str:
+    def key_vault_id(self) -> pulumi.Output[str]:
         """
         The ID of the Key used for this Dev Test Lab.
         """
@@ -170,7 +170,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
         """
@@ -178,7 +178,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
         """
@@ -186,7 +186,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="premiumDataDiskStorageAccountId")
-    def premium_data_disk_storage_account_id(self) -> str:
+    def premium_data_disk_storage_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Storage Account used for Storage of Premium Data Disk.
         """
@@ -194,7 +194,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
         """
@@ -202,7 +202,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[str]:
+    def storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
         """
@@ -210,7 +210,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -218,7 +218,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> str:
+    def unique_identifier(self) -> pulumi.Output[str]:
         """
         The unique immutable identifier of the Dev Test Lab.
         """

@@ -13,7 +13,7 @@ __all__ = ['FirewallRule']
 
 class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> str:
+    def end_ip_address(self) -> pulumi.Output[str]:
         """
         Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
         """
@@ -160,7 +160,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
         """
@@ -168,7 +168,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
         """
@@ -176,7 +176,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
         """
@@ -184,7 +184,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> str:
+    def start_ip_address(self) -> pulumi.Output[str]:
         """
         Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
         """

@@ -13,7 +13,7 @@ __all__ = ['ProtectedVM']
 
 class ProtectedVM(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class ProtectedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPolicyId")
-    def backup_policy_id(self) -> str:
+    def backup_policy_id(self) -> pulumi.Output[str]:
         """
         Specifies the id of the backup policy to use.
         """
@@ -138,7 +138,7 @@ class ProtectedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         """
@@ -146,7 +146,7 @@ class ProtectedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         """
@@ -154,7 +154,7 @@ class ProtectedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceVmId")
-    def source_vm_id(self) -> str:
+    def source_vm_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
         """
@@ -162,7 +162,7 @@ class ProtectedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

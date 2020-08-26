@@ -13,7 +13,7 @@ __all__ = ['Account']
 
 class Account(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dscPrimaryAccessKey")
-    def dsc_primary_access_key(self) -> str:
+    def dsc_primary_access_key(self) -> pulumi.Output[str]:
         """
         The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         """
@@ -137,7 +137,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dscSecondaryAccessKey")
-    def dsc_secondary_access_key(self) -> str:
+    def dsc_secondary_access_key(self) -> pulumi.Output[str]:
         """
         The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         """
@@ -145,7 +145,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dscServerEndpoint")
-    def dsc_server_endpoint(self) -> str:
+    def dsc_server_endpoint(self) -> pulumi.Output[str]:
         """
         The DSC Server Endpoint associated with this Automation Account.
         """
@@ -153,7 +153,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -161,7 +161,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         """
@@ -169,7 +169,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         """
@@ -177,7 +177,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         The SKU name of the account - only `Basic` is supported at this time.
         """
@@ -185,7 +185,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

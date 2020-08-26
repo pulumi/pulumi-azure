@@ -15,7 +15,7 @@ __all__ = ['AppService']
 
 class AppService(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -233,7 +233,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServicePlanId")
-    def app_service_plan_id(self) -> str:
+    def app_service_plan_id(self) -> pulumi.Output[str]:
         """
         The ID of the App Service Plan within which to create this App Service.
         """
@@ -241,7 +241,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Mapping[str, str]:
+    def app_settings(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A key-value pair of App Settings.
         """
@@ -249,7 +249,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> 'outputs.AppServiceAuthSettings':
+    def auth_settings(self) -> pulumi.Output['outputs.AppServiceAuthSettings']:
         """
         A `auth_settings` block as defined below.
         """
@@ -257,7 +257,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def backup(self) -> Optional['outputs.AppServiceBackup']:
+    def backup(self) -> pulumi.Output[Optional['outputs.AppServiceBackup']]:
         """
         A `backup` block as defined below.
         """
@@ -265,7 +265,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> Optional[bool]:
+    def client_affinity_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         """
@@ -273,7 +273,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertEnabled")
-    def client_cert_enabled(self) -> Optional[bool]:
+    def client_cert_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Does the App Service require client certificates for incoming requests? Defaults to `false`.
         """
@@ -281,7 +281,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> List['outputs.AppServiceConnectionString']:
+    def connection_strings(self) -> pulumi.Output[List['outputs.AppServiceConnectionString']]:
         """
         One or more `connection_string` blocks as defined below.
         """
@@ -289,7 +289,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSiteHostname")
-    def default_site_hostname(self) -> str:
+    def default_site_hostname(self) -> pulumi.Output[str]:
         """
         The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
         """
@@ -297,7 +297,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the App Service Enabled?
         """
@@ -305,7 +305,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[bool]:
+    def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Can the App Service only be accessed via HTTPS? Defaults to `false`.
         """
@@ -313,7 +313,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.AppServiceIdentity':
+    def identity(self) -> pulumi.Output['outputs.AppServiceIdentity']:
         """
         A Managed Service Identity block as defined below.
         """
@@ -321,7 +321,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -329,7 +329,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> 'outputs.AppServiceLogs':
+    def logs(self) -> pulumi.Output['outputs.AppServiceLogs']:
         """
         A `logs` block as defined below.
         """
@@ -337,7 +337,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the App Service. Changing this forces a new resource to be created.
         """
@@ -345,7 +345,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> str:
+    def outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         """
@@ -353,7 +353,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="possibleOutboundIpAddresses")
-    def possible_outbound_ip_addresses(self) -> str:
+    def possible_outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
@@ -361,7 +361,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the App Service.
         """
@@ -369,7 +369,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> 'outputs.AppServiceSiteConfig':
+    def site_config(self) -> pulumi.Output['outputs.AppServiceSiteConfig']:
         """
         A `site_config` block as defined below.
         """
@@ -377,7 +377,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> List['outputs.AppServiceSiteCredential']:
+    def site_credentials(self) -> pulumi.Output[List['outputs.AppServiceSiteCredential']]:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         """
@@ -385,7 +385,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceControl")
-    def source_control(self) -> 'outputs.AppServiceSourceControl':
+    def source_control(self) -> pulumi.Output['outputs.AppServiceSourceControl']:
         """
         A Source Control block as defined below
         """
@@ -393,7 +393,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> List['outputs.AppServiceStorageAccount']:
+    def storage_accounts(self) -> pulumi.Output[List['outputs.AppServiceStorageAccount']]:
         """
         One or more `storage_account` blocks as defined below.
         """
@@ -401,7 +401,7 @@ class AppService(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

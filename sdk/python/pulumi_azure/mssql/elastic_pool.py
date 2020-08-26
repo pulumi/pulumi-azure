@@ -15,7 +15,7 @@ __all__ = ['ElasticPool']
 
 class ElasticPool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -174,7 +174,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> str:
+    def license_type(self) -> pulumi.Output[str]:
         """
         Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         """
@@ -182,7 +182,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -190,7 +190,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> float:
+    def max_size_bytes(self) -> pulumi.Output[float]:
         """
         The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         """
@@ -198,7 +198,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> float:
+    def max_size_gb(self) -> pulumi.Output[float]:
         """
         The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         """
@@ -206,7 +206,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         """
@@ -214,7 +214,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="perDatabaseSettings")
-    def per_database_settings(self) -> 'outputs.ElasticPoolPerDatabaseSettings':
+    def per_database_settings(self) -> pulumi.Output['outputs.ElasticPoolPerDatabaseSettings']:
         """
         A `per_database_settings` block as defined below.
         """
@@ -222,7 +222,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
         """
@@ -230,7 +230,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         """
@@ -238,7 +238,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ElasticPoolSku':
+    def sku(self) -> pulumi.Output['outputs.ElasticPoolSku']:
         """
         A `sku` block as defined below.
         """
@@ -246,7 +246,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -254,7 +254,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[bool]:
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
         """

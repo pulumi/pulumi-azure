@@ -13,7 +13,7 @@ __all__ = ['BoolVariable']
 
 class BoolVariable(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class BoolVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
         """
@@ -115,7 +115,7 @@ class BoolVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of the Automation Variable.
         """
@@ -123,7 +123,7 @@ class BoolVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> Optional[bool]:
+    def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the Automation Variable is encrypted. Defaults to `false`.
         """
@@ -131,7 +131,7 @@ class BoolVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Automation Variable. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class BoolVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
         """
@@ -147,7 +147,7 @@ class BoolVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[bool]:
+    def value(self) -> pulumi.Output[Optional[bool]]:
         """
         The value of the Automation Variable as a `boolean`.
         """

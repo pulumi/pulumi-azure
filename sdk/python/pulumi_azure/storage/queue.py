@@ -13,7 +13,7 @@ __all__ = ['Queue']
 
 class Queue(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of MetaData which should be assigned to this Storage Queue.
         """
@@ -110,7 +110,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
         """
@@ -118,7 +118,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
         """

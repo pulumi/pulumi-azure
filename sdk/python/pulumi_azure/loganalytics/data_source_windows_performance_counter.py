@@ -13,7 +13,7 @@ __all__ = ['DataSourceWindowsPerformanceCounter']
 
 class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  counter_name: Optional[pulumi.Input[str]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="counterName")
-    def counter_name(self) -> str:
+    def counter_name(self) -> pulumi.Output[str]:
         """
         The friendly name of the performance counter.
         """
@@ -149,7 +149,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceName")
-    def instance_name(self) -> str:
+    def instance_name(self) -> pulumi.Output[str]:
         """
         The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
         """
@@ -157,7 +157,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="intervalSeconds")
-    def interval_seconds(self) -> float:
+    def interval_seconds(self) -> pulumi.Output[float]:
         """
         The time of sample interval in seconds. Supports values between 10 and 2147483647.
         """
@@ -165,7 +165,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """
@@ -173,7 +173,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectName")
-    def object_name(self) -> str:
+    def object_name(self) -> pulumi.Output[str]:
         """
         The object name of the Log Analytics Windows Performance Counter DataSource.
         """
@@ -181,7 +181,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """
@@ -189,7 +189,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> str:
+    def workspace_name(self) -> pulumi.Output[str]:
         """
         The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['Application']
 
 class Application(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -166,7 +166,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationDefinitionId")
-    def application_definition_id(self) -> Optional[str]:
+    def application_definition_id(self) -> pulumi.Output[Optional[str]]:
         """
         The application definition ID to deploy.
         """
@@ -174,7 +174,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
         """
@@ -182,7 +182,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -190,7 +190,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> str:
+    def managed_resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
         """
@@ -198,7 +198,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         """
@@ -206,7 +206,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, str]:
+    def outputs(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The name and value pairs that define the managed application outputs.
         """
@@ -214,7 +214,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of name and value pairs to pass to the managed application as parameters.
         """
@@ -222,7 +222,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional['outputs.ApplicationPlan']:
+    def plan(self) -> pulumi.Output[Optional['outputs.ApplicationPlan']]:
         """
         One `plan` block as defined below.
         """
@@ -230,7 +230,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         """
@@ -238,7 +238,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

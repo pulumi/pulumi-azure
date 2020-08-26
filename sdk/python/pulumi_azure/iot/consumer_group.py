@@ -13,7 +13,7 @@ __all__ = ['ConsumerGroup']
 
 class ConsumerGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  eventhub_endpoint_name: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubEndpointName")
-    def eventhub_endpoint_name(self) -> str:
+    def eventhub_endpoint_name(self) -> pulumi.Output[str]:
         """
         The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
         """
@@ -128,7 +128,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> str:
+    def iothub_name(self) -> pulumi.Output[str]:
         """
         The name of the IoT Hub. Changing this forces a new resource to be created.
         """
@@ -136,7 +136,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of this Consumer Group. Changing this forces a new resource to be created.
         """
@@ -144,7 +144,7 @@ class ConsumerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
         """

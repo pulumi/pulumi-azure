@@ -15,7 +15,7 @@ __all__ = ['MetricAlert']
 
 class MetricAlert(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
                  application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]] = None,
@@ -209,7 +209,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.MetricAlertAction']]:
+    def actions(self) -> pulumi.Output[Optional[List['outputs.MetricAlertAction']]]:
         """
         One or more `action` blocks as defined below.
         """
@@ -217,7 +217,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationInsightsWebTestLocationAvailabilityCriteria")
-    def application_insights_web_test_location_availability_criteria(self) -> Optional['outputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria']:
+    def application_insights_web_test_location_availability_criteria(self) -> pulumi.Output[Optional['outputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria']]:
         """
         A `application_insights_web_test_location_availability_criteria` block as defined below.
         """
@@ -225,7 +225,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMitigate")
-    def auto_mitigate(self) -> Optional[bool]:
+    def auto_mitigate(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         """
@@ -233,7 +233,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def criterias(self) -> Optional[List['outputs.MetricAlertCriteria']]:
+    def criterias(self) -> pulumi.Output[Optional[List['outputs.MetricAlertCriteria']]]:
         """
         One or more (static) `criteria` blocks as defined below.
         """
@@ -241,7 +241,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this Metric Alert.
         """
@@ -249,7 +249,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamicCriteria")
-    def dynamic_criteria(self) -> Optional['outputs.MetricAlertDynamicCriteria']:
+    def dynamic_criteria(self) -> pulumi.Output[Optional['outputs.MetricAlertDynamicCriteria']]:
         """
         A `dynamic_criteria` block as defined below.
         """
@@ -257,7 +257,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should this Metric Alert be enabled? Defaults to `true`.
         """
@@ -265,7 +265,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[str]:
+    def frequency(self) -> pulumi.Output[Optional[str]]:
         """
         The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         """
@@ -273,7 +273,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Metric Alert. Changing this forces a new resource to be created.
         """
@@ -281,7 +281,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Metric Alert instance.
         """
@@ -289,7 +289,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List[str]:
+    def scopes(self) -> pulumi.Output[List[str]]:
         """
         A set of strings of resource IDs at which the metric criteria should be applied.
         """
@@ -297,7 +297,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> Optional[float]:
+    def severity(self) -> pulumi.Output[Optional[float]]:
         """
         The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         """
@@ -305,7 +305,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -313,7 +313,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceLocation")
-    def target_resource_location(self) -> str:
+    def target_resource_location(self) -> pulumi.Output[str]:
         """
         The location of the target resource.
         """
@@ -321,7 +321,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetResourceType")
-    def target_resource_type(self) -> str:
+    def target_resource_type(self) -> pulumi.Output[str]:
         """
         The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
         """
@@ -329,7 +329,7 @@ class MetricAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="windowSize")
-    def window_size(self) -> Optional[str]:
+    def window_size(self) -> pulumi.Output[Optional[str]]:
         """
         The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """

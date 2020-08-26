@@ -13,7 +13,7 @@ __all__ = ['TopicAuthorizationRule']
 
 class TopicAuthorizationRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
@@ -159,7 +159,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def listen(self) -> Optional[bool]:
+    def listen(self) -> pulumi.Output[Optional[bool]]:
         """
         Grants listen access to this this Authorization Rule. Defaults to `false`.
         """
@@ -167,7 +167,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def manage(self) -> Optional[bool]:
+    def manage(self) -> pulumi.Output[Optional[bool]]:
         """
         Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
@@ -175,7 +175,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
         """
@@ -191,7 +191,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> str:
+    def primary_connection_string(self) -> pulumi.Output[str]:
         """
         The Primary Connection String for the ServiceBus Topic authorization Rule.
         """
@@ -199,7 +199,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> str:
+    def primary_key(self) -> pulumi.Output[str]:
         """
         The Primary Key for the ServiceBus Topic authorization Rule.
         """
@@ -207,7 +207,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         """
@@ -215,7 +215,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> str:
+    def secondary_connection_string(self) -> pulumi.Output[str]:
         """
         The Secondary Connection String for the ServiceBus Topic authorization Rule.
         """
@@ -223,7 +223,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> str:
+    def secondary_key(self) -> pulumi.Output[str]:
         """
         The Secondary Key for the ServiceBus Topic authorization Rule.
         """
@@ -231,7 +231,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def send(self) -> Optional[bool]:
+    def send(self) -> pulumi.Output[Optional[bool]]:
         """
         Grants send access to this this Authorization Rule. Defaults to `false`.
         """
@@ -239,7 +239,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> str:
+    def topic_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
         """

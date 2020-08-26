@@ -15,7 +15,7 @@ __all__ = ['ApiOperation']
 
 class ApiOperation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
@@ -173,7 +173,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiName")
-    def api_name(self) -> str:
+    def api_name(self) -> pulumi.Output[str]:
         """
         The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
         """
@@ -189,7 +189,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for this API Operation, which may include HTML formatting tags.
         """
@@ -197,7 +197,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         The Display Name for this API Management Operation.
         """
@@ -205,7 +205,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def method(self) -> str:
+    def method(self) -> pulumi.Output[str]:
         """
         The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
         """
@@ -213,7 +213,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="operationId")
-    def operation_id(self) -> str:
+    def operation_id(self) -> pulumi.Output[str]:
         """
         A unique identifier for this API Operation. Changing this forces a new resource to be created.
         """
@@ -221,7 +221,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def request(self) -> 'outputs.ApiOperationRequest':
+    def request(self) -> pulumi.Output['outputs.ApiOperationRequest']:
         """
         A `request` block as defined below.
         """
@@ -229,7 +229,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -237,7 +237,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def responses(self) -> Optional[List['outputs.ApiOperationResponse']]:
+    def responses(self) -> pulumi.Output[Optional[List['outputs.ApiOperationResponse']]]:
         """
         One or more `response` blocks as defined below.
         """
@@ -245,7 +245,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> Optional[List['outputs.ApiOperationTemplateParameter']]:
+    def template_parameters(self) -> pulumi.Output[Optional[List['outputs.ApiOperationTemplateParameter']]]:
         """
         One or more `template_parameter` blocks as defined below.
         """
@@ -253,7 +253,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlTemplate")
-    def url_template(self) -> str:
+    def url_template(self) -> pulumi.Output[str]:
         """
         The relative URL Template identifying the target resource for this operation, which may include parameters.
         """

@@ -13,7 +13,7 @@ __all__ = ['HybridConnection']
 
 class HybridConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  relay_namespace_name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         """
@@ -130,7 +130,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relayNamespaceName")
-    def relay_namespace_name(self) -> str:
+    def relay_namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         """
@@ -138,7 +138,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requiresClientAuthorization")
-    def requires_client_authorization(self) -> Optional[bool]:
+    def requires_client_authorization(self) -> pulumi.Output[Optional[bool]]:
         """
         Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created.
         """
@@ -146,7 +146,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
         """
@@ -154,7 +154,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> Optional[str]:
+    def user_metadata(self) -> pulumi.Output[Optional[str]]:
         """
         The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """

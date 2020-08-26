@@ -15,7 +15,7 @@ __all__ = ['ResourceGroupExport']
 
 class ResourceGroupExport(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ResourceGroupExportDeliveryInfoArgs']]] = None,
@@ -157,7 +157,7 @@ class ResourceGroupExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def active(self) -> Optional[bool]:
+    def active(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the cost management export active? Default is `true`.
         """
@@ -165,7 +165,7 @@ class ResourceGroupExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryInfo")
-    def delivery_info(self) -> 'outputs.ResourceGroupExportDeliveryInfo':
+    def delivery_info(self) -> pulumi.Output['outputs.ResourceGroupExportDeliveryInfo']:
         """
         A `delivery_info` block as defined below.
         """
@@ -173,7 +173,7 @@ class ResourceGroupExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class ResourceGroupExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def query(self) -> 'outputs.ResourceGroupExportQuery':
+    def query(self) -> pulumi.Output['outputs.ResourceGroupExportQuery']:
         """
         A `query` block as defined below.
         """
@@ -189,7 +189,7 @@ class ResourceGroupExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recurrencePeriodEnd")
-    def recurrence_period_end(self) -> str:
+    def recurrence_period_end(self) -> pulumi.Output[str]:
         """
         The date the export will stop capturing information.
         """
@@ -197,7 +197,7 @@ class ResourceGroupExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recurrencePeriodStart")
-    def recurrence_period_start(self) -> str:
+    def recurrence_period_start(self) -> pulumi.Output[str]:
         """
         The date the export will start capturing information.
         """
@@ -205,7 +205,7 @@ class ResourceGroupExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recurrenceType")
-    def recurrence_type(self) -> str:
+    def recurrence_type(self) -> pulumi.Output[str]:
         """
         How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         """
@@ -213,7 +213,7 @@ class ResourceGroupExport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupId")
-    def resource_group_id(self) -> str:
+    def resource_group_id(self) -> pulumi.Output[str]:
         """
         The id of the resource group in which to export information.
         """

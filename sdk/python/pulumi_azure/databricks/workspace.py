@@ -15,7 +15,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_parameters: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomParametersArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customParameters")
-    def custom_parameters(self) -> 'outputs.WorkspaceCustomParameters':
+    def custom_parameters(self) -> pulumi.Output['outputs.WorkspaceCustomParameters']:
         """
         A `custom_parameters` block as documented below.
         """
@@ -151,7 +151,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         """
@@ -159,7 +159,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupId")
-    def managed_resource_group_id(self) -> str:
+    def managed_resource_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the Managed Resource Group created by the Databricks Workspace.
         """
@@ -167,7 +167,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> str:
+    def managed_resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
         """
@@ -191,7 +191,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> str:
+    def sku(self) -> pulumi.Output[str]:
         """
         The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. Changing this forces a new resource to be created.
         """
@@ -199,7 +199,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -207,7 +207,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> str:
+    def workspace_id(self) -> pulumi.Output[str]:
         """
         The unique identifier of the databricks workspace in Databricks control plane.
         """
@@ -215,7 +215,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workspaceUrl")
-    def workspace_url(self) -> str:
+    def workspace_url(self) -> pulumi.Output[str]:
         """
         The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
         """

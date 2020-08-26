@@ -15,7 +15,7 @@ __all__ = ['Server']
 
 class Server(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -243,7 +243,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> str:
+    def administrator_login(self) -> pulumi.Output[str]:
         """
         The Administrator Login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
         """
@@ -251,7 +251,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> Optional[str]:
+    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
         """
         The Password associated with the `administrator_login` for the MySQL Server. Required when `create_mode` is `Default`.
         """
@@ -259,7 +259,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoGrowEnabled")
-    def auto_grow_enabled(self) -> bool:
+    def auto_grow_enabled(self) -> pulumi.Output[bool]:
         """
         Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
         """
@@ -267,7 +267,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> float:
+    def backup_retention_days(self) -> pulumi.Output[float]:
         """
         Backup retention days for the server, supported values are between `7` and `35` days.
         """
@@ -275,7 +275,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
+    def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
         """
@@ -283,7 +283,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationSourceServerId")
-    def creation_source_server_id(self) -> Optional[str]:
+    def creation_source_server_id(self) -> pulumi.Output[Optional[str]]:
         """
         For creation modes other than `Default`, the source server ID to use.
         """
@@ -291,7 +291,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         The FQDN of the MySQL Server.
         """
@@ -299,7 +299,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoRedundantBackupEnabled")
-    def geo_redundant_backup_enabled(self) -> bool:
+    def geo_redundant_backup_enabled(self) -> pulumi.Output[bool]:
         """
         Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
         """
@@ -307,7 +307,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ServerIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ServerIdentity']]:
         """
         An `identity` block as defined below.
         """
@@ -315,7 +315,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="infrastructureEncryptionEnabled")
-    def infrastructure_encryption_enabled(self) -> Optional[bool]:
+    def infrastructure_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
         """
@@ -323,7 +323,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -331,7 +331,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
         """
@@ -339,7 +339,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[bool]:
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not public network access is allowed for this server. Defaults to `true`.
         """
@@ -347,7 +347,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
         """
@@ -355,7 +355,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> Optional[str]:
+    def restore_point_in_time(self) -> pulumi.Output[Optional[str]]:
         """
         When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
         """
@@ -363,7 +363,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
         """
@@ -371,12 +371,12 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslEnforcement")
-    def ssl_enforcement(self) -> str:
+    def ssl_enforcement(self) -> pulumi.Output[str]:
         return pulumi.get(self, "ssl_enforcement")
 
     @property
     @pulumi.getter(name="sslEnforcementEnabled")
-    def ssl_enforcement_enabled(self) -> Optional[bool]:
+    def ssl_enforcement_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
         """
@@ -384,7 +384,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslMinimalTlsVersionEnforced")
-    def ssl_minimal_tls_version_enforced(self) -> Optional[str]:
+    def ssl_minimal_tls_version_enforced(self) -> pulumi.Output[Optional[str]]:
         """
         The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
         """
@@ -392,7 +392,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageMb")
-    def storage_mb(self) -> float:
+    def storage_mb(self) -> pulumi.Output[float]:
         """
         Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
         """
@@ -400,12 +400,12 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> 'outputs.ServerStorageProfile':
+    def storage_profile(self) -> pulumi.Output['outputs.ServerStorageProfile']:
         return pulumi.get(self, "storage_profile")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -413,7 +413,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional['outputs.ServerThreatDetectionPolicy']:
+    def threat_detection_policy(self) -> pulumi.Output[Optional['outputs.ServerThreatDetectionPolicy']]:
         """
         Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         """
@@ -421,7 +421,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
         """

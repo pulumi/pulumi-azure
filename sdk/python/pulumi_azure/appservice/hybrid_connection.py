@@ -13,7 +13,7 @@ __all__ = ['HybridConnection']
 
 class HybridConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServiceName")
-    def app_service_name(self) -> str:
+    def app_service_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the App Service. Changing this forces a new resource to be created.
         """
@@ -177,7 +177,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hostname(self) -> str:
+    def hostname(self) -> pulumi.Output[str]:
         """
         The hostname of the endpoint.
         """
@@ -185,7 +185,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the Relay Namespace.
         """
@@ -193,7 +193,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         The port of the endpoint.
         """
@@ -201,7 +201,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relayId")
-    def relay_id(self) -> str:
+    def relay_id(self) -> pulumi.Output[str]:
         """
         The ID of the Service Bus Relay. Changing this forces a new resource to be created.
         """
@@ -209,12 +209,12 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="relayName")
-    def relay_name(self) -> str:
+    def relay_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "relay_name")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
         """
@@ -222,7 +222,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sendKeyName")
-    def send_key_name(self) -> Optional[str]:
+    def send_key_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         """
@@ -230,7 +230,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sendKeyValue")
-    def send_key_value(self) -> str:
+    def send_key_value(self) -> pulumi.Output[str]:
         """
         The value of the Service Bus Primary Access key.
         """
@@ -238,7 +238,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusNamespace")
-    def service_bus_namespace(self) -> str:
+    def service_bus_namespace(self) -> pulumi.Output[str]:
         """
         The name of the Service Bus namespace.
         """
@@ -246,7 +246,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceBusSuffix")
-    def service_bus_suffix(self) -> str:
+    def service_bus_suffix(self) -> pulumi.Output[str]:
         """
         The suffix for the service bus endpoint.
         """

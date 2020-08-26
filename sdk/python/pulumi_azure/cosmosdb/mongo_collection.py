@@ -15,7 +15,7 @@ __all__ = ['MongoCollection']
 
 class MongoCollection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -145,12 +145,12 @@ class MongoCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "account_name")
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         """
@@ -158,7 +158,7 @@ class MongoCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultTtlSeconds")
-    def default_ttl_seconds(self) -> Optional[float]:
+    def default_ttl_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
         """
@@ -166,7 +166,7 @@ class MongoCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def indices(self) -> Optional[List['outputs.MongoCollectionIndex']]:
+    def indices(self) -> pulumi.Output[Optional[List['outputs.MongoCollectionIndex']]]:
         """
         One or more `index` blocks as defined below.
         """
@@ -174,7 +174,7 @@ class MongoCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         """
@@ -182,7 +182,7 @@ class MongoCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         """
@@ -190,7 +190,7 @@ class MongoCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shardKey")
-    def shard_key(self) -> Optional[str]:
+    def shard_key(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the key to partition on for sharding. There must not be any other unique index keys.
         """
@@ -198,7 +198,7 @@ class MongoCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemIndexes")
-    def system_indexes(self) -> List['outputs.MongoCollectionSystemIndex']:
+    def system_indexes(self) -> pulumi.Output[List['outputs.MongoCollectionSystemIndex']]:
         """
         One or more `system_indexes` blocks as defined below.
         """
@@ -206,7 +206,7 @@ class MongoCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def throughput(self) -> float:
+    def throughput(self) -> pulumi.Output[float]:
         """
         The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """

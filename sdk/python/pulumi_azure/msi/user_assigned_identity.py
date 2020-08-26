@@ -17,7 +17,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     warnings.warn("azure.msi.UserAssignedIdentity has been deprecated in favor of azure.authorization.UserAssignedIdentity", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         Client ID associated with the user assigned identity.
         """
@@ -132,7 +132,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location/region where the user assigned identity is
         created.
@@ -141,7 +141,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the user assigned identity. Changing this forces a
         new identity to be created.
@@ -150,7 +150,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    def principal_id(self) -> pulumi.Output[str]:
         """
         Service Principal ID associated with the user assigned identity.
         """
@@ -158,7 +158,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the user assigned identity.
@@ -167,7 +167,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

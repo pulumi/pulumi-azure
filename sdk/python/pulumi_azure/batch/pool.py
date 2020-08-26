@@ -15,7 +15,7 @@ __all__ = ['Pool']
 
 class Pool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['PoolAutoScaleArgs']]] = None,
@@ -173,7 +173,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> str:
+    def account_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScale")
-    def auto_scale(self) -> Optional['outputs.PoolAutoScale']:
+    def auto_scale(self) -> pulumi.Output[Optional['outputs.PoolAutoScale']]:
         """
         A `auto_scale` block that describes the scale settings when using auto scale.
         """
@@ -189,7 +189,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[List['outputs.PoolCertificate']]:
+    def certificates(self) -> pulumi.Output[Optional[List['outputs.PoolCertificate']]]:
         """
         One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
         """
@@ -197,7 +197,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerConfiguration")
-    def container_configuration(self) -> Optional['outputs.PoolContainerConfiguration']:
+    def container_configuration(self) -> pulumi.Output[Optional['outputs.PoolContainerConfiguration']]:
         """
         The container configuration used in the pool's VMs.
         """
@@ -205,7 +205,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the display name of the Batch pool.
         """
@@ -213,7 +213,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fixedScale")
-    def fixed_scale(self) -> Optional['outputs.PoolFixedScale']:
+    def fixed_scale(self) -> pulumi.Output[Optional['outputs.PoolFixedScale']]:
         """
         A `fixed_scale` block that describes the scale settings when using fixed scale.
         """
@@ -221,7 +221,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxTasksPerNode")
-    def max_tasks_per_node(self) -> Optional[float]:
+    def max_tasks_per_node(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         """
@@ -229,7 +229,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
+    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of custom batch pool metadata.
         """
@@ -237,7 +237,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         """
@@ -245,7 +245,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional['outputs.PoolNetworkConfiguration']:
+    def network_configuration(self) -> pulumi.Output[Optional['outputs.PoolNetworkConfiguration']]:
         """
         A `network_configuration` block that describes the network configurations for the Batch pool.
         """
@@ -253,7 +253,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeAgentSkuId")
-    def node_agent_sku_id(self) -> str:
+    def node_agent_sku_id(self) -> pulumi.Output[str]:
         """
         Specifies the Sku of the node agents that will be created in the Batch pool.
         """
@@ -261,7 +261,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         """
@@ -269,7 +269,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTask")
-    def start_task(self) -> Optional['outputs.PoolStartTask']:
+    def start_task(self) -> pulumi.Output[Optional['outputs.PoolStartTask']]:
         """
         A `start_task` block that describes the start task settings for the Batch pool.
         """
@@ -277,12 +277,12 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stopPendingResizeOperation")
-    def stop_pending_resize_operation(self) -> Optional[bool]:
+    def stop_pending_resize_operation(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "stop_pending_resize_operation")
 
     @property
     @pulumi.getter(name="storageImageReference")
-    def storage_image_reference(self) -> 'outputs.PoolStorageImageReference':
+    def storage_image_reference(self) -> pulumi.Output['outputs.PoolStorageImageReference']:
         """
         A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         """
@@ -290,7 +290,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
+    def vm_size(self) -> pulumi.Output[str]:
         """
         Specifies the size of the VM created in the Batch pool.
         """

@@ -15,7 +15,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -174,7 +174,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aadAdmin")
-    def aad_admin(self) -> 'outputs.WorkspaceAadAdmin':
+    def aad_admin(self) -> pulumi.Output['outputs.WorkspaceAadAdmin']:
         """
         An `aad_admin` block as defined below.
         """
@@ -182,7 +182,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
-    def connectivity_endpoints(self) -> Mapping[str, str]:
+    def connectivity_endpoints(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A list of Connectivity endpoints for this Synapse Workspace.
         """
@@ -190,7 +190,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identities(self) -> List['outputs.WorkspaceIdentity']:
+    def identities(self) -> pulumi.Output[List['outputs.WorkspaceIdentity']]:
         """
         An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
         """
@@ -198,7 +198,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         """
@@ -206,7 +206,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupName")
-    def managed_resource_group_name(self) -> str:
+    def managed_resource_group_name(self) -> pulumi.Output[str]:
         """
         Workspace managed resource group.
         """
@@ -214,7 +214,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedVirtualNetworkEnabled")
-    def managed_virtual_network_enabled(self) -> Optional[bool]:
+    def managed_virtual_network_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
         """
@@ -222,7 +222,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         """
@@ -230,7 +230,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         """
@@ -238,7 +238,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlAdministratorLogin")
-    def sql_administrator_login(self) -> str:
+    def sql_administrator_login(self) -> pulumi.Output[str]:
         """
         Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
         """
@@ -246,7 +246,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlAdministratorLoginPassword")
-    def sql_administrator_login_password(self) -> str:
+    def sql_administrator_login_password(self) -> pulumi.Output[str]:
         """
         The Password associated with the `sql_administrator_login` for the SQL administrator.
         """
@@ -254,7 +254,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageDataLakeGen2FilesystemId")
-    def storage_data_lake_gen2_filesystem_id(self) -> str:
+    def storage_data_lake_gen2_filesystem_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         """
@@ -262,7 +262,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags which should be assigned to the Synapse Workspace.
         """

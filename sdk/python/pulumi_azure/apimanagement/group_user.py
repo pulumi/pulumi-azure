@@ -13,7 +13,7 @@ __all__ = ['GroupUser']
 
 class GroupUser(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class GroupUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service. Changing this forces a new resource to be created.
         """
@@ -123,7 +123,7 @@ class GroupUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> str:
+    def group_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
         """
@@ -131,7 +131,7 @@ class GroupUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -139,7 +139,7 @@ class GroupUser(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
         """

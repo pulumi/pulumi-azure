@@ -13,7 +13,7 @@ __all__ = ['EndpointStorageContainer']
 
 class EndpointStorageContainer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  batch_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
@@ -166,7 +166,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="batchFrequencyInSeconds")
-    def batch_frequency_in_seconds(self) -> Optional[float]:
+    def batch_frequency_in_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         """
@@ -174,7 +174,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionString")
-    def connection_string(self) -> str:
+    def connection_string(self) -> pulumi.Output[str]:
         """
         The connection string for the endpoint.
         """
@@ -182,7 +182,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> str:
+    def container_name(self) -> pulumi.Output[str]:
         """
         The name of storage container in the storage account.
         *
@@ -191,7 +191,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[str]:
+    def encoding(self) -> pulumi.Output[Optional[str]]:
         """
         Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
         """
@@ -199,7 +199,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileNameFormat")
-    def file_name_format(self) -> Optional[str]:
+    def file_name_format(self) -> pulumi.Output[Optional[str]]:
         """
         File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
         """
@@ -207,7 +207,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> str:
+    def iothub_name(self) -> pulumi.Output[str]:
         """
         The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
         """
@@ -215,7 +215,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxChunkSizeInBytes")
-    def max_chunk_size_in_bytes(self) -> Optional[float]:
+    def max_chunk_size_in_bytes(self) -> pulumi.Output[Optional[float]]:
         """
         Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         """
@@ -223,7 +223,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         """
@@ -231,7 +231,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
         """

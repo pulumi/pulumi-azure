@@ -13,7 +13,7 @@ __all__ = ['FallbackRoute']
 
 class FallbackRoute(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -153,7 +153,7 @@ class FallbackRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[str]:
+    def condition(self) -> pulumi.Output[Optional[str]]:
         """
         The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         """
@@ -161,7 +161,7 @@ class FallbackRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Used to specify whether the fallback route is enabled.
         """
@@ -169,7 +169,7 @@ class FallbackRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> str:
+    def endpoint_names(self) -> pulumi.Output[str]:
         """
         The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         """
@@ -177,7 +177,7 @@ class FallbackRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> str:
+    def iothub_name(self) -> pulumi.Output[str]:
         """
         The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
         """
@@ -185,7 +185,7 @@ class FallbackRoute(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
         """

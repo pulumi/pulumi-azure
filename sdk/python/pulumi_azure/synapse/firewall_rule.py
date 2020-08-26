@@ -13,7 +13,7 @@ __all__ = ['FirewallRule']
 
 class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> str:
+    def end_ip_address(self) -> pulumi.Output[str]:
         """
         The ending IP address to allow through the firewall for this rule.
         """
@@ -132,7 +132,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The Name of the firewall rule. Changing this forces a new resource to be created.
         """
@@ -140,7 +140,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> str:
+    def start_ip_address(self) -> pulumi.Output[str]:
         """
         The starting IP address to allow through the firewall for this rule.
         """
@@ -148,7 +148,7 @@ class FirewallRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
-    def synapse_workspace_id(self) -> str:
+    def synapse_workspace_id(self) -> pulumi.Output[str]:
         """
         The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
         """

@@ -15,7 +15,7 @@ __all__ = ['Server']
 
 class Server(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
@@ -160,7 +160,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUsers")
-    def admin_users(self) -> Optional[List[str]]:
+    def admin_users(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of email addresses of admin users.
         """
@@ -168,7 +168,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupBlobContainerUri")
-    def backup_blob_container_uri(self) -> Optional[str]:
+    def backup_blob_container_uri(self) -> pulumi.Output[Optional[str]]:
         """
         URI and SAS token for a blob container to store backups.
         """
@@ -176,7 +176,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePowerBiService")
-    def enable_power_bi_service(self) -> Optional[bool]:
+    def enable_power_bi_service(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates if the Power BI service is allowed to access or not.
         """
@@ -184,7 +184,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv4FirewallRules")
-    def ipv4_firewall_rules(self) -> Optional[List['outputs.ServerIpv4FirewallRule']]:
+    def ipv4_firewall_rules(self) -> pulumi.Output[Optional[List['outputs.ServerIpv4FirewallRule']]]:
         """
         One or more `ipv4_firewall_rule` block(s) as defined below.
         """
@@ -192,7 +192,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         """
@@ -200,7 +200,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the firewall rule.
         """
@@ -208,7 +208,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="querypoolConnectionMode")
-    def querypool_connection_mode(self) -> str:
+    def querypool_connection_mode(self) -> pulumi.Output[str]:
         """
         Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
         """
@@ -216,7 +216,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
         """
@@ -224,7 +224,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverFullName")
-    def server_full_name(self) -> str:
+    def server_full_name(self) -> pulumi.Output[str]:
         """
         The full name of the Analysis Services Server.
         """
@@ -232,7 +232,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> str:
+    def sku(self) -> pulumi.Output[str]:
         """
         SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
         """
@@ -240,7 +240,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):

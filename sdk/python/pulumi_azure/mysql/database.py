@@ -13,7 +13,7 @@ __all__ = ['Database']
 
 class Database(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  charset: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def charset(self) -> str:
+    def charset(self) -> pulumi.Output[str]:
         """
         Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
         """
@@ -142,7 +142,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def collation(self) -> str:
+    def collation(self) -> pulumi.Output[str]:
         """
         Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
         """
@@ -150,7 +150,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
         """
@@ -158,7 +158,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
         """
@@ -166,7 +166,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
         """

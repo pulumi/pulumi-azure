@@ -13,7 +13,7 @@ __all__ = ['Store']
 
 class Store(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_state: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionState")
-    def encryption_state(self) -> Optional[str]:
+    def encryption_state(self) -> pulumi.Output[Optional[str]]:
         """
         Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
         """
@@ -149,7 +149,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> str:
+    def encryption_type(self) -> pulumi.Output[str]:
         """
         The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
         """
@@ -157,7 +157,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> str:
+    def endpoint(self) -> pulumi.Output[str]:
         """
         The Endpoint for the Data Lake Store.
         """
@@ -165,7 +165,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallAllowAzureIps")
-    def firewall_allow_azure_ips(self) -> Optional[str]:
+    def firewall_allow_azure_ips(self) -> pulumi.Output[Optional[str]]:
         """
         are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
         """
@@ -173,7 +173,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firewallState")
-    def firewall_state(self) -> Optional[str]:
+    def firewall_state(self) -> pulumi.Output[Optional[str]]:
         """
         the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
         """
@@ -181,7 +181,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -189,7 +189,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
         """
@@ -197,7 +197,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Data Lake Store.
         """
@@ -205,7 +205,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -213,7 +213,7 @@ class Store(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[str]:
+    def tier(self) -> pulumi.Output[Optional[str]]:
         """
         The monthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
         """

@@ -13,7 +13,7 @@ __all__ = ['KubernetesClusterNodePool']
 
 class KubernetesClusterNodePool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
@@ -196,7 +196,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[List[str]]:
+    def availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of Availability Zones where the Nodes in this Node Pool should be created in.
         """
@@ -204,7 +204,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutoScaling")
-    def enable_auto_scaling(self) -> Optional[bool]:
+    def enable_auto_scaling(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         """
@@ -212,7 +212,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableNodePublicIp")
-    def enable_node_public_ip(self) -> Optional[bool]:
+    def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
         """
         Should each node have a Public IP Address? Defaults to `false`.
         """
@@ -220,7 +220,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[str]:
+    def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         """
@@ -228,7 +228,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubernetesClusterId")
-    def kubernetes_cluster_id(self) -> str:
+    def kubernetes_cluster_id(self) -> pulumi.Output[str]:
         """
         The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         """
@@ -236,7 +236,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[float]:
+    def max_count(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
         """
@@ -244,7 +244,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> float:
+    def max_pods(self) -> pulumi.Output[float]:
         """
         The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         """
@@ -252,7 +252,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[float]:
+    def min_count(self) -> pulumi.Output[Optional[float]]:
         """
         The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
         """
@@ -260,7 +260,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[str]:
+    def mode(self) -> pulumi.Output[Optional[str]]:
         """
         Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         """
@@ -268,7 +268,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         """
@@ -276,7 +276,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> float:
+    def node_count(self) -> pulumi.Output[float]:
         """
         The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
         """
@@ -284,7 +284,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeLabels")
-    def node_labels(self) -> Optional[Mapping[str, str]]:
+    def node_labels(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
         """
@@ -292,7 +292,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[List[str]]:
+    def node_taints(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         """
@@ -300,7 +300,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="orchestratorVersion")
-    def orchestrator_version(self) -> str:
+    def orchestrator_version(self) -> pulumi.Output[str]:
         """
         Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         """
@@ -308,7 +308,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osDiskSizeGb")
-    def os_disk_size_gb(self) -> float:
+    def os_disk_size_gb(self) -> pulumi.Output[float]:
         """
         The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         """
@@ -316,7 +316,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         """
@@ -324,7 +324,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[str]:
+    def priority(self) -> pulumi.Output[Optional[str]]:
         """
         The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         """
@@ -332,7 +332,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="spotMaxPrice")
-    def spot_max_price(self) -> Optional[float]:
+    def spot_max_price(self) -> pulumi.Output[Optional[float]]:
         """
         The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         """
@@ -340,7 +340,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -348,7 +348,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
+    def vm_size(self) -> pulumi.Output[str]:
         """
         The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         """
@@ -356,7 +356,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vnetSubnetId")
-    def vnet_subnet_id(self) -> Optional[str]:
+    def vnet_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Subnet where this Node Pool should exist.
         """

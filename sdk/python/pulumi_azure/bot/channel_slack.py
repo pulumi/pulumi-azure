@@ -13,7 +13,7 @@ __all__ = ['ChannelSlack']
 
 class ChannelSlack(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class ChannelSlack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="botName")
-    def bot_name(self) -> str:
+    def bot_name(self) -> pulumi.Output[str]:
         """
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
@@ -151,7 +151,7 @@ class ChannelSlack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         The Client ID that will be used to authenticate with Slack.
         """
@@ -159,7 +159,7 @@ class ChannelSlack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> pulumi.Output[str]:
         """
         The Client Secret that will be used to authenticate with Slack.
         """
@@ -167,7 +167,7 @@ class ChannelSlack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="landingPageUrl")
-    def landing_page_url(self) -> Optional[str]:
+    def landing_page_url(self) -> pulumi.Output[Optional[str]]:
         """
         The Slack Landing Page URL.
         """
@@ -175,7 +175,7 @@ class ChannelSlack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -183,7 +183,7 @@ class ChannelSlack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
@@ -191,7 +191,7 @@ class ChannelSlack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="verificationToken")
-    def verification_token(self) -> str:
+    def verification_token(self) -> pulumi.Output[str]:
         """
         The Verification Token that will be used to authenticate with Slack.
         """

@@ -13,7 +13,7 @@ __all__ = ['DataDiskAttachment']
 
 class DataDiskAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  caching: Optional[pulumi.Input[str]] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
@@ -181,7 +181,7 @@ class DataDiskAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def caching(self) -> str:
+    def caching(self) -> pulumi.Output[str]:
         """
         Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         """
@@ -189,7 +189,7 @@ class DataDiskAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> Optional[str]:
+    def create_option(self) -> pulumi.Output[Optional[str]]:
         """
         The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
         """
@@ -197,7 +197,7 @@ class DataDiskAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> pulumi.Output[float]:
         """
         The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -205,7 +205,7 @@ class DataDiskAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedDiskId")
-    def managed_disk_id(self) -> str:
+    def managed_disk_id(self) -> pulumi.Output[str]:
         """
         The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
         """
@@ -213,7 +213,7 @@ class DataDiskAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> str:
+    def virtual_machine_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         """
@@ -221,7 +221,7 @@ class DataDiskAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeAcceleratorEnabled")
-    def write_accelerator_enabled(self) -> Optional[bool]:
+    def write_accelerator_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """

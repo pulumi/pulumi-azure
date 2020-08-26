@@ -15,7 +15,7 @@ __all__ = ['Server']
 
 class Server(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -189,7 +189,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLogin")
-    def administrator_login(self) -> str:
+    def administrator_login(self) -> pulumi.Output[str]:
         """
         The administrator login name for the new server. Changing this forces a new resource to be created.
         """
@@ -197,7 +197,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> str:
+    def administrator_login_password(self) -> pulumi.Output[str]:
         """
         The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         """
@@ -205,7 +205,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureadAdministrator")
-    def azuread_administrator(self) -> Optional['outputs.ServerAzureadAdministrator']:
+    def azuread_administrator(self) -> pulumi.Output[Optional['outputs.ServerAzureadAdministrator']]:
         """
         An `azuread_administrator` block as defined below.
         """
@@ -213,7 +213,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionPolicy")
-    def connection_policy(self) -> Optional[str]:
+    def connection_policy(self) -> pulumi.Output[Optional[str]]:
         """
         The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         """
@@ -221,7 +221,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional['outputs.ServerExtendedAuditingPolicy']:
+    def extended_auditing_policy(self) -> pulumi.Output[Optional['outputs.ServerExtendedAuditingPolicy']]:
         """
         A `extended_auditing_policy` block as defined below.
         """
@@ -229,7 +229,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> str:
+    def fully_qualified_domain_name(self) -> pulumi.Output[str]:
         """
         The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         """
@@ -237,7 +237,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ServerIdentity']:
+    def identity(self) -> pulumi.Output[Optional['outputs.ServerIdentity']]:
         """
         An `identity` block as defined below.
         """
@@ -245,7 +245,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -253,7 +253,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         """
@@ -261,7 +261,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> Optional[bool]:
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not public network access is allowed for this server. Defaults to `true`.
         """
@@ -269,7 +269,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Microsoft SQL Server.
         """
@@ -277,7 +277,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -285,7 +285,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """

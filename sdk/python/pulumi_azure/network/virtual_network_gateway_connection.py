@@ -15,7 +15,7 @@ __all__ = ['VirtualNetworkGatewayConnection']
 
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
@@ -361,7 +361,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationKey")
-    def authorization_key(self) -> Optional[str]:
+    def authorization_key(self) -> pulumi.Output[Optional[str]]:
         """
         The authorization key associated with the
         Express Route Circuit. This field is required only if the type is an
@@ -371,7 +371,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionProtocol")
-    def connection_protocol(self) -> str:
+    def connection_protocol(self) -> pulumi.Output[str]:
         """
         The IKE protocol version to use. Possible
         values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
@@ -382,7 +382,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBgp")
-    def enable_bgp(self) -> bool:
+    def enable_bgp(self) -> pulumi.Output[bool]:
         """
         If `true`, BGP (Border Gateway Protocol) is enabled
         for this connection. Defaults to `false`.
@@ -391,7 +391,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteCircuitId")
-    def express_route_circuit_id(self) -> Optional[str]:
+    def express_route_circuit_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Express Route Circuit
         when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
@@ -401,7 +401,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressRouteGatewayBypass")
-    def express_route_gateway_bypass(self) -> bool:
+    def express_route_gateway_bypass(self) -> pulumi.Output[bool]:
         """
         If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         """
@@ -409,7 +409,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipsecPolicy")
-    def ipsec_policy(self) -> Optional['outputs.VirtualNetworkGatewayConnectionIpsecPolicy']:
+    def ipsec_policy(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewayConnectionIpsecPolicy']]:
         """
         A `ipsec_policy` block which is documented below.
         Only a single policy can be defined for a connection. For details on
@@ -419,7 +419,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="localNetworkGatewayId")
-    def local_network_gateway_id(self) -> Optional[str]:
+    def local_network_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the local network gateway
         when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -428,7 +428,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location/region where the connection is
         located. Changing this forces a new resource to be created.
@@ -437,7 +437,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the connection. Changing the name forces a
         new resource to be created.
@@ -446,7 +446,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerVirtualNetworkGatewayId")
-    def peer_virtual_network_gateway_id(self) -> Optional[str]:
+    def peer_virtual_network_gateway_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the peer virtual
         network gateway when creating a VNet-to-VNet connection (i.e. when `type`
@@ -457,7 +457,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the connection Changing the name forces a new resource to be created.
@@ -466,7 +466,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> float:
+    def routing_weight(self) -> pulumi.Output[float]:
         """
         The routing weight. Defaults to `10`.
         """
@@ -474,7 +474,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedKey")
-    def shared_key(self) -> Optional[str]:
+    def shared_key(self) -> pulumi.Output[Optional[str]]:
         """
         The shared IPSec key. A key could be provided if a
         Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
@@ -483,7 +483,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -491,7 +491,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficSelectorPolicy")
-    def traffic_selector_policy(self) -> Optional['outputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicy']:
+    def traffic_selector_policy(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewayConnectionTrafficSelectorPolicy']]:
         """
         A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
         Only one block can be defined for a connection.
@@ -501,7 +501,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of connection. Valid options are `IPsec`
         (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -513,7 +513,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usePolicyBasedTrafficSelectors")
-    def use_policy_based_traffic_selectors(self) -> bool:
+    def use_policy_based_traffic_selectors(self) -> pulumi.Output[bool]:
         """
         If `true`, policy-based traffic
         selectors are enabled for this connection. Enabling policy-based traffic
@@ -523,7 +523,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkGatewayId")
-    def virtual_network_gateway_id(self) -> str:
+    def virtual_network_gateway_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Network Gateway
         in which the connection will be created. Changing the gateway forces a new

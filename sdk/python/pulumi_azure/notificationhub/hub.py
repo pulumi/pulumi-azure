@@ -15,7 +15,7 @@ __all__ = ['Hub']
 
 class Hub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apns_credential: Optional[pulumi.Input[pulumi.InputType['HubApnsCredentialArgs']]] = None,
                  gcm_credential: Optional[pulumi.Input[pulumi.InputType['HubGcmCredentialArgs']]] = None,
@@ -133,7 +133,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apnsCredential")
-    def apns_credential(self) -> Optional['outputs.HubApnsCredential']:
+    def apns_credential(self) -> pulumi.Output[Optional['outputs.HubApnsCredential']]:
         """
         A `apns_credential` block as defined below.
         """
@@ -141,7 +141,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gcmCredential")
-    def gcm_credential(self) -> Optional['outputs.HubGcmCredential']:
+    def gcm_credential(self) -> pulumi.Output[Optional['outputs.HubGcmCredential']]:
         """
         A `gcm_credential` block as defined below.
         """
@@ -149,7 +149,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name to use for this Notification Hub. Changing this forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         """
@@ -181,7 +181,7 @@ class Hub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

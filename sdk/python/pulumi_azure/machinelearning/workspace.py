@@ -15,7 +15,7 @@ __all__ = ['Workspace']
 
 class Workspace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
@@ -190,7 +190,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationInsightsId")
-    def application_insights_id(self) -> str:
+    def application_insights_id(self) -> pulumi.Output[str]:
         """
         The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         """
@@ -198,7 +198,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerRegistryId")
-    def container_registry_id(self) -> Optional[str]:
+    def container_registry_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         """
@@ -206,7 +206,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this Machine Learning Workspace.
         """
@@ -214,7 +214,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         Friendly name for this Machine Learning Workspace.
         """
@@ -222,7 +222,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="highBusinessImpact")
-    def high_business_impact(self) -> Optional[bool]:
+    def high_business_impact(self) -> pulumi.Output[Optional[bool]]:
         """
         Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         """
@@ -230,7 +230,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.WorkspaceIdentity':
+    def identity(self) -> pulumi.Output['outputs.WorkspaceIdentity']:
         """
         An `identity` block defined below.
         """
@@ -238,7 +238,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> str:
+    def key_vault_id(self) -> pulumi.Output[str]:
         """
         The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         """
@@ -246,7 +246,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         """
@@ -254,7 +254,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         """
@@ -262,7 +262,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         """
@@ -270,7 +270,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[str]:
+    def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
         SKU/edition of the Machine Learning Workspace, possible values are `Basic` for a basic workspace or `Enterprise` for a feature rich workspace. Defaults to `Basic`.
         """
@@ -278,7 +278,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> str:
+    def storage_account_id(self) -> pulumi.Output[str]:
         """
         The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         """
@@ -286,7 +286,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """

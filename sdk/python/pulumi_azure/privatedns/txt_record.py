@@ -15,7 +15,7 @@ __all__ = ['TxtRecord']
 
 class TxtRecord(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['TxtRecordRecordArgs']]]]] = None,
@@ -132,7 +132,7 @@ class TxtRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         The FQDN of the DNS TXT Record.
         """
@@ -140,7 +140,7 @@ class TxtRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the DNS TXT Record. Changing this forces a new resource to be created.
         """
@@ -148,7 +148,7 @@ class TxtRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def records(self) -> List['outputs.TxtRecordRecord']:
+    def records(self) -> pulumi.Output[List['outputs.TxtRecordRecord']]:
         """
         One or more `record` blocks as defined below.
         """
@@ -156,7 +156,7 @@ class TxtRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         """
@@ -164,7 +164,7 @@ class TxtRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -172,12 +172,12 @@ class TxtRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> pulumi.Output[float]:
         return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter(name="zoneName")
-    def zone_name(self) -> str:
+    def zone_name(self) -> pulumi.Output[str]:
         """
         Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """

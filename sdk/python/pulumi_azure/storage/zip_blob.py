@@ -17,7 +17,7 @@ class ZipBlob(pulumi.CustomResource):
     warnings.warn("ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.", DeprecationWarning)
 
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[pulumi.Archive]] = None,
@@ -128,67 +128,67 @@ class ZipBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> str:
+    def access_tier(self) -> pulumi.Output[str]:
         return pulumi.get(self, "access_tier")
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Archive]:
+    def content(self) -> pulumi.Output[Optional[pulumi.Archive]]:
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[str]:
+    def content_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
-    def metadata(self) -> Mapping[str, str]:
+    def metadata(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def parallelism(self) -> Optional[float]:
+    def parallelism(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "parallelism")
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[float]:
+    def size(self) -> pulumi.Output[Optional[float]]:
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter(name="sourceContent")
-    def source_content(self) -> Optional[str]:
+    def source_content(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "source_content")
 
     @property
     @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[str]:
+    def source_uri(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "source_uri")
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "storage_account_name")
 
     @property
     @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> str:
+    def storage_container_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "storage_container_name")
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "url")
 
     def translate_output_property(self, prop):

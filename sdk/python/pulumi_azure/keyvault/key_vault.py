@@ -15,7 +15,7 @@ __all__ = ['KeyVault']
 
 class KeyVault(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
                  enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
@@ -195,7 +195,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> List['outputs.KeyVaultAccessPolicy']:
+    def access_policies(self) -> pulumi.Output[List['outputs.KeyVaultAccessPolicy']]:
         """
         A list of up to 16 objects describing access policies, as described below.
         """
@@ -203,7 +203,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledForDeployment")
-    def enabled_for_deployment(self) -> Optional[bool]:
+    def enabled_for_deployment(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         """
@@ -211,7 +211,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledForDiskEncryption")
-    def enabled_for_disk_encryption(self) -> Optional[bool]:
+    def enabled_for_disk_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         """
@@ -219,7 +219,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledForTemplateDeployment")
-    def enabled_for_template_deployment(self) -> Optional[bool]:
+    def enabled_for_template_deployment(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
         """
@@ -227,7 +227,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -235,7 +235,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Key Vault. Changing this forces a new resource to be created.
         """
@@ -243,7 +243,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> 'outputs.KeyVaultNetworkAcls':
+    def network_acls(self) -> pulumi.Output['outputs.KeyVaultNetworkAcls']:
         """
         A `network_acls` block as defined below.
         """
@@ -251,7 +251,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="purgeProtectionEnabled")
-    def purge_protection_enabled(self) -> Optional[bool]:
+    def purge_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         """
@@ -259,7 +259,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         """
@@ -267,7 +267,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         """
@@ -275,7 +275,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="softDeleteEnabled")
-    def soft_delete_enabled(self) -> Optional[bool]:
+    def soft_delete_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
         """
@@ -283,7 +283,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -291,7 +291,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
@@ -299,7 +299,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vaultUri")
-    def vault_uri(self) -> str:
+    def vault_uri(self) -> pulumi.Output[str]:
         """
         The URI of the Key Vault, used for performing operations on keys and secrets.
         """

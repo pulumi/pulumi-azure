@@ -13,7 +13,7 @@ __all__ = ['Route']
 
 class Route(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -164,7 +164,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[str]:
+    def condition(self) -> pulumi.Output[Optional[str]]:
         """
         The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         """
@@ -172,7 +172,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> bool:
+    def enabled(self) -> pulumi.Output[bool]:
         """
         Specifies whether a route is enabled.
         """
@@ -180,7 +180,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> str:
+    def endpoint_names(self) -> pulumi.Output[str]:
         """
         The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         """
@@ -188,7 +188,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iothubName")
-    def iothub_name(self) -> str:
+    def iothub_name(self) -> pulumi.Output[str]:
         """
         The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
         """
@@ -196,7 +196,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the route.
         """
@@ -204,7 +204,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
         """
@@ -212,7 +212,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> str:
+    def source(self) -> pulumi.Output[str]:
         """
         The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
         """

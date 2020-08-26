@@ -15,7 +15,7 @@ __all__ = ['TrafficManagerProfile']
 
 class TrafficManagerProfile(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']]] = None,
                  monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']]] = None,
@@ -158,7 +158,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> 'outputs.TrafficManagerProfileDnsConfig':
+    def dns_config(self) -> pulumi.Output['outputs.TrafficManagerProfileDnsConfig']:
         """
         This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         """
@@ -166,7 +166,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> str:
+    def fqdn(self) -> pulumi.Output[str]:
         """
         The FQDN of the created Profile.
         """
@@ -174,7 +174,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitorConfig")
-    def monitor_config(self) -> 'outputs.TrafficManagerProfileMonitorConfig':
+    def monitor_config(self) -> pulumi.Output['outputs.TrafficManagerProfileMonitorConfig']:
         """
         This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         """
@@ -182,7 +182,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         """
@@ -190,7 +190,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="profileStatus")
-    def profile_status(self) -> str:
+    def profile_status(self) -> pulumi.Output[str]:
         """
         The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         """
@@ -198,7 +198,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Traffic Manager profile.
         """
@@ -206,7 +206,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -214,7 +214,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficRoutingMethod")
-    def traffic_routing_method(self) -> str:
+    def traffic_routing_method(self) -> pulumi.Output[str]:
         """
         Specifies the algorithm used to route traffic, possible values are:
         """

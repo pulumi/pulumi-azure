@@ -13,7 +13,7 @@ __all__ = ['AnalyticsItem']
 
 class AnalyticsItem(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationInsightsId")
-    def application_insights_id(self) -> str:
+    def application_insights_id(self) -> pulumi.Output[str]:
         """
         The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
         """
@@ -149,7 +149,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> pulumi.Output[str]:
         """
         The content for the Analytics Item, for example the query text if `type` is `query`.
         """
@@ -157,7 +157,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionAlias")
-    def function_alias(self) -> Optional[str]:
+    def function_alias(self) -> pulumi.Output[Optional[str]]:
         """
         The alias to use for the function. Required when `type` is `function`.
         """
@@ -165,7 +165,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
         """
@@ -181,7 +181,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeCreated")
-    def time_created(self) -> str:
+    def time_created(self) -> pulumi.Output[str]:
         """
         A string containing the time the Analytics Item was created.
         """
@@ -189,7 +189,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeModified")
-    def time_modified(self) -> str:
+    def time_modified(self) -> pulumi.Output[str]:
         """
         A string containing the time the Analytics Item was last modified.
         """
@@ -197,7 +197,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
         """
@@ -205,7 +205,7 @@ class AnalyticsItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> pulumi.Output[str]:
         """
         A string indicating the version of the query format
         """

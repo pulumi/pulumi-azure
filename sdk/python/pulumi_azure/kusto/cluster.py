@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enable_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
@@ -184,7 +184,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataIngestionUri")
-    def data_ingestion_uri(self) -> str:
+    def data_ingestion_uri(self) -> pulumi.Output[str]:
         """
         The Kusto Cluster URI to be used for data ingestion.
         """
@@ -192,7 +192,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableDiskEncryption")
-    def enable_disk_encryption(self) -> Optional[bool]:
+    def enable_disk_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the cluster's disks are encrypted.
         """
@@ -200,7 +200,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePurge")
-    def enable_purge(self) -> Optional[bool]:
+    def enable_purge(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the purge operations are enabled.
         """
@@ -208,7 +208,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableStreamingIngest")
-    def enable_streaming_ingest(self) -> Optional[bool]:
+    def enable_streaming_ingest(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the streaming ingest is enabled.
         """
@@ -216,7 +216,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.ClusterIdentity':
+    def identity(self) -> pulumi.Output['outputs.ClusterIdentity']:
         """
         A identity block.
         """
@@ -224,7 +224,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> Optional[List[str]]:
+    def language_extensions(self) -> pulumi.Output[Optional[List[str]]]:
         """
         An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         """
@@ -232,7 +232,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         """
@@ -240,7 +240,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         """
@@ -248,7 +248,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="optimizedAutoScale")
-    def optimized_auto_scale(self) -> Optional['outputs.ClusterOptimizedAutoScale']:
+    def optimized_auto_scale(self) -> pulumi.Output[Optional['outputs.ClusterOptimizedAutoScale']]:
         """
         An `optimized_auto_scale` block as defined below.
         """
@@ -256,7 +256,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -264,7 +264,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> 'outputs.ClusterSku':
+    def sku(self) -> pulumi.Output['outputs.ClusterSku']:
         """
         A `sku` block as defined below.
         """
@@ -272,7 +272,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -280,7 +280,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedExternalTenants")
-    def trusted_external_tenants(self) -> List[str]:
+    def trusted_external_tenants(self) -> pulumi.Output[List[str]]:
         """
         Specifies a list of tenant IDs that are trusted by the cluster.
         """
@@ -288,7 +288,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> str:
+    def uri(self) -> pulumi.Output[str]:
         """
         The FQDN of the Azure Kusto Cluster.
         """
@@ -296,7 +296,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional['outputs.ClusterVirtualNetworkConfiguration']:
+    def virtual_network_configuration(self) -> pulumi.Output[Optional['outputs.ClusterVirtualNetworkConfiguration']]:
         """
         A `virtual_network_configuration` block as defined below.
         """
@@ -304,7 +304,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[List[str]]:
+    def zones(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
         """

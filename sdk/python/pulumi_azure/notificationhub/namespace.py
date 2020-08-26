@@ -13,7 +13,7 @@ __all__ = ['Namespace']
 
 class Namespace(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is this Notification Hub Namespace enabled? Defaults to `true`.
         """
@@ -141,7 +141,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The Azure Region in which this Notification Hub Namespace should be created.
         """
@@ -149,7 +149,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceType")
-    def namespace_type(self) -> str:
+    def namespace_type(self) -> pulumi.Output[str]:
         """
         The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
         """
@@ -165,7 +165,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="servicebusEndpoint")
-    def servicebus_endpoint(self) -> str:
+    def servicebus_endpoint(self) -> pulumi.Output[str]:
         """
         The ServiceBus Endpoint for this Notification Hub Namespace.
         """
@@ -181,7 +181,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> str:
+    def sku_name(self) -> pulumi.Output[str]:
         """
         The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
         """
@@ -189,7 +189,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

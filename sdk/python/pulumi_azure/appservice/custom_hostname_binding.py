@@ -13,7 +13,7 @@ __all__ = ['CustomHostnameBinding']
 
 class CustomHostnameBinding(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServiceName")
-    def app_service_name(self) -> str:
+    def app_service_name(self) -> pulumi.Output[str]:
         """
         The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         """
@@ -145,7 +145,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hostname(self) -> str:
+    def hostname(self) -> pulumi.Output[str]:
         """
         Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
         """
@@ -153,7 +153,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         """
@@ -161,7 +161,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslState")
-    def ssl_state(self) -> Optional[str]:
+    def ssl_state(self) -> pulumi.Output[Optional[str]]:
         """
         The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         """
@@ -169,7 +169,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> Optional[str]:
+    def thumbprint(self) -> pulumi.Output[Optional[str]]:
         """
         The SSL certificate thumbprint. Changing this forces a new resource to be created.
         """
@@ -177,7 +177,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualIp")
-    def virtual_ip(self) -> str:
+    def virtual_ip(self) -> pulumi.Output[str]:
         """
         The virtual IP address assigned to the hostname if IP based SSL is enabled.
         """

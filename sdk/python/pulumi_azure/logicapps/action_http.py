@@ -15,7 +15,7 @@ __all__ = ['ActionHttp']
 
 class ActionHttp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -133,7 +133,7 @@ class ActionHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[str]:
+    def body(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
         """
@@ -141,7 +141,7 @@ class ActionHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, str]]:
+    def headers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         """
@@ -149,7 +149,7 @@ class ActionHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logicAppId")
-    def logic_app_id(self) -> str:
+    def logic_app_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class ActionHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def method(self) -> str:
+    def method(self) -> pulumi.Output[str]:
         """
         Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         """
@@ -165,7 +165,7 @@ class ActionHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class ActionHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runAfters")
-    def run_afters(self) -> Optional[List['outputs.ActionHttpRunAfter']]:
+    def run_afters(self) -> pulumi.Output[Optional[List['outputs.ActionHttpRunAfter']]]:
         """
         Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         """
@@ -181,7 +181,7 @@ class ActionHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def uri(self) -> str:
+    def uri(self) -> pulumi.Output[str]:
         """
         Specifies the URI which will be called when this HTTP Action is triggered.
         """

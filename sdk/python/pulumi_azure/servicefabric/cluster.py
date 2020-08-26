@@ -15,7 +15,7 @@ __all__ = ['Cluster']
 
 class Cluster(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  add_on_features: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  azure_active_directory: Optional[pulumi.Input[pulumi.InputType['ClusterAzureActiveDirectoryArgs']]] = None,
@@ -223,7 +223,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addOnFeatures")
-    def add_on_features(self) -> Optional[List[str]]:
+    def add_on_features(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A List of one or more features which should be enabled, such as `DnsService`.
         """
@@ -231,7 +231,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureActiveDirectory")
-    def azure_active_directory(self) -> Optional['outputs.ClusterAzureActiveDirectory']:
+    def azure_active_directory(self) -> pulumi.Output[Optional['outputs.ClusterAzureActiveDirectory']]:
         """
         An `azure_active_directory` block as defined below.
         """
@@ -239,7 +239,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional['outputs.ClusterCertificate']:
+    def certificate(self) -> pulumi.Output[Optional['outputs.ClusterCertificate']]:
         """
         A `certificate` block as defined below. Conflicts with `certificate_common_names`.
         """
@@ -247,7 +247,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateCommonNames")
-    def certificate_common_names(self) -> Optional['outputs.ClusterCertificateCommonNames']:
+    def certificate_common_names(self) -> pulumi.Output[Optional['outputs.ClusterCertificateCommonNames']]:
         """
         A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         """
@@ -255,7 +255,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertificateCommonNames")
-    def client_certificate_common_names(self) -> Optional[List['outputs.ClusterClientCertificateCommonName']]:
+    def client_certificate_common_names(self) -> pulumi.Output[Optional[List['outputs.ClusterClientCertificateCommonName']]]:
         """
         A `client_certificate_common_name` block as defined below.
         """
@@ -263,7 +263,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertificateThumbprints")
-    def client_certificate_thumbprints(self) -> Optional[List['outputs.ClusterClientCertificateThumbprint']]:
+    def client_certificate_thumbprints(self) -> pulumi.Output[Optional[List['outputs.ClusterClientCertificateThumbprint']]]:
         """
         One or two `client_certificate_thumbprint` blocks as defined below.
         """
@@ -271,7 +271,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterCodeVersion")
-    def cluster_code_version(self) -> str:
+    def cluster_code_version(self) -> pulumi.Output[str]:
         """
         Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         """
@@ -279,7 +279,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEndpoint")
-    def cluster_endpoint(self) -> str:
+    def cluster_endpoint(self) -> pulumi.Output[str]:
         """
         The Cluster Endpoint for this Service Fabric Cluster.
         """
@@ -287,7 +287,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diagnosticsConfig")
-    def diagnostics_config(self) -> Optional['outputs.ClusterDiagnosticsConfig']:
+    def diagnostics_config(self) -> pulumi.Output[Optional['outputs.ClusterDiagnosticsConfig']]:
         """
         A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
         """
@@ -295,7 +295,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fabricSettings")
-    def fabric_settings(self) -> Optional[List['outputs.ClusterFabricSetting']]:
+    def fabric_settings(self) -> pulumi.Output[Optional[List['outputs.ClusterFabricSetting']]]:
         """
         One or more `fabric_settings` blocks as defined below.
         """
@@ -303,7 +303,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -311,7 +311,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managementEndpoint")
-    def management_endpoint(self) -> str:
+    def management_endpoint(self) -> pulumi.Output[str]:
         """
         Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
         """
@@ -319,7 +319,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
         """
@@ -327,7 +327,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeTypes")
-    def node_types(self) -> List['outputs.ClusterNodeType']:
+    def node_types(self) -> pulumi.Output[List['outputs.ClusterNodeType']]:
         """
         One or more `node_type` blocks as defined below.
         """
@@ -335,7 +335,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reliabilityLevel")
-    def reliability_level(self) -> str:
+    def reliability_level(self) -> pulumi.Output[str]:
         """
         Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
         """
@@ -343,7 +343,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
         """
@@ -351,7 +351,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reverseProxyCertificate")
-    def reverse_proxy_certificate(self) -> Optional['outputs.ClusterReverseProxyCertificate']:
+    def reverse_proxy_certificate(self) -> pulumi.Output[Optional['outputs.ClusterReverseProxyCertificate']]:
         """
         A `reverse_proxy_certificate` block as defined below.
         """
@@ -359,7 +359,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -367,7 +367,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> str:
+    def upgrade_mode(self) -> pulumi.Output[str]:
         """
         Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         """
@@ -375,7 +375,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vmImage")
-    def vm_image(self) -> str:
+    def vm_image(self) -> pulumi.Output[str]:
         """
         Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         """

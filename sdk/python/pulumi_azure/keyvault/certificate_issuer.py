@@ -15,7 +15,7 @@ __all__ = ['CertificateIssuer']
 
 class CertificateIssuer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  admins: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateIssuerAdminArgs']]]]] = None,
@@ -138,7 +138,7 @@ class CertificateIssuer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[str]:
+    def account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The account number with the third-party Certificate Issuer.
         """
@@ -146,7 +146,7 @@ class CertificateIssuer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def admins(self) -> Optional[List['outputs.CertificateIssuerAdmin']]:
+    def admins(self) -> pulumi.Output[Optional[List['outputs.CertificateIssuerAdmin']]]:
         """
         One or more `admin` blocks as defined below.
         """
@@ -154,7 +154,7 @@ class CertificateIssuer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> str:
+    def key_vault_id(self) -> pulumi.Output[str]:
         """
         The ID of the Key Vault in which to create the Certificate Issuer.
         """
@@ -162,7 +162,7 @@ class CertificateIssuer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
         """
@@ -170,7 +170,7 @@ class CertificateIssuer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="orgId")
-    def org_id(self) -> str:
+    def org_id(self) -> pulumi.Output[str]:
         """
         The ID of the organization as provided to the issuer.
         """
@@ -178,7 +178,7 @@ class CertificateIssuer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
         """
@@ -186,7 +186,7 @@ class CertificateIssuer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> str:
+    def provider_name(self) -> pulumi.Output[str]:
         """
         The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
         """

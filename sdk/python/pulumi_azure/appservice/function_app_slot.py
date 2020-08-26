@@ -15,7 +15,7 @@ __all__ = ['FunctionAppSlot']
 
 class FunctionAppSlot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -254,7 +254,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServicePlanId")
-    def app_service_plan_id(self) -> str:
+    def app_service_plan_id(self) -> pulumi.Output[str]:
         """
         The ID of the App Service Plan within which to create this Function App Slot.
         """
@@ -262,7 +262,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> Optional[Mapping[str, str]]:
+    def app_settings(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A key-value pair of App Settings.
         """
@@ -270,7 +270,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> 'outputs.FunctionAppSlotAuthSettings':
+    def auth_settings(self) -> pulumi.Output['outputs.FunctionAppSlotAuthSettings']:
         """
         An `auth_settings` block as defined below.
         """
@@ -278,7 +278,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAffinityEnabled")
-    def client_affinity_enabled(self) -> bool:
+    def client_affinity_enabled(self) -> pulumi.Output[bool]:
         """
         Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         """
@@ -286,7 +286,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> List['outputs.FunctionAppSlotConnectionString']:
+    def connection_strings(self) -> pulumi.Output[List['outputs.FunctionAppSlotConnectionString']]:
         """
         A `connection_string` block as defined below.
         """
@@ -294,7 +294,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyMemoryTimeQuota")
-    def daily_memory_time_quota(self) -> Optional[float]:
+    def daily_memory_time_quota(self) -> pulumi.Output[Optional[float]]:
         """
         The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         """
@@ -302,7 +302,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultHostname")
-    def default_hostname(self) -> str:
+    def default_hostname(self) -> pulumi.Output[str]:
         """
         The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         """
@@ -310,7 +310,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBuiltinLogging")
-    def enable_builtin_logging(self) -> Optional[bool]:
+    def enable_builtin_logging(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the built-in logging of the Function App be enabled? Defaults to `true`.
         """
@@ -318,7 +318,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the Function App enabled?
         """
@@ -326,7 +326,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionAppName")
-    def function_app_name(self) -> str:
+    def function_app_name(self) -> pulumi.Output[str]:
         """
         The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         """
@@ -334,7 +334,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpsOnly")
-    def https_only(self) -> Optional[bool]:
+    def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
         Can the Function App only be accessed via HTTPS? Defaults to `false`.
         """
@@ -342,7 +342,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> 'outputs.FunctionAppSlotIdentity':
+    def identity(self) -> pulumi.Output['outputs.FunctionAppSlotIdentity']:
         """
         An `identity` block as defined below.
         """
@@ -350,7 +350,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         The Function App kind - such as `functionapp,linux,container`
         """
@@ -358,7 +358,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -366,7 +366,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Function App. Changing this forces a new resource to be created.
         """
@@ -374,7 +374,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> pulumi.Output[Optional[str]]:
         """
         A string indicating the Operating System type for this function app.
         """
@@ -382,7 +382,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> str:
+    def outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         """
@@ -390,7 +390,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="possibleOutboundIpAddresses")
-    def possible_outbound_ip_addresses(self) -> str:
+    def possible_outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
@@ -398,7 +398,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Function App Slot.
         """
@@ -406,7 +406,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> 'outputs.FunctionAppSlotSiteConfig':
+    def site_config(self) -> pulumi.Output['outputs.FunctionAppSlotSiteConfig']:
         """
         A `site_config` object as defined below.
         """
@@ -414,7 +414,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> List['outputs.FunctionAppSlotSiteCredential']:
+    def site_credentials(self) -> pulumi.Output[List['outputs.FunctionAppSlotSiteCredential']]:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
         """
@@ -422,7 +422,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> str:
+    def storage_account_access_key(self) -> pulumi.Output[str]:
         """
         The access key which will be used to access the backend storage account for the Function App.
         """
@@ -430,7 +430,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         The backend storage account name which will be used by the Function App (such as the dashboard, logs).
         """
@@ -438,7 +438,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -446,7 +446,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         The runtime version associated with the Function App. Defaults to `~1`.
         """

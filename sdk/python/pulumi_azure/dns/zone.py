@@ -13,7 +13,7 @@ __all__ = ['Zone']
 
 class Zone(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> float:
+    def max_number_of_record_sets(self) -> pulumi.Output[float]:
         """
         (Optional) Maximum number of Records in the zone. Defaults to `1000`.
         """
@@ -118,7 +118,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the DNS Zone. Must be a valid domain name.
         """
@@ -126,7 +126,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> List[str]:
+    def name_servers(self) -> pulumi.Output[List[str]]:
         """
         (Optional) A list of values that make up the NS record for the zone.
         """
@@ -134,7 +134,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> float:
+    def number_of_record_sets(self) -> pulumi.Output[float]:
         """
         (Optional) The number of records already in the zone.
         """
@@ -142,7 +142,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         """
@@ -150,7 +150,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

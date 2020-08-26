@@ -15,7 +15,7 @@ __all__ = ['Frontdoor']
 
 class Frontdoor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_pool_health_probes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]]] = None,
                  backend_pool_load_balancings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]]] = None,
@@ -224,7 +224,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPoolHealthProbes")
-    def backend_pool_health_probes(self) -> List['outputs.FrontdoorBackendPoolHealthProbe']:
+    def backend_pool_health_probes(self) -> pulumi.Output[List['outputs.FrontdoorBackendPoolHealthProbe']]:
         """
         A `backend_pool_health_probe` block as defined below.
         """
@@ -232,7 +232,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPoolLoadBalancings")
-    def backend_pool_load_balancings(self) -> List['outputs.FrontdoorBackendPoolLoadBalancing']:
+    def backend_pool_load_balancings(self) -> pulumi.Output[List['outputs.FrontdoorBackendPoolLoadBalancing']]:
         """
         A `backend_pool_load_balancing` block as defined below.
         """
@@ -240,7 +240,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPools")
-    def backend_pools(self) -> List['outputs.FrontdoorBackendPool']:
+    def backend_pools(self) -> pulumi.Output[List['outputs.FrontdoorBackendPool']]:
         """
         A `backend_pool` block as defined below.
         """
@@ -248,7 +248,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPoolsSendReceiveTimeoutSeconds")
-    def backend_pools_send_receive_timeout_seconds(self) -> Optional[float]:
+    def backend_pools_send_receive_timeout_seconds(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
         """
@@ -256,7 +256,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cname(self) -> str:
+    def cname(self) -> pulumi.Output[str]:
         """
         The host that each frontendEndpoint must CNAME to.
         """
@@ -264,7 +264,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enforceBackendPoolsCertificateNameCheck")
-    def enforce_backend_pools_certificate_name_check(self) -> bool:
+    def enforce_backend_pools_certificate_name_check(self) -> pulumi.Output[bool]:
         """
         Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         """
@@ -272,7 +272,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
         A friendly name for the Front Door service.
         """
@@ -280,7 +280,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="frontendEndpoints")
-    def frontend_endpoints(self) -> List['outputs.FrontdoorFrontendEndpoint']:
+    def frontend_endpoints(self) -> pulumi.Output[List['outputs.FrontdoorFrontendEndpoint']]:
         """
         A `frontend_endpoint` block as defined below.
         """
@@ -288,7 +288,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="headerFrontdoorId")
-    def header_frontdoor_id(self) -> str:
+    def header_frontdoor_id(self) -> pulumi.Output[str]:
         """
         The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
         """
@@ -296,7 +296,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerEnabled")
-    def load_balancer_enabled(self) -> Optional[bool]:
+    def load_balancer_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         """
@@ -304,12 +304,12 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Front Door service. Changing this forces a new resource to be created.
         """
@@ -317,7 +317,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         """
@@ -325,7 +325,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingRules")
-    def routing_rules(self) -> List['outputs.FrontdoorRoutingRule']:
+    def routing_rules(self) -> pulumi.Output[List['outputs.FrontdoorRoutingRule']]:
         """
         A `routing_rule` block as defined below.
         """
@@ -333,7 +333,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

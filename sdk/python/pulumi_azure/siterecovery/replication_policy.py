@@ -13,7 +13,7 @@ __all__ = ['ReplicationPolicy']
 
 class ReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInMinutes")
-    def application_consistent_snapshot_frequency_in_minutes(self) -> float:
+    def application_consistent_snapshot_frequency_in_minutes(self) -> pulumi.Output[float]:
         """
         Specifies the frequency(in minutes) at which to create application consistent recovery points.
         """
@@ -131,7 +131,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the network mapping.
         """
@@ -139,7 +139,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryPointRetentionInMinutes")
-    def recovery_point_retention_in_minutes(self) -> float:
+    def recovery_point_retention_in_minutes(self) -> pulumi.Output[float]:
         """
         The duration in minutes for which the recovery points need to be stored.
         """
@@ -147,7 +147,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryVaultName")
-    def recovery_vault_name(self) -> str:
+    def recovery_vault_name(self) -> pulumi.Output[str]:
         """
         The name of the vault that should be updated.
         """
@@ -155,7 +155,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Name of the resource group where the vault that should be updated is located.
         """

@@ -13,7 +13,7 @@ __all__ = ['ClusterPrincipalAssignment']
 
 class ClusterPrincipalAssignment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> pulumi.Output[str]:
         """
         The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
         """
@@ -159,12 +159,12 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    def principal_id(self) -> pulumi.Output[str]:
         """
         The object id of the principal. Changing this forces a new resource to be created.
         """
@@ -172,7 +172,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalName")
-    def principal_name(self) -> str:
+    def principal_name(self) -> pulumi.Output[str]:
         """
         The name of the principal.
         """
@@ -180,7 +180,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> str:
+    def principal_type(self) -> pulumi.Output[str]:
         """
         The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         """
@@ -196,7 +196,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def role(self) -> str:
+    def role(self) -> pulumi.Output[str]:
         """
         The cluster role assigned to the principal. Valid values include `AllDatabasesAdmin` and `AllDatabasesViewer`. Changing this forces a new resource to be created.
         """
@@ -204,7 +204,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    def tenant_id(self) -> pulumi.Output[str]:
         """
         The tenant id in which the principal resides. Changing this forces a new resource to be created.
         """
@@ -212,7 +212,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> str:
+    def tenant_name(self) -> pulumi.Output[str]:
         """
         The name of the tenant.
         """

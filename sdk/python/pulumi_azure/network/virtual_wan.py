@@ -13,7 +13,7 @@ __all__ = ['VirtualWan']
 
 class VirtualWan(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
@@ -135,7 +135,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowBranchToBranchTraffic")
-    def allow_branch_to_branch_traffic(self) -> Optional[bool]:
+    def allow_branch_to_branch_traffic(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
         """
@@ -143,7 +143,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowVnetToVnetTraffic")
-    def allow_vnet_to_vnet_traffic(self) -> Optional[bool]:
+    def allow_vnet_to_vnet_traffic(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
         """
@@ -151,7 +151,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableVpnEncryption")
-    def disable_vpn_encryption(self) -> Optional[bool]:
+    def disable_vpn_encryption(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         """
@@ -159,7 +159,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -167,7 +167,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="office365LocalBreakoutCategory")
-    def office365_local_breakout_category(self) -> Optional[str]:
+    def office365_local_breakout_category(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         """
@@ -183,7 +183,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
         """
@@ -191,7 +191,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Virtual WAN.
         """
@@ -199,7 +199,7 @@ class VirtualWan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         """

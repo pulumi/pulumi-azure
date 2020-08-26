@@ -13,7 +13,7 @@ __all__ = ['VirtualNetworkSwiftConnection']
 
 class VirtualNetworkSwiftConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServiceId")
-    def app_service_id(self) -> str:
+    def app_service_id(self) -> pulumi.Output[str]:
         """
         The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
         """
@@ -129,7 +129,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
+    def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """

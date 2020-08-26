@@ -13,7 +13,7 @@ __all__ = ['WebTest']
 
 class WebTest(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input[str]] = None,
@@ -158,7 +158,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationInsightsId")
-    def application_insights_id(self) -> str:
+    def application_insights_id(self) -> pulumi.Output[str]:
         """
         The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
         """
@@ -166,7 +166,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> str:
+    def configuration(self) -> pulumi.Output[str]:
         """
         An XML configuration specification for a WebTest.
         """
@@ -174,7 +174,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Purpose/user defined descriptive test for this WebTest.
         """
@@ -182,7 +182,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is the test actively being monitored.
         """
@@ -190,7 +190,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[float]:
+    def frequency(self) -> pulumi.Output[Optional[float]]:
         """
         Interval in seconds between test runs for this WebTest. Default is `300`.
         """
@@ -198,7 +198,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoLocations")
-    def geo_locations(self) -> List[str]:
+    def geo_locations(self) -> pulumi.Output[List[str]]:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
         """
@@ -206,7 +206,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> str:
+    def kind(self) -> pulumi.Output[str]:
         """
         = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
         """
@@ -214,7 +214,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location of the resource group.
         """
@@ -222,7 +222,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Application Insights WebTest. Changing this forces a
         new resource to be created.
@@ -231,12 +231,12 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="retryEnabled")
-    def retry_enabled(self) -> Optional[bool]:
+    def retry_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Allow for retries should this WebTest fail.
         """
@@ -244,12 +244,12 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="syntheticMonitorId")
-    def synthetic_monitor_id(self) -> str:
+    def synthetic_monitor_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "synthetic_monitor_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Resource tags.
         """
@@ -257,7 +257,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> pulumi.Output[Optional[float]]:
         """
         Seconds until this WebTest will timeout and fail. Default is `30`.
         """

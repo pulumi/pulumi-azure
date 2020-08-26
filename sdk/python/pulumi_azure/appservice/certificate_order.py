@@ -15,7 +15,7 @@ __all__ = ['CertificateOrder']
 
 class CertificateOrder(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
                  csr: Optional[pulumi.Input[str]] = None,
@@ -181,7 +181,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appServiceCertificateNotRenewableReasons")
-    def app_service_certificate_not_renewable_reasons(self) -> List[str]:
+    def app_service_certificate_not_renewable_reasons(self) -> pulumi.Output[List[str]]:
         """
         Reasons why App Service Certificate is not renewable at the current moment.
         """
@@ -189,7 +189,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoRenew")
-    def auto_renew(self) -> Optional[bool]:
+    def auto_renew(self) -> pulumi.Output[Optional[bool]]:
         """
         true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
         """
@@ -197,7 +197,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> List['outputs.CertificateOrderCertificate']:
+    def certificates(self) -> pulumi.Output[List['outputs.CertificateOrderCertificate']]:
         """
         State of the Key Vault secret. A `certificates` block as defined below.
         """
@@ -205,7 +205,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def csr(self) -> str:
+    def csr(self) -> pulumi.Output[str]:
         """
         Last CSR that was created for this order.
         """
@@ -213,7 +213,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="distinguishedName")
-    def distinguished_name(self) -> str:
+    def distinguished_name(self) -> pulumi.Output[str]:
         """
         The Distinguished Name for the App Service Certificate Order.
         """
@@ -221,7 +221,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainVerificationToken")
-    def domain_verification_token(self) -> str:
+    def domain_verification_token(self) -> pulumi.Output[str]:
         """
         Domain verification token.
         """
@@ -229,7 +229,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationTime")
-    def expiration_time(self) -> str:
+    def expiration_time(self) -> pulumi.Output[str]:
         """
         Certificate expiration time.
         """
@@ -237,7 +237,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="intermediateThumbprint")
-    def intermediate_thumbprint(self) -> str:
+    def intermediate_thumbprint(self) -> pulumi.Output[str]:
         """
         Certificate thumbprint intermediate certificate.
         """
@@ -245,7 +245,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isPrivateKeyExternal")
-    def is_private_key_external(self) -> bool:
+    def is_private_key_external(self) -> pulumi.Output[bool]:
         """
         Whether the private key is external or not.
         """
@@ -253,7 +253,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> Optional[float]:
+    def key_size(self) -> pulumi.Output[Optional[float]]:
         """
         Certificate key size.  Defaults to 2048.
         """
@@ -261,7 +261,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         """
@@ -269,7 +269,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the certificate. Changing this forces a new resource to be created.
         """
@@ -277,7 +277,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="productType")
-    def product_type(self) -> Optional[str]:
+    def product_type(self) -> pulumi.Output[Optional[str]]:
         """
         Certificate product type, such as `Standard` or `WildCard`.
         """
@@ -285,7 +285,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         """
@@ -293,7 +293,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rootThumbprint")
-    def root_thumbprint(self) -> str:
+    def root_thumbprint(self) -> pulumi.Output[str]:
         """
         Certificate thumbprint for root certificate.
         """
@@ -301,7 +301,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signedCertificateThumbprint")
-    def signed_certificate_thumbprint(self) -> str:
+    def signed_certificate_thumbprint(self) -> pulumi.Output[str]:
         """
         Certificate thumbprint for signed certificate.
         """
@@ -309,7 +309,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> str:
+    def status(self) -> pulumi.Output[str]:
         """
         Current order status.
         """
@@ -317,7 +317,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -325,7 +325,7 @@ class CertificateOrder(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validityInYears")
-    def validity_in_years(self) -> Optional[float]:
+    def validity_in_years(self) -> pulumi.Output[Optional[float]]:
         """
         Duration in years (must be between `1` and `3`).  Defaults to `1`.
         """

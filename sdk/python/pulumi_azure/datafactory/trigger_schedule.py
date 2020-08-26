@@ -13,7 +13,7 @@ __all__ = ['TriggerSchedule']
 
 class TriggerSchedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[List[str]]:
+    def annotations(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of tags that can be used for describing the Data Factory Schedule Trigger.
         """
@@ -162,7 +162,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFactoryName")
-    def data_factory_name(self) -> str:
+    def data_factory_name(self) -> pulumi.Output[str]:
         """
         The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
         """
@@ -170,7 +170,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[str]:
+    def end_time(self) -> pulumi.Output[Optional[str]]:
         """
         The time the Schedule Trigger should end. The time will be represented in UTC.
         """
@@ -178,7 +178,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[str]:
+    def frequency(self) -> pulumi.Output[Optional[str]]:
         """
         The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
         """
@@ -186,7 +186,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interval(self) -> Optional[float]:
+    def interval(self) -> pulumi.Output[Optional[float]]:
         """
         The interval for how often the trigger occurs. This defaults to 1.
         """
@@ -194,7 +194,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         """
@@ -202,7 +202,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> str:
+    def pipeline_name(self) -> pulumi.Output[str]:
         """
         The Data Factory Pipeline name that the trigger will act on.
         """
@@ -210,7 +210,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pipelineParameters")
-    def pipeline_parameters(self) -> Optional[Mapping[str, str]]:
+    def pipeline_parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         The pipeline parameters that the trigger will act upon.
         """
@@ -218,7 +218,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
         """
@@ -226,7 +226,7 @@ class TriggerSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> str:
+    def start_time(self) -> pulumi.Output[str]:
         """
         The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         """

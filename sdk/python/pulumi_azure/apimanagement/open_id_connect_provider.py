@@ -13,7 +13,7 @@ __all__ = ['OpenIdConnectProvider']
 
 class OpenIdConnectProvider(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -148,7 +148,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
         """
@@ -156,7 +156,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         The Client ID used for the Client Application.
         """
@@ -164,7 +164,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> pulumi.Output[str]:
         """
         The Client Secret used for the Client Application.
         """
@@ -172,7 +172,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of this OpenID Connect Provider.
         """
@@ -180,7 +180,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> str:
+    def display_name(self) -> pulumi.Output[str]:
         """
         A user-friendly name for this OpenID Connect Provider.
         """
@@ -188,7 +188,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metadataEndpoint")
-    def metadata_endpoint(self) -> str:
+    def metadata_endpoint(self) -> pulumi.Output[str]:
         """
         The URI of the Metadata endpoint.
         """
@@ -196,7 +196,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
         """
@@ -204,7 +204,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """

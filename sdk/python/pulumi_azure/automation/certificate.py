@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  base64: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="automationAccountName")
-    def automation_account_name(self) -> str:
+    def automation_account_name(self) -> pulumi.Output[str]:
         """
         The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
         """
@@ -118,7 +118,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def base64(self) -> str:
+    def base64(self) -> pulumi.Output[str]:
         """
         Base64 encoded value of the certificate.
         """
@@ -126,7 +126,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this Automation Certificate.
         """
@@ -134,12 +134,12 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def exportable(self) -> bool:
+    def exportable(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "exportable")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Certificate. Changing this forces a new resource to be created.
         """
@@ -147,7 +147,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
         """
@@ -155,7 +155,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def thumbprint(self) -> str:
+    def thumbprint(self) -> pulumi.Output[str]:
         """
         The thumbprint for the certificate.
         """

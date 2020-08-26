@@ -13,7 +13,7 @@ __all__ = ['TemplateDeployment']
 
 class TemplateDeployment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -200,7 +200,7 @@ class TemplateDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deploymentMode")
-    def deployment_mode(self) -> str:
+    def deployment_mode(self) -> pulumi.Output[str]:
         """
         Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
         Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
@@ -210,7 +210,7 @@ class TemplateDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the template deployment. Changing this forces a
         new resource to be created.
@@ -219,7 +219,7 @@ class TemplateDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def outputs(self) -> Mapping[str, str]:
+    def outputs(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
         """
@@ -227,7 +227,7 @@ class TemplateDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Mapping[str, str]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Specifies the name and value pairs that define the deployment parameters for the template.
         """
@@ -235,7 +235,7 @@ class TemplateDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parametersBody")
-    def parameters_body(self) -> Optional[str]:
+    def parameters_body(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
         """
@@ -243,7 +243,7 @@ class TemplateDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to
         create the template deployment.
@@ -252,7 +252,7 @@ class TemplateDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> str:
+    def template_body(self) -> pulumi.Output[str]:
         """
         Specifies the JSON definition for the template.
         """

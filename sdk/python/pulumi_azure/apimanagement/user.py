@@ -13,7 +13,7 @@ __all__ = ['User']
 
 class User(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  confirmation: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
         """
@@ -170,7 +170,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def confirmation(self) -> Optional[str]:
+    def confirmation(self) -> pulumi.Output[Optional[str]]:
         """
         The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
         """
@@ -178,7 +178,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def email(self) -> str:
+    def email(self) -> pulumi.Output[str]:
         """
         The email address associated with this user.
         """
@@ -186,7 +186,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> str:
+    def first_name(self) -> pulumi.Output[str]:
         """
         The first name for this user.
         """
@@ -194,7 +194,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> str:
+    def last_name(self) -> pulumi.Output[str]:
         """
         The last name for this user.
         """
@@ -202,7 +202,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def note(self) -> Optional[str]:
+    def note(self) -> pulumi.Output[Optional[str]]:
         """
         A note about this user.
         """
@@ -210,7 +210,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password associated with this user.
         """
@@ -218,7 +218,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -226,7 +226,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> str:
+    def state(self) -> pulumi.Output[str]:
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
         """
@@ -234,7 +234,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userId")
-    def user_id(self) -> str:
+    def user_id(self) -> pulumi.Output[str]:
         """
         The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """

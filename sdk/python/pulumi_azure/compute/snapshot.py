@@ -15,7 +15,7 @@ __all__ = ['Snapshot']
 
 class Snapshot(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[float]] = None,
@@ -151,7 +151,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> str:
+    def create_option(self) -> pulumi.Output[str]:
         """
         Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
         """
@@ -159,7 +159,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> float:
+    def disk_size_gb(self) -> pulumi.Output[float]:
         """
         The size of the Snapshotted Disk in GB.
         """
@@ -167,12 +167,12 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional['outputs.SnapshotEncryptionSettings']:
+    def encryption_settings(self) -> pulumi.Output[Optional['outputs.SnapshotEncryptionSettings']]:
         return pulumi.get(self, "encryption_settings")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -180,7 +180,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         """
@@ -188,7 +188,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         """
@@ -196,7 +196,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> Optional[str]:
+    def source_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
         """
@@ -204,7 +204,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[str]:
+    def source_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         """
@@ -212,7 +212,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> Optional[str]:
+    def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         """
@@ -220,7 +220,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

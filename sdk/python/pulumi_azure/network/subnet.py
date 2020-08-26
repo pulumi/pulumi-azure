@@ -15,7 +15,7 @@ __all__ = ['Subnet']
 
 class Subnet(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -161,7 +161,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> str:
+    def address_prefix(self) -> pulumi.Output[str]:
         """
         The address prefix to use for the subnet.
         """
@@ -169,7 +169,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> List[str]:
+    def address_prefixes(self) -> pulumi.Output[List[str]]:
         """
         The address prefixes to use for the subnet.
         """
@@ -177,7 +177,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def delegations(self) -> Optional[List['outputs.SubnetDelegation']]:
+    def delegations(self) -> pulumi.Output[Optional[List['outputs.SubnetDelegation']]]:
         """
         One or more `delegation` blocks as defined below.
         """
@@ -185,7 +185,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
-    def enforce_private_link_endpoint_network_policies(self) -> Optional[bool]:
+    def enforce_private_link_endpoint_network_policies(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
         """
@@ -193,7 +193,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
-    def enforce_private_link_service_network_policies(self) -> Optional[bool]:
+    def enforce_private_link_service_network_policies(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
         """
@@ -201,7 +201,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the subnet. Changing this forces a new resource to be created.
         """
@@ -209,7 +209,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         """
@@ -217,7 +217,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[List[str]]:
+    def service_endpoints(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
         """
@@ -225,7 +225,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualNetworkName")
-    def virtual_network_name(self) -> str:
+    def virtual_network_name(self) -> pulumi.Output[str]:
         """
         The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """

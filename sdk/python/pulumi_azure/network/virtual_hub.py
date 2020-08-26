@@ -15,7 +15,7 @@ __all__ = ['VirtualHub']
 
 class VirtualHub(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> str:
+    def address_prefix(self) -> pulumi.Output[str]:
         """
         The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         """
@@ -142,7 +142,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         """
@@ -150,7 +150,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Virtual Hub. Changing this forces a new resource to be created.
         """
@@ -158,7 +158,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         """
@@ -166,7 +166,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[List['outputs.VirtualHubRoute']]:
+    def routes(self) -> pulumi.Output[Optional[List['outputs.VirtualHubRoute']]]:
         """
         One or more `route` blocks as defined below.
         """
@@ -174,7 +174,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Virtual Hub.
         """
@@ -182,7 +182,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualWanId")
-    def virtual_wan_id(self) -> str:
+    def virtual_wan_id(self) -> pulumi.Output[str]:
         """
         The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """

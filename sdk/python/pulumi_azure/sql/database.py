@@ -15,7 +15,7 @@ __all__ = ['Database']
 
 class Database(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
@@ -246,7 +246,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def collation(self) -> str:
+    def collation(self) -> pulumi.Output[str]:
         """
         The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         """
@@ -254,7 +254,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
+    def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
         """
@@ -262,7 +262,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> str:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The creation date of the SQL Database.
         """
@@ -270,7 +270,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultSecondaryLocation")
-    def default_secondary_location(self) -> str:
+    def default_secondary_location(self) -> pulumi.Output[str]:
         """
         The default secondary location of the SQL Database.
         """
@@ -278,7 +278,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def edition(self) -> str:
+    def edition(self) -> pulumi.Output[str]:
         """
         The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         """
@@ -286,7 +286,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="elasticPoolName")
-    def elastic_pool_name(self) -> str:
+    def elastic_pool_name(self) -> pulumi.Output[str]:
         """
         The name of the elastic database pool.
         """
@@ -294,12 +294,12 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryption(self) -> str:
+    def encryption(self) -> pulumi.Output[str]:
         return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> Optional['outputs.DatabaseExtendedAuditingPolicy']:
+    def extended_auditing_policy(self) -> pulumi.Output[Optional['outputs.DatabaseExtendedAuditingPolicy']]:
         """
         A `extended_auditing_policy` block as defined below.
         """
@@ -307,7 +307,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="import")
-    def import_(self) -> Optional['outputs.DatabaseImport']:
+    def import_(self) -> pulumi.Output[Optional['outputs.DatabaseImport']]:
         """
         A Database Import block as documented below. `create_mode` must be set to `Default`.
         """
@@ -315,7 +315,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
@@ -323,7 +323,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> str:
+    def max_size_bytes(self) -> pulumi.Output[str]:
         """
         The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         """
@@ -331,12 +331,12 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> str:
+    def max_size_gb(self) -> pulumi.Output[str]:
         return pulumi.get(self, "max_size_gb")
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the database.
         """
@@ -344,7 +344,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readScale")
-    def read_scale(self) -> Optional[bool]:
+    def read_scale(self) -> pulumi.Output[Optional[bool]]:
         """
         Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
         """
@@ -352,7 +352,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestedServiceObjectiveId")
-    def requested_service_objective_id(self) -> str:
+    def requested_service_objective_id(self) -> pulumi.Output[str]:
         """
         A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
         .
@@ -361,7 +361,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestedServiceObjectiveName")
-    def requested_service_objective_name(self) -> str:
+    def requested_service_objective_name(self) -> pulumi.Output[str]:
         """
         The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
         """
@@ -369,7 +369,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
         """
@@ -377,7 +377,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="restorePointInTime")
-    def restore_point_in_time(self) -> str:
+    def restore_point_in_time(self) -> pulumi.Output[str]:
         """
         The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
         """
@@ -385,7 +385,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         The name of the SQL Server on which to create the database.
         """
@@ -393,7 +393,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDatabaseDeletionDate")
-    def source_database_deletion_date(self) -> str:
+    def source_database_deletion_date(self) -> pulumi.Output[str]:
         """
         The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
         """
@@ -401,7 +401,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> str:
+    def source_database_id(self) -> pulumi.Output[str]:
         """
         The URI of the source database if `create_mode` value is not `Default`.
         """
@@ -409,7 +409,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -417,7 +417,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> 'outputs.DatabaseThreatDetectionPolicy':
+    def threat_detection_policy(self) -> pulumi.Output['outputs.DatabaseThreatDetectionPolicy']:
         """
         Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
@@ -425,7 +425,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[bool]:
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """

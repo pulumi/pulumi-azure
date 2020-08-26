@@ -13,7 +13,7 @@ __all__ = ['EventhubDataConnection']
 
 class EventhubDataConnection(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  consumer_group: Optional[pulumi.Input[str]] = None,
@@ -183,7 +183,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
+    def cluster_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         """
@@ -191,7 +191,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="consumerGroup")
-    def consumer_group(self) -> str:
+    def consumer_group(self) -> pulumi.Output[str]:
         """
         Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
@@ -199,7 +199,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> Optional[str]:
+    def data_format(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
         """
@@ -207,7 +207,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> str:
+    def database_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         """
@@ -215,7 +215,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventhubId")
-    def eventhub_id(self) -> str:
+    def eventhub_id(self) -> pulumi.Output[str]:
         """
         Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         """
@@ -223,7 +223,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         """
@@ -231,7 +231,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mappingRuleName")
-    def mapping_rule_name(self) -> Optional[str]:
+    def mapping_rule_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         """
@@ -239,7 +239,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
         """
@@ -247,7 +247,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         """
@@ -255,7 +255,7 @@ class EventhubDataConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[str]:
+    def table_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """

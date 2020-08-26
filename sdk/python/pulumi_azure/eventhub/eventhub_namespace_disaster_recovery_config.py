@@ -13,7 +13,7 @@ __all__ = ['EventhubNamespaceDisasterRecoveryConfig']
 
 class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alternate_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alternateName")
-    def alternate_name(self) -> Optional[str]:
+    def alternate_name(self) -> pulumi.Output[Optional[str]]:
         """
         An alternate name to use when the Disaster Recovery Config's name is the same as the replicated namespace's name.
         """
@@ -132,7 +132,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         """
@@ -140,7 +140,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> str:
+    def namespace_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         """
@@ -148,7 +148,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerNamespaceId")
-    def partner_namespace_id(self) -> str:
+    def partner_namespace_id(self) -> pulumi.Output[str]:
         """
         The ID of the EventHub Namespace to replicate to.
         """
@@ -156,7 +156,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
         """

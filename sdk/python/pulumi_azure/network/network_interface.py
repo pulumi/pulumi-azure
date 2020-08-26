@@ -15,7 +15,7 @@ __all__ = ['NetworkInterface']
 
 class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dns_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -176,7 +176,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appliedDnsServers")
-    def applied_dns_servers(self) -> List[str]:
+    def applied_dns_servers(self) -> pulumi.Output[List[str]]:
         """
         If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         """
@@ -184,7 +184,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> List[str]:
+    def dns_servers(self) -> pulumi.Output[List[str]]:
         """
         A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
         """
@@ -192,7 +192,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> Optional[bool]:
+    def enable_accelerated_networking(self) -> pulumi.Output[Optional[bool]]:
         """
         Should Accelerated Networking be enabled? Defaults to `false`.
         """
@@ -200,7 +200,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableIpForwarding")
-    def enable_ip_forwarding(self) -> Optional[bool]:
+    def enable_ip_forwarding(self) -> pulumi.Output[Optional[bool]]:
         """
         Should IP Forwarding be enabled? Defaults to `false`.
         """
@@ -208,7 +208,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="internalDnsNameLabel")
-    def internal_dns_name_label(self) -> str:
+    def internal_dns_name_label(self) -> pulumi.Output[str]:
         """
         The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         """
@@ -216,7 +216,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="internalDomainNameSuffix")
-    def internal_domain_name_suffix(self) -> str:
+    def internal_domain_name_suffix(self) -> pulumi.Output[str]:
         """
         Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
         """
@@ -224,7 +224,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.NetworkInterfaceIpConfiguration']:
+    def ip_configurations(self) -> pulumi.Output[List['outputs.NetworkInterfaceIpConfiguration']]:
         """
         One or more `ip_configuration` blocks as defined below.
         """
@@ -232,7 +232,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location where the Network Interface should exist. Changing this forces a new resource to be created.
         """
@@ -240,7 +240,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> str:
+    def mac_address(self) -> pulumi.Output[str]:
         """
         The Media Access Control (MAC) Address of the Network Interface.
         """
@@ -248,7 +248,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Network Interface. Changing this forces a new resource to be created.
         """
@@ -256,7 +256,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> str:
+    def private_ip_address(self) -> pulumi.Output[str]:
         """
         The Static IP Address which should be used.
         """
@@ -264,7 +264,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> pulumi.Output[List[str]]:
         """
         The private IP addresses of the network interface.
         """
@@ -272,7 +272,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         """
@@ -280,7 +280,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -288,7 +288,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> str:
+    def virtual_machine_id(self) -> pulumi.Output[str]:
         """
         The ID of the Virtual Machine which this Network Interface is connected to.
         """

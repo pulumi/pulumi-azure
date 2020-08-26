@@ -13,7 +13,7 @@ __all__ = ['LinkedServer']
 
 class LinkedServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
                  linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class LinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedRedisCacheId")
-    def linked_redis_cache_id(self) -> str:
+    def linked_redis_cache_id(self) -> pulumi.Output[str]:
         """
         The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         """
@@ -159,7 +159,7 @@ class LinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedRedisCacheLocation")
-    def linked_redis_cache_location(self) -> str:
+    def linked_redis_cache_location(self) -> pulumi.Output[str]:
         """
         The location of the linked Redis cache. Changing this forces a new Redis to be created.
         """
@@ -167,7 +167,7 @@ class LinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the linked server.
         """
@@ -175,7 +175,7 @@ class LinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
         """
@@ -183,7 +183,7 @@ class LinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverRole")
-    def server_role(self) -> str:
+    def server_role(self) -> pulumi.Output[str]:
         """
         The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
         """
@@ -191,7 +191,7 @@ class LinkedServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetRedisCacheName")
-    def target_redis_cache_name(self) -> str:
+    def target_redis_cache_name(self) -> pulumi.Output[str]:
         """
         The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """

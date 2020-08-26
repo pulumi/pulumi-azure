@@ -13,7 +13,7 @@ __all__ = ['Blob']
 
 class Blob(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTier")
-    def access_tier(self) -> str:
+    def access_tier(self) -> pulumi.Output[str]:
         """
         The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         """
@@ -183,7 +183,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[str]:
+    def content_type(self) -> pulumi.Output[Optional[str]]:
         """
         The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         """
@@ -191,7 +191,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> Mapping[str, str]:
+    def metadata(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of custom blob metadata.
         """
@@ -199,7 +199,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the storage blob. Must be unique within the storage container the blob is located.
         """
@@ -207,7 +207,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parallelism(self) -> Optional[float]:
+    def parallelism(self) -> pulumi.Output[Optional[float]]:
         """
         The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
         """
@@ -215,7 +215,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[float]:
+    def size(self) -> pulumi.Output[Optional[float]]:
         """
         Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         """
@@ -223,7 +223,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[Union[pulumi.Asset, pulumi.Archive]]:
+    def source(self) -> pulumi.Output[Optional[Union[pulumi.Asset, pulumi.Archive]]]:
         """
         An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         """
@@ -231,7 +231,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceContent")
-    def source_content(self) -> Optional[str]:
+    def source_content(self) -> pulumi.Output[Optional[str]]:
         """
         The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
         """
@@ -239,7 +239,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[str]:
+    def source_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URI of an existing blob, or a file in the Azure File service, to use as the source contents
         for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
@@ -248,7 +248,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
+    def storage_account_name(self) -> pulumi.Output[str]:
         """
         Specifies the storage account in which to create the storage container.
         Changing this forces a new resource to be created.
@@ -257,7 +257,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> str:
+    def storage_container_name(self) -> pulumi.Output[str]:
         """
         The name of the storage container in which this blob should be created.
         """
@@ -265,7 +265,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         """
@@ -273,7 +273,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> pulumi.Output[str]:
         """
         The URL of the blob
         """

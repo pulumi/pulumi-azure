@@ -13,7 +13,7 @@ __all__ = ['Remediation']
 
 class Remediation(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class Remediation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="locationFilters")
-    def location_filters(self) -> Optional[List[str]]:
+    def location_filters(self) -> pulumi.Output[Optional[List[str]]]:
         """
         A list of the resource locations that will be remediated.
         """
@@ -160,7 +160,7 @@ class Remediation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the Policy Remediation. Changing this forces a new resource to be created.
         """
@@ -168,7 +168,7 @@ class Remediation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyAssignmentId")
-    def policy_assignment_id(self) -> str:
+    def policy_assignment_id(self) -> pulumi.Output[str]:
         """
         The ID of the Policy Assignment that should be remediated.
         """
@@ -176,7 +176,7 @@ class Remediation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyDefinitionReferenceId")
-    def policy_definition_reference_id(self) -> Optional[str]:
+    def policy_definition_reference_id(self) -> pulumi.Output[Optional[str]]:
         """
         The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         """
@@ -184,7 +184,7 @@ class Remediation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> pulumi.Output[str]:
         """
         The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
         """

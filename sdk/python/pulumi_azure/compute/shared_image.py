@@ -15,7 +15,7 @@ __all__ = ['SharedImage']
 
 class SharedImage(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -182,7 +182,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description of this Shared Image.
         """
@@ -190,7 +190,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def eula(self) -> Optional[str]:
+    def eula(self) -> pulumi.Output[Optional[str]]:
         """
         The End User Licence Agreement for the Shared Image.
         """
@@ -198,7 +198,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="galleryName")
-    def gallery_name(self) -> str:
+    def gallery_name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         """
@@ -206,7 +206,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hyperVGeneration")
-    def hyper_v_generation(self) -> Optional[str]:
+    def hyper_v_generation(self) -> pulumi.Output[Optional[str]]:
         """
         The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         """
@@ -214,7 +214,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identifier(self) -> 'outputs.SharedImageIdentifier':
+    def identifier(self) -> pulumi.Output['outputs.SharedImageIdentifier']:
         """
         An `identifier` block as defined below.
         """
@@ -222,7 +222,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
@@ -230,7 +230,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         """
@@ -238,7 +238,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> str:
+    def os_type(self) -> pulumi.Output[str]:
         """
         The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         """
@@ -246,7 +246,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privacyStatementUri")
-    def privacy_statement_uri(self) -> Optional[str]:
+    def privacy_statement_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URI containing the Privacy Statement associated with this Shared Image.
         """
@@ -254,7 +254,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="releaseNoteUri")
-    def release_note_uri(self) -> Optional[str]:
+    def release_note_uri(self) -> pulumi.Output[Optional[str]]:
         """
         The URI containing the Release Notes associated with this Shared Image.
         """
@@ -262,7 +262,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         """
@@ -270,7 +270,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def specialized(self) -> Optional[bool]:
+    def specialized(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
         """
@@ -278,7 +278,7 @@ class SharedImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Shared Image.
         """

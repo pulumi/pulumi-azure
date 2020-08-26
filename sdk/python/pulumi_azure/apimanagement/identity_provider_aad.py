@@ -13,7 +13,7 @@ __all__ = ['IdentityProviderAad']
 
 class IdentityProviderAad(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedTenants")
-    def allowed_tenants(self) -> List[str]:
+    def allowed_tenants(self) -> pulumi.Output[List[str]]:
         """
         List of allowed AAD Tenants.
         """
@@ -142,7 +142,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiManagementName")
-    def api_management_name(self) -> str:
+    def api_management_name(self) -> pulumi.Output[str]:
         """
         The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         """
@@ -150,7 +150,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> pulumi.Output[str]:
         """
         Client Id of the Application in the AAD Identity Provider.
         """
@@ -158,7 +158,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> str:
+    def client_secret(self) -> pulumi.Output[str]:
         """
         Client secret of the Application in the AAD Identity Provider.
         """
@@ -166,7 +166,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
@@ -174,7 +174,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="signinTenant")
-    def signin_tenant(self) -> Optional[str]:
+    def signin_tenant(self) -> pulumi.Output[Optional[str]]:
         """
         The AAD Tenant to use instead of Common when logging into Active Directory
         """

@@ -15,7 +15,7 @@ __all__ = ['ActivityLogAlert']
 
 class ActivityLogAlert(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
@@ -159,7 +159,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.ActivityLogAlertAction']]:
+    def actions(self) -> pulumi.Output[Optional[List['outputs.ActivityLogAlertAction']]]:
         """
         One or more `action` blocks as defined below.
         """
@@ -167,7 +167,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def criteria(self) -> 'outputs.ActivityLogAlertCriteria':
+    def criteria(self) -> pulumi.Output['outputs.ActivityLogAlertCriteria']:
         """
         A `criteria` block as defined below.
         """
@@ -175,7 +175,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The description of this activity log alert.
         """
@@ -183,7 +183,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should this Activity Log Alert be enabled? Defaults to `true`.
         """
@@ -191,7 +191,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the activity log alert. Changing this forces a new resource to be created.
         """
@@ -199,7 +199,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the activity log alert instance.
         """
@@ -207,7 +207,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List[str]:
+    def scopes(self) -> pulumi.Output[List[str]]:
         """
         The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         """
@@ -215,7 +215,7 @@ class ActivityLogAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """

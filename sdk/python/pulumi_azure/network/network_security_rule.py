@@ -13,7 +13,7 @@ __all__ = ['NetworkSecurityRule']
 
 class NetworkSecurityRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def access(self) -> str:
+    def access(self) -> pulumi.Output[str]:
         """
         Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         """
@@ -222,7 +222,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         A description for this rule. Restricted to 140 characters.
         """
@@ -230,7 +230,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationAddressPrefix")
-    def destination_address_prefix(self) -> Optional[str]:
+    def destination_address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the cli: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
         """
@@ -238,7 +238,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> Optional[List[str]]:
+    def destination_address_prefixes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         """
@@ -246,7 +246,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
-    def destination_application_security_group_ids(self) -> Optional[str]:
+    def destination_application_security_group_ids(self) -> pulumi.Output[Optional[str]]:
         """
         A List of destination Application Security Group ID's
         """
@@ -254,7 +254,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPortRange")
-    def destination_port_range(self) -> Optional[str]:
+    def destination_port_range(self) -> pulumi.Output[Optional[str]]:
         """
         Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         """
@@ -262,7 +262,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[List[str]]:
+    def destination_port_ranges(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         """
@@ -270,7 +270,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def direction(self) -> str:
+    def direction(self) -> pulumi.Output[str]:
         """
         The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
         """
@@ -278,7 +278,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         """
@@ -286,7 +286,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkSecurityGroupName")
-    def network_security_group_name(self) -> str:
+    def network_security_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
         """
@@ -294,7 +294,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> pulumi.Output[float]:
         """
         Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """
@@ -302,7 +302,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> pulumi.Output[str]:
         """
         Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
         """
@@ -310,7 +310,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
         """
@@ -318,7 +318,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAddressPrefix")
-    def source_address_prefix(self) -> Optional[str]:
+    def source_address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
         """
@@ -326,7 +326,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> Optional[List[str]]:
+    def source_address_prefixes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         """
@@ -334,7 +334,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
-    def source_application_security_group_ids(self) -> Optional[str]:
+    def source_application_security_group_ids(self) -> pulumi.Output[Optional[str]]:
         """
         A List of source Application Security Group ID's
         """
@@ -342,7 +342,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourcePortRange")
-    def source_port_range(self) -> Optional[str]:
+    def source_port_range(self) -> pulumi.Output[Optional[str]]:
         """
         Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         """
@@ -350,7 +350,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[List[str]]:
+    def source_port_ranges(self) -> pulumi.Output[Optional[List[str]]]:
         """
         List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """

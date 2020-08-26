@@ -15,7 +15,7 @@ __all__ = ['Schedule']
 
 class Schedule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  daily_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleDailyRecurrenceArgs']]] = None,
                  hourly_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleHourlyRecurrenceArgs']]] = None,
@@ -172,17 +172,17 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dailyRecurrence")
-    def daily_recurrence(self) -> Optional['outputs.ScheduleDailyRecurrence']:
+    def daily_recurrence(self) -> pulumi.Output[Optional['outputs.ScheduleDailyRecurrence']]:
         return pulumi.get(self, "daily_recurrence")
 
     @property
     @pulumi.getter(name="hourlyRecurrence")
-    def hourly_recurrence(self) -> Optional['outputs.ScheduleHourlyRecurrence']:
+    def hourly_recurrence(self) -> pulumi.Output[Optional['outputs.ScheduleHourlyRecurrence']]:
         return pulumi.get(self, "hourly_recurrence")
 
     @property
     @pulumi.getter(name="labName")
-    def lab_name(self) -> str:
+    def lab_name(self) -> pulumi.Output[str]:
         """
         The name of the dev test lab. Changing this forces a new resource to be created.
         """
@@ -190,7 +190,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> pulumi.Output[str]:
         """
         The location where the schedule is created. Changing this forces a new resource to be created.
         """
@@ -198,7 +198,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
         """
@@ -206,12 +206,12 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> 'outputs.ScheduleNotificationSettings':
+    def notification_settings(self) -> pulumi.Output['outputs.ScheduleNotificationSettings']:
         return pulumi.get(self, "notification_settings")
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> str:
+    def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         """
@@ -219,7 +219,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         """
@@ -227,7 +227,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
         """
@@ -235,7 +235,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> str:
+    def task_type(self) -> pulumi.Output[str]:
         """
         The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
         """
@@ -243,7 +243,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeZoneId")
-    def time_zone_id(self) -> str:
+    def time_zone_id(self) -> pulumi.Output[str]:
         """
         The time zone ID (e.g. Pacific Standard time).
         """
@@ -251,7 +251,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weeklyRecurrence")
-    def weekly_recurrence(self) -> Optional['outputs.ScheduleWeeklyRecurrence']:
+    def weekly_recurrence(self) -> pulumi.Output[Optional['outputs.ScheduleWeeklyRecurrence']]:
         return pulumi.get(self, "weekly_recurrence")
 
     def translate_output_property(self, prop):
