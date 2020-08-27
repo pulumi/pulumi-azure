@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  *     enabledForDiskEncryption: true,
  *     tenantId: current.then(current => current.tenantId),
  *     softDeleteEnabled: true,
+ *     softDeleteRetentionDays: 7,
  *     purgeProtectionEnabled: false,
  *     skuName: "standard",
  *     accessPolicies: [{
@@ -121,6 +122,10 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly softDeleteEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The number of days that items should be retained for once soft-deleted.
+     */
+    public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -156,6 +161,7 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
+            inputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tenantId"] = state ? state.tenantId : undefined;
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
@@ -181,6 +187,7 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
+            inputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultUri"] = undefined /*out*/;
@@ -245,6 +252,10 @@ export interface KeyVaultState {
      */
     readonly softDeleteEnabled?: pulumi.Input<boolean>;
     /**
+     * The number of days that items should be retained for once soft-deleted.
+     */
+    readonly softDeleteRetentionDays?: pulumi.Input<number>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -306,6 +317,10 @@ export interface KeyVaultArgs {
      * Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
      */
     readonly softDeleteEnabled?: pulumi.Input<boolean>;
+    /**
+     * The number of days that items should be retained for once soft-deleted.
+     */
+    readonly softDeleteRetentionDays?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */

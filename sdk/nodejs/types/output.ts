@@ -2583,6 +2583,7 @@ export namespace appservice {
          * The priority for this IP Restriction.
          */
         priority: number;
+        subnetId: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -2606,6 +2607,7 @@ export namespace appservice {
          * The priority for this IP Restriction.
          */
         priority: number;
+        subnetId: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -2752,6 +2754,7 @@ export namespace appservice {
          * The priority for this IP Restriction.
          */
         priority: number;
+        subnetId: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -2775,6 +2778,7 @@ export namespace appservice {
          * The priority for this IP Restriction.
          */
         priority: number;
+        subnetId: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -4758,7 +4762,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineAdditionalCapabilities {
         /**
-         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
          */
         ultraSsdEnabled?: boolean;
     }
@@ -5624,6 +5628,21 @@ export namespace compute {
         sku: string;
     }
 
+    export interface SharedImagePurchasePlan {
+        /**
+         * The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
+         */
+        product?: string;
+        /**
+         * The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
+         */
+        publisher?: string;
+    }
+
     export interface SharedImageVersionTargetRegion {
         /**
          * The Azure Region in which this Image Version should exist.
@@ -5926,7 +5945,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineAdditionalCapabilities {
         /**
-         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
          */
         ultraSsdEnabled?: boolean;
     }
@@ -9372,7 +9391,7 @@ export namespace frontdoor {
          */
         matchValues: string[];
         /**
-         * The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+         * The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
          */
         matchVariable: string;
         /**
@@ -15189,7 +15208,7 @@ export namespace network {
          */
         description?: string;
         /**
-         * A list of destination IP addresses and/or IP ranges.
+         * A list of destination IP addresses, IP ranges, or FQDNs.
          */
         destinationAddresses: string[];
         /**
@@ -15942,7 +15961,7 @@ export namespace network {
          */
         actions?: string[];
         /**
-         * The name of service to delegate to. Possible values include `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.Netapp/volumes`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Web/hostingEnvironments` and `Microsoft.Web/serverFarms`.
+         * The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
          */
         name: string;
     }

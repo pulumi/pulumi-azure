@@ -86,11 +86,11 @@ export class SlotVirtualNetworkSwiftConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
     public readonly appServiceId!: pulumi.Output<string>;
     /**
-     * The name of the App Service Slot. Changing this forces a new resource to be created.
+     * The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
      */
     public readonly slotName!: pulumi.Output<string>;
     /**
@@ -144,11 +144,11 @@ export class SlotVirtualNetworkSwiftConnection extends pulumi.CustomResource {
  */
 export interface SlotVirtualNetworkSwiftConnectionState {
     /**
-     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
     readonly appServiceId?: pulumi.Input<string>;
     /**
-     * The name of the App Service Slot. Changing this forces a new resource to be created.
+     * The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
      */
     readonly slotName?: pulumi.Input<string>;
     /**
@@ -162,11 +162,11 @@ export interface SlotVirtualNetworkSwiftConnectionState {
  */
 export interface SlotVirtualNetworkSwiftConnectionArgs {
     /**
-     * The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+     * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
     readonly appServiceId: pulumi.Input<string>;
     /**
-     * The name of the App Service Slot. Changing this forces a new resource to be created.
+     * The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
      */
     readonly slotName: pulumi.Input<string>;
     /**

@@ -64,6 +64,7 @@
         "appplatform/getSpringCloudService.ts",
         "appplatform/index.ts",
         "appplatform/springCloudApp.ts",
+        "appplatform/springCloudCertificate.ts",
         "appplatform/springCloudService.ts",
         "appservice/activeSlot.ts",
         "appservice/appService.ts",

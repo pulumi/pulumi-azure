@@ -443,8 +443,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// AppPlatform
-			"azurerm_spring_cloud_service": {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
-			"azurerm_spring_cloud_app":     {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
+			"azurerm_spring_cloud_service":     {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
+			"azurerm_spring_cloud_app":         {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
+			"azurerm_spring_cloud_certificate": {Tok: azureResource(azureAppPlatform, "SpringCloudCertificate")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -593,18 +594,44 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine_data_disk_attachment": {Tok: azureResource(azureCompute, "DataDiskAttachment")},
 			"azurerm_virtual_machine_scale_set":            {Tok: azureResource(azureCompute, "ScaleSet")},
 
-			"azurerm_managed_disk":                        {Tok: azureResource(azureCompute, "ManagedDisk")},
-			"azurerm_snapshot":                            {Tok: azureResource(azureCompute, "Snapshot")},
-			"azurerm_image":                               {Tok: azureResource(azureCompute, "Image")},
-			"azurerm_shared_image":                        {Tok: azureResource(azureCompute, "SharedImage")},
-			"azurerm_shared_image_gallery":                {Tok: azureResource(azureCompute, "SharedImageGallery")},
-			"azurerm_shared_image_version":                {Tok: azureResource(azureCompute, "SharedImageVersion")},
-			"azurerm_bastion_host":                        {Tok: azureResource(azureCompute, "BastionHost")},
-			"azurerm_dedicated_host_group":                {Tok: azureResource(azureCompute, "DedicatedHostGroup")},
-			"azurerm_disk_encryption_set":                 {Tok: azureResource(azureCompute, "DiskEncryptionSet")},
-			"azurerm_dedicated_host":                      {Tok: azureResource(azureCompute, "DedicatedHost")},
-			"azurerm_linux_virtual_machine":               {Tok: azureResource(azureCompute, "LinuxVirtualMachine")},
-			"azurerm_linux_virtual_machine_scale_set":     {Tok: azureResource(azureCompute, "LinuxVirtualMachineScaleSet")},
+			"azurerm_managed_disk":         {Tok: azureResource(azureCompute, "ManagedDisk")},
+			"azurerm_snapshot":             {Tok: azureResource(azureCompute, "Snapshot")},
+			"azurerm_image":                {Tok: azureResource(azureCompute, "Image")},
+			"azurerm_shared_image":         {Tok: azureResource(azureCompute, "SharedImage")},
+			"azurerm_shared_image_gallery": {Tok: azureResource(azureCompute, "SharedImageGallery")},
+			"azurerm_shared_image_version": {Tok: azureResource(azureCompute, "SharedImageVersion")},
+			"azurerm_bastion_host":         {Tok: azureResource(azureCompute, "BastionHost")},
+			"azurerm_dedicated_host_group": {Tok: azureResource(azureCompute, "DedicatedHostGroup")},
+			"azurerm_disk_encryption_set":  {Tok: azureResource(azureCompute, "DiskEncryptionSet")},
+			"azurerm_dedicated_host":       {Tok: azureResource(azureCompute, "DedicatedHost")},
+			"azurerm_linux_virtual_machine": {
+				Tok: azureResource(azureCompute, "LinuxVirtualMachine"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Source https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftcompute
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
+				},
+			},
+			"azurerm_linux_virtual_machine_scale_set": {
+				Tok: azureResource(azureCompute, "LinuxVirtualMachineScaleSet"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Source https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftcompute
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    80,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
+				},
+			},
 			"azurerm_virtual_machine_scale_set_extension": {Tok: azureResource(azureCompute, "VirtualMachineScaleSetExtension")},
 			"azurerm_windows_virtual_machine":             {Tok: azureResource(azureCompute, "WindowsVirtualMachine")},
 			"azurerm_windows_virtual_machine_scale_set":   {Tok: azureResource(azureCompute, "WindowsVirtualMachineScaleSet")},

@@ -13825,7 +13825,8 @@ type GetAppServiceSiteConfigIpRestriction struct {
 	// The name of the App Service.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority int `pulumi:"priority"`
+	Priority int    `pulumi:"priority"`
+	SubnetId string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13849,7 +13850,8 @@ type GetAppServiceSiteConfigIpRestrictionArgs struct {
 	// The name of the App Service.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13925,6 +13927,10 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput 
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+func (o GetAppServiceSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o GetAppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
@@ -13958,7 +13964,8 @@ type GetAppServiceSiteConfigScmIpRestriction struct {
 	// The name of the App Service.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority int `pulumi:"priority"`
+	Priority int    `pulumi:"priority"`
+	SubnetId string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13982,7 +13989,8 @@ type GetAppServiceSiteConfigScmIpRestrictionArgs struct {
 	// The name of the App Service.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14056,6 +14064,10 @@ func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutpu
 // The priority for this IP Restriction.
 func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetAppServiceSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
@@ -14831,7 +14843,8 @@ type GetFunctionAppSiteConfigIpRestriction struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority int `pulumi:"priority"`
+	Priority int    `pulumi:"priority"`
+	SubnetId string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14855,7 +14868,8 @@ type GetFunctionAppSiteConfigIpRestrictionArgs struct {
 	// The name of the Function App resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14931,6 +14945,10 @@ func (o GetFunctionAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput
 	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+func (o GetFunctionAppSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o GetFunctionAppSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
@@ -14964,7 +14982,8 @@ type GetFunctionAppSiteConfigScmIpRestriction struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority int `pulumi:"priority"`
+	Priority int    `pulumi:"priority"`
+	SubnetId string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14988,7 +15007,8 @@ type GetFunctionAppSiteConfigScmIpRestrictionArgs struct {
 	// The name of the Function App resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction.
-	Priority pulumi.IntInput `pulumi:"priority"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15062,6 +15082,10 @@ func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutp
 // The priority for this IP Restriction.
 func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.

@@ -29,6 +29,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The priority for this IP Restriction.
         /// </summary>
         public readonly int Priority;
+        public readonly string SubnetId;
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>
@@ -44,12 +45,15 @@ namespace Pulumi.Azure.AppService.Outputs
 
             int priority,
 
+            string subnetId,
+
             string virtualNetworkSubnetId)
         {
             Action = action;
             IpAddress = ipAddress;
             Name = name;
             Priority = priority;
+            SubnetId = subnetId;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }

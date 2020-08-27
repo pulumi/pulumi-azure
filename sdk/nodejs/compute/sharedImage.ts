@@ -103,6 +103,10 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly privacyStatementUri!: pulumi.Output<string | undefined>;
     /**
+     * A `purchasePlan` block as defined below.
+     */
+    public readonly purchasePlan!: pulumi.Output<outputs.compute.SharedImagePurchasePlan | undefined>;
+    /**
      * The URI containing the Release Notes associated with this Shared Image.
      */
     public readonly releaseNoteUri!: pulumi.Output<string | undefined>;
@@ -140,6 +144,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["osType"] = state ? state.osType : undefined;
             inputs["privacyStatementUri"] = state ? state.privacyStatementUri : undefined;
+            inputs["purchasePlan"] = state ? state.purchasePlan : undefined;
             inputs["releaseNoteUri"] = state ? state.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["specialized"] = state ? state.specialized : undefined;
@@ -167,6 +172,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
+            inputs["purchasePlan"] = args ? args.purchasePlan : undefined;
             inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["specialized"] = args ? args.specialized : undefined;
@@ -223,6 +229,10 @@ export interface SharedImageState {
      * The URI containing the Privacy Statement associated with this Shared Image.
      */
     readonly privacyStatementUri?: pulumi.Input<string>;
+    /**
+     * A `purchasePlan` block as defined below.
+     */
+    readonly purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan>;
     /**
      * The URI containing the Release Notes associated with this Shared Image.
      */
@@ -281,6 +291,10 @@ export interface SharedImageArgs {
      * The URI containing the Privacy Statement associated with this Shared Image.
      */
     readonly privacyStatementUri?: pulumi.Input<string>;
+    /**
+     * A `purchasePlan` block as defined below.
+     */
+    readonly purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan>;
     /**
      * The URI containing the Release Notes associated with this Shared Image.
      */

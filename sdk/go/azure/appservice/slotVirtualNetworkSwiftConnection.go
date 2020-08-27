@@ -104,9 +104,9 @@ import (
 type SlotVirtualNetworkSwiftConnection struct {
 	pulumi.CustomResourceState
 
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
-	// The name of the App Service Slot. Changing this forces a new resource to be created.
+	// The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
 	SlotName pulumi.StringOutput `pulumi:"slotName"`
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
@@ -149,18 +149,18 @@ func GetSlotVirtualNetworkSwiftConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SlotVirtualNetworkSwiftConnection resources.
 type slotVirtualNetworkSwiftConnectionState struct {
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId *string `pulumi:"appServiceId"`
-	// The name of the App Service Slot. Changing this forces a new resource to be created.
+	// The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
 	SlotName *string `pulumi:"slotName"`
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId *string `pulumi:"subnetId"`
 }
 
 type SlotVirtualNetworkSwiftConnectionState struct {
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringPtrInput
-	// The name of the App Service Slot. Changing this forces a new resource to be created.
+	// The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
 	SlotName pulumi.StringPtrInput
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringPtrInput
@@ -171,9 +171,9 @@ func (SlotVirtualNetworkSwiftConnectionState) ElementType() reflect.Type {
 }
 
 type slotVirtualNetworkSwiftConnectionArgs struct {
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId string `pulumi:"appServiceId"`
-	// The name of the App Service Slot. Changing this forces a new resource to be created.
+	// The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
 	SlotName string `pulumi:"slotName"`
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId string `pulumi:"subnetId"`
@@ -181,9 +181,9 @@ type slotVirtualNetworkSwiftConnectionArgs struct {
 
 // The set of arguments for constructing a SlotVirtualNetworkSwiftConnection resource.
 type SlotVirtualNetworkSwiftConnectionArgs struct {
-	// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+	// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
 	AppServiceId pulumi.StringInput
-	// The name of the App Service Slot. Changing this forces a new resource to be created.
+	// The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
 	SlotName pulumi.StringInput
 	// The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
 	SubnetId pulumi.StringInput

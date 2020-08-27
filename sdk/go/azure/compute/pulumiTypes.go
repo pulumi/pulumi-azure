@@ -708,7 +708,7 @@ func (o ImageOsDiskPtrOutput) SizeGb() pulumi.IntPtrOutput {
 }
 
 type LinuxVirtualMachineAdditionalCapabilities struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -724,7 +724,7 @@ type LinuxVirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type LinuxVirtualMachineAdditionalCapabilitiesArgs struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -805,7 +805,7 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) ToLinuxVirtualMachineAd
 	}).(LinuxVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 func (o LinuxVirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -830,7 +830,7 @@ func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() LinuxVirtualM
 	}).(LinuxVirtualMachineAdditionalCapabilitiesOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 func (o LinuxVirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineAdditionalCapabilities) *bool {
 		if v == nil {
@@ -8970,6 +8970,175 @@ func (o SharedImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SharedImagePurchasePlan struct {
+	// The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
+	Product *string `pulumi:"product"`
+	// The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
+	Publisher *string `pulumi:"publisher"`
+}
+
+// SharedImagePurchasePlanInput is an input type that accepts SharedImagePurchasePlanArgs and SharedImagePurchasePlanOutput values.
+// You can construct a concrete instance of `SharedImagePurchasePlanInput` via:
+//
+//          SharedImagePurchasePlanArgs{...}
+type SharedImagePurchasePlanInput interface {
+	pulumi.Input
+
+	ToSharedImagePurchasePlanOutput() SharedImagePurchasePlanOutput
+	ToSharedImagePurchasePlanOutputWithContext(context.Context) SharedImagePurchasePlanOutput
+}
+
+type SharedImagePurchasePlanArgs struct {
+	// The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
+	Product pulumi.StringPtrInput `pulumi:"product"`
+	// The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+}
+
+func (SharedImagePurchasePlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImagePurchasePlan)(nil)).Elem()
+}
+
+func (i SharedImagePurchasePlanArgs) ToSharedImagePurchasePlanOutput() SharedImagePurchasePlanOutput {
+	return i.ToSharedImagePurchasePlanOutputWithContext(context.Background())
+}
+
+func (i SharedImagePurchasePlanArgs) ToSharedImagePurchasePlanOutputWithContext(ctx context.Context) SharedImagePurchasePlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImagePurchasePlanOutput)
+}
+
+func (i SharedImagePurchasePlanArgs) ToSharedImagePurchasePlanPtrOutput() SharedImagePurchasePlanPtrOutput {
+	return i.ToSharedImagePurchasePlanPtrOutputWithContext(context.Background())
+}
+
+func (i SharedImagePurchasePlanArgs) ToSharedImagePurchasePlanPtrOutputWithContext(ctx context.Context) SharedImagePurchasePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImagePurchasePlanOutput).ToSharedImagePurchasePlanPtrOutputWithContext(ctx)
+}
+
+// SharedImagePurchasePlanPtrInput is an input type that accepts SharedImagePurchasePlanArgs, SharedImagePurchasePlanPtr and SharedImagePurchasePlanPtrOutput values.
+// You can construct a concrete instance of `SharedImagePurchasePlanPtrInput` via:
+//
+//          SharedImagePurchasePlanArgs{...}
+//
+//  or:
+//
+//          nil
+type SharedImagePurchasePlanPtrInput interface {
+	pulumi.Input
+
+	ToSharedImagePurchasePlanPtrOutput() SharedImagePurchasePlanPtrOutput
+	ToSharedImagePurchasePlanPtrOutputWithContext(context.Context) SharedImagePurchasePlanPtrOutput
+}
+
+type sharedImagePurchasePlanPtrType SharedImagePurchasePlanArgs
+
+func SharedImagePurchasePlanPtr(v *SharedImagePurchasePlanArgs) SharedImagePurchasePlanPtrInput {
+	return (*sharedImagePurchasePlanPtrType)(v)
+}
+
+func (*sharedImagePurchasePlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImagePurchasePlan)(nil)).Elem()
+}
+
+func (i *sharedImagePurchasePlanPtrType) ToSharedImagePurchasePlanPtrOutput() SharedImagePurchasePlanPtrOutput {
+	return i.ToSharedImagePurchasePlanPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedImagePurchasePlanPtrType) ToSharedImagePurchasePlanPtrOutputWithContext(ctx context.Context) SharedImagePurchasePlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedImagePurchasePlanPtrOutput)
+}
+
+type SharedImagePurchasePlanOutput struct{ *pulumi.OutputState }
+
+func (SharedImagePurchasePlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedImagePurchasePlan)(nil)).Elem()
+}
+
+func (o SharedImagePurchasePlanOutput) ToSharedImagePurchasePlanOutput() SharedImagePurchasePlanOutput {
+	return o
+}
+
+func (o SharedImagePurchasePlanOutput) ToSharedImagePurchasePlanOutputWithContext(ctx context.Context) SharedImagePurchasePlanOutput {
+	return o
+}
+
+func (o SharedImagePurchasePlanOutput) ToSharedImagePurchasePlanPtrOutput() SharedImagePurchasePlanPtrOutput {
+	return o.ToSharedImagePurchasePlanPtrOutputWithContext(context.Background())
+}
+
+func (o SharedImagePurchasePlanOutput) ToSharedImagePurchasePlanPtrOutputWithContext(ctx context.Context) SharedImagePurchasePlanPtrOutput {
+	return o.ApplyT(func(v SharedImagePurchasePlan) *SharedImagePurchasePlan {
+		return &v
+	}).(SharedImagePurchasePlanPtrOutput)
+}
+
+// The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
+func (o SharedImagePurchasePlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedImagePurchasePlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
+func (o SharedImagePurchasePlanOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedImagePurchasePlan) *string { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
+func (o SharedImagePurchasePlanOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedImagePurchasePlan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+type SharedImagePurchasePlanPtrOutput struct{ *pulumi.OutputState }
+
+func (SharedImagePurchasePlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedImagePurchasePlan)(nil)).Elem()
+}
+
+func (o SharedImagePurchasePlanPtrOutput) ToSharedImagePurchasePlanPtrOutput() SharedImagePurchasePlanPtrOutput {
+	return o
+}
+
+func (o SharedImagePurchasePlanPtrOutput) ToSharedImagePurchasePlanPtrOutputWithContext(ctx context.Context) SharedImagePurchasePlanPtrOutput {
+	return o
+}
+
+func (o SharedImagePurchasePlanPtrOutput) Elem() SharedImagePurchasePlanOutput {
+	return o.ApplyT(func(v *SharedImagePurchasePlan) SharedImagePurchasePlan { return *v }).(SharedImagePurchasePlanOutput)
+}
+
+// The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
+func (o SharedImagePurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImagePurchasePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
+func (o SharedImagePurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImagePurchasePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
+func (o SharedImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImagePurchasePlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
 type SharedImageVersionTargetRegion struct {
 	// The Azure Region in which this Image Version should exist.
 	Name string `pulumi:"name"`
@@ -11930,7 +12099,7 @@ func (o VirtualMachineStorageOsDiskPtrOutput) WriteAcceleratorEnabled() pulumi.B
 }
 
 type WindowsVirtualMachineAdditionalCapabilities struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -11946,7 +12115,7 @@ type WindowsVirtualMachineAdditionalCapabilitiesInput interface {
 }
 
 type WindowsVirtualMachineAdditionalCapabilitiesArgs struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -12027,7 +12196,7 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) ToWindowsVirtualMachi
 	}).(WindowsVirtualMachineAdditionalCapabilitiesPtrOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 func (o WindowsVirtualMachineAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12052,7 +12221,7 @@ func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) Elem() WindowsVirt
 	}).(WindowsVirtualMachineAdditionalCapabilitiesOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
 func (o WindowsVirtualMachineAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineAdditionalCapabilities) *bool {
 		if v == nil {
@@ -17925,6 +18094,8 @@ func init() {
 	pulumi.RegisterOutputType(ScaleSetStorageProfileOsDiskPtrOutput{})
 	pulumi.RegisterOutputType(SharedImageIdentifierOutput{})
 	pulumi.RegisterOutputType(SharedImageIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(SharedImagePurchasePlanOutput{})
+	pulumi.RegisterOutputType(SharedImagePurchasePlanPtrOutput{})
 	pulumi.RegisterOutputType(SharedImageVersionTargetRegionOutput{})
 	pulumi.RegisterOutputType(SharedImageVersionTargetRegionArrayOutput{})
 	pulumi.RegisterOutputType(SnapshotEncryptionSettingsOutput{})

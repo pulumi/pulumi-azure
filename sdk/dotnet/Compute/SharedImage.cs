@@ -112,6 +112,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> PrivacyStatementUri { get; private set; } = null!;
 
         /// <summary>
+        /// A `purchase_plan` block as defined below.
+        /// </summary>
+        [Output("purchasePlan")]
+        public Output<Outputs.SharedImagePurchasePlan?> PurchasePlan { get; private set; } = null!;
+
+        /// <summary>
         /// The URI containing the Release Notes associated with this Shared Image.
         /// </summary>
         [Output("releaseNoteUri")]
@@ -236,6 +242,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? PrivacyStatementUri { get; set; }
 
         /// <summary>
+        /// A `purchase_plan` block as defined below.
+        /// </summary>
+        [Input("purchasePlan")]
+        public Input<Inputs.SharedImagePurchasePlanArgs>? PurchasePlan { get; set; }
+
+        /// <summary>
         /// The URI containing the Release Notes associated with this Shared Image.
         /// </summary>
         [Input("releaseNoteUri")]
@@ -325,6 +337,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("privacyStatementUri")]
         public Input<string>? PrivacyStatementUri { get; set; }
+
+        /// <summary>
+        /// A `purchase_plan` block as defined below.
+        /// </summary>
+        [Input("purchasePlan")]
+        public Input<Inputs.SharedImagePurchasePlanGetArgs>? PurchasePlan { get; set; }
 
         /// <summary>
         /// The URI containing the Release Notes associated with this Shared Image.
