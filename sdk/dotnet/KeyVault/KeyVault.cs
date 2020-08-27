@@ -40,6 +40,7 @@ namespace Pulumi.Azure.KeyVault
     ///             EnabledForDiskEncryption = true,
     ///             TenantId = current.Apply(current =&gt; current.TenantId),
     ///             SoftDeleteEnabled = true,
+    ///             SoftDeleteRetentionDays = 7,
     ///             PurgeProtectionEnabled = false,
     ///             SkuName = "standard",
     ///             AccessPolicies = 
@@ -144,6 +145,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Output("softDeleteEnabled")]
         public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of days that items should be retained for once soft-deleted.
+        /// </summary>
+        [Output("softDeleteRetentionDays")]
+        public Output<int?> SoftDeleteRetentionDays { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -281,6 +288,12 @@ namespace Pulumi.Azure.KeyVault
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
 
+        /// <summary>
+        /// The number of days that items should be retained for once soft-deleted.
+        /// </summary>
+        [Input("softDeleteRetentionDays")]
+        public Input<int>? SoftDeleteRetentionDays { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -377,6 +390,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
+
+        /// <summary>
+        /// The number of days that items should be retained for once soft-deleted.
+        /// </summary>
+        [Input("softDeleteRetentionDays")]
+        public Input<int>? SoftDeleteRetentionDays { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

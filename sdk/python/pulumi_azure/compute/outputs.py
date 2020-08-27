@@ -68,6 +68,7 @@ __all__ = [
     'ScaleSetStorageProfileImageReference',
     'ScaleSetStorageProfileOsDisk',
     'SharedImageIdentifier',
+    'SharedImagePurchasePlan',
     'SharedImageVersionTargetRegion',
     'SnapshotEncryptionSettings',
     'SnapshotEncryptionSettingsDiskEncryptionKey',
@@ -376,7 +377,7 @@ class LinuxVirtualMachineAdditionalCapabilities(dict):
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[bool] = None):
         """
-        :param bool ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+        :param bool ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
         if ultra_ssd_enabled is not None:
             pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
@@ -385,7 +386,7 @@ class LinuxVirtualMachineAdditionalCapabilities(dict):
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> Optional[bool]:
         """
-        Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+        Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
@@ -2962,6 +2963,51 @@ class SharedImageIdentifier(dict):
 
 
 @pulumi.output_type
+class SharedImagePurchasePlan(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 product: Optional[str] = None,
+                 publisher: Optional[str] = None):
+        """
+        :param str name: The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
+        :param str product: The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
+        :param str publisher: The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
+        """
+        The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SharedImageVersionTargetRegion(dict):
     def __init__(__self__, *,
                  name: str,
@@ -3883,7 +3929,7 @@ class WindowsVirtualMachineAdditionalCapabilities(dict):
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[bool] = None):
         """
-        :param bool ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+        :param bool ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
         if ultra_ssd_enabled is not None:
             pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
@@ -3892,7 +3938,7 @@ class WindowsVirtualMachineAdditionalCapabilities(dict):
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> Optional[bool]:
         """
-        Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`. Changing this forces a new resource to be created.
+        Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 

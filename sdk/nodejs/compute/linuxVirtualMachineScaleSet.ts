@@ -116,7 +116,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly automaticInstanceRepair!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
+     * A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
      */
     public readonly automaticOsUpgradePolicy!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
@@ -402,7 +402,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     readonly automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
+     * A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
      */
     readonly automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
     /**
@@ -565,7 +565,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     readonly automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * A `automaticOsUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic`.
+     * A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
      */
     readonly automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
     /**

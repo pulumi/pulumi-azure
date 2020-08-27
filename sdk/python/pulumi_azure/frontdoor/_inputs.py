@@ -283,7 +283,7 @@ class FirewallPolicyCustomRuleMatchConditionArgs:
                  transforms: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[List[pulumi.Input[str]]] match_values: Up to `100` possible values to match.
-        :param pulumi.Input[str] match_variable: The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+        :param pulumi.Input[str] match_variable: The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
         :param pulumi.Input[str] operator: Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
         :param pulumi.Input[bool] negation_condition: Should the result of the condition be negated.
         :param pulumi.Input[str] selector: Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
@@ -315,7 +315,7 @@ class FirewallPolicyCustomRuleMatchConditionArgs:
     @pulumi.getter(name="matchVariable")
     def match_variable(self) -> pulumi.Input[str]:
         """
-        The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+        The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
         """
         return pulumi.get(self, "match_variable")
 

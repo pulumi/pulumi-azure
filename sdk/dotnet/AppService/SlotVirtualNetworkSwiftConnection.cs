@@ -93,13 +93,13 @@ namespace Pulumi.Azure.AppService
     public partial class SlotVirtualNetworkSwiftConnection : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Output("appServiceId")]
         public Output<string> AppServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the App Service Slot. Changing this forces a new resource to be created.
+        /// The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Output("slotName")]
         public Output<string> SlotName { get; private set; } = null!;
@@ -157,13 +157,13 @@ namespace Pulumi.Azure.AppService
     public sealed class SlotVirtualNetworkSwiftConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServiceId", required: true)]
         public Input<string> AppServiceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the App Service Slot. Changing this forces a new resource to be created.
+        /// The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("slotName", required: true)]
         public Input<string> SlotName { get; set; } = null!;
@@ -182,13 +182,13 @@ namespace Pulumi.Azure.AppService
     public sealed class SlotVirtualNetworkSwiftConnectionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the App Service to associate to the VNet. Changing this forces a new resource to be created.
+        /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServiceId")]
         public Input<string>? AppServiceId { get; set; }
 
         /// <summary>
-        /// The name of the App Service Slot. Changing this forces a new resource to be created.
+        /// The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
         /// </summary>
         [Input("slotName")]
         public Input<string>? SlotName { get; set; }

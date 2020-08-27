@@ -5132,6 +5132,7 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
                  ip_address: str,
                  name: str,
                  priority: float,
+                 subnet_id: str,
                  virtual_network_subnet_id: str):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -5144,6 +5145,7 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
@@ -5177,6 +5179,11 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
         The priority for this IP Restriction.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -5194,6 +5201,7 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
                  ip_address: str,
                  name: str,
                  priority: float,
+                 subnet_id: str,
                  virtual_network_subnet_id: str):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -5206,6 +5214,7 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
@@ -5239,6 +5248,11 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         The priority for this IP Restriction.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -5605,6 +5619,7 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
                  ip_address: str,
                  name: str,
                  priority: float,
+                 subnet_id: str,
                  virtual_network_subnet_id: str):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -5617,6 +5632,7 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
@@ -5650,6 +5666,11 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
         The priority for this IP Restriction.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -5667,6 +5688,7 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
                  ip_address: str,
                  name: str,
                  priority: float,
+                 subnet_id: str,
                  virtual_network_subnet_id: str):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -5679,6 +5701,7 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
@@ -5712,6 +5735,11 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         The priority for this IP Restriction.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")

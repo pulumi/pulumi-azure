@@ -26,6 +26,7 @@ class SharedImage(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
+                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']]] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
@@ -74,6 +75,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image.
+        :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
@@ -111,6 +113,7 @@ class SharedImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'os_type'")
             __props__['os_type'] = os_type
             __props__['privacy_statement_uri'] = privacy_statement_uri
+            __props__['purchase_plan'] = purchase_plan
             __props__['release_note_uri'] = release_note_uri
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -136,6 +139,7 @@ class SharedImage(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
             privacy_statement_uri: Optional[pulumi.Input[str]] = None,
+            purchase_plan: Optional[pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']]] = None,
             release_note_uri: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             specialized: Optional[pulumi.Input[bool]] = None,
@@ -156,6 +160,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image.
+        :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
@@ -174,6 +179,7 @@ class SharedImage(pulumi.CustomResource):
         __props__["name"] = name
         __props__["os_type"] = os_type
         __props__["privacy_statement_uri"] = privacy_statement_uri
+        __props__["purchase_plan"] = purchase_plan
         __props__["release_note_uri"] = release_note_uri
         __props__["resource_group_name"] = resource_group_name
         __props__["specialized"] = specialized
@@ -251,6 +257,14 @@ class SharedImage(pulumi.CustomResource):
         The URI containing the Privacy Statement associated with this Shared Image.
         """
         return pulumi.get(self, "privacy_statement_uri")
+
+    @property
+    @pulumi.getter(name="purchasePlan")
+    def purchase_plan(self) -> pulumi.Output[Optional['outputs.SharedImagePurchasePlan']]:
+        """
+        A `purchase_plan` block as defined below.
+        """
+        return pulumi.get(self, "purchase_plan")
 
     @property
     @pulumi.getter(name="releaseNoteUri")

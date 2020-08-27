@@ -47,6 +47,7 @@ import (
 // 			EnabledForDiskEncryption: pulumi.Bool(true),
 // 			TenantId:                 pulumi.String(current.TenantId),
 // 			SoftDeleteEnabled:        pulumi.Bool(true),
+// 			SoftDeleteRetentionDays:  pulumi.Int(7),
 // 			PurgeProtectionEnabled:   pulumi.Bool(false),
 // 			SkuName:                  pulumi.String("standard"),
 // 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -104,6 +105,8 @@ type KeyVault struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
 	SoftDeleteEnabled pulumi.BoolPtrOutput `pulumi:"softDeleteEnabled"`
+	// The number of days that items should be retained for once soft-deleted.
+	SoftDeleteRetentionDays pulumi.IntPtrOutput `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -171,6 +174,8 @@ type keyVaultState struct {
 	SkuName *string `pulumi:"skuName"`
 	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
 	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
+	// The number of days that items should be retained for once soft-deleted.
+	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -202,6 +207,8 @@ type KeyVaultState struct {
 	SkuName pulumi.StringPtrInput
 	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
 	SoftDeleteEnabled pulumi.BoolPtrInput
+	// The number of days that items should be retained for once soft-deleted.
+	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -237,6 +244,8 @@ type keyVaultArgs struct {
 	SkuName string `pulumi:"skuName"`
 	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
 	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
+	// The number of days that items should be retained for once soft-deleted.
+	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
@@ -267,6 +276,8 @@ type KeyVaultArgs struct {
 	SkuName pulumi.StringInput
 	// Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
 	SoftDeleteEnabled pulumi.BoolPtrInput
+	// The number of days that items should be retained for once soft-deleted.
+	SoftDeleteRetentionDays pulumi.IntPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.

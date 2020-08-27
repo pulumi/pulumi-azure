@@ -418,7 +418,7 @@ func (o FirewallPolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) FirewallPo
 type FirewallPolicyCustomRuleMatchCondition struct {
 	// Up to `100` possible values to match.
 	MatchValues []string `pulumi:"matchValues"`
-	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
 	MatchVariable string `pulumi:"matchVariable"`
 	// Should the result of the condition be negated.
 	NegationCondition *bool `pulumi:"negationCondition"`
@@ -444,7 +444,7 @@ type FirewallPolicyCustomRuleMatchConditionInput interface {
 type FirewallPolicyCustomRuleMatchConditionArgs struct {
 	// Up to `100` possible values to match.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
-	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Should the result of the condition be negated.
 	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
@@ -512,7 +512,7 @@ func (o FirewallPolicyCustomRuleMatchConditionOutput) MatchValues() pulumi.Strin
 	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
 
-// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
 func (o FirewallPolicyCustomRuleMatchConditionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyCustomRuleMatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
 }

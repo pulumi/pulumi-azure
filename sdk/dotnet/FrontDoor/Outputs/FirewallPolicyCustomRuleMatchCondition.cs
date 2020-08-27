@@ -18,7 +18,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>
-        /// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+        /// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
         /// </summary>
         public readonly string MatchVariable;
         /// <summary>

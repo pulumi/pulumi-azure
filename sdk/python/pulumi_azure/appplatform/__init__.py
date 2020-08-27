@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .get_spring_cloud_service import *
 from .spring_cloud_app import *
+from .spring_cloud_certificate import *
 from .spring_cloud_service import *
 from ._inputs import *
 from . import outputs

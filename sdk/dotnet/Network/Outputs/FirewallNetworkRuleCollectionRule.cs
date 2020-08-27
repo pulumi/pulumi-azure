@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A list of destination IP addresses and/or IP ranges.
+        /// A list of destination IP addresses, IP ranges, or FQDNs.
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
         /// <summary>

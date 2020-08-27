@@ -25,7 +25,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         }
 
         /// <summary>
-        /// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, or `RequestUri`.
+        /// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
         /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;

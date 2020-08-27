@@ -82,6 +82,8 @@ type SharedImage struct {
 	OsType pulumi.StringOutput `pulumi:"osType"`
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri pulumi.StringPtrOutput `pulumi:"privacyStatementUri"`
+	// A `purchasePlan` block as defined below.
+	PurchasePlan SharedImagePurchasePlanPtrOutput `pulumi:"purchasePlan"`
 	// The URI containing the Release Notes associated with this Shared Image.
 	ReleaseNoteUri pulumi.StringPtrOutput `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -150,6 +152,8 @@ type sharedImageState struct {
 	OsType *string `pulumi:"osType"`
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
+	// A `purchasePlan` block as defined below.
+	PurchasePlan *SharedImagePurchasePlan `pulumi:"purchasePlan"`
 	// The URI containing the Release Notes associated with this Shared Image.
 	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -179,6 +183,8 @@ type SharedImageState struct {
 	OsType pulumi.StringPtrInput
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri pulumi.StringPtrInput
+	// A `purchasePlan` block as defined below.
+	PurchasePlan SharedImagePurchasePlanPtrInput
 	// The URI containing the Release Notes associated with this Shared Image.
 	ReleaseNoteUri pulumi.StringPtrInput
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -212,6 +218,8 @@ type sharedImageArgs struct {
 	OsType string `pulumi:"osType"`
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
+	// A `purchasePlan` block as defined below.
+	PurchasePlan *SharedImagePurchasePlan `pulumi:"purchasePlan"`
 	// The URI containing the Release Notes associated with this Shared Image.
 	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -242,6 +250,8 @@ type SharedImageArgs struct {
 	OsType pulumi.StringInput
 	// The URI containing the Privacy Statement associated with this Shared Image.
 	PrivacyStatementUri pulumi.StringPtrInput
+	// A `purchasePlan` block as defined below.
+	PurchasePlan SharedImagePurchasePlanPtrInput
 	// The URI containing the Release Notes associated with this Shared Image.
 	ReleaseNoteUri pulumi.StringPtrInput
 	// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.

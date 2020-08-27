@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
 
         /// <summary>
-        /// A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
+        /// A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         /// </summary>
         [Output("automaticOsUpgradePolicy")]
         public Output<Outputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy?> AutomaticOsUpgradePolicy { get; private set; } = null!;
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
 
         /// <summary>
-        /// A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
+        /// A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         /// </summary>
         [Input("automaticOsUpgradePolicy")]
         public Input<Inputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs>? AutomaticOsUpgradePolicy { get; set; }
@@ -696,7 +696,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.LinuxVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
 
         /// <summary>
-        /// A `automatic_os_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic`.
+        /// A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         /// </summary>
         [Input("automaticOsUpgradePolicy")]
         public Input<Inputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyGetArgs>? AutomaticOsUpgradePolicy { get; set; }

@@ -28,6 +28,7 @@ class KeyVault(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+                 soft_delete_retention_days: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -56,6 +57,7 @@ class KeyVault(pulumi.CustomResource):
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_enabled=True,
+            soft_delete_retention_days=7,
             purge_protection_enabled=False,
             sku_name="standard",
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
@@ -87,6 +89,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+        :param pulumi.Input[float] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
@@ -122,6 +125,7 @@ class KeyVault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['soft_delete_enabled'] = soft_delete_enabled
+            __props__['soft_delete_retention_days'] = soft_delete_retention_days
             __props__['tags'] = tags
             if tenant_id is None:
                 raise TypeError("Missing required property 'tenant_id'")
@@ -148,6 +152,7 @@ class KeyVault(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+            soft_delete_retention_days: Optional[pulumi.Input[float]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenant_id: Optional[pulumi.Input[str]] = None,
             vault_uri: Optional[pulumi.Input[str]] = None) -> 'KeyVault':
@@ -169,6 +174,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
+        :param pulumi.Input[float] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
@@ -188,6 +194,7 @@ class KeyVault(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["sku_name"] = sku_name
         __props__["soft_delete_enabled"] = soft_delete_enabled
+        __props__["soft_delete_retention_days"] = soft_delete_retention_days
         __props__["tags"] = tags
         __props__["tenant_id"] = tenant_id
         __props__["vault_uri"] = vault_uri
@@ -280,6 +287,14 @@ class KeyVault(pulumi.CustomResource):
         Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
         """
         return pulumi.get(self, "soft_delete_enabled")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionDays")
+    def soft_delete_retention_days(self) -> pulumi.Output[Optional[float]]:
+        """
+        The number of days that items should be retained for once soft-deleted.
+        """
+        return pulumi.get(self, "soft_delete_retention_days")
 
     @property
     @pulumi.getter
