@@ -2,11 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.19.0 (2020-08-28)
 * Relax naming conventions on `compute.LinuxVirtualMachine` and `compute.LinuxVirtualMachineScaleSet` to allow resource
   names to be up to 80 characters in length
 * Upgrade to v2.25.0 of the AzureRM Terraform Provider
-
----
 
 ## 3.18.1 (2020-08-26)
 * Upgrade to pulumi-terraform-bridge v2.7.3
