@@ -24,6 +24,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
             set => _bearerTokenSendingMethods = value;
         }
 
+        /// <summary>
+        /// OpenID Connect provider identifier. The name of an OpenID Connect Provider.
+        /// </summary>
         [Input("openidProviderName", required: true)]
         public Input<string> OpenidProviderName { get; set; } = null!;
 

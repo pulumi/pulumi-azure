@@ -6,6 +6,80 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Blueprint Assignment resource
+ *
+ * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+ *
+ * > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleSubscription = azure.core.getSubscription({});
+ * const exampleDefinition = exampleSubscription.then(exampleSubscription => azure.blueprint.getDefinition({
+ *     name: "exampleBlueprint",
+ *     scopeId: exampleSubscription.id,
+ * }));
+ * const examplePublishedVersion = Promise.all([exampleDefinition, exampleDefinition]).then(([exampleDefinition, exampleDefinition1]) => azure.blueprint.getPublishedVersion({
+ *     scopeId: exampleDefinition.scopeId,
+ *     blueprintName: exampleDefinition1.name,
+ *     version: "v1.0.0",
+ * }));
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {
+ *     location: "westeurope",
+ *     tags: {
+ *         Environment: "example",
+ *     },
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const operator = new azure.authorization.Assignment("operator", {
+ *     scope: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ *     roleDefinitionName: "Blueprint Operator",
+ *     principalId: exampleUserAssignedIdentity.principalId,
+ * });
+ * const owner = new azure.authorization.Assignment("owner", {
+ *     scope: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ *     roleDefinitionName: "Owner",
+ *     principalId: exampleUserAssignedIdentity.principalId,
+ * });
+ * const exampleAssignment = new azure.blueprint.Assignment("exampleAssignment", {
+ *     targetSubscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ *     versionId: examplePublishedVersion.then(examplePublishedVersion => examplePublishedVersion.id),
+ *     location: exampleResourceGroup.location,
+ *     lockMode: "AllResourcesDoNotDelete",
+ *     lockExcludePrincipals: [current.then(current => current.objectId)],
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     resourceGroups: `    {
+ *       "ResourceGroup": {
+ *         "name": "exampleRG-bp"
+ *       }
+ *     }
+ * `,
+ *     parameterValues: `    {
+ *       "allowedlocationsforresourcegroups_listOfAllowedLocations": {
+ *         "value": ["westus", "westus2", "eastus", "centralus", "centraluseuap", "southcentralus", "northcentralus", "westcentralus", "eastus2", "eastus2euap", "brazilsouth", "brazilus", "northeurope", "westeurope", "eastasia", "southeastasia", "japanwest", "japaneast", "koreacentral", "koreasouth", "indiasouth", "indiawest", "indiacentral", "australiaeast", "australiasoutheast", "canadacentral", "canadaeast", "uknorth", "uksouth2", "uksouth", "ukwest", "francecentral", "francesouth", "australiacentral", "australiacentral2", "uaecentral", "uaenorth", "southafricanorth", "southafricawest", "switzerlandnorth", "switzerlandwest", "germanynorth", "germanywestcentral", "norwayeast", "norwaywest"]
+ *       }
+ *     }
+ * `,
+ * }, {
+ *     dependsOn: [
+ *         operator,
+ *         owner,
+ *     ],
+ * });
+ * ```
+ */
 export class Assignment extends pulumi.CustomResource {
     /**
      * Get an existing Assignment resource's state with the given name, ID, and optional extra

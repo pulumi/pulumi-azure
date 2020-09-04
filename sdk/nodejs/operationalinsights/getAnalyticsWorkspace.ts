@@ -61,7 +61,7 @@ export interface GetAnalyticsWorkspaceResult {
     readonly location: string;
     readonly name: string;
     /**
-     * The Portal URL for the Log Analytics Workspace.
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly portalUrl: string;
     /**

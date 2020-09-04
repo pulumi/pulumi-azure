@@ -165,6 +165,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="tlsMinVersion")
     def tls_min_version(self) -> str:
+        """
+        The minimal supported tls version.
+        """
         return pulumi.get(self, "tls_min_version")
 
 

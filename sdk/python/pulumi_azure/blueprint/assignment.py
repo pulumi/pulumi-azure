@@ -30,7 +30,69 @@ class Assignment(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a Assignment resource with the given unique name, props, and options.
+        Manages a Blueprint Assignment resource
+
+        > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+
+        > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_subscription = azure.core.get_subscription()
+        example_definition = azure.blueprint.get_definition(name="exampleBlueprint",
+            scope_id=example_subscription.id)
+        example_published_version = azure.blueprint.get_published_version(scope_id=example_definition.scope_id,
+            blueprint_name=example_definition.name,
+            version="v1.0.0")
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup",
+            location="westeurope",
+            tags={
+                "Environment": "example",
+            })
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        operator = azure.authorization.Assignment("operator",
+            scope=example_subscription.id,
+            role_definition_name="Blueprint Operator",
+            principal_id=example_user_assigned_identity.principal_id)
+        owner = azure.authorization.Assignment("owner",
+            scope=example_subscription.id,
+            role_definition_name="Owner",
+            principal_id=example_user_assigned_identity.principal_id)
+        example_assignment = azure.blueprint.Assignment("exampleAssignment",
+            target_subscription_id=example_subscription.id,
+            version_id=example_published_version.id,
+            location=example_resource_group.location,
+            lock_mode="AllResourcesDoNotDelete",
+            lock_exclude_principals=[current.object_id],
+            identity=azure.blueprint.AssignmentIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            resource_groups=\"\"\"    {
+              "ResourceGroup": {
+                "name": "exampleRG-bp"
+              }
+            }
+        \"\"\",
+            parameter_values=\"\"\"    {
+              "allowedlocationsforresourcegroups_listOfAllowedLocations": {
+                "value": ["westus", "westus2", "eastus", "centralus", "centraluseuap", "southcentralus", "northcentralus", "westcentralus", "eastus2", "eastus2euap", "brazilsouth", "brazilus", "northeurope", "westeurope", "eastasia", "southeastasia", "japanwest", "japaneast", "koreacentral", "koreasouth", "indiasouth", "indiawest", "indiacentral", "australiaeast", "australiasoutheast", "canadacentral", "canadaeast", "uknorth", "uksouth2", "uksouth", "ukwest", "francecentral", "francesouth", "australiacentral", "australiacentral2", "uaecentral", "uaenorth", "southafricanorth", "southafricawest", "switzerlandnorth", "switzerlandwest", "germanynorth", "germanywestcentral", "norwayeast", "norwaywest"]
+              }
+            }
+        \"\"\",
+            opts=ResourceOptions(depends_on=[
+                    operator,
+                    owner,
+                ]))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure location of the Assignment.

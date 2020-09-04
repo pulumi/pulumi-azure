@@ -30,6 +30,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']]] = None,
                  instances: Optional[pulumi.Input[float]] = None,
@@ -131,6 +132,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[float] instances: The number of Virtual Machines in the Scale Set.
@@ -194,6 +196,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__['do_not_run_extensions_on_overprovisioned_machines'] = do_not_run_extensions_on_overprovisioned_machines
             __props__['enable_automatic_updates'] = enable_automatic_updates
             __props__['eviction_policy'] = eviction_policy
+            __props__['extensions'] = extensions
             __props__['health_probe_id'] = health_probe_id
             __props__['identity'] = identity
             if instances is None:
@@ -257,6 +260,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
+            extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']]] = None,
             instances: Optional[pulumi.Input[float]] = None,
@@ -307,6 +311,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[float] instances: The number of Virtual Machines in the Scale Set.
@@ -354,6 +359,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__["do_not_run_extensions_on_overprovisioned_machines"] = do_not_run_extensions_on_overprovisioned_machines
         __props__["enable_automatic_updates"] = enable_automatic_updates
         __props__["eviction_policy"] = eviction_policy
+        __props__["extensions"] = extensions
         __props__["health_probe_id"] = health_probe_id
         __props__["identity"] = identity
         __props__["instances"] = instances
@@ -489,6 +495,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> pulumi.Output[List['outputs.WindowsVirtualMachineScaleSetExtension']]:
+        """
+        One or more `extension` blocks as defined below
+        """
+        return pulumi.get(self, "extensions")
 
     @property
     @pulumi.getter(name="healthProbeId")

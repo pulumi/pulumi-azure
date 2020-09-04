@@ -143,6 +143,7 @@ class ApiOauth2Authorization(dict):
                  authorization_server_name: str,
                  scope: Optional[str] = None):
         """
+        :param str authorization_server_name: OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
         :param str scope: Operations scope.
         """
         pulumi.set(__self__, "authorization_server_name", authorization_server_name)
@@ -152,6 +153,9 @@ class ApiOauth2Authorization(dict):
     @property
     @pulumi.getter(name="authorizationServerName")
     def authorization_server_name(self) -> str:
+        """
+        OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
+        """
         return pulumi.get(self, "authorization_server_name")
 
     @property
@@ -172,6 +176,7 @@ class ApiOpenidAuthentication(dict):
                  openid_provider_name: str,
                  bearer_token_sending_methods: Optional[List[str]] = None):
         """
+        :param str openid_provider_name: OpenID Connect provider identifier. The name of an OpenID Connect Provider.
         :param List[str] bearer_token_sending_methods: How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
         """
         pulumi.set(__self__, "openid_provider_name", openid_provider_name)
@@ -181,6 +186,9 @@ class ApiOpenidAuthentication(dict):
     @property
     @pulumi.getter(name="openidProviderName")
     def openid_provider_name(self) -> str:
+        """
+        OpenID Connect provider identifier. The name of an OpenID Connect Provider.
+        """
         return pulumi.get(self, "openid_provider_name")
 
     @property

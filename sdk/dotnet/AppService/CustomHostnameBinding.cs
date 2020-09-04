@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
-    /// Manages a Hostname Binding within an App Service.
+    /// Manages a Hostname Binding within an App Service (or Function App).
     /// 
     /// ## Example Usage
     /// 

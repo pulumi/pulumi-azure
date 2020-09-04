@@ -2641,6 +2641,175 @@ func (o LinuxVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInput)
 	}).(LinuxVirtualMachineScaleSetDataDiskOutput)
 }
 
+type LinuxVirtualMachineScaleSetExtension struct {
+	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The name for the Virtual Machine Scale Set Extension.
+	Name string `pulumi:"name"`
+	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// An ordered list of Extension names which this should be provisioned after.
+	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
+	// Specifies the Publisher of the Extension.
+	Publisher string `pulumi:"publisher"`
+	// A JSON String which specifies Settings for the Extension.
+	Settings *string `pulumi:"settings"`
+	// Specifies the Type of the Extension.
+	Type string `pulumi:"type"`
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+}
+
+// LinuxVirtualMachineScaleSetExtensionInput is an input type that accepts LinuxVirtualMachineScaleSetExtensionArgs and LinuxVirtualMachineScaleSetExtensionOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetExtensionInput` via:
+//
+//          LinuxVirtualMachineScaleSetExtensionArgs{...}
+type LinuxVirtualMachineScaleSetExtensionInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetExtensionOutput() LinuxVirtualMachineScaleSetExtensionOutput
+	ToLinuxVirtualMachineScaleSetExtensionOutputWithContext(context.Context) LinuxVirtualMachineScaleSetExtensionOutput
+}
+
+type LinuxVirtualMachineScaleSetExtensionArgs struct {
+	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
+	// The name for the Virtual Machine Scale Set Extension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
+	// An ordered list of Extension names which this should be provisioned after.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// Specifies the Publisher of the Extension.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// A JSON String which specifies Settings for the Extension.
+	Settings pulumi.StringPtrInput `pulumi:"settings"`
+	// Specifies the Type of the Extension.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+}
+
+func (LinuxVirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetExtensionArgs) ToLinuxVirtualMachineScaleSetExtensionOutput() LinuxVirtualMachineScaleSetExtensionOutput {
+	return i.ToLinuxVirtualMachineScaleSetExtensionOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetExtensionArgs) ToLinuxVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetExtensionOutput)
+}
+
+// LinuxVirtualMachineScaleSetExtensionArrayInput is an input type that accepts LinuxVirtualMachineScaleSetExtensionArray and LinuxVirtualMachineScaleSetExtensionArrayOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetExtensionArrayInput` via:
+//
+//          LinuxVirtualMachineScaleSetExtensionArray{ LinuxVirtualMachineScaleSetExtensionArgs{...} }
+type LinuxVirtualMachineScaleSetExtensionArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetExtensionArrayOutput() LinuxVirtualMachineScaleSetExtensionArrayOutput
+	ToLinuxVirtualMachineScaleSetExtensionArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetExtensionArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetExtensionArray []LinuxVirtualMachineScaleSetExtensionInput
+
+func (LinuxVirtualMachineScaleSetExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetExtensionArray) ToLinuxVirtualMachineScaleSetExtensionArrayOutput() LinuxVirtualMachineScaleSetExtensionArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetExtensionArray) ToLinuxVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetExtensionArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetExtensionOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionOutput) ToLinuxVirtualMachineScaleSetExtensionOutput() LinuxVirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionOutput) ToLinuxVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Virtual Machine Scale Set Extension.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+}
+
+// An ordered list of Extension names which this should be provisioned after.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Publisher of the Extension.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// A JSON String which specifies Settings for the Extension.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) Settings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) *string { return v.Settings }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Type of the Extension.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+func (o LinuxVirtualMachineScaleSetExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineScaleSetExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionArrayOutput) ToLinuxVirtualMachineScaleSetExtensionArrayOutput() LinuxVirtualMachineScaleSetExtensionArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionArrayOutput) ToLinuxVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetExtensionArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetExtension {
+		return vs[0].([]LinuxVirtualMachineScaleSetExtension)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetExtensionOutput)
+}
+
 type LinuxVirtualMachineScaleSetIdentity struct {
 	// A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -3755,7 +3924,7 @@ type LinuxVirtualMachineScaleSetPlan struct {
 	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name    string `pulumi:"name"`
 	Product string `pulumi:"product"`
-	// Specifies the publisher of the image used to create the virtual machines.
+	// Specifies the Publisher of the Extension.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -3774,7 +3943,7 @@ type LinuxVirtualMachineScaleSetPlanArgs struct {
 	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name    pulumi.StringInput `pulumi:"name"`
 	Product pulumi.StringInput `pulumi:"product"`
-	// Specifies the publisher of the image used to create the virtual machines.
+	// Specifies the Publisher of the Extension.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -3864,7 +4033,7 @@ func (o LinuxVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// Specifies the publisher of the image used to create the virtual machines.
+// Specifies the Publisher of the Extension.
 func (o LinuxVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -3906,7 +4075,7 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the publisher of the image used to create the virtual machines.
+// Specifies the Publisher of the Extension.
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -14032,6 +14201,175 @@ func (o WindowsVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.IntInpu
 	}).(WindowsVirtualMachineScaleSetDataDiskOutput)
 }
 
+type WindowsVirtualMachineScaleSetExtension struct {
+	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The name for the Virtual Machine Scale Set Extension.
+	Name string `pulumi:"name"`
+	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// An ordered list of Extension names which this should be provisioned after.
+	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
+	// Specifies the Publisher of the Extension.
+	Publisher string `pulumi:"publisher"`
+	// A JSON String which specifies Settings for the Extension.
+	Settings *string `pulumi:"settings"`
+	// Specifies the Type of the Extension.
+	Type string `pulumi:"type"`
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+}
+
+// WindowsVirtualMachineScaleSetExtensionInput is an input type that accepts WindowsVirtualMachineScaleSetExtensionArgs and WindowsVirtualMachineScaleSetExtensionOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetExtensionInput` via:
+//
+//          WindowsVirtualMachineScaleSetExtensionArgs{...}
+type WindowsVirtualMachineScaleSetExtensionInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetExtensionOutput() WindowsVirtualMachineScaleSetExtensionOutput
+	ToWindowsVirtualMachineScaleSetExtensionOutputWithContext(context.Context) WindowsVirtualMachineScaleSetExtensionOutput
+}
+
+type WindowsVirtualMachineScaleSetExtensionArgs struct {
+	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
+	// The name for the Virtual Machine Scale Set Extension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
+	// An ordered list of Extension names which this should be provisioned after.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// Specifies the Publisher of the Extension.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// A JSON String which specifies Settings for the Extension.
+	Settings pulumi.StringPtrInput `pulumi:"settings"`
+	// Specifies the Type of the Extension.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+}
+
+func (WindowsVirtualMachineScaleSetExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetExtensionArgs) ToWindowsVirtualMachineScaleSetExtensionOutput() WindowsVirtualMachineScaleSetExtensionOutput {
+	return i.ToWindowsVirtualMachineScaleSetExtensionOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetExtensionArgs) ToWindowsVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetExtensionOutput)
+}
+
+// WindowsVirtualMachineScaleSetExtensionArrayInput is an input type that accepts WindowsVirtualMachineScaleSetExtensionArray and WindowsVirtualMachineScaleSetExtensionArrayOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetExtensionArrayInput` via:
+//
+//          WindowsVirtualMachineScaleSetExtensionArray{ WindowsVirtualMachineScaleSetExtensionArgs{...} }
+type WindowsVirtualMachineScaleSetExtensionArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetExtensionArrayOutput() WindowsVirtualMachineScaleSetExtensionArrayOutput
+	ToWindowsVirtualMachineScaleSetExtensionArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetExtensionArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetExtensionArray []WindowsVirtualMachineScaleSetExtensionInput
+
+func (WindowsVirtualMachineScaleSetExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetExtensionArray) ToWindowsVirtualMachineScaleSetExtensionArrayOutput() WindowsVirtualMachineScaleSetExtensionArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetExtensionArray) ToWindowsVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetExtensionArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetExtensionOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionOutput) ToWindowsVirtualMachineScaleSetExtensionOutput() WindowsVirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionOutput) ToWindowsVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionOutput {
+	return o
+}
+
+// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Virtual Machine Scale Set Extension.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+}
+
+// An ordered list of Extension names which this should be provisioned after.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Publisher of the Extension.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// A JSON String which specifies Settings for the Extension.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) Settings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) *string { return v.Settings }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Type of the Extension.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+func (o WindowsVirtualMachineScaleSetExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineScaleSetExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetExtension)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionArrayOutput) ToWindowsVirtualMachineScaleSetExtensionArrayOutput() WindowsVirtualMachineScaleSetExtensionArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionArrayOutput) ToWindowsVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetExtensionArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetExtension {
+		return vs[0].([]WindowsVirtualMachineScaleSetExtension)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetExtensionOutput)
+}
+
 type WindowsVirtualMachineScaleSetIdentity struct {
 	// A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -15146,7 +15484,7 @@ type WindowsVirtualMachineScaleSetPlan struct {
 	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name    string `pulumi:"name"`
 	Product string `pulumi:"product"`
-	// Specifies the publisher of the image used to create the virtual machines.
+	// Specifies the Publisher of the Extension.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -15165,7 +15503,7 @@ type WindowsVirtualMachineScaleSetPlanArgs struct {
 	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name    pulumi.StringInput `pulumi:"name"`
 	Product pulumi.StringInput `pulumi:"product"`
-	// Specifies the publisher of the image used to create the virtual machines.
+	// Specifies the Publisher of the Extension.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -15255,7 +15593,7 @@ func (o WindowsVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// Specifies the publisher of the image used to create the virtual machines.
+// Specifies the Publisher of the Extension.
 func (o WindowsVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -15297,7 +15635,7 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the publisher of the image used to create the virtual machines.
+// Specifies the Publisher of the Extension.
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -18012,6 +18350,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetDataDiskOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetExtensionOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetExtensionArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceOutput{})
@@ -18160,6 +18500,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetDataDiskOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetExtensionOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetExtensionArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceOutput{})

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     reliabilityLevel: "Bronze",
  *     upgradeMode: "Manual",
- *     clusterCodeVersion: "6.5.639.9590",
+ *     clusterCodeVersion: "7.1.456.959",
  *     vmImage: "Windows",
  *     managementEndpoint: "https://example:80",
  *     nodeTypes: [{

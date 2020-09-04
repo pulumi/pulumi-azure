@@ -34,7 +34,63 @@ class StormCluster(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a StormCluster resource with the given unique name, props, and options.
+        Manages a HDInsight Storm Cluster.
+
+        !> **Note:** [HDInsight 3.6 is deprecated and will be retired on 2020-12-31 - HDInsight 4.0 no longer supports Storm Clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#available-versions) - as such this resource is deprecated and will be removed in the next major version of the Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_storm_cluster = azure.hdinsight.StormCluster("exampleStormCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_version="3.6",
+            tier="Standard",
+            component_version=azure.hdinsight.StormClusterComponentVersionArgs(
+                storm="1.1",
+            ),
+            gateway=azure.hdinsight.StormClusterGatewayArgs(
+                enabled=True,
+                username="acctestusrgw",
+                password="Password123!",
+            ),
+            storage_accounts=[azure.hdinsight.StormClusterStorageAccountArgs(
+                storage_container_id=example_container.id,
+                storage_account_key=example_account.primary_access_key,
+                is_default=True,
+            )],
+            roles=azure.hdinsight.StormClusterRolesArgs(
+                head_node=azure.hdinsight.StormClusterRolesHeadNodeArgs(
+                    vm_size="Standard_A3",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+                worker_node=azure.hdinsight.StormClusterRolesWorkerNodeArgs(
+                    vm_size="Standard_D3_V2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                    target_instance_count=3,
+                ),
+                zookeeper_node=azure.hdinsight.StormClusterRolesZookeeperNodeArgs(
+                    vm_size="Standard_A4_V2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+            ))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.

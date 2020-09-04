@@ -27,6 +27,7 @@ __all__ = [
     'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy',
     'LinuxVirtualMachineScaleSetBootDiagnostics',
     'LinuxVirtualMachineScaleSetDataDisk',
+    'LinuxVirtualMachineScaleSetExtension',
     'LinuxVirtualMachineScaleSetIdentity',
     'LinuxVirtualMachineScaleSetNetworkInterface',
     'LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration',
@@ -101,6 +102,7 @@ __all__ = [
     'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy',
     'WindowsVirtualMachineScaleSetBootDiagnostics',
     'WindowsVirtualMachineScaleSetDataDisk',
+    'WindowsVirtualMachineScaleSetExtension',
     'WindowsVirtualMachineScaleSetIdentity',
     'WindowsVirtualMachineScaleSetNetworkInterface',
     'WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration',
@@ -891,6 +893,120 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
 
 
 @pulumi.output_type
+class LinuxVirtualMachineScaleSetExtension(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 publisher: str,
+                 type: str,
+                 type_handler_version: str,
+                 auto_upgrade_minor_version: Optional[bool] = None,
+                 force_update_tag: Optional[str] = None,
+                 protected_settings: Optional[str] = None,
+                 provision_after_extensions: Optional[List[str]] = None,
+                 settings: Optional[str] = None):
+        """
+        :param str name: The name for the Virtual Machine Scale Set Extension.
+        :param str publisher: Specifies the Publisher of the Extension.
+        :param str type: Specifies the Type of the Extension.
+        :param str type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        :param bool auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param str force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        :param List[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
+        :param str settings: A JSON String which specifies Settings for the Extension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if provision_after_extensions is not None:
+            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Virtual Machine Scale Set Extension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        Specifies the Publisher of the Extension.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the Type of the Extension.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> str:
+        """
+        Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[bool]:
+        """
+        Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[str]:
+        """
+        A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[str]:
+        """
+        A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[List[str]]:
+        """
+        An ordered list of Extension names which this should be provisioned after.
+        """
+        return pulumi.get(self, "provision_after_extensions")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[str]:
+        """
+        A JSON String which specifies Settings for the Extension.
+        """
+        return pulumi.get(self, "settings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LinuxVirtualMachineScaleSetIdentity(dict):
     def __init__(__self__, *,
                  type: str,
@@ -1348,7 +1464,7 @@ class LinuxVirtualMachineScaleSetPlan(dict):
                  publisher: str):
         """
         :param str name: The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param str publisher: Specifies the publisher of the image used to create the virtual machines.
+        :param str publisher: Specifies the Publisher of the Extension.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -1371,7 +1487,7 @@ class LinuxVirtualMachineScaleSetPlan(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the publisher of the image used to create the virtual machines.
+        Specifies the Publisher of the Extension.
         """
         return pulumi.get(self, "publisher")
 
@@ -4443,6 +4559,120 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
 
 
 @pulumi.output_type
+class WindowsVirtualMachineScaleSetExtension(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 publisher: str,
+                 type: str,
+                 type_handler_version: str,
+                 auto_upgrade_minor_version: Optional[bool] = None,
+                 force_update_tag: Optional[str] = None,
+                 protected_settings: Optional[str] = None,
+                 provision_after_extensions: Optional[List[str]] = None,
+                 settings: Optional[str] = None):
+        """
+        :param str name: The name for the Virtual Machine Scale Set Extension.
+        :param str publisher: Specifies the Publisher of the Extension.
+        :param str type: Specifies the Type of the Extension.
+        :param str type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        :param bool auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param str force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        :param List[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
+        :param str settings: A JSON String which specifies Settings for the Extension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if provision_after_extensions is not None:
+            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Virtual Machine Scale Set Extension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        Specifies the Publisher of the Extension.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the Type of the Extension.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> str:
+        """
+        Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[bool]:
+        """
+        Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[str]:
+        """
+        A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[str]:
+        """
+        A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[List[str]]:
+        """
+        An ordered list of Extension names which this should be provisioned after.
+        """
+        return pulumi.get(self, "provision_after_extensions")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[str]:
+        """
+        A JSON String which specifies Settings for the Extension.
+        """
+        return pulumi.get(self, "settings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class WindowsVirtualMachineScaleSetIdentity(dict):
     def __init__(__self__, *,
                  type: str,
@@ -4900,7 +5130,7 @@ class WindowsVirtualMachineScaleSetPlan(dict):
                  publisher: str):
         """
         :param str name: The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param str publisher: Specifies the publisher of the image used to create the virtual machines.
+        :param str publisher: Specifies the Publisher of the Extension.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -4923,7 +5153,7 @@ class WindowsVirtualMachineScaleSetPlan(dict):
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the publisher of the image used to create the virtual machines.
+        Specifies the Publisher of the Extension.
         """
         return pulumi.get(self, "publisher")
 

@@ -862,6 +862,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_datasource_windows_performance_counter": {
 				Tok: azureResource(azureLogAnalytics, "DataSourceWindowsPerformanceCounter"),
 			},
+			"azurerm_log_analytics_saved_search": {Tok: azureResource(azureLogAnalytics, "SavedSearch")},
 
 			// Logic Apps
 			"azurerm_logic_app_action_custom":        {Tok: azureResource(azureLogicApps, "ActionCustom")},

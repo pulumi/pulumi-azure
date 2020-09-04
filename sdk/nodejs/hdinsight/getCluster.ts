@@ -100,5 +100,8 @@ export interface GetClusterResult {
      * The SKU / Tier of this HDInsight Cluster.
      */
     readonly tier: string;
+    /**
+     * The minimal supported tls version.
+     */
     readonly tlsMinVersion: string;
 }

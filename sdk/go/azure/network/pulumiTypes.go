@@ -1869,6 +1869,8 @@ type ApplicationGatewayProbe struct {
 	Path string `pulumi:"path"`
 	// Whether the host header should be picked from the backend http settings. Defaults to `false`.
 	PickHostNameFromBackendHttpSettings *bool `pulumi:"pickHostNameFromBackendHttpSettings"`
+	// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+	Port *int `pulumi:"port"`
 	// The Protocol used for this Probe. Possible values are `Http` and `Https`.
 	Protocol string `pulumi:"protocol"`
 	// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
@@ -1905,6 +1907,8 @@ type ApplicationGatewayProbeArgs struct {
 	Path pulumi.StringInput `pulumi:"path"`
 	// Whether the host header should be picked from the backend http settings. Defaults to `false`.
 	PickHostNameFromBackendHttpSettings pulumi.BoolPtrInput `pulumi:"pickHostNameFromBackendHttpSettings"`
+	// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// The Protocol used for this Probe. Possible values are `Http` and `Https`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
@@ -2002,6 +2006,11 @@ func (o ApplicationGatewayProbeOutput) Path() pulumi.StringOutput {
 // Whether the host header should be picked from the backend http settings. Defaults to `false`.
 func (o ApplicationGatewayProbeOutput) PickHostNameFromBackendHttpSettings() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayProbe) *bool { return v.PickHostNameFromBackendHttpSettings }).(pulumi.BoolPtrOutput)
+}
+
+// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+func (o ApplicationGatewayProbeOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayProbe) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // The Protocol used for this Probe. Possible values are `Http` and `Https`.

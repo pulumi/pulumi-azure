@@ -46,6 +46,8 @@ type LinuxVirtualMachineScaleSet struct {
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrOutput `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
+	// One or more `extension` blocks as defined below
+	Extensions LinuxVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -173,6 +175,8 @@ type linuxVirtualMachineScaleSetState struct {
 	DoNotRunExtensionsOnOverprovisionedMachines *bool `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// One or more `extension` blocks as defined below
+	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -255,6 +259,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrInput
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// One or more `extension` blocks as defined below
+	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
 	// A `identity` block as defined below.
@@ -341,6 +347,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	DoNotRunExtensionsOnOverprovisionedMachines *bool `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// One or more `extension` blocks as defined below
+	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -422,6 +430,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrInput
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// One or more `extension` blocks as defined below
+	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
 	// A `identity` block as defined below.

@@ -125,6 +125,8 @@ type WindowsVirtualMachineScaleSet struct {
 	EnableAutomaticUpdates pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpdates"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
+	// One or more `extension` blocks as defined below
+	Extensions WindowsVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -261,6 +263,8 @@ type windowsVirtualMachineScaleSetState struct {
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// One or more `extension` blocks as defined below
+	Extensions []WindowsVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -349,6 +353,8 @@ type WindowsVirtualMachineScaleSetState struct {
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// One or more `extension` blocks as defined below
+	Extensions WindowsVirtualMachineScaleSetExtensionArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
 	// A `identity` block as defined below.
@@ -441,6 +447,8 @@ type windowsVirtualMachineScaleSetArgs struct {
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// One or more `extension` blocks as defined below
+	Extensions []WindowsVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// A `identity` block as defined below.
@@ -528,6 +536,8 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// One or more `extension` blocks as defined below
+	Extensions WindowsVirtualMachineScaleSetExtensionArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
 	// A `identity` block as defined below.

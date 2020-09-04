@@ -1162,7 +1162,8 @@ class ApplicationGatewayProbeArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  match: Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']] = None,
                  minimum_servers: Optional[pulumi.Input[float]] = None,
-                 pick_host_name_from_backend_http_settings: Optional[pulumi.Input[bool]] = None):
+                 pick_host_name_from_backend_http_settings: Optional[pulumi.Input[bool]] = None,
+                 port: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[float] interval: The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
         :param pulumi.Input[str] name: The Name of the Probe.
@@ -1175,6 +1176,7 @@ class ApplicationGatewayProbeArgs:
         :param pulumi.Input['ApplicationGatewayProbeMatchArgs'] match: A `match` block as defined above.
         :param pulumi.Input[float] minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
         :param pulumi.Input[bool] pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend http settings. Defaults to `false`.
+        :param pulumi.Input[float] port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "name", name)
@@ -1192,6 +1194,8 @@ class ApplicationGatewayProbeArgs:
             pulumi.set(__self__, "minimum_servers", minimum_servers)
         if pick_host_name_from_backend_http_settings is not None:
             pulumi.set(__self__, "pick_host_name_from_backend_http_settings", pick_host_name_from_backend_http_settings)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -1324,6 +1328,18 @@ class ApplicationGatewayProbeArgs:
     @pick_host_name_from_backend_http_settings.setter
     def pick_host_name_from_backend_http_settings(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "pick_host_name_from_backend_http_settings", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[float]]:
+        """
+        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type

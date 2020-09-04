@@ -49,7 +49,8 @@ namespace Pulumi.Azure.AppService
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageConnectionString = exampleAccount.PrimaryConnectionString,
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         });
     ///     }
     /// 
@@ -92,7 +93,8 @@ namespace Pulumi.Azure.AppService
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageConnectionString = exampleAccount.PrimaryConnectionString,
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         });
     ///     }
     /// 
@@ -136,7 +138,8 @@ namespace Pulumi.Azure.AppService
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageConnectionString = exampleAccount.PrimaryConnectionString,
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///             OsType = "linux",
     ///         });
     ///     }

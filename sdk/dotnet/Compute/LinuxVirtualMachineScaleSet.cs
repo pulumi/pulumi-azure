@@ -181,6 +181,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EvictionPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `extension` blocks as defined below
+        /// </summary>
+        [Output("extensions")]
+        public Output<ImmutableArray<Outputs.LinuxVirtualMachineScaleSetExtension>> Extensions { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         /// </summary>
         [Output("healthProbeId")]
@@ -475,6 +481,18 @@ namespace Pulumi.Azure.Compute
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
 
+        [Input("extensions")]
+        private InputList<Inputs.LinuxVirtualMachineScaleSetExtensionArgs>? _extensions;
+
+        /// <summary>
+        /// One or more `extension` blocks as defined below
+        /// </summary>
+        public InputList<Inputs.LinuxVirtualMachineScaleSetExtensionArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.LinuxVirtualMachineScaleSetExtensionArgs>());
+            set => _extensions = value;
+        }
+
         /// <summary>
         /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         /// </summary>
@@ -748,6 +766,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        [Input("extensions")]
+        private InputList<Inputs.LinuxVirtualMachineScaleSetExtensionGetArgs>? _extensions;
+
+        /// <summary>
+        /// One or more `extension` blocks as defined below
+        /// </summary>
+        public InputList<Inputs.LinuxVirtualMachineScaleSetExtensionGetArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.LinuxVirtualMachineScaleSetExtensionGetArgs>());
+            set => _extensions = value;
+        }
 
         /// <summary>
         /// The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.

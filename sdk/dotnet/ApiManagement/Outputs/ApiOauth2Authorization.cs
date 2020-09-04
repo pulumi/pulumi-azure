@@ -13,6 +13,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     [OutputType]
     public sealed class ApiOauth2Authorization
     {
+        /// <summary>
+        /// OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
+        /// </summary>
         public readonly string AuthorizationServerName;
         /// <summary>
         /// Operations scope.

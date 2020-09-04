@@ -36,7 +36,7 @@ import (
 // 			Location:           exampleResourceGroup.Location,
 // 			ReliabilityLevel:   pulumi.String("Bronze"),
 // 			UpgradeMode:        pulumi.String("Manual"),
-// 			ClusterCodeVersion: pulumi.String("6.5.639.9590"),
+// 			ClusterCodeVersion: pulumi.String("7.1.456.959"),
 // 			VmImage:            pulumi.String("Windows"),
 // 			ManagementEndpoint: pulumi.String("https://example:80"),
 // 			NodeTypes: servicefabric.ClusterNodeTypeArray{

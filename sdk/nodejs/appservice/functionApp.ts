@@ -35,7 +35,8 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     storageConnectionString: exampleAccount.primaryConnectionString,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * ```
  * ### In A Consumption Plan)
@@ -64,7 +65,8 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     storageConnectionString: exampleAccount.primaryConnectionString,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * ```
  * ### Linux)
@@ -94,7 +96,8 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
- *     storageConnectionString: exampleAccount.primaryConnectionString,
+ *     storageAccountName: exampleAccount.name,
+ *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     osType: "linux",
  * });
  * ```

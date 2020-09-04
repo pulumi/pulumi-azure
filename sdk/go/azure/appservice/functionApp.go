@@ -57,7 +57,8 @@ import (
 // 			Location:                exampleResourceGroup.Location,
 // 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			AppServicePlanId:        examplePlan.ID(),
-// 			StorageConnectionString: exampleAccount.PrimaryConnectionString,
+// 			StorageAccountName:      exampleAccount.Name,
+// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -111,7 +112,8 @@ import (
 // 			Location:                exampleResourceGroup.Location,
 // 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			AppServicePlanId:        examplePlan.ID(),
-// 			StorageConnectionString: exampleAccount.PrimaryConnectionString,
+// 			StorageAccountName:      exampleAccount.Name,
+// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -166,7 +168,8 @@ import (
 // 			Location:                exampleResourceGroup.Location,
 // 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			AppServicePlanId:        examplePlan.ID(),
-// 			StorageConnectionString: exampleAccount.PrimaryConnectionString,
+// 			StorageAccountName:      exampleAccount.Name,
+// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 // 			OsType:                  pulumi.String("linux"),
 // 		})
 // 		if err != nil {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Hostname Binding within an App Service.
+ * Manages a Hostname Binding within an App Service (or Function App).
  *
  * ## Example Usage
  *

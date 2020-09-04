@@ -51,7 +51,7 @@ type AnalyticsWorkspace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Portal URL for the Log Analytics Workspace.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringOutput `pulumi:"primarySharedKey"`
@@ -61,8 +61,8 @@ type AnalyticsWorkspace struct {
 	RetentionInDays pulumi.IntOutput `pulumi:"retentionInDays"`
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey pulumi.StringOutput `pulumi:"secondarySharedKey"`
-	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
-	Sku pulumi.StringOutput `pulumi:"sku"`
+	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Workspace (or Customer) ID for the Log Analytics Workspace.
@@ -74,9 +74,6 @@ func NewAnalyticsWorkspace(ctx *pulumi.Context,
 	name string, args *AnalyticsWorkspaceArgs, opts ...pulumi.ResourceOption) (*AnalyticsWorkspace, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
 	}
 	if args == nil {
 		args = &AnalyticsWorkspaceArgs{}
@@ -107,7 +104,7 @@ type analyticsWorkspaceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The Portal URL for the Log Analytics Workspace.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	PortalUrl *string `pulumi:"portalUrl"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey *string `pulumi:"primarySharedKey"`
@@ -117,7 +114,7 @@ type analyticsWorkspaceState struct {
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey *string `pulumi:"secondarySharedKey"`
-	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
+	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -130,7 +127,7 @@ type AnalyticsWorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The Portal URL for the Log Analytics Workspace.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	PortalUrl pulumi.StringPtrInput
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringPtrInput
@@ -140,7 +137,7 @@ type AnalyticsWorkspaceState struct {
 	RetentionInDays pulumi.IntPtrInput
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey pulumi.StringPtrInput
-	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
+	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -161,8 +158,8 @@ type analyticsWorkspaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
-	Sku string `pulumi:"sku"`
+	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -177,8 +174,8 @@ type AnalyticsWorkspaceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays pulumi.IntPtrInput
-	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
-	Sku pulumi.StringInput
+	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
