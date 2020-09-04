@@ -13,6 +13,9 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
     [OutputType]
     public sealed class ClusterClientCertificateCommonName
     {
+        /// <summary>
+        /// The common or subject name of the certificate.
+        /// </summary>
         public readonly string CommonName;
         /// <summary>
         /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.

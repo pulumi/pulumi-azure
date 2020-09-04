@@ -605,6 +605,7 @@ func (o ClusterCertificateCommonNamesCommonNameArrayOutput) Index(i pulumi.IntIn
 }
 
 type ClusterClientCertificateCommonName struct {
+	// The common or subject name of the certificate.
 	CommonName string `pulumi:"commonName"`
 	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
 	IsAdmin          bool    `pulumi:"isAdmin"`
@@ -623,6 +624,7 @@ type ClusterClientCertificateCommonNameInput interface {
 }
 
 type ClusterClientCertificateCommonNameArgs struct {
+	// The common or subject name of the certificate.
 	CommonName pulumi.StringInput `pulumi:"commonName"`
 	// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
 	IsAdmin          pulumi.BoolInput      `pulumi:"isAdmin"`
@@ -680,6 +682,7 @@ func (o ClusterClientCertificateCommonNameOutput) ToClusterClientCertificateComm
 	return o
 }
 
+// The common or subject name of the certificate.
 func (o ClusterClientCertificateCommonNameOutput) CommonName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterClientCertificateCommonName) string { return v.CommonName }).(pulumi.StringOutput)
 }

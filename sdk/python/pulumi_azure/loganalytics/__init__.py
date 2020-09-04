@@ -6,3 +6,4 @@
 from .data_source_windows_event import *
 from .data_source_windows_performance_counter import *
 from .linked_service import *
+from .saved_search import *

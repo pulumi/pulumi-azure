@@ -24,7 +24,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages a Hostname Binding within an App Service.
+        Manages a Hostname Binding within an App Service (or Function App).
 
         ## Example Usage
 

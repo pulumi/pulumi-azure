@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly string Name;
         public readonly string Product;
         /// <summary>
-        /// Specifies the publisher of the image used to create the virtual machines.
+        /// Specifies the Publisher of the Extension.
         /// </summary>
         public readonly string Publisher;
 

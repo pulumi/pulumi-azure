@@ -12,6 +12,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class ApiOauth2AuthorizationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
+        /// </summary>
         [Input("authorizationServerName", required: true)]
         public Input<string> AuthorizationServerName { get; set; } = null!;
 

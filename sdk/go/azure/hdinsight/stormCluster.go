@@ -10,6 +10,92 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Manages a HDInsight Storm Cluster.
+//
+// !> **Note:** [HDInsight 3.6 is deprecated and will be retired on 2020-12-31 - HDInsight 4.0 no longer supports Storm Clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#available-versions) - as such this resource is deprecated and will be removed in the next major version of the Provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/hdinsight"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+// 			StorageAccountName:  exampleAccount.Name,
+// 			ContainerAccessType: pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hdinsight.NewStormCluster(ctx, "exampleStormCluster", &hdinsight.StormClusterArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ClusterVersion:    pulumi.String("3.6"),
+// 			Tier:              pulumi.String("Standard"),
+// 			ComponentVersion: &hdinsight.StormClusterComponentVersionArgs{
+// 				Storm: pulumi.String("1.1"),
+// 			},
+// 			Gateway: &hdinsight.StormClusterGatewayArgs{
+// 				Enabled:  pulumi.Bool(true),
+// 				Username: pulumi.String("acctestusrgw"),
+// 				Password: pulumi.String("Password123!"),
+// 			},
+// 			StorageAccounts: hdinsight.StormClusterStorageAccountArray{
+// 				&hdinsight.StormClusterStorageAccountArgs{
+// 					StorageContainerId: exampleContainer.ID(),
+// 					StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+// 					IsDefault:          pulumi.Bool(true),
+// 				},
+// 			},
+// 			Roles: &hdinsight.StormClusterRolesArgs{
+// 				HeadNode: &hdinsight.StormClusterRolesHeadNodeArgs{
+// 					VmSize:   pulumi.String("Standard_A3"),
+// 					Username: pulumi.String("acctestusrvm"),
+// 					Password: pulumi.String("AccTestvdSC4daf986!"),
+// 				},
+// 				WorkerNode: &hdinsight.StormClusterRolesWorkerNodeArgs{
+// 					VmSize:              pulumi.String("Standard_D3_V2"),
+// 					Username:            pulumi.String("acctestusrvm"),
+// 					Password:            pulumi.String("AccTestvdSC4daf986!"),
+// 					TargetInstanceCount: pulumi.Int(3),
+// 				},
+// 				ZookeeperNode: &hdinsight.StormClusterRolesZookeeperNodeArgs{
+// 					VmSize:   pulumi.String("Standard_A4_V2"),
+// 					Username: pulumi.String("acctestusrvm"),
+// 					Password: pulumi.String("AccTestvdSC4daf986!"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type StormCluster struct {
 	pulumi.CustomResourceState
 

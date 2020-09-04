@@ -114,6 +114,9 @@ export namespace apimanagement {
     }
 
     export interface ApiOauth2Authorization {
+        /**
+         * OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
+         */
         authorizationServerName: string;
         /**
          * Operations scope.
@@ -126,6 +129,9 @@ export namespace apimanagement {
          * How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
          */
         bearerTokenSendingMethods?: string[];
+        /**
+         * OpenID Connect provider identifier. The name of an OpenID Connect Provider.
+         */
         openidProviderName: string;
     }
 
@@ -4935,6 +4941,45 @@ export namespace compute {
         writeAcceleratorEnabled?: boolean;
     }
 
+    export interface LinuxVirtualMachineScaleSetExtension {
+        /**
+         * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+         */
+        autoUpgradeMinorVersion?: boolean;
+        /**
+         * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+         */
+        forceUpdateTag?: string;
+        /**
+         * The name for the Virtual Machine Scale Set Extension.
+         */
+        name: string;
+        /**
+         * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+         */
+        protectedSettings?: string;
+        /**
+         * An ordered list of Extension names which this should be provisioned after.
+         */
+        provisionAfterExtensions?: string[];
+        /**
+         * Specifies the Publisher of the Extension.
+         */
+        publisher: string;
+        /**
+         * A JSON String which specifies Settings for the Extension.
+         */
+        settings?: string;
+        /**
+         * Specifies the Type of the Extension.
+         */
+        type: string;
+        /**
+         * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+         */
+        typeHandlerVersion: string;
+    }
+
     export interface LinuxVirtualMachineScaleSetIdentity {
         /**
          * A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
@@ -5092,7 +5137,7 @@ export namespace compute {
         name: string;
         product: string;
         /**
-         * Specifies the publisher of the image used to create the virtual machines.
+         * Specifies the Publisher of the Extension.
          */
         publisher: string;
     }
@@ -6118,6 +6163,45 @@ export namespace compute {
         writeAcceleratorEnabled?: boolean;
     }
 
+    export interface WindowsVirtualMachineScaleSetExtension {
+        /**
+         * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+         */
+        autoUpgradeMinorVersion?: boolean;
+        /**
+         * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+         */
+        forceUpdateTag?: string;
+        /**
+         * The name for the Virtual Machine Scale Set Extension.
+         */
+        name: string;
+        /**
+         * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+         */
+        protectedSettings?: string;
+        /**
+         * An ordered list of Extension names which this should be provisioned after.
+         */
+        provisionAfterExtensions?: string[];
+        /**
+         * Specifies the Publisher of the Extension.
+         */
+        publisher: string;
+        /**
+         * A JSON String which specifies Settings for the Extension.
+         */
+        settings?: string;
+        /**
+         * Specifies the Type of the Extension.
+         */
+        type: string;
+        /**
+         * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+         */
+        typeHandlerVersion: string;
+    }
+
     export interface WindowsVirtualMachineScaleSetIdentity {
         /**
          * A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
@@ -6275,7 +6359,7 @@ export namespace compute {
         name: string;
         product: string;
         /**
-         * Specifies the publisher of the image used to create the virtual machines.
+         * Specifies the Publisher of the Extension.
          */
         publisher: string;
     }
@@ -14649,6 +14733,10 @@ export namespace network {
          */
         pickHostNameFromBackendHttpSettings?: boolean;
         /**
+         * Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+         */
+        port?: number;
+        /**
          * The Protocol used for this Probe. Possible values are `Http` and `Https`.
          */
         protocol: string;
@@ -17076,6 +17164,9 @@ export namespace servicefabric {
     }
 
     export interface ClusterClientCertificateCommonName {
+        /**
+         * The common or subject name of the certificate.
+         */
         commonName: string;
         /**
          * Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.

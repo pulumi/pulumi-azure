@@ -10,6 +10,95 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Manages a HDInsight ML Services Cluster.
+//
+// !> **Note:** [HDInsight 3.6 is deprecated and will be retired on 2020-12-31 - HDInsight 4.0 no longer supports ML Services Clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#available-versions) - as such this resource is deprecated and will be removed in the next major version of the Provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/hdinsight"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+// 			StorageAccountName:  exampleAccount.Name,
+// 			ContainerAccessType: pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = hdinsight.NewMLServicesCluster(ctx, "exampleMLServicesCluster", &hdinsight.MLServicesClusterArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 			ClusterVersion:    pulumi.String("3.6"),
+// 			Tier:              pulumi.String("Standard"),
+// 			Rstudio:           pulumi.Bool(true),
+// 			Gateway: &hdinsight.MLServicesClusterGatewayArgs{
+// 				Enabled:  pulumi.Bool(true),
+// 				Username: pulumi.String("acctestusrgw"),
+// 				Password: pulumi.String("Password123!"),
+// 			},
+// 			StorageAccounts: hdinsight.MLServicesClusterStorageAccountArray{
+// 				&hdinsight.MLServicesClusterStorageAccountArgs{
+// 					StorageContainerId: exampleContainer.ID(),
+// 					StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+// 					IsDefault:          pulumi.Bool(true),
+// 				},
+// 			},
+// 			Roles: &hdinsight.MLServicesClusterRolesArgs{
+// 				HeadNode: &hdinsight.MLServicesClusterRolesHeadNodeArgs{
+// 					VmSize:   pulumi.String("Standard_D3_v2"),
+// 					Username: pulumi.String("acctestusrvm"),
+// 					Password: pulumi.String("AccTestvdSC4daf986!"),
+// 				},
+// 				WorkerNode: &hdinsight.MLServicesClusterRolesWorkerNodeArgs{
+// 					VmSize:              pulumi.String("Standard_D4_V2"),
+// 					Username:            pulumi.String("acctestusrvm"),
+// 					Password:            pulumi.String("AccTestvdSC4daf986!"),
+// 					TargetInstanceCount: pulumi.Int(3),
+// 				},
+// 				ZookeeperNode: &hdinsight.MLServicesClusterRolesZookeeperNodeArgs{
+// 					VmSize:   pulumi.String("Standard_D3_v2"),
+// 					Username: pulumi.String("acctestusrvm"),
+// 					Password: pulumi.String("AccTestvdSC4daf986!"),
+// 				},
+// 				EdgeNode: &hdinsight.MLServicesClusterRolesEdgeNodeArgs{
+// 					VmSize:   pulumi.String("Standard_D3_v2"),
+// 					Username: pulumi.String("acctestusrvm"),
+// 					Password: pulumi.String("AccTestvdSC4daf986!"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type MLServicesCluster struct {
 	pulumi.CustomResourceState
 

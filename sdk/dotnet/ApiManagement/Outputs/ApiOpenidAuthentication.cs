@@ -17,6 +17,9 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
         /// </summary>
         public readonly ImmutableArray<string> BearerTokenSendingMethods;
+        /// <summary>
+        /// OpenID Connect provider identifier. The name of an OpenID Connect Provider.
+        /// </summary>
         public readonly string OpenidProviderName;
 
         [OutputConstructor]

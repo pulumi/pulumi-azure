@@ -52,9 +52,6 @@ namespace Pulumi.Azure.OperationalInsights
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The Portal URL for the Log Analytics Workspace.
-        /// </summary>
         [Output("portalUrl")]
         public Output<string> PortalUrl { get; private set; } = null!;
 
@@ -83,10 +80,10 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> SecondarySharedKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
+        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         /// </summary>
         [Output("sku")]
-        public Output<string> Sku { get; private set; } = null!;
+        public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -171,10 +168,10 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<int>? RetentionInDays { get; set; }
 
         /// <summary>
-        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
+        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         /// </summary>
-        [Input("sku", required: true)]
-        public Input<string> Sku { get; set; } = null!;
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -207,9 +204,6 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The Portal URL for the Log Analytics Workspace.
-        /// </summary>
         [Input("portalUrl")]
         public Input<string>? PortalUrl { get; set; }
 
@@ -238,7 +232,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? SecondarySharedKey { get; set; }
 
         /// <summary>
-        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
+        /// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

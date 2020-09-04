@@ -68,7 +68,8 @@ class FunctionApp(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
-            storage_connection_string=example_account.primary_connection_string)
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
         ```
         ### In A Consumption Plan)
 
@@ -94,7 +95,8 @@ class FunctionApp(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
-            storage_connection_string=example_account.primary_connection_string)
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key)
         ```
         ### Linux)
 
@@ -121,7 +123,8 @@ class FunctionApp(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             app_service_plan_id=example_plan.id,
-            storage_connection_string=example_account.primary_connection_string,
+            storage_account_name=example_account.name,
+            storage_account_access_key=example_account.primary_access_key,
             os_type="linux")
         ```
 

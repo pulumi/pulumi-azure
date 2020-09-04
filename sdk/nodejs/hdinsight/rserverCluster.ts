@@ -6,6 +6,70 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a HDInsight RServer Cluster.
+ *
+ * !> **Note:** [HDInsight 3.6 is deprecated and will be retired on 2020-12-31 - HDInsight 4.0 no longer supports RServer Clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#available-versions) - as such this resource is deprecated and will be removed in the next major version of the Provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleRServerCluster = new azure.hdinsight.RServerCluster("exampleRServerCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterVersion: "3.6",
+ *     tier: "Standard",
+ *     rstudio: true,
+ *     gateway: {
+ *         enabled: true,
+ *         username: "acctestusrgw",
+ *         password: "Password123!",
+ *     },
+ *     storageAccounts: [{
+ *         storageContainerId: exampleContainer.id,
+ *         storageAccountKey: exampleAccount.primaryAccessKey,
+ *         isDefault: true,
+ *     }],
+ *     roles: {
+ *         headNode: {
+ *             vmSize: "Standard_D3_v2",
+ *             username: "acctestusrvm",
+ *             password: "AccTestvdSC4daf986!",
+ *         },
+ *         workerNode: {
+ *             vmSize: "Standard_D4_V2",
+ *             username: "acctestusrvm",
+ *             password: "AccTestvdSC4daf986!",
+ *             targetInstanceCount: 3,
+ *         },
+ *         zookeeperNode: {
+ *             vmSize: "Standard_D3_v2",
+ *             username: "acctestusrvm",
+ *             password: "AccTestvdSC4daf986!",
+ *         },
+ *         edgeNode: {
+ *             vmSize: "Standard_D3_v2",
+ *             username: "acctestusrvm",
+ *             password: "AccTestvdSC4daf986!",
+ *         },
+ *     },
+ * });
+ * ```
+ */
 export class RServerCluster extends pulumi.CustomResource {
     /**
      * Get an existing RServerCluster resource's state with the given name, ID, and optional extra

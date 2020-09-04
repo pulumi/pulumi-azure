@@ -32,7 +32,66 @@ class MLServicesCluster(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a MLServicesCluster resource with the given unique name, props, and options.
+        Manages a HDInsight ML Services Cluster.
+
+        !> **Note:** [HDInsight 3.6 is deprecated and will be retired on 2020-12-31 - HDInsight 4.0 no longer supports ML Services Clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#available-versions) - as such this resource is deprecated and will be removed in the next major version of the Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_ml_services_cluster = azure.hdinsight.MLServicesCluster("exampleMLServicesCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_version="3.6",
+            tier="Standard",
+            rstudio=True,
+            gateway=azure.hdinsight.MLServicesClusterGatewayArgs(
+                enabled=True,
+                username="acctestusrgw",
+                password="Password123!",
+            ),
+            storage_accounts=[azure.hdinsight.MLServicesClusterStorageAccountArgs(
+                storage_container_id=example_container.id,
+                storage_account_key=example_account.primary_access_key,
+                is_default=True,
+            )],
+            roles=azure.hdinsight.MLServicesClusterRolesArgs(
+                head_node=azure.hdinsight.MLServicesClusterRolesHeadNodeArgs(
+                    vm_size="Standard_D3_v2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+                worker_node=azure.hdinsight.MLServicesClusterRolesWorkerNodeArgs(
+                    vm_size="Standard_D4_V2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                    target_instance_count=3,
+                ),
+                zookeeper_node=azure.hdinsight.MLServicesClusterRolesZookeeperNodeArgs(
+                    vm_size="Standard_D3_v2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+                edge_node=azure.hdinsight.MLServicesClusterRolesEdgeNodeArgs(
+                    vm_size="Standard_D3_v2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+            ))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.

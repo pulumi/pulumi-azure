@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Hostname Binding within an App Service.
+// Manages a Hostname Binding within an App Service (or Function App).
 //
 // ## Example Usage
 //

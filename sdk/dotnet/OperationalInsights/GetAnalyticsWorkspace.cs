@@ -75,9 +75,6 @@ namespace Pulumi.Azure.OperationalInsights
         public readonly string Id;
         public readonly string Location;
         public readonly string Name;
-        /// <summary>
-        /// The Portal URL for the Log Analytics Workspace.
-        /// </summary>
         public readonly string PortalUrl;
         /// <summary>
         /// The Primary shared key for the Log Analytics Workspace.

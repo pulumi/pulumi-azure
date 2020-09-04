@@ -5,3 +5,4 @@
 export * from "./dataSourceWindowsEvent";
 export * from "./dataSourceWindowsPerformanceCounter";
 export * from "./linkedService";
+export * from "./savedSearch";

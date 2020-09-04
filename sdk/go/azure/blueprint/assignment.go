@@ -10,6 +10,110 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Manages a Blueprint Assignment resource
+//
+// > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+//
+// > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/blueprint"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleSubscription, err := core.GetSubscription(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDefinition, err := blueprint.GetDefinition(ctx, &blueprint.GetDefinitionArgs{
+// 			Name:    "exampleBlueprint",
+// 			ScopeId: exampleSubscription.Id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		examplePublishedVersion, err := blueprint.GetPublishedVersion(ctx, &blueprint.GetPublishedVersionArgs{
+// 			ScopeId:       exampleDefinition.ScopeId,
+// 			BlueprintName: exampleDefinition.Name,
+// 			Version:       "v1.0.0",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("westeurope"),
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			Location:          exampleResourceGroup.Location,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		operator, err := authorization.NewAssignment(ctx, "operator", &authorization.AssignmentArgs{
+// 			Scope:              pulumi.String(exampleSubscription.Id),
+// 			RoleDefinitionName: pulumi.String("Blueprint Operator"),
+// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		owner, err := authorization.NewAssignment(ctx, "owner", &authorization.AssignmentArgs{
+// 			Scope:              pulumi.String(exampleSubscription.Id),
+// 			RoleDefinitionName: pulumi.String("Owner"),
+// 			PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = blueprint.NewAssignment(ctx, "exampleAssignment", &blueprint.AssignmentArgs{
+// 			TargetSubscriptionId: pulumi.String(exampleSubscription.Id),
+// 			VersionId:            pulumi.String(examplePublishedVersion.Id),
+// 			Location:             exampleResourceGroup.Location,
+// 			LockMode:             pulumi.String("AllResourcesDoNotDelete"),
+// 			LockExcludePrincipals: pulumi.StringArray{
+// 				pulumi.String(current.ObjectId),
+// 			},
+// 			Identity: &blueprint.AssignmentIdentityArgs{
+// 				Type: pulumi.String("UserAssigned"),
+// 				IdentityIds: pulumi.StringArray{
+// 					exampleUserAssignedIdentity.ID(),
+// 				},
+// 			},
+// 			ResourceGroups:  pulumi.String(fmt.Sprintf("%v%v%v%v%v", "    {\n", "      \"ResourceGroup\": {\n", "        \"name\": \"exampleRG-bp\"\n", "      }\n", "    }\n")),
+// 			ParameterValues: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "    {\n", "      \"allowedlocationsforresourcegroups_listOfAllowedLocations\": {\n", "        \"value\": [\"westus\", \"westus2\", \"eastus\", \"centralus\", \"centraluseuap\", \"southcentralus\", \"northcentralus\", \"westcentralus\", \"eastus2\", \"eastus2euap\", \"brazilsouth\", \"brazilus\", \"northeurope\", \"westeurope\", \"eastasia\", \"southeastasia\", \"japanwest\", \"japaneast\", \"koreacentral\", \"koreasouth\", \"indiasouth\", \"indiawest\", \"indiacentral\", \"australiaeast\", \"australiasoutheast\", \"canadacentral\", \"canadaeast\", \"uknorth\", \"uksouth2\", \"uksouth\", \"ukwest\", \"francecentral\", \"francesouth\", \"australiacentral\", \"australiacentral2\", \"uaecentral\", \"uaenorth\", \"southafricanorth\", \"southafricawest\", \"switzerlandnorth\", \"switzerlandwest\", \"germanynorth\", \"germanywestcentral\", \"norwayeast\", \"norwaywest\"]\n", "      }\n", "    }\n")),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			operator,
+// 			owner,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Assignment struct {
 	pulumi.CustomResourceState
 

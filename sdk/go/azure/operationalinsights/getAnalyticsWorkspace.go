@@ -56,7 +56,7 @@ type LookupAnalyticsWorkspaceResult struct {
 	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
-	// The Portal URL for the Log Analytics Workspace.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	PortalUrl string `pulumi:"portalUrl"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey  string `pulumi:"primarySharedKey"`

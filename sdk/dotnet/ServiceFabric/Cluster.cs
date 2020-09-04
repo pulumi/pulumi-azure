@@ -32,7 +32,7 @@ namespace Pulumi.Azure.ServiceFabric
     ///             Location = exampleResourceGroup.Location,
     ///             ReliabilityLevel = "Bronze",
     ///             UpgradeMode = "Manual",
-    ///             ClusterCodeVersion = "6.5.639.9590",
+    ///             ClusterCodeVersion = "7.1.456.959",
     ///             VmImage = "Windows",
     ///             ManagementEndpoint = "https://example:80",
     ///             NodeTypes = 

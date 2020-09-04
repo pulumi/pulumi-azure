@@ -65,6 +65,12 @@ namespace Pulumi.Azure.ApiManagement
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
+        /// Determines whether tracing can be enabled.  Defaults to `true`.
+        /// </summary>
+        [Output("allowTracing")]
+        public Output<bool?> AllowTracing { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiManagementName")]
@@ -159,6 +165,12 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines whether tracing can be enabled.  Defaults to `true`.
+        /// </summary>
+        [Input("allowTracing")]
+        public Input<bool>? AllowTracing { get; set; }
+
+        /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName", required: true)]
@@ -213,6 +225,12 @@ namespace Pulumi.Azure.ApiManagement
 
     public sealed class SubscriptionState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines whether tracing can be enabled.  Defaults to `true`.
+        /// </summary>
+        [Input("allowTracing")]
+        public Input<bool>? AllowTracing { get; set; }
+
         /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         /// </summary>

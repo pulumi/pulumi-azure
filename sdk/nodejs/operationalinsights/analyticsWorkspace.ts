@@ -59,7 +59,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Portal URL for the Log Analytics Workspace.
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
@@ -79,9 +79,9 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondarySharedKey!: pulumi.Output<string>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
      */
-    public readonly sku!: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -118,9 +118,6 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
-                throw new Error("Missing required property 'sku'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -156,7 +153,7 @@ export interface AnalyticsWorkspaceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The Portal URL for the Log Analytics Workspace.
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly portalUrl?: pulumi.Input<string>;
     /**
@@ -176,7 +173,7 @@ export interface AnalyticsWorkspaceState {
      */
     readonly secondarySharedKey?: pulumi.Input<string>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
      */
     readonly sku?: pulumi.Input<string>;
     /**
@@ -210,9 +207,9 @@ export interface AnalyticsWorkspaceArgs {
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
      */
-    readonly sku: pulumi.Input<string>;
+    readonly sku?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

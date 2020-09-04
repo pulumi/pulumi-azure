@@ -12,6 +12,9 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
 
     public sealed class ClusterClientCertificateCommonNameArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The common or subject name of the certificate.
+        /// </summary>
         [Input("commonName", required: true)]
         public Input<string> CommonName { get; set; } = null!;
 

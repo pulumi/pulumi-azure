@@ -424,6 +424,7 @@
         "loganalytics/dataSourceWindowsPerformanceCounter.ts",
         "loganalytics/index.ts",
         "loganalytics/linkedService.ts",
+        "loganalytics/savedSearch.ts",
         "logicapps/actionCustom.ts",
         "logicapps/actionHttp.ts",
         "logicapps/getIntegrationAccount.ts",

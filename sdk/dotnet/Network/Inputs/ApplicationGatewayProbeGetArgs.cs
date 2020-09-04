@@ -61,6 +61,12 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<bool>? PickHostNameFromBackendHttpSettings { get; set; }
 
         /// <summary>
+        /// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
         /// The Protocol used for this Probe. Possible values are `Http` and `Https`.
         /// </summary>
         [Input("protocol", required: true)]

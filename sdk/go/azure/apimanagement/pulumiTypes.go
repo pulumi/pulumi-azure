@@ -330,6 +330,7 @@ func (o ApiImportWsdlSelectorPtrOutput) ServiceName() pulumi.StringPtrOutput {
 }
 
 type ApiOauth2Authorization struct {
+	// OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
 	AuthorizationServerName string `pulumi:"authorizationServerName"`
 	// Operations scope.
 	Scope *string `pulumi:"scope"`
@@ -347,6 +348,7 @@ type ApiOauth2AuthorizationInput interface {
 }
 
 type ApiOauth2AuthorizationArgs struct {
+	// OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
 	AuthorizationServerName pulumi.StringInput `pulumi:"authorizationServerName"`
 	// Operations scope.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
@@ -428,6 +430,8 @@ func (o ApiOauth2AuthorizationOutput) ToApiOauth2AuthorizationPtrOutputWithConte
 		return &v
 	}).(ApiOauth2AuthorizationPtrOutput)
 }
+
+// OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
 func (o ApiOauth2AuthorizationOutput) AuthorizationServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiOauth2Authorization) string { return v.AuthorizationServerName }).(pulumi.StringOutput)
 }
@@ -455,6 +459,7 @@ func (o ApiOauth2AuthorizationPtrOutput) Elem() ApiOauth2AuthorizationOutput {
 	return o.ApplyT(func(v *ApiOauth2Authorization) ApiOauth2Authorization { return *v }).(ApiOauth2AuthorizationOutput)
 }
 
+// OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
 func (o ApiOauth2AuthorizationPtrOutput) AuthorizationServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOauth2Authorization) *string {
 		if v == nil {
@@ -477,7 +482,8 @@ func (o ApiOauth2AuthorizationPtrOutput) Scope() pulumi.StringPtrOutput {
 type ApiOpenidAuthentication struct {
 	// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
 	BearerTokenSendingMethods []string `pulumi:"bearerTokenSendingMethods"`
-	OpenidProviderName        string   `pulumi:"openidProviderName"`
+	// OpenID Connect provider identifier. The name of an OpenID Connect Provider.
+	OpenidProviderName string `pulumi:"openidProviderName"`
 }
 
 // ApiOpenidAuthenticationInput is an input type that accepts ApiOpenidAuthenticationArgs and ApiOpenidAuthenticationOutput values.
@@ -494,7 +500,8 @@ type ApiOpenidAuthenticationInput interface {
 type ApiOpenidAuthenticationArgs struct {
 	// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
 	BearerTokenSendingMethods pulumi.StringArrayInput `pulumi:"bearerTokenSendingMethods"`
-	OpenidProviderName        pulumi.StringInput      `pulumi:"openidProviderName"`
+	// OpenID Connect provider identifier. The name of an OpenID Connect Provider.
+	OpenidProviderName pulumi.StringInput `pulumi:"openidProviderName"`
 }
 
 func (ApiOpenidAuthenticationArgs) ElementType() reflect.Type {
@@ -579,6 +586,7 @@ func (o ApiOpenidAuthenticationOutput) BearerTokenSendingMethods() pulumi.String
 	return o.ApplyT(func(v ApiOpenidAuthentication) []string { return v.BearerTokenSendingMethods }).(pulumi.StringArrayOutput)
 }
 
+// OpenID Connect provider identifier. The name of an OpenID Connect Provider.
 func (o ApiOpenidAuthenticationOutput) OpenidProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiOpenidAuthentication) string { return v.OpenidProviderName }).(pulumi.StringOutput)
 }
@@ -611,6 +619,7 @@ func (o ApiOpenidAuthenticationPtrOutput) BearerTokenSendingMethods() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+// OpenID Connect provider identifier. The name of an OpenID Connect Provider.
 func (o ApiOpenidAuthenticationPtrOutput) OpenidProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOpenidAuthentication) *string {
 		if v == nil {

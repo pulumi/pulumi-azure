@@ -15,6 +15,7 @@ class Subscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_tracing: Optional[pulumi.Input[bool]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
@@ -54,6 +55,7 @@ class Subscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled.  Defaults to `true`.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -79,6 +81,7 @@ class Subscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allow_tracing'] = allow_tracing
             if api_management_name is None:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__['api_management_name'] = api_management_name
@@ -106,6 +109,7 @@ class Subscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            allow_tracing: Optional[pulumi.Input[bool]] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
@@ -122,6 +126,7 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled.  Defaults to `true`.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -134,6 +139,7 @@ class Subscription(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["allow_tracing"] = allow_tracing
         __props__["api_management_name"] = api_management_name
         __props__["display_name"] = display_name
         __props__["primary_key"] = primary_key
@@ -144,6 +150,14 @@ class Subscription(pulumi.CustomResource):
         __props__["subscription_id"] = subscription_id
         __props__["user_id"] = user_id
         return Subscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allowTracing")
+    def allow_tracing(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Determines whether tracing can be enabled.  Defaults to `true`.
+        """
+        return pulumi.get(self, "allow_tracing")
 
     @property
     @pulumi.getter(name="apiManagementName")

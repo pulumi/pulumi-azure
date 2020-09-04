@@ -115,6 +115,9 @@ namespace Pulumi.Azure.HDInsight
         /// The SKU / Tier of this HDInsight Cluster.
         /// </summary>
         public readonly string Tier;
+        /// <summary>
+        /// The minimal supported tls version.
+        /// </summary>
         public readonly string TlsMinVersion;
 
         [OutputConstructor]

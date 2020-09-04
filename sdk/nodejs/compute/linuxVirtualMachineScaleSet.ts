@@ -148,6 +148,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
+     * One or more `extension` blocks as defined below
+     */
+    public readonly extensions!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetExtension[]>;
+    /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
     public readonly healthProbeId!: pulumi.Output<string | undefined>;
@@ -278,6 +282,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["disablePasswordAuthentication"] = state ? state.disablePasswordAuthentication : undefined;
             inputs["doNotRunExtensionsOnOverprovisionedMachines"] = state ? state.doNotRunExtensionsOnOverprovisionedMachines : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            inputs["extensions"] = state ? state.extensions : undefined;
             inputs["healthProbeId"] = state ? state.healthProbeId : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["instances"] = state ? state.instances : undefined;
@@ -338,6 +343,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
             inputs["doNotRunExtensionsOnOverprovisionedMachines"] = args ? args.doNotRunExtensionsOnOverprovisionedMachines : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            inputs["extensions"] = args ? args.extensions : undefined;
             inputs["healthProbeId"] = args ? args.healthProbeId : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["instances"] = args ? args.instances : undefined;
@@ -433,6 +439,10 @@ export interface LinuxVirtualMachineScaleSetState {
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */
     readonly evictionPolicy?: pulumi.Input<string>;
+    /**
+     * One or more `extension` blocks as defined below
+     */
+    readonly extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[]>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
@@ -596,6 +606,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */
     readonly evictionPolicy?: pulumi.Input<string>;
+    /**
+     * One or more `extension` blocks as defined below
+     */
+    readonly extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[]>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */

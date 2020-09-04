@@ -31,6 +31,10 @@ class GetAnalyticsWorkspaceResult:
         pulumi.set(__self__, "name", name)
         if portal_url and not isinstance(portal_url, str):
             raise TypeError("Expected argument 'portal_url' to be a str")
+        if portal_url is not None:
+            warnings.warn("this property has been removed from the API and will be removed in version 3.0 of the provider", DeprecationWarning)
+            pulumi.log.warn("portal_url is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
+
         pulumi.set(__self__, "portal_url", portal_url)
         if primary_shared_key and not isinstance(primary_shared_key, str):
             raise TypeError("Expected argument 'primary_shared_key' to be a str")
@@ -75,9 +79,6 @@ class GetAnalyticsWorkspaceResult:
     @property
     @pulumi.getter(name="portalUrl")
     def portal_url(self) -> str:
-        """
-        The Portal URL for the Log Analytics Workspace.
-        """
         return pulumi.get(self, "portal_url")
 
     @property

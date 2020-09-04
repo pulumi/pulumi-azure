@@ -183,6 +183,7 @@ class ClusterClientCertificateCommonName(dict):
                  is_admin: bool,
                  issuer_thumbprint: Optional[str] = None):
         """
+        :param str common_name: The common or subject name of the certificate.
         :param bool is_admin: Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
         """
         pulumi.set(__self__, "common_name", common_name)
@@ -193,6 +194,9 @@ class ClusterClientCertificateCommonName(dict):
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> str:
+        """
+        The common or subject name of the certificate.
+        """
         return pulumi.get(self, "common_name")
 
     @property
