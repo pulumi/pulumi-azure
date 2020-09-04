@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.26.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 3.20.0 (2020-09-04)
+* Upgrade to v2.26.0 of the AzureRM Terraform Provider
 
 ## 3.19.0 (2020-08-28)
 * Relax naming conventions on `compute.LinuxVirtualMachine` and `compute.LinuxVirtualMachineScaleSet` to allow resource
