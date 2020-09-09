@@ -896,7 +896,21 @@ func Provider() tfbridge.ProviderInfo {
 				}},
 
 			// CosmosDB
-			"azurerm_cosmosdb_account":            {Tok: azureResource(azureCosmosDB, "Account")},
+			"azurerm_cosmosdb_account": {
+				Tok: azureResource(azureCosmosDB, "Account"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Max length of a Cosmos DB account name is 44.
+					// Source: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-manage-database-account#create-database-account-via-portal
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    44,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
+				},
+			},
 			"azurerm_cosmosdb_cassandra_keyspace": {Tok: azureResource(azureCosmosDB, "CassandraKeyspace")},
 			"azurerm_cosmosdb_mongo_collection":   {Tok: azureResource(azureCosmosDB, "MongoCollection")},
 			"azurerm_cosmosdb_mongo_database":     {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
