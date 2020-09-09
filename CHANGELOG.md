@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Relax naming conventions on `cosmosdb.Account` to allow resource names to be up to 44 characters in length
 
 ---
 
