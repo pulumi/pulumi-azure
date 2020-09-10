@@ -35,6 +35,10 @@ namespace Pulumi.Azure.AppPlatform
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ServiceName = exampleSpringCloudService.Name,
+    ///             Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
     ///         });
     ///     }
     /// 
@@ -43,6 +47,12 @@ namespace Pulumi.Azure.AppPlatform
     /// </summary>
     public partial class SpringCloudApp : Pulumi.CustomResource
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.SpringCloudAppIdentity?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         /// </summary>
@@ -108,6 +118,12 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudAppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.SpringCloudAppIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -132,6 +148,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudAppState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.SpringCloudAppIdentityGetArgs>? Identity { get; set; }
+
         /// <summary>
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         /// </summary>

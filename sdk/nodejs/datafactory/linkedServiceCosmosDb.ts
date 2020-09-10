@@ -38,7 +38,7 @@ export class LinkedServiceCosmosDb extends pulumi.CustomResource {
     }
 
     /**
-     * The endpoint of he Azure CosmosDB account. Required if `connectionString` is unspecified.
+     * The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
      */
     public readonly accountEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -147,7 +147,7 @@ export class LinkedServiceCosmosDb extends pulumi.CustomResource {
  */
 export interface LinkedServiceCosmosDbState {
     /**
-     * The endpoint of he Azure CosmosDB account. Required if `connectionString` is unspecified.
+     * The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
      */
     readonly accountEndpoint?: pulumi.Input<string>;
     /**
@@ -201,7 +201,7 @@ export interface LinkedServiceCosmosDbState {
  */
 export interface LinkedServiceCosmosDbArgs {
     /**
-     * The endpoint of he Azure CosmosDB account. Required if `connectionString` is unspecified.
+     * The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
      */
     readonly accountEndpoint?: pulumi.Input<string>;
     /**

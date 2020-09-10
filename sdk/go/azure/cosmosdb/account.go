@@ -47,6 +47,17 @@ import (
 // 			OfferType:               pulumi.String("Standard"),
 // 			Kind:                    pulumi.String("GlobalDocumentDB"),
 // 			EnableAutomaticFailover: pulumi.Bool(true),
+// 			Capabilities: cosmosdb.AccountCapabilityArray{
+// 				&cosmosdb.AccountCapabilityArgs{
+// 					Name: pulumi.String("EnableAggregationPipeline"),
+// 				},
+// 				&cosmosdb.AccountCapabilityArgs{
+// 					Name: pulumi.String("mongoEnableDocLevelTTL"),
+// 				},
+// 				&cosmosdb.AccountCapabilityArgs{
+// 					Name: pulumi.String("MongoDBv3.4"),
+// 				},
+// 			},
 // 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 // 				ConsistencyLevel:     pulumi.String("BoundedStaleness"),
 // 				MaxIntervalInSeconds: pulumi.Int(10),

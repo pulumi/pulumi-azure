@@ -95,7 +95,7 @@ namespace Pulumi.Azure.MSSql
         /// A `extended_auditing_policy` block as defined below.
         /// </summary>
         [Output("extendedAuditingPolicy")]
-        public Output<Outputs.ServerExtendedAuditingPolicy?> ExtendedAuditingPolicy { get; private set; } = null!;
+        public Output<Outputs.ServerExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)

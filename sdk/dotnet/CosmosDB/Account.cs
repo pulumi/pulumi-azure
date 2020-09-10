@@ -39,6 +39,21 @@ namespace Pulumi.Azure.CosmosDB
     ///             OfferType = "Standard",
     ///             Kind = "GlobalDocumentDB",
     ///             EnableAutomaticFailover = true,
+    ///             Capabilities = 
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///                 {
+    ///                     Name = "EnableAggregationPipeline",
+    ///                 },
+    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///                 {
+    ///                     Name = "mongoEnableDocLevelTTL",
+    ///                 },
+    ///                 new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///                 {
+    ///                     Name = "MongoDBv3.4",
+    ///                 },
+    ///             },
     ///             ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///             {
     ///                 ConsistencyLevel = "BoundedStaleness",

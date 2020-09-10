@@ -16,6 +16,7 @@ from . import (
     appinsights,
     appplatform,
     appservice,
+    attestation,
     authorization,
     automation,
     backup,

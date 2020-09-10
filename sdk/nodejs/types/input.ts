@@ -818,6 +818,21 @@ export namespace appconfiguration {
 }
 
 export namespace appplatform {
+    export interface SpringCloudAppIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface SpringCloudServiceConfigServerGitSetting {
         /**
          * A `httpBasicAuth` block as defined below.
@@ -13141,7 +13156,7 @@ export namespace network {
          */
         description?: pulumi.Input<string>;
         /**
-         * A list of destination IP addresses, IP ranges, or FQDNs.
+         * A list of destination IP addresses and/or IP ranges.
          */
         destinationAddresses: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -13714,6 +13729,25 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfiguration {
         /**
+         * The client id of the Azure VPN application.
+         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadAudience?: pulumi.Input<string>;
+        /**
+         * The STS url for your tenant
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadIssuer?: pulumi.Input<string>;
+        /**
+         * AzureAD Tenant URL
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadTenant?: pulumi.Input<string>;
+        /**
          * The address space out of which ip addresses for
          * vpn clients will be taken. You can provide more than one address space, e.g.
          * in CIDR notation.
@@ -13721,30 +13755,36 @@ export namespace network {
         addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The address of the Radius server.
-         * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
          */
         radiusServerAddress?: pulumi.Input<string>;
         /**
          * The secret used by the Radius server.
-         * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
          */
         radiusServerSecret?: pulumi.Input<string>;
         /**
          * One or more `revokedCertificate` blocks which
          * are defined below.
-         * This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         revokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate>[]>;
         /**
          * One or more `rootCertificate` blocks which are
          * defined below. These root certificates are used to sign the client certificate
          * used by the VPN clients to connect to the gateway.
-         * This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         rootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificate>[]>;
         /**
          * List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+         * Values `SSTP` and `IkeV2` are incompatible with the use of
+         * `aadTenant`, `aadAudience` and `aadIssuer`.
          */
         vpnClientProtocols?: pulumi.Input<pulumi.Input<string>[]>;
     }

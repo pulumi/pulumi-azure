@@ -106,9 +106,6 @@ export class Definition extends pulumi.CustomResource {
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if (!args || args.assignableScopes === undefined) {
-                throw new Error("Missing required property 'assignableScopes'");
-            }
             if (!args || args.permissions === undefined) {
                 throw new Error("Missing required property 'permissions'");
             }
@@ -170,7 +167,7 @@ export interface DefinitionArgs {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      */
-    readonly assignableScopes: pulumi.Input<pulumi.Input<string>[]>;
+    readonly assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A description of the Role Definition.
      */

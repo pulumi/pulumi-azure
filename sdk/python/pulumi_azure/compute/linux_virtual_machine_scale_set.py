@@ -29,6 +29,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  data_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
+                 encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
@@ -131,6 +132,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
@@ -190,6 +192,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             __props__['data_disks'] = data_disks
             __props__['disable_password_authentication'] = disable_password_authentication
             __props__['do_not_run_extensions_on_overprovisioned_machines'] = do_not_run_extensions_on_overprovisioned_machines
+            __props__['encryption_at_host_enabled'] = encryption_at_host_enabled
             __props__['eviction_policy'] = eviction_policy
             __props__['extensions'] = extensions
             __props__['health_probe_id'] = health_probe_id
@@ -251,6 +254,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             data_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
             disable_password_authentication: Optional[pulumi.Input[bool]] = None,
             do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
+            encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
@@ -299,6 +303,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
@@ -344,6 +349,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         __props__["data_disks"] = data_disks
         __props__["disable_password_authentication"] = disable_password_authentication
         __props__["do_not_run_extensions_on_overprovisioned_machines"] = do_not_run_extensions_on_overprovisioned_machines
+        __props__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__["eviction_policy"] = eviction_policy
         __props__["extensions"] = extensions
         __props__["health_probe_id"] = health_probe_id
@@ -470,6 +476,14 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_machines")
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
 
     @property
     @pulumi.getter(name="evictionPolicy")

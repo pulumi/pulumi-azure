@@ -74,7 +74,9 @@ type SqlServer struct {
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrOutput `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
-	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrOutput `pulumi:"extendedAuditingPolicy"`
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
+	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyOutput `pulumi:"extendedAuditingPolicy"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// An `identity` block as defined below.
@@ -138,6 +140,8 @@ type sqlServerState struct {
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy *SqlServerExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
@@ -163,6 +167,8 @@ type SqlServerState struct {
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrInput
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName pulumi.StringPtrInput
@@ -192,6 +198,8 @@ type sqlServerArgs struct {
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
 	// A `extendedAuditingPolicy` block as defined below.
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy *SqlServerExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// An `identity` block as defined below.
 	Identity *SqlServerIdentity `pulumi:"identity"`
@@ -216,6 +224,8 @@ type SqlServerArgs struct {
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy SqlServerExtendedAuditingPolicyPtrInput
 	// An `identity` block as defined below.
 	Identity SqlServerIdentityPtrInput

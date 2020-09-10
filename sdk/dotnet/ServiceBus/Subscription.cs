@@ -63,6 +63,12 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        /// </summary>
+        [Output("deadLetteringOnFilterEvaluationError")]
+        public Output<bool?> DeadLetteringOnFilterEvaluationError { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         /// </summary>
         [Output("deadLetteringOnMessageExpiration")]
@@ -197,6 +203,12 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
+        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        /// </summary>
+        [Input("deadLetteringOnFilterEvaluationError")]
+        public Input<bool>? DeadLetteringOnFilterEvaluationError { get; set; }
+
+        /// <summary>
         /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         /// </summary>
         [Input("deadLetteringOnMessageExpiration")]
@@ -286,6 +298,12 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        /// <summary>
+        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        /// </summary>
+        [Input("deadLetteringOnFilterEvaluationError")]
+        public Input<bool>? DeadLetteringOnFilterEvaluationError { get; set; }
 
         /// <summary>
         /// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.

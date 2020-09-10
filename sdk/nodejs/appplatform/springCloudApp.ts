@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -21,6 +23,9 @@ import * as utilities from "../utilities";
  * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     serviceName: exampleSpringCloudService.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  * });
  * ```
  */
@@ -53,6 +58,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
     }
 
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.appplatform.SpringCloudAppIdentity | undefined>;
+    /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -77,6 +86,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SpringCloudAppState | undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serviceName"] = state ? state.serviceName : undefined;
@@ -88,6 +98,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
@@ -108,6 +119,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
  */
 export interface SpringCloudAppState {
     /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity>;
+    /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -125,6 +140,10 @@ export interface SpringCloudAppState {
  * The set of arguments for constructing a SpringCloudApp resource.
  */
 export interface SpringCloudAppArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.appplatform.SpringCloudAppIdentity>;
     /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */

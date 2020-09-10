@@ -41,6 +41,9 @@ import (
 // 		_, err = appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ServiceName:       exampleSpringCloudService.Name,
+// 			Identity: &appplatform.SpringCloudAppIdentityArgs{
+// 				Type: pulumi.String("SystemAssigned"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -52,6 +55,8 @@ import (
 type SpringCloudApp struct {
 	pulumi.CustomResourceState
 
+	// An `identity` block as defined below.
+	Identity SpringCloudAppIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -94,6 +99,8 @@ func GetSpringCloudApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudApp resources.
 type springCloudAppState struct {
+	// An `identity` block as defined below.
+	Identity *SpringCloudAppIdentity `pulumi:"identity"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -103,6 +110,8 @@ type springCloudAppState struct {
 }
 
 type SpringCloudAppState struct {
+	// An `identity` block as defined below.
+	Identity SpringCloudAppIdentityPtrInput
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -116,6 +125,8 @@ func (SpringCloudAppState) ElementType() reflect.Type {
 }
 
 type springCloudAppArgs struct {
+	// An `identity` block as defined below.
+	Identity *SpringCloudAppIdentity `pulumi:"identity"`
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
@@ -126,6 +137,8 @@ type springCloudAppArgs struct {
 
 // The set of arguments for constructing a SpringCloudApp resource.
 type SpringCloudAppArgs struct {
+	// An `identity` block as defined below.
+	Identity SpringCloudAppIdentityPtrInput
 	// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.

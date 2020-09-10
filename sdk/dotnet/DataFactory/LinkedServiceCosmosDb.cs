@@ -17,7 +17,7 @@ namespace Pulumi.Azure.DataFactory
     public partial class LinkedServiceCosmosDb : Pulumi.CustomResource
     {
         /// <summary>
-        /// The endpoint of he Azure CosmosDB account. Required if `connection_string` is unspecified.
+        /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         /// </summary>
         [Output("accountEndpoint")]
         public Output<string?> AccountEndpoint { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class LinkedServiceCosmosDbArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The endpoint of he Azure CosmosDB account. Required if `connection_string` is unspecified.
+        /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         /// </summary>
         [Input("accountEndpoint")]
         public Input<string>? AccountEndpoint { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class LinkedServiceCosmosDbState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The endpoint of he Azure CosmosDB account. Required if `connection_string` is unspecified.
+        /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         /// </summary>
         [Input("accountEndpoint")]
         public Input<string>? AccountEndpoint { get; set; }

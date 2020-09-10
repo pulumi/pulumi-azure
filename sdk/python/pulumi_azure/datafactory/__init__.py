@@ -18,6 +18,7 @@ from .integration_runtime_self_hosted import *
 from .linked_service_azure_blob_storage import *
 from .linked_service_azure_file_storage import *
 from .linked_service_azure_function import *
+from .linked_service_azure_sql_database import *
 from .linked_service_cosmos_db import *
 from .linked_service_data_lake_storage_gen2 import *
 from .linked_service_key_vault import *

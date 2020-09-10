@@ -144,6 +144,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly disablePasswordAuthentication!: pulumi.Output<boolean | undefined>;
     /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
@@ -263,6 +267,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["customData"] = state ? state.customData : undefined;
             inputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
             inputs["disablePasswordAuthentication"] = state ? state.disablePasswordAuthentication : undefined;
+            inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -315,6 +320,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["customData"] = args ? args.customData : undefined;
             inputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
             inputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
+            inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -399,6 +405,10 @@ export interface LinuxVirtualMachineState {
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      */
     readonly disablePasswordAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
@@ -545,6 +555,10 @@ export interface LinuxVirtualMachineArgs {
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      */
     readonly disablePasswordAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */

@@ -6,6 +6,7 @@
 from .backend_address_pool import *
 from .get_backend_address_pool import *
 from .get_lb import *
+from .get_lb_rule import *
 from .load_balancer import *
 from .nat_pool import *
 from .nat_rule import *

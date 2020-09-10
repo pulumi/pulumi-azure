@@ -12,6 +12,8 @@ import (
 
 // Manages a MS SQL Database.
 //
+// > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
+//
 // ## Example Usage
 //
 // ```go
@@ -91,7 +93,9 @@ type Database struct {
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrOutput `pulumi:"elasticPoolId"`
 	// A `extendedAuditingPolicy` block as defined below.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrOutput `pulumi:"extendedAuditingPolicy"`
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypeOutput `pulumi:"extendedAuditingPolicy"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// The max size of the database in gigabytes.
@@ -162,7 +166,9 @@ type databaseState struct {
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// A `extendedAuditingPolicy` block as defined below.
-	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
+	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicyType `pulumi:"extendedAuditingPolicy"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The max size of the database in gigabytes.
@@ -203,7 +209,9 @@ type DatabaseState struct {
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypePtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// The max size of the database in gigabytes.
@@ -248,7 +256,9 @@ type databaseArgs struct {
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// A `extendedAuditingPolicy` block as defined below.
-	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
+	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicyType `pulumi:"extendedAuditingPolicy"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The max size of the database in gigabytes.
@@ -290,7 +300,9 @@ type DatabaseArgs struct {
 	// Specifies the ID of the elastic pool containing this database.
 	ElasticPoolId pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypePtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// The max size of the database in gigabytes.
