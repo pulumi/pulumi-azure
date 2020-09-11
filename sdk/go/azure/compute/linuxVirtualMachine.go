@@ -46,6 +46,8 @@ type LinuxVirtualMachine struct {
 	DedicatedHostId pulumi.StringPtrOutput `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
@@ -161,6 +163,8 @@ type linuxVirtualMachineState struct {
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
@@ -234,6 +238,8 @@ type LinuxVirtualMachineState struct {
 	DedicatedHostId pulumi.StringPtrInput
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -311,6 +317,8 @@ type linuxVirtualMachineArgs struct {
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
@@ -375,6 +383,8 @@ type LinuxVirtualMachineArgs struct {
 	DedicatedHostId pulumi.StringPtrInput
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// An `identity` block as defined below.

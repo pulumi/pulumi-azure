@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Role
 
     public sealed class DefinitionArgs : Pulumi.ResourceArgs
     {
-        [Input("assignableScopes", required: true)]
+        [Input("assignableScopes")]
         private InputList<string>? _assignableScopes;
 
         /// <summary>

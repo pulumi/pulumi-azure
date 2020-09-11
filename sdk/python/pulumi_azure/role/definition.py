@@ -77,8 +77,6 @@ class Definition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assignable_scopes is None:
-                raise TypeError("Missing required property 'assignable_scopes'")
             __props__['assignable_scopes'] = assignable_scopes
             __props__['description'] = description
             __props__['name'] = name

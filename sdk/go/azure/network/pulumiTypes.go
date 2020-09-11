@@ -5477,7 +5477,7 @@ func (o FirewallNatRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) Firew
 type FirewallNetworkRuleCollectionRule struct {
 	// Specifies a description for the rule.
 	Description *string `pulumi:"description"`
-	// A list of destination IP addresses, IP ranges, or FQDNs.
+	// A list of destination IP addresses and/or IP ranges.
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// A list of destination ports.
 	DestinationPorts []string `pulumi:"destinationPorts"`
@@ -5503,7 +5503,7 @@ type FirewallNetworkRuleCollectionRuleInput interface {
 type FirewallNetworkRuleCollectionRuleArgs struct {
 	// Specifies a description for the rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// A list of destination IP addresses, IP ranges, or FQDNs.
+	// A list of destination IP addresses and/or IP ranges.
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// A list of destination ports.
 	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
@@ -5571,7 +5571,7 @@ func (o FirewallNetworkRuleCollectionRuleOutput) Description() pulumi.StringPtrO
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of destination IP addresses, IP ranges, or FQDNs.
+// A list of destination IP addresses and/or IP ranges.
 func (o FirewallNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
 }
@@ -10258,27 +10258,46 @@ func (o VirtualNetworkGatewayIpConfigurationArrayOutput) Index(i pulumi.IntInput
 }
 
 type VirtualNetworkGatewayVpnClientConfiguration struct {
+	// The client id of the Azure VPN application.
+	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadAudience *string `pulumi:"aadAudience"`
+	// The STS url for your tenant
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadIssuer *string `pulumi:"aadIssuer"`
+	// AzureAD Tenant URL
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadTenant *string `pulumi:"aadTenant"`
 	// The address space out of which ip addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The address of the Radius server.
-	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
-	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
 	// One or more `revokedCertificate` blocks which
 	// are defined below.
-	// This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RevokedCertificates []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate `pulumi:"revokedCertificates"`
 	// One or more `rootCertificate` blocks which are
 	// defined below. These root certificates are used to sign the client certificate
 	// used by the VPN clients to connect to the gateway.
-	// This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RootCertificates []VirtualNetworkGatewayVpnClientConfigurationRootCertificate `pulumi:"rootCertificates"`
 	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+	// Values `SSTP` and `IkeV2` are incompatible with the use of
+	// `aadTenant`, `aadAudience` and `aadIssuer`.
 	VpnClientProtocols []string `pulumi:"vpnClientProtocols"`
 }
 
@@ -10294,27 +10313,46 @@ type VirtualNetworkGatewayVpnClientConfigurationInput interface {
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationArgs struct {
+	// The client id of the Azure VPN application.
+	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadAudience pulumi.StringPtrInput `pulumi:"aadAudience"`
+	// The STS url for your tenant
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadIssuer pulumi.StringPtrInput `pulumi:"aadIssuer"`
+	// AzureAD Tenant URL
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadTenant pulumi.StringPtrInput `pulumi:"aadTenant"`
 	// The address space out of which ip addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
 	// The address of the Radius server.
-	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerAddress pulumi.StringPtrInput `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
-	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerSecret pulumi.StringPtrInput `pulumi:"radiusServerSecret"`
 	// One or more `revokedCertificate` blocks which
 	// are defined below.
-	// This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RevokedCertificates VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput `pulumi:"revokedCertificates"`
 	// One or more `rootCertificate` blocks which are
 	// defined below. These root certificates are used to sign the client certificate
 	// used by the VPN clients to connect to the gateway.
-	// This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RootCertificates VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput `pulumi:"rootCertificates"`
 	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+	// Values `SSTP` and `IkeV2` are incompatible with the use of
+	// `aadTenant`, `aadAudience` and `aadIssuer`.
 	VpnClientProtocols pulumi.StringArrayInput `pulumi:"vpnClientProtocols"`
 }
 
@@ -10395,6 +10433,28 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) ToVirtualNetworkGatew
 	}).(VirtualNetworkGatewayVpnClientConfigurationPtrOutput)
 }
 
+// The client id of the Azure VPN application.
+// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AadAudience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.AadAudience }).(pulumi.StringPtrOutput)
+}
+
+// The STS url for your tenant
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AadIssuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.AadIssuer }).(pulumi.StringPtrOutput)
+}
+
+// AzureAD Tenant URL
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AadTenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.AadTenant }).(pulumi.StringPtrOutput)
+}
+
 // The address space out of which ip addresses for
 // vpn clients will be taken. You can provide more than one address space, e.g.
 // in CIDR notation.
@@ -10403,20 +10463,23 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AddressSpaces() pulum
 }
 
 // The address of the Radius server.
-// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerAddress }).(pulumi.StringPtrOutput)
 }
 
 // The secret used by the Radius server.
-// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerSecret }).(pulumi.StringPtrOutput)
 }
 
 // One or more `revokedCertificate` blocks which
 // are defined below.
-// This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
 		return v.RevokedCertificates
@@ -10426,7 +10489,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RevokedCertificates()
 // One or more `rootCertificate` blocks which are
 // defined below. These root certificates are used to sign the client certificate
 // used by the VPN clients to connect to the gateway.
-// This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates() VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		return v.RootCertificates
@@ -10435,6 +10499,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates() Vi
 
 // List of the protocols supported by the vpn client.
 // The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+// Values `SSTP` and `IkeV2` are incompatible with the use of
+// `aadTenant`, `aadAudience` and `aadIssuer`.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) VpnClientProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []string { return v.VpnClientProtocols }).(pulumi.StringArrayOutput)
 }
@@ -10459,6 +10525,43 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) Elem() VirtualNetw
 	}).(VirtualNetworkGatewayVpnClientConfigurationOutput)
 }
 
+// The client id of the Azure VPN application.
+// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadAudience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadAudience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The STS url for your tenant
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadIssuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadIssuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// AzureAD Tenant URL
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AadTenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadTenant
+	}).(pulumi.StringPtrOutput)
+}
+
 // The address space out of which ip addresses for
 // vpn clients will be taken. You can provide more than one address space, e.g.
 // in CIDR notation.
@@ -10472,7 +10575,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AddressSpaces() pu
 }
 
 // The address of the Radius server.
-// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
 		if v == nil {
@@ -10483,7 +10587,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerAddres
 }
 
 // The secret used by the Radius server.
-// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
 		if v == nil {
@@ -10495,7 +10600,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerSecret
 
 // One or more `revokedCertificate` blocks which
 // are defined below.
-// This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
 		if v == nil {
@@ -10508,7 +10614,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificate
 // One or more `rootCertificate` blocks which are
 // defined below. These root certificates are used to sign the client certificate
 // used by the VPN clients to connect to the gateway.
-// This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates() VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		if v == nil {
@@ -10520,6 +10627,8 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates()
 
 // List of the protocols supported by the vpn client.
 // The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+// Values `SSTP` and `IkeV2` are incompatible with the use of
+// `aadTenant`, `aadAudience` and `aadIssuer`.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnClientProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []string {
 		if v == nil {
@@ -13729,22 +13838,41 @@ func (o GetVirtualNetworkGatewayIpConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetVirtualNetworkGatewayVpnClientConfiguration struct {
+	// The client id of the Azure VPN application.
+	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadAudience string `pulumi:"aadAudience"`
+	// The STS url for your tenant
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadIssuer string `pulumi:"aadIssuer"`
+	// AzureAD Tenant URL
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadTenant string `pulumi:"aadTenant"`
 	// The address space out of which ip addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The address of the Radius server.
-	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerAddress string `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
-	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerSecret string `pulumi:"radiusServerSecret"`
 	// One or more `revokedCertificate` blocks which
 	// are defined below.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RevokedCertificates []GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate `pulumi:"revokedCertificates"`
 	// One or more `rootCertificate` blocks which are
 	// defined below. These root certificates are used to sign the client certificate
 	// used by the VPN clients to connect to the gateway.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RootCertificates []GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate `pulumi:"rootCertificates"`
 	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -13763,22 +13891,41 @@ type GetVirtualNetworkGatewayVpnClientConfigurationInput interface {
 }
 
 type GetVirtualNetworkGatewayVpnClientConfigurationArgs struct {
+	// The client id of the Azure VPN application.
+	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadAudience pulumi.StringInput `pulumi:"aadAudience"`
+	// The STS url for your tenant
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadIssuer pulumi.StringInput `pulumi:"aadIssuer"`
+	// AzureAD Tenant URL
+	// This setting is incompatible with the use of
+	// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+	AadTenant pulumi.StringInput `pulumi:"aadTenant"`
 	// The address space out of which ip addresses for
 	// vpn clients will be taken. You can provide more than one address space, e.g.
 	// in CIDR notation.
 	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
 	// The address of the Radius server.
-	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerAddress pulumi.StringInput `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
-	// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 	RadiusServerSecret pulumi.StringInput `pulumi:"radiusServerSecret"`
 	// One or more `revokedCertificate` blocks which
 	// are defined below.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RevokedCertificates GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput `pulumi:"revokedCertificates"`
 	// One or more `rootCertificate` blocks which are
 	// defined below. These root certificates are used to sign the client certificate
 	// used by the VPN clients to connect to the gateway.
+	// This setting is incompatible with the use of
+	// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 	RootCertificates GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput `pulumi:"rootCertificates"`
 	// List of the protocols supported by the vpn client.
 	// The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -13836,6 +13983,28 @@ func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) ToGetVirtualNetwor
 	return o
 }
 
+// The client id of the Azure VPN application.
+// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) AadAudience() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnClientConfiguration) string { return v.AadAudience }).(pulumi.StringOutput)
+}
+
+// The STS url for your tenant
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) AadIssuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnClientConfiguration) string { return v.AadIssuer }).(pulumi.StringOutput)
+}
+
+// AzureAD Tenant URL
+// This setting is incompatible with the use of
+// `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) AadTenant() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnClientConfiguration) string { return v.AadTenant }).(pulumi.StringOutput)
+}
+
 // The address space out of which ip addresses for
 // vpn clients will be taken. You can provide more than one address space, e.g.
 // in CIDR notation.
@@ -13844,19 +14013,23 @@ func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) AddressSpaces() pu
 }
 
 // The address of the Radius server.
-// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnClientConfiguration) string { return v.RadiusServerAddress }).(pulumi.StringOutput)
 }
 
 // The secret used by the Radius server.
-// This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnClientConfiguration) string { return v.RadiusServerSecret }).(pulumi.StringOutput)
 }
 
 // One or more `revokedCertificate` blocks which
 // are defined below.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) RevokedCertificates() GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnClientConfiguration) []GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
 		return v.RevokedCertificates
@@ -13866,6 +14039,8 @@ func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) RevokedCertificate
 // One or more `rootCertificate` blocks which are
 // defined below. These root certificates are used to sign the client certificate
 // used by the VPN clients to connect to the gateway.
+// This setting is incompatible with the use of
+// `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
 func (o GetVirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates() GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput {
 	return o.ApplyT(func(v GetVirtualNetworkGatewayVpnClientConfiguration) []GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		return v.RootCertificates

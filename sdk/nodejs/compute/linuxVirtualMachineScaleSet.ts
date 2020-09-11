@@ -144,6 +144,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly doNotRunExtensionsOnOverprovisionedMachines!: pulumi.Output<boolean | undefined>;
     /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
@@ -281,6 +285,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["dataDisks"] = state ? state.dataDisks : undefined;
             inputs["disablePasswordAuthentication"] = state ? state.disablePasswordAuthentication : undefined;
             inputs["doNotRunExtensionsOnOverprovisionedMachines"] = state ? state.doNotRunExtensionsOnOverprovisionedMachines : undefined;
+            inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             inputs["extensions"] = state ? state.extensions : undefined;
             inputs["healthProbeId"] = state ? state.healthProbeId : undefined;
@@ -342,6 +347,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["dataDisks"] = args ? args.dataDisks : undefined;
             inputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
             inputs["doNotRunExtensionsOnOverprovisionedMachines"] = args ? args.doNotRunExtensionsOnOverprovisionedMachines : undefined;
+            inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["extensions"] = args ? args.extensions : undefined;
             inputs["healthProbeId"] = args ? args.healthProbeId : undefined;
@@ -435,6 +441,10 @@ export interface LinuxVirtualMachineScaleSetState {
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
     readonly doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
+    /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */
@@ -602,6 +612,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
     readonly doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
+    /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */

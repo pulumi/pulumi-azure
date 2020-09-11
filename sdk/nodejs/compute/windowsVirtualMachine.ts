@@ -140,6 +140,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly enableAutomaticUpdates!: pulumi.Output<boolean | undefined>;
     /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
@@ -271,6 +275,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["customData"] = state ? state.customData : undefined;
             inputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
             inputs["enableAutomaticUpdates"] = state ? state.enableAutomaticUpdates : undefined;
+            inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
@@ -329,6 +334,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["customData"] = args ? args.customData : undefined;
             inputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
             inputs["enableAutomaticUpdates"] = args ? args.enableAutomaticUpdates : undefined;
+            inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
@@ -416,6 +422,10 @@ export interface WindowsVirtualMachineState {
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
     readonly enableAutomaticUpdates?: pulumi.Input<boolean>;
+    /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
@@ -574,6 +584,10 @@ export interface WindowsVirtualMachineArgs {
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
     readonly enableAutomaticUpdates?: pulumi.Input<boolean>;
+    /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */

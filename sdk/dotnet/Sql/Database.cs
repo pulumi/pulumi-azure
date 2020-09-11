@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Sql
     /// <summary>
     /// Allows you to manage an Azure SQL Database
     /// 
+    /// &gt; **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -112,7 +114,7 @@ namespace Pulumi.Azure.Sql
         /// A `extended_auditing_policy` block as defined below.
         /// </summary>
         [Output("extendedAuditingPolicy")]
-        public Output<Outputs.DatabaseExtendedAuditingPolicy?> ExtendedAuditingPolicy { get; private set; } = null!;
+        public Output<Outputs.DatabaseExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A Database Import block as documented below. `create_mode` must be set to `Default`.

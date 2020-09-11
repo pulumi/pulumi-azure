@@ -1180,6 +1180,21 @@ export namespace appplatform {
         strictHostKeyCheckingEnabled: boolean;
     }
 
+    export interface SpringCloudAppIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface SpringCloudServiceConfigServerGitSetting {
         /**
          * A `httpBasicAuth` block as defined below.
@@ -15296,7 +15311,7 @@ export namespace network {
          */
         description?: string;
         /**
-         * A list of destination IP addresses, IP ranges, or FQDNs.
+         * A list of destination IP addresses and/or IP ranges.
          */
         destinationAddresses: string[];
         /**
@@ -15651,6 +15666,25 @@ export namespace network {
 
     export interface GetVirtualNetworkGatewayVpnClientConfiguration {
         /**
+         * The client id of the Azure VPN application.
+         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadAudience: string;
+        /**
+         * The STS url for your tenant
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadIssuer: string;
+        /**
+         * AzureAD Tenant URL
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadTenant: string;
+        /**
          * The address space out of which ip addresses for
          * vpn clients will be taken. You can provide more than one address space, e.g.
          * in CIDR notation.
@@ -15658,23 +15692,29 @@ export namespace network {
         addressSpaces: string[];
         /**
          * The address of the Radius server.
-         * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
          */
         radiusServerAddress: string;
         /**
          * The secret used by the Radius server.
-         * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
          */
         radiusServerSecret: string;
         /**
          * One or more `revokedCertificate` blocks which
          * are defined below.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         revokedCertificates: outputs.network.GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate[];
         /**
          * One or more `rootCertificate` blocks which are
          * defined below. These root certificates are used to sign the client certificate
          * used by the VPN clients to connect to the gateway.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         rootCertificates: outputs.network.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate[];
         /**
@@ -16255,6 +16295,25 @@ export namespace network {
 
     export interface VirtualNetworkGatewayVpnClientConfiguration {
         /**
+         * The client id of the Azure VPN application.
+         * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadAudience?: string;
+        /**
+         * The STS url for your tenant
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadIssuer?: string;
+        /**
+         * AzureAD Tenant URL
+         * This setting is incompatible with the use of
+         * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
+         */
+        aadTenant?: string;
+        /**
          * The address space out of which ip addresses for
          * vpn clients will be taken. You can provide more than one address space, e.g.
          * in CIDR notation.
@@ -16262,30 +16321,36 @@ export namespace network {
         addressSpaces: string[];
         /**
          * The address of the Radius server.
-         * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
          */
         radiusServerAddress?: string;
         /**
          * The secret used by the Radius server.
-         * This setting is incompatible with the use of `rootCertificate` and `revokedCertificate`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
          */
         radiusServerSecret?: string;
         /**
          * One or more `revokedCertificate` blocks which
          * are defined below.
-         * This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         revokedCertificates?: outputs.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate[];
         /**
          * One or more `rootCertificate` blocks which are
          * defined below. These root certificates are used to sign the client certificate
          * used by the VPN clients to connect to the gateway.
-         * This setting is incompatible with the use of `radiusServerAddress` and `radiusServerSecret`.
+         * This setting is incompatible with the use of
+         * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
          */
         rootCertificates?: outputs.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificate[];
         /**
          * List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+         * Values `SSTP` and `IkeV2` are incompatible with the use of
+         * `aadTenant`, `aadAudience` and `aadIssuer`.
          */
         vpnClientProtocols: string[];
     }

@@ -20,6 +20,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
@@ -67,6 +68,7 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
@@ -100,6 +102,7 @@ class Subscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_delete_on_idle'] = auto_delete_on_idle
+            __props__['dead_lettering_on_filter_evaluation_error'] = dead_lettering_on_filter_evaluation_error
             __props__['dead_lettering_on_message_expiration'] = dead_lettering_on_message_expiration
             __props__['default_message_ttl'] = default_message_ttl
             __props__['enable_batched_operations'] = enable_batched_operations
@@ -132,6 +135,7 @@ class Subscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+            dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
             default_message_ttl: Optional[pulumi.Input[str]] = None,
             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
@@ -153,6 +157,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
         :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
@@ -172,6 +177,7 @@ class Subscription(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["auto_delete_on_idle"] = auto_delete_on_idle
+        __props__["dead_lettering_on_filter_evaluation_error"] = dead_lettering_on_filter_evaluation_error
         __props__["dead_lettering_on_message_expiration"] = dead_lettering_on_message_expiration
         __props__["default_message_ttl"] = default_message_ttl
         __props__["enable_batched_operations"] = enable_batched_operations
@@ -194,6 +200,14 @@ class Subscription(pulumi.CustomResource):
         The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="deadLetteringOnFilterEvaluationError")
+    def dead_lettering_on_filter_evaluation_error(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        """
+        return pulumi.get(self, "dead_lettering_on_filter_evaluation_error")
 
     @property
     @pulumi.getter(name="deadLetteringOnMessageExpiration")

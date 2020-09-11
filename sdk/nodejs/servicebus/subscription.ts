@@ -68,6 +68,10 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string>;
     /**
+     * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+     */
+    public readonly deadLetteringOnFilterEvaluationError!: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
      */
     public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
@@ -133,6 +137,7 @@ export class Subscription extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
             inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
+            inputs["deadLetteringOnFilterEvaluationError"] = state ? state.deadLetteringOnFilterEvaluationError : undefined;
             inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
             inputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
@@ -161,6 +166,7 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            inputs["deadLetteringOnFilterEvaluationError"] = args ? args.deadLetteringOnFilterEvaluationError : undefined;
             inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
             inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
@@ -196,6 +202,10 @@ export interface SubscriptionState {
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+     */
+    readonly deadLetteringOnFilterEvaluationError?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
      */
@@ -258,6 +268,10 @@ export interface SubscriptionArgs {
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+     */
+    readonly deadLetteringOnFilterEvaluationError?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
      */

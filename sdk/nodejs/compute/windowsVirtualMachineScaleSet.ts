@@ -140,6 +140,10 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly enableAutomaticUpdates!: pulumi.Output<boolean | undefined>;
     /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
@@ -289,6 +293,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["dataDisks"] = state ? state.dataDisks : undefined;
             inputs["doNotRunExtensionsOnOverprovisionedMachines"] = state ? state.doNotRunExtensionsOnOverprovisionedMachines : undefined;
             inputs["enableAutomaticUpdates"] = state ? state.enableAutomaticUpdates : undefined;
+            inputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             inputs["extensions"] = state ? state.extensions : undefined;
             inputs["healthProbeId"] = state ? state.healthProbeId : undefined;
@@ -356,6 +361,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["dataDisks"] = args ? args.dataDisks : undefined;
             inputs["doNotRunExtensionsOnOverprovisionedMachines"] = args ? args.doNotRunExtensionsOnOverprovisionedMachines : undefined;
             inputs["enableAutomaticUpdates"] = args ? args.enableAutomaticUpdates : undefined;
+            inputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["extensions"] = args ? args.extensions : undefined;
             inputs["healthProbeId"] = args ? args.healthProbeId : undefined;
@@ -452,6 +458,10 @@ export interface WindowsVirtualMachineScaleSetState {
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      */
     readonly enableAutomaticUpdates?: pulumi.Input<boolean>;
+    /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */
@@ -631,6 +641,10 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      */
     readonly enableAutomaticUpdates?: pulumi.Input<boolean>;
+    /**
+     * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+     */
+    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */

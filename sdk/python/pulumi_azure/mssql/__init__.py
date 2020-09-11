@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .database import *
+from .database_extended_auditing_policy import *
 from .database_vulnerability_assessment_rule_baseline import *
 from .elastic_pool import *
 from .get_database import *

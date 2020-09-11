@@ -73,9 +73,6 @@ type Definition struct {
 // NewDefinition registers a new resource with the given unique name, arguments, and options.
 func NewDefinition(ctx *pulumi.Context,
 	name string, args *DefinitionArgs, opts ...pulumi.ResourceOption) (*Definition, error) {
-	if args == nil || args.AssignableScopes == nil {
-		return nil, errors.New("missing required argument 'AssignableScopes'")
-	}
 	if args == nil || args.Permissions == nil {
 		return nil, errors.New("missing required argument 'Permissions'")
 	}

@@ -55,6 +55,17 @@ class Account(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             enable_automatic_failover=True,
+            capabilities=[
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="EnableAggregationPipeline",
+                ),
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="mongoEnableDocLevelTTL",
+                ),
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="MongoDBv3.4",
+                ),
+            ],
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
                 consistency_level="BoundedStaleness",
                 max_interval_in_seconds=10,

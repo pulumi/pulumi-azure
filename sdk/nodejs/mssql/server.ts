@@ -93,8 +93,10 @@ export class Server extends pulumi.CustomResource {
     public readonly connectionPolicy!: pulumi.Output<string | undefined>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
+     *
+     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
-    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.mssql.ServerExtendedAuditingPolicy | undefined>;
+    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.mssql.ServerExtendedAuditingPolicy>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
@@ -214,6 +216,8 @@ export interface ServerState {
     readonly connectionPolicy?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
+     *
+     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     readonly extendedAuditingPolicy?: pulumi.Input<inputs.mssql.ServerExtendedAuditingPolicy>;
     /**
@@ -272,6 +276,8 @@ export interface ServerArgs {
     readonly connectionPolicy?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
+     *
+     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     readonly extendedAuditingPolicy?: pulumi.Input<inputs.mssql.ServerExtendedAuditingPolicy>;
     /**

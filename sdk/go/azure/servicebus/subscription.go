@@ -68,6 +68,8 @@ type Subscription struct {
 
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
 	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrOutput `pulumi:"deadLetteringOnMessageExpiration"`
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -144,6 +146,8 @@ func GetSubscription(ctx *pulumi.Context,
 type subscriptionState struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -175,6 +179,8 @@ type subscriptionState struct {
 type SubscriptionState struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
 	AutoDeleteOnIdle pulumi.StringPtrInput
+	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -210,6 +216,8 @@ func (SubscriptionState) ElementType() reflect.Type {
 type subscriptionArgs struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+	DeadLetteringOnFilterEvaluationError *bool `pulumi:"deadLetteringOnFilterEvaluationError"`
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
@@ -242,6 +250,8 @@ type subscriptionArgs struct {
 type SubscriptionArgs struct {
 	// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
 	AutoDeleteOnIdle pulumi.StringPtrInput
+	// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+	DeadLetteringOnFilterEvaluationError pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
 	// The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.

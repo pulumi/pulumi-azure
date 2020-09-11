@@ -17,6 +17,7 @@ export * from "./integrationRuntimeSelfHosted";
 export * from "./linkedServiceAzureBlobStorage";
 export * from "./linkedServiceAzureFileStorage";
 export * from "./linkedServiceAzureFunction";
+export * from "./linkedServiceAzureSqlDatabase";
 export * from "./linkedServiceCosmosDb";
 export * from "./linkedServiceDataLakeStorageGen2";
 export * from "./linkedServiceKeyVault";

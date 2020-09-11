@@ -27,6 +27,17 @@ import * as utilities from "../utilities";
  *     offerType: "Standard",
  *     kind: "GlobalDocumentDB",
  *     enableAutomaticFailover: true,
+ *     capabilities: [
+ *         {
+ *             name: "EnableAggregationPipeline",
+ *         },
+ *         {
+ *             name: "mongoEnableDocLevelTTL",
+ *         },
+ *         {
+ *             name: "MongoDBv3.4",
+ *         },
+ *     ],
  *     consistencyPolicy: {
  *         consistencyLevel: "BoundedStaleness",
  *         maxIntervalInSeconds: 10,

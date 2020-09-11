@@ -17,6 +17,7 @@ from .get_app_service_plan import *
 from .get_certificate import *
 from .get_certificate_order import *
 from .get_function_app import *
+from .get_function_app_host_keys import *
 from .hybrid_connection import *
 from .plan import *
 from .slot import *

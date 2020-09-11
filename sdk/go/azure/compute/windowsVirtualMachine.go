@@ -130,6 +130,8 @@ type WindowsVirtualMachine struct {
 	DedicatedHostId pulumi.StringPtrOutput `pulumi:"dedicatedHostId"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpdates"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
@@ -254,6 +256,8 @@ type windowsVirtualMachineState struct {
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
@@ -333,6 +337,8 @@ type WindowsVirtualMachineState struct {
 	DedicatedHostId pulumi.StringPtrInput
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -416,6 +422,8 @@ type windowsVirtualMachineArgs struct {
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
@@ -486,6 +494,8 @@ type WindowsVirtualMachineArgs struct {
 	DedicatedHostId pulumi.StringPtrInput
 	// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
 	EnableAutomaticUpdates pulumi.BoolPtrInput
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// An `identity` block as defined below.

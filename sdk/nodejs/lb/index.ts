@@ -5,6 +5,7 @@
 export * from "./backendAddressPool";
 export * from "./getBackendAddressPool";
 export * from "./getLB";
+export * from "./getLBRule";
 export * from "./loadBalancer";
 export * from "./natPool";
 export * from "./natRule";

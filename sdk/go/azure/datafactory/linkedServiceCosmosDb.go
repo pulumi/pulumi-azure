@@ -16,7 +16,7 @@ import (
 type LinkedServiceCosmosDb struct {
 	pulumi.CustomResourceState
 
-	// The endpoint of he Azure CosmosDB account. Required if `connectionString` is unspecified.
+	// The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
 	AccountEndpoint pulumi.StringPtrOutput `pulumi:"accountEndpoint"`
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey pulumi.StringPtrOutput `pulumi:"accountKey"`
@@ -76,7 +76,7 @@ func GetLinkedServiceCosmosDb(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedServiceCosmosDb resources.
 type linkedServiceCosmosDbState struct {
-	// The endpoint of he Azure CosmosDB account. Required if `connectionString` is unspecified.
+	// The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
 	AccountEndpoint *string `pulumi:"accountEndpoint"`
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey *string `pulumi:"accountKey"`
@@ -103,7 +103,7 @@ type linkedServiceCosmosDbState struct {
 }
 
 type LinkedServiceCosmosDbState struct {
-	// The endpoint of he Azure CosmosDB account. Required if `connectionString` is unspecified.
+	// The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
 	AccountEndpoint pulumi.StringPtrInput
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey pulumi.StringPtrInput
@@ -134,7 +134,7 @@ func (LinkedServiceCosmosDbState) ElementType() reflect.Type {
 }
 
 type linkedServiceCosmosDbArgs struct {
-	// The endpoint of he Azure CosmosDB account. Required if `connectionString` is unspecified.
+	// The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
 	AccountEndpoint *string `pulumi:"accountEndpoint"`
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey *string `pulumi:"accountKey"`
@@ -162,7 +162,7 @@ type linkedServiceCosmosDbArgs struct {
 
 // The set of arguments for constructing a LinkedServiceCosmosDb resource.
 type LinkedServiceCosmosDbArgs struct {
-	// The endpoint of he Azure CosmosDB account. Required if `connectionString` is unspecified.
+	// The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
 	AccountEndpoint pulumi.StringPtrInput
 	// The account key of the Azure Cosmos DB account. Required if `connectionString` is unspecified.
 	AccountKey pulumi.StringPtrInput

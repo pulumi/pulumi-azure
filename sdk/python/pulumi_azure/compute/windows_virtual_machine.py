@@ -28,6 +28,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  custom_data: Optional[pulumi.Input[str]] = None,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
+                 encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -123,6 +124,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
@@ -178,6 +180,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__['custom_data'] = custom_data
             __props__['dedicated_host_id'] = dedicated_host_id
             __props__['enable_automatic_updates'] = enable_automatic_updates
+            __props__['encryption_at_host_enabled'] = encryption_at_host_enabled
             __props__['eviction_policy'] = eviction_policy
             __props__['identity'] = identity
             __props__['license_type'] = license_type
@@ -234,6 +237,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             custom_data: Optional[pulumi.Input[str]] = None,
             dedicated_host_id: Optional[pulumi.Input[str]] = None,
             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
+            encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
@@ -279,6 +283,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
@@ -322,6 +327,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__["custom_data"] = custom_data
         __props__["dedicated_host_id"] = dedicated_host_id
         __props__["enable_automatic_updates"] = enable_automatic_updates
+        __props__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__["eviction_policy"] = eviction_policy
         __props__["identity"] = identity
         __props__["license_type"] = license_type
@@ -438,6 +444,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_automatic_updates")
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
 
     @property
     @pulumi.getter(name="evictionPolicy")

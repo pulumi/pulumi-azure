@@ -99,6 +99,9 @@ class SqlServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'administrator_login_password'")
             __props__['administrator_login_password'] = administrator_login_password
             __props__['connection_policy'] = connection_policy
+            if extended_auditing_policy is not None:
+                warnings.warn("the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.", DeprecationWarning)
+                pulumi.log.warn("extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.")
             __props__['extended_auditing_policy'] = extended_auditing_policy
             __props__['identity'] = identity
             __props__['location'] = location
@@ -194,7 +197,7 @@ class SqlServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> pulumi.Output[Optional['outputs.SqlServerExtendedAuditingPolicy']]:
+    def extended_auditing_policy(self) -> pulumi.Output['outputs.SqlServerExtendedAuditingPolicy']:
         """
         A `extended_auditing_policy` block as defined below.
         """

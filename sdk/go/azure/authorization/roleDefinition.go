@@ -71,9 +71,6 @@ type RoleDefinition struct {
 // NewRoleDefinition registers a new resource with the given unique name, arguments, and options.
 func NewRoleDefinition(ctx *pulumi.Context,
 	name string, args *RoleDefinitionArgs, opts ...pulumi.ResourceOption) (*RoleDefinition, error) {
-	if args == nil || args.AssignableScopes == nil {
-		return nil, errors.New("missing required argument 'AssignableScopes'")
-	}
 	if args == nil || args.Permissions == nil {
 		return nil, errors.New("missing required argument 'Permissions'")
 	}

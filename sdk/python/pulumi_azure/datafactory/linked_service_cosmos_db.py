@@ -37,7 +37,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_endpoint: The endpoint of he Azure CosmosDB account. Required if `connection_string` is unspecified.
+        :param pulumi.Input[str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[List[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
@@ -112,7 +112,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_endpoint: The endpoint of he Azure CosmosDB account. Required if `connection_string` is unspecified.
+        :param pulumi.Input[str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[List[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
@@ -147,7 +147,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
     @pulumi.getter(name="accountEndpoint")
     def account_endpoint(self) -> pulumi.Output[Optional[str]]:
         """
-        The endpoint of he Azure CosmosDB account. Required if `connection_string` is unspecified.
+        The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         """
         return pulumi.get(self, "account_endpoint")
 

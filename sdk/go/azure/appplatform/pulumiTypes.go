@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type SpringCloudAppIdentity struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// SpringCloudAppIdentityInput is an input type that accepts SpringCloudAppIdentityArgs and SpringCloudAppIdentityOutput values.
+// You can construct a concrete instance of `SpringCloudAppIdentityInput` via:
+//
+//          SpringCloudAppIdentityArgs{...}
+type SpringCloudAppIdentityInput interface {
+	pulumi.Input
+
+	ToSpringCloudAppIdentityOutput() SpringCloudAppIdentityOutput
+	ToSpringCloudAppIdentityOutputWithContext(context.Context) SpringCloudAppIdentityOutput
+}
+
+type SpringCloudAppIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SpringCloudAppIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudAppIdentity)(nil)).Elem()
+}
+
+func (i SpringCloudAppIdentityArgs) ToSpringCloudAppIdentityOutput() SpringCloudAppIdentityOutput {
+	return i.ToSpringCloudAppIdentityOutputWithContext(context.Background())
+}
+
+func (i SpringCloudAppIdentityArgs) ToSpringCloudAppIdentityOutputWithContext(ctx context.Context) SpringCloudAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIdentityOutput)
+}
+
+func (i SpringCloudAppIdentityArgs) ToSpringCloudAppIdentityPtrOutput() SpringCloudAppIdentityPtrOutput {
+	return i.ToSpringCloudAppIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudAppIdentityArgs) ToSpringCloudAppIdentityPtrOutputWithContext(ctx context.Context) SpringCloudAppIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIdentityOutput).ToSpringCloudAppIdentityPtrOutputWithContext(ctx)
+}
+
+// SpringCloudAppIdentityPtrInput is an input type that accepts SpringCloudAppIdentityArgs, SpringCloudAppIdentityPtr and SpringCloudAppIdentityPtrOutput values.
+// You can construct a concrete instance of `SpringCloudAppIdentityPtrInput` via:
+//
+//          SpringCloudAppIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type SpringCloudAppIdentityPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudAppIdentityPtrOutput() SpringCloudAppIdentityPtrOutput
+	ToSpringCloudAppIdentityPtrOutputWithContext(context.Context) SpringCloudAppIdentityPtrOutput
+}
+
+type springCloudAppIdentityPtrType SpringCloudAppIdentityArgs
+
+func SpringCloudAppIdentityPtr(v *SpringCloudAppIdentityArgs) SpringCloudAppIdentityPtrInput {
+	return (*springCloudAppIdentityPtrType)(v)
+}
+
+func (*springCloudAppIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudAppIdentity)(nil)).Elem()
+}
+
+func (i *springCloudAppIdentityPtrType) ToSpringCloudAppIdentityPtrOutput() SpringCloudAppIdentityPtrOutput {
+	return i.ToSpringCloudAppIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudAppIdentityPtrType) ToSpringCloudAppIdentityPtrOutputWithContext(ctx context.Context) SpringCloudAppIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppIdentityPtrOutput)
+}
+
+type SpringCloudAppIdentityOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudAppIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudAppIdentity)(nil)).Elem()
+}
+
+func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityOutput() SpringCloudAppIdentityOutput {
+	return o
+}
+
+func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityOutputWithContext(ctx context.Context) SpringCloudAppIdentityOutput {
+	return o
+}
+
+func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityPtrOutput() SpringCloudAppIdentityPtrOutput {
+	return o.ToSpringCloudAppIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityPtrOutputWithContext(ctx context.Context) SpringCloudAppIdentityPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppIdentity) *SpringCloudAppIdentity {
+		return &v
+	}).(SpringCloudAppIdentityPtrOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+func (o SpringCloudAppIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+func (o SpringCloudAppIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudAppIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+func (o SpringCloudAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudAppIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SpringCloudAppIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudAppIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudAppIdentity)(nil)).Elem()
+}
+
+func (o SpringCloudAppIdentityPtrOutput) ToSpringCloudAppIdentityPtrOutput() SpringCloudAppIdentityPtrOutput {
+	return o
+}
+
+func (o SpringCloudAppIdentityPtrOutput) ToSpringCloudAppIdentityPtrOutputWithContext(ctx context.Context) SpringCloudAppIdentityPtrOutput {
+	return o
+}
+
+func (o SpringCloudAppIdentityPtrOutput) Elem() SpringCloudAppIdentityOutput {
+	return o.ApplyT(func(v *SpringCloudAppIdentity) SpringCloudAppIdentity { return *v }).(SpringCloudAppIdentityOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+func (o SpringCloudAppIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+func (o SpringCloudAppIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Spring Cloud Application. Possible value is `SystemAssigned`.
+func (o SpringCloudAppIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudAppIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudServiceConfigServerGitSetting struct {
 	// A `httpBasicAuth` block as defined below.
 	HttpBasicAuth *SpringCloudServiceConfigServerGitSettingHttpBasicAuth `pulumi:"httpBasicAuth"`
@@ -1980,6 +2149,8 @@ func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) Index(i p
 }
 
 func init() {
+	pulumi.RegisterOutputType(SpringCloudAppIdentityOutput{})
+	pulumi.RegisterOutputType(SpringCloudAppIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingHttpBasicAuthOutput{})

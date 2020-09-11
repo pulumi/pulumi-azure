@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .api import *
+from .api_diagnostic import *
 from .api_operation import *
 from .api_operation_policy import *
 from .api_policy import *

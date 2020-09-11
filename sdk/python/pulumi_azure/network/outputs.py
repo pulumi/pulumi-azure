@@ -2724,7 +2724,7 @@ class FirewallNetworkRuleCollectionRule(dict):
                  source_addresses: List[str],
                  description: Optional[str] = None):
         """
-        :param List[str] destination_addresses: A list of destination IP addresses, IP ranges, or FQDNs.
+        :param List[str] destination_addresses: A list of destination IP addresses and/or IP ranges.
         :param List[str] destination_ports: A list of destination ports.
         :param str name: Specifies the name of the rule.
         :param List[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
@@ -2743,7 +2743,7 @@ class FirewallNetworkRuleCollectionRule(dict):
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> List[str]:
         """
-        A list of destination IP addresses, IP ranges, or FQDNs.
+        A list of destination IP addresses and/or IP ranges.
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -4402,6 +4402,9 @@ class VirtualNetworkGatewayIpConfiguration(dict):
 class VirtualNetworkGatewayVpnClientConfiguration(dict):
     def __init__(__self__, *,
                  address_spaces: List[str],
+                 aad_audience: Optional[str] = None,
+                 aad_issuer: Optional[str] = None,
+                 aad_tenant: Optional[str] = None,
                  radius_server_address: Optional[str] = None,
                  radius_server_secret: Optional[str] = None,
                  revoked_certificates: Optional[List['outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate']] = None,
@@ -4411,21 +4414,43 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         :param List[str] address_spaces: The address space out of which ip addresses for
                vpn clients will be taken. You can provide more than one address space, e.g.
                in CIDR notation.
+        :param str aad_audience: The client id of the Azure VPN application.
+               See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+               This setting is incompatible with the use of
+               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        :param str aad_issuer: The STS url for your tenant
+               This setting is incompatible with the use of
+               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        :param str aad_tenant: AzureAD Tenant URL
+               This setting is incompatible with the use of
+               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         :param str radius_server_address: The address of the Radius server.
-               This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+               This setting is incompatible with the use of
+               `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         :param str radius_server_secret: The secret used by the Radius server.
-               This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+               This setting is incompatible with the use of
+               `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         :param List['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which
                are defined below.
-               This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+               This setting is incompatible with the use of
+               `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         :param List['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are
                defined below. These root certificates are used to sign the client certificate
                used by the VPN clients to connect to the gateway.
-               This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+               This setting is incompatible with the use of
+               `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         :param List[str] vpn_client_protocols: List of the protocols supported by the vpn client.
                The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+               Values `SSTP` and `IkeV2` are incompatible with the use of
+               `aad_tenant`, `aad_audience` and `aad_issuer`.
         """
         pulumi.set(__self__, "address_spaces", address_spaces)
+        if aad_audience is not None:
+            pulumi.set(__self__, "aad_audience", aad_audience)
+        if aad_issuer is not None:
+            pulumi.set(__self__, "aad_issuer", aad_issuer)
+        if aad_tenant is not None:
+            pulumi.set(__self__, "aad_tenant", aad_tenant)
         if radius_server_address is not None:
             pulumi.set(__self__, "radius_server_address", radius_server_address)
         if radius_server_secret is not None:
@@ -4448,11 +4473,43 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         return pulumi.get(self, "address_spaces")
 
     @property
+    @pulumi.getter(name="aadAudience")
+    def aad_audience(self) -> Optional[str]:
+        """
+        The client id of the Azure VPN application.
+        See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+        This setting is incompatible with the use of
+        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        """
+        return pulumi.get(self, "aad_audience")
+
+    @property
+    @pulumi.getter(name="aadIssuer")
+    def aad_issuer(self) -> Optional[str]:
+        """
+        The STS url for your tenant
+        This setting is incompatible with the use of
+        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        """
+        return pulumi.get(self, "aad_issuer")
+
+    @property
+    @pulumi.getter(name="aadTenant")
+    def aad_tenant(self) -> Optional[str]:
+        """
+        AzureAD Tenant URL
+        This setting is incompatible with the use of
+        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        """
+        return pulumi.get(self, "aad_tenant")
+
+    @property
     @pulumi.getter(name="radiusServerAddress")
     def radius_server_address(self) -> Optional[str]:
         """
         The address of the Radius server.
-        This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        This setting is incompatible with the use of
+        `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         """
         return pulumi.get(self, "radius_server_address")
 
@@ -4461,7 +4518,8 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
     def radius_server_secret(self) -> Optional[str]:
         """
         The secret used by the Radius server.
-        This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        This setting is incompatible with the use of
+        `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         """
         return pulumi.get(self, "radius_server_secret")
 
@@ -4471,7 +4529,8 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         """
         One or more `revoked_certificate` blocks which
         are defined below.
-        This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        This setting is incompatible with the use of
+        `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "revoked_certificates")
 
@@ -4482,7 +4541,8 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         One or more `root_certificate` blocks which are
         defined below. These root certificates are used to sign the client certificate
         used by the VPN clients to connect to the gateway.
-        This setting is incompatible with the use of `radius_server_address` and `radius_server_secret`.
+        This setting is incompatible with the use of
+        `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "root_certificates")
 
@@ -4492,6 +4552,8 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         """
         List of the protocols supported by the vpn client.
         The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
+        Values `SSTP` and `IkeV2` are incompatible with the use of
+        `aad_tenant`, `aad_audience` and `aad_issuer`.
         """
         return pulumi.get(self, "vpn_client_protocols")
 
@@ -5903,6 +5965,9 @@ class GetVirtualNetworkGatewayIpConfigurationResult(dict):
 @pulumi.output_type
 class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
     def __init__(__self__, *,
+                 aad_audience: str,
+                 aad_issuer: str,
+                 aad_tenant: str,
                  address_spaces: List[str],
                  radius_server_address: str,
                  radius_server_secret: str,
@@ -5910,27 +5975,77 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
                  root_certificates: List['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult'],
                  vpn_client_protocols: List[str]):
         """
+        :param str aad_audience: The client id of the Azure VPN application.
+               See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+               This setting is incompatible with the use of
+               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        :param str aad_issuer: The STS url for your tenant
+               This setting is incompatible with the use of
+               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        :param str aad_tenant: AzureAD Tenant URL
+               This setting is incompatible with the use of
+               `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
         :param List[str] address_spaces: The address space out of which ip addresses for
                vpn clients will be taken. You can provide more than one address space, e.g.
                in CIDR notation.
         :param str radius_server_address: The address of the Radius server.
-               This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+               This setting is incompatible with the use of
+               `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         :param str radius_server_secret: The secret used by the Radius server.
-               This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+               This setting is incompatible with the use of
+               `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         :param List['GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which
                are defined below.
+               This setting is incompatible with the use of
+               `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         :param List['GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are
                defined below. These root certificates are used to sign the client certificate
                used by the VPN clients to connect to the gateway.
+               This setting is incompatible with the use of
+               `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         :param List[str] vpn_client_protocols: List of the protocols supported by the vpn client.
                The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
         """
+        pulumi.set(__self__, "aad_audience", aad_audience)
+        pulumi.set(__self__, "aad_issuer", aad_issuer)
+        pulumi.set(__self__, "aad_tenant", aad_tenant)
         pulumi.set(__self__, "address_spaces", address_spaces)
         pulumi.set(__self__, "radius_server_address", radius_server_address)
         pulumi.set(__self__, "radius_server_secret", radius_server_secret)
         pulumi.set(__self__, "revoked_certificates", revoked_certificates)
         pulumi.set(__self__, "root_certificates", root_certificates)
         pulumi.set(__self__, "vpn_client_protocols", vpn_client_protocols)
+
+    @property
+    @pulumi.getter(name="aadAudience")
+    def aad_audience(self) -> str:
+        """
+        The client id of the Azure VPN application.
+        See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
+        This setting is incompatible with the use of
+        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        """
+        return pulumi.get(self, "aad_audience")
+
+    @property
+    @pulumi.getter(name="aadIssuer")
+    def aad_issuer(self) -> str:
+        """
+        The STS url for your tenant
+        This setting is incompatible with the use of
+        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        """
+        return pulumi.get(self, "aad_issuer")
+
+    @property
+    @pulumi.getter(name="aadTenant")
+    def aad_tenant(self) -> str:
+        """
+        AzureAD Tenant URL
+        This setting is incompatible with the use of
+        `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+        """
+        return pulumi.get(self, "aad_tenant")
 
     @property
     @pulumi.getter(name="addressSpaces")
@@ -5947,7 +6062,8 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
     def radius_server_address(self) -> str:
         """
         The address of the Radius server.
-        This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        This setting is incompatible with the use of
+        `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         """
         return pulumi.get(self, "radius_server_address")
 
@@ -5956,7 +6072,8 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
     def radius_server_secret(self) -> str:
         """
         The secret used by the Radius server.
-        This setting is incompatible with the use of `root_certificate` and `revoked_certificate`.
+        This setting is incompatible with the use of
+        `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
         """
         return pulumi.get(self, "radius_server_secret")
 
@@ -5966,6 +6083,8 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
         """
         One or more `revoked_certificate` blocks which
         are defined below.
+        This setting is incompatible with the use of
+        `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "revoked_certificates")
 
@@ -5976,6 +6095,8 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
         One or more `root_certificate` blocks which are
         defined below. These root certificates are used to sign the client certificate
         used by the VPN clients to connect to the gateway.
+        This setting is incompatible with the use of
+        `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
         """
         return pulumi.get(self, "root_certificates")
 

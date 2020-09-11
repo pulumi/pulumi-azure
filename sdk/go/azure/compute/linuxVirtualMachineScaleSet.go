@@ -44,6 +44,8 @@ type LinuxVirtualMachineScaleSet struct {
 	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrOutput `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
@@ -173,6 +175,8 @@ type linuxVirtualMachineScaleSetState struct {
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines *bool `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
@@ -257,6 +261,8 @@ type LinuxVirtualMachineScaleSetState struct {
 	DisablePasswordAuthentication pulumi.BoolPtrInput
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrInput
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// One or more `extension` blocks as defined below
@@ -345,6 +351,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines *bool `pulumi:"doNotRunExtensionsOnOverprovisionedMachines"`
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
@@ -428,6 +436,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	DisablePasswordAuthentication pulumi.BoolPtrInput
 	// Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
 	DoNotRunExtensionsOnOverprovisionedMachines pulumi.BoolPtrInput
+	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// One or more `extension` blocks as defined below

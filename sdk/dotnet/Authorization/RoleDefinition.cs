@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Authorization
 
     public sealed class RoleDefinitionArgs : Pulumi.ResourceArgs
     {
-        [Input("assignableScopes", required: true)]
+        [Input("assignableScopes")]
         private InputList<string>? _assignableScopes;
 
         /// <summary>

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type DatabaseExtendedAuditingPolicy struct {
+type DatabaseExtendedAuditingPolicyType struct {
 	// Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Specifies the access key to use for the auditing storage account.
@@ -21,18 +21,18 @@ type DatabaseExtendedAuditingPolicy struct {
 	StorageEndpoint string `pulumi:"storageEndpoint"`
 }
 
-// DatabaseExtendedAuditingPolicyInput is an input type that accepts DatabaseExtendedAuditingPolicyArgs and DatabaseExtendedAuditingPolicyOutput values.
-// You can construct a concrete instance of `DatabaseExtendedAuditingPolicyInput` via:
+// DatabaseExtendedAuditingPolicyTypeInput is an input type that accepts DatabaseExtendedAuditingPolicyTypeArgs and DatabaseExtendedAuditingPolicyTypeOutput values.
+// You can construct a concrete instance of `DatabaseExtendedAuditingPolicyTypeInput` via:
 //
-//          DatabaseExtendedAuditingPolicyArgs{...}
-type DatabaseExtendedAuditingPolicyInput interface {
+//          DatabaseExtendedAuditingPolicyTypeArgs{...}
+type DatabaseExtendedAuditingPolicyTypeInput interface {
 	pulumi.Input
 
-	ToDatabaseExtendedAuditingPolicyOutput() DatabaseExtendedAuditingPolicyOutput
-	ToDatabaseExtendedAuditingPolicyOutputWithContext(context.Context) DatabaseExtendedAuditingPolicyOutput
+	ToDatabaseExtendedAuditingPolicyTypeOutput() DatabaseExtendedAuditingPolicyTypeOutput
+	ToDatabaseExtendedAuditingPolicyTypeOutputWithContext(context.Context) DatabaseExtendedAuditingPolicyTypeOutput
 }
 
-type DatabaseExtendedAuditingPolicyArgs struct {
+type DatabaseExtendedAuditingPolicyTypeArgs struct {
 	// Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// Specifies the access key to use for the auditing storage account.
@@ -43,124 +43,124 @@ type DatabaseExtendedAuditingPolicyArgs struct {
 	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
 }
 
-func (DatabaseExtendedAuditingPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseExtendedAuditingPolicy)(nil)).Elem()
+func (DatabaseExtendedAuditingPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseExtendedAuditingPolicyType)(nil)).Elem()
 }
 
-func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyOutput() DatabaseExtendedAuditingPolicyOutput {
-	return i.ToDatabaseExtendedAuditingPolicyOutputWithContext(context.Background())
+func (i DatabaseExtendedAuditingPolicyTypeArgs) ToDatabaseExtendedAuditingPolicyTypeOutput() DatabaseExtendedAuditingPolicyTypeOutput {
+	return i.ToDatabaseExtendedAuditingPolicyTypeOutputWithContext(context.Background())
 }
 
-func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyOutput)
+func (i DatabaseExtendedAuditingPolicyTypeArgs) ToDatabaseExtendedAuditingPolicyTypeOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyTypeOutput)
 }
 
-func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput {
-	return i.ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+func (i DatabaseExtendedAuditingPolicyTypeArgs) ToDatabaseExtendedAuditingPolicyTypePtrOutput() DatabaseExtendedAuditingPolicyTypePtrOutput {
+	return i.ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(context.Background())
 }
 
-func (i DatabaseExtendedAuditingPolicyArgs) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyOutput).ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx)
+func (i DatabaseExtendedAuditingPolicyTypeArgs) ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyTypeOutput).ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(ctx)
 }
 
-// DatabaseExtendedAuditingPolicyPtrInput is an input type that accepts DatabaseExtendedAuditingPolicyArgs, DatabaseExtendedAuditingPolicyPtr and DatabaseExtendedAuditingPolicyPtrOutput values.
-// You can construct a concrete instance of `DatabaseExtendedAuditingPolicyPtrInput` via:
+// DatabaseExtendedAuditingPolicyTypePtrInput is an input type that accepts DatabaseExtendedAuditingPolicyTypeArgs, DatabaseExtendedAuditingPolicyTypePtr and DatabaseExtendedAuditingPolicyTypePtrOutput values.
+// You can construct a concrete instance of `DatabaseExtendedAuditingPolicyTypePtrInput` via:
 //
-//          DatabaseExtendedAuditingPolicyArgs{...}
+//          DatabaseExtendedAuditingPolicyTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type DatabaseExtendedAuditingPolicyPtrInput interface {
+type DatabaseExtendedAuditingPolicyTypePtrInput interface {
 	pulumi.Input
 
-	ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput
-	ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(context.Context) DatabaseExtendedAuditingPolicyPtrOutput
+	ToDatabaseExtendedAuditingPolicyTypePtrOutput() DatabaseExtendedAuditingPolicyTypePtrOutput
+	ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(context.Context) DatabaseExtendedAuditingPolicyTypePtrOutput
 }
 
-type databaseExtendedAuditingPolicyPtrType DatabaseExtendedAuditingPolicyArgs
+type databaseExtendedAuditingPolicyTypePtrType DatabaseExtendedAuditingPolicyTypeArgs
 
-func DatabaseExtendedAuditingPolicyPtr(v *DatabaseExtendedAuditingPolicyArgs) DatabaseExtendedAuditingPolicyPtrInput {
-	return (*databaseExtendedAuditingPolicyPtrType)(v)
+func DatabaseExtendedAuditingPolicyTypePtr(v *DatabaseExtendedAuditingPolicyTypeArgs) DatabaseExtendedAuditingPolicyTypePtrInput {
+	return (*databaseExtendedAuditingPolicyTypePtrType)(v)
 }
 
-func (*databaseExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseExtendedAuditingPolicy)(nil)).Elem()
+func (*databaseExtendedAuditingPolicyTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseExtendedAuditingPolicyType)(nil)).Elem()
 }
 
-func (i *databaseExtendedAuditingPolicyPtrType) ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput {
-	return i.ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+func (i *databaseExtendedAuditingPolicyTypePtrType) ToDatabaseExtendedAuditingPolicyTypePtrOutput() DatabaseExtendedAuditingPolicyTypePtrOutput {
+	return i.ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(context.Background())
 }
 
-func (i *databaseExtendedAuditingPolicyPtrType) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyPtrOutput)
+func (i *databaseExtendedAuditingPolicyTypePtrType) ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseExtendedAuditingPolicyTypePtrOutput)
 }
 
-type DatabaseExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
+type DatabaseExtendedAuditingPolicyTypeOutput struct{ *pulumi.OutputState }
 
-func (DatabaseExtendedAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseExtendedAuditingPolicy)(nil)).Elem()
+func (DatabaseExtendedAuditingPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseExtendedAuditingPolicyType)(nil)).Elem()
 }
 
-func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyOutput() DatabaseExtendedAuditingPolicyOutput {
+func (o DatabaseExtendedAuditingPolicyTypeOutput) ToDatabaseExtendedAuditingPolicyTypeOutput() DatabaseExtendedAuditingPolicyTypeOutput {
 	return o
 }
 
-func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyOutput {
+func (o DatabaseExtendedAuditingPolicyTypeOutput) ToDatabaseExtendedAuditingPolicyTypeOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyTypeOutput {
 	return o
 }
 
-func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput {
-	return o.ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+func (o DatabaseExtendedAuditingPolicyTypeOutput) ToDatabaseExtendedAuditingPolicyTypePtrOutput() DatabaseExtendedAuditingPolicyTypePtrOutput {
+	return o.ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(context.Background())
 }
 
-func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *DatabaseExtendedAuditingPolicy {
+func (o DatabaseExtendedAuditingPolicyTypeOutput) ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyTypePtrOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *DatabaseExtendedAuditingPolicyType {
 		return &v
-	}).(DatabaseExtendedAuditingPolicyPtrOutput)
+	}).(DatabaseExtendedAuditingPolicyTypePtrOutput)
 }
 
 // Specifies the number of days to retain logs for in the storage account.
-func (o DatabaseExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+func (o DatabaseExtendedAuditingPolicyTypeOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the access key to use for the auditing storage account.
-func (o DatabaseExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }
 
 // Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-func (o DatabaseExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
+func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o DatabaseExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+func (o DatabaseExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseExtendedAuditingPolicyType) string { return v.StorageEndpoint }).(pulumi.StringOutput)
 }
 
-type DatabaseExtendedAuditingPolicyPtrOutput struct{ *pulumi.OutputState }
+type DatabaseExtendedAuditingPolicyTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DatabaseExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatabaseExtendedAuditingPolicy)(nil)).Elem()
+func (DatabaseExtendedAuditingPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseExtendedAuditingPolicyType)(nil)).Elem()
 }
 
-func (o DatabaseExtendedAuditingPolicyPtrOutput) ToDatabaseExtendedAuditingPolicyPtrOutput() DatabaseExtendedAuditingPolicyPtrOutput {
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) ToDatabaseExtendedAuditingPolicyTypePtrOutput() DatabaseExtendedAuditingPolicyTypePtrOutput {
 	return o
 }
 
-func (o DatabaseExtendedAuditingPolicyPtrOutput) ToDatabaseExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyPtrOutput {
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) ToDatabaseExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) DatabaseExtendedAuditingPolicyTypePtrOutput {
 	return o
 }
 
-func (o DatabaseExtendedAuditingPolicyPtrOutput) Elem() DatabaseExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) DatabaseExtendedAuditingPolicy { return *v }).(DatabaseExtendedAuditingPolicyOutput)
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) Elem() DatabaseExtendedAuditingPolicyTypeOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) DatabaseExtendedAuditingPolicyType { return *v }).(DatabaseExtendedAuditingPolicyTypeOutput)
 }
 
 // Specifies the number of days to retain logs for in the storage account.
-func (o DatabaseExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *int {
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) *int {
 		if v == nil {
 			return nil
 		}
@@ -169,8 +169,8 @@ func (o DatabaseExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtr
 }
 
 // Specifies the access key to use for the auditing storage account.
-func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *string {
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) *string {
 		if v == nil {
 			return nil
 		}
@@ -179,8 +179,8 @@ func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulum
 }
 
 // Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *bool {
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -189,8 +189,8 @@ func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecond
 }
 
 // Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o DatabaseExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) *string {
+func (o DatabaseExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicyType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1952,8 +1952,8 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalSecret() pulu
 }
 
 func init() {
-	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyOutput{})
-	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyTypeOutput{})
+	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyOutput{})
 	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput{})

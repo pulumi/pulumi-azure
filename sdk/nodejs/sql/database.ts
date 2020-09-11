@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Allows you to manage an Azure SQL Database
  *
+ * > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -103,8 +105,10 @@ export class Database extends pulumi.CustomResource {
     public /*out*/ readonly encryption!: pulumi.Output<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
+     *
+     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
-    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.sql.DatabaseExtendedAuditingPolicy | undefined>;
+    public readonly extendedAuditingPolicy!: pulumi.Output<outputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
@@ -279,6 +283,8 @@ export interface DatabaseState {
     readonly encryption?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
+     *
+     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
@@ -367,6 +373,8 @@ export interface DatabaseArgs {
     readonly elasticPoolName?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
+     *
+     * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
     /**

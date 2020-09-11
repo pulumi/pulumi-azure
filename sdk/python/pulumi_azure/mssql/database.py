@@ -42,6 +42,8 @@ class Database(pulumi.CustomResource):
         """
         Manages a MS SQL Database.
 
+        > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
+
         ## Example Usage
 
         ```python
@@ -123,6 +125,9 @@ class Database(pulumi.CustomResource):
             __props__['create_mode'] = create_mode
             __props__['creation_source_database_id'] = creation_source_database_id
             __props__['elastic_pool_id'] = elastic_pool_id
+            if extended_auditing_policy is not None:
+                warnings.warn("the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.", DeprecationWarning)
+                pulumi.log.warn("extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.")
             __props__['extended_auditing_policy'] = extended_auditing_policy
             __props__['license_type'] = license_type
             __props__['max_size_gb'] = max_size_gb
@@ -262,7 +267,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedAuditingPolicy")
-    def extended_auditing_policy(self) -> pulumi.Output[Optional['outputs.DatabaseExtendedAuditingPolicy']]:
+    def extended_auditing_policy(self) -> pulumi.Output['outputs.DatabaseExtendedAuditingPolicy']:
         """
         A `extended_auditing_policy` block as defined below.
         """

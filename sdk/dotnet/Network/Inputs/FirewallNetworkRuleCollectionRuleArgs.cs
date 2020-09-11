@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationAddresses;
 
         /// <summary>
-        /// A list of destination IP addresses, IP ranges, or FQDNs.
+        /// A list of destination IP addresses and/or IP ranges.
         /// </summary>
         public InputList<string> DestinationAddresses
         {

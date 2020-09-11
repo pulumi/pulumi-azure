@@ -12,6 +12,8 @@ import (
 
 // Allows you to manage an Azure SQL Database
 //
+// > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
+//
 // ## Example Usage
 //
 // ```go
@@ -92,7 +94,9 @@ type Database struct {
 	ElasticPoolName pulumi.StringOutput `pulumi:"elasticPoolName"`
 	Encryption      pulumi.StringOutput `pulumi:"encryption"`
 	// A `extendedAuditingPolicy` block as defined below.
-	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrOutput `pulumi:"extendedAuditingPolicy"`
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
+	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyOutput `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -175,6 +179,8 @@ type databaseState struct {
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	Encryption      *string `pulumi:"encryption"`
 	// A `extendedAuditingPolicy` block as defined below.
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
@@ -225,6 +231,8 @@ type DatabaseState struct {
 	ElasticPoolName pulumi.StringPtrInput
 	Encryption      pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput
@@ -274,6 +282,8 @@ type databaseArgs struct {
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	// A `extendedAuditingPolicy` block as defined below.
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicy `pulumi:"extendedAuditingPolicy"`
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
@@ -320,6 +330,8 @@ type DatabaseArgs struct {
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
 	// A `extendedAuditingPolicy` block as defined below.
+	//
+	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyPtrInput
 	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput

@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./api";
+export * from "./apiDiagnostic";
 export * from "./apiOperation";
 export * from "./apiOperationPolicy";
 export * from "./apiPolicy";

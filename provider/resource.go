@@ -50,6 +50,7 @@ const (
 	azureAppInsights         = "AppInsights"         // AppInsights
 	azureAppPlatform         = "AppPlatform"         // AppPlatform
 	azureAppService          = "AppService"          // App Service
+	azureAttestation         = "Attestation"         // Attestation
 	azureAutomation          = "Automation"          // Automation
 	azureAuthorization       = "Authorization"       // Authorization
 	azureBackup              = "Backup"              // Backup
@@ -338,6 +339,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_identity_provider_twitter":   {Tok: azureResource(azureAPIManagement, "IdentityProviderTwitter")},
 			"azurerm_api_management_identity_provider_microsoft": {Tok: azureResource(azureAPIManagement, "IdentityProviderMicrosoft")},
 			"azurerm_api_management_named_value":                 {Tok: azureResource(azureAPIManagement, "NamedValue")},
+			"azurerm_api_management_api_diagnostic":              {Tok: azureResource(azureAPIManagement, "ApiDiagnostic")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -699,6 +701,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_azure_function": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceAzureFunction"),
 			},
+			"azurerm_data_factory_linked_service_azure_sql_database": {
+				Tok: azureResource(azureDataFactory, "LinkedServiceAzureSqlDatabase"),
+			},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -954,9 +959,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server_security_alert_policy": {
 				Tok: azureResource(azureMSSQL, "ServerSecurityAlertPolicy"),
 			},
-			"azurerm_mssql_database":        {Tok: azureResource(azureMSSQL, "Database")},
-			"azurerm_mssql_virtual_machine": {Tok: azureResource(azureMSSQL, "VirtualMachine")},
-			"azurerm_mssql_server":          {Tok: azureResource(azureMSSQL, "Server")},
+			"azurerm_mssql_database":                          {Tok: azureResource(azureMSSQL, "Database")},
+			"azurerm_mssql_virtual_machine":                   {Tok: azureResource(azureMSSQL, "VirtualMachine")},
+			"azurerm_mssql_server":                            {Tok: azureResource(azureMSSQL, "Server")},
+			"azurerm_mssql_database_extended_auditing_policy": {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
 
 			// MySQL
 			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
@@ -1484,6 +1490,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
+
+			// Attestation
+			"azurerm_attestation_provider": {Tok: azureResource(azureAttestation, "Provider")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1543,6 +1552,9 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "loadbalancer.html.markdown",
 				},
+			},
+			"azurerm_lb_rule": {
+				Tok: azureDataSource(azureLB, "getLBRule"),
 			},
 			"azurerm_lb_backend_address_pool": {
 				Tok: azureDataSource(azureLB, "getBackendAddressPool"),
@@ -1692,6 +1704,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub_authorization_rule": {Tok: azureDataSource(azureEventHub, "getAuthorizationRule")},
 			"azurerm_eventhub_consumer_group":     {Tok: azureDataSource(azureEventHub, "getConsumeGroup")},
 			"azurerm_function_app":                {Tok: azureDataSource(azureAppService, "getFunctionApp")},
+			"azurerm_function_app_host_keys":      {Tok: azureDataSource(azureAppService, "getFunctionAppHostKeys")},
 			"azurerm_app_service_environment": {
 				Tok: azureDataSource(azureAppService, "getAppServiceEnvironment"),
 			},
@@ -1719,6 +1732,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_published_version":     {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
 			"azurerm_web_application_firewall_policy": {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
 			"azurerm_synapse_workspace":               {Tok: azureDataSource(azureSynapse, "getWorkspace")},
+			"azurerm_attestation_provider":            {Tok: azureDataSource(azureAttestation, "getProvider")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

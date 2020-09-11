@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./database";
+export * from "./databaseExtendedAuditingPolicy";
 export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./elasticPool";
 export * from "./getDatabase";
