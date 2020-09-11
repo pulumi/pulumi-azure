@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.27.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 3.21.0 (2020-09-11)
+* Upgrade to v2.27.0 of the AzureRM Terraform Provider
 
 ## 3.20.1 (2020-09-09)
 * Relax naming conventions on `cosmosdb.Account` to allow resource names to be up to 44 characters in length
