@@ -163,7 +163,7 @@ namespace Pulumi.Azure.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

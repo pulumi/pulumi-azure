@@ -182,7 +182,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:eventhub/queue:Queue"},
+                    new Pulumi.Alias { Type = "azure:eventhub/queue:Queue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

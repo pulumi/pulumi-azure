@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Management
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:managementresource/manangementLock:ManangementLock"},
+                    new Pulumi.Alias { Type = "azure:managementresource/manangementLock:ManangementLock"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

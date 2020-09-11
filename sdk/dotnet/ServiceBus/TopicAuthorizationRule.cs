@@ -148,7 +148,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

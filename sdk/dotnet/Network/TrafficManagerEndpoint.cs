@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:trafficmanager/endpoint:Endpoint"},
+                    new Pulumi.Alias { Type = "azure:trafficmanager/endpoint:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

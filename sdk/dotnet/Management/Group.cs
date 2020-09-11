@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Management
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:managementgroups/managementGroup:ManagementGroup"},
+                    new Pulumi.Alias { Type = "azure:managementgroups/managementGroup:ManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

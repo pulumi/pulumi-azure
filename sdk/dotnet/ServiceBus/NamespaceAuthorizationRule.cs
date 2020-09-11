@@ -136,7 +136,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

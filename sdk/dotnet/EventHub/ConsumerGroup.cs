@@ -113,7 +113,7 @@ namespace Pulumi.Azure.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup"},
+                    new Pulumi.Alias { Type = "azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
