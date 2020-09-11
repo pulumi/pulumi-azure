@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:msi/userAssignedIdentity:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure:msi/userAssignedIdentity:UserAssignedIdentity"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

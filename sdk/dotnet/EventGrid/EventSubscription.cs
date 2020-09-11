@@ -202,7 +202,7 @@ namespace Pulumi.Azure.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:eventhub/eventSubscription:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure:eventhub/eventSubscription:EventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

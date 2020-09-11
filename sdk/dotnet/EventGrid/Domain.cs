@@ -127,7 +127,7 @@ namespace Pulumi.Azure.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:eventhub/domain:Domain"},
+                    new Pulumi.Alias { Type = "azure:eventhub/domain:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

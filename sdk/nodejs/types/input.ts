@@ -15672,4 +15672,3 @@ export namespace waf {
         requestBodyCheck?: pulumi.Input<boolean>;
     }
 }
-

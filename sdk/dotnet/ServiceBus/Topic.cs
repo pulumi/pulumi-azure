@@ -170,7 +170,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azure:eventhub/topic:Topic"},
+                    new Pulumi.Alias { Type = "azure:eventhub/topic:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
