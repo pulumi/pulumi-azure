@@ -4,6 +4,8 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform-bridge v2.8.0
 * Upgrade to Pulumi v2.10.0
+* Relax naming conventions on `appInsights.Insights` to allow resource names to be up to 255 characters in length
+* Relax naming conventions on `monitoring.AutoscaleSetting` to allow resource names to be up to 255 characters in length
 
 ---
 

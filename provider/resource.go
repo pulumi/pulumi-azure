@@ -345,7 +345,20 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
 
 			// AppInsights
-			"azurerm_application_insights": {Tok: azureResource(azureAppInsights, "Insights")},
+			"azurerm_application_insights": {
+				Tok: azureResource(azureAppInsights, "Insights"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// The max length according to the portal is 255 - there is no official API docs to provide this info
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    255,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
+				},
+			},
 			"azurerm_application_insights_api_key": {
 				Tok: azureResource(azureAppInsights, "ApiKey"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -937,9 +950,22 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_services_account": {Tok: azureResource(azureMediaServices, "Account")},
 
 			// Monitoring resources
-			"azurerm_monitor_action_group":                {Tok: azureResource(azureMonitoring, "ActionGroup")},
-			"azurerm_monitor_activity_log_alert":          {Tok: azureResource(azureMonitoring, "ActivityLogAlert")},
-			"azurerm_monitor_autoscale_setting":           {Tok: azureResource(azureMonitoring, "AutoscaleSetting")},
+			"azurerm_monitor_action_group":       {Tok: azureResource(azureMonitoring, "ActionGroup")},
+			"azurerm_monitor_activity_log_alert": {Tok: azureResource(azureMonitoring, "ActivityLogAlert")},
+			"azurerm_monitor_autoscale_setting": {
+				Tok: azureResource(azureMonitoring, "AutoscaleSetting"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// The max length according to the portal is 255 - there is no official API docs to provide this info
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    255,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
+				},
+			},
 			"azurerm_monitor_diagnostic_setting":          {Tok: azureResource(azureMonitoring, "DiagnosticSetting")},
 			"azurerm_monitor_log_profile":                 {Tok: azureResource(azureMonitoring, "LogProfile")},
 			"azurerm_monitor_metric_alert":                {Tok: azureResource(azureMonitoring, "MetricAlert")},
