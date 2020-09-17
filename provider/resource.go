@@ -950,7 +950,21 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_services_account": {Tok: azureResource(azureMediaServices, "Account")},
 
 			// Monitoring resources
-			"azurerm_monitor_action_group":       {Tok: azureResource(azureMonitoring, "ActionGroup")},
+			"azurerm_monitor_action_group": {
+				Tok: azureResource(azureMonitoring, "ActionGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Max length of an ActionGroup name is 260.
+					// Source: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftinsights
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    260,
+						Randlen:   8,
+						Transform: func(name string) string {
+							return strings.ToLower(name)
+						},
+					}),
+				},
+			},
 			"azurerm_monitor_activity_log_alert": {Tok: azureResource(azureMonitoring, "ActivityLogAlert")},
 			"azurerm_monitor_autoscale_setting": {
 				Tok: azureResource(azureMonitoring, "AutoscaleSetting"),
