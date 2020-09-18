@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['MongoDatabase']
 
@@ -16,6 +18,7 @@ class MongoDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoDatabaseAutoscaleSettingsArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[float]] = None,
@@ -66,6 +69,7 @@ class MongoDatabase(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['autoscale_settings'] = autoscale_settings
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -82,6 +86,7 @@ class MongoDatabase(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoDatabaseAutoscaleSettingsArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             throughput: Optional[pulumi.Input[float]] = None) -> 'MongoDatabase':
@@ -102,6 +107,7 @@ class MongoDatabase(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["account_name"] = account_name
+        __props__["autoscale_settings"] = autoscale_settings
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["throughput"] = throughput
@@ -114,6 +120,11 @@ class MongoDatabase(pulumi.CustomResource):
         The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> pulumi.Output[Optional['outputs.MongoDatabaseAutoscaleSettings']]:
+        return pulumi.get(self, "autoscale_settings")
 
     @property
     @pulumi.getter

@@ -182,7 +182,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> NodeResourceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateClusterEnabled")]
         public Output<bool> PrivateClusterEnabled { get; private set; } = null!;
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
-        /// Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateClusterEnabled")]
         public Input<bool>? PrivateClusterEnabled { get; set; }
@@ -571,7 +571,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
-        /// Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateClusterEnabled")]
         public Input<bool>? PrivateClusterEnabled { get; set; }

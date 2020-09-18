@@ -47,7 +47,8 @@ type SqlDatabase struct {
 	pulumi.CustomResourceState
 
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	AccountName       pulumi.StringOutput                   `pulumi:"accountName"`
+	AutoscaleSettings SqlDatabaseAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
@@ -91,7 +92,8 @@ func GetSqlDatabase(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SqlDatabase resources.
 type sqlDatabaseState struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-	AccountName *string `pulumi:"accountName"`
+	AccountName       *string                       `pulumi:"accountName"`
+	AutoscaleSettings *SqlDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
@@ -102,7 +104,8 @@ type sqlDatabaseState struct {
 
 type SqlDatabaseState struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringPtrInput
+	AccountName       pulumi.StringPtrInput
+	AutoscaleSettings SqlDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
@@ -117,7 +120,8 @@ func (SqlDatabaseState) ElementType() reflect.Type {
 
 type sqlDatabaseArgs struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-	AccountName string `pulumi:"accountName"`
+	AccountName       string                        `pulumi:"accountName"`
+	AutoscaleSettings *SqlDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
@@ -129,7 +133,8 @@ type sqlDatabaseArgs struct {
 // The set of arguments for constructing a SqlDatabase resource.
 type SqlDatabaseArgs struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringInput
+	AccountName       pulumi.StringInput
+	AutoscaleSettings SqlDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.

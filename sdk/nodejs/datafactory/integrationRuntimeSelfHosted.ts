@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Data Factory Self-host Integration Runtime.
+ * Manages a Data Factory Self-hosted Integration Runtime.
  *
  * ## Example Usage
  *
@@ -63,7 +63,7 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      */
     public /*out*/ readonly authKey2!: pulumi.Output<string>;
     /**
-     * Changing this forces a new Data Factory to be created.
+     * Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
@@ -71,7 +71,7 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+     * The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -79,7 +79,7 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
      */
     public readonly rbacAuthorizations!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization[] | undefined>;
     /**
-     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
@@ -142,7 +142,7 @@ export interface IntegrationRuntimeSelfHostedState {
      */
     readonly authKey2?: pulumi.Input<string>;
     /**
-     * Changing this forces a new Data Factory to be created.
+     * Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     readonly dataFactoryName?: pulumi.Input<string>;
     /**
@@ -150,7 +150,7 @@ export interface IntegrationRuntimeSelfHostedState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+     * The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -158,7 +158,7 @@ export interface IntegrationRuntimeSelfHostedState {
      */
     readonly rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
     /**
-     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
 }
@@ -168,7 +168,7 @@ export interface IntegrationRuntimeSelfHostedState {
  */
 export interface IntegrationRuntimeSelfHostedArgs {
     /**
-     * Changing this forces a new Data Factory to be created.
+     * Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     readonly dataFactoryName: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface IntegrationRuntimeSelfHostedArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+     * The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface IntegrationRuntimeSelfHostedArgs {
      */
     readonly rbacAuthorizations?: pulumi.Input<pulumi.Input<inputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization>[]>;
     /**
-     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+     * The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
 }

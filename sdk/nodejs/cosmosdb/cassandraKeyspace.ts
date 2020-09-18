@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,6 +73,10 @@ export class CassandraKeyspace extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     */
+    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.CassandraKeyspaceAutoscaleSettings | undefined>;
+    /**
      * Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -79,7 +85,7 @@ export class CassandraKeyspace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The throughput of Cassandra keyspace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
     public readonly throughput!: pulumi.Output<number>;
 
@@ -96,6 +102,7 @@ export class CassandraKeyspace extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as CassandraKeyspaceState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["throughput"] = state ? state.throughput : undefined;
@@ -108,6 +115,7 @@ export class CassandraKeyspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["throughput"] = args ? args.throughput : undefined;
@@ -132,6 +140,10 @@ export interface CassandraKeyspaceState {
      */
     readonly accountName?: pulumi.Input<string>;
     /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     */
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraKeyspaceAutoscaleSettings>;
+    /**
      * Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -140,7 +152,7 @@ export interface CassandraKeyspaceState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The throughput of Cassandra keyspace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
     readonly throughput?: pulumi.Input<number>;
 }
@@ -154,6 +166,10 @@ export interface CassandraKeyspaceArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     */
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraKeyspaceAutoscaleSettings>;
+    /**
      * Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -162,7 +178,7 @@ export interface CassandraKeyspaceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The throughput of Cassandra keyspace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
     readonly throughput?: pulumi.Input<number>;
 }

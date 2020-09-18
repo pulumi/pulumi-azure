@@ -27,10 +27,10 @@ namespace Pulumi.Azure.Storage
         public Output<string> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// The version of Key Vault Key.
+        /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         /// </summary>
         [Output("keyVersion")]
-        public Output<string> KeyVersion { get; private set; } = null!;
+        public Output<string?> KeyVersion { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -97,10 +97,10 @@ namespace Pulumi.Azure.Storage
         public Input<string> KeyVaultId { get; set; } = null!;
 
         /// <summary>
-        /// The version of Key Vault Key.
+        /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         /// </summary>
-        [Input("keyVersion", required: true)]
-        public Input<string> KeyVersion { get; set; } = null!;
+        [Input("keyVersion")]
+        public Input<string>? KeyVersion { get; set; }
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// The version of Key Vault Key.
+        /// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }

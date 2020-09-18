@@ -9,6 +9,7 @@ export * from "./elasticPool";
 export * from "./getDatabase";
 export * from "./getElasticPool";
 export * from "./server";
+export * from "./serverExtendedAuditingPolicy";
 export * from "./serverSecurityAlertPolicy";
 export * from "./serverVulnerabilityAssessment";
 export * from "./virtualMachine";

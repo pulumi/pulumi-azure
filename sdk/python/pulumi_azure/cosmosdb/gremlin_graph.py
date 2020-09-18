@@ -18,6 +18,7 @@ class GremlinGraph(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinGraphAutoscaleSettingsArgs']]] = None,
                  conflict_resolution_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]]]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  index_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']]]]] = None,
@@ -72,13 +73,14 @@ class GremlinGraph(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['GremlinGraphAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]]] conflict_resolution_policies: The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']]]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        :param pulumi.Input[float] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphUniqueKeyArgs']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -101,6 +103,7 @@ class GremlinGraph(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['autoscale_settings'] = autoscale_settings
             if conflict_resolution_policies is None:
                 raise TypeError("Missing required property 'conflict_resolution_policies'")
             __props__['conflict_resolution_policies'] = conflict_resolution_policies
@@ -128,6 +131,7 @@ class GremlinGraph(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinGraphAutoscaleSettingsArgs']]] = None,
             conflict_resolution_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]]]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             index_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']]]]] = None,
@@ -144,13 +148,14 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['GremlinGraphAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphConflictResolutionPolicyArgs']]]] conflict_resolution_policies: The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphIndexPolicyArgs']]]] index_policies: The configuration of the indexing policy. One or more `index_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        :param pulumi.Input[float] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['GremlinGraphUniqueKeyArgs']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -158,6 +163,7 @@ class GremlinGraph(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["account_name"] = account_name
+        __props__["autoscale_settings"] = autoscale_settings
         __props__["conflict_resolution_policies"] = conflict_resolution_policies
         __props__["database_name"] = database_name
         __props__["index_policies"] = index_policies
@@ -175,6 +181,14 @@ class GremlinGraph(pulumi.CustomResource):
         The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> pulumi.Output[Optional['outputs.GremlinGraphAutoscaleSettings']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
+        """
+        return pulumi.get(self, "autoscale_settings")
 
     @property
     @pulumi.getter(name="conflictResolutionPolicies")
@@ -228,7 +242,7 @@ class GremlinGraph(pulumi.CustomResource):
     @pulumi.getter
     def throughput(self) -> pulumi.Output[float]:
         """
-        The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
         """
         return pulumi.get(self, "throughput")
 

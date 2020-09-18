@@ -26,7 +26,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages a Data Factory Self-host Integration Runtime.
+        Manages a Data Factory Self-hosted Integration Runtime.
 
         ## Example Usage
 
@@ -45,11 +45,11 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_factory_name: Changing this forces a new Data Factory to be created.
+        :param pulumi.Input[str] data_factory_name: Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[str] description: Integration runtime description.
-        :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,11 +105,11 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_key1: The primary integration runtime authentication key.
         :param pulumi.Input[str] auth_key2: The secondary integration runtime authentication key.
-        :param pulumi.Input[str] data_factory_name: Changing this forces a new Data Factory to be created.
+        :param pulumi.Input[str] data_factory_name: Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[str] description: Integration runtime description.
-        :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -144,7 +144,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     @pulumi.getter(name="dataFactoryName")
     def data_factory_name(self) -> pulumi.Output[str]:
         """
-        Changing this forces a new Data Factory to be created.
+        Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         return pulumi.get(self, "data_factory_name")
 
@@ -160,7 +160,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+        The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         return pulumi.get(self, "name")
 
@@ -176,7 +176,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+        The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         return pulumi.get(self, "resource_group_name")
 

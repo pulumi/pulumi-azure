@@ -13,12 +13,20 @@ __all__ = [
     'AccountConsistencyPolicy',
     'AccountGeoLocation',
     'AccountVirtualNetworkRule',
+    'CassandraKeyspaceAutoscaleSettings',
+    'GremlinDatabaseAutoscaleSettings',
+    'GremlinGraphAutoscaleSettings',
     'GremlinGraphConflictResolutionPolicy',
     'GremlinGraphIndexPolicy',
     'GremlinGraphUniqueKey',
+    'MongoCollectionAutoscaleSettings',
     'MongoCollectionIndex',
     'MongoCollectionSystemIndex',
+    'MongoDatabaseAutoscaleSettings',
+    'SqlContainerAutoscaleSettings',
     'SqlContainerUniqueKey',
+    'SqlDatabaseAutoscaleSettings',
+    'TableAutoscaleSettings',
     'GetAccountCapabilityResult',
     'GetAccountConsistencyPolicyResult',
     'GetAccountGeoLocationResult',
@@ -181,6 +189,72 @@ class AccountVirtualNetworkRule(dict):
 
 
 @pulumi.output_type
+class CassandraKeyspaceAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[float] = None):
+        """
+        :param float max_throughput: The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[float]:
+        """
+        The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GremlinDatabaseAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[float] = None):
+        """
+        :param float max_throughput: The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[float]:
+        """
+        The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GremlinGraphAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[float] = None):
+        """
+        :param float max_throughput: The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[float]:
+        """
+        The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class GremlinGraphConflictResolutionPolicy(dict):
     def __init__(__self__, *,
                  mode: str,
@@ -304,6 +378,28 @@ class GremlinGraphUniqueKey(dict):
 
 
 @pulumi.output_type
+class MongoCollectionAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[float] = None):
+        """
+        :param float max_throughput: The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[float]:
+        """
+        The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class MongoCollectionIndex(dict):
     def __init__(__self__, *,
                  keys: List[str],
@@ -371,6 +467,50 @@ class MongoCollectionSystemIndex(dict):
 
 
 @pulumi.output_type
+class MongoDatabaseAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[float] = None):
+        """
+        :param float max_throughput: The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[float]:
+        """
+        The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlContainerAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[float] = None):
+        """
+        :param float max_throughput: The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[float]:
+        """
+        The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class SqlContainerUniqueKey(dict):
     def __init__(__self__, *,
                  paths: List[str]):
@@ -386,6 +526,50 @@ class SqlContainerUniqueKey(dict):
         A list of paths to use for this unique key.
         """
         return pulumi.get(self, "paths")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlDatabaseAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[float] = None):
+        """
+        :param float max_throughput: The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[float]:
+        """
+        The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class TableAutoscaleSettings(dict):
+    def __init__(__self__, *,
+                 max_throughput: Optional[float] = None):
+        """
+        :param float max_throughput: The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[float]:
+        """
+        The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        """
+        return pulumi.get(self, "max_throughput")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

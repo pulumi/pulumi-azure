@@ -29,7 +29,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -55,8 +55,6 @@ class CustomerManagedKey(pulumi.CustomResource):
             if key_vault_id is None:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
-            if key_version is None:
-                raise TypeError("Missing required property 'key_version'")
             __props__['key_version'] = key_version
             if storage_account_id is None:
                 raise TypeError("Missing required property 'storage_account_id'")
@@ -84,7 +82,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[str] key_version: The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -115,9 +113,9 @@ class CustomerManagedKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> pulumi.Output[str]:
+    def key_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The version of Key Vault Key.
+        The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
         """
         return pulumi.get(self, "key_version")
 

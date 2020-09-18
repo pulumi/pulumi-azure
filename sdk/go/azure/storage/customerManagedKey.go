@@ -18,8 +18,8 @@ type CustomerManagedKey struct {
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
-	// The version of Key Vault Key.
-	KeyVersion pulumi.StringOutput `pulumi:"keyVersion"`
+	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+	KeyVersion pulumi.StringPtrOutput `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 }
@@ -32,9 +32,6 @@ func NewCustomerManagedKey(ctx *pulumi.Context,
 	}
 	if args == nil || args.KeyVaultId == nil {
 		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
-	if args == nil || args.KeyVersion == nil {
-		return nil, errors.New("missing required argument 'KeyVersion'")
 	}
 	if args == nil || args.StorageAccountId == nil {
 		return nil, errors.New("missing required argument 'StorageAccountId'")
@@ -68,7 +65,7 @@ type customerManagedKeyState struct {
 	KeyName *string `pulumi:"keyName"`
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// The version of Key Vault Key.
+	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion *string `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -79,7 +76,7 @@ type CustomerManagedKeyState struct {
 	KeyName pulumi.StringPtrInput
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
-	// The version of Key Vault Key.
+	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
 	KeyVersion pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -94,8 +91,8 @@ type customerManagedKeyArgs struct {
 	KeyName string `pulumi:"keyName"`
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
-	// The version of Key Vault Key.
-	KeyVersion string `pulumi:"keyVersion"`
+	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+	KeyVersion *string `pulumi:"keyVersion"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
@@ -106,8 +103,8 @@ type CustomerManagedKeyArgs struct {
 	KeyName pulumi.StringInput
 	// The ID of the Key Vault. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
-	// The version of Key Vault Key.
-	KeyVersion pulumi.StringInput
+	// The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
+	KeyVersion pulumi.StringPtrInput
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
 }

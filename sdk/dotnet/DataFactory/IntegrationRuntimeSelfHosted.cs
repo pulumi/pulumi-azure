@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
-    /// Manages a Data Factory Self-host Integration Runtime.
+    /// Manages a Data Factory Self-hosted Integration Runtime.
     /// 
     /// ## Example Usage
     /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> AuthKey2 { get; private set; } = null!;
 
         /// <summary>
-        /// Changing this forces a new Data Factory to be created.
+        /// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Output("dataFactoryName")]
         public Output<string> DataFactoryName { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+        /// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<Outputs.IntegrationRuntimeSelfHostedRbacAuthorization>> RbacAuthorizations { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class IntegrationRuntimeSelfHostedArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Changing this forces a new Data Factory to be created.
+        /// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Input("dataFactoryName", required: true)]
         public Input<string> DataFactoryName { get; set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+        /// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? AuthKey2 { get; set; }
 
         /// <summary>
-        /// Changing this forces a new Data Factory to be created.
+        /// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Input("dataFactoryName")]
         public Input<string>? DataFactoryName { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+        /// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+        /// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

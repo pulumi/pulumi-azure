@@ -19,6 +19,7 @@ class Firewall(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -62,8 +63,9 @@ class Firewall(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: A `ip_configuration` block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -91,6 +93,7 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ip_configurations'")
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
+            __props__['management_ip_configuration'] = management_ip_configuration
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -110,6 +113,7 @@ class Firewall(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -122,8 +126,9 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: A `ip_configuration` block as documented below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -136,6 +141,7 @@ class Firewall(pulumi.CustomResource):
 
         __props__["ip_configurations"] = ip_configurations
         __props__["location"] = location
+        __props__["management_ip_configuration"] = management_ip_configuration
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
@@ -147,7 +153,7 @@ class Firewall(pulumi.CustomResource):
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> pulumi.Output[List['outputs.FirewallIpConfiguration']]:
         """
-        A `ip_configuration` block as documented below.
+        An `ip_configuration` block as documented below.
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -158,6 +164,14 @@ class Firewall(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementIpConfiguration")
+    def management_ip_configuration(self) -> pulumi.Output[Optional['outputs.FirewallManagementIpConfiguration']]:
+        """
+        A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+        """
+        return pulumi.get(self, "management_ip_configuration")
 
     @property
     @pulumi.getter

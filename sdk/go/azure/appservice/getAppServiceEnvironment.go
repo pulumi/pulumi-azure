@@ -56,12 +56,18 @@ type GetAppServiceEnvironmentResult struct {
 	FrontEndScaleFactor int `pulumi:"frontEndScaleFactor"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// IP address of internal load balancer of the App Service Environment.
+	InternalIpAddress string `pulumi:"internalIpAddress"`
 	// The Azure location where the App Service Environment exists
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
+	// Outbound IP addresses of the App Service Environment.
+	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
 	// The Pricing Tier (Isolated SKU) of the App Service Environment.
 	PricingTier       string `pulumi:"pricingTier"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// IP address of service endpoint of the App Service Environment.
+	ServiceIpAddress string `pulumi:"serviceIpAddress"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }

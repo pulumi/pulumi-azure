@@ -71,6 +71,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// </summary>
+        [Output("autoscaleSettings")]
+        public Output<Outputs.CassandraKeyspaceAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -83,7 +89,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The throughput of Cassandra keyspace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
@@ -141,6 +147,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// </summary>
+        [Input("autoscaleSettings")]
+        public Input<Inputs.CassandraKeyspaceAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -153,7 +165,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The throughput of Cassandra keyspace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -172,6 +184,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// </summary>
+        [Input("autoscaleSettings")]
+        public Input<Inputs.CassandraKeyspaceAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -184,7 +202,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The throughput of Cassandra keyspace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

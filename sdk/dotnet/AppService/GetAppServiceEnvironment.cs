@@ -78,15 +78,27 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// IP address of internal load balancer of the App Service Environment.
+        /// </summary>
+        public readonly string InternalIpAddress;
+        /// <summary>
         /// The Azure location where the App Service Environment exists
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         /// <summary>
+        /// Outbound IP addresses of the App Service Environment.
+        /// </summary>
+        public readonly ImmutableArray<string> OutboundIpAddresses;
+        /// <summary>
         /// The Pricing Tier (Isolated SKU) of the App Service Environment.
         /// </summary>
         public readonly string PricingTier;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// IP address of service endpoint of the App Service Environment.
+        /// </summary>
+        public readonly string ServiceIpAddress;
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
@@ -98,22 +110,31 @@ namespace Pulumi.Azure.AppService
 
             string id,
 
+            string internalIpAddress,
+
             string location,
 
             string name,
+
+            ImmutableArray<string> outboundIpAddresses,
 
             string pricingTier,
 
             string resourceGroupName,
 
+            string serviceIpAddress,
+
             ImmutableDictionary<string, string> tags)
         {
             FrontEndScaleFactor = frontEndScaleFactor;
             Id = id;
+            InternalIpAddress = internalIpAddress;
             Location = location;
             Name = name;
+            OutboundIpAddresses = outboundIpAddresses;
             PricingTier = pricingTier;
             ResourceGroupName = resourceGroupName;
+            ServiceIpAddress = serviceIpAddress;
             Tags = tags;
         }
     }

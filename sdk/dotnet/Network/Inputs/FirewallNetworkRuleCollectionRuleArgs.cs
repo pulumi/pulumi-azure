@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationAddresses;
 
         /// <summary>
-        /// A list of destination IP addresses and/or IP ranges.
+        /// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
         /// </summary>
         public InputList<string> DestinationAddresses
         {

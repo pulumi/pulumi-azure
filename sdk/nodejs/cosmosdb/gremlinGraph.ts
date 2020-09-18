@@ -83,6 +83,10 @@ export class GremlinGraph extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partitionKeyPath` to be set.
+     */
+    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
+    /**
      * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly conflictResolutionPolicies!: pulumi.Output<outputs.cosmosdb.GremlinGraphConflictResolutionPolicy[]>;
@@ -107,7 +111,7 @@ export class GremlinGraph extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
      */
     public readonly throughput!: pulumi.Output<number>;
     /**
@@ -128,6 +132,7 @@ export class GremlinGraph extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as GremlinGraphState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["conflictResolutionPolicies"] = state ? state.conflictResolutionPolicies : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["indexPolicies"] = state ? state.indexPolicies : undefined;
@@ -154,6 +159,7 @@ export class GremlinGraph extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["conflictResolutionPolicies"] = args ? args.conflictResolutionPolicies : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["indexPolicies"] = args ? args.indexPolicies : undefined;
@@ -183,6 +189,10 @@ export interface GremlinGraphState {
      */
     readonly accountName?: pulumi.Input<string>;
     /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partitionKeyPath` to be set.
+     */
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
+    /**
      * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
     readonly conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
@@ -207,7 +217,7 @@ export interface GremlinGraphState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
      */
     readonly throughput?: pulumi.Input<number>;
     /**
@@ -224,6 +234,10 @@ export interface GremlinGraphArgs {
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partitionKeyPath` to be set.
+     */
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
@@ -249,7 +263,7 @@ export interface GremlinGraphArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
      */
     readonly throughput?: pulumi.Input<number>;
     /**

@@ -441,6 +441,156 @@ func (o SparkPoolLibraryRequirementPtrOutput) Filename() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type SqlPoolRestore struct {
+	// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+	PointInTime string `pulumi:"pointInTime"`
+	// The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+	SourceDatabaseId string `pulumi:"sourceDatabaseId"`
+}
+
+// SqlPoolRestoreInput is an input type that accepts SqlPoolRestoreArgs and SqlPoolRestoreOutput values.
+// You can construct a concrete instance of `SqlPoolRestoreInput` via:
+//
+//          SqlPoolRestoreArgs{...}
+type SqlPoolRestoreInput interface {
+	pulumi.Input
+
+	ToSqlPoolRestoreOutput() SqlPoolRestoreOutput
+	ToSqlPoolRestoreOutputWithContext(context.Context) SqlPoolRestoreOutput
+}
+
+type SqlPoolRestoreArgs struct {
+	// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+	PointInTime pulumi.StringInput `pulumi:"pointInTime"`
+	// The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+	SourceDatabaseId pulumi.StringInput `pulumi:"sourceDatabaseId"`
+}
+
+func (SqlPoolRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolRestore)(nil)).Elem()
+}
+
+func (i SqlPoolRestoreArgs) ToSqlPoolRestoreOutput() SqlPoolRestoreOutput {
+	return i.ToSqlPoolRestoreOutputWithContext(context.Background())
+}
+
+func (i SqlPoolRestoreArgs) ToSqlPoolRestoreOutputWithContext(ctx context.Context) SqlPoolRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolRestoreOutput)
+}
+
+func (i SqlPoolRestoreArgs) ToSqlPoolRestorePtrOutput() SqlPoolRestorePtrOutput {
+	return i.ToSqlPoolRestorePtrOutputWithContext(context.Background())
+}
+
+func (i SqlPoolRestoreArgs) ToSqlPoolRestorePtrOutputWithContext(ctx context.Context) SqlPoolRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolRestoreOutput).ToSqlPoolRestorePtrOutputWithContext(ctx)
+}
+
+// SqlPoolRestorePtrInput is an input type that accepts SqlPoolRestoreArgs, SqlPoolRestorePtr and SqlPoolRestorePtrOutput values.
+// You can construct a concrete instance of `SqlPoolRestorePtrInput` via:
+//
+//          SqlPoolRestoreArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlPoolRestorePtrInput interface {
+	pulumi.Input
+
+	ToSqlPoolRestorePtrOutput() SqlPoolRestorePtrOutput
+	ToSqlPoolRestorePtrOutputWithContext(context.Context) SqlPoolRestorePtrOutput
+}
+
+type sqlPoolRestorePtrType SqlPoolRestoreArgs
+
+func SqlPoolRestorePtr(v *SqlPoolRestoreArgs) SqlPoolRestorePtrInput {
+	return (*sqlPoolRestorePtrType)(v)
+}
+
+func (*sqlPoolRestorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlPoolRestore)(nil)).Elem()
+}
+
+func (i *sqlPoolRestorePtrType) ToSqlPoolRestorePtrOutput() SqlPoolRestorePtrOutput {
+	return i.ToSqlPoolRestorePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlPoolRestorePtrType) ToSqlPoolRestorePtrOutputWithContext(ctx context.Context) SqlPoolRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolRestorePtrOutput)
+}
+
+type SqlPoolRestoreOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlPoolRestore)(nil)).Elem()
+}
+
+func (o SqlPoolRestoreOutput) ToSqlPoolRestoreOutput() SqlPoolRestoreOutput {
+	return o
+}
+
+func (o SqlPoolRestoreOutput) ToSqlPoolRestoreOutputWithContext(ctx context.Context) SqlPoolRestoreOutput {
+	return o
+}
+
+func (o SqlPoolRestoreOutput) ToSqlPoolRestorePtrOutput() SqlPoolRestorePtrOutput {
+	return o.ToSqlPoolRestorePtrOutputWithContext(context.Background())
+}
+
+func (o SqlPoolRestoreOutput) ToSqlPoolRestorePtrOutputWithContext(ctx context.Context) SqlPoolRestorePtrOutput {
+	return o.ApplyT(func(v SqlPoolRestore) *SqlPoolRestore {
+		return &v
+	}).(SqlPoolRestorePtrOutput)
+}
+
+// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+func (o SqlPoolRestoreOutput) PointInTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlPoolRestore) string { return v.PointInTime }).(pulumi.StringOutput)
+}
+
+// The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+func (o SqlPoolRestoreOutput) SourceDatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlPoolRestore) string { return v.SourceDatabaseId }).(pulumi.StringOutput)
+}
+
+type SqlPoolRestorePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlPoolRestorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlPoolRestore)(nil)).Elem()
+}
+
+func (o SqlPoolRestorePtrOutput) ToSqlPoolRestorePtrOutput() SqlPoolRestorePtrOutput {
+	return o
+}
+
+func (o SqlPoolRestorePtrOutput) ToSqlPoolRestorePtrOutputWithContext(ctx context.Context) SqlPoolRestorePtrOutput {
+	return o
+}
+
+func (o SqlPoolRestorePtrOutput) Elem() SqlPoolRestoreOutput {
+	return o.ApplyT(func(v *SqlPoolRestore) SqlPoolRestore { return *v }).(SqlPoolRestoreOutput)
+}
+
+// Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+func (o SqlPoolRestorePtrOutput) PointInTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PointInTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+func (o SqlPoolRestorePtrOutput) SourceDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceDatabaseId
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceAadAdmin struct {
 	// The login name of the Azure AD Administrator of this Synapse Workspace.
 	Login string `pulumi:"login"`
@@ -732,6 +882,8 @@ func init() {
 	pulumi.RegisterOutputType(SparkPoolAutoScalePtrOutput{})
 	pulumi.RegisterOutputType(SparkPoolLibraryRequirementOutput{})
 	pulumi.RegisterOutputType(SparkPoolLibraryRequirementPtrOutput{})
+	pulumi.RegisterOutputType(SqlPoolRestoreOutput{})
+	pulumi.RegisterOutputType(SqlPoolRestorePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminOutput{})
 	pulumi.RegisterOutputType(WorkspaceAadAdminPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})

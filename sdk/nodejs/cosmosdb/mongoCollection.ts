@@ -63,6 +63,10 @@ export class MongoCollection extends pulumi.CustomResource {
 
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
+     */
+    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
+    /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
     public readonly databaseName!: pulumi.Output<string>;
@@ -91,7 +95,7 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemIndexes!: pulumi.Output<outputs.cosmosdb.MongoCollectionSystemIndex[]>;
     /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
      */
     public readonly throughput!: pulumi.Output<number>;
 
@@ -108,6 +112,7 @@ export class MongoCollection extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as MongoCollectionState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["defaultTtlSeconds"] = state ? state.defaultTtlSeconds : undefined;
             inputs["indices"] = state ? state.indices : undefined;
@@ -128,6 +133,7 @@ export class MongoCollection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["defaultTtlSeconds"] = args ? args.defaultTtlSeconds : undefined;
             inputs["indices"] = args ? args.indices : undefined;
@@ -153,6 +159,10 @@ export class MongoCollection extends pulumi.CustomResource {
  */
 export interface MongoCollectionState {
     readonly accountName?: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
+     */
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
@@ -182,7 +192,7 @@ export interface MongoCollectionState {
      */
     readonly systemIndexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionSystemIndex>[]>;
     /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
      */
     readonly throughput?: pulumi.Input<number>;
 }
@@ -192,6 +202,10 @@ export interface MongoCollectionState {
  */
 export interface MongoCollectionArgs {
     readonly accountName: pulumi.Input<string>;
+    /**
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
+     */
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoCollectionAutoscaleSettings>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
@@ -217,7 +231,7 @@ export interface MongoCollectionArgs {
      */
     readonly shardKey?: pulumi.Input<string>;
     /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
      */
     readonly throughput?: pulumi.Input<number>;
 }

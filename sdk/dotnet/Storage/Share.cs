@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a File Share within Azure Storage.
     /// 
+    /// &gt; **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-faq#general).
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

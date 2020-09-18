@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Network
     public partial class Firewall : Pulumi.CustomResource
     {
         /// <summary>
-        /// A `ip_configuration` block as documented below.
+        /// An `ip_configuration` block as documented below.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.FirewallIpConfiguration>> IpConfigurations { get; private set; } = null!;
@@ -80,6 +80,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+        /// </summary>
+        [Output("managementIpConfiguration")]
+        public Output<Outputs.FirewallManagementIpConfiguration?> ManagementIpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Firewall. Changing this forces a new resource to be created.
@@ -161,7 +167,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// A `ip_configuration` block as documented below.
+        /// An `ip_configuration` block as documented below.
         /// </summary>
         public InputList<Inputs.FirewallIpConfigurationArgs> IpConfigurations
         {
@@ -174,6 +180,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+        /// </summary>
+        [Input("managementIpConfiguration")]
+        public Input<Inputs.FirewallManagementIpConfigurationArgs>? ManagementIpConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Firewall. Changing this forces a new resource to be created.
@@ -228,7 +240,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// A `ip_configuration` block as documented below.
+        /// An `ip_configuration` block as documented below.
         /// </summary>
         public InputList<Inputs.FirewallIpConfigurationGetArgs> IpConfigurations
         {
@@ -241,6 +253,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+        /// </summary>
+        [Input("managementIpConfiguration")]
+        public Input<Inputs.FirewallManagementIpConfigurationGetArgs>? ManagementIpConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the name of the Firewall. Changing this forces a new resource to be created.

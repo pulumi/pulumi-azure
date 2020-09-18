@@ -63,15 +63,27 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly id: string;
     /**
+     * IP address of internal load balancer of the App Service Environment.
+     */
+    readonly internalIpAddress: string;
+    /**
      * The Azure location where the App Service Environment exists
      */
     readonly location: string;
     readonly name: string;
     /**
+     * Outbound IP addresses of the App Service Environment.
+     */
+    readonly outboundIpAddresses: string[];
+    /**
      * The Pricing Tier (Isolated SKU) of the App Service Environment.
      */
     readonly pricingTier: string;
     readonly resourceGroupName: string;
+    /**
+     * IP address of service endpoint of the App Service Environment.
+     */
+    readonly serviceIpAddress: string;
     /**
      * A mapping of tags assigned to the resource.
      */

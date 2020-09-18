@@ -12,6 +12,7 @@ __all__ = [
     'SparkPoolAutoPause',
     'SparkPoolAutoScale',
     'SparkPoolLibraryRequirement',
+    'SqlPoolRestore',
     'WorkspaceAadAdmin',
     'WorkspaceIdentity',
 ]
@@ -96,6 +97,38 @@ class SparkPoolLibraryRequirement(dict):
         The name of the library requirements file.
         """
         return pulumi.get(self, "filename")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlPoolRestore(dict):
+    def __init__(__self__, *,
+                 point_in_time: str,
+                 source_database_id: str):
+        """
+        :param str point_in_time: Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+        :param str source_database_id: The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+        """
+        pulumi.set(__self__, "point_in_time", point_in_time)
+        pulumi.set(__self__, "source_database_id", source_database_id)
+
+    @property
+    @pulumi.getter(name="pointInTime")
+    def point_in_time(self) -> str:
+        """
+        Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+        """
+        return pulumi.get(self, "point_in_time")
+
+    @property
+    @pulumi.getter(name="sourceDatabaseId")
+    def source_database_id(self) -> str:
+        """
+        The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+        """
+        return pulumi.get(self, "source_database_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -6286,6 +6286,27 @@ export namespace cosmosdb {
         ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     }
 
+    export interface CassandraKeyspaceAutoscaleSettings {
+        /**
+         * The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface GremlinDatabaseAutoscaleSettings {
+        /**
+         * The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface GremlinGraphAutoscaleSettings {
+        /**
+         * The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
+    }
+
     export interface GremlinGraphConflictResolutionPolicy {
         /**
          * The conflict resolution path in the case of LastWriterWins mode.
@@ -6327,6 +6348,13 @@ export namespace cosmosdb {
         paths: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface MongoCollectionAutoscaleSettings {
+        /**
+         * The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
+    }
+
     export interface MongoCollectionIndex {
         /**
          * Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
@@ -6349,11 +6377,39 @@ export namespace cosmosdb {
         unique?: pulumi.Input<boolean>;
     }
 
+    export interface MongoDatabaseAutoscaleSettings {
+        /**
+         * The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface SqlContainerAutoscaleSettings {
+        /**
+         * The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
+    }
+
     export interface SqlContainerUniqueKey {
         /**
          * A list of paths to use for this unique key.
          */
         paths: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SqlDatabaseAutoscaleSettings {
+        /**
+         * The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface TableAutoscaleSettings {
+        /**
+         * The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+         */
+        maxThroughput?: pulumi.Input<number>;
     }
 }
 
@@ -10892,6 +10948,19 @@ export namespace lb {
     }
 }
 
+export namespace lighthouse {
+    export interface DefinitionAuthorization {
+        /**
+         * Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
+         */
+        principalId: pulumi.Input<string>;
+        /**
+         * The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
+         */
+        roleDefinitionId: pulumi.Input<string>;
+    }
+}
+
 export namespace logicapps {
     export interface ActionHttpRunAfter {
         /**
@@ -13115,6 +13184,25 @@ export namespace network {
         subnetId?: pulumi.Input<string>;
     }
 
+    export interface FirewallManagementIpConfiguration {
+        /**
+         * Specifies the name of the IP Configuration.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The Private IP address of the Azure Firewall.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The ID of the Public IP Address associated with the firewall.
+         */
+        publicIpAddressId: pulumi.Input<string>;
+        /**
+         * Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
     export interface FirewallNatRuleCollectionRule {
         /**
          * Specifies a description for the rule.
@@ -13156,7 +13244,7 @@ export namespace network {
          */
         description?: pulumi.Input<string>;
         /**
-         * A list of destination IP addresses and/or IP ranges.
+         * Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
          */
         destinationAddresses: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -15427,6 +15515,17 @@ export namespace synapse {
          * The name of the library requirements file.
          */
         filename: pulumi.Input<string>;
+    }
+
+    export interface SqlPoolRestore {
+        /**
+         * Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+         */
+        pointInTime: pulumi.Input<string>;
+        /**
+         * The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+         */
+        sourceDatabaseId: pulumi.Input<string>;
     }
 
     export interface WorkspaceAadAdmin {

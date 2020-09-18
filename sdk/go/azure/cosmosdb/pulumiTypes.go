@@ -512,6 +512,399 @@ func (o AccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) AccountVi
 	}).(AccountVirtualNetworkRuleOutput)
 }
 
+type CassandraKeyspaceAutoscaleSettings struct {
+	// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// CassandraKeyspaceAutoscaleSettingsInput is an input type that accepts CassandraKeyspaceAutoscaleSettingsArgs and CassandraKeyspaceAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `CassandraKeyspaceAutoscaleSettingsInput` via:
+//
+//          CassandraKeyspaceAutoscaleSettingsArgs{...}
+type CassandraKeyspaceAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToCassandraKeyspaceAutoscaleSettingsOutput() CassandraKeyspaceAutoscaleSettingsOutput
+	ToCassandraKeyspaceAutoscaleSettingsOutputWithContext(context.Context) CassandraKeyspaceAutoscaleSettingsOutput
+}
+
+type CassandraKeyspaceAutoscaleSettingsArgs struct {
+	// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (CassandraKeyspaceAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraKeyspaceAutoscaleSettings)(nil)).Elem()
+}
+
+func (i CassandraKeyspaceAutoscaleSettingsArgs) ToCassandraKeyspaceAutoscaleSettingsOutput() CassandraKeyspaceAutoscaleSettingsOutput {
+	return i.ToCassandraKeyspaceAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i CassandraKeyspaceAutoscaleSettingsArgs) ToCassandraKeyspaceAutoscaleSettingsOutputWithContext(ctx context.Context) CassandraKeyspaceAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceAutoscaleSettingsOutput)
+}
+
+func (i CassandraKeyspaceAutoscaleSettingsArgs) ToCassandraKeyspaceAutoscaleSettingsPtrOutput() CassandraKeyspaceAutoscaleSettingsPtrOutput {
+	return i.ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CassandraKeyspaceAutoscaleSettingsArgs) ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceAutoscaleSettingsOutput).ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// CassandraKeyspaceAutoscaleSettingsPtrInput is an input type that accepts CassandraKeyspaceAutoscaleSettingsArgs, CassandraKeyspaceAutoscaleSettingsPtr and CassandraKeyspaceAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `CassandraKeyspaceAutoscaleSettingsPtrInput` via:
+//
+//          CassandraKeyspaceAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraKeyspaceAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCassandraKeyspaceAutoscaleSettingsPtrOutput() CassandraKeyspaceAutoscaleSettingsPtrOutput
+	ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(context.Context) CassandraKeyspaceAutoscaleSettingsPtrOutput
+}
+
+type cassandraKeyspaceAutoscaleSettingsPtrType CassandraKeyspaceAutoscaleSettingsArgs
+
+func CassandraKeyspaceAutoscaleSettingsPtr(v *CassandraKeyspaceAutoscaleSettingsArgs) CassandraKeyspaceAutoscaleSettingsPtrInput {
+	return (*cassandraKeyspaceAutoscaleSettingsPtrType)(v)
+}
+
+func (*cassandraKeyspaceAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraKeyspaceAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *cassandraKeyspaceAutoscaleSettingsPtrType) ToCassandraKeyspaceAutoscaleSettingsPtrOutput() CassandraKeyspaceAutoscaleSettingsPtrOutput {
+	return i.ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraKeyspaceAutoscaleSettingsPtrType) ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceAutoscaleSettingsPtrOutput)
+}
+
+type CassandraKeyspaceAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (CassandraKeyspaceAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraKeyspaceAutoscaleSettings)(nil)).Elem()
+}
+
+func (o CassandraKeyspaceAutoscaleSettingsOutput) ToCassandraKeyspaceAutoscaleSettingsOutput() CassandraKeyspaceAutoscaleSettingsOutput {
+	return o
+}
+
+func (o CassandraKeyspaceAutoscaleSettingsOutput) ToCassandraKeyspaceAutoscaleSettingsOutputWithContext(ctx context.Context) CassandraKeyspaceAutoscaleSettingsOutput {
+	return o
+}
+
+func (o CassandraKeyspaceAutoscaleSettingsOutput) ToCassandraKeyspaceAutoscaleSettingsPtrOutput() CassandraKeyspaceAutoscaleSettingsPtrOutput {
+	return o.ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CassandraKeyspaceAutoscaleSettingsOutput) ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v CassandraKeyspaceAutoscaleSettings) *CassandraKeyspaceAutoscaleSettings {
+		return &v
+	}).(CassandraKeyspaceAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o CassandraKeyspaceAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CassandraKeyspaceAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type CassandraKeyspaceAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraKeyspaceAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraKeyspaceAutoscaleSettings)(nil)).Elem()
+}
+
+func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) ToCassandraKeyspaceAutoscaleSettingsPtrOutput() CassandraKeyspaceAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) ToCassandraKeyspaceAutoscaleSettingsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) Elem() CassandraKeyspaceAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceAutoscaleSettings) CassandraKeyspaceAutoscaleSettings { return *v }).(CassandraKeyspaceAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o CassandraKeyspaceAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type GremlinDatabaseAutoscaleSettings struct {
+	// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// GremlinDatabaseAutoscaleSettingsInput is an input type that accepts GremlinDatabaseAutoscaleSettingsArgs and GremlinDatabaseAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `GremlinDatabaseAutoscaleSettingsInput` via:
+//
+//          GremlinDatabaseAutoscaleSettingsArgs{...}
+type GremlinDatabaseAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToGremlinDatabaseAutoscaleSettingsOutput() GremlinDatabaseAutoscaleSettingsOutput
+	ToGremlinDatabaseAutoscaleSettingsOutputWithContext(context.Context) GremlinDatabaseAutoscaleSettingsOutput
+}
+
+type GremlinDatabaseAutoscaleSettingsArgs struct {
+	// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (GremlinDatabaseAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (i GremlinDatabaseAutoscaleSettingsArgs) ToGremlinDatabaseAutoscaleSettingsOutput() GremlinDatabaseAutoscaleSettingsOutput {
+	return i.ToGremlinDatabaseAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i GremlinDatabaseAutoscaleSettingsArgs) ToGremlinDatabaseAutoscaleSettingsOutputWithContext(ctx context.Context) GremlinDatabaseAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseAutoscaleSettingsOutput)
+}
+
+func (i GremlinDatabaseAutoscaleSettingsArgs) ToGremlinDatabaseAutoscaleSettingsPtrOutput() GremlinDatabaseAutoscaleSettingsPtrOutput {
+	return i.ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GremlinDatabaseAutoscaleSettingsArgs) ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinDatabaseAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseAutoscaleSettingsOutput).ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// GremlinDatabaseAutoscaleSettingsPtrInput is an input type that accepts GremlinDatabaseAutoscaleSettingsArgs, GremlinDatabaseAutoscaleSettingsPtr and GremlinDatabaseAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `GremlinDatabaseAutoscaleSettingsPtrInput` via:
+//
+//          GremlinDatabaseAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type GremlinDatabaseAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGremlinDatabaseAutoscaleSettingsPtrOutput() GremlinDatabaseAutoscaleSettingsPtrOutput
+	ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(context.Context) GremlinDatabaseAutoscaleSettingsPtrOutput
+}
+
+type gremlinDatabaseAutoscaleSettingsPtrType GremlinDatabaseAutoscaleSettingsArgs
+
+func GremlinDatabaseAutoscaleSettingsPtr(v *GremlinDatabaseAutoscaleSettingsArgs) GremlinDatabaseAutoscaleSettingsPtrInput {
+	return (*gremlinDatabaseAutoscaleSettingsPtrType)(v)
+}
+
+func (*gremlinDatabaseAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *gremlinDatabaseAutoscaleSettingsPtrType) ToGremlinDatabaseAutoscaleSettingsPtrOutput() GremlinDatabaseAutoscaleSettingsPtrOutput {
+	return i.ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *gremlinDatabaseAutoscaleSettingsPtrType) ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinDatabaseAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseAutoscaleSettingsPtrOutput)
+}
+
+type GremlinDatabaseAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (GremlinDatabaseAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (o GremlinDatabaseAutoscaleSettingsOutput) ToGremlinDatabaseAutoscaleSettingsOutput() GremlinDatabaseAutoscaleSettingsOutput {
+	return o
+}
+
+func (o GremlinDatabaseAutoscaleSettingsOutput) ToGremlinDatabaseAutoscaleSettingsOutputWithContext(ctx context.Context) GremlinDatabaseAutoscaleSettingsOutput {
+	return o
+}
+
+func (o GremlinDatabaseAutoscaleSettingsOutput) ToGremlinDatabaseAutoscaleSettingsPtrOutput() GremlinDatabaseAutoscaleSettingsPtrOutput {
+	return o.ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GremlinDatabaseAutoscaleSettingsOutput) ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinDatabaseAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v GremlinDatabaseAutoscaleSettings) *GremlinDatabaseAutoscaleSettings {
+		return &v
+	}).(GremlinDatabaseAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o GremlinDatabaseAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GremlinDatabaseAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type GremlinDatabaseAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GremlinDatabaseAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (o GremlinDatabaseAutoscaleSettingsPtrOutput) ToGremlinDatabaseAutoscaleSettingsPtrOutput() GremlinDatabaseAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o GremlinDatabaseAutoscaleSettingsPtrOutput) ToGremlinDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinDatabaseAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o GremlinDatabaseAutoscaleSettingsPtrOutput) Elem() GremlinDatabaseAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *GremlinDatabaseAutoscaleSettings) GremlinDatabaseAutoscaleSettings { return *v }).(GremlinDatabaseAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o GremlinDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type GremlinGraphAutoscaleSettings struct {
+	// The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// GremlinGraphAutoscaleSettingsInput is an input type that accepts GremlinGraphAutoscaleSettingsArgs and GremlinGraphAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `GremlinGraphAutoscaleSettingsInput` via:
+//
+//          GremlinGraphAutoscaleSettingsArgs{...}
+type GremlinGraphAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToGremlinGraphAutoscaleSettingsOutput() GremlinGraphAutoscaleSettingsOutput
+	ToGremlinGraphAutoscaleSettingsOutputWithContext(context.Context) GremlinGraphAutoscaleSettingsOutput
+}
+
+type GremlinGraphAutoscaleSettingsArgs struct {
+	// The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (GremlinGraphAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphAutoscaleSettings)(nil)).Elem()
+}
+
+func (i GremlinGraphAutoscaleSettingsArgs) ToGremlinGraphAutoscaleSettingsOutput() GremlinGraphAutoscaleSettingsOutput {
+	return i.ToGremlinGraphAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphAutoscaleSettingsArgs) ToGremlinGraphAutoscaleSettingsOutputWithContext(ctx context.Context) GremlinGraphAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphAutoscaleSettingsOutput)
+}
+
+func (i GremlinGraphAutoscaleSettingsArgs) ToGremlinGraphAutoscaleSettingsPtrOutput() GremlinGraphAutoscaleSettingsPtrOutput {
+	return i.ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphAutoscaleSettingsArgs) ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinGraphAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphAutoscaleSettingsOutput).ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// GremlinGraphAutoscaleSettingsPtrInput is an input type that accepts GremlinGraphAutoscaleSettingsArgs, GremlinGraphAutoscaleSettingsPtr and GremlinGraphAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `GremlinGraphAutoscaleSettingsPtrInput` via:
+//
+//          GremlinGraphAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type GremlinGraphAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGremlinGraphAutoscaleSettingsPtrOutput() GremlinGraphAutoscaleSettingsPtrOutput
+	ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(context.Context) GremlinGraphAutoscaleSettingsPtrOutput
+}
+
+type gremlinGraphAutoscaleSettingsPtrType GremlinGraphAutoscaleSettingsArgs
+
+func GremlinGraphAutoscaleSettingsPtr(v *GremlinGraphAutoscaleSettingsArgs) GremlinGraphAutoscaleSettingsPtrInput {
+	return (*gremlinGraphAutoscaleSettingsPtrType)(v)
+}
+
+func (*gremlinGraphAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *gremlinGraphAutoscaleSettingsPtrType) ToGremlinGraphAutoscaleSettingsPtrOutput() GremlinGraphAutoscaleSettingsPtrOutput {
+	return i.ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *gremlinGraphAutoscaleSettingsPtrType) ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinGraphAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphAutoscaleSettingsPtrOutput)
+}
+
+type GremlinGraphAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphAutoscaleSettings)(nil)).Elem()
+}
+
+func (o GremlinGraphAutoscaleSettingsOutput) ToGremlinGraphAutoscaleSettingsOutput() GremlinGraphAutoscaleSettingsOutput {
+	return o
+}
+
+func (o GremlinGraphAutoscaleSettingsOutput) ToGremlinGraphAutoscaleSettingsOutputWithContext(ctx context.Context) GremlinGraphAutoscaleSettingsOutput {
+	return o
+}
+
+func (o GremlinGraphAutoscaleSettingsOutput) ToGremlinGraphAutoscaleSettingsPtrOutput() GremlinGraphAutoscaleSettingsPtrOutput {
+	return o.ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GremlinGraphAutoscaleSettingsOutput) ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinGraphAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v GremlinGraphAutoscaleSettings) *GremlinGraphAutoscaleSettings {
+		return &v
+	}).(GremlinGraphAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o GremlinGraphAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GremlinGraphAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type GremlinGraphAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphAutoscaleSettings)(nil)).Elem()
+}
+
+func (o GremlinGraphAutoscaleSettingsPtrOutput) ToGremlinGraphAutoscaleSettingsPtrOutput() GremlinGraphAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o GremlinGraphAutoscaleSettingsPtrOutput) ToGremlinGraphAutoscaleSettingsPtrOutputWithContext(ctx context.Context) GremlinGraphAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o GremlinGraphAutoscaleSettingsPtrOutput) Elem() GremlinGraphAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *GremlinGraphAutoscaleSettings) GremlinGraphAutoscaleSettings { return *v }).(GremlinGraphAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o GremlinGraphAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
 type GremlinGraphConflictResolutionPolicy struct {
 	// The conflict resolution path in the case of LastWriterWins mode.
 	ConflictResolutionPath *string `pulumi:"conflictResolutionPath"`
@@ -848,6 +1241,137 @@ func (o GremlinGraphUniqueKeyArrayOutput) Index(i pulumi.IntInput) GremlinGraphU
 	}).(GremlinGraphUniqueKeyOutput)
 }
 
+type MongoCollectionAutoscaleSettings struct {
+	// The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// MongoCollectionAutoscaleSettingsInput is an input type that accepts MongoCollectionAutoscaleSettingsArgs and MongoCollectionAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `MongoCollectionAutoscaleSettingsInput` via:
+//
+//          MongoCollectionAutoscaleSettingsArgs{...}
+type MongoCollectionAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToMongoCollectionAutoscaleSettingsOutput() MongoCollectionAutoscaleSettingsOutput
+	ToMongoCollectionAutoscaleSettingsOutputWithContext(context.Context) MongoCollectionAutoscaleSettingsOutput
+}
+
+type MongoCollectionAutoscaleSettingsArgs struct {
+	// The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (MongoCollectionAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoCollectionAutoscaleSettings)(nil)).Elem()
+}
+
+func (i MongoCollectionAutoscaleSettingsArgs) ToMongoCollectionAutoscaleSettingsOutput() MongoCollectionAutoscaleSettingsOutput {
+	return i.ToMongoCollectionAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i MongoCollectionAutoscaleSettingsArgs) ToMongoCollectionAutoscaleSettingsOutputWithContext(ctx context.Context) MongoCollectionAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionAutoscaleSettingsOutput)
+}
+
+func (i MongoCollectionAutoscaleSettingsArgs) ToMongoCollectionAutoscaleSettingsPtrOutput() MongoCollectionAutoscaleSettingsPtrOutput {
+	return i.ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MongoCollectionAutoscaleSettingsArgs) ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoCollectionAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionAutoscaleSettingsOutput).ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// MongoCollectionAutoscaleSettingsPtrInput is an input type that accepts MongoCollectionAutoscaleSettingsArgs, MongoCollectionAutoscaleSettingsPtr and MongoCollectionAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `MongoCollectionAutoscaleSettingsPtrInput` via:
+//
+//          MongoCollectionAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoCollectionAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMongoCollectionAutoscaleSettingsPtrOutput() MongoCollectionAutoscaleSettingsPtrOutput
+	ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(context.Context) MongoCollectionAutoscaleSettingsPtrOutput
+}
+
+type mongoCollectionAutoscaleSettingsPtrType MongoCollectionAutoscaleSettingsArgs
+
+func MongoCollectionAutoscaleSettingsPtr(v *MongoCollectionAutoscaleSettingsArgs) MongoCollectionAutoscaleSettingsPtrInput {
+	return (*mongoCollectionAutoscaleSettingsPtrType)(v)
+}
+
+func (*mongoCollectionAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoCollectionAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *mongoCollectionAutoscaleSettingsPtrType) ToMongoCollectionAutoscaleSettingsPtrOutput() MongoCollectionAutoscaleSettingsPtrOutput {
+	return i.ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *mongoCollectionAutoscaleSettingsPtrType) ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoCollectionAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionAutoscaleSettingsPtrOutput)
+}
+
+type MongoCollectionAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (MongoCollectionAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoCollectionAutoscaleSettings)(nil)).Elem()
+}
+
+func (o MongoCollectionAutoscaleSettingsOutput) ToMongoCollectionAutoscaleSettingsOutput() MongoCollectionAutoscaleSettingsOutput {
+	return o
+}
+
+func (o MongoCollectionAutoscaleSettingsOutput) ToMongoCollectionAutoscaleSettingsOutputWithContext(ctx context.Context) MongoCollectionAutoscaleSettingsOutput {
+	return o
+}
+
+func (o MongoCollectionAutoscaleSettingsOutput) ToMongoCollectionAutoscaleSettingsPtrOutput() MongoCollectionAutoscaleSettingsPtrOutput {
+	return o.ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MongoCollectionAutoscaleSettingsOutput) ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoCollectionAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v MongoCollectionAutoscaleSettings) *MongoCollectionAutoscaleSettings {
+		return &v
+	}).(MongoCollectionAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o MongoCollectionAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MongoCollectionAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type MongoCollectionAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MongoCollectionAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoCollectionAutoscaleSettings)(nil)).Elem()
+}
+
+func (o MongoCollectionAutoscaleSettingsPtrOutput) ToMongoCollectionAutoscaleSettingsPtrOutput() MongoCollectionAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o MongoCollectionAutoscaleSettingsPtrOutput) ToMongoCollectionAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoCollectionAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o MongoCollectionAutoscaleSettingsPtrOutput) Elem() MongoCollectionAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *MongoCollectionAutoscaleSettings) MongoCollectionAutoscaleSettings { return *v }).(MongoCollectionAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o MongoCollectionAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MongoCollectionAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
 type MongoCollectionIndex struct {
 	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
 	Keys []string `pulumi:"keys"`
@@ -1060,6 +1584,268 @@ func (o MongoCollectionSystemIndexArrayOutput) Index(i pulumi.IntInput) MongoCol
 	}).(MongoCollectionSystemIndexOutput)
 }
 
+type MongoDatabaseAutoscaleSettings struct {
+	// The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// MongoDatabaseAutoscaleSettingsInput is an input type that accepts MongoDatabaseAutoscaleSettingsArgs and MongoDatabaseAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `MongoDatabaseAutoscaleSettingsInput` via:
+//
+//          MongoDatabaseAutoscaleSettingsArgs{...}
+type MongoDatabaseAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToMongoDatabaseAutoscaleSettingsOutput() MongoDatabaseAutoscaleSettingsOutput
+	ToMongoDatabaseAutoscaleSettingsOutputWithContext(context.Context) MongoDatabaseAutoscaleSettingsOutput
+}
+
+type MongoDatabaseAutoscaleSettingsArgs struct {
+	// The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (MongoDatabaseAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (i MongoDatabaseAutoscaleSettingsArgs) ToMongoDatabaseAutoscaleSettingsOutput() MongoDatabaseAutoscaleSettingsOutput {
+	return i.ToMongoDatabaseAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i MongoDatabaseAutoscaleSettingsArgs) ToMongoDatabaseAutoscaleSettingsOutputWithContext(ctx context.Context) MongoDatabaseAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseAutoscaleSettingsOutput)
+}
+
+func (i MongoDatabaseAutoscaleSettingsArgs) ToMongoDatabaseAutoscaleSettingsPtrOutput() MongoDatabaseAutoscaleSettingsPtrOutput {
+	return i.ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MongoDatabaseAutoscaleSettingsArgs) ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoDatabaseAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseAutoscaleSettingsOutput).ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// MongoDatabaseAutoscaleSettingsPtrInput is an input type that accepts MongoDatabaseAutoscaleSettingsArgs, MongoDatabaseAutoscaleSettingsPtr and MongoDatabaseAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `MongoDatabaseAutoscaleSettingsPtrInput` via:
+//
+//          MongoDatabaseAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoDatabaseAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMongoDatabaseAutoscaleSettingsPtrOutput() MongoDatabaseAutoscaleSettingsPtrOutput
+	ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(context.Context) MongoDatabaseAutoscaleSettingsPtrOutput
+}
+
+type mongoDatabaseAutoscaleSettingsPtrType MongoDatabaseAutoscaleSettingsArgs
+
+func MongoDatabaseAutoscaleSettingsPtr(v *MongoDatabaseAutoscaleSettingsArgs) MongoDatabaseAutoscaleSettingsPtrInput {
+	return (*mongoDatabaseAutoscaleSettingsPtrType)(v)
+}
+
+func (*mongoDatabaseAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *mongoDatabaseAutoscaleSettingsPtrType) ToMongoDatabaseAutoscaleSettingsPtrOutput() MongoDatabaseAutoscaleSettingsPtrOutput {
+	return i.ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *mongoDatabaseAutoscaleSettingsPtrType) ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoDatabaseAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseAutoscaleSettingsPtrOutput)
+}
+
+type MongoDatabaseAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (MongoDatabaseAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (o MongoDatabaseAutoscaleSettingsOutput) ToMongoDatabaseAutoscaleSettingsOutput() MongoDatabaseAutoscaleSettingsOutput {
+	return o
+}
+
+func (o MongoDatabaseAutoscaleSettingsOutput) ToMongoDatabaseAutoscaleSettingsOutputWithContext(ctx context.Context) MongoDatabaseAutoscaleSettingsOutput {
+	return o
+}
+
+func (o MongoDatabaseAutoscaleSettingsOutput) ToMongoDatabaseAutoscaleSettingsPtrOutput() MongoDatabaseAutoscaleSettingsPtrOutput {
+	return o.ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MongoDatabaseAutoscaleSettingsOutput) ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoDatabaseAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v MongoDatabaseAutoscaleSettings) *MongoDatabaseAutoscaleSettings {
+		return &v
+	}).(MongoDatabaseAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o MongoDatabaseAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MongoDatabaseAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type MongoDatabaseAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MongoDatabaseAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (o MongoDatabaseAutoscaleSettingsPtrOutput) ToMongoDatabaseAutoscaleSettingsPtrOutput() MongoDatabaseAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o MongoDatabaseAutoscaleSettingsPtrOutput) ToMongoDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) MongoDatabaseAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o MongoDatabaseAutoscaleSettingsPtrOutput) Elem() MongoDatabaseAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *MongoDatabaseAutoscaleSettings) MongoDatabaseAutoscaleSettings { return *v }).(MongoDatabaseAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o MongoDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MongoDatabaseAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type SqlContainerAutoscaleSettings struct {
+	// The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// SqlContainerAutoscaleSettingsInput is an input type that accepts SqlContainerAutoscaleSettingsArgs and SqlContainerAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `SqlContainerAutoscaleSettingsInput` via:
+//
+//          SqlContainerAutoscaleSettingsArgs{...}
+type SqlContainerAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToSqlContainerAutoscaleSettingsOutput() SqlContainerAutoscaleSettingsOutput
+	ToSqlContainerAutoscaleSettingsOutputWithContext(context.Context) SqlContainerAutoscaleSettingsOutput
+}
+
+type SqlContainerAutoscaleSettingsArgs struct {
+	// The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (SqlContainerAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerAutoscaleSettings)(nil)).Elem()
+}
+
+func (i SqlContainerAutoscaleSettingsArgs) ToSqlContainerAutoscaleSettingsOutput() SqlContainerAutoscaleSettingsOutput {
+	return i.ToSqlContainerAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i SqlContainerAutoscaleSettingsArgs) ToSqlContainerAutoscaleSettingsOutputWithContext(ctx context.Context) SqlContainerAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerAutoscaleSettingsOutput)
+}
+
+func (i SqlContainerAutoscaleSettingsArgs) ToSqlContainerAutoscaleSettingsPtrOutput() SqlContainerAutoscaleSettingsPtrOutput {
+	return i.ToSqlContainerAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SqlContainerAutoscaleSettingsArgs) ToSqlContainerAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlContainerAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerAutoscaleSettingsOutput).ToSqlContainerAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// SqlContainerAutoscaleSettingsPtrInput is an input type that accepts SqlContainerAutoscaleSettingsArgs, SqlContainerAutoscaleSettingsPtr and SqlContainerAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `SqlContainerAutoscaleSettingsPtrInput` via:
+//
+//          SqlContainerAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlContainerAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSqlContainerAutoscaleSettingsPtrOutput() SqlContainerAutoscaleSettingsPtrOutput
+	ToSqlContainerAutoscaleSettingsPtrOutputWithContext(context.Context) SqlContainerAutoscaleSettingsPtrOutput
+}
+
+type sqlContainerAutoscaleSettingsPtrType SqlContainerAutoscaleSettingsArgs
+
+func SqlContainerAutoscaleSettingsPtr(v *SqlContainerAutoscaleSettingsArgs) SqlContainerAutoscaleSettingsPtrInput {
+	return (*sqlContainerAutoscaleSettingsPtrType)(v)
+}
+
+func (*sqlContainerAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *sqlContainerAutoscaleSettingsPtrType) ToSqlContainerAutoscaleSettingsPtrOutput() SqlContainerAutoscaleSettingsPtrOutput {
+	return i.ToSqlContainerAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlContainerAutoscaleSettingsPtrType) ToSqlContainerAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlContainerAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerAutoscaleSettingsPtrOutput)
+}
+
+type SqlContainerAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerAutoscaleSettings)(nil)).Elem()
+}
+
+func (o SqlContainerAutoscaleSettingsOutput) ToSqlContainerAutoscaleSettingsOutput() SqlContainerAutoscaleSettingsOutput {
+	return o
+}
+
+func (o SqlContainerAutoscaleSettingsOutput) ToSqlContainerAutoscaleSettingsOutputWithContext(ctx context.Context) SqlContainerAutoscaleSettingsOutput {
+	return o
+}
+
+func (o SqlContainerAutoscaleSettingsOutput) ToSqlContainerAutoscaleSettingsPtrOutput() SqlContainerAutoscaleSettingsPtrOutput {
+	return o.ToSqlContainerAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SqlContainerAutoscaleSettingsOutput) ToSqlContainerAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlContainerAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v SqlContainerAutoscaleSettings) *SqlContainerAutoscaleSettings {
+		return &v
+	}).(SqlContainerAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o SqlContainerAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlContainerAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type SqlContainerAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerAutoscaleSettings)(nil)).Elem()
+}
+
+func (o SqlContainerAutoscaleSettingsPtrOutput) ToSqlContainerAutoscaleSettingsPtrOutput() SqlContainerAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o SqlContainerAutoscaleSettingsPtrOutput) ToSqlContainerAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlContainerAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o SqlContainerAutoscaleSettingsPtrOutput) Elem() SqlContainerAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *SqlContainerAutoscaleSettings) SqlContainerAutoscaleSettings { return *v }).(SqlContainerAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o SqlContainerAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlContainerAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
 type SqlContainerUniqueKey struct {
 	// A list of paths to use for this unique key.
 	Paths []string `pulumi:"paths"`
@@ -1155,6 +1941,268 @@ func (o SqlContainerUniqueKeyArrayOutput) Index(i pulumi.IntInput) SqlContainerU
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainerUniqueKey {
 		return vs[0].([]SqlContainerUniqueKey)[vs[1].(int)]
 	}).(SqlContainerUniqueKeyOutput)
+}
+
+type SqlDatabaseAutoscaleSettings struct {
+	// The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// SqlDatabaseAutoscaleSettingsInput is an input type that accepts SqlDatabaseAutoscaleSettingsArgs and SqlDatabaseAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `SqlDatabaseAutoscaleSettingsInput` via:
+//
+//          SqlDatabaseAutoscaleSettingsArgs{...}
+type SqlDatabaseAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseAutoscaleSettingsOutput() SqlDatabaseAutoscaleSettingsOutput
+	ToSqlDatabaseAutoscaleSettingsOutputWithContext(context.Context) SqlDatabaseAutoscaleSettingsOutput
+}
+
+type SqlDatabaseAutoscaleSettingsArgs struct {
+	// The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (SqlDatabaseAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (i SqlDatabaseAutoscaleSettingsArgs) ToSqlDatabaseAutoscaleSettingsOutput() SqlDatabaseAutoscaleSettingsOutput {
+	return i.ToSqlDatabaseAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseAutoscaleSettingsArgs) ToSqlDatabaseAutoscaleSettingsOutputWithContext(ctx context.Context) SqlDatabaseAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseAutoscaleSettingsOutput)
+}
+
+func (i SqlDatabaseAutoscaleSettingsArgs) ToSqlDatabaseAutoscaleSettingsPtrOutput() SqlDatabaseAutoscaleSettingsPtrOutput {
+	return i.ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseAutoscaleSettingsArgs) ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlDatabaseAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseAutoscaleSettingsOutput).ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// SqlDatabaseAutoscaleSettingsPtrInput is an input type that accepts SqlDatabaseAutoscaleSettingsArgs, SqlDatabaseAutoscaleSettingsPtr and SqlDatabaseAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `SqlDatabaseAutoscaleSettingsPtrInput` via:
+//
+//          SqlDatabaseAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlDatabaseAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseAutoscaleSettingsPtrOutput() SqlDatabaseAutoscaleSettingsPtrOutput
+	ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(context.Context) SqlDatabaseAutoscaleSettingsPtrOutput
+}
+
+type sqlDatabaseAutoscaleSettingsPtrType SqlDatabaseAutoscaleSettingsArgs
+
+func SqlDatabaseAutoscaleSettingsPtr(v *SqlDatabaseAutoscaleSettingsArgs) SqlDatabaseAutoscaleSettingsPtrInput {
+	return (*sqlDatabaseAutoscaleSettingsPtrType)(v)
+}
+
+func (*sqlDatabaseAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *sqlDatabaseAutoscaleSettingsPtrType) ToSqlDatabaseAutoscaleSettingsPtrOutput() SqlDatabaseAutoscaleSettingsPtrOutput {
+	return i.ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlDatabaseAutoscaleSettingsPtrType) ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlDatabaseAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseAutoscaleSettingsPtrOutput)
+}
+
+type SqlDatabaseAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (o SqlDatabaseAutoscaleSettingsOutput) ToSqlDatabaseAutoscaleSettingsOutput() SqlDatabaseAutoscaleSettingsOutput {
+	return o
+}
+
+func (o SqlDatabaseAutoscaleSettingsOutput) ToSqlDatabaseAutoscaleSettingsOutputWithContext(ctx context.Context) SqlDatabaseAutoscaleSettingsOutput {
+	return o
+}
+
+func (o SqlDatabaseAutoscaleSettingsOutput) ToSqlDatabaseAutoscaleSettingsPtrOutput() SqlDatabaseAutoscaleSettingsPtrOutput {
+	return o.ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SqlDatabaseAutoscaleSettingsOutput) ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlDatabaseAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseAutoscaleSettings) *SqlDatabaseAutoscaleSettings {
+		return &v
+	}).(SqlDatabaseAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o SqlDatabaseAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type SqlDatabaseAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseAutoscaleSettings)(nil)).Elem()
+}
+
+func (o SqlDatabaseAutoscaleSettingsPtrOutput) ToSqlDatabaseAutoscaleSettingsPtrOutput() SqlDatabaseAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o SqlDatabaseAutoscaleSettingsPtrOutput) ToSqlDatabaseAutoscaleSettingsPtrOutputWithContext(ctx context.Context) SqlDatabaseAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o SqlDatabaseAutoscaleSettingsPtrOutput) Elem() SqlDatabaseAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *SqlDatabaseAutoscaleSettings) SqlDatabaseAutoscaleSettings { return *v }).(SqlDatabaseAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o SqlDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type TableAutoscaleSettings struct {
+	// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput *int `pulumi:"maxThroughput"`
+}
+
+// TableAutoscaleSettingsInput is an input type that accepts TableAutoscaleSettingsArgs and TableAutoscaleSettingsOutput values.
+// You can construct a concrete instance of `TableAutoscaleSettingsInput` via:
+//
+//          TableAutoscaleSettingsArgs{...}
+type TableAutoscaleSettingsInput interface {
+	pulumi.Input
+
+	ToTableAutoscaleSettingsOutput() TableAutoscaleSettingsOutput
+	ToTableAutoscaleSettingsOutputWithContext(context.Context) TableAutoscaleSettingsOutput
+}
+
+type TableAutoscaleSettingsArgs struct {
+	// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+	MaxThroughput pulumi.IntPtrInput `pulumi:"maxThroughput"`
+}
+
+func (TableAutoscaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAutoscaleSettings)(nil)).Elem()
+}
+
+func (i TableAutoscaleSettingsArgs) ToTableAutoscaleSettingsOutput() TableAutoscaleSettingsOutput {
+	return i.ToTableAutoscaleSettingsOutputWithContext(context.Background())
+}
+
+func (i TableAutoscaleSettingsArgs) ToTableAutoscaleSettingsOutputWithContext(ctx context.Context) TableAutoscaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoscaleSettingsOutput)
+}
+
+func (i TableAutoscaleSettingsArgs) ToTableAutoscaleSettingsPtrOutput() TableAutoscaleSettingsPtrOutput {
+	return i.ToTableAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i TableAutoscaleSettingsArgs) ToTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) TableAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoscaleSettingsOutput).ToTableAutoscaleSettingsPtrOutputWithContext(ctx)
+}
+
+// TableAutoscaleSettingsPtrInput is an input type that accepts TableAutoscaleSettingsArgs, TableAutoscaleSettingsPtr and TableAutoscaleSettingsPtrOutput values.
+// You can construct a concrete instance of `TableAutoscaleSettingsPtrInput` via:
+//
+//          TableAutoscaleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type TableAutoscaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToTableAutoscaleSettingsPtrOutput() TableAutoscaleSettingsPtrOutput
+	ToTableAutoscaleSettingsPtrOutputWithContext(context.Context) TableAutoscaleSettingsPtrOutput
+}
+
+type tableAutoscaleSettingsPtrType TableAutoscaleSettingsArgs
+
+func TableAutoscaleSettingsPtr(v *TableAutoscaleSettingsArgs) TableAutoscaleSettingsPtrInput {
+	return (*tableAutoscaleSettingsPtrType)(v)
+}
+
+func (*tableAutoscaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAutoscaleSettings)(nil)).Elem()
+}
+
+func (i *tableAutoscaleSettingsPtrType) ToTableAutoscaleSettingsPtrOutput() TableAutoscaleSettingsPtrOutput {
+	return i.ToTableAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *tableAutoscaleSettingsPtrType) ToTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) TableAutoscaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAutoscaleSettingsPtrOutput)
+}
+
+type TableAutoscaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (TableAutoscaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAutoscaleSettings)(nil)).Elem()
+}
+
+func (o TableAutoscaleSettingsOutput) ToTableAutoscaleSettingsOutput() TableAutoscaleSettingsOutput {
+	return o
+}
+
+func (o TableAutoscaleSettingsOutput) ToTableAutoscaleSettingsOutputWithContext(ctx context.Context) TableAutoscaleSettingsOutput {
+	return o
+}
+
+func (o TableAutoscaleSettingsOutput) ToTableAutoscaleSettingsPtrOutput() TableAutoscaleSettingsPtrOutput {
+	return o.ToTableAutoscaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o TableAutoscaleSettingsOutput) ToTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) TableAutoscaleSettingsPtrOutput {
+	return o.ApplyT(func(v TableAutoscaleSettings) *TableAutoscaleSettings {
+		return &v
+	}).(TableAutoscaleSettingsPtrOutput)
+}
+
+// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o TableAutoscaleSettingsOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableAutoscaleSettings) *int { return v.MaxThroughput }).(pulumi.IntPtrOutput)
+}
+
+type TableAutoscaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (TableAutoscaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableAutoscaleSettings)(nil)).Elem()
+}
+
+func (o TableAutoscaleSettingsPtrOutput) ToTableAutoscaleSettingsPtrOutput() TableAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o TableAutoscaleSettingsPtrOutput) ToTableAutoscaleSettingsPtrOutputWithContext(ctx context.Context) TableAutoscaleSettingsPtrOutput {
+	return o
+}
+
+func (o TableAutoscaleSettingsPtrOutput) Elem() TableAutoscaleSettingsOutput {
+	return o.ApplyT(func(v *TableAutoscaleSettings) TableAutoscaleSettings { return *v }).(TableAutoscaleSettingsOutput)
+}
+
+// The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+func (o TableAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableAutoscaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxThroughput
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetAccountCapability struct {
@@ -1587,18 +2635,34 @@ func init() {
 	pulumi.RegisterOutputType(AccountGeoLocationArrayOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(CassandraKeyspaceAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(CassandraKeyspaceAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GremlinDatabaseAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(GremlinDatabaseAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GremlinGraphAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(GremlinGraphAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphConflictResolutionPolicyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphConflictResolutionPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyArrayOutput{})
+	pulumi.RegisterOutputType(MongoCollectionAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(MongoCollectionAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MongoCollectionIndexOutput{})
 	pulumi.RegisterOutputType(MongoCollectionIndexArrayOutput{})
 	pulumi.RegisterOutputType(MongoCollectionSystemIndexOutput{})
 	pulumi.RegisterOutputType(MongoCollectionSystemIndexArrayOutput{})
+	pulumi.RegisterOutputType(MongoDatabaseAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(MongoDatabaseAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyArrayOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TableAutoscaleSettingsOutput{})
+	pulumi.RegisterOutputType(TableAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountCapabilityOutput{})
 	pulumi.RegisterOutputType(GetAccountCapabilityArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountConsistencyPolicyOutput{})

@@ -20,7 +20,7 @@ class GetFunctionAppResult:
     """
     A collection of values returned by getFunctionApp.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, id=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, default_hostname=None, enabled=None, id=None, identities=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -39,6 +39,9 @@ class GetFunctionAppResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -117,6 +120,14 @@ class GetFunctionAppResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> List['outputs.GetFunctionAppIdentityResult']:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -199,6 +210,7 @@ class AwaitableGetFunctionAppResult(GetFunctionAppResult):
             default_hostname=self.default_hostname,
             enabled=self.enabled,
             id=self.id,
+            identities=self.identities,
             location=self.location,
             name=self.name,
             os_type=self.os_type,
@@ -249,6 +261,7 @@ def get_function_app(name: Optional[str] = None,
         default_hostname=__ret__.default_hostname,
         enabled=__ret__.enabled,
         id=__ret__.id,
+        identities=__ret__.identities,
         location=__ret__.location,
         name=__ret__.name,
         os_type=__ret__.os_type,

@@ -76,6 +76,10 @@ export class RoleDefinition extends pulumi.CustomResource {
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
+     * The Azure Resource Manager ID for the resource
+     */
+    public /*out*/ readonly roleDefinitionResourceId!: pulumi.Output<string>;
+    /**
      * The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
      */
     public readonly scope!: pulumi.Output<string>;
@@ -97,6 +101,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["permissions"] = state ? state.permissions : undefined;
             inputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
+            inputs["roleDefinitionResourceId"] = state ? state.roleDefinitionResourceId : undefined;
             inputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as RoleDefinitionArgs | undefined;
@@ -112,6 +117,7 @@ export class RoleDefinition extends pulumi.CustomResource {
             inputs["permissions"] = args ? args.permissions : undefined;
             inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["roleDefinitionResourceId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -150,6 +156,10 @@ export interface RoleDefinitionState {
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
+    /**
+     * The Azure Resource Manager ID for the resource
+     */
+    readonly roleDefinitionResourceId?: pulumi.Input<string>;
     /**
      * The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
      */

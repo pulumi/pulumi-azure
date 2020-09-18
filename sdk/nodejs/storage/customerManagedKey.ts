@@ -44,9 +44,9 @@ export class CustomerManagedKey extends pulumi.CustomResource {
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
-     * The version of Key Vault Key.
+     * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
-    public readonly keyVersion!: pulumi.Output<string>;
+    public readonly keyVersion!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
@@ -75,9 +75,6 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             }
             if (!args || args.keyVaultId === undefined) {
                 throw new Error("Missing required property 'keyVaultId'");
-            }
-            if (!args || args.keyVersion === undefined) {
-                throw new Error("Missing required property 'keyVersion'");
             }
             if (!args || args.storageAccountId === undefined) {
                 throw new Error("Missing required property 'storageAccountId'");
@@ -111,7 +108,7 @@ export interface CustomerManagedKeyState {
      */
     readonly keyVaultId?: pulumi.Input<string>;
     /**
-     * The version of Key Vault Key.
+     * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
     readonly keyVersion?: pulumi.Input<string>;
     /**
@@ -133,9 +130,9 @@ export interface CustomerManagedKeyArgs {
      */
     readonly keyVaultId: pulumi.Input<string>;
     /**
-     * The version of Key Vault Key.
+     * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
-    readonly keyVersion: pulumi.Input<string>;
+    readonly keyVersion?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
