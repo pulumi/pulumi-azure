@@ -82,6 +82,7 @@ const (
 	azureIotCentral          = "IotCentral"          // IoT central
 	azureKeyVault            = "KeyVault"            // Key Vault
 	azureKusto               = "Kusto"               // Kusto
+	azureLighthouse          = "Lighthouse"          // Lighthouse
 	azureLogAnalytics        = "LogAnalytics"        // Log Analytics
 	azureLogicApps           = "LogicApps"           // Logic Apps
 	azureLB                  = "Lb"                  // Load Balancer
@@ -734,6 +735,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_share_dataset_data_lake_gen1": {
 				Tok: azureResource(azureDataShare, "DatasetDataLakeGen1"),
 			},
+			"azurerm_data_share_dataset_data_lake_gen2": {
+				Tok: azureResource(azureDataShare, "DatasetDataLakeGen2"),
+			},
 
 			// DevSpace
 			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
@@ -1003,6 +1007,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_virtual_machine":                   {Tok: azureResource(azureMSSQL, "VirtualMachine")},
 			"azurerm_mssql_server":                            {Tok: azureResource(azureMSSQL, "Server")},
 			"azurerm_mssql_database_extended_auditing_policy": {Tok: azureResource(azureMSSQL, "DatabaseExtendedAuditingPolicy")},
+			"azurerm_mssql_server_extended_auditing_policy":   {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
 
 			// MySQL
 			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
@@ -1344,6 +1349,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_management_policy":            {Tok: azureResource(azureStorage, "ManagementPolicy")},
 			"azurerm_storage_account_network_rules":        {Tok: azureResource(azureStorage, "AccountNetworkRules")},
 			"azurerm_storage_account_customer_managed_key": {Tok: azureResource(azureStorage, "CustomerManagedKey")},
+			"azurerm_storage_sync":                         {Tok: azureResource(azureStorage, "Sync")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
@@ -1527,12 +1533,17 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_synapse_workspace":     {Tok: azureResource(azureSynapse, "Workspace")},
 			"azurerm_synapse_firewall_rule": {Tok: azureResource(azureSynapse, "FirewallRule")},
 			"azurerm_synapse_spark_pool":    {Tok: azureResource(azureSynapse, "SparkPool")},
+			"azurerm_synapse_sql_pool":      {Tok: azureResource(azureSynapse, "SqlPool")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
 
 			// Attestation
 			"azurerm_attestation_provider": {Tok: azureResource(azureAttestation, "Provider")},
+
+			// Lighthouse
+			"azurerm_lighthouse_definition": {Tok: azureResource(azureLighthouse, "Definition")},
+			"azurerm_lighthouse_assignment": {Tok: azureResource(azureLighthouse, "Assignment")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -1581,6 +1592,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_share":                        {Tok: azureDataSource(azureDataShare, "getShare")},
 			"azurerm_data_share_dataset_blob_storage":   {Tok: azureDataSource(azureDataShare, "getDatasetBlobStorage")},
 			"azurerm_data_share_dataset_data_lake_gen1": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen1")},
+			"azurerm_data_share_dataset_data_lake_gen2": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen2")},
 			"azurerm_dev_test_lab":                      {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":          {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 			"azurerm_image":                             {Tok: azureDataSource(azureCompute, "getImage")},
@@ -1729,6 +1741,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_hub":                 {Tok: azureDataSource(azureNetwork, "getVirtualHub")},
 			"azurerm_signalr_service":             {Tok: azureDataSource(azureSignalr, "getService")},
 			"azurerm_storage_container":           {Tok: azureDataSource(azureStorage, "getStorageContainer")},
+			"azurerm_storage_sync":                {Tok: azureDataSource(azureStorage, "getSync")},
 			"azurerm_iothub_shared_access_policy": {Tok: azureDataSource(azureIot, "getSharedAccessPolicy")},
 			"azurerm_iothub_dps":                  {Tok: azureDataSource(azureIot, "getDps")},
 			"azurerm_eventgrid_topic":             {Tok: azureDataSource(azureEventGrid, "getTopic")},
@@ -1755,6 +1768,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kusto_cluster":                   {Tok: azureDataSource(azureKusto, "getCluster")},
 			"azurerm_servicebus_topic_authorization_rule": {
 				Tok: azureDataSource(azureServiceBus, "getTopicAuthorizationRule"),
+			},
+			"azurerm_servicebus_queue_authorization_rule": {
+				Tok: azureDataSource(azureServiceBus, "getQueueAuthorizationRule"),
 			},
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),

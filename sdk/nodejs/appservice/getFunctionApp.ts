@@ -79,6 +79,10 @@ export interface GetFunctionAppResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A `identity` block as defined below.
+     */
+    readonly identities: outputs.appservice.GetFunctionAppIdentity[];
     readonly location: string;
     /**
      * The name for this IP Restriction.

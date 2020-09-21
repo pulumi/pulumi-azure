@@ -50,7 +50,8 @@ type SqlContainer struct {
 	pulumi.CustomResourceState
 
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	AccountName       pulumi.StringOutput                    `pulumi:"accountName"`
+	AutoscaleSettings SqlContainerAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -105,7 +106,8 @@ func GetSqlContainer(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SqlContainer resources.
 type sqlContainerState struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName *string `pulumi:"accountName"`
+	AccountName       *string                        `pulumi:"accountName"`
+	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -124,7 +126,8 @@ type sqlContainerState struct {
 
 type SqlContainerState struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringPtrInput
+	AccountName       pulumi.StringPtrInput
+	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -147,7 +150,8 @@ func (SqlContainerState) ElementType() reflect.Type {
 
 type sqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName string `pulumi:"accountName"`
+	AccountName       string                         `pulumi:"accountName"`
+	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -167,7 +171,8 @@ type sqlContainerArgs struct {
 // The set of arguments for constructing a SqlContainer resource.
 type SqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringInput
+	AccountName       pulumi.StringInput
+	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.

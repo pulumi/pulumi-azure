@@ -79,10 +79,12 @@ import (
 type Firewall struct {
 	pulumi.CustomResourceState
 
-	// A `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations FirewallIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	ManagementIpConfiguration FirewallManagementIpConfigurationPtrOutput `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -129,10 +131,12 @@ func GetFirewall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Firewall resources.
 type firewallState struct {
-	// A `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations []FirewallIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	ManagementIpConfiguration *FirewallManagementIpConfiguration `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -146,10 +150,12 @@ type firewallState struct {
 }
 
 type FirewallState struct {
-	// A `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations FirewallIpConfigurationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	ManagementIpConfiguration FirewallManagementIpConfigurationPtrInput
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -167,10 +173,12 @@ func (FirewallState) ElementType() reflect.Type {
 }
 
 type firewallArgs struct {
-	// A `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations []FirewallIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	ManagementIpConfiguration *FirewallManagementIpConfiguration `pulumi:"managementIpConfiguration"`
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -185,10 +193,12 @@ type firewallArgs struct {
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
-	// A `ipConfiguration` block as documented below.
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations FirewallIpConfigurationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+	ManagementIpConfiguration FirewallManagementIpConfigurationPtrInput
 	// Specifies the name of the Firewall. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.

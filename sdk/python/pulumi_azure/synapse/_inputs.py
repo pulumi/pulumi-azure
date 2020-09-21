@@ -12,6 +12,7 @@ __all__ = [
     'SparkPoolAutoPauseArgs',
     'SparkPoolAutoScaleArgs',
     'SparkPoolLibraryRequirementArgs',
+    'SqlPoolRestoreArgs',
     'WorkspaceAadAdminArgs',
     'WorkspaceIdentityArgs',
 ]
@@ -110,6 +111,43 @@ class SparkPoolLibraryRequirementArgs:
     @filename.setter
     def filename(self, value: pulumi.Input[str]):
         pulumi.set(self, "filename", value)
+
+
+@pulumi.input_type
+class SqlPoolRestoreArgs:
+    def __init__(__self__, *,
+                 point_in_time: pulumi.Input[str],
+                 source_database_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] point_in_time: Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+        :param pulumi.Input[str] source_database_id: The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+        """
+        pulumi.set(__self__, "point_in_time", point_in_time)
+        pulumi.set(__self__, "source_database_id", source_database_id)
+
+    @property
+    @pulumi.getter(name="pointInTime")
+    def point_in_time(self) -> pulumi.Input[str]:
+        """
+        Specifies the Snapshot time to restore. Changing this forces a new Synapse Sql Pool to be created.
+        """
+        return pulumi.get(self, "point_in_time")
+
+    @point_in_time.setter
+    def point_in_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "point_in_time", value)
+
+    @property
+    @pulumi.getter(name="sourceDatabaseId")
+    def source_database_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Synapse Sql Pool or Sql Database which is to restore. Changing this forces a new Synapse Sql Pool to be created.
+        """
+        return pulumi.get(self, "source_database_id")
+
+    @source_database_id.setter
+    def source_database_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_database_id", value)
 
 
 @pulumi.input_type

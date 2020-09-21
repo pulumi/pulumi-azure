@@ -72,13 +72,17 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /**
-     * A `ipConfiguration` block as documented below.
+     * An `ipConfiguration` block as documented below.
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.network.FirewallIpConfiguration[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+     */
+    public readonly managementIpConfiguration!: pulumi.Output<outputs.network.FirewallManagementIpConfiguration | undefined>;
     /**
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
@@ -114,6 +118,7 @@ export class Firewall extends pulumi.CustomResource {
             const state = argsOrState as FirewallState | undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["managementIpConfiguration"] = state ? state.managementIpConfiguration : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -129,6 +134,7 @@ export class Firewall extends pulumi.CustomResource {
             }
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managementIpConfiguration"] = args ? args.managementIpConfiguration : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -151,13 +157,17 @@ export class Firewall extends pulumi.CustomResource {
  */
 export interface FirewallState {
     /**
-     * A `ipConfiguration` block as documented below.
+     * An `ipConfiguration` block as documented below.
      */
     readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+     */
+    readonly managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
     /**
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
@@ -185,13 +195,17 @@ export interface FirewallState {
  */
 export interface FirewallArgs {
     /**
-     * A `ipConfiguration` block as documented below.
+     * An `ipConfiguration` block as documented below.
      */
     readonly ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
+     */
+    readonly managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
     /**
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */

@@ -52,6 +52,7 @@ from . import (
     keyvault,
     kusto,
     lb,
+    lighthouse,
     loganalytics,
     logicapps,
     machinelearning,

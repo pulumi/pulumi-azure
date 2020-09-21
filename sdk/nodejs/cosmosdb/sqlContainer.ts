@@ -62,6 +62,7 @@ export class SqlContainer extends pulumi.CustomResource {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
@@ -104,6 +105,7 @@ export class SqlContainer extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as SqlContainerState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -123,6 +125,7 @@ export class SqlContainer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -150,6 +153,7 @@ export interface SqlContainerState {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
@@ -188,6 +192,7 @@ export interface SqlContainerArgs {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */

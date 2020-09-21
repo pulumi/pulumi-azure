@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A list of destination IP addresses and/or IP ranges.
+        /// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
         /// <summary>

@@ -46,6 +46,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
+        [Output("autoscaleSettings")]
+        public Output<Outputs.GremlinDatabaseAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
         /// </summary>
@@ -116,6 +119,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        [Input("autoscaleSettings")]
+        public Input<Inputs.GremlinDatabaseAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
+
         /// <summary>
         /// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
         /// </summary>
@@ -146,6 +152,9 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        [Input("autoscaleSettings")]
+        public Input<Inputs.GremlinDatabaseAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.

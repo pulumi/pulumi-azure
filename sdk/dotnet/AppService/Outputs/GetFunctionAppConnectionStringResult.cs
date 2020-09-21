@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the Connection String.
+        /// The identity type of the Managed Identity assigned to the function app.
         /// </summary>
         public readonly string Type;
         /// <summary>

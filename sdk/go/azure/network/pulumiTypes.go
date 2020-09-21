@@ -5314,6 +5314,194 @@ func (o FirewallIpConfigurationArrayOutput) Index(i pulumi.IntInput) FirewallIpC
 	}).(FirewallIpConfigurationOutput)
 }
 
+type FirewallManagementIpConfiguration struct {
+	// Specifies the name of the IP Configuration.
+	Name string `pulumi:"name"`
+	// The Private IP address of the Azure Firewall.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The ID of the Public IP Address associated with the firewall.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// FirewallManagementIpConfigurationInput is an input type that accepts FirewallManagementIpConfigurationArgs and FirewallManagementIpConfigurationOutput values.
+// You can construct a concrete instance of `FirewallManagementIpConfigurationInput` via:
+//
+//          FirewallManagementIpConfigurationArgs{...}
+type FirewallManagementIpConfigurationInput interface {
+	pulumi.Input
+
+	ToFirewallManagementIpConfigurationOutput() FirewallManagementIpConfigurationOutput
+	ToFirewallManagementIpConfigurationOutputWithContext(context.Context) FirewallManagementIpConfigurationOutput
+}
+
+type FirewallManagementIpConfigurationArgs struct {
+	// Specifies the name of the IP Configuration.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Private IP address of the Azure Firewall.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The ID of the Public IP Address associated with the firewall.
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (FirewallManagementIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallManagementIpConfiguration)(nil)).Elem()
+}
+
+func (i FirewallManagementIpConfigurationArgs) ToFirewallManagementIpConfigurationOutput() FirewallManagementIpConfigurationOutput {
+	return i.ToFirewallManagementIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirewallManagementIpConfigurationArgs) ToFirewallManagementIpConfigurationOutputWithContext(ctx context.Context) FirewallManagementIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallManagementIpConfigurationOutput)
+}
+
+func (i FirewallManagementIpConfigurationArgs) ToFirewallManagementIpConfigurationPtrOutput() FirewallManagementIpConfigurationPtrOutput {
+	return i.ToFirewallManagementIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallManagementIpConfigurationArgs) ToFirewallManagementIpConfigurationPtrOutputWithContext(ctx context.Context) FirewallManagementIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallManagementIpConfigurationOutput).ToFirewallManagementIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirewallManagementIpConfigurationPtrInput is an input type that accepts FirewallManagementIpConfigurationArgs, FirewallManagementIpConfigurationPtr and FirewallManagementIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirewallManagementIpConfigurationPtrInput` via:
+//
+//          FirewallManagementIpConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallManagementIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirewallManagementIpConfigurationPtrOutput() FirewallManagementIpConfigurationPtrOutput
+	ToFirewallManagementIpConfigurationPtrOutputWithContext(context.Context) FirewallManagementIpConfigurationPtrOutput
+}
+
+type firewallManagementIpConfigurationPtrType FirewallManagementIpConfigurationArgs
+
+func FirewallManagementIpConfigurationPtr(v *FirewallManagementIpConfigurationArgs) FirewallManagementIpConfigurationPtrInput {
+	return (*firewallManagementIpConfigurationPtrType)(v)
+}
+
+func (*firewallManagementIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallManagementIpConfiguration)(nil)).Elem()
+}
+
+func (i *firewallManagementIpConfigurationPtrType) ToFirewallManagementIpConfigurationPtrOutput() FirewallManagementIpConfigurationPtrOutput {
+	return i.ToFirewallManagementIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallManagementIpConfigurationPtrType) ToFirewallManagementIpConfigurationPtrOutputWithContext(ctx context.Context) FirewallManagementIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallManagementIpConfigurationPtrOutput)
+}
+
+type FirewallManagementIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirewallManagementIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallManagementIpConfiguration)(nil)).Elem()
+}
+
+func (o FirewallManagementIpConfigurationOutput) ToFirewallManagementIpConfigurationOutput() FirewallManagementIpConfigurationOutput {
+	return o
+}
+
+func (o FirewallManagementIpConfigurationOutput) ToFirewallManagementIpConfigurationOutputWithContext(ctx context.Context) FirewallManagementIpConfigurationOutput {
+	return o
+}
+
+func (o FirewallManagementIpConfigurationOutput) ToFirewallManagementIpConfigurationPtrOutput() FirewallManagementIpConfigurationPtrOutput {
+	return o.ToFirewallManagementIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallManagementIpConfigurationOutput) ToFirewallManagementIpConfigurationPtrOutputWithContext(ctx context.Context) FirewallManagementIpConfigurationPtrOutput {
+	return o.ApplyT(func(v FirewallManagementIpConfiguration) *FirewallManagementIpConfiguration {
+		return &v
+	}).(FirewallManagementIpConfigurationPtrOutput)
+}
+
+// Specifies the name of the IP Configuration.
+func (o FirewallManagementIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallManagementIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Private IP address of the Azure Firewall.
+func (o FirewallManagementIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallManagementIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Public IP Address associated with the firewall.
+func (o FirewallManagementIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallManagementIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+}
+
+// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+func (o FirewallManagementIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallManagementIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type FirewallManagementIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallManagementIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallManagementIpConfiguration)(nil)).Elem()
+}
+
+func (o FirewallManagementIpConfigurationPtrOutput) ToFirewallManagementIpConfigurationPtrOutput() FirewallManagementIpConfigurationPtrOutput {
+	return o
+}
+
+func (o FirewallManagementIpConfigurationPtrOutput) ToFirewallManagementIpConfigurationPtrOutputWithContext(ctx context.Context) FirewallManagementIpConfigurationPtrOutput {
+	return o
+}
+
+func (o FirewallManagementIpConfigurationPtrOutput) Elem() FirewallManagementIpConfigurationOutput {
+	return o.ApplyT(func(v *FirewallManagementIpConfiguration) FirewallManagementIpConfiguration { return *v }).(FirewallManagementIpConfigurationOutput)
+}
+
+// Specifies the name of the IP Configuration.
+func (o FirewallManagementIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallManagementIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Private IP address of the Azure Firewall.
+func (o FirewallManagementIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallManagementIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Public IP Address associated with the firewall.
+func (o FirewallManagementIpConfigurationPtrOutput) PublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallManagementIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicIpAddressId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+func (o FirewallManagementIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallManagementIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirewallNatRuleCollectionRule struct {
 	// Specifies a description for the rule.
 	Description *string `pulumi:"description"`
@@ -5477,7 +5665,7 @@ func (o FirewallNatRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) Firew
 type FirewallNetworkRuleCollectionRule struct {
 	// Specifies a description for the rule.
 	Description *string `pulumi:"description"`
-	// A list of destination IP addresses and/or IP ranges.
+	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// A list of destination ports.
 	DestinationPorts []string `pulumi:"destinationPorts"`
@@ -5503,7 +5691,7 @@ type FirewallNetworkRuleCollectionRuleInput interface {
 type FirewallNetworkRuleCollectionRuleArgs struct {
 	// Specifies a description for the rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// A list of destination IP addresses and/or IP ranges.
+	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// A list of destination ports.
 	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
@@ -5571,7 +5759,7 @@ func (o FirewallNetworkRuleCollectionRuleOutput) Description() pulumi.StringPtrO
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of destination IP addresses and/or IP ranges.
+// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
 func (o FirewallNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
 }
@@ -14355,6 +14543,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallApplicationRuleCollectionRuleProtocolArrayOutput{})
 	pulumi.RegisterOutputType(FirewallIpConfigurationOutput{})
 	pulumi.RegisterOutputType(FirewallIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FirewallManagementIpConfigurationOutput{})
+	pulumi.RegisterOutputType(FirewallManagementIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallNatRuleCollectionRuleOutput{})
 	pulumi.RegisterOutputType(FirewallNatRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallNetworkRuleCollectionRuleOutput{})

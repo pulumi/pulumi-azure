@@ -98,6 +98,10 @@ namespace Pulumi.Azure.AppService
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionAppIdentityResult> Identities;
         public readonly string Location;
         /// <summary>
         /// The name for this IP Restriction.
@@ -141,6 +145,8 @@ namespace Pulumi.Azure.AppService
 
             string id,
 
+            ImmutableArray<Outputs.GetFunctionAppIdentityResult> identities,
+
             string location,
 
             string name,
@@ -167,6 +173,7 @@ namespace Pulumi.Azure.AppService
             DefaultHostname = defaultHostname;
             Enabled = enabled;
             Id = id;
+            Identities = identities;
             Location = location;
             Name = name;
             OsType = osType;

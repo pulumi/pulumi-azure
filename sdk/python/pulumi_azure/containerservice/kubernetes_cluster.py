@@ -89,7 +89,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below.
@@ -218,7 +218,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
@@ -426,7 +426,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="privateClusterEnabled")
     def private_cluster_enabled(self) -> pulumi.Output[bool]:
         """
-        Should this Kubernetes Cluster have it's API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_cluster_enabled")
 

@@ -46,6 +46,7 @@ __all__ = [
     'FirewallApplicationRuleCollectionRule',
     'FirewallApplicationRuleCollectionRuleProtocol',
     'FirewallIpConfiguration',
+    'FirewallManagementIpConfiguration',
     'FirewallNatRuleCollectionRule',
     'FirewallNetworkRuleCollectionRule',
     'LocalNetworkGatewayBgpSettings',
@@ -2616,6 +2617,61 @@ class FirewallIpConfiguration(dict):
 
 
 @pulumi.output_type
+class FirewallManagementIpConfiguration(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 public_ip_address_id: str,
+                 subnet_id: str,
+                 private_ip_address: Optional[str] = None):
+        """
+        :param str name: Specifies the name of the IP Configuration.
+        :param str public_ip_address_id: The ID of the Public IP Address associated with the firewall.
+        :param str subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+        :param str private_ip_address: The Private IP address of the Azure Firewall.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the IP Configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> str:
+        """
+        The ID of the Public IP Address associated with the firewall.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The Private IP address of the Azure Firewall.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class FirewallNatRuleCollectionRule(dict):
     def __init__(__self__, *,
                  destination_addresses: List[str],
@@ -2724,7 +2780,7 @@ class FirewallNetworkRuleCollectionRule(dict):
                  source_addresses: List[str],
                  description: Optional[str] = None):
         """
-        :param List[str] destination_addresses: A list of destination IP addresses and/or IP ranges.
+        :param List[str] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
         :param List[str] destination_ports: A list of destination ports.
         :param str name: Specifies the name of the rule.
         :param List[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
@@ -2743,7 +2799,7 @@ class FirewallNetworkRuleCollectionRule(dict):
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> List[str]:
         """
-        A list of destination IP addresses and/or IP ranges.
+        Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
         """
         return pulumi.get(self, "destination_addresses")
 

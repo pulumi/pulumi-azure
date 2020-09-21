@@ -91,6 +91,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
+        /// </summary>
+        [Output("autoscaleSettings")]
+        public Output<Outputs.GremlinGraphAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("conflictResolutionPolicies")]
@@ -127,7 +133,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
         /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
@@ -190,6 +196,12 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
+        /// </summary>
+        [Input("autoscaleSettings")]
+        public Input<Inputs.GremlinGraphAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
+
         [Input("conflictResolutionPolicies", required: true)]
         private InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs>? _conflictResolutionPolicies;
 
@@ -239,7 +251,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -268,6 +280,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `partition_key_path` to be set.
+        /// </summary>
+        [Input("autoscaleSettings")]
+        public Input<Inputs.GremlinGraphAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
         [Input("conflictResolutionPolicies")]
         private InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>? _conflictResolutionPolicies;
@@ -318,7 +336,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

@@ -14455,7 +14455,7 @@ func (o GetCertificateOrderCertificateArrayOutput) Index(i pulumi.IntInput) GetC
 type GetFunctionAppConnectionString struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
-	// The type of the Connection String.
+	// The identity type of the Managed Identity assigned to the function app.
 	Type string `pulumi:"type"`
 	// The value for the Connection String.
 	Value string `pulumi:"value"`
@@ -14475,7 +14475,7 @@ type GetFunctionAppConnectionStringInput interface {
 type GetFunctionAppConnectionStringArgs struct {
 	// The name of the Function App resource.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the Connection String.
+	// The identity type of the Managed Identity assigned to the function app.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The value for the Connection String.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -14537,7 +14537,7 @@ func (o GetFunctionAppConnectionStringOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppConnectionString) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of the Connection String.
+// The identity type of the Managed Identity assigned to the function app.
 func (o GetFunctionAppConnectionStringOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppConnectionString) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -14565,6 +14565,121 @@ func (o GetFunctionAppConnectionStringArrayOutput) Index(i pulumi.IntInput) GetF
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionAppConnectionString {
 		return vs[0].([]GetFunctionAppConnectionString)[vs[1].(int)]
 	}).(GetFunctionAppConnectionStringOutput)
+}
+
+type GetFunctionAppIdentity struct {
+	// The ID of the System Managed Service Principal assigned to the function app.
+	PrincipalId string `pulumi:"principalId"`
+	// The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type of the Managed Identity assigned to the function app.
+	Type string `pulumi:"type"`
+}
+
+// GetFunctionAppIdentityInput is an input type that accepts GetFunctionAppIdentityArgs and GetFunctionAppIdentityOutput values.
+// You can construct a concrete instance of `GetFunctionAppIdentityInput` via:
+//
+//          GetFunctionAppIdentityArgs{...}
+type GetFunctionAppIdentityInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppIdentityOutput() GetFunctionAppIdentityOutput
+	ToGetFunctionAppIdentityOutputWithContext(context.Context) GetFunctionAppIdentityOutput
+}
+
+type GetFunctionAppIdentityArgs struct {
+	// The ID of the System Managed Service Principal assigned to the function app.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type of the Managed Identity assigned to the function app.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetFunctionAppIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppIdentity)(nil)).Elem()
+}
+
+func (i GetFunctionAppIdentityArgs) ToGetFunctionAppIdentityOutput() GetFunctionAppIdentityOutput {
+	return i.ToGetFunctionAppIdentityOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppIdentityArgs) ToGetFunctionAppIdentityOutputWithContext(ctx context.Context) GetFunctionAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppIdentityOutput)
+}
+
+// GetFunctionAppIdentityArrayInput is an input type that accepts GetFunctionAppIdentityArray and GetFunctionAppIdentityArrayOutput values.
+// You can construct a concrete instance of `GetFunctionAppIdentityArrayInput` via:
+//
+//          GetFunctionAppIdentityArray{ GetFunctionAppIdentityArgs{...} }
+type GetFunctionAppIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetFunctionAppIdentityArrayOutput() GetFunctionAppIdentityArrayOutput
+	ToGetFunctionAppIdentityArrayOutputWithContext(context.Context) GetFunctionAppIdentityArrayOutput
+}
+
+type GetFunctionAppIdentityArray []GetFunctionAppIdentityInput
+
+func (GetFunctionAppIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppIdentity)(nil)).Elem()
+}
+
+func (i GetFunctionAppIdentityArray) ToGetFunctionAppIdentityArrayOutput() GetFunctionAppIdentityArrayOutput {
+	return i.ToGetFunctionAppIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetFunctionAppIdentityArray) ToGetFunctionAppIdentityArrayOutputWithContext(ctx context.Context) GetFunctionAppIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionAppIdentityArrayOutput)
+}
+
+type GetFunctionAppIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionAppIdentity)(nil)).Elem()
+}
+
+func (o GetFunctionAppIdentityOutput) ToGetFunctionAppIdentityOutput() GetFunctionAppIdentityOutput {
+	return o
+}
+
+func (o GetFunctionAppIdentityOutput) ToGetFunctionAppIdentityOutputWithContext(ctx context.Context) GetFunctionAppIdentityOutput {
+	return o
+}
+
+// The ID of the System Managed Service Principal assigned to the function app.
+func (o GetFunctionAppIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+func (o GetFunctionAppIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type of the Managed Identity assigned to the function app.
+func (o GetFunctionAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetFunctionAppIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionAppIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFunctionAppIdentity)(nil)).Elem()
+}
+
+func (o GetFunctionAppIdentityArrayOutput) ToGetFunctionAppIdentityArrayOutput() GetFunctionAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppIdentityArrayOutput) ToGetFunctionAppIdentityArrayOutputWithContext(ctx context.Context) GetFunctionAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetFunctionAppIdentityArrayOutput) Index(i pulumi.IntInput) GetFunctionAppIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFunctionAppIdentity {
+		return vs[0].([]GetFunctionAppIdentity)[vs[1].(int)]
+	}).(GetFunctionAppIdentityOutput)
 }
 
 type GetFunctionAppSiteConfig struct {
@@ -15514,6 +15629,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCertificateOrderCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppConnectionStringArrayOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppIdentityOutput{})
+	pulumi.RegisterOutputType(GetFunctionAppIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteConfigOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppSiteConfigCorsOutput{})

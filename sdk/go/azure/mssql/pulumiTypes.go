@@ -1066,7 +1066,7 @@ func (o ServerAzureadAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ServerExtendedAuditingPolicy struct {
+type ServerExtendedAuditingPolicyType struct {
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// (Required)  Specifies the access key to use for the auditing storage account.
@@ -1077,18 +1077,18 @@ type ServerExtendedAuditingPolicy struct {
 	StorageEndpoint string `pulumi:"storageEndpoint"`
 }
 
-// ServerExtendedAuditingPolicyInput is an input type that accepts ServerExtendedAuditingPolicyArgs and ServerExtendedAuditingPolicyOutput values.
-// You can construct a concrete instance of `ServerExtendedAuditingPolicyInput` via:
+// ServerExtendedAuditingPolicyTypeInput is an input type that accepts ServerExtendedAuditingPolicyTypeArgs and ServerExtendedAuditingPolicyTypeOutput values.
+// You can construct a concrete instance of `ServerExtendedAuditingPolicyTypeInput` via:
 //
-//          ServerExtendedAuditingPolicyArgs{...}
-type ServerExtendedAuditingPolicyInput interface {
+//          ServerExtendedAuditingPolicyTypeArgs{...}
+type ServerExtendedAuditingPolicyTypeInput interface {
 	pulumi.Input
 
-	ToServerExtendedAuditingPolicyOutput() ServerExtendedAuditingPolicyOutput
-	ToServerExtendedAuditingPolicyOutputWithContext(context.Context) ServerExtendedAuditingPolicyOutput
+	ToServerExtendedAuditingPolicyTypeOutput() ServerExtendedAuditingPolicyTypeOutput
+	ToServerExtendedAuditingPolicyTypeOutputWithContext(context.Context) ServerExtendedAuditingPolicyTypeOutput
 }
 
-type ServerExtendedAuditingPolicyArgs struct {
+type ServerExtendedAuditingPolicyTypeArgs struct {
 	// (Optional) Specifies the number of days to retain logs for in the storage account.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// (Required)  Specifies the access key to use for the auditing storage account.
@@ -1099,124 +1099,124 @@ type ServerExtendedAuditingPolicyArgs struct {
 	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
 }
 
-func (ServerExtendedAuditingPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerExtendedAuditingPolicy)(nil)).Elem()
+func (ServerExtendedAuditingPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerExtendedAuditingPolicyType)(nil)).Elem()
 }
 
-func (i ServerExtendedAuditingPolicyArgs) ToServerExtendedAuditingPolicyOutput() ServerExtendedAuditingPolicyOutput {
-	return i.ToServerExtendedAuditingPolicyOutputWithContext(context.Background())
+func (i ServerExtendedAuditingPolicyTypeArgs) ToServerExtendedAuditingPolicyTypeOutput() ServerExtendedAuditingPolicyTypeOutput {
+	return i.ToServerExtendedAuditingPolicyTypeOutputWithContext(context.Background())
 }
 
-func (i ServerExtendedAuditingPolicyArgs) ToServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyOutput)
+func (i ServerExtendedAuditingPolicyTypeArgs) ToServerExtendedAuditingPolicyTypeOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyTypeOutput)
 }
 
-func (i ServerExtendedAuditingPolicyArgs) ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput {
-	return i.ToServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+func (i ServerExtendedAuditingPolicyTypeArgs) ToServerExtendedAuditingPolicyTypePtrOutput() ServerExtendedAuditingPolicyTypePtrOutput {
+	return i.ToServerExtendedAuditingPolicyTypePtrOutputWithContext(context.Background())
 }
 
-func (i ServerExtendedAuditingPolicyArgs) ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyOutput).ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx)
+func (i ServerExtendedAuditingPolicyTypeArgs) ToServerExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyTypeOutput).ToServerExtendedAuditingPolicyTypePtrOutputWithContext(ctx)
 }
 
-// ServerExtendedAuditingPolicyPtrInput is an input type that accepts ServerExtendedAuditingPolicyArgs, ServerExtendedAuditingPolicyPtr and ServerExtendedAuditingPolicyPtrOutput values.
-// You can construct a concrete instance of `ServerExtendedAuditingPolicyPtrInput` via:
+// ServerExtendedAuditingPolicyTypePtrInput is an input type that accepts ServerExtendedAuditingPolicyTypeArgs, ServerExtendedAuditingPolicyTypePtr and ServerExtendedAuditingPolicyTypePtrOutput values.
+// You can construct a concrete instance of `ServerExtendedAuditingPolicyTypePtrInput` via:
 //
-//          ServerExtendedAuditingPolicyArgs{...}
+//          ServerExtendedAuditingPolicyTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type ServerExtendedAuditingPolicyPtrInput interface {
+type ServerExtendedAuditingPolicyTypePtrInput interface {
 	pulumi.Input
 
-	ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput
-	ToServerExtendedAuditingPolicyPtrOutputWithContext(context.Context) ServerExtendedAuditingPolicyPtrOutput
+	ToServerExtendedAuditingPolicyTypePtrOutput() ServerExtendedAuditingPolicyTypePtrOutput
+	ToServerExtendedAuditingPolicyTypePtrOutputWithContext(context.Context) ServerExtendedAuditingPolicyTypePtrOutput
 }
 
-type serverExtendedAuditingPolicyPtrType ServerExtendedAuditingPolicyArgs
+type serverExtendedAuditingPolicyTypePtrType ServerExtendedAuditingPolicyTypeArgs
 
-func ServerExtendedAuditingPolicyPtr(v *ServerExtendedAuditingPolicyArgs) ServerExtendedAuditingPolicyPtrInput {
-	return (*serverExtendedAuditingPolicyPtrType)(v)
+func ServerExtendedAuditingPolicyTypePtr(v *ServerExtendedAuditingPolicyTypeArgs) ServerExtendedAuditingPolicyTypePtrInput {
+	return (*serverExtendedAuditingPolicyTypePtrType)(v)
 }
 
-func (*serverExtendedAuditingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerExtendedAuditingPolicy)(nil)).Elem()
+func (*serverExtendedAuditingPolicyTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerExtendedAuditingPolicyType)(nil)).Elem()
 }
 
-func (i *serverExtendedAuditingPolicyPtrType) ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput {
-	return i.ToServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+func (i *serverExtendedAuditingPolicyTypePtrType) ToServerExtendedAuditingPolicyTypePtrOutput() ServerExtendedAuditingPolicyTypePtrOutput {
+	return i.ToServerExtendedAuditingPolicyTypePtrOutputWithContext(context.Background())
 }
 
-func (i *serverExtendedAuditingPolicyPtrType) ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyPtrOutput)
+func (i *serverExtendedAuditingPolicyTypePtrType) ToServerExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerExtendedAuditingPolicyTypePtrOutput)
 }
 
-type ServerExtendedAuditingPolicyOutput struct{ *pulumi.OutputState }
+type ServerExtendedAuditingPolicyTypeOutput struct{ *pulumi.OutputState }
 
-func (ServerExtendedAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerExtendedAuditingPolicy)(nil)).Elem()
+func (ServerExtendedAuditingPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerExtendedAuditingPolicyType)(nil)).Elem()
 }
 
-func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutput() ServerExtendedAuditingPolicyOutput {
+func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTypeOutput() ServerExtendedAuditingPolicyTypeOutput {
 	return o
 }
 
-func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyOutput {
+func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTypeOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyTypeOutput {
 	return o
 }
 
-func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput {
-	return o.ToServerExtendedAuditingPolicyPtrOutputWithContext(context.Background())
+func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTypePtrOutput() ServerExtendedAuditingPolicyTypePtrOutput {
+	return o.ToServerExtendedAuditingPolicyTypePtrOutputWithContext(context.Background())
 }
 
-func (o ServerExtendedAuditingPolicyOutput) ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput {
-	return o.ApplyT(func(v ServerExtendedAuditingPolicy) *ServerExtendedAuditingPolicy {
+func (o ServerExtendedAuditingPolicyTypeOutput) ToServerExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyTypePtrOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *ServerExtendedAuditingPolicyType {
 		return &v
-	}).(ServerExtendedAuditingPolicyPtrOutput)
+	}).(ServerExtendedAuditingPolicyTypePtrOutput)
 }
 
 // (Optional) Specifies the number of days to retain logs for in the storage account.
-func (o ServerExtendedAuditingPolicyOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerExtendedAuditingPolicy) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+func (o ServerExtendedAuditingPolicyTypeOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
 // (Required)  Specifies the access key to use for the auditing storage account.
-func (o ServerExtendedAuditingPolicyOutput) StorageAccountAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerExtendedAuditingPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
 }
 
 // (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-func (o ServerExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServerExtendedAuditingPolicy) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
+func (o ServerExtendedAuditingPolicyTypeOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) *bool { return v.StorageAccountAccessKeyIsSecondary }).(pulumi.BoolPtrOutput)
 }
 
 // (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o ServerExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerExtendedAuditingPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+func (o ServerExtendedAuditingPolicyTypeOutput) StorageEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerExtendedAuditingPolicyType) string { return v.StorageEndpoint }).(pulumi.StringOutput)
 }
 
-type ServerExtendedAuditingPolicyPtrOutput struct{ *pulumi.OutputState }
+type ServerExtendedAuditingPolicyTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ServerExtendedAuditingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerExtendedAuditingPolicy)(nil)).Elem()
+func (ServerExtendedAuditingPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerExtendedAuditingPolicyType)(nil)).Elem()
 }
 
-func (o ServerExtendedAuditingPolicyPtrOutput) ToServerExtendedAuditingPolicyPtrOutput() ServerExtendedAuditingPolicyPtrOutput {
+func (o ServerExtendedAuditingPolicyTypePtrOutput) ToServerExtendedAuditingPolicyTypePtrOutput() ServerExtendedAuditingPolicyTypePtrOutput {
 	return o
 }
 
-func (o ServerExtendedAuditingPolicyPtrOutput) ToServerExtendedAuditingPolicyPtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyPtrOutput {
+func (o ServerExtendedAuditingPolicyTypePtrOutput) ToServerExtendedAuditingPolicyTypePtrOutputWithContext(ctx context.Context) ServerExtendedAuditingPolicyTypePtrOutput {
 	return o
 }
 
-func (o ServerExtendedAuditingPolicyPtrOutput) Elem() ServerExtendedAuditingPolicyOutput {
-	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) ServerExtendedAuditingPolicy { return *v }).(ServerExtendedAuditingPolicyOutput)
+func (o ServerExtendedAuditingPolicyTypePtrOutput) Elem() ServerExtendedAuditingPolicyTypeOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) ServerExtendedAuditingPolicyType { return *v }).(ServerExtendedAuditingPolicyTypeOutput)
 }
 
 // (Optional) Specifies the number of days to retain logs for in the storage account.
-func (o ServerExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) *int {
+func (o ServerExtendedAuditingPolicyTypePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *int {
 		if v == nil {
 			return nil
 		}
@@ -1225,8 +1225,8 @@ func (o ServerExtendedAuditingPolicyPtrOutput) RetentionInDays() pulumi.IntPtrOu
 }
 
 // (Required)  Specifies the access key to use for the auditing storage account.
-func (o ServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) *string {
+func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1235,8 +1235,8 @@ func (o ServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKey() pulumi.
 }
 
 // (Optional) Specifies whether `storageAccountAccessKey` value is the storage's secondary key.
-func (o ServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) *bool {
+func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageAccountAccessKeyIsSecondary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1245,8 +1245,8 @@ func (o ServerExtendedAuditingPolicyPtrOutput) StorageAccountAccessKeyIsSecondar
 }
 
 // (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-func (o ServerExtendedAuditingPolicyPtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerExtendedAuditingPolicy) *string {
+func (o ServerExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerExtendedAuditingPolicyType) *string {
 		if v == nil {
 			return nil
 		}
@@ -1964,8 +1964,8 @@ func init() {
 	pulumi.RegisterOutputType(ElasticPoolSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorPtrOutput{})
-	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyOutput{})
-	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyTypeOutput{})
+	pulumi.RegisterOutputType(ServerExtendedAuditingPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentRecurringScansOutput{})

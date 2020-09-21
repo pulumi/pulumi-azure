@@ -54,6 +54,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
+        [Output("autoscaleSettings")]
+        public Output<Outputs.SqlContainerAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         /// </summary>
@@ -148,6 +151,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        [Input("autoscaleSettings")]
+        public Input<Inputs.SqlContainerAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
+
         /// <summary>
         /// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         /// </summary>
@@ -208,6 +214,9 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        [Input("autoscaleSettings")]
+        public Input<Inputs.SqlContainerAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
         /// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.

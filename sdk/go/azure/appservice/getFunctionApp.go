@@ -63,8 +63,10 @@ type LookupFunctionAppResult struct {
 	// Is the Function App enabled?
 	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	Location string `pulumi:"location"`
+	Id string `pulumi:"id"`
+	// A `identity` block as defined below.
+	Identities []GetFunctionAppIdentity `pulumi:"identities"`
+	Location   string                   `pulumi:"location"`
 	// The name for this IP Restriction.
 	Name string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app.

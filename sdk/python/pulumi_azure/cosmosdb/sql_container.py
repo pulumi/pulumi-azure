@@ -18,6 +18,7 @@ class SqlContainer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -82,6 +83,7 @@ class SqlContainer(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['autoscale_settings'] = autoscale_settings
             if database_name is None:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
@@ -104,6 +106,7 @@ class SqlContainer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             default_ttl: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -132,6 +135,7 @@ class SqlContainer(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["account_name"] = account_name
+        __props__["autoscale_settings"] = autoscale_settings
         __props__["database_name"] = database_name
         __props__["default_ttl"] = default_ttl
         __props__["name"] = name
@@ -148,6 +152,11 @@ class SqlContainer(pulumi.CustomResource):
         The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> pulumi.Output[Optional['outputs.SqlContainerAutoscaleSettings']]:
+        return pulumi.get(self, "autoscale_settings")
 
     @property
     @pulumi.getter(name="databaseName")

@@ -7,6 +7,7 @@ CHANGELOG
 * Relax naming conventions on `appInsights.Insights` to allow resource names to be up to 255 characters in length
 * Relax naming conventions on `monitoring.AutoscaleSetting` to allow resource names to be up to 255 characters in length
 * Relax naming conventions on `monitoring.ActionGroup` to allow resource names to be up to 260 characters in length
+* Upgrade to v2.28.0 of the AzureRM Terraform Provider
 
 ---
 

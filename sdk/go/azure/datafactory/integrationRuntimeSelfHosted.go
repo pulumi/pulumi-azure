@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a Data Factory Self-host Integration Runtime.
+// Manages a Data Factory Self-hosted Integration Runtime.
 //
 // ## Example Usage
 //
@@ -56,15 +56,15 @@ type IntegrationRuntimeSelfHosted struct {
 	AuthKey1 pulumi.StringOutput `pulumi:"authKey1"`
 	// The secondary integration runtime authentication key.
 	AuthKey2 pulumi.StringOutput `pulumi:"authKey2"`
-	// Changing this forces a new Data Factory to be created.
+	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayOutput `pulumi:"rbacAuthorizations"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
 
@@ -106,15 +106,15 @@ type integrationRuntimeSelfHostedState struct {
 	AuthKey1 *string `pulumi:"authKey1"`
 	// The secondary integration runtime authentication key.
 	AuthKey2 *string `pulumi:"authKey2"`
-	// Changing this forces a new Data Factory to be created.
+	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
-	// The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name *string `pulumi:"name"`
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations []IntegrationRuntimeSelfHostedRbacAuthorization `pulumi:"rbacAuthorizations"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
@@ -123,15 +123,15 @@ type IntegrationRuntimeSelfHostedState struct {
 	AuthKey1 pulumi.StringPtrInput
 	// The secondary integration runtime authentication key.
 	AuthKey2 pulumi.StringPtrInput
-	// Changing this forces a new Data Factory to be created.
+	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	DataFactoryName pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
-	// The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name pulumi.StringPtrInput
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
 
@@ -140,29 +140,29 @@ func (IntegrationRuntimeSelfHostedState) ElementType() reflect.Type {
 }
 
 type integrationRuntimeSelfHostedArgs struct {
-	// Changing this forces a new Data Factory to be created.
+	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
-	// The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name *string `pulumi:"name"`
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations []IntegrationRuntimeSelfHostedRbacAuthorization `pulumi:"rbacAuthorizations"`
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a IntegrationRuntimeSelfHosted resource.
 type IntegrationRuntimeSelfHostedArgs struct {
-	// Changing this forces a new Data Factory to be created.
+	// Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	DataFactoryName pulumi.StringInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
-	// The name which should be used for this Data Factory. Changing this forces a new Data Factory to be created.
+	// The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	Name pulumi.StringPtrInput
 	// A `rbacAuthorization` block as defined below.
 	RbacAuthorizations IntegrationRuntimeSelfHostedRbacAuthorizationArrayInput
-	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory to be created.
+	// The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
 	ResourceGroupName pulumi.StringInput
 }
 

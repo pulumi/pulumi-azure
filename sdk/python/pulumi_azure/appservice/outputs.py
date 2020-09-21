@@ -91,6 +91,7 @@ __all__ = [
     'GetAppServiceSourceControlResult',
     'GetCertificateOrderCertificateResult',
     'GetFunctionAppConnectionStringResult',
+    'GetFunctionAppIdentityResult',
     'GetFunctionAppSiteConfigResult',
     'GetFunctionAppSiteConfigCorsResult',
     'GetFunctionAppSiteConfigIpRestrictionResult',
@@ -5403,7 +5404,7 @@ class GetFunctionAppConnectionStringResult(dict):
                  value: str):
         """
         :param str name: The name of the Function App resource.
-        :param str type: The type of the Connection String.
+        :param str type: The identity type of the Managed Identity assigned to the function app.
         :param str value: The value for the Connection String.
         """
         pulumi.set(__self__, "name", name)
@@ -5422,7 +5423,7 @@ class GetFunctionAppConnectionStringResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the Connection String.
+        The identity type of the Managed Identity assigned to the function app.
         """
         return pulumi.get(self, "type")
 
@@ -5433,6 +5434,46 @@ class GetFunctionAppConnectionStringResult(dict):
         The value for the Connection String.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetFunctionAppIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The ID of the System Managed Service Principal assigned to the function app.
+        :param str tenant_id: The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+        :param str type: The identity type of the Managed Identity assigned to the function app.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The ID of the System Managed Service Principal assigned to the function app.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The ID of the Tenant of the System Managed Service Principal assigned to the function app.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type of the Managed Identity assigned to the function app.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -19,25 +19,34 @@ class GetAppServiceEnvironmentResult:
     """
     A collection of values returned by getAppServiceEnvironment.
     """
-    def __init__(__self__, front_end_scale_factor=None, id=None, location=None, name=None, pricing_tier=None, resource_group_name=None, tags=None):
+    def __init__(__self__, front_end_scale_factor=None, id=None, internal_ip_address=None, location=None, name=None, outbound_ip_addresses=None, pricing_tier=None, resource_group_name=None, service_ip_address=None, tags=None):
         if front_end_scale_factor and not isinstance(front_end_scale_factor, float):
             raise TypeError("Expected argument 'front_end_scale_factor' to be a float")
         pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if internal_ip_address and not isinstance(internal_ip_address, str):
+            raise TypeError("Expected argument 'internal_ip_address' to be a str")
+        pulumi.set(__self__, "internal_ip_address", internal_ip_address)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if outbound_ip_addresses and not isinstance(outbound_ip_addresses, list):
+            raise TypeError("Expected argument 'outbound_ip_addresses' to be a list")
+        pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
         if pricing_tier and not isinstance(pricing_tier, str):
             raise TypeError("Expected argument 'pricing_tier' to be a str")
         pulumi.set(__self__, "pricing_tier", pricing_tier)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if service_ip_address and not isinstance(service_ip_address, str):
+            raise TypeError("Expected argument 'service_ip_address' to be a str")
+        pulumi.set(__self__, "service_ip_address", service_ip_address)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -59,6 +68,14 @@ class GetAppServiceEnvironmentResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="internalIpAddress")
+    def internal_ip_address(self) -> str:
+        """
+        IP address of internal load balancer of the App Service Environment.
+        """
+        return pulumi.get(self, "internal_ip_address")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -72,6 +89,14 @@ class GetAppServiceEnvironmentResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outboundIpAddresses")
+    def outbound_ip_addresses(self) -> List[str]:
+        """
+        Outbound IP addresses of the App Service Environment.
+        """
+        return pulumi.get(self, "outbound_ip_addresses")
+
+    @property
     @pulumi.getter(name="pricingTier")
     def pricing_tier(self) -> str:
         """
@@ -83,6 +108,14 @@ class GetAppServiceEnvironmentResult:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="serviceIpAddress")
+    def service_ip_address(self) -> str:
+        """
+        IP address of service endpoint of the App Service Environment.
+        """
+        return pulumi.get(self, "service_ip_address")
 
     @property
     @pulumi.getter
@@ -101,10 +134,13 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
         return GetAppServiceEnvironmentResult(
             front_end_scale_factor=self.front_end_scale_factor,
             id=self.id,
+            internal_ip_address=self.internal_ip_address,
             location=self.location,
             name=self.name,
+            outbound_ip_addresses=self.outbound_ip_addresses,
             pricing_tier=self.pricing_tier,
             resource_group_name=self.resource_group_name,
+            service_ip_address=self.service_ip_address,
             tags=self.tags)
 
 
@@ -141,8 +177,11 @@ def get_app_service_environment(name: Optional[str] = None,
     return AwaitableGetAppServiceEnvironmentResult(
         front_end_scale_factor=__ret__.front_end_scale_factor,
         id=__ret__.id,
+        internal_ip_address=__ret__.internal_ip_address,
         location=__ret__.location,
         name=__ret__.name,
+        outbound_ip_addresses=__ret__.outbound_ip_addresses,
         pricing_tier=__ret__.pricing_tier,
         resource_group_name=__ret__.resource_group_name,
+        service_ip_address=__ret__.service_ip_address,
         tags=__ret__.tags)

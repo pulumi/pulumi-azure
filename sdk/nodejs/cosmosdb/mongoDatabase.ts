@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,6 +58,7 @@ export class MongoDatabase extends pulumi.CustomResource {
      * The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
      */
     public readonly accountName!: pulumi.Output<string>;
+    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.MongoDatabaseAutoscaleSettings | undefined>;
     /**
      * Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
      */
@@ -82,6 +85,7 @@ export class MongoDatabase extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as MongoDatabaseState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["throughput"] = state ? state.throughput : undefined;
@@ -94,6 +98,7 @@ export class MongoDatabase extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["throughput"] = args ? args.throughput : undefined;
@@ -117,6 +122,7 @@ export interface MongoDatabaseState {
      * The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoDatabaseAutoscaleSettings>;
     /**
      * Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
      */
@@ -139,6 +145,7 @@ export interface MongoDatabaseArgs {
      * The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoDatabaseAutoscaleSettings>;
     /**
      * Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
      */

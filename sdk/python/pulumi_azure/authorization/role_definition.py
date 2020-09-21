@@ -82,6 +82,7 @@ class RoleDefinition(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['role_definition_resource_id'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:role/definition:Definition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleDefinition, __self__).__init__(
@@ -99,6 +100,7 @@ class RoleDefinition(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             permissions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]]] = None,
             role_definition_id: Optional[pulumi.Input[str]] = None,
+            role_definition_resource_id: Optional[pulumi.Input[str]] = None,
             scope: Optional[pulumi.Input[str]] = None) -> 'RoleDefinition':
         """
         Get an existing RoleDefinition resource's state with the given name, id, and optional extra
@@ -112,6 +114,7 @@ class RoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role_definition_resource_id: The Azure Resource Manager ID for the resource
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -123,6 +126,7 @@ class RoleDefinition(pulumi.CustomResource):
         __props__["name"] = name
         __props__["permissions"] = permissions
         __props__["role_definition_id"] = role_definition_id
+        __props__["role_definition_resource_id"] = role_definition_resource_id
         __props__["scope"] = scope
         return RoleDefinition(resource_name, opts=opts, __props__=__props__)
 
@@ -165,6 +169,14 @@ class RoleDefinition(pulumi.CustomResource):
         A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "role_definition_id")
+
+    @property
+    @pulumi.getter(name="roleDefinitionResourceId")
+    def role_definition_resource_id(self) -> pulumi.Output[str]:
+        """
+        The Azure Resource Manager ID for the resource
+        """
+        return pulumi.get(self, "role_definition_resource_id")
 
     @property
     @pulumi.getter
