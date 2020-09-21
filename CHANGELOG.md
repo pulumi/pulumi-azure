@@ -2,14 +2,17 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.22.0 (2020-09-21)
 * Upgrade to pulumi-terraform-bridge v2.8.0
 * Upgrade to Pulumi v2.10.0
 * Relax naming conventions on `appInsights.Insights` to allow resource names to be up to 255 characters in length
 * Relax naming conventions on `monitoring.AutoscaleSetting` to allow resource names to be up to 255 characters in length
 * Relax naming conventions on `monitoring.ActionGroup` to allow resource names to be up to 260 characters in length
 * Upgrade to v2.28.0 of the AzureRM Terraform Provider
-
----
 
 ## 3.21.0 (2020-09-11)
 * Upgrade to v2.27.0 of the AzureRM Terraform Provider
