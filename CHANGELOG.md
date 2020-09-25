@@ -2,14 +2,17 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.23.0 (2020-09-25)
 * Upgrade to v2.29.0 of the AzureRM Terraform Provider  
   **Please Note:**  
   * `containerservice.Registry` will now force a new resource when the `storageAccountId` changes
   * `network.virtualHubConnection` `hubToVitualNetworkTrafficAllowed` and `vitualNetworkToHubGatewaysTrafficAllowed` are now
     deprecated due to a breaking change in the Azure API
   * `network.virtualWan` `allowVnetToVnetTraffic` is now deprecated due to a breaking change in the Azure API
-
----
 
 ## 3.22.0 (2020-09-21)
 * Upgrade to pulumi-terraform-bridge v2.8.0
