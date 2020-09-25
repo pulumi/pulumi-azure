@@ -88,7 +88,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
     public readonly createMode!: pulumi.Output<string>;
     /**
@@ -129,6 +129,14 @@ export class Database extends pulumi.CustomResource {
      * If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
      */
     public readonly readScale!: pulumi.Output<boolean>;
+    /**
+     * The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
+     */
+    public readonly recoverDatabaseId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
+     */
+    public readonly restoreDroppedDatabaseId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
      */
@@ -182,6 +190,8 @@ export class Database extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["readReplicaCount"] = state ? state.readReplicaCount : undefined;
             inputs["readScale"] = state ? state.readScale : undefined;
+            inputs["recoverDatabaseId"] = state ? state.recoverDatabaseId : undefined;
+            inputs["restoreDroppedDatabaseId"] = state ? state.restoreDroppedDatabaseId : undefined;
             inputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
             inputs["sampleName"] = state ? state.sampleName : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
@@ -206,6 +216,8 @@ export class Database extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["readReplicaCount"] = args ? args.readReplicaCount : undefined;
             inputs["readScale"] = args ? args.readScale : undefined;
+            inputs["recoverDatabaseId"] = args ? args.recoverDatabaseId : undefined;
+            inputs["restoreDroppedDatabaseId"] = args ? args.restoreDroppedDatabaseId : undefined;
             inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             inputs["sampleName"] = args ? args.sampleName : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
@@ -238,7 +250,7 @@ export interface DatabaseState {
      */
     readonly collation?: pulumi.Input<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
     readonly createMode?: pulumi.Input<string>;
     /**
@@ -279,6 +291,14 @@ export interface DatabaseState {
      * If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
      */
     readonly readScale?: pulumi.Input<boolean>;
+    /**
+     * The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
+     */
+    readonly recoverDatabaseId?: pulumi.Input<string>;
+    /**
+     * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
+     */
+    readonly restoreDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
      */
@@ -322,7 +342,7 @@ export interface DatabaseArgs {
      */
     readonly collation?: pulumi.Input<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
     readonly createMode?: pulumi.Input<string>;
     /**
@@ -363,6 +383,14 @@ export interface DatabaseArgs {
      * If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
      */
     readonly readScale?: pulumi.Input<boolean>;
+    /**
+     * The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
+     */
+    readonly recoverDatabaseId?: pulumi.Input<string>;
+    /**
+     * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
+     */
+    readonly restoreDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
      */

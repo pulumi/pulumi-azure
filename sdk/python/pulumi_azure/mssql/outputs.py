@@ -20,6 +20,7 @@ __all__ = [
     'ServerVulnerabilityAssessmentRecurringScans',
     'VirtualMachineAutoPatching',
     'VirtualMachineKeyVaultCredential',
+    'GetServerIdentityResult',
 ]
 
 @pulumi.output_type
@@ -578,5 +579,45 @@ class VirtualMachineKeyVaultCredential(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetServerIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+        :param str type: The identity type of the Microsoft SQL Server.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type of the Microsoft SQL Server.
+        """
+        return pulumi.get(self, "type")
 
 

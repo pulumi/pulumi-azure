@@ -114,6 +114,9 @@ export class Service extends pulumi.CustomResource {
      * The URL for the Publisher Portal associated with this API Management service.
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
+    /**
+     * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     */
     public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
      * A `protocols` block as defined below.
@@ -316,6 +319,9 @@ export interface ServiceState {
      * The URL for the Publisher Portal associated with this API Management service.
      */
     readonly portalUrl?: pulumi.Input<string>;
+    /**
+     * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+     */
     readonly privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `protocols` block as defined below.

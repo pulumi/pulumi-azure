@@ -63,8 +63,9 @@ type LookupPolicySetDefinitionResult struct {
 	// Any Metadata defined in the Policy Set Definition.
 	Metadata string `pulumi:"metadata"`
 	Name     string `pulumi:"name"`
-	// Any Parameters defined in the Policy Set Definition.
-	Parameters                 string                                            `pulumi:"parameters"`
+	// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+	Parameters string `pulumi:"parameters"`
+	// One or more `policyDefinitionReference` blocks as defined below.
 	PolicyDefinitionReferences []GetPolicySetDefinitionPolicyDefinitionReference `pulumi:"policyDefinitionReferences"`
 	// The policy definitions contained within the policy set definition.
 	PolicyDefinitions string `pulumi:"policyDefinitions"`

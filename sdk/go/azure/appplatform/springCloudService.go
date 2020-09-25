@@ -75,6 +75,8 @@ type SpringCloudService struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `network` block as defined below. Changing this forces a new resource to be created.
+	Network SpringCloudServiceNetworkPtrOutput `pulumi:"network"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
@@ -122,6 +124,8 @@ type springCloudServiceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `network` block as defined below. Changing this forces a new resource to be created.
+	Network *SpringCloudServiceNetwork `pulumi:"network"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
@@ -139,6 +143,8 @@ type SpringCloudServiceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `network` block as defined below. Changing this forces a new resource to be created.
+	Network SpringCloudServiceNetworkPtrInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
@@ -160,6 +166,8 @@ type springCloudServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `network` block as defined below. Changing this forces a new resource to be created.
+	Network *SpringCloudServiceNetwork `pulumi:"network"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
@@ -178,6 +186,8 @@ type SpringCloudServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `network` block as defined below. Changing this forces a new resource to be created.
+	Network SpringCloudServiceNetworkPtrInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.

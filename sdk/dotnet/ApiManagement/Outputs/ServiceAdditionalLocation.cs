@@ -22,9 +22,17 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateIpAddresses;
+        /// <summary>
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         public readonly ImmutableArray<string> PublicIpAddresses;
+        /// <summary>
+        /// A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+        /// </summary>
+        public readonly Outputs.ServiceAdditionalLocationVirtualNetworkConfiguration? VirtualNetworkConfiguration;
 
         [OutputConstructor]
         private ServiceAdditionalLocation(
@@ -32,11 +40,17 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string location,
 
-            ImmutableArray<string> publicIpAddresses)
+            ImmutableArray<string> privateIpAddresses,
+
+            ImmutableArray<string> publicIpAddresses,
+
+            Outputs.ServiceAdditionalLocationVirtualNetworkConfiguration? virtualNetworkConfiguration)
         {
             GatewayRegionalUrl = gatewayRegionalUrl;
             Location = location;
+            PrivateIpAddresses = privateIpAddresses;
             PublicIpAddresses = publicIpAddresses;
+            VirtualNetworkConfiguration = virtualNetworkConfiguration;
         }
     }
 }

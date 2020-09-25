@@ -3577,8 +3577,12 @@ type ServiceAdditionalLocation struct {
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
 	// The name of the Azure Region in which the API Management Service should be expanded to.
 	Location string `pulumi:"location"`
+	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+	VirtualNetworkConfiguration *ServiceAdditionalLocationVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 }
 
 // ServiceAdditionalLocationInput is an input type that accepts ServiceAdditionalLocationArgs and ServiceAdditionalLocationOutput values.
@@ -3597,8 +3601,12 @@ type ServiceAdditionalLocationArgs struct {
 	GatewayRegionalUrl pulumi.StringPtrInput `pulumi:"gatewayRegionalUrl"`
 	// The name of the Azure Region in which the API Management Service should be expanded to.
 	Location pulumi.StringInput `pulumi:"location"`
+	// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+	VirtualNetworkConfiguration ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput `pulumi:"virtualNetworkConfiguration"`
 }
 
 func (ServiceAdditionalLocationArgs) ElementType() reflect.Type {
@@ -3662,9 +3670,21 @@ func (o ServiceAdditionalLocationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) string { return v.Location }).(pulumi.StringOutput)
 }
 
+// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+func (o ServiceAdditionalLocationOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 func (o ServiceAdditionalLocationOutput) PublicIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+func (o ServiceAdditionalLocationOutput) VirtualNetworkConfiguration() ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalLocation) *ServiceAdditionalLocationVirtualNetworkConfiguration {
+		return v.VirtualNetworkConfiguration
+	}).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
 }
 
 type ServiceAdditionalLocationArrayOutput struct{ *pulumi.OutputState }
@@ -3685,6 +3705,139 @@ func (o ServiceAdditionalLocationArrayOutput) Index(i pulumi.IntInput) ServiceAd
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAdditionalLocation {
 		return vs[0].([]ServiceAdditionalLocation)[vs[1].(int)]
 	}).(ServiceAdditionalLocationOutput)
+}
+
+type ServiceAdditionalLocationVirtualNetworkConfiguration struct {
+	// The id of the subnet that will be used for the API Management.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// ServiceAdditionalLocationVirtualNetworkConfigurationInput is an input type that accepts ServiceAdditionalLocationVirtualNetworkConfigurationArgs and ServiceAdditionalLocationVirtualNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ServiceAdditionalLocationVirtualNetworkConfigurationInput` via:
+//
+//          ServiceAdditionalLocationVirtualNetworkConfigurationArgs{...}
+type ServiceAdditionalLocationVirtualNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceAdditionalLocationVirtualNetworkConfigurationOutput() ServiceAdditionalLocationVirtualNetworkConfigurationOutput
+	ToServiceAdditionalLocationVirtualNetworkConfigurationOutputWithContext(context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationOutput
+}
+
+type ServiceAdditionalLocationVirtualNetworkConfigurationArgs struct {
+	// The id of the subnet that will be used for the API Management.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAdditionalLocationVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (i ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ToServiceAdditionalLocationVirtualNetworkConfigurationOutput() ServiceAdditionalLocationVirtualNetworkConfigurationOutput {
+	return i.ToServiceAdditionalLocationVirtualNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ToServiceAdditionalLocationVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdditionalLocationVirtualNetworkConfigurationOutput)
+}
+
+func (i ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput() ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return i.ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdditionalLocationVirtualNetworkConfigurationOutput).ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput is an input type that accepts ServiceAdditionalLocationVirtualNetworkConfigurationArgs, ServiceAdditionalLocationVirtualNetworkConfigurationPtr and ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput` via:
+//
+//          ServiceAdditionalLocationVirtualNetworkConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput() ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput
+	ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput
+}
+
+type serviceAdditionalLocationVirtualNetworkConfigurationPtrType ServiceAdditionalLocationVirtualNetworkConfigurationArgs
+
+func ServiceAdditionalLocationVirtualNetworkConfigurationPtr(v *ServiceAdditionalLocationVirtualNetworkConfigurationArgs) ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput {
+	return (*serviceAdditionalLocationVirtualNetworkConfigurationPtrType)(v)
+}
+
+func (*serviceAdditionalLocationVirtualNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAdditionalLocationVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *serviceAdditionalLocationVirtualNetworkConfigurationPtrType) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput() ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return i.ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAdditionalLocationVirtualNetworkConfigurationPtrType) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
+}
+
+type ServiceAdditionalLocationVirtualNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAdditionalLocationVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ToServiceAdditionalLocationVirtualNetworkConfigurationOutput() ServiceAdditionalLocationVirtualNetworkConfigurationOutput {
+	return o
+}
+
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ToServiceAdditionalLocationVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationOutput {
+	return o
+}
+
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput() ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return o.ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalLocationVirtualNetworkConfiguration) *ServiceAdditionalLocationVirtualNetworkConfiguration {
+		return &v
+	}).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
+}
+
+// The id of the subnet that will be used for the API Management.
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAdditionalLocationVirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAdditionalLocationVirtualNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput() ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) ToServiceAdditionalLocationVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) Elem() ServiceAdditionalLocationVirtualNetworkConfigurationOutput {
+	return o.ApplyT(func(v *ServiceAdditionalLocationVirtualNetworkConfiguration) ServiceAdditionalLocationVirtualNetworkConfiguration {
+		return *v
+	}).(ServiceAdditionalLocationVirtualNetworkConfigurationOutput)
+}
+
+// The id of the subnet that will be used for the API Management.
+func (o ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalLocationVirtualNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceCertificate struct {
@@ -4692,7 +4845,7 @@ type ServiceIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type *string `pulumi:"type"`
 }
 
@@ -4714,7 +4867,7 @@ type ServiceIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -4810,7 +4963,7 @@ func (o ServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ServiceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4863,7 +5016,7 @@ func (o ServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o ServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceIdentity) *string {
 		if v == nil {
@@ -6091,6 +6244,8 @@ type GetServiceAdditionalLocation struct {
 	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`
+	// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 }
@@ -6111,6 +6266,8 @@ type GetServiceAdditionalLocationArgs struct {
 	GatewayRegionalUrl pulumi.StringInput `pulumi:"gatewayRegionalUrl"`
 	// The location name of the additional region among Azure Data center regions.
 	Location pulumi.StringInput `pulumi:"location"`
+	// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
 }
@@ -6174,6 +6331,11 @@ func (o GetServiceAdditionalLocationOutput) GatewayRegionalUrl() pulumi.StringOu
 // The location name of the additional region among Azure Data center regions.
 func (o GetServiceAdditionalLocationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAdditionalLocation) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+func (o GetServiceAdditionalLocationOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceAdditionalLocation) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
@@ -7097,6 +7259,8 @@ func init() {
 	pulumi.RegisterOutputType(LoggerEventhubPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalLocationOutput{})
 	pulumi.RegisterOutputType(ServiceAdditionalLocationArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAdditionalLocationVirtualNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCertificateOutput{})
 	pulumi.RegisterOutputType(ServiceCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ServiceHostnameConfigurationOutput{})

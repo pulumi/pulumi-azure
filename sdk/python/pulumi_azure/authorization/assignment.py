@@ -60,7 +60,7 @@ class Assignment(pulumi.CustomResource):
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             name="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
-            role_definition_id=example_role_definition.id,
+            role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_client_config.object_id)
         ```
         ### Custom Role & User)
@@ -82,7 +82,7 @@ class Assignment(pulumi.CustomResource):
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             name="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
-            role_definition_id=example_role_definition.id,
+            role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_client_config.client_id)
         ```
         ### Custom Role & Management Group)
@@ -105,7 +105,7 @@ class Assignment(pulumi.CustomResource):
         example_assignment = azure.authorization.Assignment("exampleAssignment",
             name="00000000-0000-0000-0000-000000000000",
             scope=data["azurerm_management_group"]["primary"]["id"],
-            role_definition_id=example_role_definition.id,
+            role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_client_config.client_id)
         ```
 

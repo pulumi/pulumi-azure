@@ -180,7 +180,11 @@ func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type PolicySetDefinitionPolicyDefinitionReference struct {
-	// A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+	// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+	ParameterValues *string `pulumi:"parameterValues"`
+	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+	//
+	// Deprecated: Deprecated in favour of `parameter_values`
 	Parameters map[string]interface{} `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition that will be included in this policy set definition.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
@@ -200,7 +204,11 @@ type PolicySetDefinitionPolicyDefinitionReferenceInput interface {
 }
 
 type PolicySetDefinitionPolicyDefinitionReferenceArgs struct {
-	// A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+	// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+	ParameterValues pulumi.StringPtrInput `pulumi:"parameterValues"`
+	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+	//
+	// Deprecated: Deprecated in favour of `parameter_values`
 	Parameters pulumi.MapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition that will be included in this policy set definition.
 	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
@@ -259,7 +267,14 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ToPolicySetDefinitio
 	return o
 }
 
-// A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) *string { return v.ParameterValues }).(pulumi.StringPtrOutput)
+}
+
+// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+//
+// Deprecated: Deprecated in favour of `parameter_values`
 func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.MapOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
@@ -295,10 +310,14 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulumi.
 }
 
 type GetPolicySetDefinitionPolicyDefinitionReference struct {
-	// Any Parameters defined in the Policy Set Definition.
-	Parameters         map[string]interface{} `pulumi:"parameters"`
-	PolicyDefinitionId string                 `pulumi:"policyDefinitionId"`
-	ReferenceId        string                 `pulumi:"referenceId"`
+	// The parameter values for the referenced policy rule. This field is a json object.
+	ParameterValues string `pulumi:"parameterValues"`
+	// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition that is included in this policy set definition.
+	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
+	// The unique ID within this policy set definition for this policy definition reference.
+	ReferenceId string `pulumi:"referenceId"`
 }
 
 // GetPolicySetDefinitionPolicyDefinitionReferenceInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionReferenceArgs and GetPolicySetDefinitionPolicyDefinitionReferenceOutput values.
@@ -313,10 +332,14 @@ type GetPolicySetDefinitionPolicyDefinitionReferenceInput interface {
 }
 
 type GetPolicySetDefinitionPolicyDefinitionReferenceArgs struct {
-	// Any Parameters defined in the Policy Set Definition.
-	Parameters         pulumi.MapInput    `pulumi:"parameters"`
+	// The parameter values for the referenced policy rule. This field is a json object.
+	ParameterValues pulumi.StringInput `pulumi:"parameterValues"`
+	// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+	Parameters pulumi.MapInput `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition that is included in this policy set definition.
 	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
-	ReferenceId        pulumi.StringInput `pulumi:"referenceId"`
+	// The unique ID within this policy set definition for this policy definition reference.
+	ReferenceId pulumi.StringInput `pulumi:"referenceId"`
 }
 
 func (GetPolicySetDefinitionPolicyDefinitionReferenceArgs) ElementType() reflect.Type {
@@ -370,15 +393,22 @@ func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ToGetPolicySetDef
 	return o
 }
 
-// Any Parameters defined in the Policy Set Definition.
+// The parameter values for the referenced policy rule. This field is a json object.
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) string { return v.ParameterValues }).(pulumi.StringOutput)
+}
+
+// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
 func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.MapOutput {
 	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
+// The ID of the policy definition or policy set definition that is included in this policy set definition.
 func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) PolicyDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
 }
 
+// The unique ID within this policy set definition for this policy definition reference.
 func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ReferenceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) string { return v.ReferenceId }).(pulumi.StringOutput)
 }

@@ -14,9 +14,11 @@ from .firewall import *
 from .firewall_application_rule_collection import *
 from .firewall_nat_rule_collection import *
 from .firewall_network_rule_collection import *
+from .firewall_policy import *
 from .get_application_security_group import *
 from .get_express_route_circuit import *
 from .get_firewall import *
+from .get_firewall_policy import *
 from .get_gateway_connection import *
 from .get_nat_gateway import *
 from .get_network_ddos_protection_plan import *

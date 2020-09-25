@@ -46,6 +46,8 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
+	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	AllowedIps pulumi.StringArrayOutput `pulumi:"allowedIps"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -104,6 +106,8 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
+	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	AllowedIps []string `pulumi:"allowedIps"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -129,6 +133,8 @@ type serviceState struct {
 }
 
 type ServiceState struct {
+	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	AllowedIps pulumi.StringArrayInput
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -158,6 +164,8 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	AllowedIps []string `pulumi:"allowedIps"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -178,6 +186,8 @@ type serviceArgs struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// A list of IPv4 addresses that are allowed access to the search service endpoint.
+	AllowedIps pulumi.StringArrayInput
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.

@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateIpAddresses;
+        /// <summary>
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
         public readonly ImmutableArray<string> PublicIpAddresses;
@@ -32,10 +36,13 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string location,
 
+            ImmutableArray<string> privateIpAddresses,
+
             ImmutableArray<string> publicIpAddresses)
         {
             GatewayRegionalUrl = gatewayRegionalUrl;
             Location = location;
+            PrivateIpAddresses = privateIpAddresses;
             PublicIpAddresses = publicIpAddresses;
         }
     }

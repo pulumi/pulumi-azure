@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Role
     ///         {
     ///             Name = "00000000-0000-0000-0000-000000000000",
     ///             Scope = primary.Apply(primary =&gt; primary.Id),
-    ///             RoleDefinitionId = exampleRoleDefinition.Id,
+    ///             RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
     ///             PrincipalId = exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.ObjectId),
     ///         });
     ///     }
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Role
     ///         {
     ///             Name = "00000000-0000-0000-0000-000000000000",
     ///             Scope = primary.Apply(primary =&gt; primary.Id),
-    ///             RoleDefinitionId = exampleRoleDefinition.Id,
+    ///             RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
     ///             PrincipalId = exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.ClientId),
     ///         });
     ///     }
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.Role
     ///         {
     ///             Name = "00000000-0000-0000-0000-000000000000",
     ///             Scope = data.Azurerm_management_group.Primary.Id,
-    ///             RoleDefinitionId = exampleRoleDefinition.Id,
+    ///             RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
     ///             PrincipalId = exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.ClientId),
     ///         });
     ///     }

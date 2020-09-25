@@ -59,14 +59,11 @@ namespace Pulumi.Azure.Network
     /// </summary>
     public partial class VirtualHubConnection : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
-        /// </summary>
         [Output("hubToVitualNetworkTrafficAllowed")]
         public Output<bool?> HubToVitualNetworkTrafficAllowed { get; private set; } = null!;
 
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Output("internetSecurityEnabled")]
         public Output<bool?> InternetSecurityEnabled { get; private set; } = null!;
@@ -89,9 +86,6 @@ namespace Pulumi.Azure.Network
         [Output("virtualHubId")]
         public Output<string> VirtualHubId { get; private set; } = null!;
 
-        /// <summary>
-        /// Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
-        /// </summary>
         [Output("vitualNetworkToHubGatewaysTrafficAllowed")]
         public Output<bool?> VitualNetworkToHubGatewaysTrafficAllowed { get; private set; } = null!;
 
@@ -141,14 +135,11 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualHubConnectionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
-        /// </summary>
         [Input("hubToVitualNetworkTrafficAllowed")]
         public Input<bool>? HubToVitualNetworkTrafficAllowed { get; set; }
 
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }
@@ -171,9 +162,6 @@ namespace Pulumi.Azure.Network
         [Input("virtualHubId", required: true)]
         public Input<string> VirtualHubId { get; set; } = null!;
 
-        /// <summary>
-        /// Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
-        /// </summary>
         [Input("vitualNetworkToHubGatewaysTrafficAllowed")]
         public Input<bool>? VitualNetworkToHubGatewaysTrafficAllowed { get; set; }
 
@@ -184,14 +172,11 @@ namespace Pulumi.Azure.Network
 
     public sealed class VirtualHubConnectionState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
-        /// </summary>
         [Input("hubToVitualNetworkTrafficAllowed")]
         public Input<bool>? HubToVitualNetworkTrafficAllowed { get; set; }
 
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+        /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }
@@ -214,9 +199,6 @@ namespace Pulumi.Azure.Network
         [Input("virtualHubId")]
         public Input<string>? VirtualHubId { get; set; }
 
-        /// <summary>
-        /// Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
-        /// </summary>
         [Input("vitualNetworkToHubGatewaysTrafficAllowed")]
         public Input<bool>? VitualNetworkToHubGatewaysTrafficAllowed { get; set; }
 

@@ -55,7 +55,7 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
-     * One or more `additionalLocation` blocks as defined below
+     * Zero or more `additionalLocation` blocks as defined below
      */
     readonly additionalLocations: outputs.apimanagement.GetServiceAdditionalLocation[];
     /**
@@ -102,6 +102,10 @@ export interface GetServiceResult {
      * The URL of the Publisher Portal.
      */
     readonly portalUrl: string;
+    /**
+     * Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+     */
+    readonly privateIpAddresses: string[];
     /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */

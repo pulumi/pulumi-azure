@@ -49,6 +49,8 @@ __all__ = [
     'FirewallManagementIpConfiguration',
     'FirewallNatRuleCollectionRule',
     'FirewallNetworkRuleCollectionRule',
+    'FirewallPolicyDns',
+    'FirewallPolicyThreatIntelligenceAllowlist',
     'LocalNetworkGatewayBgpSettings',
     'NetworkConnectionMonitorDestination',
     'NetworkConnectionMonitorSource',
@@ -95,6 +97,8 @@ __all__ = [
     'GetExpressRouteCircuitServiceProviderPropertyResult',
     'GetExpressRouteCircuitSkuResult',
     'GetFirewallIpConfigurationResult',
+    'GetFirewallPolicyDnResult',
+    'GetFirewallPolicyThreatIntelligenceAllowlistResult',
     'GetGatewayConnectionIpsecPolicyResult',
     'GetGatewayConnectionTrafficSelectorPolicyResult',
     'GetNetworkInterfaceIpConfigurationResult',
@@ -2848,6 +2852,86 @@ class FirewallNetworkRuleCollectionRule(dict):
 
 
 @pulumi.output_type
+class FirewallPolicyDns(dict):
+    def __init__(__self__, *,
+                 network_rule_fqdn_enabled: Optional[bool] = None,
+                 proxy_enabled: Optional[bool] = None,
+                 servers: Optional[List[str]] = None):
+        """
+        :param bool network_rule_fqdn_enabled: Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+        :param bool proxy_enabled: Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+        :param List[str] servers: A list of custom DNS servers' IP addresses.
+        """
+        if network_rule_fqdn_enabled is not None:
+            pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
+        if proxy_enabled is not None:
+            pulumi.set(__self__, "proxy_enabled", proxy_enabled)
+        if servers is not None:
+            pulumi.set(__self__, "servers", servers)
+
+    @property
+    @pulumi.getter(name="networkRuleFqdnEnabled")
+    def network_rule_fqdn_enabled(self) -> Optional[bool]:
+        """
+        Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+        """
+        return pulumi.get(self, "network_rule_fqdn_enabled")
+
+    @property
+    @pulumi.getter(name="proxyEnabled")
+    def proxy_enabled(self) -> Optional[bool]:
+        """
+        Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+        """
+        return pulumi.get(self, "proxy_enabled")
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Optional[List[str]]:
+        """
+        A list of custom DNS servers' IP addresses.
+        """
+        return pulumi.get(self, "servers")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FirewallPolicyThreatIntelligenceAllowlist(dict):
+    def __init__(__self__, *,
+                 fqdns: Optional[List[str]] = None,
+                 ip_addresses: Optional[List[str]] = None):
+        """
+        :param List[str] fqdns: A list of FQDNs that will be skipped for threat detection.
+        :param List[str] ip_addresses: A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        """
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[List[str]]:
+        """
+        A list of FQDNs that will be skipped for threat detection.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[List[str]]:
+        """
+        A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class LocalNetworkGatewayBgpSettings(dict):
     def __init__(__self__, *,
                  asn: float,
@@ -5308,6 +5392,51 @@ class GetFirewallIpConfigurationResult(dict):
         The ID of the Subnet where the Azure Firewall is deployed.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetFirewallPolicyDnResult(dict):
+    def __init__(__self__, *,
+                 network_rule_fqdn_enabled: bool,
+                 proxy_enabled: bool,
+                 servers: List[str]):
+        pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
+        pulumi.set(__self__, "proxy_enabled", proxy_enabled)
+        pulumi.set(__self__, "servers", servers)
+
+    @property
+    @pulumi.getter(name="networkRuleFqdnEnabled")
+    def network_rule_fqdn_enabled(self) -> bool:
+        return pulumi.get(self, "network_rule_fqdn_enabled")
+
+    @property
+    @pulumi.getter(name="proxyEnabled")
+    def proxy_enabled(self) -> bool:
+        return pulumi.get(self, "proxy_enabled")
+
+    @property
+    @pulumi.getter
+    def servers(self) -> List[str]:
+        return pulumi.get(self, "servers")
+
+
+@pulumi.output_type
+class GetFirewallPolicyThreatIntelligenceAllowlistResult(dict):
+    def __init__(__self__, *,
+                 fqdns: List[str],
+                 ip_addresses: List[str]):
+        pulumi.set(__self__, "fqdns", fqdns)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> List[str]:
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> List[str]:
+        return pulumi.get(self, "ip_addresses")
 
 
 @pulumi.output_type

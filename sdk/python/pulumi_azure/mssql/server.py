@@ -73,7 +73,7 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The administrator's login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -84,7 +84,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input[str] version: This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -127,6 +127,7 @@ class Server(pulumi.CustomResource):
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
             __props__['fully_qualified_domain_name'] = None
+            __props__['restorable_dropped_database_ids'] = None
         super(Server, __self__).__init__(
             'azure:mssql/server:Server',
             resource_name,
@@ -148,6 +149,7 @@ class Server(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            restorable_dropped_database_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'Server':
         """
@@ -157,7 +159,7 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The administrator's login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -168,8 +170,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
+        :param pulumi.Input[List[pulumi.Input[str]]] restorable_dropped_database_ids: A list of dropped restorable database IDs on the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input[str] version: This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -186,6 +189,7 @@ class Server(pulumi.CustomResource):
         __props__["name"] = name
         __props__["public_network_access_enabled"] = public_network_access_enabled
         __props__["resource_group_name"] = resource_group_name
+        __props__["restorable_dropped_database_ids"] = restorable_dropped_database_ids
         __props__["tags"] = tags
         __props__["version"] = version
         return Server(resource_name, opts=opts, __props__=__props__)
@@ -194,7 +198,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[str]:
         """
-        The administrator login name for the new server. Changing this forces a new resource to be created.
+        The administrator's login name for the new server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -279,6 +283,14 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="restorableDroppedDatabaseIds")
+    def restorable_dropped_database_ids(self) -> pulumi.Output[List[str]]:
+        """
+        A list of dropped restorable database IDs on the server.
+        """
+        return pulumi.get(self, "restorable_dropped_database_ids")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -290,7 +302,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         return pulumi.get(self, "version")
 

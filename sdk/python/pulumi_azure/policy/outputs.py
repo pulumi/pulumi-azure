@@ -64,14 +64,18 @@ class AssignmentIdentity(dict):
 class PolicySetDefinitionPolicyDefinitionReference(dict):
     def __init__(__self__, *,
                  policy_definition_id: str,
+                 parameter_values: Optional[str] = None,
                  parameters: Optional[Mapping[str, Any]] = None,
                  reference_id: Optional[str] = None):
         """
         :param str policy_definition_id: The ID of the policy definition or policy set definition that will be included in this policy set definition.
-        :param Mapping[str, Any] parameters: A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+        :param str parameter_values: Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+        :param Mapping[str, Any] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         :param str reference_id: A unique ID within this policy set definition for this policy definition reference.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if parameter_values is not None:
+            pulumi.set(__self__, "parameter_values", parameter_values)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if reference_id is not None:
@@ -86,10 +90,18 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
         return pulumi.get(self, "policy_definition_id")
 
     @property
+    @pulumi.getter(name="parameterValues")
+    def parameter_values(self) -> Optional[str]:
+        """
+        Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+        """
+        return pulumi.get(self, "parameter_values")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, Any]]:
         """
-        A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+        Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         """
         return pulumi.get(self, "parameters")
 
@@ -108,32 +120,51 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
 @pulumi.output_type
 class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
     def __init__(__self__, *,
+                 parameter_values: str,
                  parameters: Mapping[str, Any],
                  policy_definition_id: str,
                  reference_id: str):
         """
-        :param Mapping[str, Any] parameters: Any Parameters defined in the Policy Set Definition.
+        :param str parameter_values: The parameter values for the referenced policy rule. This field is a json object.
+        :param Mapping[str, Any] parameters: The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+        :param str policy_definition_id: The ID of the policy definition or policy set definition that is included in this policy set definition.
+        :param str reference_id: The unique ID within this policy set definition for this policy definition reference.
         """
+        pulumi.set(__self__, "parameter_values", parameter_values)
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         pulumi.set(__self__, "reference_id", reference_id)
 
     @property
+    @pulumi.getter(name="parameterValues")
+    def parameter_values(self) -> str:
+        """
+        The parameter values for the referenced policy rule. This field is a json object.
+        """
+        return pulumi.get(self, "parameter_values")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Mapping[str, Any]:
         """
-        Any Parameters defined in the Policy Set Definition.
+        The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
         """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> str:
+        """
+        The ID of the policy definition or policy set definition that is included in this policy set definition.
+        """
         return pulumi.get(self, "policy_definition_id")
 
     @property
     @pulumi.getter(name="referenceId")
     def reference_id(self) -> str:
+        """
+        The unique ID within this policy set definition for this policy definition reference.
+        """
         return pulumi.get(self, "reference_id")
 
 

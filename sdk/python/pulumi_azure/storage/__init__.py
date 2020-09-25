@@ -15,11 +15,13 @@ from .get_account_sas import *
 from .get_policy import *
 from .get_storage_container import *
 from .get_sync import *
+from .get_sync_group import *
 from .management_policy import *
 from .queue import *
 from .share import *
 from .share_directory import *
 from .sync import *
+from .sync_group import *
 from .table import *
 from .table_entity import *
 from .zip_blob import *

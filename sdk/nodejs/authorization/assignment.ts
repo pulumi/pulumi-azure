@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.then(primary => primary.id),
- *     roleDefinitionId: exampleRoleDefinition.id,
+ *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.then(primary => primary.id),
- *     roleDefinitionId: exampleRoleDefinition.id,
+ *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
  * });
  * ```
@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     scope: data.azurerm_management_group.primary.id,
- *     roleDefinitionId: exampleRoleDefinition.id,
+ *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
  * });
  * ```

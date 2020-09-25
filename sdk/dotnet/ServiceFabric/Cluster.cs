@@ -85,7 +85,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<ImmutableArray<Outputs.ClusterClientCertificateCommonName>> ClientCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
-        /// One or two `client_certificate_thumbprint` blocks as defined below.
+        /// One or more `client_certificate_thumbprint` blocks as defined below.
         /// </summary>
         [Output("clientCertificateThumbprints")]
         public Output<ImmutableArray<Outputs.ClusterClientCertificateThumbprint>> ClientCertificateThumbprints { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterClientCertificateThumbprintArgs>? _clientCertificateThumbprints;
 
         /// <summary>
-        /// One or two `client_certificate_thumbprint` blocks as defined below.
+        /// One or more `client_certificate_thumbprint` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ClusterClientCertificateThumbprintArgs> ClientCertificateThumbprints
         {
@@ -423,7 +423,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterClientCertificateThumbprintGetArgs>? _clientCertificateThumbprints;
 
         /// <summary>
-        /// One or two `client_certificate_thumbprint` blocks as defined below.
+        /// One or more `client_certificate_thumbprint` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ClusterClientCertificateThumbprintGetArgs> ClientCertificateThumbprints
         {

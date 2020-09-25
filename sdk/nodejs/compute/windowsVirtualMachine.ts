@@ -152,7 +152,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.WindowsVirtualMachineIdentity | undefined>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
@@ -435,7 +435,7 @@ export interface WindowsVirtualMachineState {
      */
     readonly identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     readonly licenseType?: pulumi.Input<string>;
     /**
@@ -597,7 +597,7 @@ export interface WindowsVirtualMachineArgs {
      */
     readonly identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
     /**
-     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+     * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
     readonly licenseType?: pulumi.Input<string>;
     /**

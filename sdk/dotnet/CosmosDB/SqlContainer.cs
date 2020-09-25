@@ -29,6 +29,28 @@ namespace Pulumi.Azure.CosmosDB
     ///             DatabaseName = azurerm_cosmosdb_sql_database.Example.Name,
     ///             PartitionKeyPath = "/definition/id",
     ///             Throughput = 400,
+    ///             IndexingPolicy = new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyArgs
+    ///             {
+    ///                 IndexingMode = "Consistent",
+    ///                 IncludedPaths = 
+    ///                 {
+    ///                     new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
+    ///                     {
+    ///                         Path = "/*",
+    ///                     },
+    ///                     new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
+    ///                     {
+    ///                         Path = "/included/?",
+    ///                     },
+    ///                 },
+    ///                 ExcludedPaths = 
+    ///                 {
+    ///                     new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyExcludedPathArgs
+    ///                     {
+    ///                         Path = "/excluded/?",
+    ///                     },
+    ///                 },
+    ///             },
     ///             UniqueKeys = 
     ///             {
     ///                 new Azure.CosmosDB.Inputs.SqlContainerUniqueKeyArgs
@@ -68,6 +90,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("defaultTtl")]
         public Output<int> DefaultTtl { get; private set; } = null!;
+
+        /// <summary>
+        /// An `indexing_policy` block as defined below.
+        /// </summary>
+        [Output("indexingPolicy")]
+        public Output<Outputs.SqlContainerIndexingPolicy> IndexingPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
@@ -167,6 +195,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
+        /// An `indexing_policy` block as defined below.
+        /// </summary>
+        [Input("indexingPolicy")]
+        public Input<Inputs.SqlContainerIndexingPolicyArgs>? IndexingPolicy { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -229,6 +263,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
+
+        /// <summary>
+        /// An `indexing_policy` block as defined below.
+        /// </summary>
+        [Input("indexingPolicy")]
+        public Input<Inputs.SqlContainerIndexingPolicyGetArgs>? IndexingPolicy { get; set; }
 
         /// <summary>
         /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.

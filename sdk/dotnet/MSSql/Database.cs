@@ -84,7 +84,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         /// </summary>
         [Output("createMode")]
         public Output<string> CreateMode { get; private set; } = null!;
@@ -142,6 +142,18 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("readScale")]
         public Output<bool> ReadScale { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        /// </summary>
+        [Output("recoverDatabaseId")]
+        public Output<string?> RecoverDatabaseId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        /// </summary>
+        [Output("restoreDroppedDatabaseId")]
+        public Output<string?> RestoreDroppedDatabaseId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
@@ -244,7 +256,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -302,6 +314,18 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("readScale")]
         public Input<bool>? ReadScale { get; set; }
+
+        /// <summary>
+        /// The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        /// </summary>
+        [Input("recoverDatabaseId")]
+        public Input<string>? RecoverDatabaseId { get; set; }
+
+        /// <summary>
+        /// The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        /// </summary>
+        [Input("restoreDroppedDatabaseId")]
+        public Input<string>? RestoreDroppedDatabaseId { get; set; }
 
         /// <summary>
         /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
@@ -371,7 +395,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -429,6 +453,18 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("readScale")]
         public Input<bool>? ReadScale { get; set; }
+
+        /// <summary>
+        /// The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        /// </summary>
+        [Input("recoverDatabaseId")]
+        public Input<string>? RecoverDatabaseId { get; set; }
+
+        /// <summary>
+        /// The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        /// </summary>
+        [Input("restoreDroppedDatabaseId")]
+        public Input<string>? RestoreDroppedDatabaseId { get; set; }
 
         /// <summary>
         /// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.

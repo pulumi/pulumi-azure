@@ -34,6 +34,7 @@ __all__ = [
     'LoggerApplicationInsightsArgs',
     'LoggerEventhubArgs',
     'ServiceAdditionalLocationArgs',
+    'ServiceAdditionalLocationVirtualNetworkConfigurationArgs',
     'ServiceCertificateArgs',
     'ServiceHostnameConfigurationArgs',
     'ServiceHostnameConfigurationDeveloperPortalArgs',
@@ -1591,17 +1592,25 @@ class ServiceAdditionalLocationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  gateway_regional_url: Optional[pulumi.Input[str]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 private_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] location: The name of the Azure Region in which the API Management Service should be expanded to.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
+        :param pulumi.Input[List[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input[List[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
         """
         pulumi.set(__self__, "location", location)
         if gateway_regional_url is not None:
             pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if virtual_network_configuration is not None:
+            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
 
     @property
     @pulumi.getter
@@ -1628,6 +1637,18 @@ class ServiceAdditionalLocationArgs:
         pulumi.set(self, "gateway_regional_url", value)
 
     @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @private_ip_addresses.setter
+    def private_ip_addresses(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "private_ip_addresses", value)
+
+    @property
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
         """
@@ -1638,6 +1659,40 @@ class ServiceAdditionalLocationArgs:
     @public_ip_addresses.setter
     def public_ip_addresses(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
         pulumi.set(self, "public_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkConfiguration")
+    def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']]:
+        """
+        A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+        """
+        return pulumi.get(self, "virtual_network_configuration")
+
+    @virtual_network_configuration.setter
+    def virtual_network_configuration(self, value: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']]):
+        pulumi.set(self, "virtual_network_configuration", value)
+
+
+@pulumi.input_type
+class ServiceAdditionalLocationVirtualNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] subnet_id: The id of the subnet that will be used for the API Management.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The id of the subnet that will be used for the API Management.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
 
 
 @pulumi.input_type
@@ -2236,7 +2291,7 @@ class ServiceIdentityArgs:
         :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
@@ -2287,7 +2342,7 @@ class ServiceIdentityArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 

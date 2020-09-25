@@ -2,7 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.29.0 of the AzureRM Terraform Provider  
+  **Please Note:**  
+  * `containerservice.Registry` will now force a new resource when the `storageAccountId` changes
+  * `network.virtualHubConnection` `hubToVitualNetworkTrafficAllowed` and `vitualNetworkToHubGatewaysTrafficAllowed` are now
+    deprecated due to a breaking change in the Azure API
+  * `network.virtualWan` `allowVnetToVnetTraffic` is now deprecated due to a breaking change in the Azure API
 
 ---
 

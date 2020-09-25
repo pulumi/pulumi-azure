@@ -90,9 +90,12 @@ namespace Pulumi.Azure.Policy
         public readonly string Metadata;
         public readonly string Name;
         /// <summary>
-        /// Any Parameters defined in the Policy Set Definition.
+        /// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
         /// </summary>
         public readonly string Parameters;
+        /// <summary>
+        /// One or more `policy_definition_reference` blocks as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicySetDefinitionPolicyDefinitionReferenceResult> PolicyDefinitionReferences;
         /// <summary>
         /// The policy definitions contained within the policy set definition.

@@ -53,12 +53,10 @@ class VirtualHubConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] hub_to_vitual_network_traffic_allowed: Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] vitual_network_to_hub_gateways_traffic_allowed: Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,6 +75,9 @@ class VirtualHubConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if hub_to_vitual_network_traffic_allowed is not None:
+                warnings.warn("Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider", DeprecationWarning)
+                pulumi.log.warn("hub_to_vitual_network_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider")
             __props__['hub_to_vitual_network_traffic_allowed'] = hub_to_vitual_network_traffic_allowed
             __props__['internet_security_enabled'] = internet_security_enabled
             __props__['name'] = name
@@ -86,6 +87,9 @@ class VirtualHubConnection(pulumi.CustomResource):
             if virtual_hub_id is None:
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__['virtual_hub_id'] = virtual_hub_id
+            if vitual_network_to_hub_gateways_traffic_allowed is not None:
+                warnings.warn("Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider", DeprecationWarning)
+                pulumi.log.warn("vitual_network_to_hub_gateways_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider")
             __props__['vitual_network_to_hub_gateways_traffic_allowed'] = vitual_network_to_hub_gateways_traffic_allowed
         super(VirtualHubConnection, __self__).__init__(
             'azure:network/virtualHubConnection:VirtualHubConnection',
@@ -110,12 +114,10 @@ class VirtualHubConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] hub_to_vitual_network_traffic_allowed: Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] vitual_network_to_hub_gateways_traffic_allowed: Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -132,16 +134,13 @@ class VirtualHubConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hubToVitualNetworkTrafficAllowed")
     def hub_to_vitual_network_traffic_allowed(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "hub_to_vitual_network_traffic_allowed")
 
     @property
     @pulumi.getter(name="internetSecurityEnabled")
     def internet_security_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "internet_security_enabled")
 
@@ -172,9 +171,6 @@ class VirtualHubConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vitualNetworkToHubGatewaysTrafficAllowed")
     def vitual_network_to_hub_gateways_traffic_allowed(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "vitual_network_to_hub_gateways_traffic_allowed")
 
     def translate_output_property(self, prop):

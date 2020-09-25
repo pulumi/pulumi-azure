@@ -82,6 +82,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A `network` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("network")]
+        public Output<Outputs.SpringCloudServiceNetwork?> Network { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -170,6 +176,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `network` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("network")]
+        public Input<Inputs.SpringCloudServiceNetworkArgs>? Network { get; set; }
+
+        /// <summary>
         /// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -223,6 +235,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `network` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("network")]
+        public Input<Inputs.SpringCloudServiceNetworkGetArgs>? Network { get; set; }
 
         /// <summary>
         /// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.

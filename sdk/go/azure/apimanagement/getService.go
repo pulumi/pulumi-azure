@@ -52,7 +52,7 @@ type LookupServiceArgs struct {
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
-	// One or more `additionalLocation` blocks as defined below
+	// Zero or more `additionalLocation` blocks as defined below
 	AdditionalLocations []GetServiceAdditionalLocation `pulumi:"additionalLocations"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl string `pulumi:"developerPortalUrl"`
@@ -76,6 +76,8 @@ type LookupServiceResult struct {
 	NotificationSenderEmail string `pulumi:"notificationSenderEmail"`
 	// The URL of the Publisher Portal.
 	PortalUrl string `pulumi:"portalUrl"`
+	// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 	// The email of Publisher/Company of the API Management Service.

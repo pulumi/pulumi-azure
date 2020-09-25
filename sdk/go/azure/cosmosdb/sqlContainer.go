@@ -30,6 +30,22 @@ import (
 // 			DatabaseName:      pulumi.Any(azurerm_cosmosdb_sql_database.Example.Name),
 // 			PartitionKeyPath:  pulumi.String("/definition/id"),
 // 			Throughput:        pulumi.Int(400),
+// 			IndexingPolicy: &cosmosdb.SqlContainerIndexingPolicyArgs{
+// 				IndexingMode: pulumi.String("Consistent"),
+// 				IncludedPaths: cosmosdb.SqlContainerIndexingPolicyIncludedPathArray{
+// 					&cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs{
+// 						Path: pulumi.String("/*"),
+// 					},
+// 					&cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs{
+// 						Path: pulumi.String("/included/?"),
+// 					},
+// 				},
+// 				ExcludedPaths: cosmosdb.SqlContainerIndexingPolicyExcludedPathArray{
+// 					&cosmosdb.SqlContainerIndexingPolicyExcludedPathArgs{
+// 						Path: pulumi.String("/excluded/?"),
+// 					},
+// 				},
+// 			},
 // 			UniqueKeys: cosmosdb.SqlContainerUniqueKeyArray{
 // 				&cosmosdb.SqlContainerUniqueKeyArgs{
 // 					Paths: pulumi.StringArray{
@@ -56,6 +72,8 @@ type SqlContainer struct {
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	DefaultTtl pulumi.IntOutput `pulumi:"defaultTtl"`
+	// An `indexingPolicy` block as defined below.
+	IndexingPolicy SqlContainerIndexingPolicyOutput `pulumi:"indexingPolicy"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -112,6 +130,8 @@ type sqlContainerState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	DefaultTtl *int `pulumi:"defaultTtl"`
+	// An `indexingPolicy` block as defined below.
+	IndexingPolicy *SqlContainerIndexingPolicy `pulumi:"indexingPolicy"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -132,6 +152,8 @@ type SqlContainerState struct {
 	DatabaseName pulumi.StringPtrInput
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	DefaultTtl pulumi.IntPtrInput
+	// An `indexingPolicy` block as defined below.
+	IndexingPolicy SqlContainerIndexingPolicyPtrInput
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -156,6 +178,8 @@ type sqlContainerArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	DefaultTtl *int `pulumi:"defaultTtl"`
+	// An `indexingPolicy` block as defined below.
+	IndexingPolicy *SqlContainerIndexingPolicy `pulumi:"indexingPolicy"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
@@ -177,6 +201,8 @@ type SqlContainerArgs struct {
 	DatabaseName pulumi.StringInput
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	DefaultTtl pulumi.IntPtrInput
+	// An `indexingPolicy` block as defined below.
+	IndexingPolicy SqlContainerIndexingPolicyPtrInput
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.

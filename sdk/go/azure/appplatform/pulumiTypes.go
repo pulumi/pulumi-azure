@@ -1252,6 +1252,213 @@ func (o SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput) StrictHostKeyC
 	}).(pulumi.BoolPtrOutput)
 }
 
+type SpringCloudServiceNetwork struct {
+	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
+	// Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+	AppSubnetId string `pulumi:"appSubnetId"`
+	// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+	CidrRanges []string `pulumi:"cidrRanges"`
+	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+	ServiceRuntimeNetworkResourceGroup *string `pulumi:"serviceRuntimeNetworkResourceGroup"`
+	// Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+	ServiceRuntimeSubnetId string `pulumi:"serviceRuntimeSubnetId"`
+}
+
+// SpringCloudServiceNetworkInput is an input type that accepts SpringCloudServiceNetworkArgs and SpringCloudServiceNetworkOutput values.
+// You can construct a concrete instance of `SpringCloudServiceNetworkInput` via:
+//
+//          SpringCloudServiceNetworkArgs{...}
+type SpringCloudServiceNetworkInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceNetworkOutput() SpringCloudServiceNetworkOutput
+	ToSpringCloudServiceNetworkOutputWithContext(context.Context) SpringCloudServiceNetworkOutput
+}
+
+type SpringCloudServiceNetworkArgs struct {
+	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+	AppNetworkResourceGroup pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
+	// Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+	AppSubnetId pulumi.StringInput `pulumi:"appSubnetId"`
+	// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+	CidrRanges pulumi.StringArrayInput `pulumi:"cidrRanges"`
+	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+	ServiceRuntimeNetworkResourceGroup pulumi.StringPtrInput `pulumi:"serviceRuntimeNetworkResourceGroup"`
+	// Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+	ServiceRuntimeSubnetId pulumi.StringInput `pulumi:"serviceRuntimeSubnetId"`
+}
+
+func (SpringCloudServiceNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceNetwork)(nil)).Elem()
+}
+
+func (i SpringCloudServiceNetworkArgs) ToSpringCloudServiceNetworkOutput() SpringCloudServiceNetworkOutput {
+	return i.ToSpringCloudServiceNetworkOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceNetworkArgs) ToSpringCloudServiceNetworkOutputWithContext(ctx context.Context) SpringCloudServiceNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceNetworkOutput)
+}
+
+func (i SpringCloudServiceNetworkArgs) ToSpringCloudServiceNetworkPtrOutput() SpringCloudServiceNetworkPtrOutput {
+	return i.ToSpringCloudServiceNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceNetworkArgs) ToSpringCloudServiceNetworkPtrOutputWithContext(ctx context.Context) SpringCloudServiceNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceNetworkOutput).ToSpringCloudServiceNetworkPtrOutputWithContext(ctx)
+}
+
+// SpringCloudServiceNetworkPtrInput is an input type that accepts SpringCloudServiceNetworkArgs, SpringCloudServiceNetworkPtr and SpringCloudServiceNetworkPtrOutput values.
+// You can construct a concrete instance of `SpringCloudServiceNetworkPtrInput` via:
+//
+//          SpringCloudServiceNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type SpringCloudServiceNetworkPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceNetworkPtrOutput() SpringCloudServiceNetworkPtrOutput
+	ToSpringCloudServiceNetworkPtrOutputWithContext(context.Context) SpringCloudServiceNetworkPtrOutput
+}
+
+type springCloudServiceNetworkPtrType SpringCloudServiceNetworkArgs
+
+func SpringCloudServiceNetworkPtr(v *SpringCloudServiceNetworkArgs) SpringCloudServiceNetworkPtrInput {
+	return (*springCloudServiceNetworkPtrType)(v)
+}
+
+func (*springCloudServiceNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudServiceNetwork)(nil)).Elem()
+}
+
+func (i *springCloudServiceNetworkPtrType) ToSpringCloudServiceNetworkPtrOutput() SpringCloudServiceNetworkPtrOutput {
+	return i.ToSpringCloudServiceNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudServiceNetworkPtrType) ToSpringCloudServiceNetworkPtrOutputWithContext(ctx context.Context) SpringCloudServiceNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceNetworkPtrOutput)
+}
+
+type SpringCloudServiceNetworkOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceNetwork)(nil)).Elem()
+}
+
+func (o SpringCloudServiceNetworkOutput) ToSpringCloudServiceNetworkOutput() SpringCloudServiceNetworkOutput {
+	return o
+}
+
+func (o SpringCloudServiceNetworkOutput) ToSpringCloudServiceNetworkOutputWithContext(ctx context.Context) SpringCloudServiceNetworkOutput {
+	return o
+}
+
+func (o SpringCloudServiceNetworkOutput) ToSpringCloudServiceNetworkPtrOutput() SpringCloudServiceNetworkPtrOutput {
+	return o.ToSpringCloudServiceNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudServiceNetworkOutput) ToSpringCloudServiceNetworkPtrOutputWithContext(ctx context.Context) SpringCloudServiceNetworkPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceNetwork) *SpringCloudServiceNetwork {
+		return &v
+	}).(SpringCloudServiceNetworkPtrOutput)
+}
+
+// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceNetwork) *string { return v.AppNetworkResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkOutput) AppSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceNetwork) string { return v.AppSubnetId }).(pulumi.StringOutput)
+}
+
+// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkOutput) CidrRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudServiceNetwork) []string { return v.CidrRanges }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceNetwork) *string { return v.ServiceRuntimeNetworkResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkOutput) ServiceRuntimeSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudServiceNetwork) string { return v.ServiceRuntimeSubnetId }).(pulumi.StringOutput)
+}
+
+type SpringCloudServiceNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudServiceNetwork)(nil)).Elem()
+}
+
+func (o SpringCloudServiceNetworkPtrOutput) ToSpringCloudServiceNetworkPtrOutput() SpringCloudServiceNetworkPtrOutput {
+	return o
+}
+
+func (o SpringCloudServiceNetworkPtrOutput) ToSpringCloudServiceNetworkPtrOutputWithContext(ctx context.Context) SpringCloudServiceNetworkPtrOutput {
+	return o
+}
+
+func (o SpringCloudServiceNetworkPtrOutput) Elem() SpringCloudServiceNetworkOutput {
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) SpringCloudServiceNetwork { return *v }).(SpringCloudServiceNetworkOutput)
+}
+
+// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkPtrOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppNetworkResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkPtrOutput) AppSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkPtrOutput) CidrRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CidrRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkPtrOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRuntimeNetworkResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkPtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceRuntimeSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudServiceTrace struct {
 	// The Instrumentation Key used for Application Insights.
 	InstrumentationKey string `pulumi:"instrumentationKey"`
@@ -2163,6 +2370,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingRepositorySshAuthPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceNetworkOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceNetworkPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceTraceOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceTracePtrOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingOutput{})

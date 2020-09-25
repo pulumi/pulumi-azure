@@ -738,6 +738,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_share_dataset_data_lake_gen2": {
 				Tok: azureResource(azureDataShare, "DatasetDataLakeGen2"),
 			},
+			"azurerm_data_share_dataset_kusto_cluster": {Tok: azureResource(azureDataShare, "DatasetKustoCluster")},
 
 			// DevSpace
 			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
@@ -1015,6 +1016,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_firewall_rule":        {Tok: azureResource(azureMySQL, "FirewallRule")},
 			"azurerm_mysql_server":               {Tok: azureResource(azureMySQL, "Server")},
 			"azurerm_mysql_virtual_network_rule": {Tok: azureResource(azureMySQL, "VirtualNetworkRule")},
+			"azurerm_mysql_server_key":           {Tok: azureResource(azureMySQL, "ServerKey")},
 			"azurerm_mysql_active_directory_administrator": {
 				Tok: azureResource(azureMySQL, "ActiveDirectoryAdministrator"),
 			},
@@ -1025,6 +1027,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_postgresql_firewall_rule":        {Tok: azureResource(azurePostgresql, "FirewallRule")},
 			"azurerm_postgresql_server":               {Tok: azureResource(azurePostgresql, "Server")},
 			"azurerm_postgresql_virtual_network_rule": {Tok: azureResource(azurePostgresql, "VirtualNetworkRule")},
+			"azurerm_postgresql_server_key":           {Tok: azureResource(azurePostgresql, "ServerKey")},
 			"azurerm_postgresql_active_directory_administrator": {
 				Tok: azureResource(azurePostgresql, "ActiveDirectoryAdministrator"),
 			},
@@ -1112,6 +1115,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_application_security_group":           {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
 			"azurerm_firewall":                             {Tok: azureResource(azureNetwork, "Firewall")},
+			"azurerm_firewall_policy":                      {Tok: azureResource(azureNetwork, "FirewallPolicy")},
 			"azurerm_firewall_application_rule_collection": {Tok: azureResource(azureNetwork, "FirewallApplicationRuleCollection")},
 			"azurerm_firewall_nat_rule_collection":         {Tok: azureResource(azureNetwork, "FirewallNatRuleCollection")},
 			"azurerm_firewall_network_rule_collection":     {Tok: azureResource(azureNetwork, "FirewallNetworkRuleCollection")},
@@ -1350,6 +1354,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_account_network_rules":        {Tok: azureResource(azureStorage, "AccountNetworkRules")},
 			"azurerm_storage_account_customer_managed_key": {Tok: azureResource(azureStorage, "CustomerManagedKey")},
 			"azurerm_storage_sync":                         {Tok: azureResource(azureStorage, "Sync")},
+			"azurerm_storage_sync_group":                   {Tok: azureResource(azureStorage, "SyncGroup")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
@@ -1593,6 +1598,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_share_dataset_blob_storage":   {Tok: azureDataSource(azureDataShare, "getDatasetBlobStorage")},
 			"azurerm_data_share_dataset_data_lake_gen1": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen1")},
 			"azurerm_data_share_dataset_data_lake_gen2": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen2")},
+			"azurerm_data_share_dataset_kusto_cluster":  {Tok: azureDataSource(azureDataShare, "getDatasetKustoCluster")},
 			"azurerm_dev_test_lab":                      {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":          {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 			"azurerm_image":                             {Tok: azureDataSource(azureCompute, "getImage")},
@@ -1633,6 +1639,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_mssql_elasticpool": {Tok: azureDataSource(azureMSSQL, "getElasticPool")},
 			"azurerm_mssql_database":    {Tok: azureDataSource(azureMSSQL, "getDatabase")},
+			"azurerm_mssql_server":      {Tok: azureDataSource(azureMSSQL, "getServer")},
 			"azurerm_dns_zone":          {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
@@ -1739,9 +1746,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_nat_gateway":                 {Tok: azureDataSource(azureNetwork, "getNatGateway")},
 			"azurerm_virtual_hub":                 {Tok: azureDataSource(azureNetwork, "getVirtualHub")},
+			"azurerm_firewall_policy":             {Tok: azureDataSource(azureNetwork, "getFirewallPolicy")},
 			"azurerm_signalr_service":             {Tok: azureDataSource(azureSignalr, "getService")},
 			"azurerm_storage_container":           {Tok: azureDataSource(azureStorage, "getStorageContainer")},
 			"azurerm_storage_sync":                {Tok: azureDataSource(azureStorage, "getSync")},
+			"azurerm_storage_sync_group":          {Tok: azureDataSource(azureStorage, "getSyncGroup")},
 			"azurerm_iothub_shared_access_policy": {Tok: azureDataSource(azureIot, "getSharedAccessPolicy")},
 			"azurerm_iothub_dps":                  {Tok: azureDataSource(azureIot, "getDps")},
 			"azurerm_eventgrid_topic":             {Tok: azureDataSource(azureEventGrid, "getTopic")},
@@ -1789,6 +1798,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_web_application_firewall_policy": {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
 			"azurerm_synapse_workspace":               {Tok: azureDataSource(azureSynapse, "getWorkspace")},
 			"azurerm_attestation_provider":            {Tok: azureDataSource(azureAttestation, "getProvider")},
+			"azurerm_databricks_workspace":            {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

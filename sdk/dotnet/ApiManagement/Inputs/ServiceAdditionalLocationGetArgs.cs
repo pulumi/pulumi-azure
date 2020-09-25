@@ -24,6 +24,18 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        [Input("privateIpAddresses")]
+        private InputList<string>? _privateIpAddresses;
+
+        /// <summary>
+        /// The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        /// </summary>
+        public InputList<string> PrivateIpAddresses
+        {
+            get => _privateIpAddresses ?? (_privateIpAddresses = new InputList<string>());
+            set => _privateIpAddresses = value;
+        }
+
         [Input("publicIpAddresses")]
         private InputList<string>? _publicIpAddresses;
 
@@ -35,6 +47,12 @@ namespace Pulumi.Azure.ApiManagement.Inputs
             get => _publicIpAddresses ?? (_publicIpAddresses = new InputList<string>());
             set => _publicIpAddresses = value;
         }
+
+        /// <summary>
+        /// A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+        /// </summary>
+        [Input("virtualNetworkConfiguration")]
+        public Input<Inputs.ServiceAdditionalLocationVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }
 
         public ServiceAdditionalLocationGetArgs()
         {

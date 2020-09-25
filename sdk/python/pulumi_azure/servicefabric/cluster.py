@@ -73,7 +73,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterCertificateArgs']] certificate: A `certificate` block as defined below. Conflicts with `certificate_common_names`.
         :param pulumi.Input[pulumi.InputType['ClusterCertificateCommonNamesArgs']] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterClientCertificateCommonNameArgs']]]] client_certificate_common_names: A `client_certificate_common_name` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: One or two `client_certificate_thumbprint` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[pulumi.InputType['ClusterDiagnosticsConfigArgs']] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterFabricSettingArgs']]]] fabric_settings: One or more `fabric_settings` blocks as defined below.
@@ -179,7 +179,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterCertificateArgs']] certificate: A `certificate` block as defined below. Conflicts with `certificate_common_names`.
         :param pulumi.Input[pulumi.InputType['ClusterCertificateCommonNamesArgs']] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterClientCertificateCommonNameArgs']]]] client_certificate_common_names: A `client_certificate_common_name` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: One or two `client_certificate_thumbprint` blocks as defined below.
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ClusterClientCertificateThumbprintArgs']]]] client_certificate_thumbprints: One or more `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[str] cluster_endpoint: The Cluster Endpoint for this Service Fabric Cluster.
         :param pulumi.Input[pulumi.InputType['ClusterDiagnosticsConfigArgs']] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
@@ -265,7 +265,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateThumbprints")
     def client_certificate_thumbprints(self) -> pulumi.Output[Optional[List['outputs.ClusterClientCertificateThumbprint']]]:
         """
-        One or two `client_certificate_thumbprint` blocks as defined below.
+        One or more `client_certificate_thumbprint` blocks as defined below.
         """
         return pulumi.get(self, "client_certificate_thumbprints")
 
