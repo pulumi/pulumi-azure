@@ -29,6 +29,8 @@ class Database(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  read_replica_count: Optional[pulumi.Input[float]] = None,
                  read_scale: Optional[pulumi.Input[bool]] = None,
+                 recover_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
@@ -85,7 +87,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
@@ -95,6 +97,8 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Ms SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[float] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
+        :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
@@ -135,6 +139,8 @@ class Database(pulumi.CustomResource):
             __props__['name'] = name
             __props__['read_replica_count'] = read_replica_count
             __props__['read_scale'] = read_scale
+            __props__['recover_database_id'] = recover_database_id
+            __props__['restore_dropped_database_id'] = restore_dropped_database_id
             __props__['restore_point_in_time'] = restore_point_in_time
             __props__['sample_name'] = sample_name
             if server_id is None:
@@ -166,6 +172,8 @@ class Database(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             read_replica_count: Optional[pulumi.Input[float]] = None,
             read_scale: Optional[pulumi.Input[bool]] = None,
+            recover_database_id: Optional[pulumi.Input[str]] = None,
+            restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
             restore_point_in_time: Optional[pulumi.Input[str]] = None,
             sample_name: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
@@ -182,7 +190,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
@@ -192,6 +200,8 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Ms SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[float] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
+        :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
         :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
@@ -216,6 +226,8 @@ class Database(pulumi.CustomResource):
         __props__["name"] = name
         __props__["read_replica_count"] = read_replica_count
         __props__["read_scale"] = read_scale
+        __props__["recover_database_id"] = recover_database_id
+        __props__["restore_dropped_database_id"] = restore_dropped_database_id
         __props__["restore_point_in_time"] = restore_point_in_time
         __props__["sample_name"] = sample_name
         __props__["server_id"] = server_id
@@ -245,7 +257,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[str]:
         """
-        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -320,6 +332,22 @@ class Database(pulumi.CustomResource):
         If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         """
         return pulumi.get(self, "read_scale")
+
+    @property
+    @pulumi.getter(name="recoverDatabaseId")
+    def recover_database_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        """
+        return pulumi.get(self, "recover_database_id")
+
+    @property
+    @pulumi.getter(name="restoreDroppedDatabaseId")
+    def restore_dropped_database_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        """
+        return pulumi.get(self, "restore_dropped_database_id")
 
     @property
     @pulumi.getter(name="restorePointInTime")

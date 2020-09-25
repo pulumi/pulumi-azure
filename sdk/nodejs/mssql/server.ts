@@ -76,7 +76,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * The administrator login name for the new server. Changing this forces a new resource to be created.
+     * The administrator's login name for the new server. Changing this forces a new resource to be created.
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
@@ -122,11 +122,15 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A list of dropped restorable database IDs on the server.
+     */
+    public /*out*/ readonly restorableDroppedDatabaseIds!: pulumi.Output<string[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -153,6 +157,7 @@ export class Server extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["restorableDroppedDatabaseIds"] = state ? state.restorableDroppedDatabaseIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
@@ -182,6 +187,7 @@ export class Server extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            inputs["restorableDroppedDatabaseIds"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -199,7 +205,7 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * The administrator login name for the new server. Changing this forces a new resource to be created.
+     * The administrator's login name for the new server. Changing this forces a new resource to be created.
      */
     readonly administratorLogin?: pulumi.Input<string>;
     /**
@@ -245,11 +251,15 @@ export interface ServerState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * A list of dropped restorable database IDs on the server.
+     */
+    readonly restorableDroppedDatabaseIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -259,7 +269,7 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * The administrator login name for the new server. Changing this forces a new resource to be created.
+     * The administrator's login name for the new server. Changing this forces a new resource to be created.
      */
     readonly administratorLogin: pulumi.Input<string>;
     /**
@@ -305,7 +315,7 @@ export interface ServerArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
     readonly version: pulumi.Input<string>;
 }

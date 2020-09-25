@@ -35,6 +35,7 @@ __all__ = [
     'LoggerApplicationInsights',
     'LoggerEventhub',
     'ServiceAdditionalLocation',
+    'ServiceAdditionalLocationVirtualNetworkConfiguration',
     'ServiceCertificate',
     'ServiceHostnameConfiguration',
     'ServiceHostnameConfigurationDeveloperPortal',
@@ -1321,17 +1322,25 @@ class ServiceAdditionalLocation(dict):
     def __init__(__self__, *,
                  location: str,
                  gateway_regional_url: Optional[str] = None,
-                 public_ip_addresses: Optional[List[str]] = None):
+                 private_ip_addresses: Optional[List[str]] = None,
+                 public_ip_addresses: Optional[List[str]] = None,
+                 virtual_network_configuration: Optional['outputs.ServiceAdditionalLocationVirtualNetworkConfiguration'] = None):
         """
         :param str location: The name of the Azure Region in which the API Management Service should be expanded to.
         :param str gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
+        :param List[str] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
         :param List[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
         """
         pulumi.set(__self__, "location", location)
         if gateway_regional_url is not None:
             pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if virtual_network_configuration is not None:
+            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
 
     @property
     @pulumi.getter
@@ -1350,12 +1359,49 @@ class ServiceAdditionalLocation(dict):
         return pulumi.get(self, "gateway_regional_url")
 
     @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[List[str]]:
+        """
+        The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[List[str]]:
         """
         Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="virtualNetworkConfiguration")
+    def virtual_network_configuration(self) -> Optional['outputs.ServiceAdditionalLocationVirtualNetworkConfiguration']:
+        """
+        A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
+        """
+        return pulumi.get(self, "virtual_network_configuration")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceAdditionalLocationVirtualNetworkConfiguration(dict):
+    def __init__(__self__, *,
+                 subnet_id: str):
+        """
+        :param str subnet_id: The id of the subnet that will be used for the API Management.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The id of the subnet that will be used for the API Management.
+        """
+        return pulumi.get(self, "subnet_id")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1842,7 +1888,7 @@ class ServiceIdentity(dict):
         :param List[str] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
@@ -1881,7 +1927,7 @@ class ServiceIdentity(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -2191,14 +2237,17 @@ class GetServiceAdditionalLocationResult(dict):
     def __init__(__self__, *,
                  gateway_regional_url: str,
                  location: str,
+                 private_ip_addresses: List[str],
                  public_ip_addresses: List[str]):
         """
         :param str gateway_regional_url: Gateway URL of the API Management service in the Region.
         :param str location: The location name of the additional region among Azure Data center regions.
+        :param List[str] private_ip_addresses: Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
         :param List[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """
         pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
         pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
 
     @property
@@ -2216,6 +2265,14 @@ class GetServiceAdditionalLocationResult(dict):
         The location name of the additional region among Azure Data center regions.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> List[str]:
+        """
+        Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+        """
+        return pulumi.get(self, "private_ip_addresses")
 
     @property
     @pulumi.getter(name="publicIpAddresses")

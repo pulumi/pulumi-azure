@@ -64,11 +64,11 @@ export class VirtualHubConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
+     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
     public readonly hubToVitualNetworkTrafficAllowed!: pulumi.Output<boolean | undefined>;
     /**
-     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly internetSecurityEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -84,7 +84,7 @@ export class VirtualHubConnection extends pulumi.CustomResource {
      */
     public readonly virtualHubId!: pulumi.Output<string>;
     /**
-     * Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
+     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
     public readonly vitualNetworkToHubGatewaysTrafficAllowed!: pulumi.Output<boolean | undefined>;
 
@@ -137,11 +137,11 @@ export class VirtualHubConnection extends pulumi.CustomResource {
  */
 export interface VirtualHubConnectionState {
     /**
-     * Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
+     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
     readonly hubToVitualNetworkTrafficAllowed?: pulumi.Input<boolean>;
     /**
-     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      */
     readonly internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
@@ -157,7 +157,7 @@ export interface VirtualHubConnectionState {
      */
     readonly virtualHubId?: pulumi.Input<string>;
     /**
-     * Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
+     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
     readonly vitualNetworkToHubGatewaysTrafficAllowed?: pulumi.Input<boolean>;
 }
@@ -167,11 +167,11 @@ export interface VirtualHubConnectionState {
  */
 export interface VirtualHubConnectionArgs {
     /**
-     * Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
+     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
     readonly hubToVitualNetworkTrafficAllowed?: pulumi.Input<boolean>;
     /**
-     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+     * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      */
     readonly internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
@@ -187,7 +187,7 @@ export interface VirtualHubConnectionArgs {
      */
     readonly virtualHubId: pulumi.Input<string>;
     /**
-     * Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
+     * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
     readonly vitualNetworkToHubGatewaysTrafficAllowed?: pulumi.Input<boolean>;
 }

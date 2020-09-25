@@ -8,4 +8,5 @@ export * from "./database";
 export * from "./firewallRule";
 export * from "./getServer";
 export * from "./server";
+export * from "./serverKey";
 export * from "./virtualNetworkRule";

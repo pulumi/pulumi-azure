@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'AccountCapability',
@@ -24,6 +25,9 @@ __all__ = [
     'MongoCollectionSystemIndex',
     'MongoDatabaseAutoscaleSettings',
     'SqlContainerAutoscaleSettings',
+    'SqlContainerIndexingPolicy',
+    'SqlContainerIndexingPolicyExcludedPath',
+    'SqlContainerIndexingPolicyIncludedPath',
     'SqlContainerUniqueKey',
     'SqlDatabaseAutoscaleSettings',
     'TableAutoscaleSettings',
@@ -505,6 +509,94 @@ class SqlContainerAutoscaleSettings(dict):
         The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlContainerIndexingPolicy(dict):
+    def __init__(__self__, *,
+                 excluded_paths: Optional[List['outputs.SqlContainerIndexingPolicyExcludedPath']] = None,
+                 included_paths: Optional[List['outputs.SqlContainerIndexingPolicyIncludedPath']] = None,
+                 indexing_mode: Optional[str] = None):
+        """
+        :param List['SqlContainerIndexingPolicyExcludedPathArgs'] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param List['SqlContainerIndexingPolicyIncludedPathArgs'] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param str indexing_mode: Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+        """
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if included_paths is not None:
+            pulumi.set(__self__, "included_paths", included_paths)
+        if indexing_mode is not None:
+            pulumi.set(__self__, "indexing_mode", indexing_mode)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[List['outputs.SqlContainerIndexingPolicyExcludedPath']]:
+        """
+        One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> Optional[List['outputs.SqlContainerIndexingPolicyIncludedPath']]:
+        """
+        One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        """
+        return pulumi.get(self, "included_paths")
+
+    @property
+    @pulumi.getter(name="indexingMode")
+    def indexing_mode(self) -> Optional[str]:
+        """
+        Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+        """
+        return pulumi.get(self, "indexing_mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlContainerIndexingPolicyExcludedPath(dict):
+    def __init__(__self__, *,
+                 path: str):
+        """
+        :param str path: Path that is excluded from indexing.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Path that is excluded from indexing.
+        """
+        return pulumi.get(self, "path")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlContainerIndexingPolicyIncludedPath(dict):
+    def __init__(__self__, *,
+                 path: str):
+        """
+        :param str path: Path for which the indexing behavior applies to.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Path for which the indexing behavior applies to.
+        """
+        return pulumi.get(self, "path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

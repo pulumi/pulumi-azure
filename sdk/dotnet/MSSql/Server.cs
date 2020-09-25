@@ -68,7 +68,7 @@ namespace Pulumi.Azure.MSSql
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
-        /// The administrator login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator's login name for the new server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
@@ -134,13 +134,19 @@ namespace Pulumi.Azure.MSSql
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A list of dropped restorable database IDs on the server.
+        /// </summary>
+        [Output("restorableDroppedDatabaseIds")]
+        public Output<ImmutableArray<string>> RestorableDroppedDatabaseIds { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -192,7 +198,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator's login name for the new server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin", required: true)]
         public Input<string> AdministratorLogin { get; set; } = null!;
@@ -264,7 +270,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -277,7 +283,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator's login name for the new server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -342,6 +348,18 @@ namespace Pulumi.Azure.MSSql
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("restorableDroppedDatabaseIds")]
+        private InputList<string>? _restorableDroppedDatabaseIds;
+
+        /// <summary>
+        /// A list of dropped restorable database IDs on the server.
+        /// </summary>
+        public InputList<string> RestorableDroppedDatabaseIds
+        {
+            get => _restorableDroppedDatabaseIds ?? (_restorableDroppedDatabaseIds = new InputList<string>());
+            set => _restorableDroppedDatabaseIds = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -355,7 +373,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

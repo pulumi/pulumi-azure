@@ -83,6 +83,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `network` block as defined below. Changing this forces a new resource to be created.
+     */
+    public readonly network!: pulumi.Output<outputs.appplatform.SpringCloudServiceNetwork | undefined>;
+    /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["configServerGitSetting"] = state ? state.configServerGitSetting : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["network"] = state ? state.network : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -126,6 +131,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["configServerGitSetting"] = args ? args.configServerGitSetting : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["network"] = args ? args.network : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -158,6 +164,10 @@ export interface SpringCloudServiceState {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `network` block as defined below. Changing this forces a new resource to be created.
+     */
+    readonly network?: pulumi.Input<inputs.appplatform.SpringCloudServiceNetwork>;
     /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */
@@ -192,6 +202,10 @@ export interface SpringCloudServiceArgs {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `network` block as defined below. Changing this forces a new resource to be created.
+     */
+    readonly network?: pulumi.Input<inputs.appplatform.SpringCloudServiceNetwork>;
     /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */

@@ -5804,6 +5804,327 @@ func (o FirewallNetworkRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) F
 	}).(FirewallNetworkRuleCollectionRuleOutput)
 }
 
+type FirewallPolicyDns struct {
+	// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+	NetworkRuleFqdnEnabled *bool `pulumi:"networkRuleFqdnEnabled"`
+	// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+	ProxyEnabled *bool `pulumi:"proxyEnabled"`
+	// A list of custom DNS servers' IP addresses.
+	Servers []string `pulumi:"servers"`
+}
+
+// FirewallPolicyDnsInput is an input type that accepts FirewallPolicyDnsArgs and FirewallPolicyDnsOutput values.
+// You can construct a concrete instance of `FirewallPolicyDnsInput` via:
+//
+//          FirewallPolicyDnsArgs{...}
+type FirewallPolicyDnsInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyDnsOutput() FirewallPolicyDnsOutput
+	ToFirewallPolicyDnsOutputWithContext(context.Context) FirewallPolicyDnsOutput
+}
+
+type FirewallPolicyDnsArgs struct {
+	// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+	NetworkRuleFqdnEnabled pulumi.BoolPtrInput `pulumi:"networkRuleFqdnEnabled"`
+	// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+	ProxyEnabled pulumi.BoolPtrInput `pulumi:"proxyEnabled"`
+	// A list of custom DNS servers' IP addresses.
+	Servers pulumi.StringArrayInput `pulumi:"servers"`
+}
+
+func (FirewallPolicyDnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyDns)(nil)).Elem()
+}
+
+func (i FirewallPolicyDnsArgs) ToFirewallPolicyDnsOutput() FirewallPolicyDnsOutput {
+	return i.ToFirewallPolicyDnsOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyDnsArgs) ToFirewallPolicyDnsOutputWithContext(ctx context.Context) FirewallPolicyDnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyDnsOutput)
+}
+
+func (i FirewallPolicyDnsArgs) ToFirewallPolicyDnsPtrOutput() FirewallPolicyDnsPtrOutput {
+	return i.ToFirewallPolicyDnsPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyDnsArgs) ToFirewallPolicyDnsPtrOutputWithContext(ctx context.Context) FirewallPolicyDnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyDnsOutput).ToFirewallPolicyDnsPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyDnsPtrInput is an input type that accepts FirewallPolicyDnsArgs, FirewallPolicyDnsPtr and FirewallPolicyDnsPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyDnsPtrInput` via:
+//
+//          FirewallPolicyDnsArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyDnsPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyDnsPtrOutput() FirewallPolicyDnsPtrOutput
+	ToFirewallPolicyDnsPtrOutputWithContext(context.Context) FirewallPolicyDnsPtrOutput
+}
+
+type firewallPolicyDnsPtrType FirewallPolicyDnsArgs
+
+func FirewallPolicyDnsPtr(v *FirewallPolicyDnsArgs) FirewallPolicyDnsPtrInput {
+	return (*firewallPolicyDnsPtrType)(v)
+}
+
+func (*firewallPolicyDnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyDns)(nil)).Elem()
+}
+
+func (i *firewallPolicyDnsPtrType) ToFirewallPolicyDnsPtrOutput() FirewallPolicyDnsPtrOutput {
+	return i.ToFirewallPolicyDnsPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyDnsPtrType) ToFirewallPolicyDnsPtrOutputWithContext(ctx context.Context) FirewallPolicyDnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyDnsPtrOutput)
+}
+
+type FirewallPolicyDnsOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyDnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyDns)(nil)).Elem()
+}
+
+func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsOutput() FirewallPolicyDnsOutput {
+	return o
+}
+
+func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsOutputWithContext(ctx context.Context) FirewallPolicyDnsOutput {
+	return o
+}
+
+func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsPtrOutput() FirewallPolicyDnsPtrOutput {
+	return o.ToFirewallPolicyDnsPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyDnsOutput) ToFirewallPolicyDnsPtrOutputWithContext(ctx context.Context) FirewallPolicyDnsPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyDns) *FirewallPolicyDns {
+		return &v
+	}).(FirewallPolicyDnsPtrOutput)
+}
+
+// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+func (o FirewallPolicyDnsOutput) NetworkRuleFqdnEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyDns) *bool { return v.NetworkRuleFqdnEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+func (o FirewallPolicyDnsOutput) ProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyDns) *bool { return v.ProxyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A list of custom DNS servers' IP addresses.
+func (o FirewallPolicyDnsOutput) Servers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyDns) []string { return v.Servers }).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyDnsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyDnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyDns)(nil)).Elem()
+}
+
+func (o FirewallPolicyDnsPtrOutput) ToFirewallPolicyDnsPtrOutput() FirewallPolicyDnsPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyDnsPtrOutput) ToFirewallPolicyDnsPtrOutputWithContext(ctx context.Context) FirewallPolicyDnsPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyDnsPtrOutput) Elem() FirewallPolicyDnsOutput {
+	return o.ApplyT(func(v *FirewallPolicyDns) FirewallPolicyDns { return *v }).(FirewallPolicyDnsOutput)
+}
+
+// Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+func (o FirewallPolicyDnsPtrOutput) NetworkRuleFqdnEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyDns) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkRuleFqdnEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+func (o FirewallPolicyDnsPtrOutput) ProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyDns) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ProxyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of custom DNS servers' IP addresses.
+func (o FirewallPolicyDnsPtrOutput) Servers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyDns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Servers
+	}).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyThreatIntelligenceAllowlist struct {
+	// A list of FQDNs that will be skipped for threat detection.
+	Fqdns []string `pulumi:"fqdns"`
+	// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// FirewallPolicyThreatIntelligenceAllowlistInput is an input type that accepts FirewallPolicyThreatIntelligenceAllowlistArgs and FirewallPolicyThreatIntelligenceAllowlistOutput values.
+// You can construct a concrete instance of `FirewallPolicyThreatIntelligenceAllowlistInput` via:
+//
+//          FirewallPolicyThreatIntelligenceAllowlistArgs{...}
+type FirewallPolicyThreatIntelligenceAllowlistInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyThreatIntelligenceAllowlistOutput() FirewallPolicyThreatIntelligenceAllowlistOutput
+	ToFirewallPolicyThreatIntelligenceAllowlistOutputWithContext(context.Context) FirewallPolicyThreatIntelligenceAllowlistOutput
+}
+
+type FirewallPolicyThreatIntelligenceAllowlistArgs struct {
+	// A list of FQDNs that will be skipped for threat detection.
+	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
+	// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (FirewallPolicyThreatIntelligenceAllowlistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyThreatIntelligenceAllowlist)(nil)).Elem()
+}
+
+func (i FirewallPolicyThreatIntelligenceAllowlistArgs) ToFirewallPolicyThreatIntelligenceAllowlistOutput() FirewallPolicyThreatIntelligenceAllowlistOutput {
+	return i.ToFirewallPolicyThreatIntelligenceAllowlistOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyThreatIntelligenceAllowlistArgs) ToFirewallPolicyThreatIntelligenceAllowlistOutputWithContext(ctx context.Context) FirewallPolicyThreatIntelligenceAllowlistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyThreatIntelligenceAllowlistOutput)
+}
+
+func (i FirewallPolicyThreatIntelligenceAllowlistArgs) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutput() FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
+	return i.ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyThreatIntelligenceAllowlistArgs) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(ctx context.Context) FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyThreatIntelligenceAllowlistOutput).ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyThreatIntelligenceAllowlistPtrInput is an input type that accepts FirewallPolicyThreatIntelligenceAllowlistArgs, FirewallPolicyThreatIntelligenceAllowlistPtr and FirewallPolicyThreatIntelligenceAllowlistPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyThreatIntelligenceAllowlistPtrInput` via:
+//
+//          FirewallPolicyThreatIntelligenceAllowlistArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyThreatIntelligenceAllowlistPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyThreatIntelligenceAllowlistPtrOutput() FirewallPolicyThreatIntelligenceAllowlistPtrOutput
+	ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(context.Context) FirewallPolicyThreatIntelligenceAllowlistPtrOutput
+}
+
+type firewallPolicyThreatIntelligenceAllowlistPtrType FirewallPolicyThreatIntelligenceAllowlistArgs
+
+func FirewallPolicyThreatIntelligenceAllowlistPtr(v *FirewallPolicyThreatIntelligenceAllowlistArgs) FirewallPolicyThreatIntelligenceAllowlistPtrInput {
+	return (*firewallPolicyThreatIntelligenceAllowlistPtrType)(v)
+}
+
+func (*firewallPolicyThreatIntelligenceAllowlistPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyThreatIntelligenceAllowlist)(nil)).Elem()
+}
+
+func (i *firewallPolicyThreatIntelligenceAllowlistPtrType) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutput() FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
+	return i.ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyThreatIntelligenceAllowlistPtrType) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(ctx context.Context) FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyThreatIntelligenceAllowlistPtrOutput)
+}
+
+type FirewallPolicyThreatIntelligenceAllowlistOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyThreatIntelligenceAllowlistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyThreatIntelligenceAllowlist)(nil)).Elem()
+}
+
+func (o FirewallPolicyThreatIntelligenceAllowlistOutput) ToFirewallPolicyThreatIntelligenceAllowlistOutput() FirewallPolicyThreatIntelligenceAllowlistOutput {
+	return o
+}
+
+func (o FirewallPolicyThreatIntelligenceAllowlistOutput) ToFirewallPolicyThreatIntelligenceAllowlistOutputWithContext(ctx context.Context) FirewallPolicyThreatIntelligenceAllowlistOutput {
+	return o
+}
+
+func (o FirewallPolicyThreatIntelligenceAllowlistOutput) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutput() FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
+	return o.ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyThreatIntelligenceAllowlistOutput) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(ctx context.Context) FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyThreatIntelligenceAllowlist) *FirewallPolicyThreatIntelligenceAllowlist {
+		return &v
+	}).(FirewallPolicyThreatIntelligenceAllowlistPtrOutput)
+}
+
+// A list of FQDNs that will be skipped for threat detection.
+func (o FirewallPolicyThreatIntelligenceAllowlistOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyThreatIntelligenceAllowlist) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+func (o FirewallPolicyThreatIntelligenceAllowlistOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyThreatIntelligenceAllowlist) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyThreatIntelligenceAllowlistPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyThreatIntelligenceAllowlistPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyThreatIntelligenceAllowlist)(nil)).Elem()
+}
+
+func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutput() FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) ToFirewallPolicyThreatIntelligenceAllowlistPtrOutputWithContext(ctx context.Context) FirewallPolicyThreatIntelligenceAllowlistPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) Elem() FirewallPolicyThreatIntelligenceAllowlistOutput {
+	return o.ApplyT(func(v *FirewallPolicyThreatIntelligenceAllowlist) FirewallPolicyThreatIntelligenceAllowlist {
+		return *v
+	}).(FirewallPolicyThreatIntelligenceAllowlistOutput)
+}
+
+// A list of FQDNs that will be skipped for threat detection.
+func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyThreatIntelligenceAllowlist) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fqdns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of IP addresses or IP address ranges that will be skipped for threat detection.
+func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyThreatIntelligenceAllowlist) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
 type LocalNetworkGatewayBgpSettings struct {
 	// The BGP speaker's ASN.
 	Asn int `pulumi:"asn"`
@@ -12726,6 +13047,212 @@ func (o GetFirewallIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetFirew
 	}).(GetFirewallIpConfigurationOutput)
 }
 
+type GetFirewallPolicyDn struct {
+	NetworkRuleFqdnEnabled bool     `pulumi:"networkRuleFqdnEnabled"`
+	ProxyEnabled           bool     `pulumi:"proxyEnabled"`
+	Servers                []string `pulumi:"servers"`
+}
+
+// GetFirewallPolicyDnInput is an input type that accepts GetFirewallPolicyDnArgs and GetFirewallPolicyDnOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyDnInput` via:
+//
+//          GetFirewallPolicyDnArgs{...}
+type GetFirewallPolicyDnInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyDnOutput() GetFirewallPolicyDnOutput
+	ToGetFirewallPolicyDnOutputWithContext(context.Context) GetFirewallPolicyDnOutput
+}
+
+type GetFirewallPolicyDnArgs struct {
+	NetworkRuleFqdnEnabled pulumi.BoolInput        `pulumi:"networkRuleFqdnEnabled"`
+	ProxyEnabled           pulumi.BoolInput        `pulumi:"proxyEnabled"`
+	Servers                pulumi.StringArrayInput `pulumi:"servers"`
+}
+
+func (GetFirewallPolicyDnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyDn)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyDnArgs) ToGetFirewallPolicyDnOutput() GetFirewallPolicyDnOutput {
+	return i.ToGetFirewallPolicyDnOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyDnArgs) ToGetFirewallPolicyDnOutputWithContext(ctx context.Context) GetFirewallPolicyDnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyDnOutput)
+}
+
+// GetFirewallPolicyDnArrayInput is an input type that accepts GetFirewallPolicyDnArray and GetFirewallPolicyDnArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyDnArrayInput` via:
+//
+//          GetFirewallPolicyDnArray{ GetFirewallPolicyDnArgs{...} }
+type GetFirewallPolicyDnArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyDnArrayOutput() GetFirewallPolicyDnArrayOutput
+	ToGetFirewallPolicyDnArrayOutputWithContext(context.Context) GetFirewallPolicyDnArrayOutput
+}
+
+type GetFirewallPolicyDnArray []GetFirewallPolicyDnInput
+
+func (GetFirewallPolicyDnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyDn)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyDnArray) ToGetFirewallPolicyDnArrayOutput() GetFirewallPolicyDnArrayOutput {
+	return i.ToGetFirewallPolicyDnArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyDnArray) ToGetFirewallPolicyDnArrayOutputWithContext(ctx context.Context) GetFirewallPolicyDnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyDnArrayOutput)
+}
+
+type GetFirewallPolicyDnOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyDnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyDn)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyDnOutput) ToGetFirewallPolicyDnOutput() GetFirewallPolicyDnOutput {
+	return o
+}
+
+func (o GetFirewallPolicyDnOutput) ToGetFirewallPolicyDnOutputWithContext(ctx context.Context) GetFirewallPolicyDnOutput {
+	return o
+}
+
+func (o GetFirewallPolicyDnOutput) NetworkRuleFqdnEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFirewallPolicyDn) bool { return v.NetworkRuleFqdnEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetFirewallPolicyDnOutput) ProxyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFirewallPolicyDn) bool { return v.ProxyEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetFirewallPolicyDnOutput) Servers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyDn) []string { return v.Servers }).(pulumi.StringArrayOutput)
+}
+
+type GetFirewallPolicyDnArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyDnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyDn)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyDnArrayOutput) ToGetFirewallPolicyDnArrayOutput() GetFirewallPolicyDnArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyDnArrayOutput) ToGetFirewallPolicyDnArrayOutputWithContext(ctx context.Context) GetFirewallPolicyDnArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyDnArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyDnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyDn {
+		return vs[0].([]GetFirewallPolicyDn)[vs[1].(int)]
+	}).(GetFirewallPolicyDnOutput)
+}
+
+type GetFirewallPolicyThreatIntelligenceAllowlist struct {
+	Fqdns       []string `pulumi:"fqdns"`
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// GetFirewallPolicyThreatIntelligenceAllowlistInput is an input type that accepts GetFirewallPolicyThreatIntelligenceAllowlistArgs and GetFirewallPolicyThreatIntelligenceAllowlistOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyThreatIntelligenceAllowlistInput` via:
+//
+//          GetFirewallPolicyThreatIntelligenceAllowlistArgs{...}
+type GetFirewallPolicyThreatIntelligenceAllowlistInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyThreatIntelligenceAllowlistOutput() GetFirewallPolicyThreatIntelligenceAllowlistOutput
+	ToGetFirewallPolicyThreatIntelligenceAllowlistOutputWithContext(context.Context) GetFirewallPolicyThreatIntelligenceAllowlistOutput
+}
+
+type GetFirewallPolicyThreatIntelligenceAllowlistArgs struct {
+	Fqdns       pulumi.StringArrayInput `pulumi:"fqdns"`
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (GetFirewallPolicyThreatIntelligenceAllowlistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyThreatIntelligenceAllowlist)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyThreatIntelligenceAllowlistArgs) ToGetFirewallPolicyThreatIntelligenceAllowlistOutput() GetFirewallPolicyThreatIntelligenceAllowlistOutput {
+	return i.ToGetFirewallPolicyThreatIntelligenceAllowlistOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyThreatIntelligenceAllowlistArgs) ToGetFirewallPolicyThreatIntelligenceAllowlistOutputWithContext(ctx context.Context) GetFirewallPolicyThreatIntelligenceAllowlistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyThreatIntelligenceAllowlistOutput)
+}
+
+// GetFirewallPolicyThreatIntelligenceAllowlistArrayInput is an input type that accepts GetFirewallPolicyThreatIntelligenceAllowlistArray and GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyThreatIntelligenceAllowlistArrayInput` via:
+//
+//          GetFirewallPolicyThreatIntelligenceAllowlistArray{ GetFirewallPolicyThreatIntelligenceAllowlistArgs{...} }
+type GetFirewallPolicyThreatIntelligenceAllowlistArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyThreatIntelligenceAllowlistArrayOutput() GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput
+	ToGetFirewallPolicyThreatIntelligenceAllowlistArrayOutputWithContext(context.Context) GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput
+}
+
+type GetFirewallPolicyThreatIntelligenceAllowlistArray []GetFirewallPolicyThreatIntelligenceAllowlistInput
+
+func (GetFirewallPolicyThreatIntelligenceAllowlistArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyThreatIntelligenceAllowlist)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyThreatIntelligenceAllowlistArray) ToGetFirewallPolicyThreatIntelligenceAllowlistArrayOutput() GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput {
+	return i.ToGetFirewallPolicyThreatIntelligenceAllowlistArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyThreatIntelligenceAllowlistArray) ToGetFirewallPolicyThreatIntelligenceAllowlistArrayOutputWithContext(ctx context.Context) GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput)
+}
+
+type GetFirewallPolicyThreatIntelligenceAllowlistOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyThreatIntelligenceAllowlistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyThreatIntelligenceAllowlist)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyThreatIntelligenceAllowlistOutput) ToGetFirewallPolicyThreatIntelligenceAllowlistOutput() GetFirewallPolicyThreatIntelligenceAllowlistOutput {
+	return o
+}
+
+func (o GetFirewallPolicyThreatIntelligenceAllowlistOutput) ToGetFirewallPolicyThreatIntelligenceAllowlistOutputWithContext(ctx context.Context) GetFirewallPolicyThreatIntelligenceAllowlistOutput {
+	return o
+}
+
+func (o GetFirewallPolicyThreatIntelligenceAllowlistOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyThreatIntelligenceAllowlist) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFirewallPolicyThreatIntelligenceAllowlistOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyThreatIntelligenceAllowlist) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyThreatIntelligenceAllowlist)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput) ToGetFirewallPolicyThreatIntelligenceAllowlistArrayOutput() GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput) ToGetFirewallPolicyThreatIntelligenceAllowlistArrayOutputWithContext(ctx context.Context) GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyThreatIntelligenceAllowlistOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyThreatIntelligenceAllowlist {
+		return vs[0].([]GetFirewallPolicyThreatIntelligenceAllowlist)[vs[1].(int)]
+	}).(GetFirewallPolicyThreatIntelligenceAllowlistOutput)
+}
+
 type GetGatewayConnectionIpsecPolicy struct {
 	// The DH group used in IKE phase 1 for initial SA. Valid
 	// options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
@@ -14549,6 +15076,10 @@ func init() {
 	pulumi.RegisterOutputType(FirewallNatRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallNetworkRuleCollectionRuleOutput{})
 	pulumi.RegisterOutputType(FirewallNetworkRuleCollectionRuleArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyDnsOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyDnsPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyThreatIntelligenceAllowlistOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyThreatIntelligenceAllowlistPtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorDestinationOutput{})
@@ -14639,6 +15170,10 @@ func init() {
 	pulumi.RegisterOutputType(GetExpressRouteCircuitSkuOutput{})
 	pulumi.RegisterOutputType(GetFirewallIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFirewallIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyDnOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyDnArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyThreatIntelligenceAllowlistOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyThreatIntelligenceAllowlistArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionTrafficSelectorPolicyOutput{})

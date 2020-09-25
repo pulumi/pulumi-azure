@@ -21,6 +21,7 @@ class SqlContainer(pulumi.CustomResource):
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[float]] = None,
+                 indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key_path: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,20 @@ class SqlContainer(pulumi.CustomResource):
             database_name=azurerm_cosmosdb_sql_database["example"]["name"],
             partition_key_path="/definition/id",
             throughput=400,
+            indexing_policy=azure.cosmosdb.SqlContainerIndexingPolicyArgs(
+                indexing_mode="Consistent",
+                included_paths=[
+                    azure.cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs(
+                        path="/*",
+                    ),
+                    azure.cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs(
+                        path="/included/?",
+                    ),
+                ],
+                excluded_paths=[azure.cosmosdb.SqlContainerIndexingPolicyExcludedPathArgs(
+                    path="/excluded/?",
+                )],
+            ),
             unique_keys=[azure.cosmosdb.SqlContainerUniqueKeyArgs(
                 paths=[
                     "/definition/idlong",
@@ -57,6 +72,7 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[float] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
@@ -88,6 +104,7 @@ class SqlContainer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['default_ttl'] = default_ttl
+            __props__['indexing_policy'] = indexing_policy
             __props__['name'] = name
             __props__['partition_key_path'] = partition_key_path
             if resource_group_name is None:
@@ -109,6 +126,7 @@ class SqlContainer(pulumi.CustomResource):
             autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             default_ttl: Optional[pulumi.Input[float]] = None,
+            indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition_key_path: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -124,6 +142,7 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[float] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
@@ -138,6 +157,7 @@ class SqlContainer(pulumi.CustomResource):
         __props__["autoscale_settings"] = autoscale_settings
         __props__["database_name"] = database_name
         __props__["default_ttl"] = default_ttl
+        __props__["indexing_policy"] = indexing_policy
         __props__["name"] = name
         __props__["partition_key_path"] = partition_key_path
         __props__["resource_group_name"] = resource_group_name
@@ -173,6 +193,14 @@ class SqlContainer(pulumi.CustomResource):
         The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         """
         return pulumi.get(self, "default_ttl")
+
+    @property
+    @pulumi.getter(name="indexingPolicy")
+    def indexing_policy(self) -> pulumi.Output['outputs.SqlContainerIndexingPolicy']:
+        """
+        An `indexing_policy` block as defined below.
+        """
+        return pulumi.get(self, "indexing_policy")
 
     @property
     @pulumi.getter

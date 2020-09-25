@@ -71,9 +71,9 @@ import (
 type VirtualHubConnection struct {
 	pulumi.CustomResourceState
 
-	// Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	HubToVitualNetworkTrafficAllowed pulumi.BoolPtrOutput `pulumi:"hubToVitualNetworkTrafficAllowed"`
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 	InternetSecurityEnabled pulumi.BoolPtrOutput `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -81,7 +81,7 @@ type VirtualHubConnection struct {
 	RemoteVirtualNetworkId pulumi.StringOutput `pulumi:"remoteVirtualNetworkId"`
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
-	// Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	VitualNetworkToHubGatewaysTrafficAllowed pulumi.BoolPtrOutput `pulumi:"vitualNetworkToHubGatewaysTrafficAllowed"`
 }
 
@@ -119,9 +119,9 @@ func GetVirtualHubConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHubConnection resources.
 type virtualHubConnectionState struct {
-	// Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	HubToVitualNetworkTrafficAllowed *bool `pulumi:"hubToVitualNetworkTrafficAllowed"`
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -129,14 +129,14 @@ type virtualHubConnectionState struct {
 	RemoteVirtualNetworkId *string `pulumi:"remoteVirtualNetworkId"`
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId *string `pulumi:"virtualHubId"`
-	// Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	VitualNetworkToHubGatewaysTrafficAllowed *bool `pulumi:"vitualNetworkToHubGatewaysTrafficAllowed"`
 }
 
 type VirtualHubConnectionState struct {
-	// Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	HubToVitualNetworkTrafficAllowed pulumi.BoolPtrInput
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 	InternetSecurityEnabled pulumi.BoolPtrInput
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -144,7 +144,7 @@ type VirtualHubConnectionState struct {
 	RemoteVirtualNetworkId pulumi.StringPtrInput
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringPtrInput
-	// Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	VitualNetworkToHubGatewaysTrafficAllowed pulumi.BoolPtrInput
 }
 
@@ -153,9 +153,9 @@ func (VirtualHubConnectionState) ElementType() reflect.Type {
 }
 
 type virtualHubConnectionArgs struct {
-	// Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	HubToVitualNetworkTrafficAllowed *bool `pulumi:"hubToVitualNetworkTrafficAllowed"`
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 	InternetSecurityEnabled *bool `pulumi:"internetSecurityEnabled"`
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -163,15 +163,15 @@ type virtualHubConnectionArgs struct {
 	RemoteVirtualNetworkId string `pulumi:"remoteVirtualNetworkId"`
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId string `pulumi:"virtualHubId"`
-	// Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	VitualNetworkToHubGatewaysTrafficAllowed *bool `pulumi:"vitualNetworkToHubGatewaysTrafficAllowed"`
 }
 
 // The set of arguments for constructing a VirtualHubConnection resource.
 type VirtualHubConnectionArgs struct {
-	// Is the Virtual Hub traffic allowed to transit via the Remote Virtual Network? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	HubToVitualNetworkTrafficAllowed pulumi.BoolPtrInput
-	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created.
+	// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
 	InternetSecurityEnabled pulumi.BoolPtrInput
 	// The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type VirtualHubConnectionArgs struct {
 	RemoteVirtualNetworkId pulumi.StringInput
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringInput
-	// Is Remote Virtual Network traffic allowed to transit the Hub's Virtual Network Gateway's? Changing this forces a new resource to be created.
+	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
 	VitualNetworkToHubGatewaysTrafficAllowed pulumi.BoolPtrInput
 }
 

@@ -40,6 +40,12 @@ namespace Pulumi.Azure.Search
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of IPv4 addresses that are allowed access to the search service endpoint.
+        /// </summary>
+        [Output("allowedIps")]
+        public Output<ImmutableArray<string>> AllowedIps { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Output("location")]
@@ -151,6 +157,18 @@ namespace Pulumi.Azure.Search
 
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
+        [Input("allowedIps")]
+        private InputList<string>? _allowedIps;
+
+        /// <summary>
+        /// A list of IPv4 addresses that are allowed access to the search service endpoint.
+        /// </summary>
+        public InputList<string> AllowedIps
+        {
+            get => _allowedIps ?? (_allowedIps = new InputList<string>());
+            set => _allowedIps = value;
+        }
+
         /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
@@ -212,6 +230,18 @@ namespace Pulumi.Azure.Search
 
     public sealed class ServiceState : Pulumi.ResourceArgs
     {
+        [Input("allowedIps")]
+        private InputList<string>? _allowedIps;
+
+        /// <summary>
+        /// A list of IPv4 addresses that are allowed access to the search service endpoint.
+        /// </summary>
+        public InputList<string> AllowedIps
+        {
+            get => _allowedIps ?? (_allowedIps = new InputList<string>());
+            set => _allowedIps = value;
+        }
+
         /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>

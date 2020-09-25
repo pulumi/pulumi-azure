@@ -20,6 +20,7 @@ class SpringCloudService(pulumi.CustomResource):
                  config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -66,6 +67,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']] config_server_git_setting: A `config_server_git_setting` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -91,6 +93,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__['config_server_git_setting'] = config_server_git_setting
             __props__['location'] = location
             __props__['name'] = name
+            __props__['network'] = network
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -110,6 +113,7 @@ class SpringCloudService(pulumi.CustomResource):
             config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -124,6 +128,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']] config_server_git_setting: A `config_server_git_setting` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -136,6 +141,7 @@ class SpringCloudService(pulumi.CustomResource):
         __props__["config_server_git_setting"] = config_server_git_setting
         __props__["location"] = location
         __props__["name"] = name
+        __props__["network"] = network
         __props__["resource_group_name"] = resource_group_name
         __props__["sku_name"] = sku_name
         __props__["tags"] = tags
@@ -165,6 +171,14 @@ class SpringCloudService(pulumi.CustomResource):
         Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def network(self) -> pulumi.Output[Optional['outputs.SpringCloudServiceNetwork']]:
+        """
+        A `network` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network")
 
     @property
     @pulumi.getter(name="resourceGroupName")

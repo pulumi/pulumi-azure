@@ -514,6 +514,10 @@ export namespace apimanagement {
          */
         location: string;
         /**
+         * Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+         */
+        privateIpAddresses: string[];
+        /**
          * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
          */
         publicIpAddresses: string[];
@@ -668,9 +672,24 @@ export namespace apimanagement {
          */
         location: string;
         /**
+         * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         */
+        privateIpAddresses: string[];
+        /**
          * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
          */
         publicIpAddresses: string[];
+        /**
+         * A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+         */
+        virtualNetworkConfiguration?: outputs.apimanagement.ServiceAdditionalLocationVirtualNetworkConfiguration;
+    }
+
+    export interface ServiceAdditionalLocationVirtualNetworkConfiguration {
+        /**
+         * The id of the subnet that will be used for the API Management.
+         */
+        subnetId: string;
     }
 
     export interface ServiceCertificate {
@@ -844,7 +863,7 @@ export namespace apimanagement {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type?: string;
     }
@@ -1311,6 +1330,29 @@ export namespace appplatform {
          * Indicates whether the Config Server instance will fail to start if the hostKey does not match.
          */
         strictHostKeyCheckingEnabled?: boolean;
+    }
+
+    export interface SpringCloudServiceNetwork {
+        /**
+         * Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+         */
+        appNetworkResourceGroup: string;
+        /**
+         * Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+         */
+        appSubnetId: string;
+        /**
+         * A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+         */
+        cidrRanges: string[];
+        /**
+         * Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+         */
+        serviceRuntimeNetworkResourceGroup: string;
+        /**
+         * Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+         */
+        serviceRuntimeSubnetId: string;
     }
 
     export interface SpringCloudServiceTrace {
@@ -7866,6 +7908,35 @@ export namespace cosmosdb {
         maxThroughput: number;
     }
 
+    export interface SqlContainerIndexingPolicy {
+        /**
+         * One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+         */
+        excludedPaths: outputs.cosmosdb.SqlContainerIndexingPolicyExcludedPath[];
+        /**
+         * One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+         */
+        includedPaths: outputs.cosmosdb.SqlContainerIndexingPolicyIncludedPath[];
+        /**
+         * Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+         */
+        indexingMode?: string;
+    }
+
+    export interface SqlContainerIndexingPolicyExcludedPath {
+        /**
+         * Path that is excluded from indexing.
+         */
+        path: string;
+    }
+
+    export interface SqlContainerIndexingPolicyIncludedPath {
+        /**
+         * Path for which the indexing behavior applies to.
+         */
+        path: string;
+    }
+
     export interface SqlContainerUniqueKey {
         /**
          * A list of paths to use for this unique key.
@@ -14270,6 +14341,21 @@ export namespace mssql {
         tier: string;
     }
 
+    export interface GetServerIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+         */
+        tenantId: string;
+        /**
+         * The identity type of the Microsoft SQL Server.
+         */
+        type: string;
+    }
+
     export interface ServerAzureadAdministrator {
         /**
          * (Required)  The login username of the Azure AD Administrator of this SQL Server.
@@ -15435,6 +15521,32 @@ export namespace network {
         sourceAddresses: string[];
     }
 
+    export interface FirewallPolicyDns {
+        /**
+         * Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+         */
+        networkRuleFqdnEnabled?: boolean;
+        /**
+         * Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+         */
+        proxyEnabled?: boolean;
+        /**
+         * A list of custom DNS servers' IP addresses.
+         */
+        servers?: string[];
+    }
+
+    export interface FirewallPolicyThreatIntelligenceAllowlist {
+        /**
+         * A list of FQDNs that will be skipped for threat detection.
+         */
+        fqdns?: string[];
+        /**
+         * A list of IP addresses or IP address ranges that will be skipped for threat detection.
+         */
+        ipAddresses?: string[];
+    }
+
     export interface GetExpressRouteCircuitPeering {
         /**
          * The Either a 16-bit or a 32-bit ASN for Azure.
@@ -15507,6 +15619,17 @@ export namespace network {
          * The ID of the Subnet where the Azure Firewall is deployed.
          */
         subnetId: string;
+    }
+
+    export interface GetFirewallPolicyDn {
+        networkRuleFqdnEnabled: boolean;
+        proxyEnabled: boolean;
+        servers: string[];
+    }
+
+    export interface GetFirewallPolicyThreatIntelligenceAllowlist {
+        fqdns: string[];
+        ipAddresses: string[];
     }
 
     export interface GetGatewayConnectionIpsecPolicy {
@@ -16731,18 +16854,34 @@ export namespace policy {
 
     export interface GetPolicySetDefinitionPolicyDefinitionReference {
         /**
-         * Any Parameters defined in the Policy Set Definition.
+         * The parameter values for the referenced policy rule. This field is a json object.
+         */
+        parameterValues: string;
+        /**
+         * The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
          */
         parameters: {[key: string]: any};
+        /**
+         * The ID of the policy definition or policy set definition that is included in this policy set definition.
+         */
         policyDefinitionId: string;
+        /**
+         * The unique ID within this policy set definition for this policy definition reference.
+         */
         referenceId: string;
     }
 
     export interface PolicySetDefinitionPolicyDefinitionReference {
         /**
-         * A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+         * Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
          */
-        parameters?: {[key: string]: any};
+        parameterValues: string;
+        /**
+         * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+         *
+         * @deprecated Deprecated in favour of `parameter_values`
+         */
+        parameters: {[key: string]: any};
         /**
          * The ID of the policy definition or policy set definition that will be included in this policy set definition.
          */
@@ -16985,7 +17124,7 @@ export namespace privatelink {
          */
         privateConnectionResourceId: string;
         /**
-         * The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         * (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
          */
         privateIpAddress: string;
         /**

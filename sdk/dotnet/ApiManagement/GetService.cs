@@ -70,7 +70,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class GetServiceResult
     {
         /// <summary>
-        /// One or more `additional_location` blocks as defined below
+        /// Zero or more `additional_location` blocks as defined below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceAdditionalLocationResult> AdditionalLocations;
         /// <summary>
@@ -117,6 +117,10 @@ namespace Pulumi.Azure.ApiManagement
         /// The URL of the Publisher Portal.
         /// </summary>
         public readonly string PortalUrl;
+        /// <summary>
+        /// Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateIpAddresses;
         /// <summary>
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         /// </summary>
@@ -166,6 +170,8 @@ namespace Pulumi.Azure.ApiManagement
 
             string portalUrl,
 
+            ImmutableArray<string> privateIpAddresses,
+
             ImmutableArray<string> publicIpAddresses,
 
             string publisherEmail,
@@ -192,6 +198,7 @@ namespace Pulumi.Azure.ApiManagement
             Name = name;
             NotificationSenderEmail = notificationSenderEmail;
             PortalUrl = portalUrl;
+            PrivateIpAddresses = privateIpAddresses;
             PublicIpAddresses = publicIpAddresses;
             PublisherEmail = publisherEmail;
             PublisherName = publisherName;

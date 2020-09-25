@@ -14,7 +14,11 @@ namespace Pulumi.Azure.Policy.Outputs
     public sealed class PolicySetDefinitionPolicyDefinitionReference
     {
         /// <summary>
-        /// A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+        /// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+        /// </summary>
+        public readonly string? ParameterValues;
+        /// <summary>
+        /// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Policy.Outputs
 
         [OutputConstructor]
         private PolicySetDefinitionPolicyDefinitionReference(
+            string? parameterValues,
+
             ImmutableDictionary<string, object>? parameters,
 
             string policyDefinitionId,
 
             string? referenceId)
         {
+            ParameterValues = parameterValues;
             Parameters = parameters;
             PolicyDefinitionId = policyDefinitionId;
             ReferenceId = referenceId;

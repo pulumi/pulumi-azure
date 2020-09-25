@@ -136,7 +136,7 @@ type WindowsVirtualMachine struct {
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrOutput `pulumi:"identity"`
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -262,7 +262,7 @@ type windowsVirtualMachineState struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineIdentity `pulumi:"identity"`
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -343,7 +343,7 @@ type WindowsVirtualMachineState struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrInput
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -428,7 +428,7 @@ type windowsVirtualMachineArgs struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineIdentity `pulumi:"identity"`
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -500,7 +500,7 @@ type WindowsVirtualMachineArgs struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrInput
-	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. Changing this forces a new resource to be created.
+	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

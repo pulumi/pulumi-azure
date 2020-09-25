@@ -47,7 +47,7 @@ type VirtualWan struct {
 
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic pulumi.BoolPtrOutput `pulumi:"allowBranchToBranchTraffic"`
-	// Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	AllowVnetToVnetTraffic pulumi.BoolPtrOutput `pulumi:"allowVnetToVnetTraffic"`
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption pulumi.BoolPtrOutput `pulumi:"disableVpnEncryption"`
@@ -98,7 +98,7 @@ func GetVirtualWan(ctx *pulumi.Context,
 type virtualWanState struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
-	// Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
@@ -119,7 +119,7 @@ type virtualWanState struct {
 type VirtualWanState struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic pulumi.BoolPtrInput
-	// Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	AllowVnetToVnetTraffic pulumi.BoolPtrInput
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption pulumi.BoolPtrInput
@@ -144,7 +144,7 @@ func (VirtualWanState) ElementType() reflect.Type {
 type virtualWanArgs struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
-	// Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
@@ -166,7 +166,7 @@ type virtualWanArgs struct {
 type VirtualWanArgs struct {
 	// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
 	AllowBranchToBranchTraffic pulumi.BoolPtrInput
-	// Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
+	// Deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider
 	AllowVnetToVnetTraffic pulumi.BoolPtrInput
 	// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
 	DisableVpnEncryption pulumi.BoolPtrInput

@@ -53,7 +53,7 @@ export class VirtualWan extends pulumi.CustomResource {
      */
     public readonly allowBranchToBranchTraffic!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     public readonly allowVnetToVnetTraffic!: pulumi.Output<boolean | undefined>;
     /**
@@ -141,7 +141,7 @@ export interface VirtualWanState {
      */
     readonly allowBranchToBranchTraffic?: pulumi.Input<boolean>;
     /**
-     * Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly allowVnetToVnetTraffic?: pulumi.Input<boolean>;
     /**
@@ -183,7 +183,7 @@ export interface VirtualWanArgs {
      */
     readonly allowBranchToBranchTraffic?: pulumi.Input<boolean>;
     /**
-     * Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
+     * @deprecated this property has been removed from the API and will be removed in version 3.0 of the provider
      */
     readonly allowVnetToVnetTraffic?: pulumi.Input<boolean>;
     /**

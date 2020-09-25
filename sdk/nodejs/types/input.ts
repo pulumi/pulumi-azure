@@ -483,9 +483,24 @@ export namespace apimanagement {
          */
         location: pulumi.Input<string>;
         /**
+         * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+         */
+        privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
          */
         publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A `virtualNetworkConfiguration` block as defined below.  Required when `virtualNetworkType` is `External` or `Internal`.
+         */
+        virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceAdditionalLocationVirtualNetworkConfiguration>;
+    }
+
+    export interface ServiceAdditionalLocationVirtualNetworkConfiguration {
+        /**
+         * The id of the subnet that will be used for the API Management.
+         */
+        subnetId: pulumi.Input<string>;
     }
 
     export interface ServiceCertificate {
@@ -659,7 +674,7 @@ export namespace apimanagement {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type?: pulumi.Input<string>;
     }
@@ -949,6 +964,29 @@ export namespace appplatform {
          * Indicates whether the Config Server instance will fail to start if the hostKey does not match.
          */
         strictHostKeyCheckingEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface SpringCloudServiceNetwork {
+        /**
+         * Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+         */
+        appNetworkResourceGroup?: pulumi.Input<string>;
+        /**
+         * Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+         */
+        appSubnetId: pulumi.Input<string>;
+        /**
+         * A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+         */
+        cidrRanges: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+         */
+        serviceRuntimeNetworkResourceGroup?: pulumi.Input<string>;
+        /**
+         * Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+         */
+        serviceRuntimeSubnetId: pulumi.Input<string>;
     }
 
     export interface SpringCloudServiceTrace {
@@ -6389,6 +6427,35 @@ export namespace cosmosdb {
          * The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface SqlContainerIndexingPolicy {
+        /**
+         * One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+         */
+        excludedPaths?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicyExcludedPath>[]>;
+        /**
+         * One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+         */
+        includedPaths?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicyIncludedPath>[]>;
+        /**
+         * Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+         */
+        indexingMode?: pulumi.Input<string>;
+    }
+
+    export interface SqlContainerIndexingPolicyExcludedPath {
+        /**
+         * Path that is excluded from indexing.
+         */
+        path: pulumi.Input<string>;
+    }
+
+    export interface SqlContainerIndexingPolicyIncludedPath {
+        /**
+         * Path for which the indexing behavior applies to.
+         */
+        path: pulumi.Input<string>;
     }
 
     export interface SqlContainerUniqueKey {
@@ -13265,6 +13332,32 @@ export namespace network {
         sourceAddresses: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface FirewallPolicyDns {
+        /**
+         * Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+         */
+        networkRuleFqdnEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+         */
+        proxyEnabled?: pulumi.Input<boolean>;
+        /**
+         * A list of custom DNS servers' IP addresses.
+         */
+        servers?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallPolicyThreatIntelligenceAllowlist {
+        /**
+         * A list of FQDNs that will be skipped for threat detection.
+         */
+        fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of IP addresses or IP address ranges that will be skipped for threat detection.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface LocalNetworkGatewayBgpSettings {
         /**
          * The BGP speaker's ASN.
@@ -14113,7 +14206,13 @@ export namespace policy {
 
     export interface PolicySetDefinitionPolicyDefinitionReference {
         /**
-         * A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+         * Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+         */
+        parameterValues?: pulumi.Input<string>;
+        /**
+         * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+         *
+         * @deprecated Deprecated in favour of `parameter_values`
          */
         parameters?: pulumi.Input<{[key: string]: any}>;
         /**
@@ -14343,7 +14442,7 @@ export namespace privatelink {
          */
         privateConnectionResourceId: pulumi.Input<string>;
         /**
-         * The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         * (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
          */
         privateIpAddress?: pulumi.Input<string>;
         /**

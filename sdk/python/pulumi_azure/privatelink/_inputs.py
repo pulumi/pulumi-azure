@@ -279,7 +279,7 @@ class EndpointPrivateServiceConnectionArgs:
         :param pulumi.Input[bool] is_manual_connection: Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_connection_resource_id: The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] private_ip_address: The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        :param pulumi.Input[str] private_ip_address: (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
         :param pulumi.Input[str] request_message: A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
         :param pulumi.Input[List[pulumi.Input[str]]] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
@@ -333,7 +333,7 @@ class EndpointPrivateServiceConnectionArgs:
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
         """
         return pulumi.get(self, "private_ip_address")
 

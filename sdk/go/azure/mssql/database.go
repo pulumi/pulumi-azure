@@ -86,7 +86,7 @@ type Database struct {
 	AutoPauseDelayInMinutes pulumi.IntOutput `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringOutput `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode pulumi.StringOutput `pulumi:"createMode"`
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringOutput `pulumi:"creationSourceDatabaseId"`
@@ -108,6 +108,10 @@ type Database struct {
 	ReadReplicaCount pulumi.IntOutput `pulumi:"readReplicaCount"`
 	// If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
 	ReadScale pulumi.BoolOutput `pulumi:"readScale"`
+	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
+	RecoverDatabaseId pulumi.StringPtrOutput `pulumi:"recoverDatabaseId"`
+	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
+	RestoreDroppedDatabaseId pulumi.StringPtrOutput `pulumi:"restoreDroppedDatabaseId"`
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
 	RestorePointInTime pulumi.StringOutput `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -159,7 +163,7 @@ type databaseState struct {
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode *string `pulumi:"createMode"`
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
@@ -181,6 +185,10 @@ type databaseState struct {
 	ReadReplicaCount *int `pulumi:"readReplicaCount"`
 	// If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
 	ReadScale *bool `pulumi:"readScale"`
+	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
+	RecoverDatabaseId *string `pulumi:"recoverDatabaseId"`
+	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
+	RestoreDroppedDatabaseId *string `pulumi:"restoreDroppedDatabaseId"`
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -202,7 +210,7 @@ type DatabaseState struct {
 	AutoPauseDelayInMinutes pulumi.IntPtrInput
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode pulumi.StringPtrInput
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
@@ -224,6 +232,10 @@ type DatabaseState struct {
 	ReadReplicaCount pulumi.IntPtrInput
 	// If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
 	ReadScale pulumi.BoolPtrInput
+	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
+	RecoverDatabaseId pulumi.StringPtrInput
+	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
+	RestoreDroppedDatabaseId pulumi.StringPtrInput
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -249,7 +261,7 @@ type databaseArgs struct {
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode *string `pulumi:"createMode"`
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId *string `pulumi:"creationSourceDatabaseId"`
@@ -271,6 +283,10 @@ type databaseArgs struct {
 	ReadReplicaCount *int `pulumi:"readReplicaCount"`
 	// If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
 	ReadScale *bool `pulumi:"readScale"`
+	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
+	RecoverDatabaseId *string `pulumi:"recoverDatabaseId"`
+	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
+	RestoreDroppedDatabaseId *string `pulumi:"restoreDroppedDatabaseId"`
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
@@ -293,7 +309,7 @@ type DatabaseArgs struct {
 	AutoPauseDelayInMinutes pulumi.IntPtrInput
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
 	CreateMode pulumi.StringPtrInput
 	// The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	CreationSourceDatabaseId pulumi.StringPtrInput
@@ -315,6 +331,10 @@ type DatabaseArgs struct {
 	ReadReplicaCount pulumi.IntPtrInput
 	// If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
 	ReadScale pulumi.BoolPtrInput
+	// The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
+	RecoverDatabaseId pulumi.StringPtrInput
+	// The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
+	RestoreDroppedDatabaseId pulumi.StringPtrInput
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
 	RestorePointInTime pulumi.StringPtrInput
 	// Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.

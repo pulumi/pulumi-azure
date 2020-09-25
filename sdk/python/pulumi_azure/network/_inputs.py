@@ -48,6 +48,8 @@ __all__ = [
     'FirewallManagementIpConfigurationArgs',
     'FirewallNatRuleCollectionRuleArgs',
     'FirewallNetworkRuleCollectionRuleArgs',
+    'FirewallPolicyDnsArgs',
+    'FirewallPolicyThreatIntelligenceAllowlistArgs',
     'LocalNetworkGatewayBgpSettingsArgs',
     'NetworkConnectionMonitorDestinationArgs',
     'NetworkConnectionMonitorSourceArgs',
@@ -3523,6 +3525,100 @@ class FirewallNetworkRuleCollectionRuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class FirewallPolicyDnsArgs:
+    def __init__(__self__, *,
+                 network_rule_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
+                 proxy_enabled: Optional[pulumi.Input[bool]] = None,
+                 servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] network_rule_fqdn_enabled: Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+        :param pulumi.Input[bool] proxy_enabled: Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+        :param pulumi.Input[List[pulumi.Input[str]]] servers: A list of custom DNS servers' IP addresses.
+        """
+        if network_rule_fqdn_enabled is not None:
+            pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
+        if proxy_enabled is not None:
+            pulumi.set(__self__, "proxy_enabled", proxy_enabled)
+        if servers is not None:
+            pulumi.set(__self__, "servers", servers)
+
+    @property
+    @pulumi.getter(name="networkRuleFqdnEnabled")
+    def network_rule_fqdn_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
+        """
+        return pulumi.get(self, "network_rule_fqdn_enabled")
+
+    @network_rule_fqdn_enabled.setter
+    def network_rule_fqdn_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "network_rule_fqdn_enabled", value)
+
+    @property
+    @pulumi.getter(name="proxyEnabled")
+    def proxy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+        """
+        return pulumi.get(self, "proxy_enabled")
+
+    @proxy_enabled.setter
+    def proxy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "proxy_enabled", value)
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        A list of custom DNS servers' IP addresses.
+        """
+        return pulumi.get(self, "servers")
+
+    @servers.setter
+    def servers(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "servers", value)
+
+
+@pulumi.input_type
+class FirewallPolicyThreatIntelligenceAllowlistArgs:
+    def __init__(__self__, *,
+                 fqdns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[List[pulumi.Input[str]]] fqdns: A list of FQDNs that will be skipped for threat detection.
+        :param pulumi.Input[List[pulumi.Input[str]]] ip_addresses: A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        """
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        A list of FQDNs that will be skipped for threat detection.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdns", value)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_addresses", value)
 
 
 @pulumi.input_type

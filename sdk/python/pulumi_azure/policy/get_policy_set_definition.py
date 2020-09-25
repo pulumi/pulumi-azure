@@ -95,13 +95,16 @@ class GetPolicySetDefinitionResult:
     @pulumi.getter
     def parameters(self) -> str:
         """
-        Any Parameters defined in the Policy Set Definition.
+        The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
         """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="policyDefinitionReferences")
     def policy_definition_references(self) -> List['outputs.GetPolicySetDefinitionPolicyDefinitionReferenceResult']:
+        """
+        One or more `policy_definition_reference` blocks as defined below.
+        """
         return pulumi.get(self, "policy_definition_references")
 
     @property

@@ -43,10 +43,11 @@ namespace Pulumi.Azure.Policy
     ///             {
     ///                 new Azure.Policy.Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs
     ///                 {
-    ///                     Parameters = 
-    ///                     {
-    ///                         { "listOfAllowedLocations", "[parameters('allowedLocations')]" },
-    ///                     },
+    ///                     ParameterValues = @"    {
+    ///       ""listOfAllowedLocations"": {""value"": ""[parameters('allowedLocations')]""}
+    ///     }
+    ///     
+    /// ",
     ///                     PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
     ///                 },
     ///             },

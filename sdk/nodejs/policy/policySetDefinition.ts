@@ -31,9 +31,10 @@ import * as utilities from "../utilities";
  *     }
  * `,
  *     policyDefinitionReferences: [{
- *         parameters: {
- *             listOfAllowedLocations: "[parameters('allowedLocations')]",
- *         },
+ *         parameterValues: `    {
+ *       "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
+ *     }
+ *     `,
  *         policyDefinitionId: "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
  *     }],
  *     policyType: "Custom",

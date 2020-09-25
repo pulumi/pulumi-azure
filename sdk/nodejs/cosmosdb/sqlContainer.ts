@@ -21,6 +21,20 @@ import * as utilities from "../utilities";
  *     databaseName: azurerm_cosmosdb_sql_database.example.name,
  *     partitionKeyPath: "/definition/id",
  *     throughput: 400,
+ *     indexingPolicy: {
+ *         indexingMode: "Consistent",
+ *         includedPaths: [
+ *             {
+ *                 path: "/*",
+ *             },
+ *             {
+ *                 path: "/included/?",
+ *             },
+ *         ],
+ *         excludedPaths: [{
+ *             path: "/excluded/?",
+ *         }],
+ *     },
  *     uniqueKeys: [{
  *         paths: [
  *             "/definition/idlong",
@@ -72,6 +86,10 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly defaultTtl!: pulumi.Output<number>;
     /**
+     * An `indexingPolicy` block as defined below.
+     */
+    public readonly indexingPolicy!: pulumi.Output<outputs.cosmosdb.SqlContainerIndexingPolicy>;
+    /**
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -108,6 +126,7 @@ export class SqlContainer extends pulumi.CustomResource {
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
+            inputs["indexingPolicy"] = state ? state.indexingPolicy : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -128,6 +147,7 @@ export class SqlContainer extends pulumi.CustomResource {
             inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
+            inputs["indexingPolicy"] = args ? args.indexingPolicy : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -162,6 +182,10 @@ export interface SqlContainerState {
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     readonly defaultTtl?: pulumi.Input<number>;
+    /**
+     * An `indexingPolicy` block as defined below.
+     */
+    readonly indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
     /**
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
      */
@@ -201,6 +225,10 @@ export interface SqlContainerArgs {
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
     readonly defaultTtl?: pulumi.Input<number>;
+    /**
+     * An `indexingPolicy` block as defined below.
+     */
+    readonly indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
     /**
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
      */

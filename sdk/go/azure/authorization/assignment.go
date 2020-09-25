@@ -88,7 +88,7 @@ import (
 // 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			Scope:            pulumi.String(primary.Id),
-// 			RoleDefinitionId: exampleRoleDefinition.ID(),
+// 			RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
 // 			PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
 // 		})
 // 		if err != nil {
@@ -140,7 +140,7 @@ import (
 // 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			Scope:            pulumi.String(primary.Id),
-// 			RoleDefinitionId: exampleRoleDefinition.ID(),
+// 			RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
 // 			PrincipalId:      pulumi.String(exampleClientConfig.ClientId),
 // 		})
 // 		if err != nil {
@@ -197,7 +197,7 @@ import (
 // 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
 // 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			Scope:            pulumi.Any(data.Azurerm_management_group.Primary.Id),
-// 			RoleDefinitionId: exampleRoleDefinition.ID(),
+// 			RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
 // 			PrincipalId:      pulumi.String(exampleClientConfig.ClientId),
 // 		})
 // 		if err != nil {

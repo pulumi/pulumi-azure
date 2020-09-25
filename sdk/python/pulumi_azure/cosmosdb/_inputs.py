@@ -24,6 +24,9 @@ __all__ = [
     'MongoCollectionSystemIndexArgs',
     'MongoDatabaseAutoscaleSettingsArgs',
     'SqlContainerAutoscaleSettingsArgs',
+    'SqlContainerIndexingPolicyArgs',
+    'SqlContainerIndexingPolicyExcludedPathArgs',
+    'SqlContainerIndexingPolicyIncludedPathArgs',
     'SqlContainerUniqueKeyArgs',
     'SqlDatabaseAutoscaleSettingsArgs',
     'TableAutoscaleSettingsArgs',
@@ -574,6 +577,105 @@ class SqlContainerAutoscaleSettingsArgs:
     @max_throughput.setter
     def max_throughput(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "max_throughput", value)
+
+
+@pulumi.input_type
+class SqlContainerIndexingPolicyArgs:
+    def __init__(__self__, *,
+                 excluded_paths: Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]] = None,
+                 included_paths: Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]] = None,
+                 indexing_mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+        """
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if included_paths is not None:
+            pulumi.set(__self__, "included_paths", included_paths)
+        if indexing_mode is not None:
+            pulumi.set(__self__, "indexing_mode", indexing_mode)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]:
+        """
+        One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @excluded_paths.setter
+    def excluded_paths(self, value: Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]):
+        pulumi.set(self, "excluded_paths", value)
+
+    @property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]:
+        """
+        One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        """
+        return pulumi.get(self, "included_paths")
+
+    @included_paths.setter
+    def included_paths(self, value: Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]):
+        pulumi.set(self, "included_paths", value)
+
+    @property
+    @pulumi.getter(name="indexingMode")
+    def indexing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+        """
+        return pulumi.get(self, "indexing_mode")
+
+    @indexing_mode.setter
+    def indexing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "indexing_mode", value)
+
+
+@pulumi.input_type
+class SqlContainerIndexingPolicyExcludedPathArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] path: Path that is excluded from indexing.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path that is excluded from indexing.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class SqlContainerIndexingPolicyIncludedPathArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] path: Path for which the indexing behavior applies to.
+        """
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path for which the indexing behavior applies to.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type

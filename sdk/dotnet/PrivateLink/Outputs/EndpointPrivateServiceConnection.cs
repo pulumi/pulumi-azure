@@ -26,7 +26,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string PrivateConnectionResourceId;
         /// <summary>
-        /// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        /// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>

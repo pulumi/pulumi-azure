@@ -45,7 +45,6 @@ class VirtualWan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_branch_to_branch_traffic: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
-        :param pulumi.Input[bool] allow_vnet_to_vnet_traffic: Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
         :param pulumi.Input[bool] disable_vpn_encryption: Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
@@ -72,6 +71,9 @@ class VirtualWan(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allow_branch_to_branch_traffic'] = allow_branch_to_branch_traffic
+            if allow_vnet_to_vnet_traffic is not None:
+                warnings.warn("this property has been removed from the API and will be removed in version 3.0 of the provider", DeprecationWarning)
+                pulumi.log.warn("allow_vnet_to_vnet_traffic is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider")
             __props__['allow_vnet_to_vnet_traffic'] = allow_vnet_to_vnet_traffic
             __props__['disable_vpn_encryption'] = disable_vpn_encryption
             __props__['location'] = location
@@ -109,7 +111,6 @@ class VirtualWan(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_branch_to_branch_traffic: Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
-        :param pulumi.Input[bool] allow_vnet_to_vnet_traffic: Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
         :param pulumi.Input[bool] disable_vpn_encryption: Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
@@ -144,9 +145,6 @@ class VirtualWan(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowVnetToVnetTraffic")
     def allow_vnet_to_vnet_traffic(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
-        """
         return pulumi.get(self, "allow_vnet_to_vnet_traffic")
 
     @property

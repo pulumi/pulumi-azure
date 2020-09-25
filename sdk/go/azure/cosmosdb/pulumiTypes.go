@@ -1846,6 +1846,369 @@ func (o SqlContainerAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type SqlContainerIndexingPolicy struct {
+	// One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+	ExcludedPaths []SqlContainerIndexingPolicyExcludedPath `pulumi:"excludedPaths"`
+	// One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+	IncludedPaths []SqlContainerIndexingPolicyIncludedPath `pulumi:"includedPaths"`
+	// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+	IndexingMode *string `pulumi:"indexingMode"`
+}
+
+// SqlContainerIndexingPolicyInput is an input type that accepts SqlContainerIndexingPolicyArgs and SqlContainerIndexingPolicyOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyInput` via:
+//
+//          SqlContainerIndexingPolicyArgs{...}
+type SqlContainerIndexingPolicyInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyOutput() SqlContainerIndexingPolicyOutput
+	ToSqlContainerIndexingPolicyOutputWithContext(context.Context) SqlContainerIndexingPolicyOutput
+}
+
+type SqlContainerIndexingPolicyArgs struct {
+	// One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+	ExcludedPaths SqlContainerIndexingPolicyExcludedPathArrayInput `pulumi:"excludedPaths"`
+	// One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+	IncludedPaths SqlContainerIndexingPolicyIncludedPathArrayInput `pulumi:"includedPaths"`
+	// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+	IndexingMode pulumi.StringPtrInput `pulumi:"indexingMode"`
+}
+
+func (SqlContainerIndexingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicy)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyArgs) ToSqlContainerIndexingPolicyOutput() SqlContainerIndexingPolicyOutput {
+	return i.ToSqlContainerIndexingPolicyOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyArgs) ToSqlContainerIndexingPolicyOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyOutput)
+}
+
+func (i SqlContainerIndexingPolicyArgs) ToSqlContainerIndexingPolicyPtrOutput() SqlContainerIndexingPolicyPtrOutput {
+	return i.ToSqlContainerIndexingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyArgs) ToSqlContainerIndexingPolicyPtrOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyOutput).ToSqlContainerIndexingPolicyPtrOutputWithContext(ctx)
+}
+
+// SqlContainerIndexingPolicyPtrInput is an input type that accepts SqlContainerIndexingPolicyArgs, SqlContainerIndexingPolicyPtr and SqlContainerIndexingPolicyPtrOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyPtrInput` via:
+//
+//          SqlContainerIndexingPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlContainerIndexingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyPtrOutput() SqlContainerIndexingPolicyPtrOutput
+	ToSqlContainerIndexingPolicyPtrOutputWithContext(context.Context) SqlContainerIndexingPolicyPtrOutput
+}
+
+type sqlContainerIndexingPolicyPtrType SqlContainerIndexingPolicyArgs
+
+func SqlContainerIndexingPolicyPtr(v *SqlContainerIndexingPolicyArgs) SqlContainerIndexingPolicyPtrInput {
+	return (*sqlContainerIndexingPolicyPtrType)(v)
+}
+
+func (*sqlContainerIndexingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerIndexingPolicy)(nil)).Elem()
+}
+
+func (i *sqlContainerIndexingPolicyPtrType) ToSqlContainerIndexingPolicyPtrOutput() SqlContainerIndexingPolicyPtrOutput {
+	return i.ToSqlContainerIndexingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlContainerIndexingPolicyPtrType) ToSqlContainerIndexingPolicyPtrOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyPtrOutput)
+}
+
+type SqlContainerIndexingPolicyOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicy)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyOutput) ToSqlContainerIndexingPolicyOutput() SqlContainerIndexingPolicyOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyOutput) ToSqlContainerIndexingPolicyOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyOutput) ToSqlContainerIndexingPolicyPtrOutput() SqlContainerIndexingPolicyPtrOutput {
+	return o.ToSqlContainerIndexingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SqlContainerIndexingPolicyOutput) ToSqlContainerIndexingPolicyPtrOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyPtrOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicy) *SqlContainerIndexingPolicy {
+		return &v
+	}).(SqlContainerIndexingPolicyPtrOutput)
+}
+
+// One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+func (o SqlContainerIndexingPolicyOutput) ExcludedPaths() SqlContainerIndexingPolicyExcludedPathArrayOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyExcludedPath { return v.ExcludedPaths }).(SqlContainerIndexingPolicyExcludedPathArrayOutput)
+}
+
+// One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+func (o SqlContainerIndexingPolicyOutput) IncludedPaths() SqlContainerIndexingPolicyIncludedPathArrayOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyIncludedPath { return v.IncludedPaths }).(SqlContainerIndexingPolicyIncludedPathArrayOutput)
+}
+
+// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+func (o SqlContainerIndexingPolicyOutput) IndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicy) *string { return v.IndexingMode }).(pulumi.StringPtrOutput)
+}
+
+type SqlContainerIndexingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerIndexingPolicy)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyPtrOutput) ToSqlContainerIndexingPolicyPtrOutput() SqlContainerIndexingPolicyPtrOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyPtrOutput) ToSqlContainerIndexingPolicyPtrOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyPtrOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyPtrOutput) Elem() SqlContainerIndexingPolicyOutput {
+	return o.ApplyT(func(v *SqlContainerIndexingPolicy) SqlContainerIndexingPolicy { return *v }).(SqlContainerIndexingPolicyOutput)
+}
+
+// One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+func (o SqlContainerIndexingPolicyPtrOutput) ExcludedPaths() SqlContainerIndexingPolicyExcludedPathArrayOutput {
+	return o.ApplyT(func(v *SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyExcludedPath {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedPaths
+	}).(SqlContainerIndexingPolicyExcludedPathArrayOutput)
+}
+
+// One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
+func (o SqlContainerIndexingPolicyPtrOutput) IncludedPaths() SqlContainerIndexingPolicyIncludedPathArrayOutput {
+	return o.ApplyT(func(v *SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyIncludedPath {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPaths
+	}).(SqlContainerIndexingPolicyIncludedPathArrayOutput)
+}
+
+// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+func (o SqlContainerIndexingPolicyPtrOutput) IndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerIndexingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type SqlContainerIndexingPolicyExcludedPath struct {
+	// Path that is excluded from indexing.
+	Path string `pulumi:"path"`
+}
+
+// SqlContainerIndexingPolicyExcludedPathInput is an input type that accepts SqlContainerIndexingPolicyExcludedPathArgs and SqlContainerIndexingPolicyExcludedPathOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyExcludedPathInput` via:
+//
+//          SqlContainerIndexingPolicyExcludedPathArgs{...}
+type SqlContainerIndexingPolicyExcludedPathInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyExcludedPathOutput() SqlContainerIndexingPolicyExcludedPathOutput
+	ToSqlContainerIndexingPolicyExcludedPathOutputWithContext(context.Context) SqlContainerIndexingPolicyExcludedPathOutput
+}
+
+type SqlContainerIndexingPolicyExcludedPathArgs struct {
+	// Path that is excluded from indexing.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (SqlContainerIndexingPolicyExcludedPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicyExcludedPath)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyExcludedPathArgs) ToSqlContainerIndexingPolicyExcludedPathOutput() SqlContainerIndexingPolicyExcludedPathOutput {
+	return i.ToSqlContainerIndexingPolicyExcludedPathOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyExcludedPathArgs) ToSqlContainerIndexingPolicyExcludedPathOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyExcludedPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyExcludedPathOutput)
+}
+
+// SqlContainerIndexingPolicyExcludedPathArrayInput is an input type that accepts SqlContainerIndexingPolicyExcludedPathArray and SqlContainerIndexingPolicyExcludedPathArrayOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyExcludedPathArrayInput` via:
+//
+//          SqlContainerIndexingPolicyExcludedPathArray{ SqlContainerIndexingPolicyExcludedPathArgs{...} }
+type SqlContainerIndexingPolicyExcludedPathArrayInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyExcludedPathArrayOutput() SqlContainerIndexingPolicyExcludedPathArrayOutput
+	ToSqlContainerIndexingPolicyExcludedPathArrayOutputWithContext(context.Context) SqlContainerIndexingPolicyExcludedPathArrayOutput
+}
+
+type SqlContainerIndexingPolicyExcludedPathArray []SqlContainerIndexingPolicyExcludedPathInput
+
+func (SqlContainerIndexingPolicyExcludedPathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicyExcludedPath)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyExcludedPathArray) ToSqlContainerIndexingPolicyExcludedPathArrayOutput() SqlContainerIndexingPolicyExcludedPathArrayOutput {
+	return i.ToSqlContainerIndexingPolicyExcludedPathArrayOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyExcludedPathArray) ToSqlContainerIndexingPolicyExcludedPathArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyExcludedPathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyExcludedPathArrayOutput)
+}
+
+type SqlContainerIndexingPolicyExcludedPathOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyExcludedPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicyExcludedPath)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyExcludedPathOutput) ToSqlContainerIndexingPolicyExcludedPathOutput() SqlContainerIndexingPolicyExcludedPathOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyExcludedPathOutput) ToSqlContainerIndexingPolicyExcludedPathOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyExcludedPathOutput {
+	return o
+}
+
+// Path that is excluded from indexing.
+func (o SqlContainerIndexingPolicyExcludedPathOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicyExcludedPath) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type SqlContainerIndexingPolicyExcludedPathArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyExcludedPathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicyExcludedPath)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyExcludedPathArrayOutput) ToSqlContainerIndexingPolicyExcludedPathArrayOutput() SqlContainerIndexingPolicyExcludedPathArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyExcludedPathArrayOutput) ToSqlContainerIndexingPolicyExcludedPathArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyExcludedPathArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyExcludedPathArrayOutput) Index(i pulumi.IntInput) SqlContainerIndexingPolicyExcludedPathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainerIndexingPolicyExcludedPath {
+		return vs[0].([]SqlContainerIndexingPolicyExcludedPath)[vs[1].(int)]
+	}).(SqlContainerIndexingPolicyExcludedPathOutput)
+}
+
+type SqlContainerIndexingPolicyIncludedPath struct {
+	// Path for which the indexing behavior applies to.
+	Path string `pulumi:"path"`
+}
+
+// SqlContainerIndexingPolicyIncludedPathInput is an input type that accepts SqlContainerIndexingPolicyIncludedPathArgs and SqlContainerIndexingPolicyIncludedPathOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyIncludedPathInput` via:
+//
+//          SqlContainerIndexingPolicyIncludedPathArgs{...}
+type SqlContainerIndexingPolicyIncludedPathInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyIncludedPathOutput() SqlContainerIndexingPolicyIncludedPathOutput
+	ToSqlContainerIndexingPolicyIncludedPathOutputWithContext(context.Context) SqlContainerIndexingPolicyIncludedPathOutput
+}
+
+type SqlContainerIndexingPolicyIncludedPathArgs struct {
+	// Path for which the indexing behavior applies to.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (SqlContainerIndexingPolicyIncludedPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicyIncludedPath)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyIncludedPathArgs) ToSqlContainerIndexingPolicyIncludedPathOutput() SqlContainerIndexingPolicyIncludedPathOutput {
+	return i.ToSqlContainerIndexingPolicyIncludedPathOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyIncludedPathArgs) ToSqlContainerIndexingPolicyIncludedPathOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyIncludedPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyIncludedPathOutput)
+}
+
+// SqlContainerIndexingPolicyIncludedPathArrayInput is an input type that accepts SqlContainerIndexingPolicyIncludedPathArray and SqlContainerIndexingPolicyIncludedPathArrayOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyIncludedPathArrayInput` via:
+//
+//          SqlContainerIndexingPolicyIncludedPathArray{ SqlContainerIndexingPolicyIncludedPathArgs{...} }
+type SqlContainerIndexingPolicyIncludedPathArrayInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyIncludedPathArrayOutput() SqlContainerIndexingPolicyIncludedPathArrayOutput
+	ToSqlContainerIndexingPolicyIncludedPathArrayOutputWithContext(context.Context) SqlContainerIndexingPolicyIncludedPathArrayOutput
+}
+
+type SqlContainerIndexingPolicyIncludedPathArray []SqlContainerIndexingPolicyIncludedPathInput
+
+func (SqlContainerIndexingPolicyIncludedPathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicyIncludedPath)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyIncludedPathArray) ToSqlContainerIndexingPolicyIncludedPathArrayOutput() SqlContainerIndexingPolicyIncludedPathArrayOutput {
+	return i.ToSqlContainerIndexingPolicyIncludedPathArrayOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyIncludedPathArray) ToSqlContainerIndexingPolicyIncludedPathArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyIncludedPathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyIncludedPathArrayOutput)
+}
+
+type SqlContainerIndexingPolicyIncludedPathOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyIncludedPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicyIncludedPath)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyIncludedPathOutput) ToSqlContainerIndexingPolicyIncludedPathOutput() SqlContainerIndexingPolicyIncludedPathOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyIncludedPathOutput) ToSqlContainerIndexingPolicyIncludedPathOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyIncludedPathOutput {
+	return o
+}
+
+// Path for which the indexing behavior applies to.
+func (o SqlContainerIndexingPolicyIncludedPathOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicyIncludedPath) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type SqlContainerIndexingPolicyIncludedPathArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyIncludedPathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicyIncludedPath)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyIncludedPathArrayOutput) ToSqlContainerIndexingPolicyIncludedPathArrayOutput() SqlContainerIndexingPolicyIncludedPathArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyIncludedPathArrayOutput) ToSqlContainerIndexingPolicyIncludedPathArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyIncludedPathArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyIncludedPathArrayOutput) Index(i pulumi.IntInput) SqlContainerIndexingPolicyIncludedPathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainerIndexingPolicyIncludedPath {
+		return vs[0].([]SqlContainerIndexingPolicyIncludedPath)[vs[1].(int)]
+	}).(SqlContainerIndexingPolicyIncludedPathOutput)
+}
+
 type SqlContainerUniqueKey struct {
 	// A list of paths to use for this unique key.
 	Paths []string `pulumi:"paths"`
@@ -2657,6 +3020,12 @@ func init() {
 	pulumi.RegisterOutputType(MongoDatabaseAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyExcludedPathOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyExcludedPathArrayOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyIncludedPathOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyIncludedPathArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyOutput{})
 	pulumi.RegisterOutputType(SqlContainerUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseAutoscaleSettingsOutput{})

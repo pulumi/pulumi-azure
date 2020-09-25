@@ -74,7 +74,7 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	// The administrator's login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
@@ -98,9 +98,11 @@ type Server struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A list of dropped restorable database IDs on the server.
+	RestorableDroppedDatabaseIds pulumi.StringArrayOutput `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -144,7 +146,7 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	// The administrator's login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
@@ -168,14 +170,16 @@ type serverState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A list of dropped restorable database IDs on the server.
+	RestorableDroppedDatabaseIds []string `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version *string `pulumi:"version"`
 }
 
 type ServerState struct {
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	// The administrator's login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringPtrInput
@@ -199,9 +203,11 @@ type ServerState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Microsoft SQL Server.
 	ResourceGroupName pulumi.StringPtrInput
+	// A list of dropped restorable database IDs on the server.
+	RestorableDroppedDatabaseIds pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringPtrInput
 }
 
@@ -210,7 +216,7 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	// The administrator's login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
@@ -234,13 +240,13 @@ type serverArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// The administrator login name for the new server. Changing this forces a new resource to be created.
+	// The administrator's login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringInput
@@ -264,7 +270,7 @@ type ServerArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringInput
 }
 

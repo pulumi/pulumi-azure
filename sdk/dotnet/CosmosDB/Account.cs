@@ -83,7 +83,7 @@ namespace Pulumi.Azure.CosmosDB
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<Outputs.AccountCapability>> Capabilities { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountCapabilityArgs>? _capabilities;
 
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         public InputList<Inputs.AccountCapabilityArgs> Capabilities
         {
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountCapabilityGetArgs>? _capabilities;
 
         /// <summary>
-        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
+        /// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, `EnableServerless`, and `mongoEnableDocLevelTTL`.
         /// </summary>
         public InputList<Inputs.AccountCapabilityGetArgs> Capabilities
         {

@@ -106,7 +106,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
+        /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
+        /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
+        /// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

@@ -44,9 +44,6 @@ namespace Pulumi.Azure.Network
         [Output("allowBranchToBranchTraffic")]
         public Output<bool?> AllowBranchToBranchTraffic { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
-        /// </summary>
         [Output("allowVnetToVnetTraffic")]
         public Output<bool?> AllowVnetToVnetTraffic { get; private set; } = null!;
 
@@ -144,9 +141,6 @@ namespace Pulumi.Azure.Network
         [Input("allowBranchToBranchTraffic")]
         public Input<bool>? AllowBranchToBranchTraffic { get; set; }
 
-        /// <summary>
-        /// Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
-        /// </summary>
         [Input("allowVnetToVnetTraffic")]
         public Input<bool>? AllowVnetToVnetTraffic { get; set; }
 
@@ -211,9 +205,6 @@ namespace Pulumi.Azure.Network
         [Input("allowBranchToBranchTraffic")]
         public Input<bool>? AllowBranchToBranchTraffic { get; set; }
 
-        /// <summary>
-        /// Boolean flag to specify whether VNet to VNet traffic is allowed. Defaults to `false`.
-        /// </summary>
         [Input("allowVnetToVnetTraffic")]
         public Input<bool>? AllowVnetToVnetTraffic { get; set; }
 

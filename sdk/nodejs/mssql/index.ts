@@ -8,6 +8,7 @@ export * from "./databaseVulnerabilityAssessmentRuleBaseline";
 export * from "./elasticPool";
 export * from "./getDatabase";
 export * from "./getElasticPool";
+export * from "./getServer";
 export * from "./server";
 export * from "./serverExtendedAuditingPolicy";
 export * from "./serverSecurityAlertPolicy";

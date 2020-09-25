@@ -69,7 +69,7 @@ type Cluster struct {
 	CertificateCommonNames ClusterCertificateCommonNamesPtrOutput `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayOutput `pulumi:"clientCertificateCommonNames"`
-	// One or two `clientCertificateThumbprint` blocks as defined below.
+	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayOutput `pulumi:"clientCertificateThumbprints"`
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion pulumi.StringOutput `pulumi:"clusterCodeVersion"`
@@ -157,7 +157,7 @@ type clusterState struct {
 	CertificateCommonNames *ClusterCertificateCommonNames `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
 	ClientCertificateCommonNames []ClusterClientCertificateCommonName `pulumi:"clientCertificateCommonNames"`
-	// One or two `clientCertificateThumbprint` blocks as defined below.
+	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints []ClusterClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
@@ -200,7 +200,7 @@ type ClusterState struct {
 	CertificateCommonNames ClusterCertificateCommonNamesPtrInput
 	// A `clientCertificateCommonName` block as defined below.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayInput
-	// One or two `clientCertificateThumbprint` blocks as defined below.
+	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayInput
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion pulumi.StringPtrInput
@@ -247,7 +247,7 @@ type clusterArgs struct {
 	CertificateCommonNames *ClusterCertificateCommonNames `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
 	ClientCertificateCommonNames []ClusterClientCertificateCommonName `pulumi:"clientCertificateCommonNames"`
-	// One or two `clientCertificateThumbprint` blocks as defined below.
+	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints []ClusterClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
@@ -289,7 +289,7 @@ type ClusterArgs struct {
 	CertificateCommonNames ClusterCertificateCommonNamesPtrInput
 	// A `clientCertificateCommonName` block as defined below.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayInput
-	// One or two `clientCertificateThumbprint` blocks as defined below.
+	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayInput
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion pulumi.StringPtrInput

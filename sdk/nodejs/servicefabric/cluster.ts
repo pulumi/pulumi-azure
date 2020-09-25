@@ -83,7 +83,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clientCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateCommonName[] | undefined>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below.
+     * One or more `clientCertificateThumbprint` blocks as defined below.
      */
     public readonly clientCertificateThumbprints!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateThumbprint[] | undefined>;
     /**
@@ -252,7 +252,7 @@ export interface ClusterState {
      */
     readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below.
+     * One or more `clientCertificateThumbprint` blocks as defined below.
      */
     readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**
@@ -338,7 +338,7 @@ export interface ClusterArgs {
      */
     readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
     /**
-     * One or two `clientCertificateThumbprint` blocks as defined below.
+     * One or more `clientCertificateThumbprint` blocks as defined below.
      */
     readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**

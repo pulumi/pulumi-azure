@@ -33,9 +33,7 @@ import (
 // 			Parameters:  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "    {\n", "        \"allowedLocations\": {\n", "            \"type\": \"Array\",\n", "            \"metadata\": {\n", "                \"description\": \"The list of allowed locations for resources.\",\n", "                \"displayName\": \"Allowed locations\",\n", "                \"strongType\": \"location\"\n", "            }\n", "        }\n", "    }\n", "\n")),
 // 			PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
 // 				&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
-// 					Parameters: pulumi.StringMap{
-// 						"listOfAllowedLocations": pulumi.String("[parameters('allowedLocations')]"),
-// 					},
+// 					ParameterValues:    pulumi.String(fmt.Sprintf("%v%v%v%v", "    {\n", "      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n", "    }\n", "    \n")),
 // 					PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
 // 				},
 // 			},

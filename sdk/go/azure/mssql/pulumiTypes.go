@@ -1951,6 +1951,121 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalSecret() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetServerIdentity struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type of the Microsoft SQL Server.
+	Type string `pulumi:"type"`
+}
+
+// GetServerIdentityInput is an input type that accepts GetServerIdentityArgs and GetServerIdentityOutput values.
+// You can construct a concrete instance of `GetServerIdentityInput` via:
+//
+//          GetServerIdentityArgs{...}
+type GetServerIdentityInput interface {
+	pulumi.Input
+
+	ToGetServerIdentityOutput() GetServerIdentityOutput
+	ToGetServerIdentityOutputWithContext(context.Context) GetServerIdentityOutput
+}
+
+type GetServerIdentityArgs struct {
+	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type of the Microsoft SQL Server.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServerIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerIdentity)(nil)).Elem()
+}
+
+func (i GetServerIdentityArgs) ToGetServerIdentityOutput() GetServerIdentityOutput {
+	return i.ToGetServerIdentityOutputWithContext(context.Background())
+}
+
+func (i GetServerIdentityArgs) ToGetServerIdentityOutputWithContext(ctx context.Context) GetServerIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityOutput)
+}
+
+// GetServerIdentityArrayInput is an input type that accepts GetServerIdentityArray and GetServerIdentityArrayOutput values.
+// You can construct a concrete instance of `GetServerIdentityArrayInput` via:
+//
+//          GetServerIdentityArray{ GetServerIdentityArgs{...} }
+type GetServerIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetServerIdentityArrayOutput() GetServerIdentityArrayOutput
+	ToGetServerIdentityArrayOutputWithContext(context.Context) GetServerIdentityArrayOutput
+}
+
+type GetServerIdentityArray []GetServerIdentityInput
+
+func (GetServerIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerIdentity)(nil)).Elem()
+}
+
+func (i GetServerIdentityArray) ToGetServerIdentityArrayOutput() GetServerIdentityArrayOutput {
+	return i.ToGetServerIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerIdentityArray) ToGetServerIdentityArrayOutputWithContext(ctx context.Context) GetServerIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityArrayOutput)
+}
+
+type GetServerIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetServerIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerIdentity)(nil)).Elem()
+}
+
+func (o GetServerIdentityOutput) ToGetServerIdentityOutput() GetServerIdentityOutput {
+	return o
+}
+
+func (o GetServerIdentityOutput) ToGetServerIdentityOutputWithContext(ctx context.Context) GetServerIdentityOutput {
+	return o
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+func (o GetServerIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+func (o GetServerIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type of the Microsoft SQL Server.
+func (o GetServerIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServerIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerIdentity)(nil)).Elem()
+}
+
+func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutput() GetServerIdentityArrayOutput {
+	return o
+}
+
+func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutputWithContext(ctx context.Context) GetServerIdentityArrayOutput {
+	return o
+}
+
+func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerIdentity {
+		return vs[0].([]GetServerIdentity)[vs[1].(int)]
+	}).(GetServerIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyTypePtrOutput{})
@@ -1974,4 +2089,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineAutoPatchingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialPtrOutput{})
+	pulumi.RegisterOutputType(GetServerIdentityOutput{})
+	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
 }

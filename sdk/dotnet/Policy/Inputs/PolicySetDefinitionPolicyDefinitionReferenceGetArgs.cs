@@ -12,12 +12,19 @@ namespace Pulumi.Azure.Policy.Inputs
 
     public sealed class PolicySetDefinitionPolicyDefinitionReferenceGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+        /// </summary>
+        [Input("parameterValues")]
+        public Input<string>? ParameterValues { get; set; }
+
         [Input("parameters")]
         private InputMap<object>? _parameters;
 
         /// <summary>
-        /// A mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
+        /// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         /// </summary>
+        [Obsolete(@"Deprecated in favour of `parameter_values`")]
         public InputMap<object> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<object>());

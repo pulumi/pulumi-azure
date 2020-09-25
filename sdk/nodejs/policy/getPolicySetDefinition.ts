@@ -75,9 +75,12 @@ export interface GetPolicySetDefinitionResult {
     readonly metadata: string;
     readonly name: string;
     /**
-     * Any Parameters defined in the Policy Set Definition.
+     * The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
      */
     readonly parameters: string;
+    /**
+     * One or more `policyDefinitionReference` blocks as defined below.
+     */
     readonly policyDefinitionReferences: outputs.policy.GetPolicySetDefinitionPolicyDefinitionReference[];
     /**
      * The policy definitions contained within the policy set definition.

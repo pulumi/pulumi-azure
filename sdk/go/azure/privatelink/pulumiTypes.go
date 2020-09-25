@@ -549,7 +549,7 @@ type EndpointPrivateServiceConnection struct {
 	Name string `pulumi:"name"`
 	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	PrivateConnectionResourceId string `pulumi:"privateConnectionResourceId"`
-	// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+	// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 	RequestMessage *string `pulumi:"requestMessage"`
@@ -575,7 +575,7 @@ type EndpointPrivateServiceConnectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	PrivateConnectionResourceId pulumi.StringInput `pulumi:"privateConnectionResourceId"`
-	// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+	// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
@@ -675,7 +675,7 @@ func (o EndpointPrivateServiceConnectionOutput) PrivateConnectionResourceId() pu
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) string { return v.PrivateConnectionResourceId }).(pulumi.StringOutput)
 }
 
-// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 func (o EndpointPrivateServiceConnectionOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -738,7 +738,7 @@ func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
 func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
 		if v == nil {

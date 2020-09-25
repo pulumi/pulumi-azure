@@ -16,6 +16,7 @@ __all__ = [
     'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs',
     'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs',
     'SpringCloudServiceConfigServerGitSettingSshAuthArgs',
+    'SpringCloudServiceNetworkArgs',
     'SpringCloudServiceTraceArgs',
 ]
 
@@ -504,6 +505,90 @@ class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
     @strict_host_key_checking_enabled.setter
     def strict_host_key_checking_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "strict_host_key_checking_enabled", value)
+
+
+@pulumi.input_type
+class SpringCloudServiceNetworkArgs:
+    def __init__(__self__, *,
+                 app_subnet_id: pulumi.Input[str],
+                 cidr_ranges: pulumi.Input[List[pulumi.Input[str]]],
+                 service_runtime_subnet_id: pulumi.Input[str],
+                 app_network_resource_group: Optional[pulumi.Input[str]] = None,
+                 service_runtime_network_resource_group: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] app_subnet_id: Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[List[pulumi.Input[str]]] cidr_ranges: A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_runtime_subnet_id: Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_runtime_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "app_subnet_id", app_subnet_id)
+        pulumi.set(__self__, "cidr_ranges", cidr_ranges)
+        pulumi.set(__self__, "service_runtime_subnet_id", service_runtime_subnet_id)
+        if app_network_resource_group is not None:
+            pulumi.set(__self__, "app_network_resource_group", app_network_resource_group)
+        if service_runtime_network_resource_group is not None:
+            pulumi.set(__self__, "service_runtime_network_resource_group", service_runtime_network_resource_group)
+
+    @property
+    @pulumi.getter(name="appSubnetId")
+    def app_subnet_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_subnet_id")
+
+    @app_subnet_id.setter
+    def app_subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_subnet_id", value)
+
+    @property
+    @pulumi.getter(name="cidrRanges")
+    def cidr_ranges(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cidr_ranges")
+
+    @cidr_ranges.setter
+    def cidr_ranges(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "cidr_ranges", value)
+
+    @property
+    @pulumi.getter(name="serviceRuntimeSubnetId")
+    def service_runtime_subnet_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "service_runtime_subnet_id")
+
+    @service_runtime_subnet_id.setter
+    def service_runtime_subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_runtime_subnet_id", value)
+
+    @property
+    @pulumi.getter(name="appNetworkResourceGroup")
+    def app_network_resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_network_resource_group")
+
+    @app_network_resource_group.setter
+    def app_network_resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_network_resource_group", value)
+
+    @property
+    @pulumi.getter(name="serviceRuntimeNetworkResourceGroup")
+    def service_runtime_network_resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "service_runtime_network_resource_group")
+
+    @service_runtime_network_resource_group.setter
+    def service_runtime_network_resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_runtime_network_resource_group", value)
 
 
 @pulumi.input_type
