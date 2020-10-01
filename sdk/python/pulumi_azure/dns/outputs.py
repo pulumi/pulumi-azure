@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -18,11 +18,11 @@ __all__ = [
 @pulumi.output_type
 class CaaRecordRecord(dict):
     def __init__(__self__, *,
-                 flags: float,
+                 flags: int,
                  tag: str,
                  value: str):
         """
-        :param float flags: Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+        :param int flags: Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
         :param str tag: A property tag, options are issue, issuewild and iodef.
         :param str value: A property value such as a registrar domain.
         """
@@ -32,7 +32,7 @@ class CaaRecordRecord(dict):
 
     @property
     @pulumi.getter
-    def flags(self) -> float:
+    def flags(self) -> int:
         """
         Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
         """
@@ -93,15 +93,15 @@ class MxRecordRecord(dict):
 @pulumi.output_type
 class SrvRecordRecord(dict):
     def __init__(__self__, *,
-                 port: float,
-                 priority: float,
+                 port: int,
+                 priority: int,
                  target: str,
-                 weight: float):
+                 weight: int):
         """
-        :param float port: Port the service is listening on.
-        :param float priority: Priority of the SRV record.
+        :param int port: Port the service is listening on.
+        :param int priority: Priority of the SRV record.
         :param str target: FQDN of the service.
-        :param float weight: Weight of the SRV record.
+        :param int weight: Weight of the SRV record.
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "priority", priority)
@@ -110,7 +110,7 @@ class SrvRecordRecord(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         Port the service is listening on.
         """
@@ -118,7 +118,7 @@ class SrvRecordRecord(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         """
         Priority of the SRV record.
         """
@@ -134,7 +134,7 @@ class SrvRecordRecord(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> float:
+    def weight(self) -> int:
         """
         Weight of the SRV record.
         """

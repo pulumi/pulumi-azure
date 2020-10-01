@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,12 +17,12 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 partition_count: Optional[pulumi.Input[float]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 replica_count: Optional[pulumi.Input[float]] = None,
+                 replica_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -47,12 +47,12 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses that are allowed access to the search service endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses that are allowed access to the search service endpoint.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
-        :param pulumi.Input[float] partition_count: The number of partitions which should be created.
+        :param pulumi.Input[int] partition_count: The number of partitions which should be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this resource. Defaults to `true`.
-        :param pulumi.Input[float] replica_count: The number of replica's which should be created.
+        :param pulumi.Input[int] replica_count: The number of replica's which should be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Search Service.
@@ -100,14 +100,14 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            partition_count: Optional[pulumi.Input[float]] = None,
+            partition_count: Optional[pulumi.Input[int]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-            query_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]]] = None,
-            replica_count: Optional[pulumi.Input[float]] = None,
+            query_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]]] = None,
+            replica_count: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
@@ -119,14 +119,14 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses that are allowed access to the search service endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses that are allowed access to the search service endpoint.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
-        :param pulumi.Input[float] partition_count: The number of partitions which should be created.
+        :param pulumi.Input[int] partition_count: The number of partitions which should be created.
         :param pulumi.Input[str] primary_key: The Primary Key used for Search Service Administration.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this resource. Defaults to `true`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]] query_keys: A `query_keys` block as defined below.
-        :param pulumi.Input[float] replica_count: The number of replica's which should be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]] query_keys: A `query_keys` block as defined below.
+        :param pulumi.Input[int] replica_count: The number of replica's which should be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
@@ -152,7 +152,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedIps")
-    def allowed_ips(self) -> pulumi.Output[Optional[List[str]]]:
+    def allowed_ips(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IPv4 addresses that are allowed access to the search service endpoint.
         """
@@ -176,7 +176,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> pulumi.Output[float]:
+    def partition_count(self) -> pulumi.Output[int]:
         """
         The number of partitions which should be created.
         """
@@ -200,7 +200,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="queryKeys")
-    def query_keys(self) -> pulumi.Output[List['outputs.ServiceQueryKey']]:
+    def query_keys(self) -> pulumi.Output[Sequence['outputs.ServiceQueryKey']]:
         """
         A `query_keys` block as defined below.
         """
@@ -208,7 +208,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> pulumi.Output[float]:
+    def replica_count(self) -> pulumi.Output[int]:
         """
         The number of replica's which should be created.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['NamedValue']
@@ -20,7 +20,7 @@ class NamedValue(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secret: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -55,7 +55,7 @@ class NamedValue(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the API Management Named Value. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-        :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Named Value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[str] value: The value of this API Management Named Value.
         """
         if __name__ is not None:
@@ -105,7 +105,7 @@ class NamedValue(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secret: Optional[pulumi.Input[bool]] = None,
-            tags: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             value: Optional[pulumi.Input[str]] = None) -> 'NamedValue':
         """
         Get an existing NamedValue resource's state with the given name, id, and optional extra
@@ -119,7 +119,7 @@ class NamedValue(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the API Management Named Value. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-        :param pulumi.Input[List[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Named Value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[str] value: The value of this API Management Named Value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -177,7 +177,7 @@ class NamedValue(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[List[str]]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of tags to be applied to the API Management Named Value.
         """

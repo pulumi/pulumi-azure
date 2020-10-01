@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,7 +25,7 @@ class Api(pulumi.CustomResource):
                  oauth2_authorization: Optional[pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']]] = None,
                  openid_authentication: Optional[pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revision: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
@@ -76,7 +76,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']] oauth2_authorization: An `oauth2_authorization` block as documented below.
         :param pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        :param pulumi.Input[List[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
@@ -154,7 +154,7 @@ class Api(pulumi.CustomResource):
             oauth2_authorization: Optional[pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']]] = None,
             openid_authentication: Optional[pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']]] = None,
             path: Optional[pulumi.Input[str]] = None,
-            protocols: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             revision: Optional[pulumi.Input[str]] = None,
             service_url: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']] oauth2_authorization: An `oauth2_authorization` block as documented below.
         :param pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        :param pulumi.Input[List[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
@@ -297,7 +297,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocols(self) -> pulumi.Output[List[str]]:
+    def protocols(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
         """

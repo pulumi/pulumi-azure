@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,9 +20,9 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  azure_firewall_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallApplicationRuleCollectionRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallApplicationRuleCollectionRuleArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -78,9 +78,9 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] azure_firewall_name: Specifies the name of the Firewall in which the Application Rule Collection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
+        :param pulumi.Input[int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallApplicationRuleCollectionRuleArgs']]]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallApplicationRuleCollectionRuleArgs']]]] rules: One or more `rule` blocks as defined below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,9 +128,9 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
             action: Optional[pulumi.Input[str]] = None,
             azure_firewall_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallApplicationRuleCollectionRuleArgs']]]]] = None) -> 'FirewallApplicationRuleCollection':
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallApplicationRuleCollectionRuleArgs']]]]] = None) -> 'FirewallApplicationRuleCollection':
         """
         Get an existing FirewallApplicationRuleCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -141,9 +141,9 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] azure_firewall_name: Specifies the name of the Firewall in which the Application Rule Collection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
+        :param pulumi.Input[int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FirewallApplicationRuleCollectionRuleArgs']]]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallApplicationRuleCollectionRuleArgs']]]] rules: One or more `rule` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -183,7 +183,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[float]:
+    def priority(self) -> pulumi.Output[int]:
         """
         Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         """
@@ -199,7 +199,7 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[List['outputs.FirewallApplicationRuleCollectionRule']]:
+    def rules(self) -> pulumi.Output[Sequence['outputs.FirewallApplicationRuleCollectionRule']]:
         """
         One or more `rule` blocks as defined below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -17,22 +17,22 @@ __all__ = [
 @pulumi.input_type
 class ServiceCorArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[List[pulumi.Input[str]]]):
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_origins", value)
 
 
@@ -76,10 +76,10 @@ class ServiceFeatureArgs:
 @pulumi.input_type
 class ServiceSkuArgs:
     def __init__(__self__, *,
-                 capacity: pulumi.Input[float],
+                 capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[float] capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
         :param pulumi.Input[str] name: Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -87,14 +87,14 @@ class ServiceSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> pulumi.Input[float]:
+    def capacity(self) -> pulumi.Input[int]:
         """
         Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: pulumi.Input[float]):
+    def capacity(self, value: pulumi.Input[int]):
         pulumi.set(self, "capacity", value)
 
     @property

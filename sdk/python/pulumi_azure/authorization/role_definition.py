@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,10 +17,10 @@ class RoleDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignable_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -48,10 +48,10 @@ class RoleDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         :param pulumi.Input[str] description: A description of the Role Definition.
         :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         """
@@ -95,10 +95,10 @@ class RoleDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assignable_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            permissions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]]] = None,
+            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]]] = None,
             role_definition_id: Optional[pulumi.Input[str]] = None,
             role_definition_resource_id: Optional[pulumi.Input[str]] = None,
             scope: Optional[pulumi.Input[str]] = None) -> 'RoleDefinition':
@@ -109,10 +109,10 @@ class RoleDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         :param pulumi.Input[str] description: A description of the Role Definition.
         :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_resource_id: The Azure Resource Manager ID for the resource
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
@@ -132,7 +132,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assignableScopes")
-    def assignable_scopes(self) -> pulumi.Output[List[str]]:
+    def assignable_scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         """
@@ -156,7 +156,7 @@ class RoleDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def permissions(self) -> pulumi.Output[List['outputs.RoleDefinitionPermission']]:
+    def permissions(self) -> pulumi.Output[Sequence['outputs.RoleDefinitionPermission']]:
         """
         A `permissions` block as defined below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,15 +17,15 @@ class LinkService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_approval_subscription_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
-                 load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nat_ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]]] = None,
+                 nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 visibility_subscription_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -89,15 +89,15 @@ class LinkService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         :param pulumi.Input[bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -143,15 +143,15 @@ class LinkService(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: Optional[pulumi.Input[str]] = None,
-            auto_approval_subscription_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
-            load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            nat_ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]]] = None,
+            nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            visibility_subscription_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'LinkService':
+            visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'LinkService':
         """
         Get an existing LinkService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -160,15 +160,15 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
-        :param pulumi.Input[List[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_approval_subscription_ids: A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         :param pulumi.Input[bool] enable_proxy_protocol: Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -196,7 +196,7 @@ class LinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoApprovalSubscriptionIds")
-    def auto_approval_subscription_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def auto_approval_subscription_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
         """
@@ -212,7 +212,7 @@ class LinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
-    def load_balancer_frontend_ip_configuration_ids(self) -> pulumi.Output[List[str]]:
+    def load_balancer_frontend_ip_configuration_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of Frontend IP Configuration ID's from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running.
         """
@@ -236,7 +236,7 @@ class LinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="natIpConfigurations")
-    def nat_ip_configurations(self) -> pulumi.Output[List['outputs.LinkServiceNatIpConfiguration']]:
+    def nat_ip_configurations(self) -> pulumi.Output[Sequence['outputs.LinkServiceNatIpConfiguration']]:
         """
         One or more (up to 8) `nat_ip_configuration` block as defined below.
         """
@@ -260,7 +260,7 @@ class LinkService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="visibilitySubscriptionIds")
-    def visibility_subscription_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def visibility_subscription_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -140,10 +140,10 @@ class Endpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_dns_configs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointCustomDnsConfigArgs']]]]] = None,
+            custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomDnsConfigArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            private_dns_zone_configs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneConfigArgs']]]]] = None,
+            private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneConfigArgs']]]]] = None,
             private_dns_zone_group: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']]] = None,
             private_service_connection: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateServiceConnectionArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -181,7 +181,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customDnsConfigs")
-    def custom_dns_configs(self) -> pulumi.Output[List['outputs.EndpointCustomDnsConfig']]:
+    def custom_dns_configs(self) -> pulumi.Output[Sequence['outputs.EndpointCustomDnsConfig']]:
         return pulumi.get(self, "custom_dns_configs")
 
     @property
@@ -202,7 +202,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateDnsZoneConfigs")
-    def private_dns_zone_configs(self) -> pulumi.Output[List['outputs.EndpointPrivateDnsZoneConfig']]:
+    def private_dns_zone_configs(self) -> pulumi.Output[Sequence['outputs.EndpointPrivateDnsZoneConfig']]:
         return pulumi.get(self, "private_dns_zone_configs")
 
     @property

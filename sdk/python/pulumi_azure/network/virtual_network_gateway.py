@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -22,7 +22,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  generation: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One or two `ip_configuration` blocks documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One or two `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block whereas
                an active-active gateway requires exactly two `ip_configuration` blocks.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
@@ -198,7 +198,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
             enable_bgp: Optional[pulumi.Input[bool]] = None,
             generation: Optional[pulumi.Input[str]] = None,
-            ip_configurations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
+            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,7 +226,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
                for this Virtual Network Gateway. Defaults to `false`.
         :param pulumi.Input[str] generation: The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One or two `ip_configuration` blocks documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIpConfigurationArgs']]]] ip_configurations: One or two `ip_configuration` blocks documented below.
                An active-standby gateway requires exactly one `ip_configuration` block whereas
                an active-active gateway requires exactly two `ip_configuration` blocks.
         :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
@@ -318,7 +318,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Output[List['outputs.VirtualNetworkGatewayIpConfiguration']]:
+    def ip_configurations(self) -> pulumi.Output[Sequence['outputs.VirtualNetworkGatewayIpConfiguration']]:
         """
         One or two `ip_configuration` blocks documented below.
         An active-standby gateway requires exactly one `ip_configuration` block whereas

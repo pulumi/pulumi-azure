@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetLBRuleResult:
         if backend_address_pool_id and not isinstance(backend_address_pool_id, str):
             raise TypeError("Expected argument 'backend_address_pool_id' to be a str")
         pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
-        if backend_port and not isinstance(backend_port, float):
-            raise TypeError("Expected argument 'backend_port' to be a float")
+        if backend_port and not isinstance(backend_port, int):
+            raise TypeError("Expected argument 'backend_port' to be a int")
         pulumi.set(__self__, "backend_port", backend_port)
         if disable_outbound_snat and not isinstance(disable_outbound_snat, bool):
             raise TypeError("Expected argument 'disable_outbound_snat' to be a bool")
@@ -38,14 +38,14 @@ class GetLBRuleResult:
         if frontend_ip_configuration_name and not isinstance(frontend_ip_configuration_name, str):
             raise TypeError("Expected argument 'frontend_ip_configuration_name' to be a str")
         pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
-        if frontend_port and not isinstance(frontend_port, float):
-            raise TypeError("Expected argument 'frontend_port' to be a float")
+        if frontend_port and not isinstance(frontend_port, int):
+            raise TypeError("Expected argument 'frontend_port' to be a int")
         pulumi.set(__self__, "frontend_port", frontend_port)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
-            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if load_distribution and not isinstance(load_distribution, str):
             raise TypeError("Expected argument 'load_distribution' to be a str")
@@ -76,7 +76,7 @@ class GetLBRuleResult:
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> float:
+    def backend_port(self) -> int:
         """
         The port used for internal connections on the endpoint.
         """
@@ -116,7 +116,7 @@ class GetLBRuleResult:
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> float:
+    def frontend_port(self) -> int:
         """
         The port for the external endpoint.
         """
@@ -132,7 +132,7 @@ class GetLBRuleResult:
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> float:
+    def idle_timeout_in_minutes(self) -> int:
         """
         Specifies the idle timeout in minutes for TCP connections.
         """

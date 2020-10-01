@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]]] = None,
+                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
@@ -34,14 +34,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interface_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']]] = None,
@@ -115,7 +115,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -130,14 +130,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
@@ -220,7 +220,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']]] = None,
             admin_password: Optional[pulumi.Input[str]] = None,
-            admin_ssh_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]]] = None,
+            admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]]] = None,
             admin_username: Optional[pulumi.Input[str]] = None,
             allow_extension_operations: Optional[pulumi.Input[bool]] = None,
             availability_set_id: Optional[pulumi.Input[str]] = None,
@@ -235,18 +235,18 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             max_bid_price: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_interface_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']]] = None,
             plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             private_ip_address: Optional[pulumi.Input[str]] = None,
-            private_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             provision_vm_agent: Optional[pulumi.Input[bool]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             public_ip_address: Optional[pulumi.Input[str]] = None,
-            public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
             size: Optional[pulumi.Input[str]] = None,
             source_image_id: Optional[pulumi.Input[str]] = None,
             source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']]] = None,
@@ -263,7 +263,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -278,18 +278,18 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
-        :param pulumi.Input[List[pulumi.Input[str]]] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
-        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
@@ -358,7 +358,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminSshKeys")
-    def admin_ssh_keys(self) -> pulumi.Output[Optional[List['outputs.LinuxVirtualMachineAdminSshKey']]]:
+    def admin_ssh_keys(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxVirtualMachineAdminSshKey']]]:
         """
         One or more `admin_ssh_key` blocks as defined below.
         """
@@ -478,7 +478,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> pulumi.Output[List[str]]:
+    def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         """
@@ -518,7 +518,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of Private IP Addresses assigned to this Virtual Machine.
         """
@@ -550,7 +550,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def public_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of the Public IP Addresses assigned to this Virtual Machine.
         """
@@ -566,7 +566,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secrets(self) -> pulumi.Output[Optional[List['outputs.LinuxVirtualMachineSecret']]]:
+    def secrets(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxVirtualMachineSecret']]]:
         """
         One or more `secret` blocks as defined below.
         """

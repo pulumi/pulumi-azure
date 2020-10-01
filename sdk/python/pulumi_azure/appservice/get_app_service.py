@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -110,7 +110,7 @@ class GetAppServiceResult:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> List['outputs.GetAppServiceConnectionStringResult']:
+    def connection_strings(self) -> Sequence['outputs.GetAppServiceConnectionStringResult']:
         """
         An `connection_string` block as defined below.
         """
@@ -187,7 +187,7 @@ class GetAppServiceResult:
 
     @property
     @pulumi.getter(name="siteConfigs")
-    def site_configs(self) -> List['outputs.GetAppServiceSiteConfigResult']:
+    def site_configs(self) -> Sequence['outputs.GetAppServiceSiteConfigResult']:
         """
         A `site_config` block as defined below.
         """
@@ -195,12 +195,12 @@ class GetAppServiceResult:
 
     @property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> List['outputs.GetAppServiceSiteCredentialResult']:
+    def site_credentials(self) -> Sequence['outputs.GetAppServiceSiteCredentialResult']:
         return pulumi.get(self, "site_credentials")
 
     @property
     @pulumi.getter(name="sourceControls")
-    def source_controls(self) -> List['outputs.GetAppServiceSourceControlResult']:
+    def source_controls(self) -> Sequence['outputs.GetAppServiceSourceControlResult']:
         """
         A `source_control` block as defined below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -17,7 +17,7 @@ __all__ = [
 class CachePatchScheduleArgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
-                 start_hour_utc: Optional[pulumi.Input[float]] = None):
+                 start_hour_utc: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "day_of_week", day_of_week)
         if start_hour_utc is not None:
             pulumi.set(__self__, "start_hour_utc", start_hour_utc)
@@ -33,11 +33,11 @@ class CachePatchScheduleArgs:
 
     @property
     @pulumi.getter(name="startHourUtc")
-    def start_hour_utc(self) -> Optional[pulumi.Input[float]]:
+    def start_hour_utc(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "start_hour_utc")
 
     @start_hour_utc.setter
-    def start_hour_utc(self, value: Optional[pulumi.Input[float]]):
+    def start_hour_utc(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "start_hour_utc", value)
 
 
@@ -48,27 +48,27 @@ class CacheRedisConfigurationArgs:
                  aof_storage_connection_string0: Optional[pulumi.Input[str]] = None,
                  aof_storage_connection_string1: Optional[pulumi.Input[str]] = None,
                  enable_authentication: Optional[pulumi.Input[bool]] = None,
-                 maxclients: Optional[pulumi.Input[float]] = None,
-                 maxfragmentationmemory_reserved: Optional[pulumi.Input[float]] = None,
-                 maxmemory_delta: Optional[pulumi.Input[float]] = None,
+                 maxclients: Optional[pulumi.Input[int]] = None,
+                 maxfragmentationmemory_reserved: Optional[pulumi.Input[int]] = None,
+                 maxmemory_delta: Optional[pulumi.Input[int]] = None,
                  maxmemory_policy: Optional[pulumi.Input[str]] = None,
-                 maxmemory_reserved: Optional[pulumi.Input[float]] = None,
+                 maxmemory_reserved: Optional[pulumi.Input[int]] = None,
                  notify_keyspace_events: Optional[pulumi.Input[str]] = None,
                  rdb_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 rdb_backup_frequency: Optional[pulumi.Input[float]] = None,
-                 rdb_backup_max_snapshot_count: Optional[pulumi.Input[float]] = None,
+                 rdb_backup_frequency: Optional[pulumi.Input[int]] = None,
+                 rdb_backup_max_snapshot_count: Optional[pulumi.Input[int]] = None,
                  rdb_storage_connection_string: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-        :param pulumi.Input[float] maxclients: Returns the max number of connected clients at the same time.
-        :param pulumi.Input[float] maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
-        :param pulumi.Input[float] maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
+        :param pulumi.Input[int] maxclients: Returns the max number of connected clients at the same time.
+        :param pulumi.Input[int] maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
+        :param pulumi.Input[int] maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
         :param pulumi.Input[str] maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
-        :param pulumi.Input[float] maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
+        :param pulumi.Input[int] maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param pulumi.Input[str] notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
         :param pulumi.Input[bool] rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKU's.
-        :param pulumi.Input[float] rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
-        :param pulumi.Input[float] rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+        :param pulumi.Input[int] rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+        :param pulumi.Input[int] rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
         :param pulumi.Input[str] rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         """
         if aof_backup_enabled is not None:
@@ -141,38 +141,38 @@ class CacheRedisConfigurationArgs:
 
     @property
     @pulumi.getter
-    def maxclients(self) -> Optional[pulumi.Input[float]]:
+    def maxclients(self) -> Optional[pulumi.Input[int]]:
         """
         Returns the max number of connected clients at the same time.
         """
         return pulumi.get(self, "maxclients")
 
     @maxclients.setter
-    def maxclients(self, value: Optional[pulumi.Input[float]]):
+    def maxclients(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maxclients", value)
 
     @property
     @pulumi.getter(name="maxfragmentationmemoryReserved")
-    def maxfragmentationmemory_reserved(self) -> Optional[pulumi.Input[float]]:
+    def maxfragmentationmemory_reserved(self) -> Optional[pulumi.Input[int]]:
         """
         Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
         """
         return pulumi.get(self, "maxfragmentationmemory_reserved")
 
     @maxfragmentationmemory_reserved.setter
-    def maxfragmentationmemory_reserved(self, value: Optional[pulumi.Input[float]]):
+    def maxfragmentationmemory_reserved(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maxfragmentationmemory_reserved", value)
 
     @property
     @pulumi.getter(name="maxmemoryDelta")
-    def maxmemory_delta(self) -> Optional[pulumi.Input[float]]:
+    def maxmemory_delta(self) -> Optional[pulumi.Input[int]]:
         """
         The max-memory delta for this Redis instance. Defaults are shown below.
         """
         return pulumi.get(self, "maxmemory_delta")
 
     @maxmemory_delta.setter
-    def maxmemory_delta(self, value: Optional[pulumi.Input[float]]):
+    def maxmemory_delta(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maxmemory_delta", value)
 
     @property
@@ -189,14 +189,14 @@ class CacheRedisConfigurationArgs:
 
     @property
     @pulumi.getter(name="maxmemoryReserved")
-    def maxmemory_reserved(self) -> Optional[pulumi.Input[float]]:
+    def maxmemory_reserved(self) -> Optional[pulumi.Input[int]]:
         """
         Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         """
         return pulumi.get(self, "maxmemory_reserved")
 
     @maxmemory_reserved.setter
-    def maxmemory_reserved(self, value: Optional[pulumi.Input[float]]):
+    def maxmemory_reserved(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maxmemory_reserved", value)
 
     @property
@@ -225,26 +225,26 @@ class CacheRedisConfigurationArgs:
 
     @property
     @pulumi.getter(name="rdbBackupFrequency")
-    def rdb_backup_frequency(self) -> Optional[pulumi.Input[float]]:
+    def rdb_backup_frequency(self) -> Optional[pulumi.Input[int]]:
         """
         The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
         """
         return pulumi.get(self, "rdb_backup_frequency")
 
     @rdb_backup_frequency.setter
-    def rdb_backup_frequency(self, value: Optional[pulumi.Input[float]]):
+    def rdb_backup_frequency(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rdb_backup_frequency", value)
 
     @property
     @pulumi.getter(name="rdbBackupMaxSnapshotCount")
-    def rdb_backup_max_snapshot_count(self) -> Optional[pulumi.Input[float]]:
+    def rdb_backup_max_snapshot_count(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
         """
         return pulumi.get(self, "rdb_backup_max_snapshot_count")
 
     @rdb_backup_max_snapshot_count.setter
-    def rdb_backup_max_snapshot_count(self, value: Optional[pulumi.Input[float]]):
+    def rdb_backup_max_snapshot_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rdb_backup_max_snapshot_count", value)
 
     @property

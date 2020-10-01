@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AnalyticsWorkspace']
@@ -18,7 +18,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_in_days: Optional[pulumi.Input[float]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -46,7 +46,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -94,7 +94,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             portal_url: Optional[pulumi.Input[str]] = None,
             primary_shared_key: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            retention_in_days: Optional[pulumi.Input[float]] = None,
+            retention_in_days: Optional[pulumi.Input[int]] = None,
             secondary_shared_key: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -110,7 +110,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
         :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -171,7 +171,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Output[float]:
+    def retention_in_days(self) -> pulumi.Output[int]:
         """
         The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
         """

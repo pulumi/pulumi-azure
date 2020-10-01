@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -50,7 +50,7 @@ class GetFirewallResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.GetFirewallIpConfigurationResult']:
+    def ip_configurations(self) -> Sequence['outputs.GetFirewallIpConfigurationResult']:
         """
         A `ip_configuration` block as defined below.
         """

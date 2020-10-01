@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -25,8 +25,8 @@ class GetEventhubNamespaceResult:
         if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'auto_inflate_enabled' to be a bool")
         pulumi.set(__self__, "auto_inflate_enabled", auto_inflate_enabled)
-        if capacity and not isinstance(capacity, float):
-            raise TypeError("Expected argument 'capacity' to be a float")
+        if capacity and not isinstance(capacity, int):
+            raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
         if dedicated_cluster_id and not isinstance(dedicated_cluster_id, str):
             raise TypeError("Expected argument 'dedicated_cluster_id' to be a str")
@@ -58,8 +58,8 @@ class GetEventhubNamespaceResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if maximum_throughput_units and not isinstance(maximum_throughput_units, float):
-            raise TypeError("Expected argument 'maximum_throughput_units' to be a float")
+        if maximum_throughput_units and not isinstance(maximum_throughput_units, int):
+            raise TypeError("Expected argument 'maximum_throughput_units' to be a int")
         pulumi.set(__self__, "maximum_throughput_units", maximum_throughput_units)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -87,7 +87,7 @@ class GetEventhubNamespaceResult:
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The Capacity / Throughput Units for a `Standard` SKU namespace.
         """
@@ -176,7 +176,7 @@ class GetEventhubNamespaceResult:
 
     @property
     @pulumi.getter(name="maximumThroughputUnits")
-    def maximum_throughput_units(self) -> float:
+    def maximum_throughput_units(self) -> int:
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled.
         """

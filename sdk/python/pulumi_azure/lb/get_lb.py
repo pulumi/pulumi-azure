@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -51,7 +51,7 @@ class GetLBResult:
 
     @property
     @pulumi.getter(name="frontendIpConfigurations")
-    def frontend_ip_configurations(self) -> List['outputs.GetLBFrontendIpConfigurationResult']:
+    def frontend_ip_configurations(self) -> Sequence['outputs.GetLBFrontendIpConfigurationResult']:
         """
         (Optional) A `frontend_ip_configuration` block as documented below.
         """
@@ -91,7 +91,7 @@ class GetLBResult:
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> Sequence[str]:
         """
         The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
         """

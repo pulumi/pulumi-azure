@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -72,7 +72,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="appliedDnsServers")
-    def applied_dns_servers(self) -> List[str]:
+    def applied_dns_servers(self) -> Sequence[str]:
         """
         List of DNS servers applied to the specified Network Interface.
         """
@@ -80,7 +80,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> List[str]:
+    def dns_servers(self) -> Sequence[str]:
         """
         The list of DNS servers used by the specified Network Interface.
         """
@@ -120,7 +120,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.GetNetworkInterfaceIpConfigurationResult']:
+    def ip_configurations(self) -> Sequence['outputs.GetNetworkInterfaceIpConfigurationResult']:
         """
         One or more `ip_configuration` blocks as defined below.
         """
@@ -168,7 +168,7 @@ class GetNetworkInterfaceResult:
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> Sequence[str]:
         """
         The list of private ip addresses associates to the specified Network Interface.
         """

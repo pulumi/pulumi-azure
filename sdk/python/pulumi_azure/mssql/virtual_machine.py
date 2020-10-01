@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class VirtualMachine(pulumi.CustomResource):
                  auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
                  key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
                  r_services_enabled: Optional[pulumi.Input[bool]] = None,
-                 sql_connectivity_port: Optional[pulumi.Input[float]] = None,
+                 sql_connectivity_port: Optional[pulumi.Input[int]] = None,
                  sql_connectivity_type: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
-        :param pulumi.Input[float] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
+        :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
@@ -115,7 +115,7 @@ class VirtualMachine(pulumi.CustomResource):
             auto_patching: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']]] = None,
             key_vault_credential: Optional[pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']]] = None,
             r_services_enabled: Optional[pulumi.Input[bool]] = None,
-            sql_connectivity_port: Optional[pulumi.Input[float]] = None,
+            sql_connectivity_port: Optional[pulumi.Input[int]] = None,
             sql_connectivity_type: Optional[pulumi.Input[str]] = None,
             sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
             sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualMachineAutoPatchingArgs']] auto_patching: An `auto_patching` block as defined below.
         :param pulumi.Input[pulumi.InputType['VirtualMachineKeyVaultCredentialArgs']] key_vault_credential: (Optional) An `key_vault_credential` block as defined below.
         :param pulumi.Input[bool] r_services_enabled: Should R Services be enabled?
-        :param pulumi.Input[float] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
+        :param pulumi.Input[int] sql_connectivity_port: The SQL Server port. Defaults to `1433`.
         :param pulumi.Input[str] sql_connectivity_type: The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
@@ -182,7 +182,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlConnectivityPort")
-    def sql_connectivity_port(self) -> pulumi.Output[Optional[float]]:
+    def sql_connectivity_port(self) -> pulumi.Output[Optional[int]]:
         """
         The SQL Server port. Defaults to `1433`.
         """

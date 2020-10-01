@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -75,7 +75,7 @@ class GetNetworkDdosProtectionPlanResult:
 
     @property
     @pulumi.getter(name="virtualNetworkIds")
-    def virtual_network_ids(self) -> List[str]:
+    def virtual_network_ids(self) -> Sequence[str]:
         """
         A list of ID's of the Virtual Networks associated with this DDoS Protection Plan.
         """

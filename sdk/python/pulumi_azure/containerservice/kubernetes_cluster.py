@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']]] = None,
-                 api_server_authorized_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -76,7 +76,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -163,7 +163,7 @@ class KubernetesCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             addon_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']]] = None,
-            api_server_authorized_ip_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -172,10 +172,10 @@ class KubernetesCluster(pulumi.CustomResource):
             fqdn: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
             kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
-            kube_admin_configs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]]] = None,
+            kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]]] = None,
             kube_config_raw: Optional[pulumi.Input[str]] = None,
-            kube_configs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]]] = None,
-            kubelet_identities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
+            kube_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]]] = None,
+            kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
             kubernetes_version: Optional[pulumi.Input[str]] = None,
             linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -199,7 +199,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAddonProfileArgs']] addon_profile: A `addon_profile` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
@@ -208,10 +208,10 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]] kube_configs: A `kube_config` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]] kube_configs: A `kube_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
@@ -272,7 +272,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
-    def api_server_authorized_ip_ranges(self) -> pulumi.Output[Optional[List[str]]]:
+    def api_server_authorized_ip_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The IP ranges to whitelist for incoming traffic to the masters.
         """
@@ -344,7 +344,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubeAdminConfigs")
-    def kube_admin_configs(self) -> pulumi.Output[List['outputs.KubernetesClusterKubeAdminConfig']]:
+    def kube_admin_configs(self) -> pulumi.Output[Sequence['outputs.KubernetesClusterKubeAdminConfig']]:
         """
         A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         """
@@ -360,7 +360,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubeConfigs")
-    def kube_configs(self) -> pulumi.Output[List['outputs.KubernetesClusterKubeConfig']]:
+    def kube_configs(self) -> pulumi.Output[Sequence['outputs.KubernetesClusterKubeConfig']]:
         """
         A `kube_config` block as defined below.
         """
@@ -368,7 +368,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kubeletIdentities")
-    def kubelet_identities(self) -> pulumi.Output[List['outputs.KubernetesClusterKubeletIdentity']]:
+    def kubelet_identities(self) -> pulumi.Output[Sequence['outputs.KubernetesClusterKubeletIdentity']]:
         """
         A `kubelet_identity` block as defined below.
         """

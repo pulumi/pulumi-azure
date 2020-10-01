@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,9 +17,9 @@ class FailoverGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 databases: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 partner_servers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]]] = None,
+                 partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]]] = None,
                  read_write_endpoint_failover_policy: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']]] = None,
                  readonly_endpoint_failover_policy: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -69,9 +69,9 @@ class FailoverGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A read/write policy as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] readonly_endpoint_failover_policy: a read-only policy as documented below
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server
@@ -123,10 +123,10 @@ class FailoverGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            databases: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            partner_servers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]]] = None,
+            partner_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]]] = None,
             read_write_endpoint_failover_policy: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']]] = None,
             readonly_endpoint_failover_policy: Optional[pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -140,10 +140,10 @@ class FailoverGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
         :param pulumi.Input[str] location: the location of the failover group.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A read/write policy as documented below
         :param pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] readonly_endpoint_failover_policy: a read-only policy as documented below
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server
@@ -169,7 +169,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def databases(self) -> pulumi.Output[Optional[List[str]]]:
+    def databases(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of database ids to add to the failover group
         """
@@ -193,7 +193,7 @@ class FailoverGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partnerServers")
-    def partner_servers(self) -> pulumi.Output[List['outputs.FailoverGroupPartnerServer']]:
+    def partner_servers(self) -> pulumi.Output[Sequence['outputs.FailoverGroupPartnerServer']]:
         """
         A list of secondary servers as documented below
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -17,12 +17,12 @@ __all__ = [
 class ServerStorageProfile(dict):
     def __init__(__self__, *,
                  auto_grow: Optional[str] = None,
-                 backup_retention_days: Optional[float] = None,
+                 backup_retention_days: Optional[int] = None,
                  geo_redundant_backup: Optional[str] = None,
-                 storage_mb: Optional[float] = None):
+                 storage_mb: Optional[int] = None):
         """
-        :param float backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
-        :param float storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        :param int backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
+        :param int storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         """
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
@@ -40,7 +40,7 @@ class ServerStorageProfile(dict):
 
     @property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[float]:
+    def backup_retention_days(self) -> Optional[int]:
         """
         Backup retention days for the server, supported values are between `7` and `35` days.
         """
@@ -53,7 +53,7 @@ class ServerStorageProfile(dict):
 
     @property
     @pulumi.getter(name="storageMb")
-    def storage_mb(self) -> Optional[float]:
+    def storage_mb(self) -> Optional[int]:
         """
         Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         """
@@ -67,14 +67,14 @@ class ServerStorageProfile(dict):
 class GetMariaDbServerStorageProfileResult(dict):
     def __init__(__self__, *,
                  auto_grow: str,
-                 backup_retention_days: float,
+                 backup_retention_days: int,
                  geo_redundant_backup: str,
-                 storage_mb: float):
+                 storage_mb: int):
         """
         :param str auto_grow: Whether autogrow is enabled or disabled for the storage.
-        :param float backup_retention_days: Backup retention days for the server.
+        :param int backup_retention_days: Backup retention days for the server.
         :param str geo_redundant_backup: Whether Geo-redundant is enabled or not for server backup.
-        :param float storage_mb: The max storage allowed for a server.
+        :param int storage_mb: The max storage allowed for a server.
         """
         pulumi.set(__self__, "auto_grow", auto_grow)
         pulumi.set(__self__, "backup_retention_days", backup_retention_days)
@@ -91,7 +91,7 @@ class GetMariaDbServerStorageProfileResult(dict):
 
     @property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> float:
+    def backup_retention_days(self) -> int:
         """
         Backup retention days for the server.
         """
@@ -107,7 +107,7 @@ class GetMariaDbServerStorageProfileResult(dict):
 
     @property
     @pulumi.getter(name="storageMb")
-    def storage_mb(self) -> float:
+    def storage_mb(self) -> int:
         """
         The max storage allowed for a server.
         """

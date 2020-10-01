@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ReplicationPolicy']
@@ -15,9 +15,9 @@ class ReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+                 application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 recovery_point_retention_in_minutes: Optional[pulumi.Input[float]] = None,
+                 recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -46,9 +46,9 @@ class ReplicationPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
+        :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
         :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[float] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
         """
@@ -92,9 +92,9 @@ class ReplicationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[float]] = None,
+            application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            recovery_point_retention_in_minutes: Optional[pulumi.Input[float]] = None,
+            recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
             recovery_vault_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'ReplicationPolicy':
         """
@@ -104,9 +104,9 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
+        :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
         :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[float] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
+        :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
         """
@@ -123,7 +123,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInMinutes")
-    def application_consistent_snapshot_frequency_in_minutes(self) -> pulumi.Output[float]:
+    def application_consistent_snapshot_frequency_in_minutes(self) -> pulumi.Output[int]:
         """
         Specifies the frequency(in minutes) at which to create application consistent recovery points.
         """
@@ -139,7 +139,7 @@ class ReplicationPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryPointRetentionInMinutes")
-    def recovery_point_retention_in_minutes(self) -> pulumi.Output[float]:
+    def recovery_point_retention_in_minutes(self) -> pulumi.Output[int]:
         """
         The duration in minutes for which the recovery points need to be stored.
         """

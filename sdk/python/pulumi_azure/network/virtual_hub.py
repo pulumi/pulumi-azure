@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class VirtualHub(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -53,7 +53,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
@@ -101,7 +101,7 @@ class VirtualHub(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_wan_id: Optional[pulumi.Input[str]] = None) -> 'VirtualHub':
         """
@@ -115,7 +115,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
@@ -166,7 +166,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[Optional[List['outputs.VirtualHubRoute']]]:
+    def routes(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualHubRoute']]]:
         """
         One or more `route` blocks as defined below.
         """

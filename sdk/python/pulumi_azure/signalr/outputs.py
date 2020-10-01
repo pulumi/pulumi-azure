@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -17,15 +17,15 @@ __all__ = [
 @pulumi.output_type
 class ServiceCor(dict):
     def __init__(__self__, *,
-                 allowed_origins: List[str]):
+                 allowed_origins: Sequence[str]):
         """
-        :param List[str] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        :param Sequence[str] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> List[str]:
+    def allowed_origins(self) -> Sequence[str]:
         """
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
@@ -70,10 +70,10 @@ class ServiceFeature(dict):
 @pulumi.output_type
 class ServiceSku(dict):
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  name: str):
         """
-        :param float capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        :param int capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
         :param str name: Specifies which tier to use. Valid values are `Free_F1` and `Standard_S1`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -81,7 +81,7 @@ class ServiceSku(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
         """

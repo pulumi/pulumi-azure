@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -20,59 +20,59 @@ __all__ = [
 @pulumi.input_type
 class SparkPoolAutoPauseArgs:
     def __init__(__self__, *,
-                 delay_in_minutes: pulumi.Input[float]):
+                 delay_in_minutes: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] delay_in_minutes: Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
+        :param pulumi.Input[int] delay_in_minutes: Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
         """
         pulumi.set(__self__, "delay_in_minutes", delay_in_minutes)
 
     @property
     @pulumi.getter(name="delayInMinutes")
-    def delay_in_minutes(self) -> pulumi.Input[float]:
+    def delay_in_minutes(self) -> pulumi.Input[int]:
         """
         Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
         """
         return pulumi.get(self, "delay_in_minutes")
 
     @delay_in_minutes.setter
-    def delay_in_minutes(self, value: pulumi.Input[float]):
+    def delay_in_minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "delay_in_minutes", value)
 
 
 @pulumi.input_type
 class SparkPoolAutoScaleArgs:
     def __init__(__self__, *,
-                 max_node_count: pulumi.Input[float],
-                 min_node_count: pulumi.Input[float]):
+                 max_node_count: pulumi.Input[int],
+                 min_node_count: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] max_node_count: The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
-        :param pulumi.Input[float] min_node_count: The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+        :param pulumi.Input[int] max_node_count: The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
+        :param pulumi.Input[int] min_node_count: The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
         """
         pulumi.set(__self__, "max_node_count", max_node_count)
         pulumi.set(__self__, "min_node_count", min_node_count)
 
     @property
     @pulumi.getter(name="maxNodeCount")
-    def max_node_count(self) -> pulumi.Input[float]:
+    def max_node_count(self) -> pulumi.Input[int]:
         """
         The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
         """
         return pulumi.get(self, "max_node_count")
 
     @max_node_count.setter
-    def max_node_count(self, value: pulumi.Input[float]):
+    def max_node_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_node_count", value)
 
     @property
     @pulumi.getter(name="minNodeCount")
-    def min_node_count(self) -> pulumi.Input[float]:
+    def min_node_count(self) -> pulumi.Input[int]:
         """
         The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
         """
         return pulumi.get(self, "min_node_count")
 
     @min_node_count.setter
-    def min_node_count(self, value: pulumi.Input[float]):
+    def min_node_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_node_count", value)
 
 

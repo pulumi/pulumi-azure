@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -20,8 +20,8 @@ class GetAppServiceEnvironmentResult:
     A collection of values returned by getAppServiceEnvironment.
     """
     def __init__(__self__, front_end_scale_factor=None, id=None, internal_ip_address=None, location=None, name=None, outbound_ip_addresses=None, pricing_tier=None, resource_group_name=None, service_ip_address=None, tags=None):
-        if front_end_scale_factor and not isinstance(front_end_scale_factor, float):
-            raise TypeError("Expected argument 'front_end_scale_factor' to be a float")
+        if front_end_scale_factor and not isinstance(front_end_scale_factor, int):
+            raise TypeError("Expected argument 'front_end_scale_factor' to be a int")
         pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -53,7 +53,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="frontEndScaleFactor")
-    def front_end_scale_factor(self) -> float:
+    def front_end_scale_factor(self) -> int:
         """
         The number of app instances per App Service Environment Front End
         """
@@ -90,7 +90,7 @@ class GetAppServiceEnvironmentResult:
 
     @property
     @pulumi.getter(name="outboundIpAddresses")
-    def outbound_ip_addresses(self) -> List[str]:
+    def outbound_ip_addresses(self) -> Sequence[str]:
         """
         Outbound IP addresses of the App Service Environment.
         """

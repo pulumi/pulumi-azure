@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -73,7 +73,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="connectorEndpointIpAddresses")
-    def connector_endpoint_ip_addresses(self) -> List[str]:
+    def connector_endpoint_ip_addresses(self) -> Sequence[str]:
         """
         The list of access endpoint ip addresses of connector.
         """
@@ -81,7 +81,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="connectorOutboundIpAddresses")
-    def connector_outbound_ip_addresses(self) -> List[str]:
+    def connector_outbound_ip_addresses(self) -> Sequence[str]:
         """
         The list of outgoing ip addresses of connector.
         """
@@ -139,7 +139,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="workflowEndpointIpAddresses")
-    def workflow_endpoint_ip_addresses(self) -> List[str]:
+    def workflow_endpoint_ip_addresses(self) -> Sequence[str]:
         """
         The list of access endpoint ip addresses of workflow.
         """
@@ -147,7 +147,7 @@ class GetWorkflowResult:
 
     @property
     @pulumi.getter(name="workflowOutboundIpAddresses")
-    def workflow_outbound_ip_addresses(self) -> List[str]:
+    def workflow_outbound_ip_addresses(self) -> Sequence[str]:
         """
         The list of outgoing ip addresses of workflow.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -22,7 +22,7 @@ class GetRecommendationsRecommendationResult(dict):
                  recommendation_type_id: str,
                  resource_name: str,
                  resource_type: str,
-                 suppression_names: List[str],
+                 suppression_names: Sequence[str],
                  updated_time: str):
         """
         :param str category: The category of the recommendation.
@@ -32,7 +32,7 @@ class GetRecommendationsRecommendationResult(dict):
         :param str recommendation_type_id: The recommendation type id of the Advisor Recommendation.
         :param str resource_name: The name of the identified resource of the Advisor Recommendation.
         :param str resource_type: The type of the identified resource of the Advisor Recommendation.
-        :param List[str] suppression_names: A list of Advisor Suppression names of the Advisor Recommendation.
+        :param Sequence[str] suppression_names: A list of Advisor Suppression names of the Advisor Recommendation.
         :param str updated_time: The most recent time that Advisor checked the validity of the recommendation..
         """
         pulumi.set(__self__, "category", category)
@@ -103,7 +103,7 @@ class GetRecommendationsRecommendationResult(dict):
 
     @property
     @pulumi.getter(name="suppressionNames")
-    def suppression_names(self) -> List[str]:
+    def suppression_names(self) -> Sequence[str]:
         """
         A list of Advisor Suppression names of the Advisor Recommendation.
         """

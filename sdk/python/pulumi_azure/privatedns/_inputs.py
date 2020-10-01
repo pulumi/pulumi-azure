@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -103,10 +103,10 @@ class LinkServiceNatIpConfigurationArgs:
 class MxRecordRecordArgs:
     def __init__(__self__, *,
                  exchange: pulumi.Input[str],
-                 preference: pulumi.Input[float]):
+                 preference: pulumi.Input[int]):
         """
         :param pulumi.Input[str] exchange: The FQDN of the exchange to MX record points to.
-        :param pulumi.Input[float] preference: The preference of the MX record.
+        :param pulumi.Input[int] preference: The preference of the MX record.
         """
         pulumi.set(__self__, "exchange", exchange)
         pulumi.set(__self__, "preference", preference)
@@ -125,29 +125,29 @@ class MxRecordRecordArgs:
 
     @property
     @pulumi.getter
-    def preference(self) -> pulumi.Input[float]:
+    def preference(self) -> pulumi.Input[int]:
         """
         The preference of the MX record.
         """
         return pulumi.get(self, "preference")
 
     @preference.setter
-    def preference(self, value: pulumi.Input[float]):
+    def preference(self, value: pulumi.Input[int]):
         pulumi.set(self, "preference", value)
 
 
 @pulumi.input_type
 class SRVRecordRecordArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
-                 priority: pulumi.Input[float],
+                 port: pulumi.Input[int],
+                 priority: pulumi.Input[int],
                  target: pulumi.Input[str],
-                 weight: pulumi.Input[float]):
+                 weight: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] port: The Port the service is listening on.
-        :param pulumi.Input[float] priority: The priority of the SRV record.
+        :param pulumi.Input[int] port: The Port the service is listening on.
+        :param pulumi.Input[int] priority: The priority of the SRV record.
         :param pulumi.Input[str] target: The FQDN of the service.
-        :param pulumi.Input[float] weight: The Weight of the SRV record.
+        :param pulumi.Input[int] weight: The Weight of the SRV record.
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "priority", priority)
@@ -156,26 +156,26 @@ class SRVRecordRecordArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         The Port the service is listening on.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Input[float]:
+    def priority(self) -> pulumi.Input[int]:
         """
         The priority of the SRV record.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: pulumi.Input[float]):
+    def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -192,14 +192,14 @@ class SRVRecordRecordArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> pulumi.Input[float]:
+    def weight(self) -> pulumi.Input[int]:
         """
         The Weight of the SRV record.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: pulumi.Input[float]):
+    def weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "weight", value)
 
 

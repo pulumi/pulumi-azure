@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -50,7 +50,7 @@ class GetRoleDefinitionResult:
 
     @property
     @pulumi.getter(name="assignableScopes")
-    def assignable_scopes(self) -> List[str]:
+    def assignable_scopes(self) -> Sequence[str]:
         return pulumi.get(self, "assignable_scopes")
 
     @property
@@ -73,7 +73,7 @@ class GetRoleDefinitionResult:
 
     @property
     @pulumi.getter
-    def permissions(self) -> List['outputs.GetRoleDefinitionPermissionResult']:
+    def permissions(self) -> Sequence['outputs.GetRoleDefinitionPermissionResult']:
         return pulumi.get(self, "permissions")
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -111,12 +111,12 @@ class PoolCertificate(dict):
                  id: str,
                  store_location: str,
                  store_name: Optional[str] = None,
-                 visibilities: Optional[List[str]] = None):
+                 visibilities: Optional[Sequence[str]] = None):
         """
         :param str id: The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
         :param str store_location: The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
         :param str store_name: The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
-        :param List[str] visibilities: Which user accounts on the compute node should have access to the private data of the certificate.
+        :param Sequence[str] visibilities: Which user accounts on the compute node should have access to the private data of the certificate.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "store_location", store_location)
@@ -151,7 +151,7 @@ class PoolCertificate(dict):
 
     @property
     @pulumi.getter
-    def visibilities(self) -> Optional[List[str]]:
+    def visibilities(self) -> Optional[Sequence[str]]:
         """
         Which user accounts on the compute node should have access to the private data of the certificate.
         """
@@ -164,12 +164,12 @@ class PoolCertificate(dict):
 @pulumi.output_type
 class PoolContainerConfiguration(dict):
     def __init__(__self__, *,
-                 container_image_names: Optional[List[str]] = None,
-                 container_registries: Optional[List['outputs.PoolContainerConfigurationContainerRegistry']] = None,
+                 container_image_names: Optional[Sequence[str]] = None,
+                 container_registries: Optional[Sequence['outputs.PoolContainerConfigurationContainerRegistry']] = None,
                  type: Optional[str] = None):
         """
-        :param List[str] container_image_names: A list of container image names to use, as would be specified by `docker pull`.
-        :param List['PoolContainerConfigurationContainerRegistryArgs'] container_registries: Additional container registries from which container images can be pulled by the pool's VMs.
+        :param Sequence[str] container_image_names: A list of container image names to use, as would be specified by `docker pull`.
+        :param Sequence['PoolContainerConfigurationContainerRegistryArgs'] container_registries: Additional container registries from which container images can be pulled by the pool's VMs.
         :param str type: The type of container configuration. Possible value is `DockerCompatible`.
         """
         if container_image_names is not None:
@@ -181,7 +181,7 @@ class PoolContainerConfiguration(dict):
 
     @property
     @pulumi.getter(name="containerImageNames")
-    def container_image_names(self) -> Optional[List[str]]:
+    def container_image_names(self) -> Optional[Sequence[str]]:
         """
         A list of container image names to use, as would be specified by `docker pull`.
         """
@@ -189,7 +189,7 @@ class PoolContainerConfiguration(dict):
 
     @property
     @pulumi.getter(name="containerRegistries")
-    def container_registries(self) -> Optional[List['outputs.PoolContainerConfigurationContainerRegistry']]:
+    def container_registries(self) -> Optional[Sequence['outputs.PoolContainerConfigurationContainerRegistry']]:
         """
         Additional container registries from which container images can be pulled by the pool's VMs.
         """
@@ -254,12 +254,12 @@ class PoolContainerConfigurationContainerRegistry(dict):
 class PoolFixedScale(dict):
     def __init__(__self__, *,
                  resize_timeout: Optional[str] = None,
-                 target_dedicated_nodes: Optional[float] = None,
-                 target_low_priority_nodes: Optional[float] = None):
+                 target_dedicated_nodes: Optional[int] = None,
+                 target_low_priority_nodes: Optional[int] = None):
         """
         :param str resize_timeout: The timeout for resize operations. Defaults to `PT15M`.
-        :param float target_dedicated_nodes: The number of nodes in the Batch pool. Defaults to `1`.
-        :param float target_low_priority_nodes: The number of low priority nodes in the Batch pool. Defaults to `0`.
+        :param int target_dedicated_nodes: The number of nodes in the Batch pool. Defaults to `1`.
+        :param int target_low_priority_nodes: The number of low priority nodes in the Batch pool. Defaults to `0`.
         """
         if resize_timeout is not None:
             pulumi.set(__self__, "resize_timeout", resize_timeout)
@@ -278,7 +278,7 @@ class PoolFixedScale(dict):
 
     @property
     @pulumi.getter(name="targetDedicatedNodes")
-    def target_dedicated_nodes(self) -> Optional[float]:
+    def target_dedicated_nodes(self) -> Optional[int]:
         """
         The number of nodes in the Batch pool. Defaults to `1`.
         """
@@ -286,7 +286,7 @@ class PoolFixedScale(dict):
 
     @property
     @pulumi.getter(name="targetLowPriorityNodes")
-    def target_low_priority_nodes(self) -> Optional[float]:
+    def target_low_priority_nodes(self) -> Optional[int]:
         """
         The number of low priority nodes in the Batch pool. Defaults to `0`.
         """
@@ -300,12 +300,12 @@ class PoolFixedScale(dict):
 class PoolNetworkConfiguration(dict):
     def __init__(__self__, *,
                  subnet_id: str,
-                 endpoint_configurations: Optional[List['outputs.PoolNetworkConfigurationEndpointConfiguration']] = None,
-                 public_ips: Optional[List[str]] = None):
+                 endpoint_configurations: Optional[Sequence['outputs.PoolNetworkConfigurationEndpointConfiguration']] = None,
+                 public_ips: Optional[Sequence[str]] = None):
         """
         :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
-        :param List['PoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
-        :param List[str] public_ips: A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
+        :param Sequence['PoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        :param Sequence[str] public_ips: A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if endpoint_configurations is not None:
@@ -323,7 +323,7 @@ class PoolNetworkConfiguration(dict):
 
     @property
     @pulumi.getter(name="endpointConfigurations")
-    def endpoint_configurations(self) -> Optional[List['outputs.PoolNetworkConfigurationEndpointConfiguration']]:
+    def endpoint_configurations(self) -> Optional[Sequence['outputs.PoolNetworkConfigurationEndpointConfiguration']]:
         """
         A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         """
@@ -331,7 +331,7 @@ class PoolNetworkConfiguration(dict):
 
     @property
     @pulumi.getter(name="publicIps")
-    def public_ips(self) -> Optional[List[str]]:
+    def public_ips(self) -> Optional[Sequence[str]]:
         """
         A list of public ip ids that will be allocated to nodes. Changing this forces a new resource to be created.
         """
@@ -344,17 +344,17 @@ class PoolNetworkConfiguration(dict):
 @pulumi.output_type
 class PoolNetworkConfigurationEndpointConfiguration(dict):
     def __init__(__self__, *,
-                 backend_port: float,
+                 backend_port: int,
                  frontend_port_range: str,
                  name: str,
                  protocol: str,
-                 network_security_group_rules: Optional[List['outputs.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule']] = None):
+                 network_security_group_rules: Optional[Sequence['outputs.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule']] = None):
         """
-        :param float backend_port: The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
+        :param int backend_port: The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
         :param str frontend_port_range: The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
         :param str name: The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
         :param str protocol: The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
-        :param List['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs'] network_security_group_rules: A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        :param Sequence['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs'] network_security_group_rules: A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_port_range", frontend_port_range)
@@ -365,7 +365,7 @@ class PoolNetworkConfigurationEndpointConfiguration(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> float:
+    def backend_port(self) -> int:
         """
         The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
         """
@@ -397,7 +397,7 @@ class PoolNetworkConfigurationEndpointConfiguration(dict):
 
     @property
     @pulumi.getter(name="networkSecurityGroupRules")
-    def network_security_group_rules(self) -> Optional[List['outputs.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule']]:
+    def network_security_group_rules(self) -> Optional[Sequence['outputs.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule']]:
         """
         A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
         """
@@ -411,11 +411,11 @@ class PoolNetworkConfigurationEndpointConfiguration(dict):
 class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict):
     def __init__(__self__, *,
                  access: str,
-                 priority: float,
+                 priority: int,
                  source_address_prefix: str):
         """
         :param str access: The action that should be taken for a specified IP address, subnet range or tag. Acceptable values are `Allow` and `Deny`. Changing this forces a new resource to be created.
-        :param float priority: The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
+        :param int priority: The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
         :param str source_address_prefix: The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "access", access)
@@ -432,7 +432,7 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         """
         The priority for this rule. The value must be at least `150`. Changing this forces a new resource to be created.
         """
@@ -456,15 +456,15 @@ class PoolStartTask(dict):
                  command_line: str,
                  user_identity: 'outputs.PoolStartTaskUserIdentity',
                  environment: Optional[Mapping[str, str]] = None,
-                 max_task_retry_count: Optional[float] = None,
-                 resource_files: Optional[List['outputs.PoolStartTaskResourceFile']] = None,
+                 max_task_retry_count: Optional[int] = None,
+                 resource_files: Optional[Sequence['outputs.PoolStartTaskResourceFile']] = None,
                  wait_for_success: Optional[bool] = None):
         """
         :param str command_line: The command line executed by the start task.
         :param 'PoolStartTaskUserIdentityArgs' user_identity: A `user_identity` block that describes the user identity under which the start task runs.
         :param Mapping[str, str] environment: A map of strings (key,value) that represents the environment variables to set in the start task.
-        :param float max_task_retry_count: The number of retry count. Defaults to `1`.
-        :param List['PoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        :param int max_task_retry_count: The number of retry count. Defaults to `1`.
+        :param Sequence['PoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
         pulumi.set(__self__, "command_line", command_line)
@@ -504,7 +504,7 @@ class PoolStartTask(dict):
 
     @property
     @pulumi.getter(name="maxTaskRetryCount")
-    def max_task_retry_count(self) -> Optional[float]:
+    def max_task_retry_count(self) -> Optional[int]:
         """
         The number of retry count. Defaults to `1`.
         """
@@ -512,7 +512,7 @@ class PoolStartTask(dict):
 
     @property
     @pulumi.getter(name="resourceFiles")
-    def resource_files(self) -> Optional[List['outputs.PoolStartTaskResourceFile']]:
+    def resource_files(self) -> Optional[Sequence['outputs.PoolStartTaskResourceFile']]:
         """
         One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         """
@@ -816,12 +816,12 @@ class GetPoolCertificateResult(dict):
                  id: str,
                  store_location: str,
                  store_name: Optional[str] = None,
-                 visibilities: Optional[List[str]] = None):
+                 visibilities: Optional[Sequence[str]] = None):
         """
         :param str id: The fully qualified ID of the certificate installed on the pool.
         :param str store_location: The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
         :param str store_name: The name of the certificate store on the compute node into which the certificate is installed.
-        :param List[str] visibilities: Which user accounts on the compute node have access to the private data of the certificate.
+        :param Sequence[str] visibilities: Which user accounts on the compute node have access to the private data of the certificate.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "store_location", store_location)
@@ -856,7 +856,7 @@ class GetPoolCertificateResult(dict):
 
     @property
     @pulumi.getter
-    def visibilities(self) -> Optional[List[str]]:
+    def visibilities(self) -> Optional[Sequence[str]]:
         """
         Which user accounts on the compute node have access to the private data of the certificate.
         """
@@ -866,12 +866,12 @@ class GetPoolCertificateResult(dict):
 @pulumi.output_type
 class GetPoolContainerConfigurationResult(dict):
     def __init__(__self__, *,
-                 container_image_names: List[str],
-                 container_registries: List['outputs.GetPoolContainerConfigurationContainerRegistryResult'],
+                 container_image_names: Sequence[str],
+                 container_registries: Sequence['outputs.GetPoolContainerConfigurationContainerRegistryResult'],
                  type: str):
         """
-        :param List[str] container_image_names: A list of container image names to use, as would be specified by `docker pull`.
-        :param List['GetPoolContainerConfigurationContainerRegistryArgs'] container_registries: Additional container registries from which container images can be pulled by the pool's VMs.
+        :param Sequence[str] container_image_names: A list of container image names to use, as would be specified by `docker pull`.
+        :param Sequence['GetPoolContainerConfigurationContainerRegistryArgs'] container_registries: Additional container registries from which container images can be pulled by the pool's VMs.
         :param str type: The type of container configuration.
         """
         pulumi.set(__self__, "container_image_names", container_image_names)
@@ -880,7 +880,7 @@ class GetPoolContainerConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="containerImageNames")
-    def container_image_names(self) -> List[str]:
+    def container_image_names(self) -> Sequence[str]:
         """
         A list of container image names to use, as would be specified by `docker pull`.
         """
@@ -888,7 +888,7 @@ class GetPoolContainerConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="containerRegistries")
-    def container_registries(self) -> List['outputs.GetPoolContainerConfigurationContainerRegistryResult']:
+    def container_registries(self) -> Sequence['outputs.GetPoolContainerConfigurationContainerRegistryResult']:
         """
         Additional container registries from which container images can be pulled by the pool's VMs.
         """
@@ -947,12 +947,12 @@ class GetPoolContainerConfigurationContainerRegistryResult(dict):
 class GetPoolFixedScaleResult(dict):
     def __init__(__self__, *,
                  resize_timeout: str,
-                 target_dedicated_nodes: float,
-                 target_low_priority_nodes: float):
+                 target_dedicated_nodes: int,
+                 target_low_priority_nodes: int):
         """
         :param str resize_timeout: The timeout for resize operations.
-        :param float target_dedicated_nodes: The number of nodes in the Batch pool.
-        :param float target_low_priority_nodes: The number of low priority nodes in the Batch pool.
+        :param int target_dedicated_nodes: The number of nodes in the Batch pool.
+        :param int target_low_priority_nodes: The number of low priority nodes in the Batch pool.
         """
         pulumi.set(__self__, "resize_timeout", resize_timeout)
         pulumi.set(__self__, "target_dedicated_nodes", target_dedicated_nodes)
@@ -968,7 +968,7 @@ class GetPoolFixedScaleResult(dict):
 
     @property
     @pulumi.getter(name="targetDedicatedNodes")
-    def target_dedicated_nodes(self) -> float:
+    def target_dedicated_nodes(self) -> int:
         """
         The number of nodes in the Batch pool.
         """
@@ -976,7 +976,7 @@ class GetPoolFixedScaleResult(dict):
 
     @property
     @pulumi.getter(name="targetLowPriorityNodes")
-    def target_low_priority_nodes(self) -> float:
+    def target_low_priority_nodes(self) -> int:
         """
         The number of low priority nodes in the Batch pool.
         """
@@ -1015,16 +1015,16 @@ class GetPoolNetworkConfigurationResult(dict):
 @pulumi.output_type
 class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
     def __init__(__self__, *,
-                 backend_port: float,
+                 backend_port: int,
                  frontend_port_range: str,
                  name: str,
-                 network_security_group_rules: List['outputs.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult'],
+                 network_security_group_rules: Sequence['outputs.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult'],
                  protocol: str):
         """
-        :param float backend_port: The port number on the compute node.
+        :param int backend_port: The port number on the compute node.
         :param str frontend_port_range: The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
         :param str name: The name of the endpoint.
-        :param List['GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs'] network_security_group_rules: The list of network security group rules that are applied to the endpoint.
+        :param Sequence['GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs'] network_security_group_rules: The list of network security group rules that are applied to the endpoint.
         :param str protocol: The protocol of the endpoint.
         """
         pulumi.set(__self__, "backend_port", backend_port)
@@ -1035,7 +1035,7 @@ class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> float:
+    def backend_port(self) -> int:
         """
         The port number on the compute node.
         """
@@ -1059,7 +1059,7 @@ class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="networkSecurityGroupRules")
-    def network_security_group_rules(self) -> List['outputs.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult']:
+    def network_security_group_rules(self) -> Sequence['outputs.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult']:
         """
         The list of network security group rules that are applied to the endpoint.
         """
@@ -1078,11 +1078,11 @@ class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
 class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult(dict):
     def __init__(__self__, *,
                  access: str,
-                 priority: float,
+                 priority: int,
                  source_address_prefix: str):
         """
         :param str access: The action that should be taken for a specified IP address, subnet range or tag.
-        :param float priority: The priority for this rule.
+        :param int priority: The priority for this rule.
         :param str source_address_prefix: The source address prefix or tag to match for the rule.
         """
         pulumi.set(__self__, "access", access)
@@ -1099,7 +1099,7 @@ class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleRe
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         """
         The priority for this rule.
         """
@@ -1118,17 +1118,17 @@ class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleRe
 class GetPoolStartTaskResult(dict):
     def __init__(__self__, *,
                  command_line: str,
-                 resource_files: List['outputs.GetPoolStartTaskResourceFileResult'],
-                 user_identities: List['outputs.GetPoolStartTaskUserIdentityResult'],
+                 resource_files: Sequence['outputs.GetPoolStartTaskResourceFileResult'],
+                 user_identities: Sequence['outputs.GetPoolStartTaskUserIdentityResult'],
                  environment: Optional[Mapping[str, str]] = None,
-                 max_task_retry_count: Optional[float] = None,
+                 max_task_retry_count: Optional[int] = None,
                  wait_for_success: Optional[bool] = None):
         """
         :param str command_line: The command line executed by the start task.
-        :param List['GetPoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
-        :param List['GetPoolStartTaskUserIdentityArgs'] user_identities: A `user_identity` block that describes the user identity under which the start task runs.
+        :param Sequence['GetPoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        :param Sequence['GetPoolStartTaskUserIdentityArgs'] user_identities: A `user_identity` block that describes the user identity under which the start task runs.
         :param Mapping[str, str] environment: A map of strings (key,value) that represents the environment variables to set in the start task.
-        :param float max_task_retry_count: The number of retry count.
+        :param int max_task_retry_count: The number of retry count.
         :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed.
         """
         pulumi.set(__self__, "command_line", command_line)
@@ -1151,7 +1151,7 @@ class GetPoolStartTaskResult(dict):
 
     @property
     @pulumi.getter(name="resourceFiles")
-    def resource_files(self) -> List['outputs.GetPoolStartTaskResourceFileResult']:
+    def resource_files(self) -> Sequence['outputs.GetPoolStartTaskResourceFileResult']:
         """
         One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         """
@@ -1159,7 +1159,7 @@ class GetPoolStartTaskResult(dict):
 
     @property
     @pulumi.getter(name="userIdentities")
-    def user_identities(self) -> List['outputs.GetPoolStartTaskUserIdentityResult']:
+    def user_identities(self) -> Sequence['outputs.GetPoolStartTaskUserIdentityResult']:
         """
         A `user_identity` block that describes the user identity under which the start task runs.
         """
@@ -1175,7 +1175,7 @@ class GetPoolStartTaskResult(dict):
 
     @property
     @pulumi.getter(name="maxTaskRetryCount")
-    def max_task_retry_count(self) -> Optional[float]:
+    def max_task_retry_count(self) -> Optional[int]:
         """
         The number of retry count.
         """
@@ -1266,10 +1266,10 @@ class GetPoolStartTaskResourceFileResult(dict):
 @pulumi.output_type
 class GetPoolStartTaskUserIdentityResult(dict):
     def __init__(__self__, *,
-                 auto_users: List['outputs.GetPoolStartTaskUserIdentityAutoUserResult'],
+                 auto_users: Sequence['outputs.GetPoolStartTaskUserIdentityAutoUserResult'],
                  user_name: str):
         """
-        :param List['GetPoolStartTaskUserIdentityAutoUserArgs'] auto_users: A `auto_user` block that describes the user identity under which the start task runs.
+        :param Sequence['GetPoolStartTaskUserIdentityAutoUserArgs'] auto_users: A `auto_user` block that describes the user identity under which the start task runs.
         :param str user_name: The user name to log into the registry server.
         """
         pulumi.set(__self__, "auto_users", auto_users)
@@ -1277,7 +1277,7 @@ class GetPoolStartTaskUserIdentityResult(dict):
 
     @property
     @pulumi.getter(name="autoUsers")
-    def auto_users(self) -> List['outputs.GetPoolStartTaskUserIdentityAutoUserResult']:
+    def auto_users(self) -> Sequence['outputs.GetPoolStartTaskUserIdentityAutoUserResult']:
         """
         A `auto_user` block that describes the user identity under which the start task runs.
         """

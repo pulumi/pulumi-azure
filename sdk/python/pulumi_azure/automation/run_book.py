@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class RunBook(pulumi.CustomResource):
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 job_schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]]] = None,
+                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_progress: Optional[pulumi.Input[bool]] = None,
                  log_verbose: Optional[pulumi.Input[bool]] = None,
@@ -125,7 +125,7 @@ class RunBook(pulumi.CustomResource):
             automation_account_name: Optional[pulumi.Input[str]] = None,
             content: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            job_schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]]] = None,
+            job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             log_progress: Optional[pulumi.Input[bool]] = None,
             log_verbose: Optional[pulumi.Input[bool]] = None,
@@ -197,7 +197,7 @@ class RunBook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobSchedules")
-    def job_schedules(self) -> pulumi.Output[List['outputs.RunBookJobSchedule']]:
+    def job_schedules(self) -> pulumi.Output[Sequence['outputs.RunBookJobSchedule']]:
         return pulumi.get(self, "job_schedules")
 
     @property

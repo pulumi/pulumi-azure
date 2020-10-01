@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,9 +17,9 @@ class ReplicatedVM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]]] = None,
+                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]]] = None,
                  recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -39,9 +39,9 @@ class ReplicatedVM(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block.
         :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
         :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication.
@@ -112,9 +112,9 @@ class ReplicatedVM(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            managed_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]]] = None,
+            managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_interfaces: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]]] = None,
             recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
             recovery_vault_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -133,9 +133,9 @@ class ReplicatedVM(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMManagedDiskArgs']]]] managed_disks: One or more `managed_disk` block.
         :param pulumi.Input[str] name: The name of the network mapping.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatedVMNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` block.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
         :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication.
@@ -169,7 +169,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedDisks")
-    def managed_disks(self) -> pulumi.Output[Optional[List['outputs.ReplicatedVMManagedDisk']]]:
+    def managed_disks(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicatedVMManagedDisk']]]:
         """
         One or more `managed_disk` block.
         """
@@ -185,7 +185,7 @@ class ReplicatedVM(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> pulumi.Output[List['outputs.ReplicatedVMNetworkInterface']]:
+    def network_interfaces(self) -> pulumi.Output[Sequence['outputs.ReplicatedVMNetworkInterface']]:
         """
         One or more `network_interface` block.
         """

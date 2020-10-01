@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,7 +24,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  retention_policy: Optional[pulumi.Input[pulumi.InputType['NetworkWatcherFlowLogRetentionPolicyArgs']]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  traffic_analytics: Optional[pulumi.Input[pulumi.InputType['NetworkWatcherFlowLogTrafficAnalyticsArgs']]] = None,
-                 version: Optional[pulumi.Input[float]] = None,
+                 version: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -83,7 +83,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkWatcherFlowLogRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[pulumi.InputType['NetworkWatcherFlowLogTrafficAnalyticsArgs']] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[float] version: The version (revision) of the flow log. Possible values are `1` and `2`.
+        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,7 +139,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             retention_policy: Optional[pulumi.Input[pulumi.InputType['NetworkWatcherFlowLogRetentionPolicyArgs']]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             traffic_analytics: Optional[pulumi.Input[pulumi.InputType['NetworkWatcherFlowLogTrafficAnalyticsArgs']]] = None,
-            version: Optional[pulumi.Input[float]] = None) -> 'NetworkWatcherFlowLog':
+            version: Optional[pulumi.Input[int]] = None) -> 'NetworkWatcherFlowLog':
         """
         Get an existing NetworkWatcherFlowLog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -154,7 +154,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkWatcherFlowLogRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[pulumi.InputType['NetworkWatcherFlowLogTrafficAnalyticsArgs']] traffic_analytics: A `traffic_analytics` block as documented below.
-        :param pulumi.Input[float] version: The version (revision) of the flow log. Possible values are `1` and `2`.
+        :param pulumi.Input[int] version: The version (revision) of the flow log. Possible values are `1` and `2`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -228,7 +228,7 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[float]:
+    def version(self) -> pulumi.Output[int]:
         """
         The version (revision) of the flow log. Possible values are `1` and `2`.
         """

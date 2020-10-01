@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -22,8 +22,8 @@ class GetServiceBusNamespaceResult:
     A collection of values returned by getServiceBusNamespace.
     """
     def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, id=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, zone_redundant=None):
-        if capacity and not isinstance(capacity, float):
-            raise TypeError("Expected argument 'capacity' to be a float")
+        if capacity and not isinstance(capacity, int):
+            raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
         if default_primary_connection_string and not isinstance(default_primary_connection_string, str):
             raise TypeError("Expected argument 'default_primary_connection_string' to be a str")
@@ -61,7 +61,7 @@ class GetServiceBusNamespaceResult:
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The capacity of the ServiceBus Namespace.
         """

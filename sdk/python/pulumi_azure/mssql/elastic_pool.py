@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class ElasticPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 max_size_bytes: Optional[pulumi.Input[float]] = None,
+                 max_size_bytes: Optional[pulumi.Input[int]] = None,
                  max_size_gb: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
@@ -69,7 +69,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: A `per_database_settings` block as defined below.
@@ -127,7 +127,7 @@ class ElasticPool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            max_size_bytes: Optional[pulumi.Input[float]] = None,
+            max_size_bytes: Optional[pulumi.Input[int]] = None,
             max_size_gb: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
             per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
@@ -145,7 +145,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: A `per_database_settings` block as defined below.
@@ -190,7 +190,7 @@ class ElasticPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> pulumi.Output[float]:
+    def max_size_bytes(self) -> pulumi.Output[int]:
         """
         The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         """

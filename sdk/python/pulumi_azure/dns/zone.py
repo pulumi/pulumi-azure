@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Zone']
@@ -76,10 +76,10 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            max_number_of_record_sets: Optional[pulumi.Input[float]] = None,
+            max_number_of_record_sets: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            number_of_record_sets: Optional[pulumi.Input[float]] = None,
+            name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            number_of_record_sets: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Zone':
         """
@@ -89,10 +89,10 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] max_number_of_record_sets: (Optional) Maximum number of Records in the zone. Defaults to `1000`.
+        :param pulumi.Input[int] max_number_of_record_sets: (Optional) Maximum number of Records in the zone. Defaults to `1000`.
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.
-        :param pulumi.Input[List[pulumi.Input[str]]] name_servers: (Optional) A list of values that make up the NS record for the zone.
-        :param pulumi.Input[float] number_of_record_sets: (Optional) The number of records already in the zone.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: (Optional) A list of values that make up the NS record for the zone.
+        :param pulumi.Input[int] number_of_record_sets: (Optional) The number of records already in the zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -110,7 +110,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> pulumi.Output[float]:
+    def max_number_of_record_sets(self) -> pulumi.Output[int]:
         """
         (Optional) Maximum number of Records in the zone. Defaults to `1000`.
         """
@@ -126,7 +126,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[List[str]]:
+    def name_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         (Optional) A list of values that make up the NS record for the zone.
         """
@@ -134,7 +134,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> pulumi.Output[float]:
+    def number_of_record_sets(self) -> pulumi.Output[int]:
         """
         (Optional) The number of records already in the zone.
         """

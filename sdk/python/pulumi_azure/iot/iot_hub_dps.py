@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class IotHubDps(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_hubs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
+                 linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -47,7 +47,7 @@ class IotHubDps(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
@@ -98,7 +98,7 @@ class IotHubDps(pulumi.CustomResource):
             allocation_policy: Optional[pulumi.Input[str]] = None,
             device_provisioning_host_name: Optional[pulumi.Input[str]] = None,
             id_scope: Optional[pulumi.Input[str]] = None,
-            linked_hubs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
+            linked_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class IotHubDps(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_policy: The allocation policy of the IoT Device Provisioning Service.
         :param pulumi.Input[str] device_provisioning_host_name: The device endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[str] id_scope: The unique identifier of the IoT Device Provisioning Service.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IotHubDpsLinkedHubArgs']]]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
@@ -165,7 +165,7 @@ class IotHubDps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="linkedHubs")
-    def linked_hubs(self) -> pulumi.Output[Optional[List['outputs.IotHubDpsLinkedHub']]]:
+    def linked_hubs(self) -> pulumi.Output[Optional[Sequence['outputs.IotHubDpsLinkedHub']]]:
         """
         A `linked_hub` block as defined below.
         """

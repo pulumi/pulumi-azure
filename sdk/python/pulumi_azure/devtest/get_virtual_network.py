@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -45,7 +45,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="allowedSubnets")
-    def allowed_subnets(self) -> List['outputs.GetVirtualNetworkAllowedSubnetResult']:
+    def allowed_subnets(self) -> Sequence['outputs.GetVirtualNetworkAllowedSubnetResult']:
         """
         The list of subnets enabled for the virtual network as defined below.
         """
@@ -76,7 +76,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="subnetOverrides")
-    def subnet_overrides(self) -> List['outputs.GetVirtualNetworkSubnetOverrideResult']:
+    def subnet_overrides(self) -> Sequence['outputs.GetVirtualNetworkSubnetOverrideResult']:
         """
         The list of permission overrides for the subnets as defined below.
         """

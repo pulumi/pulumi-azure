@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -108,7 +108,7 @@ class Profile(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             container_network_interface: Optional[pulumi.Input[pulumi.InputType['ProfileContainerNetworkInterfaceArgs']]] = None,
-            container_network_interface_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            container_network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ProfileContainerNetworkInterfaceArgs']] container_network_interface: A `container_network_interface` block as documented below.
-        :param pulumi.Input[List[pulumi.Input[str]]] container_network_interface_ids: A list of Container Network Interface ID's.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_network_interface_ids: A list of Container Network Interface ID's.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Network Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
@@ -149,7 +149,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerNetworkInterfaceIds")
-    def container_network_interface_ids(self) -> pulumi.Output[List[str]]:
+    def container_network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of Container Network Interface ID's.
         """

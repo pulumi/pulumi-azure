@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -188,7 +188,7 @@ class Certificate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate: Optional[pulumi.Input[pulumi.InputType['CertificateCertificateArgs']]] = None,
-            certificate_attributes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateCertificateAttributeArgs']]]]] = None,
+            certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateCertificateAttributeArgs']]]]] = None,
             certificate_data: Optional[pulumi.Input[str]] = None,
             certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
@@ -205,7 +205,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CertificateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CertificateCertificateAttributeArgs']]]] certificate_attributes: A `certificate_attribute` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateCertificateAttributeArgs']]]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
@@ -241,7 +241,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateAttributes")
-    def certificate_attributes(self) -> pulumi.Output[List['outputs.CertificateCertificateAttribute']]:
+    def certificate_attributes(self) -> pulumi.Output[Sequence['outputs.CertificateCertificateAttribute']]:
         """
         A `certificate_attribute` block as defined below.
         """

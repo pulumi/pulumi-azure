@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,7 +24,7 @@ class Module(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  stamp_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -107,7 +107,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -159,7 +159,7 @@ class Module(pulumi.CustomResource):
             sku_name: Optional[pulumi.Input[str]] = None,
             stamp_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'Module':
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Module':
         """
         Get an existing Module resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -174,7 +174,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -248,7 +248,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
         """

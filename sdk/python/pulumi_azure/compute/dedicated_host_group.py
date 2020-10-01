@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['DedicatedHostGroup']
@@ -17,7 +17,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform_fault_domain_count: Optional[pulumi.Input[float]] = None,
+                 platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
@@ -44,7 +44,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
@@ -88,7 +88,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            platform_fault_domain_count: Optional[pulumi.Input[float]] = None,
+            platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zones: Optional[pulumi.Input[str]] = None) -> 'DedicatedHostGroup':
@@ -101,7 +101,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
@@ -136,7 +136,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
-    def platform_fault_domain_count(self) -> pulumi.Output[float]:
+    def platform_fault_domain_count(self) -> pulumi.Output[int]:
         """
         The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         """

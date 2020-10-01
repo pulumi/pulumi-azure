@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -93,7 +93,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
-    def capabilities(self) -> List['outputs.GetAccountCapabilityResult']:
+    def capabilities(self) -> Sequence['outputs.GetAccountCapabilityResult']:
         """
         Capabilities enabled on this Cosmos DB account.
         """
@@ -101,7 +101,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="consistencyPolicies")
-    def consistency_policies(self) -> List['outputs.GetAccountConsistencyPolicyResult']:
+    def consistency_policies(self) -> Sequence['outputs.GetAccountConsistencyPolicyResult']:
         return pulumi.get(self, "consistency_policies")
 
     @property
@@ -138,7 +138,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="geoLocations")
-    def geo_locations(self) -> List['outputs.GetAccountGeoLocationResult']:
+    def geo_locations(self) -> Sequence['outputs.GetAccountGeoLocationResult']:
         return pulumi.get(self, "geo_locations")
 
     @property
@@ -212,7 +212,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="readEndpoints")
-    def read_endpoints(self) -> List[str]:
+    def read_endpoints(self) -> Sequence[str]:
         """
         A list of read endpoints available for this CosmosDB account.
         """
@@ -249,7 +249,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> List['outputs.GetAccountVirtualNetworkRuleResult']:
+    def virtual_network_rules(self) -> Sequence['outputs.GetAccountVirtualNetworkRuleResult']:
         """
         Subnets that are allowed to access this CosmosDB account.
         """
@@ -257,7 +257,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="writeEndpoints")
-    def write_endpoints(self) -> List[str]:
+    def write_endpoints(self) -> Sequence[str]:
         """
         A list of write endpoints available for this CosmosDB account.
         """

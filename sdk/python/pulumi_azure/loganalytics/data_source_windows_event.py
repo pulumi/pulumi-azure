@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['DataSourceWindowsEvent']
@@ -16,7 +16,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_log_name: Optional[pulumi.Input[str]] = None,
-                 event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -47,7 +47,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_log_name: Specifies the name of the Windows Event Log to collect events from.
-        :param pulumi.Input[List[pulumi.Input[str]]] event_types: Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         :param pulumi.Input[str] workspace_name: The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
@@ -93,7 +93,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             event_log_name: Optional[pulumi.Input[str]] = None,
-            event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             workspace_name: Optional[pulumi.Input[str]] = None) -> 'DataSourceWindowsEvent':
@@ -105,7 +105,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_log_name: Specifies the name of the Windows Event Log to collect events from.
-        :param pulumi.Input[List[pulumi.Input[str]]] event_types: Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
         :param pulumi.Input[str] workspace_name: The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
@@ -131,7 +131,7 @@ class DataSourceWindowsEvent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventTypes")
-    def event_types(self) -> pulumi.Output[List[str]]:
+    def event_types(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
         """

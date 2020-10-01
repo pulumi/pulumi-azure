@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -38,7 +38,7 @@ class GetAccessPolicyResult:
 
     @property
     @pulumi.getter(name="certificatePermissions")
-    def certificate_permissions(self) -> List[str]:
+    def certificate_permissions(self) -> Sequence[str]:
         """
         the certificate permissions for the access policy
         """
@@ -54,7 +54,7 @@ class GetAccessPolicyResult:
 
     @property
     @pulumi.getter(name="keyPermissions")
-    def key_permissions(self) -> List[str]:
+    def key_permissions(self) -> Sequence[str]:
         """
         the key permissions for the access policy
         """
@@ -67,7 +67,7 @@ class GetAccessPolicyResult:
 
     @property
     @pulumi.getter(name="secretPermissions")
-    def secret_permissions(self) -> List[str]:
+    def secret_permissions(self) -> Sequence[str]:
         """
         the secret permissions for the access policy
         """

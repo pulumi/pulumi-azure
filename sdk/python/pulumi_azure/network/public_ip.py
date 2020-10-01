@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['PublicIp']
@@ -17,7 +17,7 @@ class PublicIp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_method: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -53,7 +53,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
@@ -114,7 +114,7 @@ class PublicIp(pulumi.CustomResource):
             allocation_method: Optional[pulumi.Input[str]] = None,
             domain_name_label: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
-            idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
+            idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             ip_version: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
-        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[str] ip_address: The IP address value that was allocated.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -195,7 +195,7 @@ class PublicIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[float]]:
+    def idle_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         """

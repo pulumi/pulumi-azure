@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -54,7 +54,7 @@ class GetSubscriptionsResult:
 
     @property
     @pulumi.getter
-    def subscriptions(self) -> List['outputs.GetSubscriptionsSubscriptionResult']:
+    def subscriptions(self) -> Sequence['outputs.GetSubscriptionsSubscriptionResult']:
         """
         One or more `subscription` blocks as defined below.
         """

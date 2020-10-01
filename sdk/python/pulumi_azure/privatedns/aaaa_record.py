@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AAAARecord']
@@ -16,10 +16,10 @@ class AAAARecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ttl: Optional[pulumi.Input[float]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -48,7 +48,7 @@ class AAAARecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS A Record.
-        :param pulumi.Input[List[pulumi.Input[str]]] records: A list of IPv6 Addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A list of IPv6 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -97,10 +97,10 @@ class AAAARecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            ttl: Optional[pulumi.Input[float]] = None,
+            ttl: Optional[pulumi.Input[int]] = None,
             zone_name: Optional[pulumi.Input[str]] = None) -> 'AAAARecord':
         """
         Get an existing AAAARecord resource's state with the given name, id, and optional extra
@@ -111,7 +111,7 @@ class AAAARecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS AAAA Record.
         :param pulumi.Input[str] name: The name of the DNS A Record.
-        :param pulumi.Input[List[pulumi.Input[str]]] records: A list of IPv6 Addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A list of IPv6 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -147,7 +147,7 @@ class AAAARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def records(self) -> pulumi.Output[List[str]]:
+    def records(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of IPv6 Addresses.
         """
@@ -171,7 +171,7 @@ class AAAARecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output[float]:
+    def ttl(self) -> pulumi.Output[int]:
         return pulumi.get(self, "ttl")
 
     @property

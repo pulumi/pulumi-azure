@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AttachedDatabaseConfiguration']
@@ -81,7 +81,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attached_database_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            attached_database_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             cluster_resource_id: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] attached_database_names: The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] attached_database_names: The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
@@ -121,7 +121,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attachedDatabaseNames")
-    def attached_database_names(self) -> pulumi.Output[List[str]]:
+    def attached_database_names(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
         """

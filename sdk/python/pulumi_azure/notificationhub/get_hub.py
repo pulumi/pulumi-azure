@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -48,7 +48,7 @@ class GetHubResult:
 
     @property
     @pulumi.getter(name="apnsCredentials")
-    def apns_credentials(self) -> List['outputs.GetHubApnsCredentialResult']:
+    def apns_credentials(self) -> Sequence['outputs.GetHubApnsCredentialResult']:
         """
         A `apns_credential` block as defined below.
         """
@@ -56,7 +56,7 @@ class GetHubResult:
 
     @property
     @pulumi.getter(name="gcmCredentials")
-    def gcm_credentials(self) -> List['outputs.GetHubGcmCredentialResult']:
+    def gcm_credentials(self) -> Sequence['outputs.GetHubGcmCredentialResult']:
         """
         A `gcm_credential` block as defined below.
         """

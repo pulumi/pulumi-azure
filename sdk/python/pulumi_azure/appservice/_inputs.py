@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -88,7 +88,7 @@ class AppServiceAuthSettingsArgs:
                  enabled: pulumi.Input[bool],
                  active_directory: Optional[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArgs']] = None,
                  additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 allowed_external_redirect_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  facebook: Optional[pulumi.Input['AppServiceAuthSettingsFacebookArgs']] = None,
                  google: Optional[pulumi.Input['AppServiceAuthSettingsGoogleArgs']] = None,
@@ -103,7 +103,7 @@ class AppServiceAuthSettingsArgs:
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
         :param pulumi.Input['AppServiceAuthSettingsActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['AppServiceAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['AppServiceAuthSettingsGoogleArgs'] google: A `google` block as defined below.
@@ -181,14 +181,14 @@ class AppServiceAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
-    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         External URLs that can be redirected to as part of logging in or logging out of the app.
         """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
     @allowed_external_redirect_urls.setter
-    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_external_redirect_urls", value)
 
     @property
@@ -316,11 +316,11 @@ class AppServiceAuthSettingsArgs:
 class AppServiceAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
-                 allowed_audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_id: The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         :param pulumi.Input[str] client_secret: The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -343,14 +343,14 @@ class AppServiceAuthSettingsActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="allowedAudiences")
-    def allowed_audiences(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         """
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
-    def allowed_audiences(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
 
     @property
@@ -371,11 +371,11 @@ class AppServiceAuthSettingsFacebookArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
         :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -408,14 +408,14 @@ class AppServiceAuthSettingsFacebookArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -424,11 +424,11 @@ class AppServiceAuthSettingsGoogleArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -461,14 +461,14 @@ class AppServiceAuthSettingsGoogleArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -477,11 +477,11 @@ class AppServiceAuthSettingsMicrosoftArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -514,14 +514,14 @@ class AppServiceAuthSettingsMicrosoftArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -623,16 +623,16 @@ class AppServiceBackupArgs:
 @pulumi.input_type
 class AppServiceBackupScheduleArgs:
     def __init__(__self__, *,
-                 frequency_interval: pulumi.Input[float],
+                 frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
                  keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
-                 retention_period_in_days: Optional[pulumi.Input[float]] = None,
+                 retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] frequency_interval: Sets how often the backup should be executed.
+        :param pulumi.Input[int] frequency_interval: Sets how often the backup should be executed.
         :param pulumi.Input[str] frequency_unit: Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
         :param pulumi.Input[bool] keep_at_least_one_backup: Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
-        :param pulumi.Input[float] retention_period_in_days: Specifies the number of days after which Backups should be deleted.
+        :param pulumi.Input[int] retention_period_in_days: Specifies the number of days after which Backups should be deleted.
         :param pulumi.Input[str] start_time: Sets when the schedule should start working.
         """
         pulumi.set(__self__, "frequency_interval", frequency_interval)
@@ -646,14 +646,14 @@ class AppServiceBackupScheduleArgs:
 
     @property
     @pulumi.getter(name="frequencyInterval")
-    def frequency_interval(self) -> pulumi.Input[float]:
+    def frequency_interval(self) -> pulumi.Input[int]:
         """
         Sets how often the backup should be executed.
         """
         return pulumi.get(self, "frequency_interval")
 
     @frequency_interval.setter
-    def frequency_interval(self, value: pulumi.Input[float]):
+    def frequency_interval(self, value: pulumi.Input[int]):
         pulumi.set(self, "frequency_interval", value)
 
     @property
@@ -682,14 +682,14 @@ class AppServiceBackupScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> Optional[pulumi.Input[float]]:
+    def retention_period_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of days after which Backups should be deleted.
         """
         return pulumi.get(self, "retention_period_in_days")
 
     @retention_period_in_days.setter
-    def retention_period_in_days(self, value: Optional[pulumi.Input[float]]):
+    def retention_period_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_period_in_days", value)
 
     @property
@@ -761,12 +761,12 @@ class AppServiceConnectionStringArgs:
 class AppServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 identity_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
@@ -792,14 +792,14 @@ class AppServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
@@ -905,11 +905,11 @@ class AppServiceLogsApplicationLogsArgs:
 class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
                  level: pulumi.Input[str],
-                 retention_in_days: pulumi.Input[float],
+                 retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
         """
         :param pulumi.Input[str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
-        :param pulumi.Input[float] retention_in_days: The number of days to retain logs for.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for.
         :param pulumi.Input[str] sas_url: The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
         """
         pulumi.set(__self__, "level", level)
@@ -930,14 +930,14 @@ class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Input[float]:
+    def retention_in_days(self) -> pulumi.Input[int]:
         """
         The number of days to retain logs for.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: pulumi.Input[float]):
+    def retention_in_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_days", value)
 
     @property
@@ -995,10 +995,10 @@ class AppServiceLogsHttpLogsArgs:
 @pulumi.input_type
 class AppServiceLogsHttpLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
-                 retention_in_days: pulumi.Input[float],
+                 retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[float] retention_in_days: The number of days to retain logs for.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for.
         :param pulumi.Input[str] sas_url: The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -1006,14 +1006,14 @@ class AppServiceLogsHttpLogsAzureBlobStorageArgs:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Input[float]:
+    def retention_in_days(self) -> pulumi.Input[int]:
         """
         The number of days to retain logs for.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: pulumi.Input[float]):
+    def retention_in_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_days", value)
 
     @property
@@ -1032,37 +1032,37 @@ class AppServiceLogsHttpLogsAzureBlobStorageArgs:
 @pulumi.input_type
 class AppServiceLogsHttpLogsFileSystemArgs:
     def __init__(__self__, *,
-                 retention_in_days: pulumi.Input[float],
-                 retention_in_mb: pulumi.Input[float]):
+                 retention_in_days: pulumi.Input[int],
+                 retention_in_mb: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] retention_in_days: The number of days to retain logs for.
-        :param pulumi.Input[float] retention_in_mb: The maximum size in megabytes that http log files can use before being removed.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for.
+        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that http log files can use before being removed.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "retention_in_mb", retention_in_mb)
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Input[float]:
+    def retention_in_days(self) -> pulumi.Input[int]:
         """
         The number of days to retain logs for.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: pulumi.Input[float]):
+    def retention_in_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_days", value)
 
     @property
     @pulumi.getter(name="retentionInMb")
-    def retention_in_mb(self) -> pulumi.Input[float]:
+    def retention_in_mb(self) -> pulumi.Input[int]:
         """
         The maximum size in megabytes that http log files can use before being removed.
         """
         return pulumi.get(self, "retention_in_mb")
 
     @retention_in_mb.setter
-    def retention_in_mb(self, value: pulumi.Input[float]):
+    def retention_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_mb", value)
 
 
@@ -1073,12 +1073,12 @@ class AppServiceSiteConfigArgs:
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  cors: Optional[pulumi.Input['AppServiceSiteConfigCorsArgs']] = None,
-                 default_documents: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[List[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]] = None,
                  java_container: Optional[pulumi.Input[str]] = None,
                  java_container_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
@@ -1090,7 +1090,7 @@ class AppServiceSiteConfigArgs:
                  python_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[List[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -1100,12 +1100,12 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[bool] always_on: Should the app be loaded at all times? Defaults to `false`.
         :param pulumi.Input[str] app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param pulumi.Input['AppServiceSiteConfigCorsArgs'] cors: A `cors` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[str] health_check_path: The health check path to be pinged by App Service. [For more information - please see the corresponding Kudu Wiki page](https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)).
         :param pulumi.Input[bool] http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
         :param pulumi.Input[str] java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
         :param pulumi.Input[str] java_container_version: The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
         :param pulumi.Input[str] java_version: The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
@@ -1117,7 +1117,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
-        :param pulumi.Input[List[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         :param pulumi.Input[str] scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -1226,14 +1226,14 @@ class AppServiceSiteConfigArgs:
 
     @property
     @pulumi.getter(name="defaultDocuments")
-    def default_documents(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The ordering of default documents to load, if an address isn't specified.
         """
         return pulumi.get(self, "default_documents")
 
     @default_documents.setter
-    def default_documents(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "default_documents", value)
 
     @property
@@ -1286,14 +1286,14 @@ class AppServiceSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]]:
         """
         A list of objects representing ip restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -1430,14 +1430,14 @@ class AppServiceSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -1504,10 +1504,10 @@ class AppServiceSiteConfigArgs:
 @pulumi.input_type
 class AppServiceSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[List[pulumi.Input[str]]],
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         :param pulumi.Input[bool] support_credentials: Are credentials supported?
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
@@ -1516,14 +1516,14 @@ class AppServiceSiteConfigCorsArgs:
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -1545,14 +1545,14 @@ class AppServiceSiteConfigIpRestrictionArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
-        :param pulumi.Input[float] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -1609,14 +1609,14 @@ class AppServiceSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -1647,14 +1647,14 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to Allow.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
-        :param pulumi.Input[float] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -1711,14 +1711,14 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -2044,7 +2044,7 @@ class FunctionAppAuthSettingsArgs:
                  enabled: pulumi.Input[bool],
                  active_directory: Optional[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArgs']] = None,
                  additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 allowed_external_redirect_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  facebook: Optional[pulumi.Input['FunctionAppAuthSettingsFacebookArgs']] = None,
                  google: Optional[pulumi.Input['FunctionAppAuthSettingsGoogleArgs']] = None,
@@ -2059,7 +2059,7 @@ class FunctionAppAuthSettingsArgs:
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
         :param pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['FunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['FunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
@@ -2137,14 +2137,14 @@ class FunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
-    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         External URLs that can be redirected to as part of logging in or logging out of the app.
         """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
     @allowed_external_redirect_urls.setter
-    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_external_redirect_urls", value)
 
     @property
@@ -2272,11 +2272,11 @@ class FunctionAppAuthSettingsArgs:
 class FunctionAppAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
-                 allowed_audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_id: The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         :param pulumi.Input[str] client_secret: The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -2299,14 +2299,14 @@ class FunctionAppAuthSettingsActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="allowedAudiences")
-    def allowed_audiences(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         """
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
-    def allowed_audiences(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
 
     @property
@@ -2327,11 +2327,11 @@ class FunctionAppAuthSettingsFacebookArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
         :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -2364,14 +2364,14 @@ class FunctionAppAuthSettingsFacebookArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -2380,11 +2380,11 @@ class FunctionAppAuthSettingsGoogleArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -2417,14 +2417,14 @@ class FunctionAppAuthSettingsGoogleArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -2433,11 +2433,11 @@ class FunctionAppAuthSettingsMicrosoftArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -2470,14 +2470,14 @@ class FunctionAppAuthSettingsMicrosoftArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -2564,12 +2564,12 @@ class FunctionAppConnectionStringArgs:
 class FunctionAppIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 identity_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
@@ -2595,14 +2595,14 @@ class FunctionAppIdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
@@ -2638,11 +2638,11 @@ class FunctionAppSiteConfigArgs:
                  cors: Optional[pulumi.Input['FunctionAppSiteConfigCorsArgs']] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[List[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
-                 pre_warmed_instance_count: Optional[pulumi.Input[float]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[List[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -2652,11 +2652,11 @@ class FunctionAppSiteConfigArgs:
         :param pulumi.Input['FunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
-        :param pulumi.Input[float] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
-        :param pulumi.Input[List[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         :param pulumi.Input[str] scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (dafault), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
         :param pulumi.Input[bool] scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to false.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
@@ -2750,14 +2750,14 @@ class FunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -2786,26 +2786,26 @@ class FunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="preWarmedInstanceCount")
-    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         """
         return pulumi.get(self, "pre_warmed_instance_count")
 
     @pre_warmed_instance_count.setter
-    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "pre_warmed_instance_count", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -2860,10 +2860,10 @@ class FunctionAppSiteConfigArgs:
 @pulumi.input_type
 class FunctionAppSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[List[pulumi.Input[str]]],
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         :param pulumi.Input[bool] support_credentials: Are credentials supported?
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
@@ -2872,14 +2872,14 @@ class FunctionAppSiteConfigCorsArgs:
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -2901,14 +2901,14 @@ class FunctionAppSiteConfigIpRestrictionArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
-        :param pulumi.Input[float] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -2965,14 +2965,14 @@ class FunctionAppSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -3003,14 +3003,14 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to Allow.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
-        :param pulumi.Input[float] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -3067,14 +3067,14 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -3144,7 +3144,7 @@ class FunctionAppSlotAuthSettingsArgs:
                  enabled: pulumi.Input[bool],
                  active_directory: Optional[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
                  additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 allowed_external_redirect_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  facebook: Optional[pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgs']] = None,
                  google: Optional[pulumi.Input['FunctionAppSlotAuthSettingsGoogleArgs']] = None,
@@ -3159,7 +3159,7 @@ class FunctionAppSlotAuthSettingsArgs:
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
         :param pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['FunctionAppSlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
@@ -3237,14 +3237,14 @@ class FunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
-    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         External URLs that can be redirected to as part of logging in or logging out of the app.
         """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
     @allowed_external_redirect_urls.setter
-    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_external_redirect_urls", value)
 
     @property
@@ -3372,11 +3372,11 @@ class FunctionAppSlotAuthSettingsArgs:
 class FunctionAppSlotAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
-                 allowed_audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_id: The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         :param pulumi.Input[str] client_secret: The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -3399,14 +3399,14 @@ class FunctionAppSlotAuthSettingsActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="allowedAudiences")
-    def allowed_audiences(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         """
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
-    def allowed_audiences(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
 
     @property
@@ -3427,11 +3427,11 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
         :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -3464,14 +3464,14 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -3480,11 +3480,11 @@ class FunctionAppSlotAuthSettingsGoogleArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -3517,14 +3517,14 @@ class FunctionAppSlotAuthSettingsGoogleArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -3533,11 +3533,11 @@ class FunctionAppSlotAuthSettingsMicrosoftArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -3570,14 +3570,14 @@ class FunctionAppSlotAuthSettingsMicrosoftArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -3664,12 +3664,12 @@ class FunctionAppSlotConnectionStringArgs:
 class FunctionAppSlotIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 identity_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
@@ -3695,14 +3695,14 @@ class FunctionAppSlotIdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
@@ -3738,11 +3738,11 @@ class FunctionAppSlotSiteConfigArgs:
                  cors: Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArgs']] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[List[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
-                 pre_warmed_instance_count: Optional[pulumi.Input[float]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[List[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -3753,10 +3753,10 @@ class FunctionAppSlotSiteConfigArgs:
         :param pulumi.Input['FunctionAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
-        :param pulumi.Input[float] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+        :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param pulumi.Input[bool] use32_bit_worker_process: Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
         :param pulumi.Input[bool] websockets_enabled: Should WebSockets be enabled?
         """
@@ -3851,14 +3851,14 @@ class FunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -3887,23 +3887,23 @@ class FunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="preWarmedInstanceCount")
-    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def pre_warmed_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         """
         return pulumi.get(self, "pre_warmed_instance_count")
 
     @pre_warmed_instance_count.setter
-    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def pre_warmed_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "pre_warmed_instance_count", value)
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -3952,10 +3952,10 @@ class FunctionAppSlotSiteConfigArgs:
 @pulumi.input_type
 class FunctionAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[List[pulumi.Input[str]]],
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         :param pulumi.Input[bool] support_credentials: Are credentials supported?
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
@@ -3964,14 +3964,14 @@ class FunctionAppSlotSiteConfigCorsArgs:
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -3993,14 +3993,14 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
-        :param pulumi.Input[float] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -4057,14 +4057,14 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -4095,14 +4095,14 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -4159,14 +4159,14 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -4322,11 +4322,11 @@ class PlanSkuArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[str],
                  tier: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None):
+                 capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] size: Specifies the plan's instance size.
         :param pulumi.Input[str] tier: Specifies the plan's pricing tier.
-        :param pulumi.Input[float] capacity: Specifies the number of workers associated with this App Service Plan.
+        :param pulumi.Input[int] capacity: Specifies the number of workers associated with this App Service Plan.
         """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "tier", tier)
@@ -4359,14 +4359,14 @@ class PlanSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of workers associated with this App Service Plan.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
 
@@ -4376,7 +4376,7 @@ class SlotAuthSettingsArgs:
                  enabled: pulumi.Input[bool],
                  active_directory: Optional[pulumi.Input['SlotAuthSettingsActiveDirectoryArgs']] = None,
                  additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 allowed_external_redirect_urls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  facebook: Optional[pulumi.Input['SlotAuthSettingsFacebookArgs']] = None,
                  google: Optional[pulumi.Input['SlotAuthSettingsGoogleArgs']] = None,
@@ -4391,7 +4391,7 @@ class SlotAuthSettingsArgs:
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
         :param pulumi.Input['SlotAuthSettingsActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         :param pulumi.Input['SlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
         :param pulumi.Input['SlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
@@ -4469,14 +4469,14 @@ class SlotAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
-    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_external_redirect_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         External URLs that can be redirected to as part of logging in or logging out of the app.
         """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
     @allowed_external_redirect_urls.setter
-    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_external_redirect_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_external_redirect_urls", value)
 
     @property
@@ -4604,11 +4604,11 @@ class SlotAuthSettingsArgs:
 class SlotAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
-                 allowed_audiences: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_id: The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         :param pulumi.Input[str] client_secret: The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -4631,14 +4631,14 @@ class SlotAuthSettingsActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="allowedAudiences")
-    def allowed_audiences(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         """
         return pulumi.get(self, "allowed_audiences")
 
     @allowed_audiences.setter
-    def allowed_audiences(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def allowed_audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_audiences", value)
 
     @property
@@ -4659,11 +4659,11 @@ class SlotAuthSettingsFacebookArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] app_id: The App ID of the Facebook app used for login
         :param pulumi.Input[str] app_secret: The App Secret of the Facebook app used for Facebook Login.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "app_secret", app_secret)
@@ -4696,14 +4696,14 @@ class SlotAuthSettingsFacebookArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication. https://developers.facebook.com/docs/facebook-login
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -4712,11 +4712,11 @@ class SlotAuthSettingsGoogleArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The OpenID Connect Client ID for the Google web application.
         :param pulumi.Input[str] client_secret: The client secret associated with the Google web application.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -4749,14 +4749,14 @@ class SlotAuthSettingsGoogleArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -4765,11 +4765,11 @@ class SlotAuthSettingsMicrosoftArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
-                 oauth_scopes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] client_id: The OAuth 2.0 client ID that was created for the app used for authentication.
         :param pulumi.Input[str] client_secret: The OAuth 2.0 client secret that was created for the app used for authentication.
-        :param pulumi.Input[List[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -4802,14 +4802,14 @@ class SlotAuthSettingsMicrosoftArgs:
 
     @property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
         """
         return pulumi.get(self, "oauth_scopes")
 
     @oauth_scopes.setter
-    def oauth_scopes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
 
@@ -4896,12 +4896,12 @@ class SlotConnectionStringArgs:
 class SlotIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 identity_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -4925,14 +4925,14 @@ class SlotIdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
@@ -5036,11 +5036,11 @@ class SlotLogsApplicationLogsArgs:
 class SlotLogsApplicationLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
                  level: pulumi.Input[str],
-                 retention_in_days: pulumi.Input[float],
+                 retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
         """
         :param pulumi.Input[str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
-        :param pulumi.Input[float] retention_in_days: The number of days to retain logs for.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for.
         :param pulumi.Input[str] sas_url: The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
         """
         pulumi.set(__self__, "level", level)
@@ -5061,14 +5061,14 @@ class SlotLogsApplicationLogsAzureBlobStorageArgs:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Input[float]:
+    def retention_in_days(self) -> pulumi.Input[int]:
         """
         The number of days to retain logs for.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: pulumi.Input[float]):
+    def retention_in_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_days", value)
 
     @property
@@ -5126,10 +5126,10 @@ class SlotLogsHttpLogsArgs:
 @pulumi.input_type
 class SlotLogsHttpLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
-                 retention_in_days: pulumi.Input[float],
+                 retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[float] retention_in_days: The number of days to retain logs for.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for.
         :param pulumi.Input[str] sas_url: The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -5137,14 +5137,14 @@ class SlotLogsHttpLogsAzureBlobStorageArgs:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Input[float]:
+    def retention_in_days(self) -> pulumi.Input[int]:
         """
         The number of days to retain logs for.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: pulumi.Input[float]):
+    def retention_in_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_days", value)
 
     @property
@@ -5163,37 +5163,37 @@ class SlotLogsHttpLogsAzureBlobStorageArgs:
 @pulumi.input_type
 class SlotLogsHttpLogsFileSystemArgs:
     def __init__(__self__, *,
-                 retention_in_days: pulumi.Input[float],
-                 retention_in_mb: pulumi.Input[float]):
+                 retention_in_days: pulumi.Input[int],
+                 retention_in_mb: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] retention_in_days: The number of days to retain logs for.
-        :param pulumi.Input[float] retention_in_mb: The maximum size in megabytes that http log files can use before being removed.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for.
+        :param pulumi.Input[int] retention_in_mb: The maximum size in megabytes that http log files can use before being removed.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "retention_in_mb", retention_in_mb)
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Input[float]:
+    def retention_in_days(self) -> pulumi.Input[int]:
         """
         The number of days to retain logs for.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: pulumi.Input[float]):
+    def retention_in_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_days", value)
 
     @property
     @pulumi.getter(name="retentionInMb")
-    def retention_in_mb(self) -> pulumi.Input[float]:
+    def retention_in_mb(self) -> pulumi.Input[int]:
         """
         The maximum size in megabytes that http log files can use before being removed.
         """
         return pulumi.get(self, "retention_in_mb")
 
     @retention_in_mb.setter
-    def retention_in_mb(self, value: pulumi.Input[float]):
+    def retention_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_mb", value)
 
 
@@ -5204,12 +5204,12 @@ class SlotSiteConfigArgs:
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  cors: Optional[pulumi.Input['SlotSiteConfigCorsArgs']] = None,
-                 default_documents: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[List[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]] = None,
                  java_container: Optional[pulumi.Input[str]] = None,
                  java_container_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
@@ -5221,7 +5221,7 @@ class SlotSiteConfigArgs:
                  python_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[List[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -5232,10 +5232,10 @@ class SlotSiteConfigArgs:
         :param pulumi.Input[str] app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
         :param pulumi.Input['SlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param pulumi.Input[bool] http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
         :param pulumi.Input[str] java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
         :param pulumi.Input[str] java_container_version: The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
         :param pulumi.Input[str] java_version: The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
@@ -5355,14 +5355,14 @@ class SlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="defaultDocuments")
-    def default_documents(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def default_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The ordering of default documents to load, if an address isn't specified.
         """
         return pulumi.get(self, "default_documents")
 
     @default_documents.setter
-    def default_documents(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def default_documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "default_documents", value)
 
     @property
@@ -5409,14 +5409,14 @@ class SlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]]:
         """
         A list of objects representing ip restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -5550,11 +5550,11 @@ class SlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[List[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[List[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -5615,10 +5615,10 @@ class SlotSiteConfigArgs:
 @pulumi.input_type
 class SlotSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[List[pulumi.Input[str]]],
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         :param pulumi.Input[bool] support_credentials: Are credentials supported?
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
@@ -5627,14 +5627,14 @@ class SlotSiteConfigCorsArgs:
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -5656,14 +5656,14 @@ class SlotSiteConfigIpRestrictionArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
-        :param pulumi.Input[float] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -5720,14 +5720,14 @@ class SlotSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -5758,14 +5758,14 @@ class SlotSiteConfigScmIpRestrictionArgs:
                  action: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
         """
         if action is not None:
@@ -5822,14 +5822,14 @@ class SlotSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[float]]:
+    def priority(self) -> Optional[pulumi.Input[int]]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[float]]):
+    def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
     @property

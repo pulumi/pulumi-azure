@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -123,19 +123,19 @@ class FirewallPolicyCustomRule(dict):
                  name: str,
                  type: str,
                  enabled: Optional[bool] = None,
-                 match_conditions: Optional[List['outputs.FirewallPolicyCustomRuleMatchCondition']] = None,
-                 priority: Optional[float] = None,
-                 rate_limit_duration_in_minutes: Optional[float] = None,
-                 rate_limit_threshold: Optional[float] = None):
+                 match_conditions: Optional[Sequence['outputs.FirewallPolicyCustomRuleMatchCondition']] = None,
+                 priority: Optional[int] = None,
+                 rate_limit_duration_in_minutes: Optional[int] = None,
+                 rate_limit_threshold: Optional[int] = None):
         """
         :param str action: The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
         :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param str type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param bool enabled: Is the rule is enabled or disabled? Defaults to `true`.
-        :param List['FirewallPolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block defined below.
-        :param float priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
-        :param float rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
-        :param float rate_limit_threshold: The rate limit threshold. Defaults to `10`.
+        :param Sequence['FirewallPolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block defined below.
+        :param int priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+        :param int rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
+        :param int rate_limit_threshold: The rate limit threshold. Defaults to `10`.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -185,7 +185,7 @@ class FirewallPolicyCustomRule(dict):
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Optional[List['outputs.FirewallPolicyCustomRuleMatchCondition']]:
+    def match_conditions(self) -> Optional[Sequence['outputs.FirewallPolicyCustomRuleMatchCondition']]:
         """
         One or more `match_condition` block defined below.
         """
@@ -193,7 +193,7 @@ class FirewallPolicyCustomRule(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
         """
@@ -201,7 +201,7 @@ class FirewallPolicyCustomRule(dict):
 
     @property
     @pulumi.getter(name="rateLimitDurationInMinutes")
-    def rate_limit_duration_in_minutes(self) -> Optional[float]:
+    def rate_limit_duration_in_minutes(self) -> Optional[int]:
         """
         The rate limit duration in minutes. Defaults to `1`.
         """
@@ -209,7 +209,7 @@ class FirewallPolicyCustomRule(dict):
 
     @property
     @pulumi.getter(name="rateLimitThreshold")
-    def rate_limit_threshold(self) -> Optional[float]:
+    def rate_limit_threshold(self) -> Optional[int]:
         """
         The rate limit threshold. Defaults to `10`.
         """
@@ -222,19 +222,19 @@ class FirewallPolicyCustomRule(dict):
 @pulumi.output_type
 class FirewallPolicyCustomRuleMatchCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  match_variable: str,
                  operator: str,
                  negation_condition: Optional[bool] = None,
                  selector: Optional[str] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: Up to `100` possible values to match.
+        :param Sequence[str] match_values: Up to `100` possible values to match.
         :param str match_variable: The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
         :param str operator: Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
         :param bool negation_condition: Should the result of the condition be negated.
         :param str selector: Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
-        :param List[str] transforms: Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
+        :param Sequence[str] transforms: Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "match_variable", match_variable)
@@ -248,7 +248,7 @@ class FirewallPolicyCustomRuleMatchCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         Up to `100` possible values to match.
         """
@@ -288,7 +288,7 @@ class FirewallPolicyCustomRuleMatchCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
         """
@@ -303,13 +303,13 @@ class FirewallPolicyManagedRule(dict):
     def __init__(__self__, *,
                  type: str,
                  version: str,
-                 exclusions: Optional[List['outputs.FirewallPolicyManagedRuleExclusion']] = None,
-                 overrides: Optional[List['outputs.FirewallPolicyManagedRuleOverride']] = None):
+                 exclusions: Optional[Sequence['outputs.FirewallPolicyManagedRuleExclusion']] = None,
+                 overrides: Optional[Sequence['outputs.FirewallPolicyManagedRuleOverride']] = None):
         """
         :param str type: The name of the managed rule to use with this resource.
         :param str version: The version on the managed rule to use with this resource.
-        :param List['FirewallPolicyManagedRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
-        :param List['FirewallPolicyManagedRuleOverrideArgs'] overrides: One or more `override` blocks as defined below.
+        :param Sequence['FirewallPolicyManagedRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FirewallPolicyManagedRuleOverrideArgs'] overrides: One or more `override` blocks as defined below.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "version", version)
@@ -336,7 +336,7 @@ class FirewallPolicyManagedRule(dict):
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[List['outputs.FirewallPolicyManagedRuleExclusion']]:
+    def exclusions(self) -> Optional[Sequence['outputs.FirewallPolicyManagedRuleExclusion']]:
         """
         One or more `exclusion` blocks as defined below.
         """
@@ -344,7 +344,7 @@ class FirewallPolicyManagedRule(dict):
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[List['outputs.FirewallPolicyManagedRuleOverride']]:
+    def overrides(self) -> Optional[Sequence['outputs.FirewallPolicyManagedRuleOverride']]:
         """
         One or more `override` blocks as defined below.
         """
@@ -401,12 +401,12 @@ class FirewallPolicyManagedRuleExclusion(dict):
 class FirewallPolicyManagedRuleOverride(dict):
     def __init__(__self__, *,
                  rule_group_name: str,
-                 exclusions: Optional[List['outputs.FirewallPolicyManagedRuleOverrideExclusion']] = None,
-                 rules: Optional[List['outputs.FirewallPolicyManagedRuleOverrideRule']] = None):
+                 exclusions: Optional[Sequence['outputs.FirewallPolicyManagedRuleOverrideExclusion']] = None,
+                 rules: Optional[Sequence['outputs.FirewallPolicyManagedRuleOverrideRule']] = None):
         """
         :param str rule_group_name: The managed rule group to override.
-        :param List['FirewallPolicyManagedRuleOverrideExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
-        :param List['FirewallPolicyManagedRuleOverrideRuleArgs'] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        :param Sequence['FirewallPolicyManagedRuleOverrideExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FirewallPolicyManagedRuleOverrideRuleArgs'] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -424,7 +424,7 @@ class FirewallPolicyManagedRuleOverride(dict):
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[List['outputs.FirewallPolicyManagedRuleOverrideExclusion']]:
+    def exclusions(self) -> Optional[Sequence['outputs.FirewallPolicyManagedRuleOverrideExclusion']]:
         """
         One or more `exclusion` blocks as defined below.
         """
@@ -432,7 +432,7 @@ class FirewallPolicyManagedRuleOverride(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.FirewallPolicyManagedRuleOverrideRule']]:
+    def rules(self) -> Optional[Sequence['outputs.FirewallPolicyManagedRuleOverrideRule']]:
         """
         One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         """
@@ -491,12 +491,12 @@ class FirewallPolicyManagedRuleOverrideRule(dict):
                  action: str,
                  rule_id: str,
                  enabled: Optional[bool] = None,
-                 exclusions: Optional[List['outputs.FirewallPolicyManagedRuleOverrideRuleExclusion']] = None):
+                 exclusions: Optional[Sequence['outputs.FirewallPolicyManagedRuleOverrideRuleExclusion']] = None):
         """
         :param str action: The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
         :param str rule_id: Identifier for the managed rule.
         :param bool enabled: Is the managed rule override enabled or disabled. Defaults to `false`
-        :param List['FirewallPolicyManagedRuleOverrideRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FirewallPolicyManagedRuleOverrideRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "rule_id", rule_id)
@@ -531,7 +531,7 @@ class FirewallPolicyManagedRuleOverrideRule(dict):
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[List['outputs.FirewallPolicyManagedRuleOverrideRuleExclusion']]:
+    def exclusions(self) -> Optional[Sequence['outputs.FirewallPolicyManagedRuleOverrideRuleExclusion']]:
         """
         One or more `exclusion` blocks as defined below.
         """
@@ -587,13 +587,13 @@ class FirewallPolicyManagedRuleOverrideRuleExclusion(dict):
 @pulumi.output_type
 class FrontdoorBackendPool(dict):
     def __init__(__self__, *,
-                 backends: List['outputs.FrontdoorBackendPoolBackend'],
+                 backends: Sequence['outputs.FrontdoorBackendPoolBackend'],
                  health_probe_name: str,
                  load_balancing_name: str,
                  name: str,
                  id: Optional[str] = None):
         """
-        :param List['FrontdoorBackendPoolBackendArgs'] backends: A `backend` block as defined below.
+        :param Sequence['FrontdoorBackendPoolBackendArgs'] backends: A `backend` block as defined below.
         :param str health_probe_name: Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
         :param str load_balancing_name: Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
         :param str name: Specifies the name of the Backend Pool.
@@ -608,7 +608,7 @@ class FrontdoorBackendPool(dict):
 
     @property
     @pulumi.getter
-    def backends(self) -> List['outputs.FrontdoorBackendPoolBackend']:
+    def backends(self) -> Sequence['outputs.FrontdoorBackendPoolBackend']:
         """
         A `backend` block as defined below.
         """
@@ -655,19 +655,19 @@ class FrontdoorBackendPoolBackend(dict):
     def __init__(__self__, *,
                  address: str,
                  host_header: str,
-                 http_port: float,
-                 https_port: float,
+                 http_port: int,
+                 https_port: int,
                  enabled: Optional[bool] = None,
-                 priority: Optional[float] = None,
-                 weight: Optional[float] = None):
+                 priority: Optional[int] = None,
+                 weight: Optional[int] = None):
         """
         :param str address: Location of the backend (IP address or FQDN)
         :param str host_header: The value to use as the host header sent to the backend.
-        :param float http_port: The HTTP TCP port number. Possible values are between `1` - `65535`.
-        :param float https_port: The HTTPS TCP port number. Possible values are between `1` - `65535`.
+        :param int http_port: The HTTP TCP port number. Possible values are between `1` - `65535`.
+        :param int https_port: The HTTPS TCP port number. Possible values are between `1` - `65535`.
         :param bool enabled: Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
-        :param float priority: Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
-        :param float weight: Weight of this endpoint for load balancing purposes. Defaults to `50`.
+        :param int priority: Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
+        :param int weight: Weight of this endpoint for load balancing purposes. Defaults to `50`.
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "host_header", host_header)
@@ -698,7 +698,7 @@ class FrontdoorBackendPoolBackend(dict):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> float:
+    def http_port(self) -> int:
         """
         The HTTP TCP port number. Possible values are between `1` - `65535`.
         """
@@ -706,7 +706,7 @@ class FrontdoorBackendPoolBackend(dict):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> float:
+    def https_port(self) -> int:
         """
         The HTTPS TCP port number. Possible values are between `1` - `65535`.
         """
@@ -722,7 +722,7 @@ class FrontdoorBackendPoolBackend(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[float]:
+    def priority(self) -> Optional[int]:
         """
         Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
         """
@@ -730,7 +730,7 @@ class FrontdoorBackendPoolBackend(dict):
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[float]:
+    def weight(self) -> Optional[int]:
         """
         Weight of this endpoint for load balancing purposes. Defaults to `50`.
         """
@@ -746,7 +746,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
                  name: str,
                  enabled: Optional[bool] = None,
                  id: Optional[str] = None,
-                 interval_in_seconds: Optional[float] = None,
+                 interval_in_seconds: Optional[int] = None,
                  path: Optional[str] = None,
                  probe_method: Optional[str] = None,
                  protocol: Optional[str] = None):
@@ -754,7 +754,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
         :param str name: Specifies the name of the Health Probe.
         :param bool enabled: Is this health probe enabled? Dafaults to `true`.
         :param str id: The ID of the FrontDoor.
-        :param float interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
+        :param int interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
         :param str path: The path to use for the Health Probe. Default is `/`.
         :param str probe_method: Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
         :param str protocol: Protocol scheme to use for the Health Probe. Defaults to `Http`.
@@ -799,7 +799,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> Optional[int]:
         """
         The number of seconds between each Health Probe. Defaults to `120`.
         """
@@ -837,16 +837,16 @@ class FrontdoorBackendPoolHealthProbe(dict):
 class FrontdoorBackendPoolLoadBalancing(dict):
     def __init__(__self__, *,
                  name: str,
-                 additional_latency_milliseconds: Optional[float] = None,
+                 additional_latency_milliseconds: Optional[int] = None,
                  id: Optional[str] = None,
-                 sample_size: Optional[float] = None,
-                 successful_samples_required: Optional[float] = None):
+                 sample_size: Optional[int] = None,
+                 successful_samples_required: Optional[int] = None):
         """
         :param str name: Specifies the name of the Load Balancer.
-        :param float additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
+        :param int additional_latency_milliseconds: The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
         :param str id: The ID of the FrontDoor.
-        :param float sample_size: The number of samples to consider for load balancing decisions. Defaults to `4`.
-        :param float successful_samples_required: The number of samples within the sample period that must succeed. Defaults to `2`.
+        :param int sample_size: The number of samples to consider for load balancing decisions. Defaults to `4`.
+        :param int successful_samples_required: The number of samples within the sample period that must succeed. Defaults to `2`.
         """
         pulumi.set(__self__, "name", name)
         if additional_latency_milliseconds is not None:
@@ -868,7 +868,7 @@ class FrontdoorBackendPoolLoadBalancing(dict):
 
     @property
     @pulumi.getter(name="additionalLatencyMilliseconds")
-    def additional_latency_milliseconds(self) -> Optional[float]:
+    def additional_latency_milliseconds(self) -> Optional[int]:
         """
         The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
         """
@@ -884,7 +884,7 @@ class FrontdoorBackendPoolLoadBalancing(dict):
 
     @property
     @pulumi.getter(name="sampleSize")
-    def sample_size(self) -> Optional[float]:
+    def sample_size(self) -> Optional[int]:
         """
         The number of samples to consider for load balancing decisions. Defaults to `4`.
         """
@@ -892,7 +892,7 @@ class FrontdoorBackendPoolLoadBalancing(dict):
 
     @property
     @pulumi.getter(name="successfulSamplesRequired")
-    def successful_samples_required(self) -> Optional[float]:
+    def successful_samples_required(self) -> Optional[int]:
         """
         The number of samples within the sample period that must succeed. Defaults to `2`.
         """
@@ -911,7 +911,7 @@ class FrontdoorFrontendEndpoint(dict):
                  custom_https_provisioning_enabled: Optional[bool] = None,
                  id: Optional[str] = None,
                  session_affinity_enabled: Optional[bool] = None,
-                 session_affinity_ttl_seconds: Optional[float] = None,
+                 session_affinity_ttl_seconds: Optional[int] = None,
                  web_application_firewall_policy_link_id: Optional[str] = None):
         """
         :param str host_name: Specifies the host name of the `frontend_endpoint`. Must be a domain name.
@@ -920,7 +920,7 @@ class FrontdoorFrontendEndpoint(dict):
         :param bool custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
         :param str id: The ID of the FrontDoor.
         :param bool session_affinity_enabled: Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
-        :param float session_affinity_ttl_seconds: The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
+        :param int session_affinity_ttl_seconds: The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
         :param str web_application_firewall_policy_link_id: Defines the Web Application Firewall policy `ID` for each host.
         """
         pulumi.set(__self__, "host_name", host_name)
@@ -988,7 +988,7 @@ class FrontdoorFrontendEndpoint(dict):
 
     @property
     @pulumi.getter(name="sessionAffinityTtlSeconds")
-    def session_affinity_ttl_seconds(self) -> Optional[float]:
+    def session_affinity_ttl_seconds(self) -> Optional[int]:
         """
         The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
         """
@@ -1103,19 +1103,19 @@ class FrontdoorFrontendEndpointCustomHttpsConfiguration(dict):
 @pulumi.output_type
 class FrontdoorRoutingRule(dict):
     def __init__(__self__, *,
-                 accepted_protocols: List[str],
-                 frontend_endpoints: List[str],
+                 accepted_protocols: Sequence[str],
+                 frontend_endpoints: Sequence[str],
                  name: str,
-                 patterns_to_matches: List[str],
+                 patterns_to_matches: Sequence[str],
                  enabled: Optional[bool] = None,
                  forwarding_configuration: Optional['outputs.FrontdoorRoutingRuleForwardingConfiguration'] = None,
                  id: Optional[str] = None,
                  redirect_configuration: Optional['outputs.FrontdoorRoutingRuleRedirectConfiguration'] = None):
         """
-        :param List[str] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
-        :param List[str] frontend_endpoints: The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
+        :param Sequence[str] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
+        :param Sequence[str] frontend_endpoints: The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
         :param str name: Specifies the name of the Routing Rule.
-        :param List[str] patterns_to_matches: The route patterns for the Backend Routing Rule. Defaults to `/*`.
+        :param Sequence[str] patterns_to_matches: The route patterns for the Backend Routing Rule. Defaults to `/*`.
         :param bool enabled: `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
         :param 'FrontdoorRoutingRuleForwardingConfigurationArgs' forwarding_configuration: A `forwarding_configuration` block as defined below.
         :param str id: The ID of the FrontDoor.
@@ -1136,7 +1136,7 @@ class FrontdoorRoutingRule(dict):
 
     @property
     @pulumi.getter(name="acceptedProtocols")
-    def accepted_protocols(self) -> List[str]:
+    def accepted_protocols(self) -> Sequence[str]:
         """
         Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
         """
@@ -1144,7 +1144,7 @@ class FrontdoorRoutingRule(dict):
 
     @property
     @pulumi.getter(name="frontendEndpoints")
-    def frontend_endpoints(self) -> List[str]:
+    def frontend_endpoints(self) -> Sequence[str]:
         """
         The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
         """
@@ -1160,7 +1160,7 @@ class FrontdoorRoutingRule(dict):
 
     @property
     @pulumi.getter(name="patternsToMatches")
-    def patterns_to_matches(self) -> List[str]:
+    def patterns_to_matches(self) -> Sequence[str]:
         """
         The route patterns for the Backend Routing Rule. Defaults to `/*`.
         """

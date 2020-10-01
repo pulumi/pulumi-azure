@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['DatabaseExtendedAuditingPolicy']
@@ -16,7 +16,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
-                 retention_in_days: Optional[pulumi.Input[float]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] retention_in_days: The number of days to retain logs for in the storage account.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
@@ -100,7 +100,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             database_id: Optional[pulumi.Input[str]] = None,
-            retention_in_days: Optional[pulumi.Input[float]] = None,
+            retention_in_days: Optional[pulumi.Input[int]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
             storage_endpoint: Optional[pulumi.Input[str]] = None) -> 'DatabaseExtendedAuditingPolicy':
@@ -112,7 +112,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] retention_in_days: The number of days to retain logs for in the storage account.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
@@ -138,7 +138,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Output[Optional[float]]:
+    def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days to retain logs for in the storage account.
         """

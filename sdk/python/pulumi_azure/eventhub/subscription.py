@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Subscription']
@@ -27,7 +27,7 @@ class Subscription(pulumi.CustomResource):
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
-                 max_delivery_count: Optional[pulumi.Input[float]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
@@ -75,7 +75,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
-        :param pulumi.Input[float] max_delivery_count: The maximum number of deliveries.
+        :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
@@ -142,7 +142,7 @@ class Subscription(pulumi.CustomResource):
             forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
             forward_to: Optional[pulumi.Input[str]] = None,
             lock_duration: Optional[pulumi.Input[str]] = None,
-            max_delivery_count: Optional[pulumi.Input[float]] = None,
+            max_delivery_count: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
             requires_session: Optional[pulumi.Input[bool]] = None,
@@ -164,7 +164,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
-        :param pulumi.Input[float] max_delivery_count: The maximum number of deliveries.
+        :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
@@ -259,7 +259,7 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> pulumi.Output[float]:
+    def max_delivery_count(self) -> pulumi.Output[int]:
         """
         The maximum number of deliveries.
         """

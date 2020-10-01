@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -51,8 +51,8 @@ class GetCertificateOrderResult:
         if is_private_key_external and not isinstance(is_private_key_external, bool):
             raise TypeError("Expected argument 'is_private_key_external' to be a bool")
         pulumi.set(__self__, "is_private_key_external", is_private_key_external)
-        if key_size and not isinstance(key_size, float):
-            raise TypeError("Expected argument 'key_size' to be a float")
+        if key_size and not isinstance(key_size, int):
+            raise TypeError("Expected argument 'key_size' to be a int")
         pulumi.set(__self__, "key_size", key_size)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -78,13 +78,13 @@ class GetCertificateOrderResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if validity_in_years and not isinstance(validity_in_years, float):
-            raise TypeError("Expected argument 'validity_in_years' to be a float")
+        if validity_in_years and not isinstance(validity_in_years, int):
+            raise TypeError("Expected argument 'validity_in_years' to be a int")
         pulumi.set(__self__, "validity_in_years", validity_in_years)
 
     @property
     @pulumi.getter(name="appServiceCertificateNotRenewableReasons")
-    def app_service_certificate_not_renewable_reasons(self) -> List[str]:
+    def app_service_certificate_not_renewable_reasons(self) -> Sequence[str]:
         """
         Reasons why App Service Certificate is not renewable at the current moment.
         """
@@ -100,7 +100,7 @@ class GetCertificateOrderResult:
 
     @property
     @pulumi.getter
-    def certificates(self) -> List['outputs.GetCertificateOrderCertificateResult']:
+    def certificates(self) -> Sequence['outputs.GetCertificateOrderCertificateResult']:
         """
         State of the Key Vault secret. A `certificates` block as defined below.
         """
@@ -164,7 +164,7 @@ class GetCertificateOrderResult:
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> float:
+    def key_size(self) -> int:
         """
         Certificate key size.
         """
@@ -230,7 +230,7 @@ class GetCertificateOrderResult:
 
     @property
     @pulumi.getter(name="validityInYears")
-    def validity_in_years(self) -> float:
+    def validity_in_years(self) -> int:
         """
         Duration in years (must be between 1 and 3).
         """

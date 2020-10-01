@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -65,7 +65,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="autoApprovalSubscriptionIds")
-    def auto_approval_subscription_ids(self) -> List[str]:
+    def auto_approval_subscription_ids(self) -> Sequence[str]:
         """
         The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
         """
@@ -89,7 +89,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
-    def load_balancer_frontend_ip_configuration_ids(self) -> List[str]:
+    def load_balancer_frontend_ip_configuration_ids(self) -> Sequence[str]:
         """
         The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
         """
@@ -113,7 +113,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="natIpConfigurations")
-    def nat_ip_configurations(self) -> List['outputs.GetServiceNatIpConfigurationResult']:
+    def nat_ip_configurations(self) -> Sequence['outputs.GetServiceNatIpConfigurationResult']:
         """
         The `nat_ip_configuration` block as defined below.
         """
@@ -134,7 +134,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="visibilitySubscriptionIds")
-    def visibility_subscription_ids(self) -> List[str]:
+    def visibility_subscription_ids(self) -> Sequence[str]:
         """
         The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
         """

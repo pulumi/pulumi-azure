@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -19,12 +19,12 @@ __all__ = [
 class ClusterIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 identity_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned` (where Azure will generate a Service Principal for you).
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: The list of user identities associated with the Kusto cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The list of user identities associated with the Kusto cluster.
         :param pulumi.Input[str] principal_id: Specifies the Principal ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
         :param pulumi.Input[str] tenant_id: Specifies the Tenant ID of the System Assigned Managed Service Identity that is configured on this Kusto Cluster.
         """
@@ -50,14 +50,14 @@ class ClusterIdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user identities associated with the Kusto cluster.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
@@ -88,37 +88,37 @@ class ClusterIdentityArgs:
 @pulumi.input_type
 class ClusterOptimizedAutoScaleArgs:
     def __init__(__self__, *,
-                 maximum_instances: pulumi.Input[float],
-                 minimum_instances: pulumi.Input[float]):
+                 maximum_instances: pulumi.Input[int],
+                 minimum_instances: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] maximum_instances: The maximum number of allowed instances. Must between `0` and `1000`.
-        :param pulumi.Input[float] minimum_instances: The minimum number of allowed instances. Must between `0` and `1000`.
+        :param pulumi.Input[int] maximum_instances: The maximum number of allowed instances. Must between `0` and `1000`.
+        :param pulumi.Input[int] minimum_instances: The minimum number of allowed instances. Must between `0` and `1000`.
         """
         pulumi.set(__self__, "maximum_instances", maximum_instances)
         pulumi.set(__self__, "minimum_instances", minimum_instances)
 
     @property
     @pulumi.getter(name="maximumInstances")
-    def maximum_instances(self) -> pulumi.Input[float]:
+    def maximum_instances(self) -> pulumi.Input[int]:
         """
         The maximum number of allowed instances. Must between `0` and `1000`.
         """
         return pulumi.get(self, "maximum_instances")
 
     @maximum_instances.setter
-    def maximum_instances(self, value: pulumi.Input[float]):
+    def maximum_instances(self, value: pulumi.Input[int]):
         pulumi.set(self, "maximum_instances", value)
 
     @property
     @pulumi.getter(name="minimumInstances")
-    def minimum_instances(self) -> pulumi.Input[float]:
+    def minimum_instances(self) -> pulumi.Input[int]:
         """
         The minimum number of allowed instances. Must between `0` and `1000`.
         """
         return pulumi.get(self, "minimum_instances")
 
     @minimum_instances.setter
-    def minimum_instances(self, value: pulumi.Input[float]):
+    def minimum_instances(self, value: pulumi.Input[int]):
         pulumi.set(self, "minimum_instances", value)
 
 
@@ -126,10 +126,10 @@ class ClusterOptimizedAutoScaleArgs:
 class ClusterSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 capacity: Optional[pulumi.Input[float]] = None):
+                 capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] name: The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s` and `Standard_L8s`
-        :param pulumi.Input[float] capacity: Specifies the node count for the cluster. Boundaries depend on the sku name.
+        :param pulumi.Input[int] capacity: Specifies the node count for the cluster. Boundaries depend on the sku name.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -149,14 +149,14 @@ class ClusterSkuArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[float]]:
+    def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the node count for the cluster. Boundaries depend on the sku name.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[float]]):
+    def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
 

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -21,7 +21,7 @@ class ChannelDirectLineSite(dict):
                  id: Optional[str] = None,
                  key: Optional[str] = None,
                  key2: Optional[str] = None,
-                 trusted_origins: Optional[List[str]] = None,
+                 trusted_origins: Optional[Sequence[str]] = None,
                  v1_allowed: Optional[bool] = None,
                  v3_allowed: Optional[bool] = None):
         """
@@ -31,7 +31,7 @@ class ChannelDirectLineSite(dict):
         :param str id: Id for the site
         :param str key: Primary key for accessing this site
         :param str key2: Secondary key for accessing this site
-        :param List[str] trusted_origins: This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+        :param Sequence[str] trusted_origins: This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
         :param bool v1_allowed: Enables v1 of the Directline protocol for this site. Enabled by default
         :param bool v3_allowed: Enables v3 of the Directline protocol for this site. Enabled by default
         """
@@ -103,7 +103,7 @@ class ChannelDirectLineSite(dict):
 
     @property
     @pulumi.getter(name="trustedOrigins")
-    def trusted_origins(self) -> Optional[List[str]]:
+    def trusted_origins(self) -> Optional[Sequence[str]]:
         """
         This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
         """

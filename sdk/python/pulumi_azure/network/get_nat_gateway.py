@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -23,8 +23,8 @@ class GetNatGatewayResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
-            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -64,7 +64,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> float:
+    def idle_timeout_in_minutes(self) -> int:
         """
         The idle timeout in minutes which is used for the NAT Gateway.
         """
@@ -85,7 +85,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="publicIpAddressIds")
-    def public_ip_address_ids(self) -> List[str]:
+    def public_ip_address_ids(self) -> Sequence[str]:
         """
         A list of existing Public IP Address resource IDs which the NAT Gateway is using.
         """
@@ -93,7 +93,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter(name="publicIpPrefixIds")
-    def public_ip_prefix_ids(self) -> List[str]:
+    def public_ip_prefix_ids(self) -> Sequence[str]:
         """
         A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
         """
@@ -130,7 +130,7 @@ class GetNatGatewayResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> List[str]:
+    def zones(self) -> Sequence[str]:
         """
         A list of Availability Zones which the NAT Gateway exists in.
         """
@@ -157,8 +157,8 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
 
 
 def get_nat_gateway(name: Optional[str] = None,
-                    public_ip_address_ids: Optional[List[str]] = None,
-                    public_ip_prefix_ids: Optional[List[str]] = None,
+                    public_ip_address_ids: Optional[Sequence[str]] = None,
+                    public_ip_prefix_ids: Optional[Sequence[str]] = None,
                     resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewayResult:
     """
@@ -166,8 +166,8 @@ def get_nat_gateway(name: Optional[str] = None,
 
 
     :param str name: Specifies the Name of the NAT Gateway.
-    :param List[str] public_ip_address_ids: A list of existing Public IP Address resource IDs which the NAT Gateway is using.
-    :param List[str] public_ip_prefix_ids: A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
+    :param Sequence[str] public_ip_address_ids: A list of existing Public IP Address resource IDs which the NAT Gateway is using.
+    :param Sequence[str] public_ip_prefix_ids: A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
     :param str resource_group_name: Specifies the name of the Resource Group where the NAT Gateway exists.
     """
     __args__ = dict()

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class StormCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['StormClusterRolesArgs']]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StormClusterStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StormClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class StormCluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['StormClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StormClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StormClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Storm Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
@@ -171,7 +171,7 @@ class StormCluster(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['StormClusterRolesArgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
-            storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['StormClusterStorageAccountArgs']]]]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StormClusterStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             tls_min_version: Optional[pulumi.Input[str]] = None) -> 'StormCluster':
@@ -193,7 +193,7 @@ class StormCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['StormClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Storm Cluster.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['StormClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StormClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Storm Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
@@ -308,7 +308,7 @@ class StormCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.StormClusterStorageAccount']]]:
+    def storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.StormClusterStorageAccount']]]:
         """
         One or more `storage_account` block as defined below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ExpressRouteGateway']
@@ -18,7 +18,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scale_units: Optional[pulumi.Input[float]] = None,
+                 scale_units: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -57,7 +57,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
+        :param pulumi.Input[int] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
         """
@@ -103,7 +103,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            scale_units: Optional[pulumi.Input[float]] = None,
+            scale_units: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None) -> 'ExpressRouteGateway':
         """
@@ -116,7 +116,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
+        :param pulumi.Input[int] scale_units: The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_hub_id: The ID of a Virtual HUB within which the ExpressRoute gateway should be created.
         """
@@ -158,7 +158,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleUnits")
-    def scale_units(self) -> pulumi.Output[float]:
+    def scale_units(self) -> pulumi.Output[int]:
         """
         The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         """

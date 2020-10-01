@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -19,7 +19,7 @@ __all__ = [
 class CachePatchSchedule(dict):
     def __init__(__self__, *,
                  day_of_week: str,
-                 start_hour_utc: Optional[float] = None):
+                 start_hour_utc: Optional[int] = None):
         pulumi.set(__self__, "day_of_week", day_of_week)
         if start_hour_utc is not None:
             pulumi.set(__self__, "start_hour_utc", start_hour_utc)
@@ -31,7 +31,7 @@ class CachePatchSchedule(dict):
 
     @property
     @pulumi.getter(name="startHourUtc")
-    def start_hour_utc(self) -> Optional[float]:
+    def start_hour_utc(self) -> Optional[int]:
         return pulumi.get(self, "start_hour_utc")
 
     def _translate_property(self, prop):
@@ -45,27 +45,27 @@ class CacheRedisConfiguration(dict):
                  aof_storage_connection_string0: Optional[str] = None,
                  aof_storage_connection_string1: Optional[str] = None,
                  enable_authentication: Optional[bool] = None,
-                 maxclients: Optional[float] = None,
-                 maxfragmentationmemory_reserved: Optional[float] = None,
-                 maxmemory_delta: Optional[float] = None,
+                 maxclients: Optional[int] = None,
+                 maxfragmentationmemory_reserved: Optional[int] = None,
+                 maxmemory_delta: Optional[int] = None,
                  maxmemory_policy: Optional[str] = None,
-                 maxmemory_reserved: Optional[float] = None,
+                 maxmemory_reserved: Optional[int] = None,
                  notify_keyspace_events: Optional[str] = None,
                  rdb_backup_enabled: Optional[bool] = None,
-                 rdb_backup_frequency: Optional[float] = None,
-                 rdb_backup_max_snapshot_count: Optional[float] = None,
+                 rdb_backup_frequency: Optional[int] = None,
+                 rdb_backup_max_snapshot_count: Optional[int] = None,
                  rdb_storage_connection_string: Optional[str] = None):
         """
         :param bool enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
-        :param float maxclients: Returns the max number of connected clients at the same time.
-        :param float maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
-        :param float maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
+        :param int maxclients: Returns the max number of connected clients at the same time.
+        :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
+        :param int maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
         :param str maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
-        :param float maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
+        :param int maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param str notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
         :param bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKU's.
-        :param float rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
-        :param float rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
+        :param int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
+        :param int rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKU's. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         """
         if aof_backup_enabled is not None:
@@ -122,7 +122,7 @@ class CacheRedisConfiguration(dict):
 
     @property
     @pulumi.getter
-    def maxclients(self) -> Optional[float]:
+    def maxclients(self) -> Optional[int]:
         """
         Returns the max number of connected clients at the same time.
         """
@@ -130,7 +130,7 @@ class CacheRedisConfiguration(dict):
 
     @property
     @pulumi.getter(name="maxfragmentationmemoryReserved")
-    def maxfragmentationmemory_reserved(self) -> Optional[float]:
+    def maxfragmentationmemory_reserved(self) -> Optional[int]:
         """
         Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
         """
@@ -138,7 +138,7 @@ class CacheRedisConfiguration(dict):
 
     @property
     @pulumi.getter(name="maxmemoryDelta")
-    def maxmemory_delta(self) -> Optional[float]:
+    def maxmemory_delta(self) -> Optional[int]:
         """
         The max-memory delta for this Redis instance. Defaults are shown below.
         """
@@ -154,7 +154,7 @@ class CacheRedisConfiguration(dict):
 
     @property
     @pulumi.getter(name="maxmemoryReserved")
-    def maxmemory_reserved(self) -> Optional[float]:
+    def maxmemory_reserved(self) -> Optional[int]:
         """
         Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         """
@@ -178,7 +178,7 @@ class CacheRedisConfiguration(dict):
 
     @property
     @pulumi.getter(name="rdbBackupFrequency")
-    def rdb_backup_frequency(self) -> Optional[float]:
+    def rdb_backup_frequency(self) -> Optional[int]:
         """
         The Backup Frequency in Minutes. Only supported on Premium SKU's. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
         """
@@ -186,7 +186,7 @@ class CacheRedisConfiguration(dict):
 
     @property
     @pulumi.getter(name="rdbBackupMaxSnapshotCount")
-    def rdb_backup_max_snapshot_count(self) -> Optional[float]:
+    def rdb_backup_max_snapshot_count(self) -> Optional[int]:
         """
         The maximum number of snapshots to create as a backup. Only supported for Premium SKU's.
         """
@@ -208,10 +208,10 @@ class CacheRedisConfiguration(dict):
 class GetCachePatchScheduleResult(dict):
     def __init__(__self__, *,
                  day_of_week: str,
-                 start_hour_utc: float):
+                 start_hour_utc: int):
         """
         :param str day_of_week: the Weekday name for the patch item
-        :param float start_hour_utc: The Start Hour for maintenance in UTC
+        :param int start_hour_utc: The Start Hour for maintenance in UTC
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "start_hour_utc", start_hour_utc)
@@ -226,7 +226,7 @@ class GetCachePatchScheduleResult(dict):
 
     @property
     @pulumi.getter(name="startHourUtc")
-    def start_hour_utc(self) -> float:
+    def start_hour_utc(self) -> int:
         """
         The Start Hour for maintenance in UTC
         """
@@ -240,25 +240,25 @@ class GetCacheRedisConfigurationResult(dict):
                  aof_storage_connection_string0: str,
                  aof_storage_connection_string1: str,
                  enable_authentication: bool,
-                 maxclients: float,
-                 maxfragmentationmemory_reserved: float,
-                 maxmemory_delta: float,
+                 maxclients: int,
+                 maxfragmentationmemory_reserved: int,
+                 maxmemory_delta: int,
                  maxmemory_policy: str,
-                 maxmemory_reserved: float,
+                 maxmemory_reserved: int,
                  notify_keyspace_events: str,
                  rdb_backup_enabled: bool,
-                 rdb_backup_frequency: float,
-                 rdb_backup_max_snapshot_count: float,
+                 rdb_backup_frequency: int,
+                 rdb_backup_max_snapshot_count: int,
                  rdb_storage_connection_string: str):
         """
         :param bool enable_authentication: Specifies if authentication is enabled
-        :param float maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation.
-        :param float maxmemory_delta: The max-memory delta for this Redis instance.
+        :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation.
+        :param int maxmemory_delta: The max-memory delta for this Redis instance.
         :param str maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached.
-        :param float maxmemory_reserved: The value in megabytes reserved for non-cache usage e.g. failover
+        :param int maxmemory_reserved: The value in megabytes reserved for non-cache usage e.g. failover
         :param bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKU's.
-        :param float rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's.
-        :param float rdb_backup_max_snapshot_count: The maximum number of snapshots that can be created as a backup.
+        :param int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKU's.
+        :param int rdb_backup_max_snapshot_count: The maximum number of snapshots that can be created as a backup.
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKU's.
         """
         pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
@@ -301,12 +301,12 @@ class GetCacheRedisConfigurationResult(dict):
 
     @property
     @pulumi.getter
-    def maxclients(self) -> float:
+    def maxclients(self) -> int:
         return pulumi.get(self, "maxclients")
 
     @property
     @pulumi.getter(name="maxfragmentationmemoryReserved")
-    def maxfragmentationmemory_reserved(self) -> float:
+    def maxfragmentationmemory_reserved(self) -> int:
         """
         Value in megabytes reserved to accommodate for memory fragmentation.
         """
@@ -314,7 +314,7 @@ class GetCacheRedisConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="maxmemoryDelta")
-    def maxmemory_delta(self) -> float:
+    def maxmemory_delta(self) -> int:
         """
         The max-memory delta for this Redis instance.
         """
@@ -330,7 +330,7 @@ class GetCacheRedisConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="maxmemoryReserved")
-    def maxmemory_reserved(self) -> float:
+    def maxmemory_reserved(self) -> int:
         """
         The value in megabytes reserved for non-cache usage e.g. failover
         """
@@ -351,7 +351,7 @@ class GetCacheRedisConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="rdbBackupFrequency")
-    def rdb_backup_frequency(self) -> float:
+    def rdb_backup_frequency(self) -> int:
         """
         The Backup Frequency in Minutes. Only supported on Premium SKU's.
         """
@@ -359,7 +359,7 @@ class GetCacheRedisConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="rdbBackupMaxSnapshotCount")
-    def rdb_backup_max_snapshot_count(self) -> float:
+    def rdb_backup_max_snapshot_count(self) -> int:
         """
         The maximum number of snapshots that can be created as a backup.
         """

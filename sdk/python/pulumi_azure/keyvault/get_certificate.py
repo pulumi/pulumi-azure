@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -56,7 +56,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="certificatePolicies")
-    def certificate_policies(self) -> List['outputs.GetCertificateCertificatePolicyResult']:
+    def certificate_policies(self) -> Sequence['outputs.GetCertificateCertificatePolicyResult']:
         """
         A `certificate_policy` block as defined below.
         """

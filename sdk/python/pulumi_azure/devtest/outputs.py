@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -27,11 +27,11 @@ __all__ = [
 class GlobalVMShutdownScheduleNotificationSettings(dict):
     def __init__(__self__, *,
                  enabled: bool,
-                 time_in_minutes: Optional[float] = None,
+                 time_in_minutes: Optional[int] = None,
                  webhook_url: Optional[str] = None):
         """
         :param bool enabled: Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
-        :param float time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+        :param int time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         :param str webhook_url: The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -50,7 +50,7 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
 
     @property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[float]:
+    def time_in_minutes(self) -> Optional[int]:
         """
         Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         """
@@ -125,13 +125,13 @@ class LinuxVirtualMachineGalleryImageReference(dict):
 @pulumi.output_type
 class LinuxVirtualMachineInboundNatRule(dict):
     def __init__(__self__, *,
-                 backend_port: float,
+                 backend_port: int,
                  protocol: str,
-                 frontend_port: Optional[float] = None):
+                 frontend_port: Optional[int] = None):
         """
-        :param float backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        :param int backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        :param float frontend_port: The frontend port associated with this Inbound NAT Rule.
+        :param int frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -140,7 +140,7 @@ class LinuxVirtualMachineInboundNatRule(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> float:
+    def backend_port(self) -> int:
         """
         The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         """
@@ -156,7 +156,7 @@ class LinuxVirtualMachineInboundNatRule(dict):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[float]:
+    def frontend_port(self) -> Optional[int]:
         """
         The frontend port associated with this Inbound NAT Rule.
         """
@@ -190,12 +190,12 @@ class ScheduleDailyRecurrence(dict):
 @pulumi.output_type
 class ScheduleHourlyRecurrence(dict):
     def __init__(__self__, *,
-                 minute: float):
+                 minute: int):
         pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
-    def minute(self) -> float:
+    def minute(self) -> int:
         return pulumi.get(self, "minute")
 
     def _translate_property(self, prop):
@@ -206,11 +206,11 @@ class ScheduleHourlyRecurrence(dict):
 class ScheduleNotificationSettings(dict):
     def __init__(__self__, *,
                  status: Optional[str] = None,
-                 time_in_minutes: Optional[float] = None,
+                 time_in_minutes: Optional[int] = None,
                  webhook_url: Optional[str] = None):
         """
         :param str status: The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
-        :param float time_in_minutes: Time in minutes before event at which notification will be sent.
+        :param int time_in_minutes: Time in minutes before event at which notification will be sent.
         :param str webhook_url: The webhook URL to which the notification will be sent.
         """
         if status is not None:
@@ -230,7 +230,7 @@ class ScheduleNotificationSettings(dict):
 
     @property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[float]:
+    def time_in_minutes(self) -> Optional[int]:
         """
         Time in minutes before event at which notification will be sent.
         """
@@ -252,10 +252,10 @@ class ScheduleNotificationSettings(dict):
 class ScheduleWeeklyRecurrence(dict):
     def __init__(__self__, *,
                  time: str,
-                 week_days: Optional[List[str]] = None):
+                 week_days: Optional[Sequence[str]] = None):
         """
         :param str time: The time when the schedule takes effect.
-        :param List[str] week_days: A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        :param Sequence[str] week_days: A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         pulumi.set(__self__, "time", time)
         if week_days is not None:
@@ -271,7 +271,7 @@ class ScheduleWeeklyRecurrence(dict):
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[List[str]]:
+    def week_days(self) -> Optional[Sequence[str]]:
         """
         A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
@@ -384,13 +384,13 @@ class WindowsVirtualMachineGalleryImageReference(dict):
 @pulumi.output_type
 class WindowsVirtualMachineInboundNatRule(dict):
     def __init__(__self__, *,
-                 backend_port: float,
+                 backend_port: int,
                  protocol: str,
-                 frontend_port: Optional[float] = None):
+                 frontend_port: Optional[int] = None):
         """
-        :param float backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        :param int backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        :param float frontend_port: The frontend port associated with this Inbound NAT Rule.
+        :param int frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -399,7 +399,7 @@ class WindowsVirtualMachineInboundNatRule(dict):
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> float:
+    def backend_port(self) -> int:
         """
         The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         """
@@ -415,7 +415,7 @@ class WindowsVirtualMachineInboundNatRule(dict):
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[float]:
+    def frontend_port(self) -> Optional[int]:
         """
         The frontend port associated with this Inbound NAT Rule.
         """

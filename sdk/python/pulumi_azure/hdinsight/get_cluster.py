@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -90,7 +90,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def gateways(self) -> List['outputs.GetClusterGatewayResult']:
+    def gateways(self) -> Sequence['outputs.GetClusterGatewayResult']:
         """
         A `gateway` block as defined below.
         """

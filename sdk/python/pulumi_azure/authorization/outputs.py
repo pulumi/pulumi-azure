@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,15 +16,15 @@ __all__ = [
 @pulumi.output_type
 class RoleDefinitionPermission(dict):
     def __init__(__self__, *,
-                 actions: Optional[List[str]] = None,
-                 data_actions: Optional[List[str]] = None,
-                 not_actions: Optional[List[str]] = None,
-                 not_data_actions: Optional[List[str]] = None):
+                 actions: Optional[Sequence[str]] = None,
+                 data_actions: Optional[Sequence[str]] = None,
+                 not_actions: Optional[Sequence[str]] = None,
+                 not_data_actions: Optional[Sequence[str]] = None):
         """
-        :param List[str] actions: One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        :param List[str] data_actions: One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        :param List[str] not_actions: One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
-        :param List[str] not_data_actions: One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        :param Sequence[str] actions: One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        :param Sequence[str] data_actions: One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        :param Sequence[str] not_actions: One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
+        :param Sequence[str] not_data_actions: One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -37,7 +37,7 @@ class RoleDefinitionPermission(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List[str]]:
+    def actions(self) -> Optional[Sequence[str]]:
         """
         One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
@@ -45,7 +45,7 @@ class RoleDefinitionPermission(dict):
 
     @property
     @pulumi.getter(name="dataActions")
-    def data_actions(self) -> Optional[List[str]]:
+    def data_actions(self) -> Optional[Sequence[str]]:
         """
         One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
@@ -53,7 +53,7 @@ class RoleDefinitionPermission(dict):
 
     @property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> Optional[List[str]]:
+    def not_actions(self) -> Optional[Sequence[str]]:
         """
         One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
@@ -61,7 +61,7 @@ class RoleDefinitionPermission(dict):
 
     @property
     @pulumi.getter(name="notDataActions")
-    def not_data_actions(self) -> Optional[List[str]]:
+    def not_data_actions(self) -> Optional[Sequence[str]]:
         """
         One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
@@ -74,13 +74,13 @@ class RoleDefinitionPermission(dict):
 @pulumi.output_type
 class GetRoleDefinitionPermissionResult(dict):
     def __init__(__self__, *,
-                 actions: List[str],
-                 not_actions: List[str],
-                 data_actions: Optional[List[str]] = None,
-                 not_data_actions: Optional[List[str]] = None):
+                 actions: Sequence[str],
+                 not_actions: Sequence[str],
+                 data_actions: Optional[Sequence[str]] = None,
+                 not_data_actions: Optional[Sequence[str]] = None):
         """
-        :param List[str] actions: a list of actions supported by this role
-        :param List[str] not_actions: a list of actions which are denied by this role
+        :param Sequence[str] actions: a list of actions supported by this role
+        :param Sequence[str] not_actions: a list of actions which are denied by this role
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "not_actions", not_actions)
@@ -91,7 +91,7 @@ class GetRoleDefinitionPermissionResult(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> List[str]:
+    def actions(self) -> Sequence[str]:
         """
         a list of actions supported by this role
         """
@@ -99,7 +99,7 @@ class GetRoleDefinitionPermissionResult(dict):
 
     @property
     @pulumi.getter(name="notActions")
-    def not_actions(self) -> List[str]:
+    def not_actions(self) -> Sequence[str]:
         """
         a list of actions which are denied by this role
         """
@@ -107,12 +107,12 @@ class GetRoleDefinitionPermissionResult(dict):
 
     @property
     @pulumi.getter(name="dataActions")
-    def data_actions(self) -> Optional[List[str]]:
+    def data_actions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "data_actions")
 
     @property
     @pulumi.getter(name="notDataActions")
-    def not_data_actions(self) -> Optional[List[str]]:
+    def not_data_actions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "not_data_actions")
 
 

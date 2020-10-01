@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -170,13 +170,13 @@ class CertifiateCertificatePolicy(dict):
                  issuer_parameters: 'outputs.CertifiateCertificatePolicyIssuerParameters',
                  key_properties: 'outputs.CertifiateCertificatePolicyKeyProperties',
                  secret_properties: 'outputs.CertifiateCertificatePolicySecretProperties',
-                 lifetime_actions: Optional[List['outputs.CertifiateCertificatePolicyLifetimeAction']] = None,
+                 lifetime_actions: Optional[Sequence['outputs.CertifiateCertificatePolicyLifetimeAction']] = None,
                  x509_certificate_properties: Optional['outputs.CertifiateCertificatePolicyX509CertificateProperties'] = None):
         """
         :param 'CertifiateCertificatePolicyIssuerParametersArgs' issuer_parameters: A `issuer_parameters` block as defined below.
         :param 'CertifiateCertificatePolicyKeyPropertiesArgs' key_properties: A `key_properties` block as defined below.
         :param 'CertifiateCertificatePolicySecretPropertiesArgs' secret_properties: A `secret_properties` block as defined below.
-        :param List['CertifiateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
+        :param Sequence['CertifiateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
         :param 'CertifiateCertificatePolicyX509CertificatePropertiesArgs' x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
@@ -213,7 +213,7 @@ class CertifiateCertificatePolicy(dict):
 
     @property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[List['outputs.CertifiateCertificatePolicyLifetimeAction']]:
+    def lifetime_actions(self) -> Optional[Sequence['outputs.CertifiateCertificatePolicyLifetimeAction']]:
         """
         A `lifetime_action` block as defined below.
         """
@@ -256,12 +256,12 @@ class CertifiateCertificatePolicyIssuerParameters(dict):
 class CertifiateCertificatePolicyKeyProperties(dict):
     def __init__(__self__, *,
                  exportable: bool,
-                 key_size: float,
+                 key_size: int,
                  key_type: str,
                  reuse_key: bool):
         """
         :param bool exportable: Is this Certificate Exportable? Changing this forces a new resource to be created.
-        :param float key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        :param int key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         :param str key_type: Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
         :param bool reuse_key: Is the key reusable? Changing this forces a new resource to be created.
         """
@@ -280,7 +280,7 @@ class CertifiateCertificatePolicyKeyProperties(dict):
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> float:
+    def key_size(self) -> int:
         """
         The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         """
@@ -362,11 +362,11 @@ class CertifiateCertificatePolicyLifetimeActionAction(dict):
 @pulumi.output_type
 class CertifiateCertificatePolicyLifetimeActionTrigger(dict):
     def __init__(__self__, *,
-                 days_before_expiry: Optional[float] = None,
-                 lifetime_percentage: Optional[float] = None):
+                 days_before_expiry: Optional[int] = None,
+                 lifetime_percentage: Optional[int] = None):
         """
-        :param float days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
-        :param float lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        :param int days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+        :param int lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
         if days_before_expiry is not None:
             pulumi.set(__self__, "days_before_expiry", days_before_expiry)
@@ -375,7 +375,7 @@ class CertifiateCertificatePolicyLifetimeActionTrigger(dict):
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
-    def days_before_expiry(self) -> Optional[float]:
+    def days_before_expiry(self) -> Optional[int]:
         """
         The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
         """
@@ -383,7 +383,7 @@ class CertifiateCertificatePolicyLifetimeActionTrigger(dict):
 
     @property
     @pulumi.getter(name="lifetimePercentage")
-    def lifetime_percentage(self) -> Optional[float]:
+    def lifetime_percentage(self) -> Optional[int]:
         """
         The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
@@ -417,16 +417,16 @@ class CertifiateCertificatePolicySecretProperties(dict):
 @pulumi.output_type
 class CertifiateCertificatePolicyX509CertificateProperties(dict):
     def __init__(__self__, *,
-                 key_usages: List[str],
+                 key_usages: Sequence[str],
                  subject: str,
-                 validity_in_months: float,
-                 extended_key_usages: Optional[List[str]] = None,
+                 validity_in_months: int,
+                 extended_key_usages: Optional[Sequence[str]] = None,
                  subject_alternative_names: Optional['outputs.CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames'] = None):
         """
-        :param List[str] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        :param Sequence[str] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         :param str subject: The Certificate's Subject. Changing this forces a new resource to be created.
-        :param float validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
-        :param List[str] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        :param int validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+        :param Sequence[str] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         :param 'CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs' subject_alternative_names: A `subject_alternative_names` block as defined below.
         """
         pulumi.set(__self__, "key_usages", key_usages)
@@ -439,7 +439,7 @@ class CertifiateCertificatePolicyX509CertificateProperties(dict):
 
     @property
     @pulumi.getter(name="keyUsages")
-    def key_usages(self) -> List[str]:
+    def key_usages(self) -> Sequence[str]:
         """
         A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         """
@@ -455,7 +455,7 @@ class CertifiateCertificatePolicyX509CertificateProperties(dict):
 
     @property
     @pulumi.getter(name="validityInMonths")
-    def validity_in_months(self) -> float:
+    def validity_in_months(self) -> int:
         """
         The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         """
@@ -463,7 +463,7 @@ class CertifiateCertificatePolicyX509CertificateProperties(dict):
 
     @property
     @pulumi.getter(name="extendedKeyUsages")
-    def extended_key_usages(self) -> Optional[List[str]]:
+    def extended_key_usages(self) -> Optional[Sequence[str]]:
         """
         A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         """
@@ -484,13 +484,13 @@ class CertifiateCertificatePolicyX509CertificateProperties(dict):
 @pulumi.output_type
 class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames(dict):
     def __init__(__self__, *,
-                 dns_names: Optional[List[str]] = None,
-                 emails: Optional[List[str]] = None,
-                 upns: Optional[List[str]] = None):
+                 dns_names: Optional[Sequence[str]] = None,
+                 emails: Optional[Sequence[str]] = None,
+                 upns: Optional[Sequence[str]] = None):
         """
-        :param List[str] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
-        :param List[str] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
-        :param List[str] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        :param Sequence[str] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+        :param Sequence[str] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+        :param Sequence[str] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
         if dns_names is not None:
             pulumi.set(__self__, "dns_names", dns_names)
@@ -501,7 +501,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 
     @property
     @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> Optional[List[str]]:
+    def dns_names(self) -> Optional[Sequence[str]]:
         """
         A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
         """
@@ -509,7 +509,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[List[str]]:
+    def emails(self) -> Optional[Sequence[str]]:
         """
         A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
         """
@@ -517,7 +517,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 
     @property
     @pulumi.getter
-    def upns(self) -> Optional[List[str]]:
+    def upns(self) -> Optional[Sequence[str]]:
         """
         A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
@@ -648,13 +648,13 @@ class CertificateCertificatePolicy(dict):
                  issuer_parameters: 'outputs.CertificateCertificatePolicyIssuerParameters',
                  key_properties: 'outputs.CertificateCertificatePolicyKeyProperties',
                  secret_properties: 'outputs.CertificateCertificatePolicySecretProperties',
-                 lifetime_actions: Optional[List['outputs.CertificateCertificatePolicyLifetimeAction']] = None,
+                 lifetime_actions: Optional[Sequence['outputs.CertificateCertificatePolicyLifetimeAction']] = None,
                  x509_certificate_properties: Optional['outputs.CertificateCertificatePolicyX509CertificateProperties'] = None):
         """
         :param 'CertificateCertificatePolicyIssuerParametersArgs' issuer_parameters: A `issuer_parameters` block as defined below.
         :param 'CertificateCertificatePolicyKeyPropertiesArgs' key_properties: A `key_properties` block as defined below.
         :param 'CertificateCertificatePolicySecretPropertiesArgs' secret_properties: A `secret_properties` block as defined below.
-        :param List['CertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
+        :param Sequence['CertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
         :param 'CertificateCertificatePolicyX509CertificatePropertiesArgs' x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
@@ -691,7 +691,7 @@ class CertificateCertificatePolicy(dict):
 
     @property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[List['outputs.CertificateCertificatePolicyLifetimeAction']]:
+    def lifetime_actions(self) -> Optional[Sequence['outputs.CertificateCertificatePolicyLifetimeAction']]:
         """
         A `lifetime_action` block as defined below.
         """
@@ -734,12 +734,12 @@ class CertificateCertificatePolicyIssuerParameters(dict):
 class CertificateCertificatePolicyKeyProperties(dict):
     def __init__(__self__, *,
                  exportable: bool,
-                 key_size: float,
+                 key_size: int,
                  key_type: str,
                  reuse_key: bool):
         """
         :param bool exportable: Is this Certificate Exportable? Changing this forces a new resource to be created.
-        :param float key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        :param int key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         :param str key_type: Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
         :param bool reuse_key: Is the key reusable? Changing this forces a new resource to be created.
         """
@@ -758,7 +758,7 @@ class CertificateCertificatePolicyKeyProperties(dict):
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> float:
+    def key_size(self) -> int:
         """
         The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         """
@@ -840,11 +840,11 @@ class CertificateCertificatePolicyLifetimeActionAction(dict):
 @pulumi.output_type
 class CertificateCertificatePolicyLifetimeActionTrigger(dict):
     def __init__(__self__, *,
-                 days_before_expiry: Optional[float] = None,
-                 lifetime_percentage: Optional[float] = None):
+                 days_before_expiry: Optional[int] = None,
+                 lifetime_percentage: Optional[int] = None):
         """
-        :param float days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
-        :param float lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        :param int days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+        :param int lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
         if days_before_expiry is not None:
             pulumi.set(__self__, "days_before_expiry", days_before_expiry)
@@ -853,7 +853,7 @@ class CertificateCertificatePolicyLifetimeActionTrigger(dict):
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
-    def days_before_expiry(self) -> Optional[float]:
+    def days_before_expiry(self) -> Optional[int]:
         """
         The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
         """
@@ -861,7 +861,7 @@ class CertificateCertificatePolicyLifetimeActionTrigger(dict):
 
     @property
     @pulumi.getter(name="lifetimePercentage")
-    def lifetime_percentage(self) -> Optional[float]:
+    def lifetime_percentage(self) -> Optional[int]:
         """
         The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
@@ -895,16 +895,16 @@ class CertificateCertificatePolicySecretProperties(dict):
 @pulumi.output_type
 class CertificateCertificatePolicyX509CertificateProperties(dict):
     def __init__(__self__, *,
-                 key_usages: List[str],
+                 key_usages: Sequence[str],
                  subject: str,
-                 validity_in_months: float,
-                 extended_key_usages: Optional[List[str]] = None,
+                 validity_in_months: int,
+                 extended_key_usages: Optional[Sequence[str]] = None,
                  subject_alternative_names: Optional['outputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames'] = None):
         """
-        :param List[str] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        :param Sequence[str] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         :param str subject: The Certificate's Subject. Changing this forces a new resource to be created.
-        :param float validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
-        :param List[str] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        :param int validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+        :param Sequence[str] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         :param 'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs' subject_alternative_names: A `subject_alternative_names` block as defined below.
         """
         pulumi.set(__self__, "key_usages", key_usages)
@@ -917,7 +917,7 @@ class CertificateCertificatePolicyX509CertificateProperties(dict):
 
     @property
     @pulumi.getter(name="keyUsages")
-    def key_usages(self) -> List[str]:
+    def key_usages(self) -> Sequence[str]:
         """
         A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         """
@@ -933,7 +933,7 @@ class CertificateCertificatePolicyX509CertificateProperties(dict):
 
     @property
     @pulumi.getter(name="validityInMonths")
-    def validity_in_months(self) -> float:
+    def validity_in_months(self) -> int:
         """
         The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         """
@@ -941,7 +941,7 @@ class CertificateCertificatePolicyX509CertificateProperties(dict):
 
     @property
     @pulumi.getter(name="extendedKeyUsages")
-    def extended_key_usages(self) -> Optional[List[str]]:
+    def extended_key_usages(self) -> Optional[Sequence[str]]:
         """
         A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         """
@@ -962,13 +962,13 @@ class CertificateCertificatePolicyX509CertificateProperties(dict):
 @pulumi.output_type
 class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames(dict):
     def __init__(__self__, *,
-                 dns_names: Optional[List[str]] = None,
-                 emails: Optional[List[str]] = None,
-                 upns: Optional[List[str]] = None):
+                 dns_names: Optional[Sequence[str]] = None,
+                 emails: Optional[Sequence[str]] = None,
+                 upns: Optional[Sequence[str]] = None):
         """
-        :param List[str] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
-        :param List[str] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
-        :param List[str] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        :param Sequence[str] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+        :param Sequence[str] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+        :param Sequence[str] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
         if dns_names is not None:
             pulumi.set(__self__, "dns_names", dns_names)
@@ -979,7 +979,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 
     @property
     @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> Optional[List[str]]:
+    def dns_names(self) -> Optional[Sequence[str]]:
         """
         A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
         """
@@ -987,7 +987,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[List[str]]:
+    def emails(self) -> Optional[Sequence[str]]:
         """
         A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
         """
@@ -995,7 +995,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 
     @property
     @pulumi.getter
-    def upns(self) -> Optional[List[str]]:
+    def upns(self) -> Optional[Sequence[str]]:
         """
         A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
@@ -1068,18 +1068,18 @@ class KeyVaultAccessPolicy(dict):
                  object_id: str,
                  tenant_id: str,
                  application_id: Optional[str] = None,
-                 certificate_permissions: Optional[List[str]] = None,
-                 key_permissions: Optional[List[str]] = None,
-                 secret_permissions: Optional[List[str]] = None,
-                 storage_permissions: Optional[List[str]] = None):
+                 certificate_permissions: Optional[Sequence[str]] = None,
+                 key_permissions: Optional[Sequence[str]] = None,
+                 secret_permissions: Optional[Sequence[str]] = None,
+                 storage_permissions: Optional[Sequence[str]] = None):
         """
         :param str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
         :param str application_id: The object ID of an Application in Azure Active Directory.
-        :param List[str] certificate_permissions: List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-        :param List[str] key_permissions: List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-        :param List[str] secret_permissions: List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-        :param List[str] storage_permissions: List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+        :param Sequence[str] certificate_permissions: List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+        :param Sequence[str] key_permissions: List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+        :param Sequence[str] secret_permissions: List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        :param Sequence[str] storage_permissions: List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
         """
         pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1120,7 +1120,7 @@ class KeyVaultAccessPolicy(dict):
 
     @property
     @pulumi.getter(name="certificatePermissions")
-    def certificate_permissions(self) -> Optional[List[str]]:
+    def certificate_permissions(self) -> Optional[Sequence[str]]:
         """
         List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
         """
@@ -1128,7 +1128,7 @@ class KeyVaultAccessPolicy(dict):
 
     @property
     @pulumi.getter(name="keyPermissions")
-    def key_permissions(self) -> Optional[List[str]]:
+    def key_permissions(self) -> Optional[Sequence[str]]:
         """
         List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
         """
@@ -1136,7 +1136,7 @@ class KeyVaultAccessPolicy(dict):
 
     @property
     @pulumi.getter(name="secretPermissions")
-    def secret_permissions(self) -> Optional[List[str]]:
+    def secret_permissions(self) -> Optional[Sequence[str]]:
         """
         List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
         """
@@ -1144,7 +1144,7 @@ class KeyVaultAccessPolicy(dict):
 
     @property
     @pulumi.getter(name="storagePermissions")
-    def storage_permissions(self) -> Optional[List[str]]:
+    def storage_permissions(self) -> Optional[Sequence[str]]:
         """
         List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
         """
@@ -1159,13 +1159,13 @@ class KeyVaultNetworkAcls(dict):
     def __init__(__self__, *,
                  bypass: str,
                  default_action: str,
-                 ip_rules: Optional[List[str]] = None,
-                 virtual_network_subnet_ids: Optional[List[str]] = None):
+                 ip_rules: Optional[Sequence[str]] = None,
+                 virtual_network_subnet_ids: Optional[Sequence[str]] = None):
         """
         :param str bypass: Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
         :param str default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
-        :param List[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-        :param List[str] virtual_network_subnet_ids: One or more Subnet ID's which should be able to access this Key Vault.
+        :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+        :param Sequence[str] virtual_network_subnet_ids: One or more Subnet ID's which should be able to access this Key Vault.
         """
         pulumi.set(__self__, "bypass", bypass)
         pulumi.set(__self__, "default_action", default_action)
@@ -1192,7 +1192,7 @@ class KeyVaultNetworkAcls(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List[str]]:
+    def ip_rules(self) -> Optional[Sequence[str]]:
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
         """
@@ -1200,7 +1200,7 @@ class KeyVaultNetworkAcls(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> Optional[List[str]]:
+    def virtual_network_subnet_ids(self) -> Optional[Sequence[str]]:
         """
         One or more Subnet ID's which should be able to access this Key Vault.
         """
@@ -1213,17 +1213,17 @@ class KeyVaultNetworkAcls(dict):
 @pulumi.output_type
 class GetCertificateCertificatePolicyResult(dict):
     def __init__(__self__, *,
-                 issuer_parameters: List['outputs.GetCertificateCertificatePolicyIssuerParameterResult'],
-                 key_properties: List['outputs.GetCertificateCertificatePolicyKeyPropertyResult'],
-                 secret_properties: List['outputs.GetCertificateCertificatePolicySecretPropertyResult'],
-                 x509_certificate_properties: List['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult'],
-                 lifetime_actions: Optional[List['outputs.GetCertificateCertificatePolicyLifetimeActionResult']] = None):
+                 issuer_parameters: Sequence['outputs.GetCertificateCertificatePolicyIssuerParameterResult'],
+                 key_properties: Sequence['outputs.GetCertificateCertificatePolicyKeyPropertyResult'],
+                 secret_properties: Sequence['outputs.GetCertificateCertificatePolicySecretPropertyResult'],
+                 x509_certificate_properties: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult'],
+                 lifetime_actions: Optional[Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionResult']] = None):
         """
-        :param List['GetCertificateCertificatePolicyIssuerParameterArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
-        :param List['GetCertificateCertificatePolicyKeyPropertyArgs'] key_properties: A `key_properties` block as defined below.
-        :param List['GetCertificateCertificatePolicySecretPropertyArgs'] secret_properties: A `secret_properties` block as defined below.
-        :param List['GetCertificateCertificatePolicyX509CertificatePropertyArgs'] x509_certificate_properties: An `x509_certificate_properties` block as defined below.
-        :param List['GetCertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyIssuerParameterArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyKeyPropertyArgs'] key_properties: A `key_properties` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicySecretPropertyArgs'] secret_properties: A `secret_properties` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertyArgs'] x509_certificate_properties: An `x509_certificate_properties` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
         pulumi.set(__self__, "key_properties", key_properties)
@@ -1234,7 +1234,7 @@ class GetCertificateCertificatePolicyResult(dict):
 
     @property
     @pulumi.getter(name="issuerParameters")
-    def issuer_parameters(self) -> List['outputs.GetCertificateCertificatePolicyIssuerParameterResult']:
+    def issuer_parameters(self) -> Sequence['outputs.GetCertificateCertificatePolicyIssuerParameterResult']:
         """
         A `issuer_parameters` block as defined below.
         """
@@ -1242,7 +1242,7 @@ class GetCertificateCertificatePolicyResult(dict):
 
     @property
     @pulumi.getter(name="keyProperties")
-    def key_properties(self) -> List['outputs.GetCertificateCertificatePolicyKeyPropertyResult']:
+    def key_properties(self) -> Sequence['outputs.GetCertificateCertificatePolicyKeyPropertyResult']:
         """
         A `key_properties` block as defined below.
         """
@@ -1250,7 +1250,7 @@ class GetCertificateCertificatePolicyResult(dict):
 
     @property
     @pulumi.getter(name="secretProperties")
-    def secret_properties(self) -> List['outputs.GetCertificateCertificatePolicySecretPropertyResult']:
+    def secret_properties(self) -> Sequence['outputs.GetCertificateCertificatePolicySecretPropertyResult']:
         """
         A `secret_properties` block as defined below.
         """
@@ -1258,7 +1258,7 @@ class GetCertificateCertificatePolicyResult(dict):
 
     @property
     @pulumi.getter(name="x509CertificateProperties")
-    def x509_certificate_properties(self) -> List['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult']:
+    def x509_certificate_properties(self) -> Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult']:
         """
         An `x509_certificate_properties` block as defined below.
         """
@@ -1266,7 +1266,7 @@ class GetCertificateCertificatePolicyResult(dict):
 
     @property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[List['outputs.GetCertificateCertificatePolicyLifetimeActionResult']]:
+    def lifetime_actions(self) -> Optional[Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionResult']]:
         """
         A `lifetime_action` block as defined below.
         """
@@ -1295,12 +1295,12 @@ class GetCertificateCertificatePolicyIssuerParameterResult(dict):
 class GetCertificateCertificatePolicyKeyPropertyResult(dict):
     def __init__(__self__, *,
                  exportable: bool,
-                 key_size: float,
+                 key_size: int,
                  key_type: str,
                  reuse_key: bool):
         """
         :param bool exportable: Is this Certificate Exportable?
-        :param float key_size: The size of the Key used in the Certificate.
+        :param int key_size: The size of the Key used in the Certificate.
         :param str key_type: Specifies the Type of Key, for example `RSA`.
         :param bool reuse_key: Is the key reusable?
         """
@@ -1319,7 +1319,7 @@ class GetCertificateCertificatePolicyKeyPropertyResult(dict):
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> float:
+    def key_size(self) -> int:
         """
         The size of the Key used in the Certificate.
         """
@@ -1345,18 +1345,18 @@ class GetCertificateCertificatePolicyKeyPropertyResult(dict):
 @pulumi.output_type
 class GetCertificateCertificatePolicyLifetimeActionResult(dict):
     def __init__(__self__, *,
-                 actions: List['outputs.GetCertificateCertificatePolicyLifetimeActionActionResult'],
-                 triggers: List['outputs.GetCertificateCertificatePolicyLifetimeActionTriggerResult']):
+                 actions: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionActionResult'],
+                 triggers: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionTriggerResult']):
         """
-        :param List['GetCertificateCertificatePolicyLifetimeActionActionArgs'] actions: A `action` block as defined below.
-        :param List['GetCertificateCertificatePolicyLifetimeActionTriggerArgs'] triggers: A `trigger` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyLifetimeActionActionArgs'] actions: A `action` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyLifetimeActionTriggerArgs'] triggers: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter
-    def actions(self) -> List['outputs.GetCertificateCertificatePolicyLifetimeActionActionResult']:
+    def actions(self) -> Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionActionResult']:
         """
         A `action` block as defined below.
         """
@@ -1364,7 +1364,7 @@ class GetCertificateCertificatePolicyLifetimeActionResult(dict):
 
     @property
     @pulumi.getter
-    def triggers(self) -> List['outputs.GetCertificateCertificatePolicyLifetimeActionTriggerResult']:
+    def triggers(self) -> Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionTriggerResult']:
         """
         A `trigger` block as defined below.
         """
@@ -1392,18 +1392,18 @@ class GetCertificateCertificatePolicyLifetimeActionActionResult(dict):
 @pulumi.output_type
 class GetCertificateCertificatePolicyLifetimeActionTriggerResult(dict):
     def __init__(__self__, *,
-                 days_before_expiry: float,
-                 lifetime_percentage: float):
+                 days_before_expiry: int,
+                 lifetime_percentage: int):
         """
-        :param float days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run.
-        :param float lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
+        :param int days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run.
+        :param int lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
         """
         pulumi.set(__self__, "days_before_expiry", days_before_expiry)
         pulumi.set(__self__, "lifetime_percentage", lifetime_percentage)
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
-    def days_before_expiry(self) -> float:
+    def days_before_expiry(self) -> int:
         """
         The number of days before the Certificate expires that the action associated with this Trigger should run.
         """
@@ -1411,7 +1411,7 @@ class GetCertificateCertificatePolicyLifetimeActionTriggerResult(dict):
 
     @property
     @pulumi.getter(name="lifetimePercentage")
-    def lifetime_percentage(self) -> float:
+    def lifetime_percentage(self) -> int:
         """
         The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
         """
@@ -1439,17 +1439,17 @@ class GetCertificateCertificatePolicySecretPropertyResult(dict):
 @pulumi.output_type
 class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
     def __init__(__self__, *,
-                 extended_key_usages: List[str],
-                 key_usages: List[str],
+                 extended_key_usages: Sequence[str],
+                 key_usages: Sequence[str],
                  subject: str,
-                 subject_alternative_names: List['outputs.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult'],
-                 validity_in_months: float):
+                 subject_alternative_names: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult'],
+                 validity_in_months: int):
         """
-        :param List[str] extended_key_usages: A list of Extended/Enhanced Key Usages.
-        :param List[str] key_usages: A list of uses associated with this Key.
+        :param Sequence[str] extended_key_usages: A list of Extended/Enhanced Key Usages.
+        :param Sequence[str] key_usages: A list of uses associated with this Key.
         :param str subject: The Certificate's Subject.
-        :param List['GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
-        :param float validity_in_months: The Certificates Validity Period in Months.
+        :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
+        :param int validity_in_months: The Certificates Validity Period in Months.
         """
         pulumi.set(__self__, "extended_key_usages", extended_key_usages)
         pulumi.set(__self__, "key_usages", key_usages)
@@ -1459,7 +1459,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
 
     @property
     @pulumi.getter(name="extendedKeyUsages")
-    def extended_key_usages(self) -> List[str]:
+    def extended_key_usages(self) -> Sequence[str]:
         """
         A list of Extended/Enhanced Key Usages.
         """
@@ -1467,7 +1467,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
 
     @property
     @pulumi.getter(name="keyUsages")
-    def key_usages(self) -> List[str]:
+    def key_usages(self) -> Sequence[str]:
         """
         A list of uses associated with this Key.
         """
@@ -1483,7 +1483,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> List['outputs.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult']:
+    def subject_alternative_names(self) -> Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult']:
         """
         A `subject_alternative_names` block as defined below.
         """
@@ -1491,7 +1491,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
 
     @property
     @pulumi.getter(name="validityInMonths")
-    def validity_in_months(self) -> float:
+    def validity_in_months(self) -> int:
         """
         The Certificates Validity Period in Months.
         """
@@ -1501,13 +1501,13 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
 @pulumi.output_type
 class GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
-                 dns_names: List[str],
-                 emails: List[str],
-                 upns: List[str]):
+                 dns_names: Sequence[str],
+                 emails: Sequence[str],
+                 upns: Sequence[str]):
         """
-        :param List[str] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate.
-        :param List[str] emails: A list of email addresses identified by this Certificate.
-        :param List[str] upns: A list of User Principal Names identified by the Certificate.
+        :param Sequence[str] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate.
+        :param Sequence[str] emails: A list of email addresses identified by this Certificate.
+        :param Sequence[str] upns: A list of User Principal Names identified by the Certificate.
         """
         pulumi.set(__self__, "dns_names", dns_names)
         pulumi.set(__self__, "emails", emails)
@@ -1515,7 +1515,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNa
 
     @property
     @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> List[str]:
+    def dns_names(self) -> Sequence[str]:
         """
         A list of alternative DNS names (FQDNs) identified by the Certificate.
         """
@@ -1523,7 +1523,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNa
 
     @property
     @pulumi.getter
-    def emails(self) -> List[str]:
+    def emails(self) -> Sequence[str]:
         """
         A list of email addresses identified by this Certificate.
         """
@@ -1531,7 +1531,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNa
 
     @property
     @pulumi.getter
-    def upns(self) -> List[str]:
+    def upns(self) -> Sequence[str]:
         """
         A list of User Principal Names identified by the Certificate.
         """
@@ -1593,19 +1593,19 @@ class GetCertificateIssuerAdminResult(dict):
 class GetKeyVaultAccessPolicyResult(dict):
     def __init__(__self__, *,
                  application_id: str,
-                 certificate_permissions: List[str],
-                 key_permissions: List[str],
+                 certificate_permissions: Sequence[str],
+                 key_permissions: Sequence[str],
                  object_id: str,
-                 secret_permissions: List[str],
-                 storage_permissions: List[str],
+                 secret_permissions: Sequence[str],
+                 storage_permissions: Sequence[str],
                  tenant_id: str):
         """
         :param str application_id: The Object ID of a Azure Active Directory Application.
-        :param List[str] certificate_permissions: A list of certificate permissions applicable to this Access Policy.
-        :param List[str] key_permissions: A list of key permissions applicable to this Access Policy.
+        :param Sequence[str] certificate_permissions: A list of certificate permissions applicable to this Access Policy.
+        :param Sequence[str] key_permissions: A list of key permissions applicable to this Access Policy.
         :param str object_id: An Object ID of a User, Service Principal or Security Group.
-        :param List[str] secret_permissions: A list of secret permissions applicable to this Access Policy.
-        :param List[str] storage_permissions: A list of storage permissions applicable to this Access Policy.
+        :param Sequence[str] secret_permissions: A list of secret permissions applicable to this Access Policy.
+        :param Sequence[str] storage_permissions: A list of storage permissions applicable to this Access Policy.
         :param str tenant_id: The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -1626,7 +1626,7 @@ class GetKeyVaultAccessPolicyResult(dict):
 
     @property
     @pulumi.getter(name="certificatePermissions")
-    def certificate_permissions(self) -> List[str]:
+    def certificate_permissions(self) -> Sequence[str]:
         """
         A list of certificate permissions applicable to this Access Policy.
         """
@@ -1634,7 +1634,7 @@ class GetKeyVaultAccessPolicyResult(dict):
 
     @property
     @pulumi.getter(name="keyPermissions")
-    def key_permissions(self) -> List[str]:
+    def key_permissions(self) -> Sequence[str]:
         """
         A list of key permissions applicable to this Access Policy.
         """
@@ -1650,7 +1650,7 @@ class GetKeyVaultAccessPolicyResult(dict):
 
     @property
     @pulumi.getter(name="secretPermissions")
-    def secret_permissions(self) -> List[str]:
+    def secret_permissions(self) -> Sequence[str]:
         """
         A list of secret permissions applicable to this Access Policy.
         """
@@ -1658,7 +1658,7 @@ class GetKeyVaultAccessPolicyResult(dict):
 
     @property
     @pulumi.getter(name="storagePermissions")
-    def storage_permissions(self) -> List[str]:
+    def storage_permissions(self) -> Sequence[str]:
         """
         A list of storage permissions applicable to this Access Policy.
         """
@@ -1678,8 +1678,8 @@ class GetKeyVaultNetworkAclResult(dict):
     def __init__(__self__, *,
                  bypass: str,
                  default_action: str,
-                 ip_rules: List[str],
-                 virtual_network_subnet_ids: List[str]):
+                 ip_rules: Sequence[str],
+                 virtual_network_subnet_ids: Sequence[str]):
         pulumi.set(__self__, "bypass", bypass)
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "ip_rules", ip_rules)
@@ -1697,12 +1697,12 @@ class GetKeyVaultNetworkAclResult(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> List[str]:
+    def ip_rules(self) -> Sequence[str]:
         return pulumi.get(self, "ip_rules")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> List[str]:
+    def virtual_network_subnet_ids(self) -> Sequence[str]:
         return pulumi.get(self, "virtual_network_subnet_ids")
 
 

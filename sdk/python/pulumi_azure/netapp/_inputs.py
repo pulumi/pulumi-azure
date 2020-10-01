@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,14 +16,14 @@ __all__ = [
 @pulumi.input_type
 class AccountActiveDirectoryArgs:
     def __init__(__self__, *,
-                 dns_servers: pulumi.Input[List[pulumi.Input[str]]],
+                 dns_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  domain: pulumi.Input[str],
                  password: pulumi.Input[str],
                  smb_server_name: pulumi.Input[str],
                  username: pulumi.Input[str],
                  organizational_unit: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_servers: A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
         :param pulumi.Input[str] domain: The name of the Active Directory domain.
         :param pulumi.Input[str] password: The password associated with the `username`.
         :param pulumi.Input[str] smb_server_name: The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
@@ -40,14 +40,14 @@ class AccountActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def dns_servers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def dns_servers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "dns_servers", value)
 
     @property
@@ -114,8 +114,8 @@ class AccountActiveDirectoryArgs:
 @pulumi.input_type
 class VolumeExportPolicyRuleArgs:
     def __init__(__self__, *,
-                 allowed_clients: pulumi.Input[List[pulumi.Input[str]]],
-                 rule_index: pulumi.Input[float],
+                 allowed_clients: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 rule_index: pulumi.Input[int],
                  cifs_enabled: Optional[pulumi.Input[bool]] = None,
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  nfsv4_enabled: Optional[pulumi.Input[bool]] = None,
@@ -123,8 +123,8 @@ class VolumeExportPolicyRuleArgs:
                  unix_read_only: Optional[pulumi.Input[bool]] = None,
                  unix_read_write: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_clients: A list of allowed clients IPv4 addresses.
-        :param pulumi.Input[float] rule_index: The index number of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_clients: A list of allowed clients IPv4 addresses.
+        :param pulumi.Input[int] rule_index: The index number of the rule.
         :param pulumi.Input[bool] cifs_enabled: Is the CIFS protocol allowed?
         :param pulumi.Input[bool] nfsv3_enabled: Is the NFSv3 protocol allowed?
         :param pulumi.Input[bool] nfsv4_enabled: Is the NFSv4 protocol allowed?
@@ -158,26 +158,26 @@ class VolumeExportPolicyRuleArgs:
 
     @property
     @pulumi.getter(name="allowedClients")
-    def allowed_clients(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def allowed_clients(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of allowed clients IPv4 addresses.
         """
         return pulumi.get(self, "allowed_clients")
 
     @allowed_clients.setter
-    def allowed_clients(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def allowed_clients(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_clients", value)
 
     @property
     @pulumi.getter(name="ruleIndex")
-    def rule_index(self) -> pulumi.Input[float]:
+    def rule_index(self) -> pulumi.Input[int]:
         """
         The index number of the rule.
         """
         return pulumi.get(self, "rule_index")
 
     @rule_index.setter
-    def rule_index(self, value: pulumi.Input[float]):
+    def rule_index(self, value: pulumi.Input[int]):
         pulumi.set(self, "rule_index", value)
 
     @property

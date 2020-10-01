@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,14 +21,14 @@ class Schedule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
-                 interval: Optional[pulumi.Input[float]] = None,
-                 month_days: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 monthly_occurrences: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleMonthlyOccurrenceArgs']]]]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleMonthlyOccurrenceArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
-                 week_days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,14 +41,14 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for this Schedule.
         :param pulumi.Input[str] expiry_time: The end time of the schedule.
         :param pulumi.Input[str] frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-        :param pulumi.Input[float] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
-        :param pulumi.Input[List[pulumi.Input[float]]] month_days: List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleMonthlyOccurrenceArgs']]]] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        :param pulumi.Input[int] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleMonthlyOccurrenceArgs']]]] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
-        :param pulumi.Input[List[pulumi.Input[str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,14 +99,14 @@ class Schedule(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             expiry_time: Optional[pulumi.Input[str]] = None,
             frequency: Optional[pulumi.Input[str]] = None,
-            interval: Optional[pulumi.Input[float]] = None,
-            month_days: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-            monthly_occurrences: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleMonthlyOccurrenceArgs']]]]] = None,
+            interval: Optional[pulumi.Input[int]] = None,
+            month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleMonthlyOccurrenceArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             start_time: Optional[pulumi.Input[str]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
-            week_days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'Schedule':
+            week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Schedule':
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -118,14 +118,14 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for this Schedule.
         :param pulumi.Input[str] expiry_time: The end time of the schedule.
         :param pulumi.Input[str] frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-        :param pulumi.Input[float] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
-        :param pulumi.Input[List[pulumi.Input[float]]] month_days: List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ScheduleMonthlyOccurrenceArgs']]]] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        :param pulumi.Input[int] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleMonthlyOccurrenceArgs']]]] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
-        :param pulumi.Input[List[pulumi.Input[str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -179,7 +179,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interval(self) -> pulumi.Output[float]:
+    def interval(self) -> pulumi.Output[int]:
         """
         The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
         """
@@ -187,7 +187,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthDays")
-    def month_days(self) -> pulumi.Output[Optional[List[float]]]:
+    def month_days(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
         List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
         """
@@ -195,7 +195,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> pulumi.Output[Optional[List['outputs.ScheduleMonthlyOccurrence']]]:
+    def monthly_occurrences(self) -> pulumi.Output[Optional[Sequence['outputs.ScheduleMonthlyOccurrence']]]:
         """
         List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         """
@@ -235,7 +235,7 @@ class Schedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> pulumi.Output[Optional[List[str]]]:
+    def week_days(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of days of the week that the job should execute on. Only valid when frequency is `Week`.
         """

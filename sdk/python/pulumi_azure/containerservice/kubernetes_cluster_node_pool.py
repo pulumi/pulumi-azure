@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['KubernetesClusterNodePool']
@@ -15,21 +15,21 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-                 max_count: Optional[pulumi.Input[float]] = None,
-                 max_pods: Optional[pulumi.Input[float]] = None,
-                 min_count: Optional[pulumi.Input[float]] = None,
+                 max_count: Optional[pulumi.Input[int]] = None,
+                 max_pods: Optional[pulumi.Input[int]] = None,
+                 min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 node_count: Optional[pulumi.Input[float]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_taints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -77,21 +77,21 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
-        :param pulumi.Input[float] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
+        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
+        :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
+        :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
-        :param pulumi.Input[float] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -151,21 +151,21 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-            max_count: Optional[pulumi.Input[float]] = None,
-            max_pods: Optional[pulumi.Input[float]] = None,
-            min_count: Optional[pulumi.Input[float]] = None,
+            max_count: Optional[pulumi.Input[int]] = None,
+            max_pods: Optional[pulumi.Input[int]] = None,
+            min_count: Optional[pulumi.Input[int]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            node_count: Optional[pulumi.Input[float]] = None,
+            node_count: Optional[pulumi.Input[int]] = None,
             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            node_taints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             orchestrator_version: Optional[pulumi.Input[str]] = None,
-            os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+            os_disk_size_gb: Optional[pulumi.Input[int]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             spot_max_price: Optional[pulumi.Input[float]] = None,
@@ -179,21 +179,21 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
-        :param pulumi.Input[float] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
+        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
+        :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
         :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
+        :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
-        :param pulumi.Input[float] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
@@ -230,7 +230,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def availability_zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Availability Zones where the Nodes in this Node Pool should be created in.
         """
@@ -270,7 +270,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> pulumi.Output[Optional[float]]:
+    def max_count(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
         """
@@ -278,7 +278,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> pulumi.Output[float]:
+    def max_pods(self) -> pulumi.Output[int]:
         """
         The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         """
@@ -286,7 +286,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> pulumi.Output[Optional[float]]:
+    def min_count(self) -> pulumi.Output[Optional[int]]:
         """
         The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
         """
@@ -310,7 +310,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> pulumi.Output[float]:
+    def node_count(self) -> pulumi.Output[int]:
         """
         The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
         """
@@ -326,7 +326,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> pulumi.Output[Optional[List[str]]]:
+    def node_taints(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         """
@@ -342,7 +342,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osDiskSizeGb")
-    def os_disk_size_gb(self) -> pulumi.Output[float]:
+    def os_disk_size_gb(self) -> pulumi.Output[int]:
         """
         The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
         """

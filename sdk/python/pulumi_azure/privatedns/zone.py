@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Zone']
@@ -76,11 +76,11 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            max_number_of_record_sets: Optional[pulumi.Input[float]] = None,
-            max_number_of_virtual_network_links: Optional[pulumi.Input[float]] = None,
-            max_number_of_virtual_network_links_with_registration: Optional[pulumi.Input[float]] = None,
+            max_number_of_record_sets: Optional[pulumi.Input[int]] = None,
+            max_number_of_virtual_network_links: Optional[pulumi.Input[int]] = None,
+            max_number_of_virtual_network_links_with_registration: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            number_of_record_sets: Optional[pulumi.Input[float]] = None,
+            number_of_record_sets: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Zone':
         """
@@ -90,11 +90,11 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] max_number_of_record_sets: The maximum number of record sets that can be created in this Private DNS zone.
-        :param pulumi.Input[float] max_number_of_virtual_network_links: The maximum number of virtual networks that can be linked to this Private DNS zone.
-        :param pulumi.Input[float] max_number_of_virtual_network_links_with_registration: The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
+        :param pulumi.Input[int] max_number_of_record_sets: The maximum number of record sets that can be created in this Private DNS zone.
+        :param pulumi.Input[int] max_number_of_virtual_network_links: The maximum number of virtual networks that can be linked to this Private DNS zone.
+        :param pulumi.Input[int] max_number_of_virtual_network_links_with_registration: The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
         :param pulumi.Input[str] name: The name of the Private DNS Zone. Must be a valid domain name.
-        :param pulumi.Input[float] number_of_record_sets: The current number of record sets in this Private DNS zone.
+        :param pulumi.Input[int] number_of_record_sets: The current number of record sets in this Private DNS zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -113,7 +113,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> pulumi.Output[float]:
+    def max_number_of_record_sets(self) -> pulumi.Output[int]:
         """
         The maximum number of record sets that can be created in this Private DNS zone.
         """
@@ -121,7 +121,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinks")
-    def max_number_of_virtual_network_links(self) -> pulumi.Output[float]:
+    def max_number_of_virtual_network_links(self) -> pulumi.Output[int]:
         """
         The maximum number of virtual networks that can be linked to this Private DNS zone.
         """
@@ -129,7 +129,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinksWithRegistration")
-    def max_number_of_virtual_network_links_with_registration(self) -> pulumi.Output[float]:
+    def max_number_of_virtual_network_links_with_registration(self) -> pulumi.Output[int]:
         """
         The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
         """
@@ -145,7 +145,7 @@ class Zone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> pulumi.Output[float]:
+    def number_of_record_sets(self) -> pulumi.Output[int]:
         """
         The current number of record sets in this Private DNS zone.
         """

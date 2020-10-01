@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -91,7 +91,7 @@ class GetFunctionAppResult:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> List['outputs.GetFunctionAppConnectionStringResult']:
+    def connection_strings(self) -> Sequence['outputs.GetFunctionAppConnectionStringResult']:
         """
         An `connection_string` block as defined below.
         """
@@ -123,7 +123,7 @@ class GetFunctionAppResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> List['outputs.GetFunctionAppIdentityResult']:
+    def identities(self) -> Sequence['outputs.GetFunctionAppIdentityResult']:
         """
         A `identity` block as defined below.
         """
@@ -173,12 +173,12 @@ class GetFunctionAppResult:
 
     @property
     @pulumi.getter(name="siteConfigs")
-    def site_configs(self) -> List['outputs.GetFunctionAppSiteConfigResult']:
+    def site_configs(self) -> Sequence['outputs.GetFunctionAppSiteConfigResult']:
         return pulumi.get(self, "site_configs")
 
     @property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> List['outputs.GetFunctionAppSiteCredentialResult']:
+    def site_credentials(self) -> Sequence['outputs.GetFunctionAppSiteCredentialResult']:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         """
@@ -186,7 +186,7 @@ class GetFunctionAppResult:
 
     @property
     @pulumi.getter(name="sourceControls")
-    def source_controls(self) -> List['outputs.GetFunctionAppSourceControlResult']:
+    def source_controls(self) -> Sequence['outputs.GetFunctionAppSourceControlResult']:
         """
         A `source_control` block as defined below.
         """

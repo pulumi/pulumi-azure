@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['CnameRecord']
@@ -19,7 +19,7 @@ class CnameRecord(pulumi.CustomResource):
                  record: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ttl: Optional[pulumi.Input[float]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -97,7 +97,7 @@ class CnameRecord(pulumi.CustomResource):
             record: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            ttl: Optional[pulumi.Input[float]] = None,
+            ttl: Optional[pulumi.Input[int]] = None,
             zone_name: Optional[pulumi.Input[str]] = None) -> 'CnameRecord':
         """
         Get an existing CnameRecord resource's state with the given name, id, and optional extra
@@ -168,7 +168,7 @@ class CnameRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output[float]:
+    def ttl(self) -> pulumi.Output[int]:
         return pulumi.get(self, "ttl")
 
     @property

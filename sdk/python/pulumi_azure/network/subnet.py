@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,13 +18,13 @@ class Subnet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
-                 address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 delegations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_endpoints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -66,13 +66,13 @@ class Subnet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
-        :param pulumi.Input[List[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
         :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -119,13 +119,13 @@ class Subnet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             address_prefix: Optional[pulumi.Input[str]] = None,
-            address_prefixes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            delegations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
+            address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
             enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
             enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            service_endpoints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             virtual_network_name: Optional[pulumi.Input[str]] = None) -> 'Subnet':
         """
         Get an existing Subnet resource's state with the given name, id, and optional extra
@@ -135,13 +135,13 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
-        :param pulumi.Input[List[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
         :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -169,7 +169,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> pulumi.Output[List[str]]:
+    def address_prefixes(self) -> pulumi.Output[Sequence[str]]:
         """
         The address prefixes to use for the subnet.
         """
@@ -177,7 +177,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def delegations(self) -> pulumi.Output[Optional[List['outputs.SubnetDelegation']]]:
+    def delegations(self) -> pulumi.Output[Optional[Sequence['outputs.SubnetDelegation']]]:
         """
         One or more `delegation` blocks as defined below.
         """
@@ -217,7 +217,7 @@ class Subnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> pulumi.Output[Optional[List[str]]]:
+    def service_endpoints(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
         """

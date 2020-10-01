@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,10 +17,10 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_object_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
-                 cosmosdb_throughput: Optional[pulumi.Input[float]] = None,
+                 cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -75,7 +75,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
-        :param pulumi.Input[float] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
@@ -120,10 +120,10 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policy_object_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
             cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
-            cosmosdb_throughput: Optional[pulumi.Input[float]] = None,
+            cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -138,7 +138,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
-        :param pulumi.Input[float] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
         :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
@@ -162,7 +162,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicyObjectIds")
-    def access_policy_object_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def access_policy_object_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "access_policy_object_ids")
 
     @property
@@ -183,7 +183,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cosmosdbThroughput")
-    def cosmosdb_throughput(self) -> pulumi.Output[Optional[float]]:
+    def cosmosdb_throughput(self) -> pulumi.Output[Optional[int]]:
         """
         The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         """

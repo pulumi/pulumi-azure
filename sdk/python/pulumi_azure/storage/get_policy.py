@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -41,7 +41,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.GetPolicyRuleResult']:
+    def rules(self) -> Sequence['outputs.GetPolicyRuleResult']:
         """
         A `rule` block as documented below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -533,14 +533,14 @@ class HBaseClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -593,14 +593,14 @@ class HBaseClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -631,21 +631,21 @@ class HBaseClusterRolesHeadNodeArgs:
 @pulumi.input_type
 class HBaseClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
-                 target_instance_count: pulumi.Input[float],
+                 target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -668,14 +668,14 @@ class HBaseClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -704,14 +704,14 @@ class HBaseClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -728,14 +728,14 @@ class HBaseClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -769,14 +769,14 @@ class HBaseClusterRolesZookeeperNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -829,14 +829,14 @@ class HBaseClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -1425,12 +1425,12 @@ class HadoopClusterRolesArgs:
 @pulumi.input_type
 class HadoopClusterRolesEdgeNodeArgs:
     def __init__(__self__, *,
-                 install_script_actions: pulumi.Input[List[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]],
-                 target_instance_count: pulumi.Input[float],
+                 install_script_actions: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]],
+                 target_instance_count: pulumi.Input[int],
                  vm_size: pulumi.Input[str]):
         """
-        :param pulumi.Input[List[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]] install_script_actions: A `install_script_action` block as defined below.
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]] install_script_actions: A `install_script_action` block as defined below.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "install_script_actions", install_script_actions)
@@ -1439,26 +1439,26 @@ class HadoopClusterRolesEdgeNodeArgs:
 
     @property
     @pulumi.getter(name="installScriptActions")
-    def install_script_actions(self) -> pulumi.Input[List[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]]:
+    def install_script_actions(self) -> pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]]:
         """
         A `install_script_action` block as defined below.
         """
         return pulumi.get(self, "install_script_actions")
 
     @install_script_actions.setter
-    def install_script_actions(self, value: pulumi.Input[List[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]]):
+    def install_script_actions(self, value: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]]):
         pulumi.set(self, "install_script_actions", value)
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -1517,14 +1517,14 @@ class HadoopClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -1577,14 +1577,14 @@ class HadoopClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -1615,21 +1615,21 @@ class HadoopClusterRolesHeadNodeArgs:
 @pulumi.input_type
 class HadoopClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
-                 target_instance_count: pulumi.Input[float],
+                 target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -1652,14 +1652,14 @@ class HadoopClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -1688,14 +1688,14 @@ class HadoopClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -1712,14 +1712,14 @@ class HadoopClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -1753,14 +1753,14 @@ class HadoopClusterRolesZookeeperNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -1813,14 +1813,14 @@ class HadoopClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -2390,14 +2390,14 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -2450,14 +2450,14 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -2488,21 +2488,21 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
 @pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
-                 target_instance_count: pulumi.Input[float],
+                 target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -2525,14 +2525,14 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -2561,14 +2561,14 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -2585,14 +2585,14 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -2626,14 +2626,14 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -2686,14 +2686,14 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -3269,14 +3269,14 @@ class KafkaClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -3329,14 +3329,14 @@ class KafkaClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -3367,23 +3367,23 @@ class KafkaClusterRolesHeadNodeArgs:
 @pulumi.input_type
 class KafkaClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
-                 number_of_disks_per_node: pulumi.Input[float],
-                 target_instance_count: pulumi.Input[float],
+                 number_of_disks_per_node: pulumi.Input[int],
+                 target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] number_of_disks_per_node: The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[int] number_of_disks_per_node: The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -3407,26 +3407,26 @@ class KafkaClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="numberOfDisksPerNode")
-    def number_of_disks_per_node(self) -> pulumi.Input[float]:
+    def number_of_disks_per_node(self) -> pulumi.Input[int]:
         """
         The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "number_of_disks_per_node")
 
     @number_of_disks_per_node.setter
-    def number_of_disks_per_node(self, value: pulumi.Input[float]):
+    def number_of_disks_per_node(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_disks_per_node", value)
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -3455,14 +3455,14 @@ class KafkaClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -3479,14 +3479,14 @@ class KafkaClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -3520,14 +3520,14 @@ class KafkaClusterRolesZookeeperNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -3580,14 +3580,14 @@ class KafkaClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -3863,14 +3863,14 @@ class MLServicesClusterRolesEdgeNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -3923,14 +3923,14 @@ class MLServicesClusterRolesEdgeNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -3964,14 +3964,14 @@ class MLServicesClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4024,14 +4024,14 @@ class MLServicesClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -4062,21 +4062,21 @@ class MLServicesClusterRolesHeadNodeArgs:
 @pulumi.input_type
 class MLServicesClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
-                 target_instance_count: pulumi.Input[float],
+                 target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4099,14 +4099,14 @@ class MLServicesClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -4135,14 +4135,14 @@ class MLServicesClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -4159,14 +4159,14 @@ class MLServicesClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -4200,14 +4200,14 @@ class MLServicesClusterRolesZookeeperNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4260,14 +4260,14 @@ class MLServicesClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -4476,14 +4476,14 @@ class RServerClusterRolesEdgeNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Edge Node. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Edge Node. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Edge Node. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Edge Node should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4536,14 +4536,14 @@ class RServerClusterRolesEdgeNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Edge Node. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -4577,14 +4577,14 @@ class RServerClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4637,14 +4637,14 @@ class RServerClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -4675,21 +4675,21 @@ class RServerClusterRolesHeadNodeArgs:
 @pulumi.input_type
 class RServerClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
-                 target_instance_count: pulumi.Input[float],
+                 target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4712,14 +4712,14 @@ class RServerClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -4748,14 +4748,14 @@ class RServerClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -4772,14 +4772,14 @@ class RServerClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -4813,14 +4813,14 @@ class RServerClusterRolesZookeeperNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -4873,14 +4873,14 @@ class RServerClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -5389,14 +5389,14 @@ class SparkClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -5449,14 +5449,14 @@ class SparkClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -5487,21 +5487,21 @@ class SparkClusterRolesHeadNodeArgs:
 @pulumi.input_type
 class SparkClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
-                 target_instance_count: pulumi.Input[float],
+                 target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -5524,14 +5524,14 @@ class SparkClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -5560,14 +5560,14 @@ class SparkClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -5584,14 +5584,14 @@ class SparkClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -5625,14 +5625,14 @@ class SparkClusterRolesZookeeperNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -5685,14 +5685,14 @@ class SparkClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -6268,14 +6268,14 @@ class StormClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -6328,14 +6328,14 @@ class StormClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -6366,21 +6366,21 @@ class StormClusterRolesHeadNodeArgs:
 @pulumi.input_type
 class StormClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
-                 target_instance_count: pulumi.Input[float],
+                 target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 min_instance_count: Optional[pulumi.Input[float]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -6403,14 +6403,14 @@ class StormClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="targetInstanceCount")
-    def target_instance_count(self) -> pulumi.Input[float]:
+    def target_instance_count(self) -> pulumi.Input[int]:
         """
         The number of instances which should be run for the Worker Nodes.
         """
         return pulumi.get(self, "target_instance_count")
 
     @target_instance_count.setter
-    def target_instance_count(self, value: pulumi.Input[float]):
+    def target_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "target_instance_count", value)
 
     @property
@@ -6439,14 +6439,14 @@ class StormClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="minInstanceCount")
-    def min_instance_count(self) -> Optional[pulumi.Input[float]]:
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "min_instance_count")
 
     @min_instance_count.setter
-    def min_instance_count(self, value: Optional[pulumi.Input[float]]):
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_instance_count", value)
 
     @property
@@ -6463,14 +6463,14 @@ class StormClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property
@@ -6504,14 +6504,14 @@ class StormClusterRolesZookeeperNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 ssh_keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
@@ -6564,14 +6564,14 @@ class StormClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ssh_keys", value)
 
     @property

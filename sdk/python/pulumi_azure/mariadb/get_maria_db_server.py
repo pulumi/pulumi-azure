@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -115,7 +115,7 @@ class GetMariaDbServerResult:
 
     @property
     @pulumi.getter(name="storageProfiles")
-    def storage_profiles(self) -> List['outputs.GetMariaDbServerStorageProfileResult']:
+    def storage_profiles(self) -> Sequence['outputs.GetMariaDbServerStorageProfileResult']:
         """
         A `storage_profile` block as defined below.
         """

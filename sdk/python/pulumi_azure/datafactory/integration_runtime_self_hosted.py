@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rbac_authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]] = None,
+                 rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -48,7 +48,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_name: Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         if __name__ is not None:
@@ -94,7 +94,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            rbac_authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]] = None,
+            rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'IntegrationRuntimeSelfHosted':
         """
         Get an existing IntegrationRuntimeSelfHosted resource's state with the given name, id, and optional extra
@@ -108,7 +108,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_name: Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] rbac_authorizations: A `rbac_authorization` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Factory should exist. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -166,7 +166,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rbacAuthorizations")
-    def rbac_authorizations(self) -> pulumi.Output[Optional[List['outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]:
+    def rbac_authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]:
         """
         A `rbac_authorization` block as defined below.
         """

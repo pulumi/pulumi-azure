@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class ChannelDirectLine(pulumi.CustomResource):
                  bot_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sites: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]]] = None,
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -32,7 +32,7 @@ class ChannelDirectLine(pulumi.CustomResource):
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,7 +74,7 @@ class ChannelDirectLine(pulumi.CustomResource):
             bot_name: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            sites: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]]] = None) -> 'ChannelDirectLine':
+            sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]]] = None) -> 'ChannelDirectLine':
         """
         Get an existing ChannelDirectLine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -85,7 +85,7 @@ class ChannelDirectLine(pulumi.CustomResource):
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -123,7 +123,7 @@ class ChannelDirectLine(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sites(self) -> pulumi.Output[List['outputs.ChannelDirectLineSite']]:
+    def sites(self) -> pulumi.Output[Sequence['outputs.ChannelDirectLineSite']]:
         """
         A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['IdentityProviderAad']
@@ -15,7 +15,7 @@ class IdentityProviderAad(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -50,7 +50,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_tenants: List of allowed AAD Tenants.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of allowed AAD Tenants.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
@@ -100,7 +100,7 @@ class IdentityProviderAad(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class IdentityProviderAad(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowed_tenants: List of allowed AAD Tenants.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of allowed AAD Tenants.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
@@ -134,7 +134,7 @@ class IdentityProviderAad(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedTenants")
-    def allowed_tenants(self) -> pulumi.Output[List[str]]:
+    def allowed_tenants(self) -> pulumi.Output[Sequence[str]]:
         """
         List of allowed AAD Tenants.
         """

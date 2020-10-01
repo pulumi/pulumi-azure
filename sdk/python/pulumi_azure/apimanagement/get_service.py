@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -84,7 +84,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> List['outputs.GetServiceAdditionalLocationResult']:
+    def additional_locations(self) -> Sequence['outputs.GetServiceAdditionalLocationResult']:
         """
         Zero or more `additional_location` blocks as defined below
         """
@@ -116,7 +116,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="hostnameConfigurations")
-    def hostname_configurations(self) -> List['outputs.GetServiceHostnameConfigurationResult']:
+    def hostname_configurations(self) -> Sequence['outputs.GetServiceHostnameConfigurationResult']:
         """
         A `hostname_configuration` block as defined below.
         """
@@ -132,7 +132,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> List['outputs.GetServiceIdentityResult']:
+    def identities(self) -> Sequence['outputs.GetServiceIdentityResult']:
         """
         (Optional) An `identity` block as defined below.
         """
@@ -180,7 +180,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> List[str]:
+    def private_ip_addresses(self) -> Sequence[str]:
         """
         Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
         """
@@ -188,7 +188,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> List[str]:
+    def public_ip_addresses(self) -> Sequence[str]:
         """
         Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,7 +24,7 @@ class RServerCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['RServerClusterRolesArgs']]] = None,
                  rstudio: Optional[pulumi.Input[bool]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RServerClusterStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RServerClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class RServerCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RServerClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[bool] rstudio: Should R Studio community edition for RServer be installed? Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RServerClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RServerClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight RServer Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
@@ -168,7 +168,7 @@ class RServerCluster(pulumi.CustomResource):
             roles: Optional[pulumi.Input[pulumi.InputType['RServerClusterRolesArgs']]] = None,
             rstudio: Optional[pulumi.Input[bool]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
-            storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['RServerClusterStorageAccountArgs']]]]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RServerClusterStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             tls_min_version: Optional[pulumi.Input[str]] = None) -> 'RServerCluster':
@@ -189,7 +189,7 @@ class RServerCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RServerClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[bool] rstudio: Should R Studio community edition for RServer be installed? Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight RServer Cluster.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['RServerClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RServerClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight RServer Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
@@ -295,7 +295,7 @@ class RServerCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.RServerClusterStorageAccount']]]:
+    def storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.RServerClusterStorageAccount']]]:
         """
         One or more `storage_account` block as defined below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AlertRuleMsSecurityIncident']
@@ -17,13 +17,13 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 display_name_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product_filter: Optional[pulumi.Input[str]] = None,
-                 severity_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 text_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 text_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -52,12 +52,12 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
-        :param pulumi.Input[List[pulumi.Input[str]]] display_name_filters: Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] display_name_filters: Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         :param pulumi.Input[bool] enabled: Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT` and `Microsoft Cloud App Security`.
-        :param pulumi.Input[List[pulumi.Input[str]]] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,13 +108,13 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            display_name_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             product_filter: Optional[pulumi.Input[str]] = None,
-            severity_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            text_whitelists: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'AlertRuleMsSecurityIncident':
+            severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            text_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'AlertRuleMsSecurityIncident':
         """
         Get an existing AlertRuleMsSecurityIncident resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -124,12 +124,12 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Sentinel MS Security Incident Alert Rule.
         :param pulumi.Input[str] display_name: The friendly name of this Sentinel MS Security Incident Alert Rule.
-        :param pulumi.Input[List[pulumi.Input[str]]] display_name_filters: Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] display_name_filters: Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         :param pulumi.Input[bool] enabled: Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         :param pulumi.Input[str] product_filter: The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT` and `Microsoft Cloud App Security`.
-        :param pulumi.Input[List[pulumi.Input[str]]] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] severity_filters: Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -164,7 +164,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayNameFilters")
-    def display_name_filters(self) -> pulumi.Output[List[str]]:
+    def display_name_filters(self) -> pulumi.Output[Sequence[str]]:
         """
         Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         """
@@ -204,7 +204,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="severityFilters")
-    def severity_filters(self) -> pulumi.Output[List[str]]:
+    def severity_filters(self) -> pulumi.Output[Sequence[str]]:
         """
         Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
         """
@@ -212,7 +212,7 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="textWhitelists")
-    def text_whitelists(self) -> pulumi.Output[List[str]]:
+    def text_whitelists(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "text_whitelists")
 
     def translate_output_property(self, prop):

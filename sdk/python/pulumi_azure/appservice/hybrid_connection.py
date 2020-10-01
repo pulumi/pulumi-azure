@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['HybridConnection']
@@ -17,7 +17,7 @@ class HybridConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  relay_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  send_key_name: Optional[pulumi.Input[str]] = None,
@@ -68,7 +68,7 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: The hostname of the endpoint.
-        :param pulumi.Input[float] port: The port of the endpoint.
+        :param pulumi.Input[int] port: The port of the endpoint.
         :param pulumi.Input[str] relay_id: The ID of the Service Bus Relay. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
@@ -124,7 +124,7 @@ class HybridConnection(pulumi.CustomResource):
             app_service_name: Optional[pulumi.Input[str]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             relay_id: Optional[pulumi.Input[str]] = None,
             relay_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: The hostname of the endpoint.
         :param pulumi.Input[str] namespace_name: The name of the Relay Namespace.
-        :param pulumi.Input[float] port: The port of the endpoint.
+        :param pulumi.Input[int] port: The port of the endpoint.
         :param pulumi.Input[str] relay_id: The ID of the Service Bus Relay. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
@@ -193,7 +193,7 @@ class HybridConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         """
         The port of the endpoint.
         """

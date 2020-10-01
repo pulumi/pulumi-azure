@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Namespace']
@@ -15,7 +15,7 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -46,7 +46,7 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
@@ -100,7 +100,7 @@ class Namespace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capacity: Optional[pulumi.Input[float]] = None,
+            capacity: Optional[pulumi.Input[int]] = None,
             default_primary_connection_string: Optional[pulumi.Input[str]] = None,
             default_primary_key: Optional[pulumi.Input[str]] = None,
             default_secondary_connection_string: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
                rule `RootManageSharedAccessKey`.
         :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
@@ -153,7 +153,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capacity(self) -> pulumi.Output[Optional[float]]:
+    def capacity(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4` or `8`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Probe']
@@ -15,11 +15,11 @@ class Probe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 number_of_probes: Optional[pulumi.Input[float]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 number_of_probes: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  request_path: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -57,11 +57,11 @@ class Probe(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
+        :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
         :param pulumi.Input[str] name: Specifies the name of the Probe.
-        :param pulumi.Input[float] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
-        :param pulumi.Input[float] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
+        :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+        :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
@@ -108,12 +108,12 @@ class Probe(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            interval_in_seconds: Optional[pulumi.Input[float]] = None,
-            load_balancer_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            interval_in_seconds: Optional[pulumi.Input[int]] = None,
+            load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             loadbalancer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            number_of_probes: Optional[pulumi.Input[float]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            number_of_probes: Optional[pulumi.Input[int]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
             request_path: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'Probe':
@@ -124,11 +124,11 @@ class Probe(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
+        :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
         :param pulumi.Input[str] name: Specifies the name of the Probe.
-        :param pulumi.Input[float] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
-        :param pulumi.Input[float] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
+        :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+        :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
@@ -150,7 +150,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def interval_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         """
@@ -158,7 +158,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancerRules")
-    def load_balancer_rules(self) -> pulumi.Output[List[str]]:
+    def load_balancer_rules(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "load_balancer_rules")
 
     @property
@@ -179,7 +179,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfProbes")
-    def number_of_probes(self) -> pulumi.Output[Optional[float]]:
+    def number_of_probes(self) -> pulumi.Output[Optional[int]]:
         """
         The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         """
@@ -187,7 +187,7 @@ class Probe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         """
         Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -38,14 +38,14 @@ class GetClusterNodePoolResult:
         if kubernetes_cluster_name and not isinstance(kubernetes_cluster_name, str):
             raise TypeError("Expected argument 'kubernetes_cluster_name' to be a str")
         pulumi.set(__self__, "kubernetes_cluster_name", kubernetes_cluster_name)
-        if max_count and not isinstance(max_count, float):
-            raise TypeError("Expected argument 'max_count' to be a float")
+        if max_count and not isinstance(max_count, int):
+            raise TypeError("Expected argument 'max_count' to be a int")
         pulumi.set(__self__, "max_count", max_count)
-        if max_pods and not isinstance(max_pods, float):
-            raise TypeError("Expected argument 'max_pods' to be a float")
+        if max_pods and not isinstance(max_pods, int):
+            raise TypeError("Expected argument 'max_pods' to be a int")
         pulumi.set(__self__, "max_pods", max_pods)
-        if min_count and not isinstance(min_count, float):
-            raise TypeError("Expected argument 'min_count' to be a float")
+        if min_count and not isinstance(min_count, int):
+            raise TypeError("Expected argument 'min_count' to be a int")
         pulumi.set(__self__, "min_count", min_count)
         if mode and not isinstance(mode, str):
             raise TypeError("Expected argument 'mode' to be a str")
@@ -53,8 +53,8 @@ class GetClusterNodePoolResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if node_count and not isinstance(node_count, float):
-            raise TypeError("Expected argument 'node_count' to be a float")
+        if node_count and not isinstance(node_count, int):
+            raise TypeError("Expected argument 'node_count' to be a int")
         pulumi.set(__self__, "node_count", node_count)
         if node_labels and not isinstance(node_labels, dict):
             raise TypeError("Expected argument 'node_labels' to be a dict")
@@ -65,8 +65,8 @@ class GetClusterNodePoolResult:
         if orchestrator_version and not isinstance(orchestrator_version, str):
             raise TypeError("Expected argument 'orchestrator_version' to be a str")
         pulumi.set(__self__, "orchestrator_version", orchestrator_version)
-        if os_disk_size_gb and not isinstance(os_disk_size_gb, float):
-            raise TypeError("Expected argument 'os_disk_size_gb' to be a float")
+        if os_disk_size_gb and not isinstance(os_disk_size_gb, int):
+            raise TypeError("Expected argument 'os_disk_size_gb' to be a int")
         pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
         if os_type and not isinstance(os_type, str):
             raise TypeError("Expected argument 'os_type' to be a str")
@@ -92,7 +92,7 @@ class GetClusterNodePoolResult:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> List[str]:
+    def availability_zones(self) -> Sequence[str]:
         """
         A list of Availability Zones in which the Nodes in this Node Pool exists.
         """
@@ -137,7 +137,7 @@ class GetClusterNodePoolResult:
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> float:
+    def max_count(self) -> int:
         """
         The maximum number of Nodes allowed when auto-scaling is enabled.
         """
@@ -145,7 +145,7 @@ class GetClusterNodePoolResult:
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> float:
+    def max_pods(self) -> int:
         """
         The maximum number of Pods allowed on each Node in this Node Pool.
         """
@@ -153,7 +153,7 @@ class GetClusterNodePoolResult:
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> float:
+    def min_count(self) -> int:
         """
         The minimum number of Nodes allowed when auto-scaling is enabled.
         """
@@ -174,7 +174,7 @@ class GetClusterNodePoolResult:
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> float:
+    def node_count(self) -> int:
         """
         The current number of Nodes in the Node Pool.
         """
@@ -190,7 +190,7 @@ class GetClusterNodePoolResult:
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> List[str]:
+    def node_taints(self) -> Sequence[str]:
         """
         A map of Kubernetes Taints applied to each Node in this Node Pool.
         """
@@ -206,7 +206,7 @@ class GetClusterNodePoolResult:
 
     @property
     @pulumi.getter(name="osDiskSizeGb")
-    def os_disk_size_gb(self) -> float:
+    def os_disk_size_gb(self) -> int:
         """
         The size of the OS Disk on each Node in this Node Pool.
         """

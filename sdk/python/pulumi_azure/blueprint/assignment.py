@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 lock_exclude_principals: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  lock_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameter_values: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Assignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure location of the Assignment.
-        :param pulumi.Input[List[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
         :param pulumi.Input[str] name: The name of the Blueprint Assignment
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
@@ -153,7 +153,7 @@ class Assignment(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            lock_exclude_principals: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             lock_mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameter_values: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
         :param pulumi.Input[str] location: The Azure location of the Assignment.
-        :param pulumi.Input[List[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
         :param pulumi.Input[str] name: The name of the Blueprint Assignment
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
@@ -239,7 +239,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lockExcludePrincipals")
-    def lock_exclude_principals(self) -> pulumi.Output[Optional[List[str]]]:
+    def lock_exclude_principals(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         """

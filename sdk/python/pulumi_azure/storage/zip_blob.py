@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ZipBlob']
@@ -24,8 +24,8 @@ class ZipBlob(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parallelism: Optional[pulumi.Input[float]] = None,
-                 size: Optional[pulumi.Input[float]] = None,
+                 parallelism: Optional[pulumi.Input[int]] = None,
+                 size: Optional[pulumi.Input[int]] = None,
                  source_content: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -91,8 +91,8 @@ class ZipBlob(pulumi.CustomResource):
             content_type: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parallelism: Optional[pulumi.Input[float]] = None,
-            size: Optional[pulumi.Input[float]] = None,
+            parallelism: Optional[pulumi.Input[int]] = None,
+            size: Optional[pulumi.Input[int]] = None,
             source_content: Optional[pulumi.Input[str]] = None,
             source_uri: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -153,12 +153,12 @@ class ZipBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parallelism(self) -> pulumi.Output[Optional[float]]:
+    def parallelism(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "parallelism")
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[Optional[float]]:
+    def size(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "size")
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -54,27 +54,27 @@ class GroupContainerArgs:
                  image: pulumi.Input[str],
                  memory: pulumi.Input[float],
                  name: pulumi.Input[str],
-                 commands: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  gpu: Optional[pulumi.Input['GroupContainerGpuArgs']] = None,
                  liveness_probe: Optional[pulumi.Input['GroupContainerLivenessProbeArgs']] = None,
-                 ports: Optional[pulumi.Input[List[pulumi.Input['GroupContainerPortArgs']]]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]]] = None,
                  readiness_probe: Optional[pulumi.Input['GroupContainerReadinessProbeArgs']] = None,
                  secure_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 volumes: Optional[pulumi.Input[List[pulumi.Input['GroupContainerVolumeArgs']]]] = None):
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]] = None):
         """
         :param pulumi.Input[float] cpu: The required number of CPU cores of the containers. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image: The container image name. Changing this forces a new resource to be created.
         :param pulumi.Input[float] memory: The required memory of the containers in GB. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupContainerGpuArgs'] gpu: A `gpu` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupContainerLivenessProbeArgs'] liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input['GroupContainerPortArgs']]] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
         :param pulumi.Input['GroupContainerReadinessProbeArgs'] readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input['GroupContainerVolumeArgs']]] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "image", image)
@@ -147,14 +147,14 @@ class GroupContainerArgs:
 
     @property
     @pulumi.getter
-    def commands(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of commands which should be run on the container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "commands")
 
     @commands.setter
-    def commands(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "commands", value)
 
     @property
@@ -195,14 +195,14 @@ class GroupContainerArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[List[pulumi.Input['GroupContainerPortArgs']]]]:
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]]]:
         """
         A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[List[pulumi.Input['GroupContainerPortArgs']]]]):
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]]]):
         pulumi.set(self, "ports", value)
 
     @property
@@ -231,24 +231,24 @@ class GroupContainerArgs:
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[List[pulumi.Input['GroupContainerVolumeArgs']]]]:
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]]:
         """
         The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[List[pulumi.Input['GroupContainerVolumeArgs']]]]):
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
 @pulumi.input_type
 class GroupContainerGpuArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[float]] = None,
+                 count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] count: The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] count: The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The Sku which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
         """
         if count is not None:
@@ -258,14 +258,14 @@ class GroupContainerGpuArgs:
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[float]]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
         The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: Optional[pulumi.Input[float]]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
 
     @property
@@ -284,21 +284,21 @@ class GroupContainerGpuArgs:
 @pulumi.input_type
 class GroupContainerLivenessProbeArgs:
     def __init__(__self__, *,
-                 execs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 failure_threshold: Optional[pulumi.Input[float]] = None,
-                 http_gets: Optional[pulumi.Input[List[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]] = None,
-                 initial_delay_seconds: Optional[pulumi.Input[float]] = None,
-                 period_seconds: Optional[pulumi.Input[float]] = None,
-                 success_threshold: Optional[pulumi.Input[float]] = None,
-                 timeout_seconds: Optional[pulumi.Input[float]] = None):
+                 execs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 failure_threshold: Optional[pulumi.Input[int]] = None,
+                 http_gets: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 success_threshold: Optional[pulumi.Input[int]] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]] http_gets: The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] timeout_seconds: Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]] http_gets: The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] timeout_seconds: Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         if execs is not None:
             pulumi.set(__self__, "execs", execs)
@@ -317,86 +317,86 @@ class GroupContainerLivenessProbeArgs:
 
     @property
     @pulumi.getter
-    def execs(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def execs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Commands to be run to validate container readiness. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "execs")
 
     @execs.setter
-    def execs(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def execs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "execs", value)
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[float]]:
+    def failure_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[float]]):
+    def failure_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failure_threshold", value)
 
     @property
     @pulumi.getter(name="httpGets")
-    def http_gets(self) -> Optional[pulumi.Input[List[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]]:
+    def http_gets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]]:
         """
         The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "http_gets")
 
     @http_gets.setter
-    def http_gets(self, value: Optional[pulumi.Input[List[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]]):
+    def http_gets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]]):
         pulumi.set(self, "http_gets", value)
 
     @property
     @pulumi.getter(name="initialDelaySeconds")
-    def initial_delay_seconds(self) -> Optional[pulumi.Input[float]]:
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
-    def initial_delay_seconds(self, value: Optional[pulumi.Input[float]]):
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "initial_delay_seconds", value)
 
     @property
     @pulumi.getter(name="periodSeconds")
-    def period_seconds(self) -> Optional[pulumi.Input[float]]:
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
-    def period_seconds(self, value: Optional[pulumi.Input[float]]):
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "period_seconds", value)
 
     @property
     @pulumi.getter(name="successThreshold")
-    def success_threshold(self) -> Optional[pulumi.Input[float]]:
+    def success_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
-    def success_threshold(self, value: Optional[pulumi.Input[float]]):
+    def success_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "success_threshold", value)
 
     @property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[float]]:
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[float]]):
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
@@ -404,11 +404,11 @@ class GroupContainerLivenessProbeArgs:
 class GroupContainerLivenessProbeHttpGetArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  scheme: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] path: Path to access on the HTTP server. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] port: The port number the container will expose. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] port: The port number the container will expose. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         if path is not None:
@@ -432,14 +432,14 @@ class GroupContainerLivenessProbeHttpGetArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         The port number the container will expose. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
     @property
@@ -458,10 +458,10 @@ class GroupContainerLivenessProbeHttpGetArgs:
 @pulumi.input_type
 class GroupContainerPortArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] port: The port number the container will expose. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] port: The port number the container will expose. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
         """
         if port is not None:
@@ -471,14 +471,14 @@ class GroupContainerPortArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         The port number the container will expose. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
     @property
@@ -497,21 +497,21 @@ class GroupContainerPortArgs:
 @pulumi.input_type
 class GroupContainerReadinessProbeArgs:
     def __init__(__self__, *,
-                 execs: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 failure_threshold: Optional[pulumi.Input[float]] = None,
-                 http_gets: Optional[pulumi.Input[List[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]] = None,
-                 initial_delay_seconds: Optional[pulumi.Input[float]] = None,
-                 period_seconds: Optional[pulumi.Input[float]] = None,
-                 success_threshold: Optional[pulumi.Input[float]] = None,
-                 timeout_seconds: Optional[pulumi.Input[float]] = None):
+                 execs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 failure_threshold: Optional[pulumi.Input[int]] = None,
+                 http_gets: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 success_threshold: Optional[pulumi.Input[int]] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]] http_gets: The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] timeout_seconds: Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]] http_gets: The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] timeout_seconds: Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         if execs is not None:
             pulumi.set(__self__, "execs", execs)
@@ -530,86 +530,86 @@ class GroupContainerReadinessProbeArgs:
 
     @property
     @pulumi.getter
-    def execs(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def execs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Commands to be run to validate container readiness. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "execs")
 
     @execs.setter
-    def execs(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def execs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "execs", value)
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[float]]:
+    def failure_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[float]]):
+    def failure_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "failure_threshold", value)
 
     @property
     @pulumi.getter(name="httpGets")
-    def http_gets(self) -> Optional[pulumi.Input[List[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]]:
+    def http_gets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]]:
         """
         The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "http_gets")
 
     @http_gets.setter
-    def http_gets(self, value: Optional[pulumi.Input[List[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]]):
+    def http_gets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]]):
         pulumi.set(self, "http_gets", value)
 
     @property
     @pulumi.getter(name="initialDelaySeconds")
-    def initial_delay_seconds(self) -> Optional[pulumi.Input[float]]:
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "initial_delay_seconds")
 
     @initial_delay_seconds.setter
-    def initial_delay_seconds(self, value: Optional[pulumi.Input[float]]):
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "initial_delay_seconds", value)
 
     @property
     @pulumi.getter(name="periodSeconds")
-    def period_seconds(self) -> Optional[pulumi.Input[float]]:
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "period_seconds")
 
     @period_seconds.setter
-    def period_seconds(self, value: Optional[pulumi.Input[float]]):
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "period_seconds", value)
 
     @property
     @pulumi.getter(name="successThreshold")
-    def success_threshold(self) -> Optional[pulumi.Input[float]]:
+    def success_threshold(self) -> Optional[pulumi.Input[int]]:
         """
         Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
-    def success_threshold(self, value: Optional[pulumi.Input[float]]):
+    def success_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "success_threshold", value)
 
     @property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[float]]:
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[float]]):
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
 
 
@@ -617,11 +617,11 @@ class GroupContainerReadinessProbeArgs:
 class GroupContainerReadinessProbeHttpGetArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  scheme: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] path: Path to access on the HTTP server. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] port: The port number the container will expose. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] port: The port number the container will expose. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scheme: Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         if path is not None:
@@ -645,14 +645,14 @@ class GroupContainerReadinessProbeHttpGetArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         """
         The port number the container will expose. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
     @property
@@ -861,11 +861,11 @@ class GroupDiagnosticsLogAnalyticsArgs:
 class GroupIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 identity_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The Managed Service Identity Type of this container group. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -887,14 +887,14 @@ class GroupIdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property
@@ -1171,11 +1171,11 @@ class KubernetesClusterAddonProfileOmsAgentArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 oms_agent_identities: Optional[pulumi.Input[List[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]]] = None):
+                 oms_agent_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]]] = None):
         """
         :param pulumi.Input[bool] enabled: Is the OMS Agent Enabled?
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to. Must be present if `enabled` is `true`.
-        :param pulumi.Input[List[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block as defined below.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_analytics_workspace_id is not None:
@@ -1209,14 +1209,14 @@ class KubernetesClusterAddonProfileOmsAgentArgs:
 
     @property
     @pulumi.getter(name="omsAgentIdentities")
-    def oms_agent_identities(self) -> Optional[pulumi.Input[List[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]]]:
+    def oms_agent_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]]]:
         """
         An `oms_agent_identity` block as defined below.
         """
         return pulumi.get(self, "oms_agent_identities")
 
     @oms_agent_identities.setter
-    def oms_agent_identities(self, value: Optional[pulumi.Input[List[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]]]):
+    def oms_agent_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs']]]]):
         pulumi.set(self, "oms_agent_identities", value)
 
 
@@ -1431,34 +1431,34 @@ class KubernetesClusterDefaultNodePoolArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 availability_zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
-                 max_count: Optional[pulumi.Input[float]] = None,
-                 max_pods: Optional[pulumi.Input[float]] = None,
-                 min_count: Optional[pulumi.Input[float]] = None,
-                 node_count: Optional[pulumi.Input[float]] = None,
+                 max_count: Optional[pulumi.Input[int]] = None,
+                 max_pods: Optional[pulumi.Input[int]] = None,
+                 min_count: Optional[pulumi.Input[int]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_taints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
-                 os_disk_size_gb: Optional[pulumi.Input[float]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`.
-        :param pulumi.Input[List[pulumi.Input[str]]] availability_zones: A list of Availability Zones across which the Node Pool should be spread.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones across which the Node Pool should be spread.
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
-        :param pulumi.Input[float] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
-        :param pulumi.Input[float] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
-        :param pulumi.Input[float] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
+        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
+        :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
-        :param pulumi.Input[float] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
         :param pulumi.Input[str] type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
         :param pulumi.Input[str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
@@ -1520,14 +1520,14 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Availability Zones across which the Node Pool should be spread.
         """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
-    def availability_zones(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "availability_zones", value)
 
     @property
@@ -1556,50 +1556,50 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="maxCount")
-    def max_count(self) -> Optional[pulumi.Input[float]]:
+    def max_count(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
         """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
-    def max_count(self, value: Optional[pulumi.Input[float]]):
+    def max_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_count", value)
 
     @property
     @pulumi.getter(name="maxPods")
-    def max_pods(self) -> Optional[pulumi.Input[float]]:
+    def max_pods(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "max_pods")
 
     @max_pods.setter
-    def max_pods(self, value: Optional[pulumi.Input[float]]):
+    def max_pods(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_pods", value)
 
     @property
     @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[pulumi.Input[float]]:
+    def min_count(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
         """
         return pulumi.get(self, "min_count")
 
     @min_count.setter
-    def min_count(self, value: Optional[pulumi.Input[float]]):
+    def min_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_count", value)
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[pulumi.Input[float]]:
+    def node_count(self) -> Optional[pulumi.Input[int]]:
         """
         The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
         """
         return pulumi.get(self, "node_count")
 
     @node_count.setter
-    def node_count(self, value: Optional[pulumi.Input[float]]):
+    def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
 
     @property
@@ -1616,14 +1616,14 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="nodeTaints")
-    def node_taints(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_taints")
 
     @node_taints.setter
-    def node_taints(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def node_taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "node_taints", value)
 
     @property
@@ -1640,14 +1640,14 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="osDiskSizeGb")
-    def os_disk_size_gb(self) -> Optional[pulumi.Input[float]]:
+    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
         """
         The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "os_disk_size_gb")
 
     @os_disk_size_gb.setter
-    def os_disk_size_gb(self, value: Optional[pulumi.Input[float]]):
+    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "os_disk_size_gb", value)
 
     @property
@@ -2214,19 +2214,19 @@ class KubernetesClusterNetworkProfileArgs:
 @pulumi.input_type
 class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
     def __init__(__self__, *,
-                 effective_outbound_ips: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
-                 managed_outbound_ip_count: Optional[pulumi.Input[float]] = None,
-                 outbound_ip_address_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 outbound_ip_prefix_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 outbound_ports_allocated: Optional[pulumi.Input[float]] = None):
+                 effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 managed_outbound_ip_count: Optional[pulumi.Input[int]] = None,
+                 outbound_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 outbound_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 outbound_ports_allocated: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
-        :param pulumi.Input[float] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
-        :param pulumi.Input[float] managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
-        :param pulumi.Input[List[pulumi.Input[str]]] outbound_ip_address_ids: The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-        :param pulumi.Input[List[pulumi.Input[str]]] outbound_ip_prefix_ids: The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-        :param pulumi.Input[float] outbound_ports_allocated: Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] effective_outbound_ips: The outcome (resource IDs) of the specified arguments.
+        :param pulumi.Input[int] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
+        :param pulumi.Input[int] managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_ids: The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_prefix_ids: The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+        :param pulumi.Input[int] outbound_ports_allocated: Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
         """
         if effective_outbound_ips is not None:
             pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
@@ -2243,74 +2243,74 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
 
     @property
     @pulumi.getter(name="effectiveOutboundIps")
-    def effective_outbound_ips(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def effective_outbound_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The outcome (resource IDs) of the specified arguments.
         """
         return pulumi.get(self, "effective_outbound_ips")
 
     @effective_outbound_ips.setter
-    def effective_outbound_ips(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def effective_outbound_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "effective_outbound_ips", value)
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
         """
         return pulumi.get(self, "idle_timeout_in_minutes")
 
     @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
 
     @property
     @pulumi.getter(name="managedOutboundIpCount")
-    def managed_outbound_ip_count(self) -> Optional[pulumi.Input[float]]:
+    def managed_outbound_ip_count(self) -> Optional[pulumi.Input[int]]:
         """
         Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
         """
         return pulumi.get(self, "managed_outbound_ip_count")
 
     @managed_outbound_ip_count.setter
-    def managed_outbound_ip_count(self, value: Optional[pulumi.Input[float]]):
+    def managed_outbound_ip_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "managed_outbound_ip_count", value)
 
     @property
     @pulumi.getter(name="outboundIpAddressIds")
-    def outbound_ip_address_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def outbound_ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
         """
         return pulumi.get(self, "outbound_ip_address_ids")
 
     @outbound_ip_address_ids.setter
-    def outbound_ip_address_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def outbound_ip_address_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "outbound_ip_address_ids", value)
 
     @property
     @pulumi.getter(name="outboundIpPrefixIds")
-    def outbound_ip_prefix_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def outbound_ip_prefix_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
         """
         return pulumi.get(self, "outbound_ip_prefix_ids")
 
     @outbound_ip_prefix_ids.setter
-    def outbound_ip_prefix_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def outbound_ip_prefix_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "outbound_ip_prefix_ids", value)
 
     @property
     @pulumi.getter(name="outboundPortsAllocated")
-    def outbound_ports_allocated(self) -> Optional[pulumi.Input[float]]:
+    def outbound_ports_allocated(self) -> Optional[pulumi.Input[int]]:
         """
         Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
         """
         return pulumi.get(self, "outbound_ports_allocated")
 
     @outbound_ports_allocated.setter
-    def outbound_ports_allocated(self, value: Optional[pulumi.Input[float]]):
+    def outbound_ports_allocated(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "outbound_ports_allocated", value)
 
 
@@ -2355,14 +2355,14 @@ class KubernetesClusterRoleBasedAccessControlArgs:
 @pulumi.input_type
 class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs:
     def __init__(__self__, *,
-                 admin_group_object_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_app_id: Optional[pulumi.Input[str]] = None,
                  managed: Optional[pulumi.Input[bool]] = None,
                  server_app_id: Optional[pulumi.Input[str]] = None,
                  server_app_secret: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
         :param pulumi.Input[str] client_app_id: The Client ID of an Azure Active Directory Application.
         :param pulumi.Input[bool] managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         :param pulumi.Input[str] server_app_id: The Server ID of an Azure Active Directory Application.
@@ -2384,14 +2384,14 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs:
 
     @property
     @pulumi.getter(name="adminGroupObjectIds")
-    def admin_group_object_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def admin_group_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
         """
         return pulumi.get(self, "admin_group_object_ids")
 
     @admin_group_object_ids.setter
-    def admin_group_object_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def admin_group_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "admin_group_object_ids", value)
 
     @property
@@ -2534,12 +2534,12 @@ class KubernetesClusterWindowsProfileArgs:
 class RegistryNetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]] = None,
-                 virtual_networks: Optional[pulumi.Input[List[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]] = None,
+                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
-        :param pulumi.Input[List[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
-        :param pulumi.Input[List[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]] virtual_networks: One or more `virtual_network` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]] virtual_networks: One or more `virtual_network` blocks as defined below.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -2562,26 +2562,26 @@ class RegistryNetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional[pulumi.Input[List[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]:
+    def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]:
         """
         One or more `virtual_network` blocks as defined below.
         """
         return pulumi.get(self, "virtual_networks")
 
     @virtual_networks.setter
-    def virtual_networks(self, value: Optional[pulumi.Input[List[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]):
+    def virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]):
         pulumi.set(self, "virtual_networks", value)
 
 

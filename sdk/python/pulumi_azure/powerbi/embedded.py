@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Embedded']
@@ -15,7 +15,7 @@ class Embedded(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrators: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -43,7 +43,7 @@ class Embedded(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
@@ -89,7 +89,7 @@ class Embedded(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            administrators: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class Embedded(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
@@ -123,7 +123,7 @@ class Embedded(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def administrators(self) -> pulumi.Output[List[str]]:
+    def administrators(self) -> pulumi.Output[Sequence[str]]:
         """
         A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         """

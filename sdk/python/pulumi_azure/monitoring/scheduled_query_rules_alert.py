@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,20 +18,20 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']]] = None,
-                 authorized_resource_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 frequency: Optional[pulumi.Input[float]] = None,
+                 frequency: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
                  query_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 severity: Optional[pulumi.Input[float]] = None,
+                 severity: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 throttling: Optional[pulumi.Input[float]] = None,
-                 time_window: Optional[pulumi.Input[float]] = None,
+                 throttling: Optional[pulumi.Input[int]] = None,
+                 time_window: Optional[pulumi.Input[int]] = None,
                  trigger: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -42,17 +42,17 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']] action: An `action` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
-        :param pulumi.Input[float] frequency: Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+        :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: Log search query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
-        :param pulumi.Input[float] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
-        :param pulumi.Input[float] throttling: Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
-        :param pulumi.Input[float] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+        :param pulumi.Input[int] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
+        :param pulumi.Input[int] throttling: Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+        :param pulumi.Input[int] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']] trigger: The condition that results in the alert rule being run.
         """
         if __name__ is not None:
@@ -113,20 +113,20 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']]] = None,
-            authorized_resource_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             data_source_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            frequency: Optional[pulumi.Input[float]] = None,
+            frequency: Optional[pulumi.Input[int]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[str]] = None,
             query_type: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            severity: Optional[pulumi.Input[float]] = None,
+            severity: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            throttling: Optional[pulumi.Input[float]] = None,
-            time_window: Optional[pulumi.Input[float]] = None,
+            throttling: Optional[pulumi.Input[int]] = None,
+            time_window: Optional[pulumi.Input[int]] = None,
             trigger: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']]] = None) -> 'ScheduledQueryRulesAlert':
         """
         Get an existing ScheduledQueryRulesAlert resource's state with the given name, id, and optional extra
@@ -136,17 +136,17 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']] action: An `action` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
-        :param pulumi.Input[float] frequency: Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
+        :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: Log search query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
-        :param pulumi.Input[float] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
-        :param pulumi.Input[float] throttling: Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
-        :param pulumi.Input[float] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
+        :param pulumi.Input[int] severity: Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
+        :param pulumi.Input[int] throttling: Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
+        :param pulumi.Input[int] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']] trigger: The condition that results in the alert rule being run.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -181,7 +181,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizedResourceIds")
-    def authorized_resource_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def authorized_resource_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Resource IDs referred into query.
         """
@@ -213,7 +213,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Output[float]:
+    def frequency(self) -> pulumi.Output[int]:
         """
         Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
         """
@@ -255,7 +255,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Output[Optional[float]]:
+    def severity(self) -> pulumi.Output[Optional[int]]:
         """
         Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
         """
@@ -268,7 +268,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def throttling(self) -> pulumi.Output[Optional[float]]:
+    def throttling(self) -> pulumi.Output[Optional[int]]:
         """
         Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
         """
@@ -276,7 +276,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeWindow")
-    def time_window(self) -> pulumi.Output[float]:
+    def time_window(self) -> pulumi.Output[int]:
         """
         Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
         """

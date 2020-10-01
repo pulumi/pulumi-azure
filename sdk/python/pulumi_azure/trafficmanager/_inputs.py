@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -58,11 +58,11 @@ class EndpointSubnetArgs:
     def __init__(__self__, *,
                  first: pulumi.Input[str],
                  last: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[float]] = None):
+                 scope: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] first: The First IP....
         :param pulumi.Input[str] last: The Last IP...
-        :param pulumi.Input[float] scope: The Scope...
+        :param pulumi.Input[int] scope: The Scope...
         """
         pulumi.set(__self__, "first", first)
         if last is not None:
@@ -96,14 +96,14 @@ class EndpointSubnetArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[float]]:
+    def scope(self) -> Optional[pulumi.Input[int]]:
         """
         The Scope...
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[float]]):
+    def scope(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "scope", value)
 
 
@@ -111,10 +111,10 @@ class EndpointSubnetArgs:
 class ProfileDnsConfigArgs:
     def __init__(__self__, *,
                  relative_name: pulumi.Input[str],
-                 ttl: pulumi.Input[float]):
+                 ttl: pulumi.Input[int]):
         """
         :param pulumi.Input[str] relative_name: The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] ttl: The TTL value of the Profile used by Local DNS resolvers and clients.
+        :param pulumi.Input[int] ttl: The TTL value of the Profile used by Local DNS resolvers and clients.
         """
         pulumi.set(__self__, "relative_name", relative_name)
         pulumi.set(__self__, "ttl", ttl)
@@ -133,37 +133,37 @@ class ProfileDnsConfigArgs:
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Input[float]:
+    def ttl(self) -> pulumi.Input[int]:
         """
         The TTL value of the Profile used by Local DNS resolvers and clients.
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: pulumi.Input[float]):
+    def ttl(self, value: pulumi.Input[int]):
         pulumi.set(self, "ttl", value)
 
 
 @pulumi.input_type
 class ProfileMonitorConfigArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
+                 port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
-                 custom_headers: Optional[pulumi.Input[List[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]] = None,
-                 expected_status_code_ranges: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]] = None,
+                 expected_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[float]] = None,
-                 tolerated_number_of_failures: Optional[pulumi.Input[float]] = None):
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 tolerated_number_of_failures: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] port: The port number used by the monitoring checks.
+        :param pulumi.Input[int] port: The port number used by the monitoring checks.
         :param pulumi.Input[str] protocol: The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-        :param pulumi.Input[List[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] expected_status_code_ranges: A list of status code ranges in the format of `100-101`.
-        :param pulumi.Input[float] interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expected_status_code_ranges: A list of status code ranges in the format of `100-101`.
+        :param pulumi.Input[int] interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         :param pulumi.Input[str] path: The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
-        :param pulumi.Input[float] timeout_in_seconds: The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
-        :param pulumi.Input[float] tolerated_number_of_failures: The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+        :param pulumi.Input[int] timeout_in_seconds: The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+        :param pulumi.Input[int] tolerated_number_of_failures: The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
@@ -182,14 +182,14 @@ class ProfileMonitorConfigArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         The port number used by the monitoring checks.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
@@ -206,38 +206,38 @@ class ProfileMonitorConfigArgs:
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[List[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]]:
+    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[List[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]]):
+    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @property
     @pulumi.getter(name="expectedStatusCodeRanges")
-    def expected_status_code_ranges(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def expected_status_code_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of status code ranges in the format of `100-101`.
         """
         return pulumi.get(self, "expected_status_code_ranges")
 
     @expected_status_code_ranges.setter
-    def expected_status_code_ranges(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def expected_status_code_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "expected_status_code_ranges", value)
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         """
         return pulumi.get(self, "interval_in_seconds")
 
     @interval_in_seconds.setter
-    def interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval_in_seconds", value)
 
     @property
@@ -254,26 +254,26 @@ class ProfileMonitorConfigArgs:
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
         """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
-    def timeout_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
     @property
     @pulumi.getter(name="toleratedNumberOfFailures")
-    def tolerated_number_of_failures(self) -> Optional[pulumi.Input[float]]:
+    def tolerated_number_of_failures(self) -> Optional[pulumi.Input[int]]:
         """
         The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
         return pulumi.get(self, "tolerated_number_of_failures")
 
     @tolerated_number_of_failures.setter
-    def tolerated_number_of_failures(self, value: Optional[pulumi.Input[float]]):
+    def tolerated_number_of_failures(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "tolerated_number_of_failures", value)
 
 

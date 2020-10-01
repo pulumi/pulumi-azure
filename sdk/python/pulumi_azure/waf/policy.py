@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['PolicyManagedRulesArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rules` blocks as defined below.
         :param pulumi.Input[str] location: Resource location. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PolicyManagedRulesArgs']] managed_rules: A `managed_rules` blocks as defined below.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
@@ -166,7 +166,7 @@ class Policy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]]] = None,
+            custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_rules: Optional[pulumi.Input[pulumi.InputType['PolicyManagedRulesArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rules` blocks as defined below.
         :param pulumi.Input[str] location: Resource location. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PolicyManagedRulesArgs']] managed_rules: A `managed_rules` blocks as defined below.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
@@ -203,7 +203,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> pulumi.Output[Optional[List['outputs.PolicyCustomRule']]]:
+    def custom_rules(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyCustomRule']]]:
         """
         One or more `custom_rules` blocks as defined below.
         """

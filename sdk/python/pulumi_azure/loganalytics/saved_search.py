@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SavedSearch']
@@ -18,7 +18,7 @@ class SavedSearch(pulumi.CustomResource):
                  category: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  function_alias: Optional[pulumi.Input[str]] = None,
-                 function_parameters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
@@ -102,7 +102,7 @@ class SavedSearch(pulumi.CustomResource):
             category: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             function_alias: Optional[pulumi.Input[str]] = None,
-            function_parameters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             query: Optional[pulumi.Input[str]] = None) -> 'SavedSearch':
@@ -116,7 +116,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
@@ -160,7 +160,7 @@ class SavedSearch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionParameters")
-    def function_parameters(self) -> pulumi.Output[Optional[List[str]]]:
+    def function_parameters(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The function parameters if the query serves as a function. Changing this forces a new resource to be created.
         """

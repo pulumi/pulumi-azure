@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -65,17 +65,17 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="childPolicies")
-    def child_policies(self) -> List[str]:
+    def child_policies(self) -> Sequence[str]:
         return pulumi.get(self, "child_policies")
 
     @property
     @pulumi.getter
-    def dns(self) -> List['outputs.GetFirewallPolicyDnResult']:
+    def dns(self) -> Sequence['outputs.GetFirewallPolicyDnResult']:
         return pulumi.get(self, "dns")
 
     @property
     @pulumi.getter
-    def firewalls(self) -> List[str]:
+    def firewalls(self) -> Sequence[str]:
         return pulumi.get(self, "firewalls")
 
     @property
@@ -103,7 +103,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="ruleCollectionGroups")
-    def rule_collection_groups(self) -> List[str]:
+    def rule_collection_groups(self) -> Sequence[str]:
         return pulumi.get(self, "rule_collection_groups")
 
     @property
@@ -116,7 +116,7 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter(name="threatIntelligenceAllowlists")
-    def threat_intelligence_allowlists(self) -> List['outputs.GetFirewallPolicyThreatIntelligenceAllowlistResult']:
+    def threat_intelligence_allowlists(self) -> Sequence['outputs.GetFirewallPolicyThreatIntelligenceAllowlistResult']:
         return pulumi.get(self, "threat_intelligence_allowlists")
 
     @property

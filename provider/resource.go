@@ -22,9 +22,9 @@ import (
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
-	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 	"github.com/pulumi/pulumi-azure/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
+	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
@@ -218,7 +218,7 @@ func detectCloudShell() cloudShellProfile {
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	p := azurerm.Provider().(*schema.Provider)
+	p := shimv1.NewProvider(azurerm.Provider().(*schema.Provider))
 
 	// Adjust the defaults if running in Azure Cloud Shell.
 	// Environment variables still take preference, e.g. USE_MSI=false disables the MSI endpoint.
@@ -273,10 +273,10 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		ExtraConfig: map[string]*tfbridge.ConfigInfo{
 			azureLocation: {
-				Schema: &schema.Schema{
+				Schema: shimv1.NewSchema(&schema.Schema{
 					Type:     schema.TypeString,
 					Optional: true,
-				},
+				}),
 				Info: &tfbridge.SchemaInfo{
 					Default: &tfbridge.DefaultInfo{
 						EnvVars: []string{"ARM_LOCATION"},
@@ -2050,7 +2050,7 @@ func Provider() tfbridge.ProviderInfo {
 		azureResource(azureContainerService, "RegistryWebhook"), azureContainerService, azureContainerService, nil)
 
 	// Deprecated, remove in 3.0.
-	prov.P.ResourcesMap["azurerm_storage_zipblob"] = prov.P.ResourcesMap["azurerm_storage_blob"]
+	prov.P.ResourcesMap().Set("azurerm_storage_zipblob", prov.P.ResourcesMap().Get("azurerm_storage_blob"))
 	prov.Resources["azurerm_storage_zipblob"] = &tfbridge.ResourceInfo{
 		Tok:                azureResource(azureStorage, "ZipBlob"),
 		DeprecationMessage: "ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.",
@@ -2075,34 +2075,15 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
+	prov.SetAutonaming(24, "")
+
 	// Provide default values for certain resource properties, to improve usability:
-	//     1) For all resources with `name` properties, we will add an auto-name property.  Make sure to skip those
-	//        that already have a name mapping entry, since those may have custom overrides set above (e.g., for length).
-	//     2) For all resources with `location` properties, default to the resource group's location to which the
+	//     For all resources with `location` properties, default to the resource group's location to which the
 	//        resource belongs. This ensures that each resource doesn't need to be given a location explicitly.
 	rgRegionMap := make(map[string]string)
 	for resname, res := range prov.Resources {
-		if schema := p.ResourcesMap[resname]; schema != nil {
-			// Only apply automatic values for input properties (Optional || Required) named `name`
-			if tfs, has := schema.Schema[azureName]; has && (tfs.Optional || tfs.Required) {
-				if _, hasfield := res.Fields[azureName]; !hasfield {
-					if res.Fields == nil {
-						res.Fields = make(map[string]*tfbridge.SchemaInfo)
-					}
-					// Use conservative options that apply broadly for Azure.  See
-					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions for
-					// details.
-					res.Fields[azureName] = tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-						Separator: "",
-						Maxlen:    24,
-						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
-					})
-				}
-			}
-			if tfs, has := schema.Schema[azureLocation]; has && (tfs.Optional || tfs.Required) {
+		if schema := prov.P.ResourcesMap().Get(resname); schema != nil {
+			if tfs, has := schema.Schema().GetOk(azureLocation); has && (tfs.Optional() || tfs.Required()) {
 				if _, hasfield := res.Fields[azureLocation]; !hasfield {
 					if res.Fields == nil {
 						res.Fields = make(map[string]*tfbridge.SchemaInfo)
@@ -2124,20 +2105,36 @@ func Provider() tfbridge.ProviderInfo {
 										rgName := rg.StringValue()
 										rgRegion, has := rgRegionMap[rgName]
 										if !has {
-											rgRes := p.ResourcesMap["azurerm_resource_group"]
+											rgRes := p.ResourcesMap().Get("azurerm_resource_group")
 											contract.Assert(rgRes != nil)
-											rgData := rgRes.Data(&terraform.InstanceState{
-												// Mock up a URI with the relevant pieces, so that we can read back
-												// the resource group's location information.
-												ID: fmt.Sprintf("/subscriptions/_/resourceGroups/%s", rg.StringValue()),
-											})
-											if err := rgRes.Read(rgData, p.Meta()); err != nil {
+											importer := rgRes.Importer()
+											contract.Assert(importer != nil)
+											states, err := importer("azurerm_resource_group",
+												fmt.Sprintf("/subscriptions/_/resourceGroups/%s",
+													rg.StringValue()), p.Meta())
+											if err != nil {
 												return nil, err
 											}
-											if rgData.Id() == "" {
+											switch stateLen := len(states); stateLen {
+											case 0:
 												rgRegion = tfbridge.TerraformUnknownVariableValue
-											} else {
-												rgRegion = azure.NormalizeLocation(rgData.Get("location"))
+											case 1:
+												state, err := p.Refresh("azurerm_resource_group", states[0])
+												switch {
+												case err != nil:
+													return nil, err
+												case state == nil:
+													rgRegion = tfbridge.TerraformUnknownVariableValue
+												default:
+													obj, err := state.Object(rgRes.Schema())
+													if err != nil {
+														return nil, err
+													}
+													rgRegion = azure.NormalizeLocation(obj["location"])
+												}
+											default:
+												return nil, fmt.Errorf("expected 0 or 1 states for resource group %s",
+													rg.StringValue())
 											}
 											rgRegionMap[rgName] = rgRegion // memoize the value.
 										}

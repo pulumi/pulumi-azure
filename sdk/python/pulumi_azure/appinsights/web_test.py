@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['WebTest']
@@ -19,15 +19,15 @@ class WebTest(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 frequency: Optional[pulumi.Input[float]] = None,
-                 geo_locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 frequency: Optional[pulumi.Input[int]] = None,
+                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,15 +40,15 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest.
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
-        :param pulumi.Input[float] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
-        :param pulumi.Input[List[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[float] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
+        :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,8 +105,8 @@ class WebTest(pulumi.CustomResource):
             configuration: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            frequency: Optional[pulumi.Input[float]] = None,
-            geo_locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            frequency: Optional[pulumi.Input[int]] = None,
+            geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -114,7 +114,7 @@ class WebTest(pulumi.CustomResource):
             retry_enabled: Optional[pulumi.Input[bool]] = None,
             synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeout: Optional[pulumi.Input[float]] = None) -> 'WebTest':
+            timeout: Optional[pulumi.Input[int]] = None) -> 'WebTest':
         """
         Get an existing WebTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,15 +126,15 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest.
         :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
-        :param pulumi.Input[float] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
-        :param pulumi.Input[List[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[str] kind: = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`.
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
                new resource to be created.
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[float] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
+        :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -190,7 +190,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Output[Optional[float]]:
+    def frequency(self) -> pulumi.Output[Optional[int]]:
         """
         Interval in seconds between test runs for this WebTest. Default is `300`.
         """
@@ -198,7 +198,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoLocations")
-    def geo_locations(self) -> pulumi.Output[List[str]]:
+    def geo_locations(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of where to physically run the tests from to give global coverage for accessibility of your application.
         """
@@ -257,7 +257,7 @@ class WebTest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[Optional[float]]:
+    def timeout(self) -> pulumi.Output[Optional[int]]:
         """
         Seconds until this WebTest will timeout and fail. Default is `30`.
         """

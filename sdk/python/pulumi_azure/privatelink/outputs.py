@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -24,10 +24,10 @@ __all__ = [
 class EndpointCustomDnsConfig(dict):
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
-                 ip_addresses: Optional[List[str]] = None):
+                 ip_addresses: Optional[Sequence[str]] = None):
         """
         :param str fqdn: The fully qualified domain name to the `private_dns_zone`.
-        :param List[str] ip_addresses: A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+        :param Sequence[str] ip_addresses: A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         """
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
@@ -44,7 +44,7 @@ class EndpointCustomDnsConfig(dict):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[List[str]]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         """
         A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         """
@@ -60,12 +60,12 @@ class EndpointPrivateDnsZoneConfig(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  private_dns_zone_id: Optional[str] = None,
-                 record_sets: Optional[List['outputs.EndpointPrivateDnsZoneConfigRecordSet']] = None):
+                 record_sets: Optional[Sequence['outputs.EndpointPrivateDnsZoneConfigRecordSet']] = None):
         """
         :param str id: The ID of the Private DNS Zone Config.
         :param str name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param str private_dns_zone_id: A list of IP Addresses
-        :param List['EndpointPrivateDnsZoneConfigRecordSetArgs'] record_sets: A `record_sets` block as defined below.
+        :param Sequence['EndpointPrivateDnsZoneConfigRecordSetArgs'] record_sets: A `record_sets` block as defined below.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -102,7 +102,7 @@ class EndpointPrivateDnsZoneConfig(dict):
 
     @property
     @pulumi.getter(name="recordSets")
-    def record_sets(self) -> Optional[List['outputs.EndpointPrivateDnsZoneConfigRecordSet']]:
+    def record_sets(self) -> Optional[Sequence['outputs.EndpointPrivateDnsZoneConfigRecordSet']]:
         """
         A `record_sets` block as defined below.
         """
@@ -116,15 +116,15 @@ class EndpointPrivateDnsZoneConfig(dict):
 class EndpointPrivateDnsZoneConfigRecordSet(dict):
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
-                 ip_addresses: Optional[List[str]] = None,
+                 ip_addresses: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
-                 ttl: Optional[float] = None,
+                 ttl: Optional[int] = None,
                  type: Optional[str] = None):
         """
         :param str fqdn: The fully qualified domain name to the `private_dns_zone`.
-        :param List[str] ip_addresses: A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+        :param Sequence[str] ip_addresses: A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         :param str name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-        :param float ttl: The time to live for each connection to the `private_dns_zone`.
+        :param int ttl: The time to live for each connection to the `private_dns_zone`.
         :param str type: The type of DNS record.
         """
         if fqdn is not None:
@@ -148,7 +148,7 @@ class EndpointPrivateDnsZoneConfigRecordSet(dict):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[List[str]]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         """
         A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         """
@@ -164,7 +164,7 @@ class EndpointPrivateDnsZoneConfigRecordSet(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> Optional[float]:
+    def ttl(self) -> Optional[int]:
         """
         The time to live for each connection to the `private_dns_zone`.
         """
@@ -186,11 +186,11 @@ class EndpointPrivateDnsZoneConfigRecordSet(dict):
 class EndpointPrivateDnsZoneGroup(dict):
     def __init__(__self__, *,
                  name: str,
-                 private_dns_zone_ids: List[str],
+                 private_dns_zone_ids: Sequence[str],
                  id: Optional[str] = None):
         """
         :param str name: Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
-        :param List[str] private_dns_zone_ids: Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+        :param Sequence[str] private_dns_zone_ids: Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
         :param str id: The ID of the Private DNS Zone Config.
         """
         pulumi.set(__self__, "name", name)
@@ -208,7 +208,7 @@ class EndpointPrivateDnsZoneGroup(dict):
 
     @property
     @pulumi.getter(name="privateDnsZoneIds")
-    def private_dns_zone_ids(self) -> List[str]:
+    def private_dns_zone_ids(self) -> Sequence[str]:
         """
         Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
         """
@@ -234,14 +234,14 @@ class EndpointPrivateServiceConnection(dict):
                  private_connection_resource_id: str,
                  private_ip_address: Optional[str] = None,
                  request_message: Optional[str] = None,
-                 subresource_names: Optional[List[str]] = None):
+                 subresource_names: Optional[Sequence[str]] = None):
         """
         :param bool is_manual_connection: Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
         :param str name: Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
         :param str private_connection_resource_id: The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
         :param str private_ip_address: (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
         :param str request_message: A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
-        :param List[str] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
+        :param Sequence[str] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_manual_connection", is_manual_connection)
         pulumi.set(__self__, "name", name)
@@ -295,7 +295,7 @@ class EndpointPrivateServiceConnection(dict):
 
     @property
     @pulumi.getter(name="subresourceNames")
-    def subresource_names(self) -> Optional[List[str]]:
+    def subresource_names(self) -> Optional[Sequence[str]]:
         """
         A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """

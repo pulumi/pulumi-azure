@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -54,12 +54,12 @@ class GetScheduledQueryRulesLogResult:
 
     @property
     @pulumi.getter(name="authorizedResourceIds")
-    def authorized_resource_ids(self) -> List[str]:
+    def authorized_resource_ids(self) -> Sequence[str]:
         return pulumi.get(self, "authorized_resource_ids")
 
     @property
     @pulumi.getter
-    def criterias(self) -> List['outputs.GetScheduledQueryRulesLogCriteriaResult']:
+    def criterias(self) -> Sequence['outputs.GetScheduledQueryRulesLogCriteriaResult']:
         """
         A `criteria` block as defined below.
         """

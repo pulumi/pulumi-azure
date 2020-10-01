@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Blob']
@@ -19,8 +19,8 @@ class Blob(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parallelism: Optional[pulumi.Input[float]] = None,
-                 size: Optional[pulumi.Input[float]] = None,
+                 parallelism: Optional[pulumi.Input[int]] = None,
+                 size: Optional[pulumi.Input[int]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_content: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
@@ -61,8 +61,8 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
-        :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -122,8 +122,8 @@ class Blob(pulumi.CustomResource):
             content_type: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parallelism: Optional[pulumi.Input[float]] = None,
-            size: Optional[pulumi.Input[float]] = None,
+            parallelism: Optional[pulumi.Input[int]] = None,
+            size: Optional[pulumi.Input[int]] = None,
             source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
             source_content: Optional[pulumi.Input[str]] = None,
             source_uri: Optional[pulumi.Input[str]] = None,
@@ -142,8 +142,8 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
-        :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified.
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
@@ -207,7 +207,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parallelism(self) -> pulumi.Output[Optional[float]]:
+    def parallelism(self) -> pulumi.Output[Optional[int]]:
         """
         The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
         """
@@ -215,7 +215,7 @@ class Blob(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[Optional[float]]:
+    def size(self) -> pulumi.Output[Optional[int]]:
         """
         Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         """

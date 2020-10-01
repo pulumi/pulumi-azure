@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['DataSourceWindowsPerformanceCounter']
@@ -17,7 +17,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  counter_name: Optional[pulumi.Input[str]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
-                 interval_seconds: Optional[pulumi.Input[float]] = None,
+                 interval_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  object_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] counter_name: The friendly name of the performance counter.
         :param pulumi.Input[str] instance_name: The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
-        :param pulumi.Input[float] interval_seconds: The time of sample interval in seconds. Supports values between 10 and 2147483647.
+        :param pulumi.Input[int] interval_seconds: The time of sample interval in seconds. Supports values between 10 and 2147483647.
         :param pulumi.Input[str] name: The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         :param pulumi.Input[str] object_name: The object name of the Log Analytics Windows Performance Counter DataSource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
@@ -106,7 +106,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             counter_name: Optional[pulumi.Input[str]] = None,
             instance_name: Optional[pulumi.Input[str]] = None,
-            interval_seconds: Optional[pulumi.Input[float]] = None,
+            interval_seconds: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             object_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] counter_name: The friendly name of the performance counter.
         :param pulumi.Input[str] instance_name: The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
-        :param pulumi.Input[float] interval_seconds: The time of sample interval in seconds. Supports values between 10 and 2147483647.
+        :param pulumi.Input[int] interval_seconds: The time of sample interval in seconds. Supports values between 10 and 2147483647.
         :param pulumi.Input[str] name: The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         :param pulumi.Input[str] object_name: The object name of the Log Analytics Windows Performance Counter DataSource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
@@ -157,7 +157,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="intervalSeconds")
-    def interval_seconds(self) -> pulumi.Output[float]:
+    def interval_seconds(self) -> pulumi.Output[int]:
         """
         The time of sample interval in seconds. Supports values between 10 and 2147483647.
         """

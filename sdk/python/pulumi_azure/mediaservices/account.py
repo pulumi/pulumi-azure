@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,7 +20,7 @@ class Account(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -53,7 +53,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,7 +93,7 @@ class Account(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]]] = None) -> 'Account':
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -104,7 +104,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -142,7 +142,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> pulumi.Output[List['outputs.AccountStorageAccount']]:
+    def storage_accounts(self) -> pulumi.Output[Sequence['outputs.AccountStorageAccount']]:
         """
         One or more `storage_account` blocks as defined below.
         """

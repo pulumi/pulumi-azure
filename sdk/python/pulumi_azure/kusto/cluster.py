@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,16 +21,16 @@ class Cluster(pulumi.CustomResource):
                  enable_purge: Optional[pulumi.Input[bool]] = None,
                  enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
-                 language_extensions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trusted_external_tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -62,16 +62,16 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: A identity block.
-        :param pulumi.Input[List[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster.
         :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,17 +125,17 @@ class Cluster(pulumi.CustomResource):
             enable_purge: Optional[pulumi.Input[bool]] = None,
             enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
-            language_extensions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trusted_external_tenants: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             uri: Optional[pulumi.Input[str]] = None,
             virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']]] = None,
-            zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'Cluster':
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -148,17 +148,17 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_purge: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: A identity block.
-        :param pulumi.Input[List[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster.
         :param pulumi.Input[str] uri: The FQDN of the Azure Kusto Cluster.
         :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -224,7 +224,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> pulumi.Output[Optional[List[str]]]:
+    def language_extensions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         """
@@ -280,7 +280,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedExternalTenants")
-    def trusted_external_tenants(self) -> pulumi.Output[List[str]]:
+    def trusted_external_tenants(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies a list of tenant IDs that are trusted by the cluster.
         """
@@ -304,7 +304,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
         """

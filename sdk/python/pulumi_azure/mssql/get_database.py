@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -32,14 +32,14 @@ class GetDatabaseResult:
         if license_type and not isinstance(license_type, str):
             raise TypeError("Expected argument 'license_type' to be a str")
         pulumi.set(__self__, "license_type", license_type)
-        if max_size_gb and not isinstance(max_size_gb, float):
-            raise TypeError("Expected argument 'max_size_gb' to be a float")
+        if max_size_gb and not isinstance(max_size_gb, int):
+            raise TypeError("Expected argument 'max_size_gb' to be a int")
         pulumi.set(__self__, "max_size_gb", max_size_gb)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if read_replica_count and not isinstance(read_replica_count, float):
-            raise TypeError("Expected argument 'read_replica_count' to be a float")
+        if read_replica_count and not isinstance(read_replica_count, int):
+            raise TypeError("Expected argument 'read_replica_count' to be a int")
         pulumi.set(__self__, "read_replica_count", read_replica_count)
         if read_scale and not isinstance(read_scale, bool):
             raise TypeError("Expected argument 'read_scale' to be a bool")
@@ -91,7 +91,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> float:
+    def max_size_gb(self) -> int:
         """
         The max size of the database in gigabytes.
         """
@@ -104,7 +104,7 @@ class GetDatabaseResult:
 
     @property
     @pulumi.getter(name="readReplicaCount")
-    def read_replica_count(self) -> float:
+    def read_replica_count(self) -> int:
         """
         The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed.
         """

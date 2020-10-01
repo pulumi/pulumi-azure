@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['EndpointStorageContainer']
@@ -15,13 +15,13 @@ class EndpointStorageContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batch_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
+                 batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
-                 max_chunk_size_in_bytes: Optional[pulumi.Input[float]] = None,
+                 max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -67,14 +67,14 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
+        :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
                *
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
+        :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
         """
@@ -122,13 +122,13 @@ class EndpointStorageContainer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            batch_frequency_in_seconds: Optional[pulumi.Input[float]] = None,
+            batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
             connection_string: Optional[pulumi.Input[str]] = None,
             container_name: Optional[pulumi.Input[str]] = None,
             encoding: Optional[pulumi.Input[str]] = None,
             file_name_format: Optional[pulumi.Input[str]] = None,
             iothub_name: Optional[pulumi.Input[str]] = None,
-            max_chunk_size_in_bytes: Optional[pulumi.Input[float]] = None,
+            max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'EndpointStorageContainer':
         """
@@ -138,14 +138,14 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
+        :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
                *
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
+        :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
         """
@@ -166,7 +166,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="batchFrequencyInSeconds")
-    def batch_frequency_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def batch_frequency_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         """
@@ -215,7 +215,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxChunkSizeInBytes")
-    def max_chunk_size_in_bytes(self) -> pulumi.Output[Optional[float]]:
+    def max_chunk_size_in_bytes(self) -> pulumi.Output[Optional[int]]:
         """
         Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         """

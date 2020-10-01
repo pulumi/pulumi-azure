@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -27,20 +27,20 @@ class IoTHubEndpoint(dict):
                  connection_string: str,
                  name: str,
                  type: str,
-                 batch_frequency_in_seconds: Optional[float] = None,
+                 batch_frequency_in_seconds: Optional[int] = None,
                  container_name: Optional[str] = None,
                  encoding: Optional[str] = None,
                  file_name_format: Optional[str] = None,
-                 max_chunk_size_in_bytes: Optional[float] = None):
+                 max_chunk_size_in_bytes: Optional[int] = None):
         """
         :param str connection_string: The connection string for the endpoint.
         :param str name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param str type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
-        :param float batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        :param int batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         :param str container_name: The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         :param str encoding: Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         :param str file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
-        :param float max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        :param int max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "name", name)
@@ -82,7 +82,7 @@ class IoTHubEndpoint(dict):
 
     @property
     @pulumi.getter(name="batchFrequencyInSeconds")
-    def batch_frequency_in_seconds(self) -> Optional[float]:
+    def batch_frequency_in_seconds(self) -> Optional[int]:
         """
         Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         """
@@ -114,7 +114,7 @@ class IoTHubEndpoint(dict):
 
     @property
     @pulumi.getter(name="maxChunkSizeInBytes")
-    def max_chunk_size_in_bytes(self) -> Optional[float]:
+    def max_chunk_size_in_bytes(self) -> Optional[int]:
         """
         Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         """
@@ -129,12 +129,12 @@ class IoTHubFallbackRoute(dict):
     def __init__(__self__, *,
                  condition: Optional[str] = None,
                  enabled: Optional[bool] = None,
-                 endpoint_names: Optional[List[str]] = None,
+                 endpoint_names: Optional[Sequence[str]] = None,
                  source: Optional[str] = None):
         """
         :param str condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
         :param bool enabled: Used to specify whether the fallback route is enabled.
-        :param List[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+        :param Sequence[str] endpoint_names: The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
         """
         if condition is not None:
@@ -164,7 +164,7 @@ class IoTHubFallbackRoute(dict):
 
     @property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> Optional[List[str]]:
+    def endpoint_names(self) -> Optional[Sequence[str]]:
         """
         The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         """
@@ -189,7 +189,7 @@ class IoTHubFileUpload(dict):
                  container_name: str,
                  default_ttl: Optional[str] = None,
                  lock_duration: Optional[str] = None,
-                 max_delivery_count: Optional[float] = None,
+                 max_delivery_count: Optional[int] = None,
                  notifications: Optional[bool] = None,
                  sas_ttl: Optional[str] = None):
         """
@@ -197,7 +197,7 @@ class IoTHubFileUpload(dict):
         :param str container_name: The name of the root container where you upload files. The container need not exist but should be creatable using the connection_string specified.
         :param str default_ttl: The period of time for which a file upload notification message is available to consume before it is expired by the IoT hub, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours, and evaluates to 'PT1H' by default.
         :param str lock_duration: The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds, and evaluates to 'PT1M' by default.
-        :param float max_delivery_count: The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
+        :param int max_delivery_count: The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
         :param bool notifications: Used to specify whether file notifications are sent to IoT Hub on upload. It evaluates to false by default.
         :param str sas_ttl: The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours, and evaluates to 'PT1H' by default.
         """
@@ -248,7 +248,7 @@ class IoTHubFileUpload(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> Optional[float]:
+    def max_delivery_count(self) -> Optional[int]:
         """
         The number of times the IoT hub attempts to deliver a file upload notification message. It evaluates to 10 by default.
         """
@@ -321,13 +321,13 @@ class IoTHubIpFilterRule(dict):
 class IoTHubRoute(dict):
     def __init__(__self__, *,
                  enabled: bool,
-                 endpoint_names: List[str],
+                 endpoint_names: Sequence[str],
                  name: str,
                  source: str,
                  condition: Optional[str] = None):
         """
         :param bool enabled: Used to specify whether a route is enabled.
-        :param List[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed.
+        :param Sequence[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed.
         :param str name: The name of the route.
         :param str source: The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `RoutingSourceInvalid`, `RoutingSourceDeviceMessages`, `RoutingSourceTwinChangeEvents`, `RoutingSourceDeviceLifecycleEvents`, `RoutingSourceDeviceJobLifecycleEvents`.
         :param str condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -349,7 +349,7 @@ class IoTHubRoute(dict):
 
     @property
     @pulumi.getter(name="endpointNames")
-    def endpoint_names(self) -> List[str]:
+    def endpoint_names(self) -> Sequence[str]:
         """
         The list of endpoints to which messages that satisfy the condition are routed.
         """
@@ -444,10 +444,10 @@ class IoTHubSharedAccessPolicy(dict):
 @pulumi.output_type
 class IoTHubSku(dict):
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  name: str):
         """
-        :param float capacity: The number of provisioned IoT Hub units.
+        :param int capacity: The number of provisioned IoT Hub units.
         :param str name: The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -455,7 +455,7 @@ class IoTHubSku(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The number of provisioned IoT Hub units.
         """
@@ -478,13 +478,13 @@ class IotHubDpsLinkedHub(dict):
     def __init__(__self__, *,
                  connection_string: str,
                  location: str,
-                 allocation_weight: Optional[float] = None,
+                 allocation_weight: Optional[int] = None,
                  apply_allocation_policy: Optional[bool] = None,
                  hostname: Optional[str] = None):
         """
         :param str connection_string: The connection string to connect to the IoT Hub. Changing this forces a new resource.
         :param str location: The location of the IoT hub. Changing this forces a new resource.
-        :param float allocation_weight: The weight applied to the IoT Hub. Defaults to 0.
+        :param int allocation_weight: The weight applied to the IoT Hub. Defaults to 0.
         :param bool apply_allocation_policy: Determines whether to apply allocation policies to the IoT Hub. Defaults to false.
         :param str hostname: The IoT Hub hostname.
         """
@@ -515,7 +515,7 @@ class IotHubDpsLinkedHub(dict):
 
     @property
     @pulumi.getter(name="allocationWeight")
-    def allocation_weight(self) -> Optional[float]:
+    def allocation_weight(self) -> Optional[int]:
         """
         The weight applied to the IoT Hub. Defaults to 0.
         """
@@ -544,10 +544,10 @@ class IotHubDpsLinkedHub(dict):
 @pulumi.output_type
 class IotHubDpsSku(dict):
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  name: str):
         """
-        :param float capacity: The number of provisioned IoT Device Provisioning Service units.
+        :param int capacity: The number of provisioned IoT Device Provisioning Service units.
         :param str name: The name of the sku. Currently can only be set to `S1`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -555,7 +555,7 @@ class IotHubDpsSku(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The number of provisioned IoT Device Provisioning Service units.
         """

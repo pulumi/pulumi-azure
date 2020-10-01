@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -58,12 +58,12 @@ class AccountCapabilityArgs:
 class AccountConsistencyPolicyArgs:
     def __init__(__self__, *,
                  consistency_level: pulumi.Input[str],
-                 max_interval_in_seconds: Optional[pulumi.Input[float]] = None,
-                 max_staleness_prefix: Optional[pulumi.Input[float]] = None):
+                 max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 max_staleness_prefix: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] consistency_level: The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
-        :param pulumi.Input[float] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
-        :param pulumi.Input[float] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
+        :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
+        :param pulumi.Input[int] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
         """
         pulumi.set(__self__, "consistency_level", consistency_level)
         if max_interval_in_seconds is not None:
@@ -85,38 +85,38 @@ class AccountConsistencyPolicyArgs:
 
     @property
     @pulumi.getter(name="maxIntervalInSeconds")
-    def max_interval_in_seconds(self) -> Optional[pulumi.Input[float]]:
+    def max_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
         """
         return pulumi.get(self, "max_interval_in_seconds")
 
     @max_interval_in_seconds.setter
-    def max_interval_in_seconds(self, value: Optional[pulumi.Input[float]]):
+    def max_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_interval_in_seconds", value)
 
     @property
     @pulumi.getter(name="maxStalenessPrefix")
-    def max_staleness_prefix(self) -> Optional[pulumi.Input[float]]:
+    def max_staleness_prefix(self) -> Optional[pulumi.Input[int]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
         """
         return pulumi.get(self, "max_staleness_prefix")
 
     @max_staleness_prefix.setter
-    def max_staleness_prefix(self, value: Optional[pulumi.Input[float]]):
+    def max_staleness_prefix(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_staleness_prefix", value)
 
 
 @pulumi.input_type
 class AccountGeoLocationArgs:
     def __init__(__self__, *,
-                 failover_priority: pulumi.Input[float],
+                 failover_priority: pulumi.Input[int],
                  location: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[float] failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
+        :param pulumi.Input[int] failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
         :param pulumi.Input[str] location: The name of the Azure region to host replicated data.
         :param pulumi.Input[str] id: The ID of the virtual network subnet.
         :param pulumi.Input[str] prefix: The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
@@ -133,14 +133,14 @@ class AccountGeoLocationArgs:
 
     @property
     @pulumi.getter(name="failoverPriority")
-    def failover_priority(self) -> pulumi.Input[float]:
+    def failover_priority(self) -> pulumi.Input[int]:
         """
         The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
         """
         return pulumi.get(self, "failover_priority")
 
     @failover_priority.setter
-    def failover_priority(self, value: pulumi.Input[float]):
+    def failover_priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "failover_priority", value)
 
     @property
@@ -221,69 +221,69 @@ class AccountVirtualNetworkRuleArgs:
 @pulumi.input_type
 class CassandraKeyspaceAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum throughput of the Cassandra KeySpace (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 
 @pulumi.input_type
 class GremlinDatabaseAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum throughput of the Gremlin database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 
 @pulumi.input_type
 class GremlinGraphAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum throughput of the Gremlin graph (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 
@@ -346,13 +346,13 @@ class GremlinGraphIndexPolicyArgs:
     def __init__(__self__, *,
                  indexing_mode: pulumi.Input[str],
                  automatic: Optional[pulumi.Input[bool]] = None,
-                 excluded_paths: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 included_paths: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
         :param pulumi.Input[bool] automatic: Indicates if the indexing policy is automatic. Defaults to `true`.
-        :param pulumi.Input[List[pulumi.Input[str]]] excluded_paths: List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        :param pulumi.Input[List[pulumi.Input[str]]] included_paths: List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_paths: List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         """
         pulumi.set(__self__, "indexing_mode", indexing_mode)
         if automatic is not None:
@@ -388,81 +388,81 @@ class GremlinGraphIndexPolicyArgs:
 
     @property
     @pulumi.getter(name="excludedPaths")
-    def excluded_paths(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         """
         return pulumi.get(self, "excluded_paths")
 
     @excluded_paths.setter
-    def excluded_paths(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_paths", value)
 
     @property
     @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         """
         return pulumi.get(self, "included_paths")
 
     @included_paths.setter
-    def included_paths(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "included_paths", value)
 
 
 @pulumi.input_type
 class GremlinGraphUniqueKeyArgs:
     def __init__(__self__, *,
-                 paths: pulumi.Input[List[pulumi.Input[str]]]):
+                 paths: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] paths: A list of paths to use for this unique key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: A list of paths to use for this unique key.
         """
         pulumi.set(__self__, "paths", paths)
 
     @property
     @pulumi.getter
-    def paths(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of paths to use for this unique key.
         """
         return pulumi.get(self, "paths")
 
     @paths.setter
-    def paths(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "paths", value)
 
 
 @pulumi.input_type
 class MongoCollectionAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 
 @pulumi.input_type
 class MongoCollectionIndexArgs:
     def __init__(__self__, *,
-                 keys: pulumi.Input[List[pulumi.Input[str]]],
+                 keys: pulumi.Input[Sequence[pulumi.Input[str]]],
                  unique: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] keys: Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
         :param pulumi.Input[bool] unique: Is the index unique or not? Defaults to `false`.
         """
         pulumi.set(__self__, "keys", keys)
@@ -471,14 +471,14 @@ class MongoCollectionIndexArgs:
 
     @property
     @pulumi.getter
-    def keys(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def keys(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "keys", value)
 
     @property
@@ -497,10 +497,10 @@ class MongoCollectionIndexArgs:
 @pulumi.input_type
 class MongoCollectionSystemIndexArgs:
     def __init__(__self__, *,
-                 keys: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  unique: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] keys: Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
         :param pulumi.Input[bool] unique: Is the index unique or not? Defaults to `false`.
         """
         if keys is not None:
@@ -510,14 +510,14 @@ class MongoCollectionSystemIndexArgs:
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "keys", value)
 
     @property
@@ -536,58 +536,58 @@ class MongoCollectionSystemIndexArgs:
 @pulumi.input_type
 class MongoDatabaseAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum throughput of the MongoDB database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 
 @pulumi.input_type
 class SqlContainerAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 
 @pulumi.input_type
 class SqlContainerIndexingPolicyArgs:
     def __init__(__self__, *,
-                 excluded_paths: Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]] = None,
-                 included_paths: Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]] = None,
+                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]] = None,
                  indexing_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
-        :param pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
         """
         if excluded_paths is not None:
@@ -599,26 +599,26 @@ class SqlContainerIndexingPolicyArgs:
 
     @property
     @pulumi.getter(name="excludedPaths")
-    def excluded_paths(self) -> Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]:
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]:
         """
         One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         """
         return pulumi.get(self, "excluded_paths")
 
     @excluded_paths.setter
-    def excluded_paths(self, value: Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]):
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]):
         pulumi.set(self, "excluded_paths", value)
 
     @property
     @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]:
+    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]:
         """
         One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         """
         return pulumi.get(self, "included_paths")
 
     @included_paths.setter
-    def included_paths(self, value: Optional[pulumi.Input[List[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]):
+    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]):
         pulumi.set(self, "included_paths", value)
 
     @property
@@ -681,68 +681,68 @@ class SqlContainerIndexingPolicyIncludedPathArgs:
 @pulumi.input_type
 class SqlContainerUniqueKeyArgs:
     def __init__(__self__, *,
-                 paths: pulumi.Input[List[pulumi.Input[str]]]):
+                 paths: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] paths: A list of paths to use for this unique key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: A list of paths to use for this unique key.
         """
         pulumi.set(__self__, "paths", paths)
 
     @property
     @pulumi.getter
-    def paths(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of paths to use for this unique key.
         """
         return pulumi.get(self, "paths")
 
     @paths.setter
-    def paths(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "paths", value)
 
 
 @pulumi.input_type
 class SqlDatabaseAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum throughput of the SQL database (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 
 @pulumi.input_type
 class TableAutoscaleSettingsArgs:
     def __init__(__self__, *,
-                 max_throughput: Optional[pulumi.Input[float]] = None):
+                 max_throughput: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] max_throughput: The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
+        :param pulumi.Input[int] max_throughput: The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         if max_throughput is not None:
             pulumi.set(__self__, "max_throughput", max_throughput)
 
     @property
     @pulumi.getter(name="maxThroughput")
-    def max_throughput(self) -> Optional[pulumi.Input[float]]:
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
 
     @max_throughput.setter
-    def max_throughput(self, value: Optional[pulumi.Input[float]]):
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
 
 

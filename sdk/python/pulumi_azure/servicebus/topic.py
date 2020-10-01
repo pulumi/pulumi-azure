@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Topic']
@@ -21,7 +21,7 @@ class Topic(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
-                 max_size_in_megabytes: Optional[pulumi.Input[float]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
@@ -72,7 +72,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[float] max_size_in_megabytes: Integer value which controls the size of
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
@@ -140,7 +140,7 @@ class Topic(pulumi.CustomResource):
             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
             enable_express: Optional[pulumi.Input[bool]] = None,
             enable_partitioning: Optional[pulumi.Input[bool]] = None,
-            max_size_in_megabytes: Optional[pulumi.Input[float]] = None,
+            max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
             requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
@@ -168,7 +168,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[float] max_size_in_megabytes: Integer value which controls the size of
+        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a
@@ -261,7 +261,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> pulumi.Output[float]:
+    def max_size_in_megabytes(self) -> pulumi.Output[int]:
         """
         Integer value which controls the size of
         memory allocated for the topic. For supported values see the "Queue/topic size"

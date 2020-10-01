@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,12 +16,12 @@ __all__ = [
 class ServerStorageProfileArgs:
     def __init__(__self__, *,
                  auto_grow: Optional[pulumi.Input[str]] = None,
-                 backup_retention_days: Optional[pulumi.Input[float]] = None,
+                 backup_retention_days: Optional[pulumi.Input[int]] = None,
                  geo_redundant_backup: Optional[pulumi.Input[str]] = None,
-                 storage_mb: Optional[pulumi.Input[float]] = None):
+                 storage_mb: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
-        :param pulumi.Input[float] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
+        :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         """
         if auto_grow is not None:
             warnings.warn("this has been moved to the top level boolean attribute `auto_grow_enabled` and will be removed in version 3.0 of the provider.", DeprecationWarning)
@@ -55,14 +55,14 @@ class ServerStorageProfileArgs:
 
     @property
     @pulumi.getter(name="backupRetentionDays")
-    def backup_retention_days(self) -> Optional[pulumi.Input[float]]:
+    def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
         Backup retention days for the server, supported values are between `7` and `35` days.
         """
         return pulumi.get(self, "backup_retention_days")
 
     @backup_retention_days.setter
-    def backup_retention_days(self, value: Optional[pulumi.Input[float]]):
+    def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_days", value)
 
     @property
@@ -76,14 +76,14 @@ class ServerStorageProfileArgs:
 
     @property
     @pulumi.getter(name="storageMb")
-    def storage_mb(self) -> Optional[pulumi.Input[float]]:
+    def storage_mb(self) -> Optional[pulumi.Input[int]]:
         """
         Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         """
         return pulumi.get(self, "storage_mb")
 
     @storage_mb.setter
-    def storage_mb(self, value: Optional[pulumi.Input[float]]):
+    def storage_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_mb", value)
 
 

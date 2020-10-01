@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -86,7 +86,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter(name="primaryReadKeys")
-    def primary_read_keys(self) -> List['outputs.GetConfigurationStorePrimaryReadKeyResult']:
+    def primary_read_keys(self) -> Sequence['outputs.GetConfigurationStorePrimaryReadKeyResult']:
         """
         A `primary_read_key` block as defined below containing the primary read access key.
         """
@@ -94,7 +94,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter(name="primaryWriteKeys")
-    def primary_write_keys(self) -> List['outputs.GetConfigurationStorePrimaryWriteKeyResult']:
+    def primary_write_keys(self) -> Sequence['outputs.GetConfigurationStorePrimaryWriteKeyResult']:
         """
         A `primary_write_key` block as defined below containing the primary write access key.
         """
@@ -107,7 +107,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter(name="secondaryReadKeys")
-    def secondary_read_keys(self) -> List['outputs.GetConfigurationStoreSecondaryReadKeyResult']:
+    def secondary_read_keys(self) -> Sequence['outputs.GetConfigurationStoreSecondaryReadKeyResult']:
         """
         A `secondary_read_key` block as defined below containing the secondary read access key.
         """
@@ -115,7 +115,7 @@ class GetConfigurationStoreResult:
 
     @property
     @pulumi.getter(name="secondaryWriteKeys")
-    def secondary_write_keys(self) -> List['outputs.GetConfigurationStoreSecondaryWriteKeyResult']:
+    def secondary_write_keys(self) -> Sequence['outputs.GetConfigurationStoreSecondaryWriteKeyResult']:
         """
         A `secondary_write_key` block as defined below containing the secondary write access key.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,17 +17,17 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause_delay_in_minutes: Optional[pulumi.Input[float]] = None,
+                 auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
-                 max_size_gb: Optional[pulumi.Input[float]] = None,
+                 max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 read_replica_count: Optional[pulumi.Input[float]] = None,
+                 read_replica_count: Optional[pulumi.Input[int]] = None,
                  read_scale: Optional[pulumi.Input[bool]] = None,
                  recover_database_id: Optional[pulumi.Input[str]] = None,
                  restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
@@ -85,17 +85,17 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-        :param pulumi.Input[float] max_size_gb: The max size of the database in gigabytes.
+        :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] name: The name of the Ms SQL Database. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
+        :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
@@ -160,17 +160,17 @@ class Database(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_pause_delay_in_minutes: Optional[pulumi.Input[float]] = None,
+            auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
             collation: Optional[pulumi.Input[str]] = None,
             create_mode: Optional[pulumi.Input[str]] = None,
             creation_source_database_id: Optional[pulumi.Input[str]] = None,
             elastic_pool_id: Optional[pulumi.Input[str]] = None,
             extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
-            max_size_gb: Optional[pulumi.Input[float]] = None,
+            max_size_gb: Optional[pulumi.Input[int]] = None,
             min_capacity: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            read_replica_count: Optional[pulumi.Input[float]] = None,
+            read_replica_count: Optional[pulumi.Input[int]] = None,
             read_scale: Optional[pulumi.Input[bool]] = None,
             recover_database_id: Optional[pulumi.Input[str]] = None,
             restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
@@ -188,17 +188,17 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-        :param pulumi.Input[float] max_size_gb: The max size of the database in gigabytes.
+        :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] name: The name of the Ms SQL Database. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
+        :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
@@ -239,7 +239,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoPauseDelayInMinutes")
-    def auto_pause_delay_in_minutes(self) -> pulumi.Output[float]:
+    def auto_pause_delay_in_minutes(self) -> pulumi.Output[int]:
         """
         Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         """
@@ -295,7 +295,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> pulumi.Output[float]:
+    def max_size_gb(self) -> pulumi.Output[int]:
         """
         The max size of the database in gigabytes.
         """
@@ -319,7 +319,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readReplicaCount")
-    def read_replica_count(self) -> pulumi.Output[float]:
+    def read_replica_count(self) -> pulumi.Output[int]:
         """
         The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         """

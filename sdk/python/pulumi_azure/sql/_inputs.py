@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -24,12 +24,12 @@ class DatabaseExtendedAuditingPolicyArgs:
     def __init__(__self__, *,
                  storage_account_access_key: pulumi.Input[str],
                  storage_endpoint: pulumi.Input[str],
-                 retention_in_days: Optional[pulumi.Input[float]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] storage_account_access_key: Specifies the access key to use for the auditing storage account.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        :param pulumi.Input[float] retention_in_days: Specifies the number of days to retain logs for in the storage account.
+        :param pulumi.Input[int] retention_in_days: Specifies the number of days to retain logs for in the storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Specifies whether `storage_account_access_key` value is the storage's secondary key.
         """
         pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
@@ -65,14 +65,14 @@ class DatabaseExtendedAuditingPolicyArgs:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[float]]:
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of days to retain logs for in the storage account.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[float]]):
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @property
@@ -204,19 +204,19 @@ class DatabaseImportArgs:
 @pulumi.input_type
 class DatabaseThreatDetectionPolicyArgs:
     def __init__(__self__, *,
-                 disabled_alerts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins: Optional[pulumi.Input[str]] = None,
-                 email_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 retention_days: Optional[pulumi.Input[float]] = None,
+                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retention_days: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
                  use_server_default: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
         :param pulumi.Input[str] email_account_admins: Should the account administrators be emailed when this alert is triggered?
-        :param pulumi.Input[List[pulumi.Input[str]]] email_addresses: A list of email addresses which alerts should be sent to.
-        :param pulumi.Input[float] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: A list of email addresses which alerts should be sent to.
+        :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
@@ -241,14 +241,14 @@ class DatabaseThreatDetectionPolicyArgs:
 
     @property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def disabled_alerts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
         """
         return pulumi.get(self, "disabled_alerts")
 
     @disabled_alerts.setter
-    def disabled_alerts(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def disabled_alerts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "disabled_alerts", value)
 
     @property
@@ -265,26 +265,26 @@ class DatabaseThreatDetectionPolicyArgs:
 
     @property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def email_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of email addresses which alerts should be sent to.
         """
         return pulumi.get(self, "email_addresses")
 
     @email_addresses.setter
-    def email_addresses(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def email_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "email_addresses", value)
 
     @property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[float]]:
+    def retention_days(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs.
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[float]]):
+    def retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_days", value)
 
     @property
@@ -394,10 +394,10 @@ class FailoverGroupPartnerServerArgs:
 class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
-                 grace_minutes: Optional[pulumi.Input[float]] = None):
+                 grace_minutes: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] mode: the failover mode. Possible values are `Manual`, `Automatic`
-        :param pulumi.Input[float] grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
+        :param pulumi.Input[int] grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
         """
         pulumi.set(__self__, "mode", mode)
         if grace_minutes is not None:
@@ -417,14 +417,14 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
     @property
     @pulumi.getter(name="graceMinutes")
-    def grace_minutes(self) -> Optional[pulumi.Input[float]]:
+    def grace_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
         """
         return pulumi.get(self, "grace_minutes")
 
     @grace_minutes.setter
-    def grace_minutes(self, value: Optional[pulumi.Input[float]]):
+    def grace_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "grace_minutes", value)
 
 
@@ -455,12 +455,12 @@ class SqlServerExtendedAuditingPolicyArgs:
     def __init__(__self__, *,
                  storage_account_access_key: pulumi.Input[str],
                  storage_endpoint: pulumi.Input[str],
-                 retention_in_days: Optional[pulumi.Input[float]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] storage_account_access_key: (Required)  Specifies the access key to use for the auditing storage account.
         :param pulumi.Input[str] storage_endpoint: (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        :param pulumi.Input[float] retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
+        :param pulumi.Input[int] retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
         """
         pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
@@ -496,14 +496,14 @@ class SqlServerExtendedAuditingPolicyArgs:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[float]]:
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         (Optional) Specifies the number of days to retain logs for in the storage account.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[float]]):
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_in_days", value)
 
     @property

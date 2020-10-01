@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -32,8 +32,8 @@ class GetPublicIpPrefixResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if prefix_length and not isinstance(prefix_length, float):
-            raise TypeError("Expected argument 'prefix_length' to be a float")
+        if prefix_length and not isinstance(prefix_length, int):
+            raise TypeError("Expected argument 'prefix_length' to be a int")
         pulumi.set(__self__, "prefix_length", prefix_length)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -79,7 +79,7 @@ class GetPublicIpPrefixResult:
 
     @property
     @pulumi.getter(name="prefixLength")
-    def prefix_length(self) -> float:
+    def prefix_length(self) -> int:
         """
         The number of bits of the prefix.
         """
@@ -111,7 +111,7 @@ class GetPublicIpPrefixResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> List[str]:
+    def zones(self) -> Sequence[str]:
         return pulumi.get(self, "zones")
 
 
@@ -134,7 +134,7 @@ class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
 
 def get_public_ip_prefix(name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
-                         zones: Optional[List[str]] = None,
+                         zones: Optional[Sequence[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIpPrefixResult:
     """
     Use this data source to access information about an existing Public IP Prefix.

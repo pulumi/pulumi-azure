@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -77,7 +77,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> List['outputs.GetVirtualNetworkGatewayBgpSettingResult']:
+    def bgp_settings(self) -> Sequence['outputs.GetVirtualNetworkGatewayBgpSettingResult']:
         return pulumi.get(self, "bgp_settings")
 
     @property
@@ -118,7 +118,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.GetVirtualNetworkGatewayIpConfigurationResult']:
+    def ip_configurations(self) -> Sequence['outputs.GetVirtualNetworkGatewayIpConfigurationResult']:
         """
         One or two `ip_configuration` blocks documented below.
         """
@@ -171,7 +171,7 @@ class GetVirtualNetworkGatewayResult:
 
     @property
     @pulumi.getter(name="vpnClientConfigurations")
-    def vpn_client_configurations(self) -> List['outputs.GetVirtualNetworkGatewayVpnClientConfigurationResult']:
+    def vpn_client_configurations(self) -> Sequence['outputs.GetVirtualNetworkGatewayVpnClientConfigurationResult']:
         """
         A `vpn_client_configuration` block which is documented below.
         """

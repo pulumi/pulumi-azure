@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Pool']
@@ -20,7 +20,7 @@ class Pool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_level: Optional[pulumi.Input[str]] = None,
-                 size_in_tb: Optional[pulumi.Input[float]] = None,
+                 size_in_tb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -53,7 +53,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
-        :param pulumi.Input[float] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
+        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -103,7 +103,7 @@ class Pool(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_level: Optional[pulumi.Input[str]] = None,
-            size_in_tb: Optional[pulumi.Input[float]] = None,
+            size_in_tb: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Pool':
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
@@ -117,7 +117,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
-        :param pulumi.Input[float] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
+        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -175,7 +175,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sizeInTb")
-    def size_in_tb(self) -> pulumi.Output[float]:
+    def size_in_tb(self) -> pulumi.Output[int]:
         """
         Provisioned size of the pool in TB. Value must be between `4` and `500`.
         """
