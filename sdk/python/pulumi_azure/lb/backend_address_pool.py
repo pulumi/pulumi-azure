@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['BackendAddressPool']
@@ -91,8 +91,8 @@ class BackendAddressPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_ip_configurations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            load_balancing_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             loadbalancer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'BackendAddressPool':
@@ -103,8 +103,8 @@ class BackendAddressPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] backend_ip_configurations: The Backend IP Configurations associated with this Backend Address Pool.
-        :param pulumi.Input[List[pulumi.Input[str]]] load_balancing_rules: The Load Balancing Rules associated with this Backend Address Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backend_ip_configurations: The Backend IP Configurations associated with this Backend Address Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancing_rules: The Load Balancing Rules associated with this Backend Address Pool.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
@@ -122,7 +122,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendIpConfigurations")
-    def backend_ip_configurations(self) -> pulumi.Output[List[str]]:
+    def backend_ip_configurations(self) -> pulumi.Output[Sequence[str]]:
         """
         The Backend IP Configurations associated with this Backend Address Pool.
         """
@@ -130,7 +130,7 @@ class BackendAddressPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingRules")
-    def load_balancing_rules(self) -> pulumi.Output[List[str]]:
+    def load_balancing_rules(self) -> pulumi.Output[Sequence[str]]:
         """
         The Load Balancing Rules associated with this Backend Address Pool.
         """

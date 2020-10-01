@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -46,48 +46,48 @@ __all__ = [
 class EndpointDeliveryRule(dict):
     def __init__(__self__, *,
                  name: str,
-                 order: float,
+                 order: int,
                  cache_expiration_action: Optional['outputs.EndpointDeliveryRuleCacheExpirationAction'] = None,
                  cache_key_query_string_action: Optional['outputs.EndpointDeliveryRuleCacheKeyQueryStringAction'] = None,
-                 cookies_conditions: Optional[List['outputs.EndpointDeliveryRuleCookiesCondition']] = None,
+                 cookies_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleCookiesCondition']] = None,
                  device_condition: Optional['outputs.EndpointDeliveryRuleDeviceCondition'] = None,
-                 http_version_conditions: Optional[List['outputs.EndpointDeliveryRuleHttpVersionCondition']] = None,
-                 modify_request_header_actions: Optional[List['outputs.EndpointDeliveryRuleModifyRequestHeaderAction']] = None,
-                 modify_response_header_actions: Optional[List['outputs.EndpointDeliveryRuleModifyResponseHeaderAction']] = None,
-                 post_arg_conditions: Optional[List['outputs.EndpointDeliveryRulePostArgCondition']] = None,
-                 query_string_conditions: Optional[List['outputs.EndpointDeliveryRuleQueryStringCondition']] = None,
-                 remote_address_conditions: Optional[List['outputs.EndpointDeliveryRuleRemoteAddressCondition']] = None,
-                 request_body_conditions: Optional[List['outputs.EndpointDeliveryRuleRequestBodyCondition']] = None,
-                 request_header_conditions: Optional[List['outputs.EndpointDeliveryRuleRequestHeaderCondition']] = None,
+                 http_version_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleHttpVersionCondition']] = None,
+                 modify_request_header_actions: Optional[Sequence['outputs.EndpointDeliveryRuleModifyRequestHeaderAction']] = None,
+                 modify_response_header_actions: Optional[Sequence['outputs.EndpointDeliveryRuleModifyResponseHeaderAction']] = None,
+                 post_arg_conditions: Optional[Sequence['outputs.EndpointDeliveryRulePostArgCondition']] = None,
+                 query_string_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleQueryStringCondition']] = None,
+                 remote_address_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleRemoteAddressCondition']] = None,
+                 request_body_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleRequestBodyCondition']] = None,
+                 request_header_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleRequestHeaderCondition']] = None,
                  request_method_condition: Optional['outputs.EndpointDeliveryRuleRequestMethodCondition'] = None,
                  request_scheme_condition: Optional['outputs.EndpointDeliveryRuleRequestSchemeCondition'] = None,
-                 request_uri_conditions: Optional[List['outputs.EndpointDeliveryRuleRequestUriCondition']] = None,
-                 url_file_extension_conditions: Optional[List['outputs.EndpointDeliveryRuleUrlFileExtensionCondition']] = None,
-                 url_file_name_conditions: Optional[List['outputs.EndpointDeliveryRuleUrlFileNameCondition']] = None,
-                 url_path_conditions: Optional[List['outputs.EndpointDeliveryRuleUrlPathCondition']] = None,
+                 request_uri_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleRequestUriCondition']] = None,
+                 url_file_extension_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleUrlFileExtensionCondition']] = None,
+                 url_file_name_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleUrlFileNameCondition']] = None,
+                 url_path_conditions: Optional[Sequence['outputs.EndpointDeliveryRuleUrlPathCondition']] = None,
                  url_redirect_action: Optional['outputs.EndpointDeliveryRuleUrlRedirectAction'] = None,
                  url_rewrite_action: Optional['outputs.EndpointDeliveryRuleUrlRewriteAction'] = None):
         """
         :param str name: The Name which should be used for this Delivery Rule.
-        :param float order: The order used for this rule, which must be larger than 1.
+        :param int order: The order used for this rule, which must be larger than 1.
         :param 'EndpointDeliveryRuleCacheExpirationActionArgs' cache_expiration_action: A `cache_expiration_action` block as defined above.
         :param 'EndpointDeliveryRuleCacheKeyQueryStringActionArgs' cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
-        :param List['EndpointDeliveryRuleCookiesConditionArgs'] cookies_conditions: A `cookies_condition` block as defined above.
+        :param Sequence['EndpointDeliveryRuleCookiesConditionArgs'] cookies_conditions: A `cookies_condition` block as defined above.
         :param 'EndpointDeliveryRuleDeviceConditionArgs' device_condition: A `device_condition` block as defined below.
-        :param List['EndpointDeliveryRuleHttpVersionConditionArgs'] http_version_conditions: A `http_version_condition` block as defined below.
-        :param List['EndpointDeliveryRuleModifyRequestHeaderActionArgs'] modify_request_header_actions: A `modify_request_header_action` block as defined below.
-        :param List['EndpointDeliveryRuleModifyResponseHeaderActionArgs'] modify_response_header_actions: A `modify_response_header_action` block as defined below.
-        :param List['EndpointDeliveryRulePostArgConditionArgs'] post_arg_conditions: A `post_arg_condition` block as defined below.
-        :param List['EndpointDeliveryRuleQueryStringConditionArgs'] query_string_conditions: A `query_string_condition` block as defined below.
-        :param List['EndpointDeliveryRuleRemoteAddressConditionArgs'] remote_address_conditions: A `remote_address_condition` block as defined below.
-        :param List['EndpointDeliveryRuleRequestBodyConditionArgs'] request_body_conditions: A `request_body_condition` block as defined below.
-        :param List['EndpointDeliveryRuleRequestHeaderConditionArgs'] request_header_conditions: A `request_header_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleHttpVersionConditionArgs'] http_version_conditions: A `http_version_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleModifyRequestHeaderActionArgs'] modify_request_header_actions: A `modify_request_header_action` block as defined below.
+        :param Sequence['EndpointDeliveryRuleModifyResponseHeaderActionArgs'] modify_response_header_actions: A `modify_response_header_action` block as defined below.
+        :param Sequence['EndpointDeliveryRulePostArgConditionArgs'] post_arg_conditions: A `post_arg_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleQueryStringConditionArgs'] query_string_conditions: A `query_string_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleRemoteAddressConditionArgs'] remote_address_conditions: A `remote_address_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleRequestBodyConditionArgs'] request_body_conditions: A `request_body_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleRequestHeaderConditionArgs'] request_header_conditions: A `request_header_condition` block as defined below.
         :param 'EndpointDeliveryRuleRequestMethodConditionArgs' request_method_condition: A `request_method_condition` block as defined below.
         :param 'EndpointDeliveryRuleRequestSchemeConditionArgs' request_scheme_condition: A `request_scheme_condition` block as defined below.
-        :param List['EndpointDeliveryRuleRequestUriConditionArgs'] request_uri_conditions: A `request_uri_condition` block as defined below.
-        :param List['EndpointDeliveryRuleUrlFileExtensionConditionArgs'] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
-        :param List['EndpointDeliveryRuleUrlFileNameConditionArgs'] url_file_name_conditions: A `url_file_name_condition` block as defined below.
-        :param List['EndpointDeliveryRuleUrlPathConditionArgs'] url_path_conditions: A `url_path_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleRequestUriConditionArgs'] request_uri_conditions: A `request_uri_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleUrlFileExtensionConditionArgs'] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleUrlFileNameConditionArgs'] url_file_name_conditions: A `url_file_name_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleUrlPathConditionArgs'] url_path_conditions: A `url_path_condition` block as defined below.
         :param 'EndpointDeliveryRuleUrlRedirectActionArgs' url_redirect_action: A `url_redirect_action` block as defined below.
         :param 'EndpointDeliveryRuleUrlRewriteActionArgs' url_rewrite_action: A `url_rewrite_action` block as defined below.
         """
@@ -144,7 +144,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> float:
+    def order(self) -> int:
         """
         The order used for this rule, which must be larger than 1.
         """
@@ -168,7 +168,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="cookiesConditions")
-    def cookies_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleCookiesCondition']]:
+    def cookies_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleCookiesCondition']]:
         """
         A `cookies_condition` block as defined above.
         """
@@ -184,7 +184,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="httpVersionConditions")
-    def http_version_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleHttpVersionCondition']]:
+    def http_version_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleHttpVersionCondition']]:
         """
         A `http_version_condition` block as defined below.
         """
@@ -192,7 +192,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="modifyRequestHeaderActions")
-    def modify_request_header_actions(self) -> Optional[List['outputs.EndpointDeliveryRuleModifyRequestHeaderAction']]:
+    def modify_request_header_actions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleModifyRequestHeaderAction']]:
         """
         A `modify_request_header_action` block as defined below.
         """
@@ -200,7 +200,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="modifyResponseHeaderActions")
-    def modify_response_header_actions(self) -> Optional[List['outputs.EndpointDeliveryRuleModifyResponseHeaderAction']]:
+    def modify_response_header_actions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleModifyResponseHeaderAction']]:
         """
         A `modify_response_header_action` block as defined below.
         """
@@ -208,7 +208,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="postArgConditions")
-    def post_arg_conditions(self) -> Optional[List['outputs.EndpointDeliveryRulePostArgCondition']]:
+    def post_arg_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRulePostArgCondition']]:
         """
         A `post_arg_condition` block as defined below.
         """
@@ -216,7 +216,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="queryStringConditions")
-    def query_string_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleQueryStringCondition']]:
+    def query_string_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleQueryStringCondition']]:
         """
         A `query_string_condition` block as defined below.
         """
@@ -224,7 +224,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="remoteAddressConditions")
-    def remote_address_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleRemoteAddressCondition']]:
+    def remote_address_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleRemoteAddressCondition']]:
         """
         A `remote_address_condition` block as defined below.
         """
@@ -232,7 +232,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="requestBodyConditions")
-    def request_body_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleRequestBodyCondition']]:
+    def request_body_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleRequestBodyCondition']]:
         """
         A `request_body_condition` block as defined below.
         """
@@ -240,7 +240,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="requestHeaderConditions")
-    def request_header_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleRequestHeaderCondition']]:
+    def request_header_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleRequestHeaderCondition']]:
         """
         A `request_header_condition` block as defined below.
         """
@@ -264,7 +264,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="requestUriConditions")
-    def request_uri_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleRequestUriCondition']]:
+    def request_uri_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleRequestUriCondition']]:
         """
         A `request_uri_condition` block as defined below.
         """
@@ -272,7 +272,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="urlFileExtensionConditions")
-    def url_file_extension_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleUrlFileExtensionCondition']]:
+    def url_file_extension_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleUrlFileExtensionCondition']]:
         """
         A `url_file_extension_condition` block as defined below.
         """
@@ -280,7 +280,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="urlFileNameConditions")
-    def url_file_name_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleUrlFileNameCondition']]:
+    def url_file_name_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleUrlFileNameCondition']]:
         """
         A `url_file_name_condition` block as defined below.
         """
@@ -288,7 +288,7 @@ class EndpointDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="urlPathConditions")
-    def url_path_conditions(self) -> Optional[List['outputs.EndpointDeliveryRuleUrlPathCondition']]:
+    def url_path_conditions(self) -> Optional[Sequence['outputs.EndpointDeliveryRuleUrlPathCondition']]:
         """
         A `url_path_condition` block as defined below.
         """
@@ -383,17 +383,17 @@ class EndpointDeliveryRuleCacheKeyQueryStringAction(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleCookiesCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  selector: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of values for the cookie.
+        :param Sequence[str] match_values: List of values for the cookie.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param str selector: Name of the cookie.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -405,7 +405,7 @@ class EndpointDeliveryRuleCookiesCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of values for the cookie.
         """
@@ -437,7 +437,7 @@ class EndpointDeliveryRuleCookiesCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -450,11 +450,11 @@ class EndpointDeliveryRuleCookiesCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleDeviceCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  negate_condition: Optional[bool] = None,
                  operator: Optional[str] = None):
         """
-        :param List[str] match_values: Valid values are `Desktop` and `Mobile`.
+        :param Sequence[str] match_values: Valid values are `Desktop` and `Mobile`.
         :param bool negate_condition: Defaults to `false`.
         :param str operator: Valid values are `Equal`.
         """
@@ -466,7 +466,7 @@ class EndpointDeliveryRuleDeviceCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         Valid values are `Desktop` and `Mobile`.
         """
@@ -495,11 +495,11 @@ class EndpointDeliveryRuleDeviceCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleHttpVersionCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  negate_condition: Optional[bool] = None,
                  operator: Optional[str] = None):
         """
-        :param List[str] match_values: Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+        :param Sequence[str] match_values: Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
         :param bool negate_condition: Defaults to `false`.
         :param str operator: Valid values are `Equal`.
         """
@@ -511,7 +511,7 @@ class EndpointDeliveryRuleHttpVersionCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
         """
@@ -628,17 +628,17 @@ class EndpointDeliveryRuleModifyResponseHeaderAction(dict):
 @pulumi.output_type
 class EndpointDeliveryRulePostArgCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  selector: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of string values.
+        :param Sequence[str] match_values: List of string values.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param str selector: Name of the post arg.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -650,7 +650,7 @@ class EndpointDeliveryRulePostArgCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of string values.
         """
@@ -682,7 +682,7 @@ class EndpointDeliveryRulePostArgCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -695,15 +695,15 @@ class EndpointDeliveryRulePostArgCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleQueryStringCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of string values.
+        :param Sequence[str] match_values: List of string values.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -714,7 +714,7 @@ class EndpointDeliveryRuleQueryStringCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of string values.
         """
@@ -738,7 +738,7 @@ class EndpointDeliveryRuleQueryStringCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -751,11 +751,11 @@ class EndpointDeliveryRuleQueryStringCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleRemoteAddressCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  negate_condition: Optional[bool] = None):
         """
-        :param List[str] match_values: List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
+        :param Sequence[str] match_values: List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
         :param str operator: Valid values are `Any`, `GeoMatch` and `IPMatch`.
         :param bool negate_condition: Defaults to `false`.
         """
@@ -766,7 +766,7 @@ class EndpointDeliveryRuleRemoteAddressCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`.
         """
@@ -795,15 +795,15 @@ class EndpointDeliveryRuleRemoteAddressCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleRequestBodyCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of string values.
+        :param Sequence[str] match_values: List of string values.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -814,7 +814,7 @@ class EndpointDeliveryRuleRequestBodyCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of string values.
         """
@@ -838,7 +838,7 @@ class EndpointDeliveryRuleRequestBodyCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -851,17 +851,17 @@ class EndpointDeliveryRuleRequestBodyCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleRequestHeaderCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  selector: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of header values.
+        :param Sequence[str] match_values: List of header values.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param str selector: Header name.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -873,7 +873,7 @@ class EndpointDeliveryRuleRequestHeaderCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of header values.
         """
@@ -905,7 +905,7 @@ class EndpointDeliveryRuleRequestHeaderCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -918,11 +918,11 @@ class EndpointDeliveryRuleRequestHeaderCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleRequestMethodCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  negate_condition: Optional[bool] = None,
                  operator: Optional[str] = None):
         """
-        :param List[str] match_values: Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+        :param Sequence[str] match_values: Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
         :param bool negate_condition: Defaults to `false`.
         :param str operator: Valid values are `Equal`.
         """
@@ -934,7 +934,7 @@ class EndpointDeliveryRuleRequestMethodCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
         """
@@ -963,11 +963,11 @@ class EndpointDeliveryRuleRequestMethodCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleRequestSchemeCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  negate_condition: Optional[bool] = None,
                  operator: Optional[str] = None):
         """
-        :param List[str] match_values: Valid values are `HTTP` and `HTTPS`.
+        :param Sequence[str] match_values: Valid values are `HTTP` and `HTTPS`.
         :param bool negate_condition: Defaults to `false`.
         :param str operator: Valid values are `Equal`.
         """
@@ -979,7 +979,7 @@ class EndpointDeliveryRuleRequestSchemeCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         Valid values are `HTTP` and `HTTPS`.
         """
@@ -1008,15 +1008,15 @@ class EndpointDeliveryRuleRequestSchemeCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleRequestUriCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of string values.
+        :param Sequence[str] match_values: List of string values.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -1027,7 +1027,7 @@ class EndpointDeliveryRuleRequestUriCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of string values.
         """
@@ -1051,7 +1051,7 @@ class EndpointDeliveryRuleRequestUriCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -1064,15 +1064,15 @@ class EndpointDeliveryRuleRequestUriCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of string values.
+        :param Sequence[str] match_values: List of string values.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -1083,7 +1083,7 @@ class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of string values.
         """
@@ -1107,7 +1107,7 @@ class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -1120,15 +1120,15 @@ class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleUrlFileNameCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of string values.
+        :param Sequence[str] match_values: List of string values.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -1139,7 +1139,7 @@ class EndpointDeliveryRuleUrlFileNameCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of string values.
         """
@@ -1163,7 +1163,7 @@ class EndpointDeliveryRuleUrlFileNameCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -1176,15 +1176,15 @@ class EndpointDeliveryRuleUrlFileNameCondition(dict):
 @pulumi.output_type
 class EndpointDeliveryRuleUrlPathCondition(dict):
     def __init__(__self__, *,
-                 match_values: List[str],
+                 match_values: Sequence[str],
                  operator: str,
                  negate_condition: Optional[bool] = None,
-                 transforms: Optional[List[str]] = None):
+                 transforms: Optional[Sequence[str]] = None):
         """
-        :param List[str] match_values: List of string values.
+        :param Sequence[str] match_values: List of string values.
         :param str operator: Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param bool negate_condition: Defaults to `false`.
-        :param List[str] transforms: Valid values are `Lowercase` and `Uppercase`.
+        :param Sequence[str] transforms: Valid values are `Lowercase` and `Uppercase`.
         """
         pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "operator", operator)
@@ -1195,7 +1195,7 @@ class EndpointDeliveryRuleUrlPathCondition(dict):
 
     @property
     @pulumi.getter(name="matchValues")
-    def match_values(self) -> List[str]:
+    def match_values(self) -> Sequence[str]:
         """
         List of string values.
         """
@@ -1219,7 +1219,7 @@ class EndpointDeliveryRuleUrlPathCondition(dict):
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[List[str]]:
+    def transforms(self) -> Optional[Sequence[str]]:
         """
         Valid values are `Lowercase` and `Uppercase`.
         """
@@ -1358,11 +1358,11 @@ class EndpointDeliveryRuleUrlRewriteAction(dict):
 class EndpointGeoFilter(dict):
     def __init__(__self__, *,
                  action: str,
-                 country_codes: List[str],
+                 country_codes: Sequence[str],
                  relative_path: str):
         """
         :param str action: The Action of the Geo Filter. Possible values include `Allow` and `Block`.
-        :param List[str] country_codes: A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+        :param Sequence[str] country_codes: A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
         :param str relative_path: The relative path applicable to geo filter.
         """
         pulumi.set(__self__, "action", action)
@@ -1379,7 +1379,7 @@ class EndpointGeoFilter(dict):
 
     @property
     @pulumi.getter(name="countryCodes")
-    def country_codes(self) -> List[str]:
+    def country_codes(self) -> Sequence[str]:
         """
         A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
         """
@@ -1402,15 +1402,15 @@ class EndpointGlobalDeliveryRule(dict):
     def __init__(__self__, *,
                  cache_expiration_action: Optional['outputs.EndpointGlobalDeliveryRuleCacheExpirationAction'] = None,
                  cache_key_query_string_action: Optional['outputs.EndpointGlobalDeliveryRuleCacheKeyQueryStringAction'] = None,
-                 modify_request_header_actions: Optional[List['outputs.EndpointGlobalDeliveryRuleModifyRequestHeaderAction']] = None,
-                 modify_response_header_actions: Optional[List['outputs.EndpointGlobalDeliveryRuleModifyResponseHeaderAction']] = None,
+                 modify_request_header_actions: Optional[Sequence['outputs.EndpointGlobalDeliveryRuleModifyRequestHeaderAction']] = None,
+                 modify_response_header_actions: Optional[Sequence['outputs.EndpointGlobalDeliveryRuleModifyResponseHeaderAction']] = None,
                  url_redirect_action: Optional['outputs.EndpointGlobalDeliveryRuleUrlRedirectAction'] = None,
                  url_rewrite_action: Optional['outputs.EndpointGlobalDeliveryRuleUrlRewriteAction'] = None):
         """
         :param 'EndpointGlobalDeliveryRuleCacheExpirationActionArgs' cache_expiration_action: A `cache_expiration_action` block as defined above.
         :param 'EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs' cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
-        :param List['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs'] modify_request_header_actions: A `modify_request_header_action` block as defined below.
-        :param List['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs'] modify_response_header_actions: A `modify_response_header_action` block as defined below.
+        :param Sequence['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs'] modify_request_header_actions: A `modify_request_header_action` block as defined below.
+        :param Sequence['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs'] modify_response_header_actions: A `modify_response_header_action` block as defined below.
         :param 'EndpointGlobalDeliveryRuleUrlRedirectActionArgs' url_redirect_action: A `url_redirect_action` block as defined below.
         :param 'EndpointGlobalDeliveryRuleUrlRewriteActionArgs' url_rewrite_action: A `url_rewrite_action` block as defined below.
         """
@@ -1445,7 +1445,7 @@ class EndpointGlobalDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="modifyRequestHeaderActions")
-    def modify_request_header_actions(self) -> Optional[List['outputs.EndpointGlobalDeliveryRuleModifyRequestHeaderAction']]:
+    def modify_request_header_actions(self) -> Optional[Sequence['outputs.EndpointGlobalDeliveryRuleModifyRequestHeaderAction']]:
         """
         A `modify_request_header_action` block as defined below.
         """
@@ -1453,7 +1453,7 @@ class EndpointGlobalDeliveryRule(dict):
 
     @property
     @pulumi.getter(name="modifyResponseHeaderActions")
-    def modify_response_header_actions(self) -> Optional[List['outputs.EndpointGlobalDeliveryRuleModifyResponseHeaderAction']]:
+    def modify_response_header_actions(self) -> Optional[Sequence['outputs.EndpointGlobalDeliveryRuleModifyResponseHeaderAction']]:
         """
         A `modify_response_header_action` block as defined below.
         """
@@ -1763,13 +1763,13 @@ class EndpointOrigin(dict):
     def __init__(__self__, *,
                  host_name: str,
                  name: str,
-                 http_port: Optional[float] = None,
-                 https_port: Optional[float] = None):
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None):
         """
         :param str host_name: A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
         :param str name: The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
-        :param float http_port: The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
-        :param float https_port: The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+        :param int http_port: The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+        :param int https_port: The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
@@ -1796,7 +1796,7 @@ class EndpointOrigin(dict):
 
     @property
     @pulumi.getter(name="httpPort")
-    def http_port(self) -> Optional[float]:
+    def http_port(self) -> Optional[int]:
         """
         The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
         """
@@ -1804,7 +1804,7 @@ class EndpointOrigin(dict):
 
     @property
     @pulumi.getter(name="httpsPort")
-    def https_port(self) -> Optional[float]:
+    def https_port(self) -> Optional[int]:
         """
         The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
         """

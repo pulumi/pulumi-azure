@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetPoolResult:
         if service_level and not isinstance(service_level, str):
             raise TypeError("Expected argument 'service_level' to be a str")
         pulumi.set(__self__, "service_level", service_level)
-        if size_in_tb and not isinstance(size_in_tb, float):
-            raise TypeError("Expected argument 'size_in_tb' to be a float")
+        if size_in_tb and not isinstance(size_in_tb, int):
+            raise TypeError("Expected argument 'size_in_tb' to be a int")
         pulumi.set(__self__, "size_in_tb", size_in_tb)
 
     @property
@@ -83,7 +83,7 @@ class GetPoolResult:
 
     @property
     @pulumi.getter(name="sizeInTb")
-    def size_in_tb(self) -> float:
+    def size_in_tb(self) -> int:
         """
         Provisioned size of the pool in TB.
         """

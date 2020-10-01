@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,26 +19,26 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]] = None,
+                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  automatic_instance_repair: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]] = None,
                  automatic_os_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]] = None,
                  boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]] = None,
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None,
-                 data_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
-                 extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']]] = None,
-                 instances: Optional[pulumi.Input[float]] = None,
+                 instances: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetOsDiskArgs']]] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetPlanArgs']]] = None,
@@ -48,7 +48,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
-                 zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -122,26 +122,26 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
-        :param pulumi.Input[float] instances: The number of Virtual Machines in the Scale Set.
+        :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
@@ -150,7 +150,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
@@ -159,7 +159,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -244,26 +244,26 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']]] = None,
             admin_password: Optional[pulumi.Input[str]] = None,
-            admin_ssh_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]] = None,
+            admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]]] = None,
             admin_username: Optional[pulumi.Input[str]] = None,
             automatic_instance_repair: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']]] = None,
             automatic_os_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]] = None,
             boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']]] = None,
             computer_name_prefix: Optional[pulumi.Input[str]] = None,
             custom_data: Optional[pulumi.Input[str]] = None,
-            data_disks: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
+            data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]]] = None,
             disable_password_authentication: Optional[pulumi.Input[bool]] = None,
             do_not_run_extensions_on_overprovisioned_machines: Optional[pulumi.Input[bool]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
-            extensions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
+            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']]] = None,
-            instances: Optional[pulumi.Input[float]] = None,
+            instances: Optional[pulumi.Input[int]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_bid_price: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_interfaces: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]]] = None,
             os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetOsDiskArgs']]] = None,
             overprovision: Optional[pulumi.Input[bool]] = None,
             plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetPlanArgs']]] = None,
@@ -273,7 +273,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]] = None,
             scale_in_policy: Optional[pulumi.Input[str]] = None,
-            secrets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]]] = None,
             single_placement_group: Optional[pulumi.Input[bool]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             source_image_id: Optional[pulumi.Input[str]] = None,
@@ -283,7 +283,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             unique_id: Optional[pulumi.Input[str]] = None,
             upgrade_mode: Optional[pulumi.Input[str]] = None,
             zone_balance: Optional[pulumi.Input[bool]] = None,
-            zones: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'LinuxVirtualMachineScaleSet':
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'LinuxVirtualMachineScaleSet':
         """
         Get an existing LinuxVirtualMachineScaleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -293,26 +293,26 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
         :param pulumi.Input[bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. Changing this forces a new resource to be created. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetIdentityArgs']] identity: A `identity` block as defined below.
-        :param pulumi.Input[float] instances: The number of Virtual Machines in the Scale Set.
+        :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
@@ -321,7 +321,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineScaleSetSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
@@ -331,7 +331,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] unique_id: The Unique ID for this Linux Virtual Machine Scale Set.
         :param pulumi.Input[str] upgrade_mode: Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -399,7 +399,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminSshKeys")
-    def admin_ssh_keys(self) -> pulumi.Output[Optional[List['outputs.LinuxVirtualMachineScaleSetAdminSshKey']]]:
+    def admin_ssh_keys(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxVirtualMachineScaleSetAdminSshKey']]]:
         """
         One or more `admin_ssh_key` blocks as defined below.
         """
@@ -455,7 +455,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> pulumi.Output[Optional[List['outputs.LinuxVirtualMachineScaleSetDataDisk']]]:
+    def data_disks(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxVirtualMachineScaleSetDataDisk']]]:
         """
         One or more `data_disk` blocks as defined below.
         """
@@ -495,7 +495,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def extensions(self) -> pulumi.Output[List['outputs.LinuxVirtualMachineScaleSetExtension']]:
+    def extensions(self) -> pulumi.Output[Sequence['outputs.LinuxVirtualMachineScaleSetExtension']]:
         """
         One or more `extension` blocks as defined below
         """
@@ -519,7 +519,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def instances(self) -> pulumi.Output[float]:
+    def instances(self) -> pulumi.Output[int]:
         """
         The number of Virtual Machines in the Scale Set.
         """
@@ -551,7 +551,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> pulumi.Output[List['outputs.LinuxVirtualMachineScaleSetNetworkInterface']]:
+    def network_interfaces(self) -> pulumi.Output[Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterface']]:
         """
         One or more `network_interface` blocks as defined below.
         """
@@ -628,7 +628,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def secrets(self) -> pulumi.Output[Optional[List['outputs.LinuxVirtualMachineScaleSetSecret']]]:
+    def secrets(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxVirtualMachineScaleSetSecret']]]:
         """
         One or more `secret` blocks as defined below.
         """
@@ -708,7 +708,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[List[str]]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """

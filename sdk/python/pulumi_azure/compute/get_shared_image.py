@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -103,7 +103,7 @@ class GetSharedImageResult:
 
     @property
     @pulumi.getter
-    def identifiers(self) -> List['outputs.GetSharedImageIdentifierResult']:
+    def identifiers(self) -> Sequence['outputs.GetSharedImageIdentifierResult']:
         """
         An `identifier` block as defined below.
         """

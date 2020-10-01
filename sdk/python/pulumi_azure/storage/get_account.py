@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -202,7 +202,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> List['outputs.GetAccountCustomDomainResult']:
+    def custom_domains(self) -> Sequence['outputs.GetAccountCustomDomainResult']:
         """
         A `custom_domain` block as documented below.
         """

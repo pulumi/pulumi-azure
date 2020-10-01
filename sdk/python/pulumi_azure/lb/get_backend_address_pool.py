@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -36,7 +36,7 @@ class GetBackendAddressPoolResult:
 
     @property
     @pulumi.getter(name="backendIpConfigurations")
-    def backend_ip_configurations(self) -> List['outputs.GetBackendAddressPoolBackendIpConfigurationResult']:
+    def backend_ip_configurations(self) -> Sequence['outputs.GetBackendAddressPoolBackendIpConfigurationResult']:
         """
         An array of references to IP addresses defined in network interfaces.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -68,7 +68,7 @@ class GetResourcesResult:
 
     @property
     @pulumi.getter
-    def resources(self) -> List['outputs.GetResourcesResourceResult']:
+    def resources(self) -> Sequence['outputs.GetResourcesResourceResult']:
         """
         One or more `resource` blocks as defined below.
         """

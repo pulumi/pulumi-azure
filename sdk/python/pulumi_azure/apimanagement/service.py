@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,8 +17,8 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
                  hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -68,8 +68,8 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block is documented below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
@@ -150,8 +150,8 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_locations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
-            certificates: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+            additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
+            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
             developer_portal_url: Optional[pulumi.Input[str]] = None,
             gateway_regional_url: Optional[pulumi.Input[str]] = None,
             gateway_url: Optional[pulumi.Input[str]] = None,
@@ -163,9 +163,9 @@ class Service(pulumi.CustomResource):
             notification_sender_email: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
             portal_url: Optional[pulumi.Input[str]] = None,
-            private_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
-            public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             publisher_email: Optional[pulumi.Input[str]] = None,
             publisher_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -184,8 +184,8 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
@@ -197,9 +197,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
-        :param pulumi.Input[List[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
@@ -247,7 +247,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="additionalLocations")
-    def additional_locations(self) -> pulumi.Output[Optional[List['outputs.ServiceAdditionalLocation']]]:
+    def additional_locations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceAdditionalLocation']]]:
         """
         One or more `additional_location` blocks as defined below.
         """
@@ -255,7 +255,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Output[Optional[List['outputs.ServiceCertificate']]]:
+    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceCertificate']]]:
         """
         One or more (up to 10) `certificate` blocks as defined below.
         """
@@ -351,7 +351,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
         """
@@ -367,7 +367,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def public_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """

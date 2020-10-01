@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -71,7 +71,7 @@ class GetRouteFilterResult:
 
     @property
     @pulumi.getter
-    def rules(self) -> List['outputs.GetRouteFilterRuleResult']:
+    def rules(self) -> Sequence['outputs.GetRouteFilterRuleResult']:
         """
         A `rule` block as defined below.
         """

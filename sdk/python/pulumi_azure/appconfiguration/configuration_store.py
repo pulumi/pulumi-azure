@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -90,11 +90,11 @@ class ConfigurationStore(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            primary_read_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryReadKeyArgs']]]]] = None,
-            primary_write_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryWriteKeyArgs']]]]] = None,
+            primary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryReadKeyArgs']]]]] = None,
+            primary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryWriteKeyArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            secondary_read_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryReadKeyArgs']]]]] = None,
-            secondary_write_keys: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryWriteKeyArgs']]]]] = None,
+            secondary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryReadKeyArgs']]]]] = None,
+            secondary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryWriteKeyArgs']]]]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ConfigurationStore':
         """
@@ -107,11 +107,11 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The URL of the App Configuration.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryReadKeyArgs']]]] primary_read_keys: A `primary_read_key` block as defined below containing the primary read access key.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryWriteKeyArgs']]]] primary_write_keys: A `primary_write_key` block as defined below containing the primary write access key.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryReadKeyArgs']]]] primary_read_keys: A `primary_read_key` block as defined below containing the primary read access key.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryWriteKeyArgs']]]] primary_write_keys: A `primary_write_key` block as defined below containing the primary write access key.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryReadKeyArgs']]]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryWriteKeyArgs']]]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryReadKeyArgs']]]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStoreSecondaryWriteKeyArgs']]]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
         :param pulumi.Input[str] sku: The SKU name of the the App Configuration. Possible values are `free` and `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -157,7 +157,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryReadKeys")
-    def primary_read_keys(self) -> pulumi.Output[List['outputs.ConfigurationStorePrimaryReadKey']]:
+    def primary_read_keys(self) -> pulumi.Output[Sequence['outputs.ConfigurationStorePrimaryReadKey']]:
         """
         A `primary_read_key` block as defined below containing the primary read access key.
         """
@@ -165,7 +165,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="primaryWriteKeys")
-    def primary_write_keys(self) -> pulumi.Output[List['outputs.ConfigurationStorePrimaryWriteKey']]:
+    def primary_write_keys(self) -> pulumi.Output[Sequence['outputs.ConfigurationStorePrimaryWriteKey']]:
         """
         A `primary_write_key` block as defined below containing the primary write access key.
         """
@@ -181,7 +181,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryReadKeys")
-    def secondary_read_keys(self) -> pulumi.Output[List['outputs.ConfigurationStoreSecondaryReadKey']]:
+    def secondary_read_keys(self) -> pulumi.Output[Sequence['outputs.ConfigurationStoreSecondaryReadKey']]:
         """
         A `secondary_read_key` block as defined below containing the secondary read access key.
         """
@@ -189,7 +189,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondaryWriteKeys")
-    def secondary_write_keys(self) -> pulumi.Output[List['outputs.ConfigurationStoreSecondaryWriteKey']]:
+    def secondary_write_keys(self) -> pulumi.Output[Sequence['outputs.ConfigurationStoreSecondaryWriteKey']]:
         """
         A `secondary_write_key` block as defined below containing the secondary write access key.
         """

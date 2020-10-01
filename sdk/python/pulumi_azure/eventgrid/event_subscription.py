@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,8 +25,8 @@ class EventSubscription(pulumi.CustomResource):
                  expiration_time_utc: Optional[pulumi.Input[str]] = None,
                  hybrid_connection_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']]] = None,
                  hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
-                 included_event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retry_policy: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionRetryPolicyArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -77,8 +77,8 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
         :param pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[str] hybrid_connection_endpoint_id: Specifies the id where the Hybrid Connection is located.
-        :param pulumi.Input[List[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionRetryPolicyArgs']] retry_policy: A `retry_policy` block as defined below.
         :param pulumi.Input[str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
@@ -158,8 +158,8 @@ class EventSubscription(pulumi.CustomResource):
             expiration_time_utc: Optional[pulumi.Input[str]] = None,
             hybrid_connection_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']]] = None,
             hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
-            included_event_types: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            labels: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             retry_policy: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionRetryPolicyArgs']]] = None,
             scope: Optional[pulumi.Input[str]] = None,
@@ -185,8 +185,8 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
         :param pulumi.Input[pulumi.InputType['EventSubscriptionHybridConnectionEndpointArgs']] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
         :param pulumi.Input[str] hybrid_connection_endpoint_id: Specifies the id where the Hybrid Connection is located.
-        :param pulumi.Input[List[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
-        :param pulumi.Input[List[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: A list of labels to assign to the event subscription.
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionRetryPolicyArgs']] retry_policy: A `retry_policy` block as defined below.
         :param pulumi.Input[str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
@@ -290,7 +290,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includedEventTypes")
-    def included_event_types(self) -> pulumi.Output[List[str]]:
+    def included_event_types(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of applicable event types that need to be part of the event subscription.
         """
@@ -298,7 +298,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def labels(self) -> pulumi.Output[Optional[List[str]]]:
+    def labels(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of labels to assign to the event subscription.
         """

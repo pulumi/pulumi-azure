@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,11 +17,11 @@ class VpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingArgs']]]]] = None,
+                 bgp_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scale_unit: Optional[pulumi.Input[float]] = None,
+                 scale_unit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -57,11 +57,11 @@ class VpnGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingArgs']]]] bgp_settings: A `bgp_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingArgs']]]] bgp_settings: A `bgp_settings` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] scale_unit: The Scale Unit for this VPN Gateway. Defaults to `1`.
+        :param pulumi.Input[int] scale_unit: The Scale Unit for this VPN Gateway. Defaults to `1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
         """
@@ -103,11 +103,11 @@ class VpnGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bgp_settings: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingArgs']]]]] = None,
+            bgp_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            scale_unit: Optional[pulumi.Input[float]] = None,
+            scale_unit: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None) -> 'VpnGateway':
         """
@@ -117,11 +117,11 @@ class VpnGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingArgs']]]] bgp_settings: A `bgp_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayBgpSettingArgs']]]] bgp_settings: A `bgp_settings` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] scale_unit: The Scale Unit for this VPN Gateway. Defaults to `1`.
+        :param pulumi.Input[int] scale_unit: The Scale Unit for this VPN Gateway. Defaults to `1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
         """
@@ -140,7 +140,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> pulumi.Output[List['outputs.VpnGatewayBgpSetting']]:
+    def bgp_settings(self) -> pulumi.Output[Sequence['outputs.VpnGatewayBgpSetting']]:
         """
         A `bgp_settings` block as defined below.
         """
@@ -172,7 +172,7 @@ class VpnGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> pulumi.Output[Optional[float]]:
+    def scale_unit(self) -> pulumi.Output[Optional[int]]:
         """
         The Scale Unit for this VPN Gateway. Defaults to `1`.
         """

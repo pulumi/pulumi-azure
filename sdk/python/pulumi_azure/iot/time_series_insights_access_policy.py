@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['TimeSeriesInsightsAccessPolicy']
@@ -18,7 +18,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_object_id: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,7 +49,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
-        :param pulumi.Input[List[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -93,7 +93,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             principal_object_id: Optional[pulumi.Input[str]] = None,
-            roles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             time_series_insights_environment_id: Optional[pulumi.Input[str]] = None) -> 'TimeSeriesInsightsAccessPolicy':
         """
         Get an existing TimeSeriesInsightsAccessPolicy resource's state with the given name, id, and optional extra
@@ -105,7 +105,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
-        :param pulumi.Input[List[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -145,7 +145,7 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Output[List[str]]:
+    def roles(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         """

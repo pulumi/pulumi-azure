@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -21,7 +21,7 @@ class ChannelDirectLineSiteArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  key2: Optional[pulumi.Input[str]] = None,
-                 trusted_origins: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 trusted_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  v1_allowed: Optional[pulumi.Input[bool]] = None,
                  v3_allowed: Optional[pulumi.Input[bool]] = None):
         """
@@ -31,7 +31,7 @@ class ChannelDirectLineSiteArgs:
         :param pulumi.Input[str] id: Id for the site
         :param pulumi.Input[str] key: Primary key for accessing this site
         :param pulumi.Input[str] key2: Secondary key for accessing this site
-        :param pulumi.Input[List[pulumi.Input[str]]] trusted_origins: This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_origins: This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
         :param pulumi.Input[bool] v1_allowed: Enables v1 of the Directline protocol for this site. Enabled by default
         :param pulumi.Input[bool] v3_allowed: Enables v3 of the Directline protocol for this site. Enabled by default
         """
@@ -127,14 +127,14 @@ class ChannelDirectLineSiteArgs:
 
     @property
     @pulumi.getter(name="trustedOrigins")
-    def trusted_origins(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def trusted_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
         """
         return pulumi.get(self, "trusted_origins")
 
     @trusted_origins.setter
-    def trusted_origins(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def trusted_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "trusted_origins", value)
 
     @property

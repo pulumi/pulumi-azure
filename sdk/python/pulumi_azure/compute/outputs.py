@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -227,15 +227,15 @@ class ImageDataDisk(dict):
     def __init__(__self__, *,
                  blob_uri: Optional[str] = None,
                  caching: Optional[str] = None,
-                 lun: Optional[float] = None,
+                 lun: Optional[int] = None,
                  managed_disk_id: Optional[str] = None,
-                 size_gb: Optional[float] = None):
+                 size_gb: Optional[int] = None):
         """
         :param str blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image.
         :param str caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        :param float lun: Specifies the logical unit number of the data disk.
+        :param int lun: Specifies the logical unit number of the data disk.
         :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
-        :param float size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
+        :param int size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
         """
         if blob_uri is not None:
             pulumi.set(__self__, "blob_uri", blob_uri)
@@ -266,7 +266,7 @@ class ImageDataDisk(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> Optional[float]:
+    def lun(self) -> Optional[int]:
         """
         Specifies the logical unit number of the data disk.
         """
@@ -282,7 +282,7 @@ class ImageDataDisk(dict):
 
     @property
     @pulumi.getter(name="sizeGb")
-    def size_gb(self) -> Optional[float]:
+    def size_gb(self) -> Optional[int]:
         """
         Specifies the size of the image to be created. The target size can't be smaller than the source size.
         """
@@ -300,14 +300,14 @@ class ImageOsDisk(dict):
                  managed_disk_id: Optional[str] = None,
                  os_state: Optional[str] = None,
                  os_type: Optional[str] = None,
-                 size_gb: Optional[float] = None):
+                 size_gb: Optional[int] = None):
         """
         :param str blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image.
         :param str caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
         :param str managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
         :param str os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
         :param str os_type: Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
-        :param float size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
+        :param int size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
         """
         if blob_uri is not None:
             pulumi.set(__self__, "blob_uri", blob_uri)
@@ -364,7 +364,7 @@ class ImageOsDisk(dict):
 
     @property
     @pulumi.getter(name="sizeGb")
-    def size_gb(self) -> Optional[float]:
+    def size_gb(self) -> Optional[int]:
         """
         Specifies the size of the image to be created. The target size can't be smaller than the source size.
         """
@@ -453,12 +453,12 @@ class LinuxVirtualMachineBootDiagnostics(dict):
 class LinuxVirtualMachineIdentity(dict):
     def __init__(__self__, *,
                  type: str,
-                 identity_ids: Optional[List[str]] = None,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
         :param str type: The type of Managed Identity which should be assigned to the Linux Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param List[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
         :param str principal_id: The ID of the System Managed Service Principal.
         :param str tenant_id: The ID of the Tenant the System Managed Service Principal is assigned in.
         """
@@ -480,7 +480,7 @@ class LinuxVirtualMachineIdentity(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[List[str]]:
+    def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine.
         """
@@ -513,7 +513,7 @@ class LinuxVirtualMachineOsDisk(dict):
                  storage_account_type: str,
                  diff_disk_settings: Optional['outputs.LinuxVirtualMachineOsDiskDiffDiskSettings'] = None,
                  disk_encryption_set_id: Optional[str] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  name: Optional[str] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
@@ -521,7 +521,7 @@ class LinuxVirtualMachineOsDisk(dict):
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
         :param 'LinuxVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-        :param float disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+        :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         :param str name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param bool write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         """
@@ -572,7 +572,7 @@ class LinuxVirtualMachineOsDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         """
@@ -806,16 +806,16 @@ class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
 class LinuxVirtualMachineScaleSetDataDisk(dict):
     def __init__(__self__, *,
                  caching: str,
-                 disk_size_gb: float,
-                 lun: float,
+                 disk_size_gb: int,
+                 lun: int,
                  storage_account_type: str,
                  create_option: Optional[str] = None,
                  disk_encryption_set_id: Optional[str] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param float disk_size_gb: The size of the Data Disk which should be created.
-        :param float lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        :param int disk_size_gb: The size of the Data Disk which should be created.
+        :param int lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         :param str create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
@@ -842,7 +842,7 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> float:
+    def disk_size_gb(self) -> int:
         """
         The size of the Data Disk which should be created.
         """
@@ -850,7 +850,7 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         """
@@ -902,7 +902,7 @@ class LinuxVirtualMachineScaleSetExtension(dict):
                  auto_upgrade_minor_version: Optional[bool] = None,
                  force_update_tag: Optional[str] = None,
                  protected_settings: Optional[str] = None,
-                 provision_after_extensions: Optional[List[str]] = None,
+                 provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[str] = None):
         """
         :param str name: The name for the Virtual Machine Scale Set Extension.
@@ -912,7 +912,7 @@ class LinuxVirtualMachineScaleSetExtension(dict):
         :param bool auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param str force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
-        :param List[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
+        :param Sequence[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
         :param str settings: A JSON String which specifies Settings for the Extension.
         """
         pulumi.set(__self__, "name", name)
@@ -988,7 +988,7 @@ class LinuxVirtualMachineScaleSetExtension(dict):
 
     @property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[List[str]]:
+    def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
         An ordered list of Extension names which this should be provisioned after.
         """
@@ -1010,11 +1010,11 @@ class LinuxVirtualMachineScaleSetExtension(dict):
 class LinuxVirtualMachineScaleSetIdentity(dict):
     def __init__(__self__, *,
                  type: str,
-                 identity_ids: Optional[List[str]] = None,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None):
         """
         :param str type: The type of Managed Identity which should be assigned to the Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param List[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
         :param str principal_id: The ID of the System Managed Service Principal.
         """
         pulumi.set(__self__, "type", type)
@@ -1033,7 +1033,7 @@ class LinuxVirtualMachineScaleSetIdentity(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[List[str]]:
+    def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Managed Identity ID's which should be assigned to the Linux Virtual Machine Scale Set.
         """
@@ -1054,17 +1054,17 @@ class LinuxVirtualMachineScaleSetIdentity(dict):
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetNetworkInterface(dict):
     def __init__(__self__, *,
-                 ip_configurations: List['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
+                 ip_configurations: Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
                  name: str,
-                 dns_servers: Optional[List[str]] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
                  enable_accelerated_networking: Optional[bool] = None,
                  enable_ip_forwarding: Optional[bool] = None,
                  network_security_group_id: Optional[str] = None,
                  primary: Optional[bool] = None):
         """
-        :param List['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
-        :param List[str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+        :param Sequence[str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param bool enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
         :param bool enable_ip_forwarding: Does this Network Interface support IP Forwarding? Defaults to `false`.
         :param str network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -1085,7 +1085,7 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration']:
+    def ip_configurations(self) -> Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration']:
         """
         One or more `ip_configuration` blocks as defined above.
         """
@@ -1101,7 +1101,7 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         """
@@ -1147,22 +1147,22 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
 class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
     def __init__(__self__, *,
                  name: str,
-                 application_gateway_backend_address_pool_ids: Optional[List[str]] = None,
-                 application_security_group_ids: Optional[List[str]] = None,
-                 load_balancer_backend_address_pool_ids: Optional[List[str]] = None,
-                 load_balancer_inbound_nat_rules_ids: Optional[List[str]] = None,
+                 application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 application_security_group_ids: Optional[Sequence[str]] = None,
+                 load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 load_balancer_inbound_nat_rules_ids: Optional[Sequence[str]] = None,
                  primary: Optional[bool] = None,
-                 public_ip_addresses: Optional[List['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']] = None,
+                 public_ip_addresses: Optional[Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']] = None,
                  subnet_id: Optional[str] = None,
                  version: Optional[str] = None):
         """
         :param str name: The Name which should be used for this IP Configuration.
-        :param List[str] application_gateway_backend_address_pool_ids: A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
-        :param List[str] application_security_group_ids: A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
-        :param List[str] load_balancer_backend_address_pool_ids: A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
-        :param List[str] load_balancer_inbound_nat_rules_ids: A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        :param Sequence[str] application_gateway_backend_address_pool_ids: A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+        :param Sequence[str] application_security_group_ids: A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+        :param Sequence[str] load_balancer_backend_address_pool_ids: A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         :param bool primary: Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
-        :param List['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param str subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
         :param str version: The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         """
@@ -1194,7 +1194,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPoolIds")
-    def application_gateway_backend_address_pool_ids(self) -> Optional[List[str]]:
+    def application_gateway_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
         """
         A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
         """
@@ -1202,7 +1202,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="applicationSecurityGroupIds")
-    def application_security_group_ids(self) -> Optional[List[str]]:
+    def application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
         """
@@ -1210,7 +1210,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPoolIds")
-    def load_balancer_backend_address_pool_ids(self) -> Optional[List[str]]:
+    def load_balancer_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
         """
         A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         """
@@ -1218,7 +1218,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="loadBalancerInboundNatRulesIds")
-    def load_balancer_inbound_nat_rules_ids(self) -> Optional[List[str]]:
+    def load_balancer_inbound_nat_rules_ids(self) -> Optional[Sequence[str]]:
         """
         A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         """
@@ -1234,7 +1234,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[List['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']]:
+    def public_ip_addresses(self) -> Optional[Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']]:
         """
         A `public_ip_address` block as defined below.
         """
@@ -1265,14 +1265,14 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
     def __init__(__self__, *,
                  name: str,
                  domain_name_label: Optional[str] = None,
-                 idle_timeout_in_minutes: Optional[float] = None,
-                 ip_tags: Optional[List['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 ip_tags: Optional[Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']] = None,
                  public_ip_prefix_id: Optional[str] = None):
         """
         :param str name: The Name of the Public IP Address Configuration.
         :param str domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
-        :param float idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param List['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above.
+        :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -1303,7 +1303,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
         """
@@ -1311,7 +1311,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[List['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']]:
+    def ip_tags(self) -> Optional[Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']]:
         """
         One or more `ip_tag` blocks as defined above.
         """
@@ -1368,14 +1368,14 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
                  storage_account_type: str,
                  diff_disk_settings: Optional['outputs.LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings'] = None,
                  disk_encryption_set_id: Optional[str] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
         :param 'LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
-        :param float disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         :param bool write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -1423,7 +1423,7 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         """
@@ -1498,14 +1498,14 @@ class LinuxVirtualMachineScaleSetPlan(dict):
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
     def __init__(__self__, *,
-                 max_batch_instance_percent: float,
-                 max_unhealthy_instance_percent: float,
-                 max_unhealthy_upgraded_instance_percent: float,
+                 max_batch_instance_percent: int,
+                 max_unhealthy_instance_percent: int,
+                 max_unhealthy_upgraded_instance_percent: int,
                  pause_time_between_batches: str):
         """
-        :param float max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
-        :param float max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
-        :param float max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+        :param int max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+        :param int max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+        :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
@@ -1515,7 +1515,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxBatchInstancePercent")
-    def max_batch_instance_percent(self) -> float:
+    def max_batch_instance_percent(self) -> int:
         """
         The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
         """
@@ -1523,7 +1523,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxUnhealthyInstancePercent")
-    def max_unhealthy_instance_percent(self) -> float:
+    def max_unhealthy_instance_percent(self) -> int:
         """
         The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
         """
@@ -1531,7 +1531,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxUnhealthyUpgradedInstancePercent")
-    def max_unhealthy_upgraded_instance_percent(self) -> float:
+    def max_unhealthy_upgraded_instance_percent(self) -> int:
         """
         The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
         """
@@ -1552,10 +1552,10 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetSecret(dict):
     def __init__(__self__, *,
-                 certificates: List['outputs.LinuxVirtualMachineScaleSetSecretCertificate'],
+                 certificates: Sequence['outputs.LinuxVirtualMachineScaleSetSecretCertificate'],
                  key_vault_id: str):
         """
-        :param List['LinuxVirtualMachineScaleSetSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
+        :param Sequence['LinuxVirtualMachineScaleSetSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -1563,7 +1563,7 @@ class LinuxVirtualMachineScaleSetSecret(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> List['outputs.LinuxVirtualMachineScaleSetSecretCertificate']:
+    def certificates(self) -> Sequence['outputs.LinuxVirtualMachineScaleSetSecretCertificate']:
         """
         One or more `certificate` blocks as defined above.
         """
@@ -1692,10 +1692,10 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
 @pulumi.output_type
 class LinuxVirtualMachineSecret(dict):
     def __init__(__self__, *,
-                 certificates: List['outputs.LinuxVirtualMachineSecretCertificate'],
+                 certificates: Sequence['outputs.LinuxVirtualMachineSecretCertificate'],
                  key_vault_id: str):
         """
-        :param List['LinuxVirtualMachineSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
+        :param Sequence['LinuxVirtualMachineSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -1703,7 +1703,7 @@ class LinuxVirtualMachineSecret(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> List['outputs.LinuxVirtualMachineSecretCertificate']:
+    def certificates(self) -> Sequence['outputs.LinuxVirtualMachineSecretCertificate']:
         """
         One or more `certificate` blocks as defined above.
         """
@@ -1937,7 +1937,7 @@ class ScaleSetExtension(dict):
                  type_handler_version: str,
                  auto_upgrade_minor_version: Optional[bool] = None,
                  protected_settings: Optional[str] = None,
-                 provision_after_extensions: Optional[List[str]] = None,
+                 provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[str] = None):
         """
         :param str name: Specifies the name of the extension.
@@ -1946,7 +1946,7 @@ class ScaleSetExtension(dict):
         :param str type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param bool auto_upgrade_minor_version: Specifies whether or not to use the latest minor version available.
         :param str protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
-        :param List[str] provision_after_extensions: Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
+        :param Sequence[str] provision_after_extensions: Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
         :param str settings: The settings passed to the extension, these are specified as a JSON object in a string.
         """
         pulumi.set(__self__, "name", name)
@@ -2012,7 +2012,7 @@ class ScaleSetExtension(dict):
 
     @property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[List[str]]:
+    def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
         Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
         """
@@ -2034,11 +2034,11 @@ class ScaleSetExtension(dict):
 class ScaleSetIdentity(dict):
     def __init__(__self__, *,
                  type: str,
-                 identity_ids: Optional[List[str]] = None,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None):
         """
         :param str type: Specifies the identity type to be assigned to the scale set. Allowable values are `SystemAssigned` and `UserAssigned`. For the `SystemAssigned` identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) for more information.
-        :param List[str] identity_ids: Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -2056,7 +2056,7 @@ class ScaleSetIdentity(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[List[str]]:
+    def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
         """
@@ -2074,7 +2074,7 @@ class ScaleSetIdentity(dict):
 @pulumi.output_type
 class ScaleSetNetworkProfile(dict):
     def __init__(__self__, *,
-                 ip_configurations: List['outputs.ScaleSetNetworkProfileIpConfiguration'],
+                 ip_configurations: Sequence['outputs.ScaleSetNetworkProfileIpConfiguration'],
                  name: str,
                  primary: bool,
                  accelerated_networking: Optional[bool] = None,
@@ -2082,7 +2082,7 @@ class ScaleSetNetworkProfile(dict):
                  ip_forwarding: Optional[bool] = None,
                  network_security_group_id: Optional[str] = None):
         """
-        :param List['ScaleSetNetworkProfileIpConfigurationArgs'] ip_configurations: An ip_configuration block as documented below.
+        :param Sequence['ScaleSetNetworkProfileIpConfigurationArgs'] ip_configurations: An ip_configuration block as documented below.
         :param str name: Specifies the name of the network interface configuration.
         :param bool primary: Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         :param bool accelerated_networking: Specifies whether to enable accelerated networking or not. Defaults to `false`.
@@ -2104,7 +2104,7 @@ class ScaleSetNetworkProfile(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.ScaleSetNetworkProfileIpConfiguration']:
+    def ip_configurations(self) -> Sequence['outputs.ScaleSetNetworkProfileIpConfiguration']:
         """
         An ip_configuration block as documented below.
         """
@@ -2165,15 +2165,15 @@ class ScaleSetNetworkProfile(dict):
 @pulumi.output_type
 class ScaleSetNetworkProfileDnsSettings(dict):
     def __init__(__self__, *,
-                 dns_servers: List[str]):
+                 dns_servers: Sequence[str]):
         """
-        :param List[str] dns_servers: Specifies an array of dns servers.
+        :param Sequence[str] dns_servers: Specifies an array of dns servers.
         """
         pulumi.set(__self__, "dns_servers", dns_servers)
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> List[str]:
+    def dns_servers(self) -> Sequence[str]:
         """
         Specifies an array of dns servers.
         """
@@ -2189,19 +2189,19 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
                  name: str,
                  primary: bool,
                  subnet_id: str,
-                 application_gateway_backend_address_pool_ids: Optional[List[str]] = None,
-                 application_security_group_ids: Optional[List[str]] = None,
-                 load_balancer_backend_address_pool_ids: Optional[List[str]] = None,
-                 load_balancer_inbound_nat_rules_ids: Optional[List[str]] = None,
+                 application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 application_security_group_ids: Optional[Sequence[str]] = None,
+                 load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 load_balancer_inbound_nat_rules_ids: Optional[Sequence[str]] = None,
                  public_ip_address_configuration: Optional['outputs.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration'] = None):
         """
         :param str name: Specifies name of the IP configuration.
         :param bool primary: Specifies if this ip_configuration is the primary one.
         :param str subnet_id: Specifies the identifier of the subnet.
-        :param List[str] application_gateway_backend_address_pool_ids: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
-        :param List[str] application_security_group_ids: Specifies up to `20` application security group IDs.
-        :param List[str] load_balancer_backend_address_pool_ids: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-        :param List[str] load_balancer_inbound_nat_rules_ids: Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+        :param Sequence[str] application_gateway_backend_address_pool_ids: Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
+        :param Sequence[str] application_security_group_ids: Specifies up to `20` application security group IDs.
+        :param Sequence[str] load_balancer_backend_address_pool_ids: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+        :param Sequence[str] load_balancer_inbound_nat_rules_ids: Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         :param 'ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs' public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
         """
         pulumi.set(__self__, "name", name)
@@ -2244,7 +2244,7 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPoolIds")
-    def application_gateway_backend_address_pool_ids(self) -> Optional[List[str]]:
+    def application_gateway_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
         """
@@ -2252,7 +2252,7 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="applicationSecurityGroupIds")
-    def application_security_group_ids(self) -> Optional[List[str]]:
+    def application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies up to `20` application security group IDs.
         """
@@ -2260,7 +2260,7 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPoolIds")
-    def load_balancer_backend_address_pool_ids(self) -> Optional[List[str]]:
+    def load_balancer_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         """
@@ -2268,7 +2268,7 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="loadBalancerInboundNatRulesIds")
-    def load_balancer_inbound_nat_rules_ids(self) -> Optional[List[str]]:
+    def load_balancer_inbound_nat_rules_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         """
@@ -2290,11 +2290,11 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
 class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
     def __init__(__self__, *,
                  domain_name_label: str,
-                 idle_timeout: float,
+                 idle_timeout: int,
                  name: str):
         """
         :param str domain_name_label: The domain name label for the dns settings.
-        :param float idle_timeout: The idle timeout in minutes. This value must be between 4 and 30.
+        :param int idle_timeout: The idle timeout in minutes. This value must be between 4 and 30.
         :param str name: The name of the public ip address configuration
         """
         pulumi.set(__self__, "domain_name_label", domain_name_label)
@@ -2311,7 +2311,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
 
     @property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> float:
+    def idle_timeout(self) -> int:
         """
         The idle timeout in minutes. This value must be between 4 and 30.
         """
@@ -2389,10 +2389,10 @@ class ScaleSetOsProfile(dict):
 class ScaleSetOsProfileLinuxConfig(dict):
     def __init__(__self__, *,
                  disable_password_authentication: Optional[bool] = None,
-                 ssh_keys: Optional[List['outputs.ScaleSetOsProfileLinuxConfigSshKey']] = None):
+                 ssh_keys: Optional[Sequence['outputs.ScaleSetOsProfileLinuxConfigSshKey']] = None):
         """
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
-        :param List['ScaleSetOsProfileLinuxConfigSshKeyArgs'] ssh_keys: Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
+        :param Sequence['ScaleSetOsProfileLinuxConfigSshKeyArgs'] ssh_keys: Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
         """
         if disable_password_authentication is not None:
             pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
@@ -2409,7 +2409,7 @@ class ScaleSetOsProfileLinuxConfig(dict):
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[List['outputs.ScaleSetOsProfileLinuxConfigSshKey']]:
+    def ssh_keys(self) -> Optional[Sequence['outputs.ScaleSetOsProfileLinuxConfigSshKey']]:
         """
         Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
         """
@@ -2446,10 +2446,10 @@ class ScaleSetOsProfileLinuxConfigSshKey(dict):
 class ScaleSetOsProfileSecret(dict):
     def __init__(__self__, *,
                  source_vault_id: str,
-                 vault_certificates: Optional[List['outputs.ScaleSetOsProfileSecretVaultCertificate']] = None):
+                 vault_certificates: Optional[Sequence['outputs.ScaleSetOsProfileSecretVaultCertificate']] = None):
         """
         :param str source_vault_id: Specifies the key vault to use.
-        :param List['ScaleSetOsProfileSecretVaultCertificateArgs'] vault_certificates: A collection of Vault Certificates as documented below
+        :param Sequence['ScaleSetOsProfileSecretVaultCertificateArgs'] vault_certificates: A collection of Vault Certificates as documented below
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -2465,7 +2465,7 @@ class ScaleSetOsProfileSecret(dict):
 
     @property
     @pulumi.getter(name="vaultCertificates")
-    def vault_certificates(self) -> Optional[List['outputs.ScaleSetOsProfileSecretVaultCertificate']]:
+    def vault_certificates(self) -> Optional[Sequence['outputs.ScaleSetOsProfileSecretVaultCertificate']]:
         """
         A collection of Vault Certificates as documented below
         """
@@ -2511,15 +2511,15 @@ class ScaleSetOsProfileSecretVaultCertificate(dict):
 @pulumi.output_type
 class ScaleSetOsProfileWindowsConfig(dict):
     def __init__(__self__, *,
-                 additional_unattend_configs: Optional[List['outputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig']] = None,
+                 additional_unattend_configs: Optional[Sequence['outputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig']] = None,
                  enable_automatic_upgrades: Optional[bool] = None,
                  provision_vm_agent: Optional[bool] = None,
-                 winrms: Optional[List['outputs.ScaleSetOsProfileWindowsConfigWinrm']] = None):
+                 winrms: Optional[Sequence['outputs.ScaleSetOsProfileWindowsConfigWinrm']] = None):
         """
-        :param List['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs'] additional_unattend_configs: An Additional Unattended Config block as documented below.
+        :param Sequence['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs'] additional_unattend_configs: An Additional Unattended Config block as documented below.
         :param bool enable_automatic_upgrades: Indicates whether virtual machines in the scale set are enabled for automatic updates.
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
-        :param List['ScaleSetOsProfileWindowsConfigWinrmArgs'] winrms: A collection of WinRM configuration blocks as documented below.
+        :param Sequence['ScaleSetOsProfileWindowsConfigWinrmArgs'] winrms: A collection of WinRM configuration blocks as documented below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -2532,7 +2532,7 @@ class ScaleSetOsProfileWindowsConfig(dict):
 
     @property
     @pulumi.getter(name="additionalUnattendConfigs")
-    def additional_unattend_configs(self) -> Optional[List['outputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig']]:
+    def additional_unattend_configs(self) -> Optional[Sequence['outputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig']]:
         """
         An Additional Unattended Config block as documented below.
         """
@@ -2556,7 +2556,7 @@ class ScaleSetOsProfileWindowsConfig(dict):
 
     @property
     @pulumi.getter
-    def winrms(self) -> Optional[List['outputs.ScaleSetOsProfileWindowsConfigWinrm']]:
+    def winrms(self) -> Optional[Sequence['outputs.ScaleSetOsProfileWindowsConfigWinrm']]:
         """
         A collection of WinRM configuration blocks as documented below.
         """
@@ -2699,14 +2699,14 @@ class ScaleSetPlan(dict):
 @pulumi.output_type
 class ScaleSetRollingUpgradePolicy(dict):
     def __init__(__self__, *,
-                 max_batch_instance_percent: Optional[float] = None,
-                 max_unhealthy_instance_percent: Optional[float] = None,
-                 max_unhealthy_upgraded_instance_percent: Optional[float] = None,
+                 max_batch_instance_percent: Optional[int] = None,
+                 max_unhealthy_instance_percent: Optional[int] = None,
+                 max_unhealthy_upgraded_instance_percent: Optional[int] = None,
                  pause_time_between_batches: Optional[str] = None):
         """
-        :param float max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
-        :param float max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
-        :param float max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
+        :param int max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
+        :param int max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
+        :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (https://en.wikipedia.org/wiki/ISO_8601#Durations). Defaults to `0` seconds represented as `PT0S`.
         """
         if max_batch_instance_percent is not None:
@@ -2720,7 +2720,7 @@ class ScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxBatchInstancePercent")
-    def max_batch_instance_percent(self) -> Optional[float]:
+    def max_batch_instance_percent(self) -> Optional[int]:
         """
         The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
         """
@@ -2728,7 +2728,7 @@ class ScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxUnhealthyInstancePercent")
-    def max_unhealthy_instance_percent(self) -> Optional[float]:
+    def max_unhealthy_instance_percent(self) -> Optional[int]:
         """
         The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
         """
@@ -2736,7 +2736,7 @@ class ScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxUnhealthyUpgradedInstancePercent")
-    def max_unhealthy_upgraded_instance_percent(self) -> Optional[float]:
+    def max_unhealthy_upgraded_instance_percent(self) -> Optional[int]:
         """
         The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
         """
@@ -2757,11 +2757,11 @@ class ScaleSetRollingUpgradePolicy(dict):
 @pulumi.output_type
 class ScaleSetSku(dict):
     def __init__(__self__, *,
-                 capacity: float,
+                 capacity: int,
                  name: str,
                  tier: Optional[str] = None):
         """
-        :param float capacity: Specifies the number of virtual machines in the scale set.
+        :param int capacity: Specifies the number of virtual machines in the scale set.
         :param str name: Specifies the size of virtual machines in a scale set.
         :param str tier: Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
         """
@@ -2772,7 +2772,7 @@ class ScaleSetSku(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         Specifies the number of virtual machines in the scale set.
         """
@@ -2802,15 +2802,15 @@ class ScaleSetSku(dict):
 class ScaleSetStorageProfileDataDisk(dict):
     def __init__(__self__, *,
                  create_option: str,
-                 lun: float,
+                 lun: int,
                  caching: Optional[str] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  managed_disk_type: Optional[str] = None):
         """
         :param str create_option: Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
-        :param float lun: Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
+        :param int lun: Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
         :param str caching: Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
-        :param float disk_size_gb: Specifies the size of the disk in GB. This element is required when creating an empty disk.
+        :param int disk_size_gb: Specifies the size of the disk in GB. This element is required when creating an empty disk.
         :param str managed_disk_type: Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -2832,7 +2832,7 @@ class ScaleSetStorageProfileDataDisk(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
         """
@@ -2848,7 +2848,7 @@ class ScaleSetStorageProfileDataDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of the disk in GB. This element is required when creating an empty disk.
         """
@@ -2947,7 +2947,7 @@ class ScaleSetStorageProfileOsDisk(dict):
                  managed_disk_type: Optional[str] = None,
                  name: Optional[str] = None,
                  os_type: Optional[str] = None,
-                 vhd_containers: Optional[List[str]] = None):
+                 vhd_containers: Optional[Sequence[str]] = None):
         """
         :param str create_option: Specifies how the virtual machine should be created. The only possible option is `FromImage`.
         :param str caching: Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
@@ -2957,7 +2957,7 @@ class ScaleSetStorageProfileOsDisk(dict):
         :param str managed_disk_type: Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
         :param str name: Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set).
         :param str os_type: Specifies the operating system Type, valid values are windows, linux.
-        :param List[str] vhd_containers: Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
+        :param Sequence[str] vhd_containers: Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
         """
         pulumi.set(__self__, "create_option", create_option)
         if caching is not None:
@@ -3025,7 +3025,7 @@ class ScaleSetStorageProfileOsDisk(dict):
 
     @property
     @pulumi.getter(name="vhdContainers")
-    def vhd_containers(self) -> Optional[List[str]]:
+    def vhd_containers(self) -> Optional[Sequence[str]]:
         """
         Specifies the vhd uri. Cannot be used when `image` or `managed_disk_type` is specified.
         """
@@ -3127,11 +3127,11 @@ class SharedImagePurchasePlan(dict):
 class SharedImageVersionTargetRegion(dict):
     def __init__(__self__, *,
                  name: str,
-                 regional_replica_count: float,
+                 regional_replica_count: int,
                  storage_account_type: Optional[str] = None):
         """
         :param str name: The Azure Region in which this Image Version should exist.
-        :param float regional_replica_count: The number of replicas of the Image Version to be created per region.
+        :param int regional_replica_count: The number of replicas of the Image Version to be created per region.
         :param str storage_account_type: The storage account type for the image version. Possible values are `Standard_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
         """
         pulumi.set(__self__, "name", name)
@@ -3149,7 +3149,7 @@ class SharedImageVersionTargetRegion(dict):
 
     @property
     @pulumi.getter(name="regionalReplicaCount")
-    def regional_replica_count(self) -> float:
+    def regional_replica_count(self) -> int:
         """
         The number of replicas of the Image Version to be created per region.
         """
@@ -3299,11 +3299,11 @@ class VirtualMachineBootDiagnostics(dict):
 class VirtualMachineIdentity(dict):
     def __init__(__self__, *,
                  type: str,
-                 identity_ids: Optional[List[str]] = None,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None):
         """
         :param str type: The Managed Service Identity Type of this Virtual Machine. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` (where you can specify the Service Principal ID's) to be used by this Virtual Machine using the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
-        :param List[str] identity_ids: Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Virtual Machine.
         """
         pulumi.set(__self__, "type", type)
@@ -3322,7 +3322,7 @@ class VirtualMachineIdentity(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[List[str]]:
+    def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of user managed identity ids to be assigned to the VM. Required if `type` is `UserAssigned`.
         """
@@ -3400,10 +3400,10 @@ class VirtualMachineOsProfile(dict):
 class VirtualMachineOsProfileLinuxConfig(dict):
     def __init__(__self__, *,
                  disable_password_authentication: bool,
-                 ssh_keys: Optional[List['outputs.VirtualMachineOsProfileLinuxConfigSshKey']] = None):
+                 ssh_keys: Optional[Sequence['outputs.VirtualMachineOsProfileLinuxConfigSshKey']] = None):
         """
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
-        :param List['VirtualMachineOsProfileLinuxConfigSshKeyArgs'] ssh_keys: One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
+        :param Sequence['VirtualMachineOsProfileLinuxConfigSshKeyArgs'] ssh_keys: One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
         """
         pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
         if ssh_keys is not None:
@@ -3419,7 +3419,7 @@ class VirtualMachineOsProfileLinuxConfig(dict):
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[List['outputs.VirtualMachineOsProfileLinuxConfigSshKey']]:
+    def ssh_keys(self) -> Optional[Sequence['outputs.VirtualMachineOsProfileLinuxConfigSshKey']]:
         """
         One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
         """
@@ -3465,10 +3465,10 @@ class VirtualMachineOsProfileLinuxConfigSshKey(dict):
 class VirtualMachineOsProfileSecret(dict):
     def __init__(__self__, *,
                  source_vault_id: str,
-                 vault_certificates: Optional[List['outputs.VirtualMachineOsProfileSecretVaultCertificate']] = None):
+                 vault_certificates: Optional[Sequence['outputs.VirtualMachineOsProfileSecretVaultCertificate']] = None):
         """
         :param str source_vault_id: Specifies the ID of the Key Vault to use.
-        :param List['VirtualMachineOsProfileSecretVaultCertificateArgs'] vault_certificates: One or more `vault_certificates` blocks.
+        :param Sequence['VirtualMachineOsProfileSecretVaultCertificateArgs'] vault_certificates: One or more `vault_certificates` blocks.
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -3484,7 +3484,7 @@ class VirtualMachineOsProfileSecret(dict):
 
     @property
     @pulumi.getter(name="vaultCertificates")
-    def vault_certificates(self) -> Optional[List['outputs.VirtualMachineOsProfileSecretVaultCertificate']]:
+    def vault_certificates(self) -> Optional[Sequence['outputs.VirtualMachineOsProfileSecretVaultCertificate']]:
         """
         One or more `vault_certificates` blocks.
         """
@@ -3530,17 +3530,17 @@ class VirtualMachineOsProfileSecretVaultCertificate(dict):
 @pulumi.output_type
 class VirtualMachineOsProfileWindowsConfig(dict):
     def __init__(__self__, *,
-                 additional_unattend_configs: Optional[List['outputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig']] = None,
+                 additional_unattend_configs: Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig']] = None,
                  enable_automatic_upgrades: Optional[bool] = None,
                  provision_vm_agent: Optional[bool] = None,
                  timezone: Optional[str] = None,
-                 winrms: Optional[List['outputs.VirtualMachineOsProfileWindowsConfigWinrm']] = None):
+                 winrms: Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigWinrm']] = None):
         """
-        :param List['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs'] additional_unattend_configs: A `additional_unattend_config` block.
+        :param Sequence['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs'] additional_unattend_configs: A `additional_unattend_config` block.
         :param bool enable_automatic_upgrades: Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
         :param bool provision_vm_agent: Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
         :param str timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        :param List['VirtualMachineOsProfileWindowsConfigWinrmArgs'] winrms: One or more `winrm` block.
+        :param Sequence['VirtualMachineOsProfileWindowsConfigWinrmArgs'] winrms: One or more `winrm` block.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -3555,7 +3555,7 @@ class VirtualMachineOsProfileWindowsConfig(dict):
 
     @property
     @pulumi.getter(name="additionalUnattendConfigs")
-    def additional_unattend_configs(self) -> Optional[List['outputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig']]:
+    def additional_unattend_configs(self) -> Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig']]:
         """
         A `additional_unattend_config` block.
         """
@@ -3587,7 +3587,7 @@ class VirtualMachineOsProfileWindowsConfig(dict):
 
     @property
     @pulumi.getter
-    def winrms(self) -> Optional[List['outputs.VirtualMachineOsProfileWindowsConfigWinrm']]:
+    def winrms(self) -> Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigWinrm']]:
         """
         One or more `winrm` block.
         """
@@ -3731,20 +3731,20 @@ class VirtualMachinePlan(dict):
 class VirtualMachineStorageDataDisk(dict):
     def __init__(__self__, *,
                  create_option: str,
-                 lun: float,
+                 lun: int,
                  name: str,
                  caching: Optional[str] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  managed_disk_id: Optional[str] = None,
                  managed_disk_type: Optional[str] = None,
                  vhd_uri: Optional[str] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str create_option: Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
-        :param float lun: Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
+        :param int lun: Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
         :param str name: The name of the Data Disk.
         :param str caching: Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
-        :param float disk_size_gb: Specifies the size of the data disk in gigabytes.
+        :param int disk_size_gb: Specifies the size of the data disk in gigabytes.
         :param str managed_disk_id: Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
         :param str managed_disk_type: Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
         :param str vhd_uri: Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
@@ -3776,7 +3776,7 @@ class VirtualMachineStorageDataDisk(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
         """
@@ -3800,7 +3800,7 @@ class VirtualMachineStorageDataDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of the data disk in gigabytes.
         """
@@ -3918,7 +3918,7 @@ class VirtualMachineStorageOsDisk(dict):
                  create_option: str,
                  name: str,
                  caching: Optional[str] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  image_uri: Optional[str] = None,
                  managed_disk_id: Optional[str] = None,
                  managed_disk_type: Optional[str] = None,
@@ -3929,7 +3929,7 @@ class VirtualMachineStorageOsDisk(dict):
         :param str create_option: Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
         :param str name: Specifies the name of the OS Disk.
         :param str caching: Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
-        :param float disk_size_gb: Specifies the size of the OS Disk in gigabytes.
+        :param int disk_size_gb: Specifies the size of the OS Disk in gigabytes.
         :param str image_uri: Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD uri](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-cli-deploy-templates/#create-a-custom-vm-image) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
         :param str managed_disk_id: Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
         :param str managed_disk_type: Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
@@ -3982,7 +3982,7 @@ class VirtualMachineStorageOsDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         Specifies the size of the OS Disk in gigabytes.
         """
@@ -4119,12 +4119,12 @@ class WindowsVirtualMachineBootDiagnostics(dict):
 class WindowsVirtualMachineIdentity(dict):
     def __init__(__self__, *,
                  type: str,
-                 identity_ids: Optional[List[str]] = None,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
         :param str type: The type of Managed Identity which should be assigned to the Windows Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param List[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
         :param str principal_id: The ID of the System Managed Service Principal.
         :param str tenant_id: The ID of the Tenant the System Managed Service Principal is assigned in.
         """
@@ -4146,7 +4146,7 @@ class WindowsVirtualMachineIdentity(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[List[str]]:
+    def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine.
         """
@@ -4179,7 +4179,7 @@ class WindowsVirtualMachineOsDisk(dict):
                  storage_account_type: str,
                  diff_disk_settings: Optional['outputs.WindowsVirtualMachineOsDiskDiffDiskSettings'] = None,
                  disk_encryption_set_id: Optional[str] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  name: Optional[str] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
@@ -4187,7 +4187,7 @@ class WindowsVirtualMachineOsDisk(dict):
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`. Changing this forces a new resource to be created.
         :param 'WindowsVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk.
-        :param float disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+        :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         :param str name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param bool write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         """
@@ -4238,7 +4238,7 @@ class WindowsVirtualMachineOsDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         """
@@ -4472,16 +4472,16 @@ class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
 class WindowsVirtualMachineScaleSetDataDisk(dict):
     def __init__(__self__, *,
                  caching: str,
-                 disk_size_gb: float,
-                 lun: float,
+                 disk_size_gb: int,
+                 lun: int,
                  storage_account_type: str,
                  create_option: Optional[str] = None,
                  disk_encryption_set_id: Optional[str] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param float disk_size_gb: The size of the Data Disk which should be created.
-        :param float lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+        :param int disk_size_gb: The size of the Data Disk which should be created.
+        :param int lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         :param str create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
@@ -4508,7 +4508,7 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> float:
+    def disk_size_gb(self) -> int:
         """
         The size of the Data Disk which should be created.
         """
@@ -4516,7 +4516,7 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         """
@@ -4568,7 +4568,7 @@ class WindowsVirtualMachineScaleSetExtension(dict):
                  auto_upgrade_minor_version: Optional[bool] = None,
                  force_update_tag: Optional[str] = None,
                  protected_settings: Optional[str] = None,
-                 provision_after_extensions: Optional[List[str]] = None,
+                 provision_after_extensions: Optional[Sequence[str]] = None,
                  settings: Optional[str] = None):
         """
         :param str name: The name for the Virtual Machine Scale Set Extension.
@@ -4578,7 +4578,7 @@ class WindowsVirtualMachineScaleSetExtension(dict):
         :param bool auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param str force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
-        :param List[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
+        :param Sequence[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
         :param str settings: A JSON String which specifies Settings for the Extension.
         """
         pulumi.set(__self__, "name", name)
@@ -4654,7 +4654,7 @@ class WindowsVirtualMachineScaleSetExtension(dict):
 
     @property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> Optional[List[str]]:
+    def provision_after_extensions(self) -> Optional[Sequence[str]]:
         """
         An ordered list of Extension names which this should be provisioned after.
         """
@@ -4676,11 +4676,11 @@ class WindowsVirtualMachineScaleSetExtension(dict):
 class WindowsVirtualMachineScaleSetIdentity(dict):
     def __init__(__self__, *,
                  type: str,
-                 identity_ids: Optional[List[str]] = None,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None):
         """
         :param str type: The type of Managed Identity which should be assigned to the Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
-        :param List[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
         :param str principal_id: The ID of the System Managed Service Principal.
         """
         pulumi.set(__self__, "type", type)
@@ -4699,7 +4699,7 @@ class WindowsVirtualMachineScaleSetIdentity(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[List[str]]:
+    def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Managed Identity ID's which should be assigned to the Windows Virtual Machine Scale Set.
         """
@@ -4720,17 +4720,17 @@ class WindowsVirtualMachineScaleSetIdentity(dict):
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetNetworkInterface(dict):
     def __init__(__self__, *,
-                 ip_configurations: List['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
+                 ip_configurations: Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
                  name: str,
-                 dns_servers: Optional[List[str]] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
                  enable_accelerated_networking: Optional[bool] = None,
                  enable_ip_forwarding: Optional[bool] = None,
                  network_security_group_id: Optional[str] = None,
                  primary: Optional[bool] = None):
         """
-        :param List['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
-        :param List[str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
+        :param Sequence[str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param bool enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
         :param bool enable_ip_forwarding: Does this Network Interface support IP Forwarding? Defaults to `false`.
         :param str network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -4751,7 +4751,7 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration']:
+    def ip_configurations(self) -> Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration']:
         """
         One or more `ip_configuration` blocks as defined above.
         """
@@ -4767,7 +4767,7 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[List[str]]:
+    def dns_servers(self) -> Optional[Sequence[str]]:
         """
         A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         """
@@ -4813,22 +4813,22 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
 class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
     def __init__(__self__, *,
                  name: str,
-                 application_gateway_backend_address_pool_ids: Optional[List[str]] = None,
-                 application_security_group_ids: Optional[List[str]] = None,
-                 load_balancer_backend_address_pool_ids: Optional[List[str]] = None,
-                 load_balancer_inbound_nat_rules_ids: Optional[List[str]] = None,
+                 application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 application_security_group_ids: Optional[Sequence[str]] = None,
+                 load_balancer_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 load_balancer_inbound_nat_rules_ids: Optional[Sequence[str]] = None,
                  primary: Optional[bool] = None,
-                 public_ip_addresses: Optional[List['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']] = None,
+                 public_ip_addresses: Optional[Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']] = None,
                  subnet_id: Optional[str] = None,
                  version: Optional[str] = None):
         """
         :param str name: The Name which should be used for this IP Configuration.
-        :param List[str] application_gateway_backend_address_pool_ids: A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
-        :param List[str] application_security_group_ids: A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
-        :param List[str] load_balancer_backend_address_pool_ids: A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
-        :param List[str] load_balancer_inbound_nat_rules_ids: A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        :param Sequence[str] application_gateway_backend_address_pool_ids: A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+        :param Sequence[str] application_security_group_ids: A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
+        :param Sequence[str] load_balancer_backend_address_pool_ids: A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
+        :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         :param bool primary: Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
-        :param List['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param str subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
         :param str version: The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         """
@@ -4860,7 +4860,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPoolIds")
-    def application_gateway_backend_address_pool_ids(self) -> Optional[List[str]]:
+    def application_gateway_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
         """
         A list of Backend Address Pools ID's from a Application Gateway which this Virtual Machine Scale Set should be connected to.
         """
@@ -4868,7 +4868,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="applicationSecurityGroupIds")
-    def application_security_group_ids(self) -> Optional[List[str]]:
+    def application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
         """
@@ -4876,7 +4876,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPoolIds")
-    def load_balancer_backend_address_pool_ids(self) -> Optional[List[str]]:
+    def load_balancer_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
         """
         A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         """
@@ -4884,7 +4884,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="loadBalancerInboundNatRulesIds")
-    def load_balancer_inbound_nat_rules_ids(self) -> Optional[List[str]]:
+    def load_balancer_inbound_nat_rules_ids(self) -> Optional[Sequence[str]]:
         """
         A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         """
@@ -4900,7 +4900,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[List['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']]:
+    def public_ip_addresses(self) -> Optional[Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress']]:
         """
         A `public_ip_address` block as defined below.
         """
@@ -4931,14 +4931,14 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
     def __init__(__self__, *,
                  name: str,
                  domain_name_label: Optional[str] = None,
-                 idle_timeout_in_minutes: Optional[float] = None,
-                 ip_tags: Optional[List['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 ip_tags: Optional[Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']] = None,
                  public_ip_prefix_id: Optional[str] = None):
         """
         :param str name: The Name of the Public IP Address Configuration.
         :param str domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
-        :param float idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param List['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above.
+        :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
+        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -4969,7 +4969,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[float]:
+    def idle_timeout_in_minutes(self) -> Optional[int]:
         """
         The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
         """
@@ -4977,7 +4977,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[List['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']]:
+    def ip_tags(self) -> Optional[Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag']]:
         """
         One or more `ip_tag` blocks as defined above.
         """
@@ -5034,14 +5034,14 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
                  storage_account_type: str,
                  diff_disk_settings: Optional['outputs.WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings'] = None,
                  disk_encryption_set_id: Optional[str] = None,
-                 disk_size_gb: Optional[float] = None,
+                 disk_size_gb: Optional[int] = None,
                  write_accelerator_enabled: Optional[bool] = None):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
         :param 'WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk.
-        :param float disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+        :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         :param bool write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -5089,7 +5089,7 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> Optional[float]:
+    def disk_size_gb(self) -> Optional[int]:
         """
         The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         """
@@ -5164,14 +5164,14 @@ class WindowsVirtualMachineScaleSetPlan(dict):
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
     def __init__(__self__, *,
-                 max_batch_instance_percent: float,
-                 max_unhealthy_instance_percent: float,
-                 max_unhealthy_upgraded_instance_percent: float,
+                 max_batch_instance_percent: int,
+                 max_unhealthy_instance_percent: int,
+                 max_unhealthy_upgraded_instance_percent: int,
                  pause_time_between_batches: str):
         """
-        :param float max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
-        :param float max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
-        :param float max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
+        :param int max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
+        :param int max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
+        :param int max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
         :param str pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
@@ -5181,7 +5181,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxBatchInstancePercent")
-    def max_batch_instance_percent(self) -> float:
+    def max_batch_instance_percent(self) -> int:
         """
         The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Changing this forces a new resource to be created.
         """
@@ -5189,7 +5189,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxUnhealthyInstancePercent")
-    def max_unhealthy_instance_percent(self) -> float:
+    def max_unhealthy_instance_percent(self) -> int:
         """
         The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Changing this forces a new resource to be created.
         """
@@ -5197,7 +5197,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
 
     @property
     @pulumi.getter(name="maxUnhealthyUpgradedInstancePercent")
-    def max_unhealthy_upgraded_instance_percent(self) -> float:
+    def max_unhealthy_upgraded_instance_percent(self) -> int:
         """
         The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Changing this forces a new resource to be created.
         """
@@ -5218,10 +5218,10 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetSecret(dict):
     def __init__(__self__, *,
-                 certificates: List['outputs.WindowsVirtualMachineScaleSetSecretCertificate'],
+                 certificates: Sequence['outputs.WindowsVirtualMachineScaleSetSecretCertificate'],
                  key_vault_id: str):
         """
-        :param List['WindowsVirtualMachineScaleSetSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
+        :param Sequence['WindowsVirtualMachineScaleSetSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -5229,7 +5229,7 @@ class WindowsVirtualMachineScaleSetSecret(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> List['outputs.WindowsVirtualMachineScaleSetSecretCertificate']:
+    def certificates(self) -> Sequence['outputs.WindowsVirtualMachineScaleSetSecretCertificate']:
         """
         One or more `certificate` blocks as defined above.
         """
@@ -5402,10 +5402,10 @@ class WindowsVirtualMachineScaleSetWinrmListener(dict):
 @pulumi.output_type
 class WindowsVirtualMachineSecret(dict):
     def __init__(__self__, *,
-                 certificates: List['outputs.WindowsVirtualMachineSecretCertificate'],
+                 certificates: Sequence['outputs.WindowsVirtualMachineSecretCertificate'],
                  key_vault_id: str):
         """
-        :param List['WindowsVirtualMachineSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
+        :param Sequence['WindowsVirtualMachineSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -5413,7 +5413,7 @@ class WindowsVirtualMachineSecret(dict):
 
     @property
     @pulumi.getter
-    def certificates(self) -> List['outputs.WindowsVirtualMachineSecretCertificate']:
+    def certificates(self) -> Sequence['outputs.WindowsVirtualMachineSecretCertificate']:
         """
         One or more `certificate` blocks as defined above.
         """
@@ -5551,15 +5551,15 @@ class GetImageDataDiskResult(dict):
     def __init__(__self__, *,
                  blob_uri: str,
                  caching: str,
-                 lun: float,
+                 lun: int,
                  managed_disk_id: str,
-                 size_gb: float):
+                 size_gb: int):
         """
         :param str blob_uri: the URI in Azure storage of the blob used to create the image.
         :param str caching: the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
-        :param float lun: the logical unit number of the data disk.
+        :param int lun: the logical unit number of the data disk.
         :param str managed_disk_id: the ID of the Managed Disk used as the Data Disk Image.
-        :param float size_gb: the size of this Data Disk in GB.
+        :param int size_gb: the size of this Data Disk in GB.
         """
         pulumi.set(__self__, "blob_uri", blob_uri)
         pulumi.set(__self__, "caching", caching)
@@ -5585,7 +5585,7 @@ class GetImageDataDiskResult(dict):
 
     @property
     @pulumi.getter
-    def lun(self) -> float:
+    def lun(self) -> int:
         """
         the logical unit number of the data disk.
         """
@@ -5601,7 +5601,7 @@ class GetImageDataDiskResult(dict):
 
     @property
     @pulumi.getter(name="sizeGb")
-    def size_gb(self) -> float:
+    def size_gb(self) -> int:
         """
         the size of this Data Disk in GB.
         """
@@ -5616,14 +5616,14 @@ class GetImageOsDiskResult(dict):
                  managed_disk_id: str,
                  os_state: str,
                  os_type: str,
-                 size_gb: float):
+                 size_gb: int):
         """
         :param str blob_uri: the URI in Azure storage of the blob used to create the image.
         :param str caching: the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
         :param str managed_disk_id: the ID of the Managed Disk used as the Data Disk Image.
         :param str os_state: the State of the OS used in the Image, such as `Generalized`.
         :param str os_type: the type of Operating System used on the OS Disk. such as `Linux` or `Windows`.
-        :param float size_gb: the size of this Data Disk in GB.
+        :param int size_gb: the size of this Data Disk in GB.
         """
         pulumi.set(__self__, "blob_uri", blob_uri)
         pulumi.set(__self__, "caching", caching)
@@ -5674,7 +5674,7 @@ class GetImageOsDiskResult(dict):
 
     @property
     @pulumi.getter(name="sizeGb")
-    def size_gb(self) -> float:
+    def size_gb(self) -> int:
         """
         the size of this Data Disk in GB.
         """
@@ -5725,11 +5725,11 @@ class GetSharedImageIdentifierResult(dict):
 class GetSharedImageVersionTargetRegionResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 regional_replica_count: float,
+                 regional_replica_count: int,
                  storage_account_type: str):
         """
         :param str name: The name of the Image Version.
-        :param float regional_replica_count: The number of replicas of the Image Version to be created per region.
+        :param int regional_replica_count: The number of replicas of the Image Version to be created per region.
         :param str storage_account_type: The storage account type for the image version.
         """
         pulumi.set(__self__, "name", name)
@@ -5746,7 +5746,7 @@ class GetSharedImageVersionTargetRegionResult(dict):
 
     @property
     @pulumi.getter(name="regionalReplicaCount")
-    def regional_replica_count(self) -> float:
+    def regional_replica_count(self) -> int:
         """
         The number of replicas of the Image Version to be created per region.
         """
@@ -5769,14 +5769,14 @@ class GetSharedImageVersionsImageResult(dict):
                  managed_image_id: str,
                  name: str,
                  tags: Mapping[str, str],
-                 target_regions: List['outputs.GetSharedImageVersionsImageTargetRegionResult']):
+                 target_regions: Sequence['outputs.GetSharedImageVersionsImageTargetRegionResult']):
         """
         :param bool exclude_from_latest: Is this Image Version excluded from the `latest` filter?
         :param str location: The supported Azure location where the Shared Image Gallery exists.
         :param str managed_image_id: The ID of the Managed Image which was the source of this Shared Image Version.
         :param str name: The Azure Region in which this Image Version exists.
         :param Mapping[str, str] tags: A mapping of tags assigned to the Shared Image.
-        :param List['GetSharedImageVersionsImageTargetRegionArgs'] target_regions: One or more `target_region` blocks as documented below.
+        :param Sequence['GetSharedImageVersionsImageTargetRegionArgs'] target_regions: One or more `target_region` blocks as documented below.
         """
         pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         pulumi.set(__self__, "location", location)
@@ -5827,7 +5827,7 @@ class GetSharedImageVersionsImageResult(dict):
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> List['outputs.GetSharedImageVersionsImageTargetRegionResult']:
+    def target_regions(self) -> Sequence['outputs.GetSharedImageVersionsImageTargetRegionResult']:
         """
         One or more `target_region` blocks as documented below.
         """
@@ -5838,11 +5838,11 @@ class GetSharedImageVersionsImageResult(dict):
 class GetSharedImageVersionsImageTargetRegionResult(dict):
     def __init__(__self__, *,
                  name: str,
-                 regional_replica_count: float,
+                 regional_replica_count: int,
                  storage_account_type: str):
         """
         :param str name: The Azure Region in which this Image Version exists.
-        :param float regional_replica_count: The number of replicas of the Image Version to be created per region.
+        :param int regional_replica_count: The number of replicas of the Image Version to be created per region.
         :param str storage_account_type: The storage account type for the image version.
         """
         pulumi.set(__self__, "name", name)
@@ -5859,7 +5859,7 @@ class GetSharedImageVersionsImageTargetRegionResult(dict):
 
     @property
     @pulumi.getter(name="regionalReplicaCount")
-    def regional_replica_count(self) -> float:
+    def regional_replica_count(self) -> int:
         """
         The number of replicas of the Image Version to be created per region.
         """
@@ -5877,16 +5877,16 @@ class GetSharedImageVersionsImageTargetRegionResult(dict):
 @pulumi.output_type
 class GetSnapshotEncryptionSettingResult(dict):
     def __init__(__self__, *,
-                 disk_encryption_keys: List['outputs.GetSnapshotEncryptionSettingDiskEncryptionKeyResult'],
+                 disk_encryption_keys: Sequence['outputs.GetSnapshotEncryptionSettingDiskEncryptionKeyResult'],
                  enabled: bool,
-                 key_encryption_keys: List['outputs.GetSnapshotEncryptionSettingKeyEncryptionKeyResult']):
+                 key_encryption_keys: Sequence['outputs.GetSnapshotEncryptionSettingKeyEncryptionKeyResult']):
         pulumi.set(__self__, "disk_encryption_keys", disk_encryption_keys)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "key_encryption_keys", key_encryption_keys)
 
     @property
     @pulumi.getter(name="diskEncryptionKeys")
-    def disk_encryption_keys(self) -> List['outputs.GetSnapshotEncryptionSettingDiskEncryptionKeyResult']:
+    def disk_encryption_keys(self) -> Sequence['outputs.GetSnapshotEncryptionSettingDiskEncryptionKeyResult']:
         return pulumi.get(self, "disk_encryption_keys")
 
     @property
@@ -5896,7 +5896,7 @@ class GetSnapshotEncryptionSettingResult(dict):
 
     @property
     @pulumi.getter(name="keyEncryptionKeys")
-    def key_encryption_keys(self) -> List['outputs.GetSnapshotEncryptionSettingKeyEncryptionKeyResult']:
+    def key_encryption_keys(self) -> Sequence['outputs.GetSnapshotEncryptionSettingKeyEncryptionKeyResult']:
         return pulumi.get(self, "key_encryption_keys")
 
 
@@ -5941,12 +5941,12 @@ class GetSnapshotEncryptionSettingKeyEncryptionKeyResult(dict):
 @pulumi.output_type
 class GetVirtualMachineIdentityResult(dict):
     def __init__(__self__, *,
-                 identity_ids: List[str],
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
                  type: str):
         """
-        :param List[str] identity_ids: The list of User Managed Identity ID's which are assigned to the Virtual Machine.
+        :param Sequence[str] identity_ids: The list of User Managed Identity ID's which are assigned to the Virtual Machine.
         :param str principal_id: The ID of the System Managed Service Principal assigned to the Virtual Machine.
         :param str tenant_id: The ID of the Tenant of the System Managed Service Principal assigned to the Virtual Machine.
         :param str type: The identity type of the Managed Identity assigned to the Virtual Machine.
@@ -5958,7 +5958,7 @@ class GetVirtualMachineIdentityResult(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> List[str]:
+    def identity_ids(self) -> Sequence[str]:
         """
         The list of User Managed Identity ID's which are assigned to the Virtual Machine.
         """
@@ -5992,11 +5992,11 @@ class GetVirtualMachineIdentityResult(dict):
 @pulumi.output_type
 class GetVirtualMachineScaleSetIdentityResult(dict):
     def __init__(__self__, *,
-                 identity_ids: List[str],
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  type: str):
         """
-        :param List[str] identity_ids: The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
+        :param Sequence[str] identity_ids: The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
         :param str principal_id: The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
         :param str type: The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
         """
@@ -6006,7 +6006,7 @@ class GetVirtualMachineScaleSetIdentityResult(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> List[str]:
+    def identity_ids(self) -> Sequence[str]:
         """
         The list of User Managed Identity ID's which are assigned to the Virtual Machine Scale Set.
         """

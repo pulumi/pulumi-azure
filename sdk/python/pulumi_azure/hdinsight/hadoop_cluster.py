@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -27,7 +27,7 @@ class HadoopCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
@@ -173,7 +173,7 @@ class HadoopCluster(pulumi.CustomResource):
             roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
             storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']]] = None,
-            storage_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             tls_min_version: Optional[pulumi.Input[str]] = None) -> 'HadoopCluster':
@@ -196,7 +196,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
@@ -320,7 +320,7 @@ class HadoopCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> pulumi.Output[Optional[List['outputs.HadoopClusterStorageAccount']]]:
+    def storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.HadoopClusterStorageAccount']]]:
         """
         One or more `storage_account` block as defined below.
         """

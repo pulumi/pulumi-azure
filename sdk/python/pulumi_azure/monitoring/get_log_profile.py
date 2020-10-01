@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -45,7 +45,7 @@ class GetLogProfileResult:
 
     @property
     @pulumi.getter
-    def categories(self) -> List[str]:
+    def categories(self) -> Sequence[str]:
         """
         List of categories of the logs.
         """
@@ -61,7 +61,7 @@ class GetLogProfileResult:
 
     @property
     @pulumi.getter
-    def locations(self) -> List[str]:
+    def locations(self) -> Sequence[str]:
         """
         List of regions for which Activity Log events are stored or streamed.
         """
@@ -74,7 +74,7 @@ class GetLogProfileResult:
 
     @property
     @pulumi.getter(name="retentionPolicies")
-    def retention_policies(self) -> List['outputs.GetLogProfileRetentionPolicyResult']:
+    def retention_policies(self) -> Sequence['outputs.GetLogProfileRetentionPolicyResult']:
         return pulumi.get(self, "retention_policies")
 
     @property

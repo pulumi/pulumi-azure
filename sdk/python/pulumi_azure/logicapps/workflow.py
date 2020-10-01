@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Workflow']
@@ -95,16 +95,16 @@ class Workflow(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_endpoint: Optional[pulumi.Input[str]] = None,
-            connector_endpoint_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            connector_outbound_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            workflow_endpoint_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            workflow_outbound_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            workflow_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            workflow_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             workflow_schema: Optional[pulumi.Input[str]] = None,
             workflow_version: Optional[pulumi.Input[str]] = None) -> 'Workflow':
         """
@@ -115,16 +115,16 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_endpoint: The Access Endpoint for the Logic App Workflow.
-        :param pulumi.Input[List[pulumi.Input[str]]] connector_endpoint_ip_addresses: The list of access endpoint ip addresses of connector.
-        :param pulumi.Input[List[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing ip addresses of connector.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_endpoint_ip_addresses: The list of access endpoint ip addresses of connector.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing ip addresses of connector.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Key-Value pairs.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint ip addresses of workflow.
-        :param pulumi.Input[List[pulumi.Input[str]]] workflow_outbound_ip_addresses: The list of outgoing ip addresses of workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint ip addresses of workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_outbound_ip_addresses: The list of outgoing ip addresses of workflow.
         :param pulumi.Input[str] workflow_schema: Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workflow_version: Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """
@@ -157,7 +157,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorEndpointIpAddresses")
-    def connector_endpoint_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def connector_endpoint_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of access endpoint ip addresses of connector.
         """
@@ -165,7 +165,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorOutboundIpAddresses")
-    def connector_outbound_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def connector_outbound_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of outgoing ip addresses of connector.
         """
@@ -221,7 +221,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowEndpointIpAddresses")
-    def workflow_endpoint_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def workflow_endpoint_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of access endpoint ip addresses of workflow.
         """
@@ -229,7 +229,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="workflowOutboundIpAddresses")
-    def workflow_outbound_ip_addresses(self) -> pulumi.Output[List[str]]:
+    def workflow_outbound_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
         """
         The list of outgoing ip addresses of workflow.
         """

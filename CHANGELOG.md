@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to pulumi-terraform-bridge v2.10.2
+* Upgrade to Pulumi v2.10.2
 
 ---
 
@@ -112,7 +113,7 @@ _(none)_
 
 ## 3.5.2 (2020-05-14)
 * Add retries on Function App host keys
-  
+
 ## 3.5.1 (2020-05-13)
 * Upgrade to pulumi-terraform-bridge v2.3.2
 
@@ -144,8 +145,8 @@ _(none)_
 * Add several properties to ArchiveFunctionApp.
   ([#514](https://github.com/pulumi/pulumi-azure/pull/514))
 * Upgrade to v2.5.0 of the AzureRM Terraform Provider
-  ** PLEASE NOTE:** 
-  There are some breaking changes to `azurerm_kubernetes_cluster` due 
+  ** PLEASE NOTE:**
+  There are some breaking changes to `azurerm_kubernetes_cluster` due
   to a breaking change in the Azure AKS API,
   Mixed Mode Authentication clusters are no longer supported
 

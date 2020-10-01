@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -15,10 +15,10 @@ __all__ = [
 @pulumi.output_type
 class ModuleNetworkProfile(dict):
     def __init__(__self__, *,
-                 network_interface_private_ip_addresses: List[str],
+                 network_interface_private_ip_addresses: Sequence[str],
                  subnet_id: str):
         """
-        :param List[str] network_interface_private_ip_addresses: The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+        :param Sequence[str] network_interface_private_ip_addresses: The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param str subnet_id: The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         pulumi.set(__self__, "network_interface_private_ip_addresses", network_interface_private_ip_addresses)
@@ -26,7 +26,7 @@ class ModuleNetworkProfile(dict):
 
     @property
     @pulumi.getter(name="networkInterfacePrivateIpAddresses")
-    def network_interface_private_ip_addresses(self) -> List[str]:
+    def network_interface_private_ip_addresses(self) -> Sequence[str]:
         """
         The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
         """

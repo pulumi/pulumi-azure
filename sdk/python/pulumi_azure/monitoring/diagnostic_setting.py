@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,8 +21,8 @@ class DiagnosticSetting(pulumi.CustomResource):
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]]] = None,
-                 metrics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
@@ -67,8 +67,8 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]] metrics: One or more `metric` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -115,8 +115,8 @@ class DiagnosticSetting(pulumi.CustomResource):
             eventhub_name: Optional[pulumi.Input[str]] = None,
             log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-            logs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]]] = None,
-            metrics: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]]] = None,
+            logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]]] = None,
+            metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None) -> 'DiagnosticSetting':
@@ -131,8 +131,8 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]] metrics: One or more `metric` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingMetricArgs']]]] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -186,7 +186,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logs(self) -> pulumi.Output[Optional[List['outputs.DiagnosticSettingLog']]]:
+    def logs(self) -> pulumi.Output[Optional[Sequence['outputs.DiagnosticSettingLog']]]:
         """
         One or more `log` blocks as defined below.
         """
@@ -194,7 +194,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metrics(self) -> pulumi.Output[Optional[List['outputs.DiagnosticSettingMetric']]]:
+    def metrics(self) -> pulumi.Output[Optional[Sequence['outputs.DiagnosticSettingMetric']]]:
         """
         One or more `metric` blocks as defined below.
         """

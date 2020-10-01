@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -48,7 +48,7 @@ class GetRoleDefinitionResult:
 
     @property
     @pulumi.getter(name="assignableScopes")
-    def assignable_scopes(self) -> List[str]:
+    def assignable_scopes(self) -> Sequence[str]:
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         """
@@ -77,7 +77,7 @@ class GetRoleDefinitionResult:
 
     @property
     @pulumi.getter
-    def permissions(self) -> List['outputs.GetRoleDefinitionPermissionResult']:
+    def permissions(self) -> Sequence['outputs.GetRoleDefinitionPermissionResult']:
         """
         a `permissions` block as documented below.
         """

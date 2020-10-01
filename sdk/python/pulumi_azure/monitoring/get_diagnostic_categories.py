@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -43,7 +43,7 @@ class GetDiagnosticCategoriesResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> List[str]:
+    def logs(self) -> Sequence[str]:
         """
         A list of the Log Categories supported for this Resource.
         """
@@ -51,7 +51,7 @@ class GetDiagnosticCategoriesResult:
 
     @property
     @pulumi.getter
-    def metrics(self) -> List[str]:
+    def metrics(self) -> Sequence[str]:
         """
         A list of the Metric Categories supported for this Resource.
         """

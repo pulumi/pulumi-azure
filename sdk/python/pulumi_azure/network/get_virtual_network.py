@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -50,7 +50,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> List[str]:
+    def address_spaces(self) -> Sequence[str]:
         """
         The list of address spaces used by the virtual network.
         """
@@ -58,7 +58,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> List[str]:
+    def dns_servers(self) -> Sequence[str]:
         """
         The list of DNS servers used by the virtual network.
         """
@@ -100,7 +100,7 @@ class GetVirtualNetworkResult:
 
     @property
     @pulumi.getter
-    def subnets(self) -> List[str]:
+    def subnets(self) -> Sequence[str]:
         """
         The list of name of the subnets that are attached to this virtual network.
         """

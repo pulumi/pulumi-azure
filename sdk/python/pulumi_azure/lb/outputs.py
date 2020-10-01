@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -20,9 +20,9 @@ class LoadBalancerFrontendIpConfiguration(dict):
     def __init__(__self__, *,
                  name: str,
                  id: Optional[str] = None,
-                 inbound_nat_rules: Optional[List[str]] = None,
-                 load_balancer_rules: Optional[List[str]] = None,
-                 outbound_rules: Optional[List[str]] = None,
+                 inbound_nat_rules: Optional[Sequence[str]] = None,
+                 load_balancer_rules: Optional[Sequence[str]] = None,
+                 outbound_rules: Optional[Sequence[str]] = None,
                  private_ip_address: Optional[str] = None,
                  private_ip_address_allocation: Optional[str] = None,
                  private_ip_address_version: Optional[str] = None,
@@ -33,9 +33,9 @@ class LoadBalancerFrontendIpConfiguration(dict):
         """
         :param str name: Specifies the name of the frontend ip configuration.
         :param str id: The id of the Frontend IP Configuration.
-        :param List[str] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
-        :param List[str] load_balancer_rules: The list of IDs of load balancing rules that use this frontend IP.
-        :param List[str] outbound_rules: The list of IDs outbound rules that use this frontend IP.
+        :param Sequence[str] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
+        :param Sequence[str] load_balancer_rules: The list of IDs of load balancing rules that use this frontend IP.
+        :param Sequence[str] outbound_rules: The list of IDs outbound rules that use this frontend IP.
         :param str private_ip_address: Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
         :param str private_ip_address_allocation: The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
         :param str private_ip_address_version: The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
@@ -86,7 +86,7 @@ class LoadBalancerFrontendIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[List[str]]:
+    def inbound_nat_rules(self) -> Optional[Sequence[str]]:
         """
         The list of IDs of inbound rules that use this frontend IP.
         """
@@ -94,7 +94,7 @@ class LoadBalancerFrontendIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="loadBalancerRules")
-    def load_balancer_rules(self) -> Optional[List[str]]:
+    def load_balancer_rules(self) -> Optional[Sequence[str]]:
         """
         The list of IDs of load balancing rules that use this frontend IP.
         """
@@ -102,7 +102,7 @@ class LoadBalancerFrontendIpConfiguration(dict):
 
     @property
     @pulumi.getter(name="outboundRules")
-    def outbound_rules(self) -> Optional[List[str]]:
+    def outbound_rules(self) -> Optional[Sequence[str]]:
         """
         The list of IDs outbound rules that use this frontend IP.
         """
@@ -229,7 +229,7 @@ class GetLBFrontendIpConfigurationResult(dict):
                  private_ip_address_version: str,
                  public_ip_address_id: str,
                  subnet_id: str,
-                 zones: List[str]):
+                 zones: Sequence[str]):
         """
         :param str id: The id of the Frontend IP Configuration.
         :param str name: Specifies the name of the Load Balancer.
@@ -238,7 +238,7 @@ class GetLBFrontendIpConfigurationResult(dict):
         :param str private_ip_address_version: The Private IP Address Version, either `IPv4` or `IPv6`.
         :param str public_ip_address_id: The ID of a  Public IP Address which is associated with this Load Balancer.
         :param str subnet_id: The ID of the Subnet which is associated with the IP Configuration.
-        :param List[str] zones: A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+        :param Sequence[str] zones: A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -307,7 +307,7 @@ class GetLBFrontendIpConfigurationResult(dict):
 
     @property
     @pulumi.getter
-    def zones(self) -> List[str]:
+    def zones(self) -> Sequence[str]:
         """
         A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
         """

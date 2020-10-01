@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['WebApp']
@@ -21,7 +21,7 @@ class WebApp(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 luis_app_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
                  microsoft_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Web App Bot endpoint.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with the Web App Bot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with the Web App Bot.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with the Web App Bot.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
@@ -117,7 +117,7 @@ class WebApp(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            luis_app_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             luis_key: Optional[pulumi.Input[str]] = None,
             microsoft_app_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
         :param pulumi.Input[str] endpoint: The Web App Bot endpoint.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with the Web App Bot.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with the Web App Bot.
         :param pulumi.Input[str] luis_key: The LUIS key to associate with the Web App Bot.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
@@ -214,7 +214,7 @@ class WebApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="luisAppIds")
-    def luis_app_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def luis_app_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of LUIS App IDs to associate with the Web App Bot.
         """

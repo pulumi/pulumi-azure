@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -60,7 +60,7 @@ class GetSharedImageVersionsResult:
 
     @property
     @pulumi.getter
-    def images(self) -> List['outputs.GetSharedImageVersionsImageResult']:
+    def images(self) -> Sequence['outputs.GetSharedImageVersionsImageResult']:
         """
         An `images` block as defined below:
         """

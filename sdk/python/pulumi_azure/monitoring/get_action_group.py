@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -69,7 +69,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="armRoleReceivers")
-    def arm_role_receivers(self) -> List['outputs.GetActionGroupArmRoleReceiverResult']:
+    def arm_role_receivers(self) -> Sequence['outputs.GetActionGroupArmRoleReceiverResult']:
         """
         One or more `arm_role_receiver` blocks as defined below.
         """
@@ -77,7 +77,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="automationRunbookReceivers")
-    def automation_runbook_receivers(self) -> List['outputs.GetActionGroupAutomationRunbookReceiverResult']:
+    def automation_runbook_receivers(self) -> Sequence['outputs.GetActionGroupAutomationRunbookReceiverResult']:
         """
         One or more `automation_runbook_receiver` blocks as defined below.
         """
@@ -85,7 +85,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="azureAppPushReceivers")
-    def azure_app_push_receivers(self) -> List['outputs.GetActionGroupAzureAppPushReceiverResult']:
+    def azure_app_push_receivers(self) -> Sequence['outputs.GetActionGroupAzureAppPushReceiverResult']:
         """
         One or more `azure_app_push_receiver` blocks as defined below.
         """
@@ -93,7 +93,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="azureFunctionReceivers")
-    def azure_function_receivers(self) -> List['outputs.GetActionGroupAzureFunctionReceiverResult']:
+    def azure_function_receivers(self) -> Sequence['outputs.GetActionGroupAzureFunctionReceiverResult']:
         """
         One or more `azure_function_receiver` blocks as defined below.
         """
@@ -101,7 +101,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="emailReceivers")
-    def email_receivers(self) -> List['outputs.GetActionGroupEmailReceiverResult']:
+    def email_receivers(self) -> Sequence['outputs.GetActionGroupEmailReceiverResult']:
         """
         One or more `email_receiver` blocks as defined below.
         """
@@ -125,7 +125,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="itsmReceivers")
-    def itsm_receivers(self) -> List['outputs.GetActionGroupItsmReceiverResult']:
+    def itsm_receivers(self) -> Sequence['outputs.GetActionGroupItsmReceiverResult']:
         """
         One or more `itsm_receiver` blocks as defined below.
         """
@@ -133,7 +133,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="logicAppReceivers")
-    def logic_app_receivers(self) -> List['outputs.GetActionGroupLogicAppReceiverResult']:
+    def logic_app_receivers(self) -> Sequence['outputs.GetActionGroupLogicAppReceiverResult']:
         """
         One or more `logic_app_receiver` blocks as defined below.
         """
@@ -162,7 +162,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="smsReceivers")
-    def sms_receivers(self) -> List['outputs.GetActionGroupSmsReceiverResult']:
+    def sms_receivers(self) -> Sequence['outputs.GetActionGroupSmsReceiverResult']:
         """
         One or more `sms_receiver` blocks as defined below.
         """
@@ -170,7 +170,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="voiceReceivers")
-    def voice_receivers(self) -> List['outputs.GetActionGroupVoiceReceiverResult']:
+    def voice_receivers(self) -> Sequence['outputs.GetActionGroupVoiceReceiverResult']:
         """
         One or more `voice_receiver` blocks as defined below.
         """
@@ -178,7 +178,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="webhookReceivers")
-    def webhook_receivers(self) -> List['outputs.GetActionGroupWebhookReceiverResult']:
+    def webhook_receivers(self) -> Sequence['outputs.GetActionGroupWebhookReceiverResult']:
         """
         One or more `webhook_receiver` blocks as defined below.
         """

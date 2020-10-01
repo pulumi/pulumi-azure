@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -23,20 +23,20 @@ class GetDnsZoneResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
-            raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, int):
+            raise TypeError("Expected argument 'max_number_of_record_sets' to be a int")
         pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
-        if max_number_of_virtual_network_links and not isinstance(max_number_of_virtual_network_links, float):
-            raise TypeError("Expected argument 'max_number_of_virtual_network_links' to be a float")
+        if max_number_of_virtual_network_links and not isinstance(max_number_of_virtual_network_links, int):
+            raise TypeError("Expected argument 'max_number_of_virtual_network_links' to be a int")
         pulumi.set(__self__, "max_number_of_virtual_network_links", max_number_of_virtual_network_links)
-        if max_number_of_virtual_network_links_with_registration and not isinstance(max_number_of_virtual_network_links_with_registration, float):
-            raise TypeError("Expected argument 'max_number_of_virtual_network_links_with_registration' to be a float")
+        if max_number_of_virtual_network_links_with_registration and not isinstance(max_number_of_virtual_network_links_with_registration, int):
+            raise TypeError("Expected argument 'max_number_of_virtual_network_links_with_registration' to be a int")
         pulumi.set(__self__, "max_number_of_virtual_network_links_with_registration", max_number_of_virtual_network_links_with_registration)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if number_of_record_sets and not isinstance(number_of_record_sets, float):
-            raise TypeError("Expected argument 'number_of_record_sets' to be a float")
+        if number_of_record_sets and not isinstance(number_of_record_sets, int):
+            raise TypeError("Expected argument 'number_of_record_sets' to be a int")
         pulumi.set(__self__, "number_of_record_sets", number_of_record_sets)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -55,7 +55,7 @@ class GetDnsZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfRecordSets")
-    def max_number_of_record_sets(self) -> float:
+    def max_number_of_record_sets(self) -> int:
         """
         Maximum number of recordsets that can be created in this Private Zone.
         """
@@ -63,7 +63,7 @@ class GetDnsZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinks")
-    def max_number_of_virtual_network_links(self) -> float:
+    def max_number_of_virtual_network_links(self) -> int:
         """
         Maximum number of Virtual Networks that can be linked to this Private Zone.
         """
@@ -71,7 +71,7 @@ class GetDnsZoneResult:
 
     @property
     @pulumi.getter(name="maxNumberOfVirtualNetworkLinksWithRegistration")
-    def max_number_of_virtual_network_links_with_registration(self) -> float:
+    def max_number_of_virtual_network_links_with_registration(self) -> int:
         """
         Maximum number of Virtual Networks that can be linked to this Private Zone with registration enabled.
         """
@@ -84,7 +84,7 @@ class GetDnsZoneResult:
 
     @property
     @pulumi.getter(name="numberOfRecordSets")
-    def number_of_record_sets(self) -> float:
+    def number_of_record_sets(self) -> int:
         """
         The number of recordsets currently in the zone.
         """

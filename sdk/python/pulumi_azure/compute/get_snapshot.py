@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -24,8 +24,8 @@ class GetSnapshotResult:
         if creation_option and not isinstance(creation_option, str):
             raise TypeError("Expected argument 'creation_option' to be a str")
         pulumi.set(__self__, "creation_option", creation_option)
-        if disk_size_gb and not isinstance(disk_size_gb, float):
-            raise TypeError("Expected argument 'disk_size_gb' to be a float")
+        if disk_size_gb and not isinstance(disk_size_gb, int):
+            raise TypeError("Expected argument 'disk_size_gb' to be a int")
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if encryption_settings and not isinstance(encryption_settings, list):
             raise TypeError("Expected argument 'encryption_settings' to be a list")
@@ -62,7 +62,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> float:
+    def disk_size_gb(self) -> int:
         """
         The size of the Snapshotted Disk in GB.
         """
@@ -70,7 +70,7 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> List['outputs.GetSnapshotEncryptionSettingResult']:
+    def encryption_settings(self) -> Sequence['outputs.GetSnapshotEncryptionSettingResult']:
         return pulumi.get(self, "encryption_settings")
 
     @property

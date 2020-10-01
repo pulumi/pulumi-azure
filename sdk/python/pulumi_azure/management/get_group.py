@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -76,7 +76,7 @@ class GetGroupResult:
 
     @property
     @pulumi.getter(name="subscriptionIds")
-    def subscription_ids(self) -> List[str]:
+    def subscription_ids(self) -> Sequence[str]:
         """
         A list of Subscription IDs which are assigned to the Management Group.
         """

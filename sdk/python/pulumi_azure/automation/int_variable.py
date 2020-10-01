@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['IntVariable']
@@ -20,7 +20,7 @@ class IntVariable(pulumi.CustomResource):
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[float]] = None,
+                 value: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +34,7 @@ class IntVariable(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: Specifies if the Automation Variable is encrypted. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the Automation Variable. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] value: The value of the Automation Variable as a `integer`.
+        :param pulumi.Input[int] value: The value of the Automation Variable as a `integer`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,7 +78,7 @@ class IntVariable(pulumi.CustomResource):
             encrypted: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            value: Optional[pulumi.Input[float]] = None) -> 'IntVariable':
+            value: Optional[pulumi.Input[int]] = None) -> 'IntVariable':
         """
         Get an existing IntVariable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -91,7 +91,7 @@ class IntVariable(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: Specifies if the Automation Variable is encrypted. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the Automation Variable. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] value: The value of the Automation Variable as a `integer`.
+        :param pulumi.Input[int] value: The value of the Automation Variable as a `integer`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -147,7 +147,7 @@ class IntVariable(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[Optional[float]]:
+    def value(self) -> pulumi.Output[Optional[int]]:
         """
         The value of the Automation Variable as a `integer`.
         """

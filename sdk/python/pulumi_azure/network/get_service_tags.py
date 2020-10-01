@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -38,7 +38,7 @@ class GetServiceTagsResult:
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> List[str]:
+    def address_prefixes(self) -> Sequence[str]:
         """
         List of address prefixes for the service type (and optionally a specific region).
         """

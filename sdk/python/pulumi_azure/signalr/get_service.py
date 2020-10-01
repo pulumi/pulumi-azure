@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -41,8 +41,8 @@ class GetServiceResult:
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError("Expected argument 'primary_connection_string' to be a str")
         pulumi.set(__self__, "primary_connection_string", primary_connection_string)
-        if public_port and not isinstance(public_port, float):
-            raise TypeError("Expected argument 'public_port' to be a float")
+        if public_port and not isinstance(public_port, int):
+            raise TypeError("Expected argument 'public_port' to be a int")
         pulumi.set(__self__, "public_port", public_port)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -53,8 +53,8 @@ class GetServiceResult:
         if secondary_connection_string and not isinstance(secondary_connection_string, str):
             raise TypeError("Expected argument 'secondary_connection_string' to be a str")
         pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
-        if server_port and not isinstance(server_port, float):
-            raise TypeError("Expected argument 'server_port' to be a float")
+        if server_port and not isinstance(server_port, int):
+            raise TypeError("Expected argument 'server_port' to be a int")
         pulumi.set(__self__, "server_port", server_port)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -115,7 +115,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> float:
+    def public_port(self) -> int:
         """
         The publicly accessible port of the SignalR service which is designed for browser/client use.
         """
@@ -144,7 +144,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> float:
+    def server_port(self) -> int:
         """
         The publicly accessible port of the SignalR service which is designed for customer server side use.
         """

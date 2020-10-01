@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -306,15 +306,15 @@ class EventHubCaptureDescription(dict):
                  destination: 'outputs.EventHubCaptureDescriptionDestination',
                  enabled: bool,
                  encoding: str,
-                 interval_in_seconds: Optional[float] = None,
-                 size_limit_in_bytes: Optional[float] = None,
+                 interval_in_seconds: Optional[int] = None,
+                 size_limit_in_bytes: Optional[int] = None,
                  skip_empty_archives: Optional[bool] = None):
         """
         :param 'EventHubCaptureDescriptionDestinationArgs' destination: A `destination` block as defined below.
         :param bool enabled: Specifies if the Capture Description is Enabled.
         :param str encoding: Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
-        :param float interval_in_seconds: Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
-        :param float size_limit_in_bytes: Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
+        :param int interval_in_seconds: Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
+        :param int size_limit_in_bytes: Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
         :param bool skip_empty_archives: Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
         """
         pulumi.set(__self__, "destination", destination)
@@ -353,7 +353,7 @@ class EventHubCaptureDescription(dict):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> Optional[int]:
         """
         Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
         """
@@ -361,7 +361,7 @@ class EventHubCaptureDescription(dict):
 
     @property
     @pulumi.getter(name="sizeLimitInBytes")
-    def size_limit_in_bytes(self) -> Optional[float]:
+    def size_limit_in_bytes(self) -> Optional[int]:
         """
         Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
         """
@@ -482,12 +482,12 @@ class EventHubNamespaceIdentity(dict):
 class EventHubNamespaceNetworkRulesets(dict):
     def __init__(__self__, *,
                  default_action: str,
-                 ip_rules: Optional[List['outputs.EventHubNamespaceNetworkRulesetsIpRule']] = None,
-                 virtual_network_rules: Optional[List['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']] = None):
+                 ip_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsIpRule']] = None,
+                 virtual_network_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']] = None):
         """
         :param str default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param List['EventHubNamespaceNetworkRulesetsIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
-        :param List['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs'] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
+        :param Sequence['EventHubNamespaceNetworkRulesetsIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param Sequence['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs'] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -505,7 +505,7 @@ class EventHubNamespaceNetworkRulesets(dict):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[List['outputs.EventHubNamespaceNetworkRulesetsIpRule']]:
+    def ip_rules(self) -> Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsIpRule']]:
         """
         One or more `ip_rule` blocks as defined below.
         """
@@ -513,7 +513,7 @@ class EventHubNamespaceNetworkRulesets(dict):
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[List['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']]:
+    def virtual_network_rules(self) -> Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']]:
         """
         One or more `virtual_network_rule` blocks as defined below.
         """
@@ -592,31 +592,31 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRule(dict):
 @pulumi.output_type
 class EventSubscriptionAdvancedFilter(dict):
     def __init__(__self__, *,
-                 bool_equals: Optional[List['outputs.EventSubscriptionAdvancedFilterBoolEqual']] = None,
-                 number_greater_than_or_equals: Optional[List['outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']] = None,
-                 number_greater_thans: Optional[List['outputs.EventSubscriptionAdvancedFilterNumberGreaterThan']] = None,
-                 number_ins: Optional[List['outputs.EventSubscriptionAdvancedFilterNumberIn']] = None,
-                 number_less_than_or_equals: Optional[List['outputs.EventSubscriptionAdvancedFilterNumberLessThanOrEqual']] = None,
-                 number_less_thans: Optional[List['outputs.EventSubscriptionAdvancedFilterNumberLessThan']] = None,
-                 number_not_ins: Optional[List['outputs.EventSubscriptionAdvancedFilterNumberNotIn']] = None,
-                 string_begins_withs: Optional[List['outputs.EventSubscriptionAdvancedFilterStringBeginsWith']] = None,
-                 string_contains: Optional[List['outputs.EventSubscriptionAdvancedFilterStringContain']] = None,
-                 string_ends_withs: Optional[List['outputs.EventSubscriptionAdvancedFilterStringEndsWith']] = None,
-                 string_ins: Optional[List['outputs.EventSubscriptionAdvancedFilterStringIn']] = None,
-                 string_not_ins: Optional[List['outputs.EventSubscriptionAdvancedFilterStringNotIn']] = None):
+                 bool_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterBoolEqual']] = None,
+                 number_greater_than_or_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']] = None,
+                 number_greater_thans: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThan']] = None,
+                 number_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberIn']] = None,
+                 number_less_than_or_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberLessThanOrEqual']] = None,
+                 number_less_thans: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberLessThan']] = None,
+                 number_not_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberNotIn']] = None,
+                 string_begins_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringBeginsWith']] = None,
+                 string_contains: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringContain']] = None,
+                 string_ends_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringEndsWith']] = None,
+                 string_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringIn']] = None,
+                 string_not_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotIn']] = None):
         """
-        :param List['EventSubscriptionAdvancedFilterBoolEqualArgs'] bool_equals: Compares a value of an event using a single boolean value.
-        :param List['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs'] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
-        :param List['EventSubscriptionAdvancedFilterNumberGreaterThanArgs'] number_greater_thans: Compares a value of an event using a single floating point number.
-        :param List['EventSubscriptionAdvancedFilterNumberInArgs'] number_ins: Compares a value of an event using multiple floating point numbers.
-        :param List['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs'] number_less_than_or_equals: Compares a value of an event using a single floating point number.
-        :param List['EventSubscriptionAdvancedFilterNumberLessThanArgs'] number_less_thans: Compares a value of an event using a single floating point number.
-        :param List['EventSubscriptionAdvancedFilterNumberNotInArgs'] number_not_ins: Compares a value of an event using multiple floating point numbers.
-        :param List['EventSubscriptionAdvancedFilterStringBeginsWithArgs'] string_begins_withs: Compares a value of an event using multiple string values.
-        :param List['EventSubscriptionAdvancedFilterStringContainArgs'] string_contains: Compares a value of an event using multiple string values.
-        :param List['EventSubscriptionAdvancedFilterStringEndsWithArgs'] string_ends_withs: Compares a value of an event using multiple string values.
-        :param List['EventSubscriptionAdvancedFilterStringInArgs'] string_ins: Compares a value of an event using multiple string values.
-        :param List['EventSubscriptionAdvancedFilterStringNotInArgs'] string_not_ins: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterBoolEqualArgs'] bool_equals: Compares a value of an event using a single boolean value.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs'] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberGreaterThanArgs'] number_greater_thans: Compares a value of an event using a single floating point number.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberInArgs'] number_ins: Compares a value of an event using multiple floating point numbers.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs'] number_less_than_or_equals: Compares a value of an event using a single floating point number.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberLessThanArgs'] number_less_thans: Compares a value of an event using a single floating point number.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberNotInArgs'] number_not_ins: Compares a value of an event using multiple floating point numbers.
+        :param Sequence['EventSubscriptionAdvancedFilterStringBeginsWithArgs'] string_begins_withs: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringContainArgs'] string_contains: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringEndsWithArgs'] string_ends_withs: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringInArgs'] string_ins: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringNotInArgs'] string_not_ins: Compares a value of an event using multiple string values.
         """
         if bool_equals is not None:
             pulumi.set(__self__, "bool_equals", bool_equals)
@@ -645,7 +645,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="boolEquals")
-    def bool_equals(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterBoolEqual']]:
+    def bool_equals(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterBoolEqual']]:
         """
         Compares a value of an event using a single boolean value.
         """
@@ -653,7 +653,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="numberGreaterThanOrEquals")
-    def number_greater_than_or_equals(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']]:
+    def number_greater_than_or_equals(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']]:
         """
         Compares a value of an event using a single floating point number.
         """
@@ -661,7 +661,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="numberGreaterThans")
-    def number_greater_thans(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterNumberGreaterThan']]:
+    def number_greater_thans(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThan']]:
         """
         Compares a value of an event using a single floating point number.
         """
@@ -669,7 +669,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="numberIns")
-    def number_ins(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterNumberIn']]:
+    def number_ins(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberIn']]:
         """
         Compares a value of an event using multiple floating point numbers.
         """
@@ -677,7 +677,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="numberLessThanOrEquals")
-    def number_less_than_or_equals(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterNumberLessThanOrEqual']]:
+    def number_less_than_or_equals(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberLessThanOrEqual']]:
         """
         Compares a value of an event using a single floating point number.
         """
@@ -685,7 +685,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="numberLessThans")
-    def number_less_thans(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterNumberLessThan']]:
+    def number_less_thans(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberLessThan']]:
         """
         Compares a value of an event using a single floating point number.
         """
@@ -693,7 +693,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="numberNotIns")
-    def number_not_ins(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterNumberNotIn']]:
+    def number_not_ins(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberNotIn']]:
         """
         Compares a value of an event using multiple floating point numbers.
         """
@@ -701,7 +701,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="stringBeginsWiths")
-    def string_begins_withs(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterStringBeginsWith']]:
+    def string_begins_withs(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringBeginsWith']]:
         """
         Compares a value of an event using multiple string values.
         """
@@ -709,7 +709,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="stringContains")
-    def string_contains(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterStringContain']]:
+    def string_contains(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringContain']]:
         """
         Compares a value of an event using multiple string values.
         """
@@ -717,7 +717,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="stringEndsWiths")
-    def string_ends_withs(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterStringEndsWith']]:
+    def string_ends_withs(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringEndsWith']]:
         """
         Compares a value of an event using multiple string values.
         """
@@ -725,7 +725,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="stringIns")
-    def string_ins(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterStringIn']]:
+    def string_ins(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringIn']]:
         """
         Compares a value of an event using multiple string values.
         """
@@ -733,7 +733,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
     @property
     @pulumi.getter(name="stringNotIns")
-    def string_not_ins(self) -> Optional[List['outputs.EventSubscriptionAdvancedFilterStringNotIn']]:
+    def string_not_ins(self) -> Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotIn']]:
         """
         Compares a value of an event using multiple string values.
         """
@@ -843,10 +843,10 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
 class EventSubscriptionAdvancedFilterNumberIn(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[float]):
+                 values: Sequence[float]):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        :param List[float] values: Specifies an array of values to compare to when using a multiple values operator.
+        :param Sequence[float] values: Specifies an array of values to compare to when using a multiple values operator.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -861,7 +861,7 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[float]:
+    def values(self) -> Sequence[float]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
         """
@@ -939,10 +939,10 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
 class EventSubscriptionAdvancedFilterNumberNotIn(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[float]):
+                 values: Sequence[float]):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        :param List[float] values: Specifies an array of values to compare to when using a multiple values operator.
+        :param Sequence[float] values: Specifies an array of values to compare to when using a multiple values operator.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -957,7 +957,7 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[float]:
+    def values(self) -> Sequence[float]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
         """
@@ -971,10 +971,10 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
 class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        :param List[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -989,7 +989,7 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
         """
@@ -1003,10 +1003,10 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
 class EventSubscriptionAdvancedFilterStringContain(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        :param List[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1021,7 +1021,7 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
         """
@@ -1035,10 +1035,10 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
 class EventSubscriptionAdvancedFilterStringEndsWith(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        :param List[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1053,7 +1053,7 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
         """
@@ -1067,10 +1067,10 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
 class EventSubscriptionAdvancedFilterStringIn(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        :param List[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1085,7 +1085,7 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
         """
@@ -1099,10 +1099,10 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
 class EventSubscriptionAdvancedFilterStringNotIn(dict):
     def __init__(__self__, *,
                  key: str,
-                 values: List[str]):
+                 values: Sequence[str]):
         """
         :param str key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
-        :param List[str] values: Specifies an array of values to compare to when using a multiple values operator.
+        :param Sequence[str] values: Specifies an array of values to compare to when using a multiple values operator.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1117,7 +1117,7 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> List[str]:
+    def values(self) -> Sequence[str]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
         """
@@ -1131,12 +1131,12 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
 class EventSubscriptionAzureFunctionEndpoint(dict):
     def __init__(__self__, *,
                  function_id: str,
-                 max_events_per_batch: Optional[float] = None,
-                 preferred_batch_size_in_kilobytes: Optional[float] = None):
+                 max_events_per_batch: Optional[int] = None,
+                 preferred_batch_size_in_kilobytes: Optional[int] = None):
         """
         :param str function_id: Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
-        :param float max_events_per_batch: Maximum number of events per batch.
-        :param float preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        :param int max_events_per_batch: Maximum number of events per batch.
+        :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
         pulumi.set(__self__, "function_id", function_id)
         if max_events_per_batch is not None:
@@ -1154,7 +1154,7 @@ class EventSubscriptionAzureFunctionEndpoint(dict):
 
     @property
     @pulumi.getter(name="maxEventsPerBatch")
-    def max_events_per_batch(self) -> Optional[float]:
+    def max_events_per_batch(self) -> Optional[int]:
         """
         Maximum number of events per batch.
         """
@@ -1162,7 +1162,7 @@ class EventSubscriptionAzureFunctionEndpoint(dict):
 
     @property
     @pulumi.getter(name="preferredBatchSizeInKilobytes")
-    def preferred_batch_size_in_kilobytes(self) -> Optional[float]:
+    def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
         """
         Preferred batch size in Kilobytes.
         """
@@ -1219,18 +1219,18 @@ class EventSubscriptionHybridConnectionEndpoint(dict):
 @pulumi.output_type
 class EventSubscriptionRetryPolicy(dict):
     def __init__(__self__, *,
-                 event_time_to_live: float,
-                 max_delivery_attempts: float):
+                 event_time_to_live: int,
+                 max_delivery_attempts: int):
         """
-        :param float event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
-        :param float max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
+        :param int event_time_to_live: Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
+        :param int max_delivery_attempts: Specifies the maximum number of delivery retry attempts for events.
         """
         pulumi.set(__self__, "event_time_to_live", event_time_to_live)
         pulumi.set(__self__, "max_delivery_attempts", max_delivery_attempts)
 
     @property
     @pulumi.getter(name="eventTimeToLive")
-    def event_time_to_live(self) -> float:
+    def event_time_to_live(self) -> int:
         """
         Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
         """
@@ -1238,7 +1238,7 @@ class EventSubscriptionRetryPolicy(dict):
 
     @property
     @pulumi.getter(name="maxDeliveryAttempts")
-    def max_delivery_attempts(self) -> float:
+    def max_delivery_attempts(self) -> int:
         """
         Specifies the maximum number of delivery retry attempts for events.
         """
@@ -1365,15 +1365,15 @@ class EventSubscriptionWebhookEndpoint(dict):
                  active_directory_app_id_or_uri: Optional[str] = None,
                  active_directory_tenant_id: Optional[str] = None,
                  base_url: Optional[str] = None,
-                 max_events_per_batch: Optional[float] = None,
-                 preferred_batch_size_in_kilobytes: Optional[float] = None):
+                 max_events_per_batch: Optional[int] = None,
+                 preferred_batch_size_in_kilobytes: Optional[int] = None):
         """
         :param str url: Specifies the url of the webhook where the Event Subscription will receive events.
         :param str active_directory_app_id_or_uri: The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
         :param str active_directory_tenant_id: The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
         :param str base_url: The base url of the webhook where the Event Subscription will receive events.
-        :param float max_events_per_batch: Maximum number of events per batch.
-        :param float preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
+        :param int max_events_per_batch: Maximum number of events per batch.
+        :param int preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
         pulumi.set(__self__, "url", url)
         if active_directory_app_id_or_uri is not None:
@@ -1421,7 +1421,7 @@ class EventSubscriptionWebhookEndpoint(dict):
 
     @property
     @pulumi.getter(name="maxEventsPerBatch")
-    def max_events_per_batch(self) -> Optional[float]:
+    def max_events_per_batch(self) -> Optional[int]:
         """
         Maximum number of events per batch.
         """
@@ -1429,7 +1429,7 @@ class EventSubscriptionWebhookEndpoint(dict):
 
     @property
     @pulumi.getter(name="preferredBatchSizeInKilobytes")
-    def preferred_batch_size_in_kilobytes(self) -> Optional[float]:
+    def preferred_batch_size_in_kilobytes(self) -> Optional[int]:
         """
         Preferred batch size in Kilobytes.
         """

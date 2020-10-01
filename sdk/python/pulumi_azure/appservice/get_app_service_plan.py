@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -36,11 +36,11 @@ class GetAppServicePlanResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if maximum_elastic_worker_count and not isinstance(maximum_elastic_worker_count, float):
-            raise TypeError("Expected argument 'maximum_elastic_worker_count' to be a float")
+        if maximum_elastic_worker_count and not isinstance(maximum_elastic_worker_count, int):
+            raise TypeError("Expected argument 'maximum_elastic_worker_count' to be a int")
         pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
-        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
-            raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
+        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, int):
+            raise TypeError("Expected argument 'maximum_number_of_workers' to be a int")
         pulumi.set(__self__, "maximum_number_of_workers", maximum_number_of_workers)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -103,7 +103,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="maximumElasticWorkerCount")
-    def maximum_elastic_worker_count(self) -> float:
+    def maximum_elastic_worker_count(self) -> int:
         """
         The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         """
@@ -111,7 +111,7 @@ class GetAppServicePlanResult:
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> float:
+    def maximum_number_of_workers(self) -> int:
         """
         The maximum number of workers supported with the App Service Plan's sku.
         """

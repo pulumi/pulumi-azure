@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -78,15 +78,15 @@ class SpringCloudServiceConfigServerGitSetting(dict):
                  uri: str,
                  http_basic_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingHttpBasicAuth'] = None,
                  label: Optional[str] = None,
-                 repositories: Optional[List['outputs.SpringCloudServiceConfigServerGitSettingRepository']] = None,
-                 search_paths: Optional[List[str]] = None,
+                 repositories: Optional[Sequence['outputs.SpringCloudServiceConfigServerGitSettingRepository']] = None,
+                 search_paths: Optional[Sequence[str]] = None,
                  ssh_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingSshAuth'] = None):
         """
         :param str uri: The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
         :param 'SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs' http_basic_auth: A `http_basic_auth` block as defined below.
         :param str label: The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
-        :param List['SpringCloudServiceConfigServerGitSettingRepositoryArgs'] repositories: One or more `repository` blocks as defined below.
-        :param List[str] search_paths: An array of strings used to search subdirectories of the Git repository.
+        :param Sequence['SpringCloudServiceConfigServerGitSettingRepositoryArgs'] repositories: One or more `repository` blocks as defined below.
+        :param Sequence[str] search_paths: An array of strings used to search subdirectories of the Git repository.
         :param 'SpringCloudServiceConfigServerGitSettingSshAuthArgs' ssh_auth: A `ssh_auth` block as defined below.
         """
         pulumi.set(__self__, "uri", uri)
@@ -127,7 +127,7 @@ class SpringCloudServiceConfigServerGitSetting(dict):
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[List['outputs.SpringCloudServiceConfigServerGitSettingRepository']]:
+    def repositories(self) -> Optional[Sequence['outputs.SpringCloudServiceConfigServerGitSettingRepository']]:
         """
         One or more `repository` blocks as defined below.
         """
@@ -135,7 +135,7 @@ class SpringCloudServiceConfigServerGitSetting(dict):
 
     @property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> Optional[List[str]]:
+    def search_paths(self) -> Optional[Sequence[str]]:
         """
         An array of strings used to search subdirectories of the Git repository.
         """
@@ -192,16 +192,16 @@ class SpringCloudServiceConfigServerGitSettingRepository(dict):
                  uri: str,
                  http_basic_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth'] = None,
                  label: Optional[str] = None,
-                 patterns: Optional[List[str]] = None,
-                 search_paths: Optional[List[str]] = None,
+                 patterns: Optional[Sequence[str]] = None,
+                 search_paths: Optional[Sequence[str]] = None,
                  ssh_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingRepositorySshAuth'] = None):
         """
         :param str name: A name to identify on the Git repository, required only if repos exists.
         :param str uri: The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
         :param 'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs' http_basic_auth: A `http_basic_auth` block as defined below.
         :param str label: The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
-        :param List[str] patterns: An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
-        :param List[str] search_paths: An array of strings used to search subdirectories of the Git repository.
+        :param Sequence[str] patterns: An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
+        :param Sequence[str] search_paths: An array of strings used to search subdirectories of the Git repository.
         :param 'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs' ssh_auth: A `ssh_auth` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -251,7 +251,7 @@ class SpringCloudServiceConfigServerGitSettingRepository(dict):
 
     @property
     @pulumi.getter
-    def patterns(self) -> Optional[List[str]]:
+    def patterns(self) -> Optional[Sequence[str]]:
         """
         An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
         """
@@ -259,7 +259,7 @@ class SpringCloudServiceConfigServerGitSettingRepository(dict):
 
     @property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> Optional[List[str]]:
+    def search_paths(self) -> Optional[Sequence[str]]:
         """
         An array of strings used to search subdirectories of the Git repository.
         """
@@ -427,13 +427,13 @@ class SpringCloudServiceConfigServerGitSettingSshAuth(dict):
 class SpringCloudServiceNetwork(dict):
     def __init__(__self__, *,
                  app_subnet_id: str,
-                 cidr_ranges: List[str],
+                 cidr_ranges: Sequence[str],
                  service_runtime_subnet_id: str,
                  app_network_resource_group: Optional[str] = None,
                  service_runtime_network_resource_group: Optional[str] = None):
         """
         :param str app_subnet_id: Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
-        :param List[str] cidr_ranges: A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+        :param Sequence[str] cidr_ranges: A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
         :param str service_runtime_subnet_id: Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
         :param str app_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
         :param str service_runtime_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
@@ -456,7 +456,7 @@ class SpringCloudServiceNetwork(dict):
 
     @property
     @pulumi.getter(name="cidrRanges")
-    def cidr_ranges(self) -> List[str]:
+    def cidr_ranges(self) -> Sequence[str]:
         """
         A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
         """
@@ -514,18 +514,18 @@ class SpringCloudServiceTrace(dict):
 @pulumi.output_type
 class GetSpringCloudServiceConfigServerGitSettingResult(dict):
     def __init__(__self__, *,
-                 http_basic_auths: List['outputs.GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult'],
+                 http_basic_auths: Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult'],
                  label: str,
-                 repositories: List['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryResult'],
-                 search_paths: List[str],
-                 ssh_auths: List['outputs.GetSpringCloudServiceConfigServerGitSettingSshAuthResult'],
+                 repositories: Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryResult'],
+                 search_paths: Sequence[str],
+                 ssh_auths: Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingSshAuthResult'],
                  uri: str):
         """
-        :param List['GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs'] http_basic_auths: A `http_basic_auth` block as defined below.
+        :param Sequence['GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs'] http_basic_auths: A `http_basic_auth` block as defined below.
         :param str label: The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
-        :param List['GetSpringCloudServiceConfigServerGitSettingRepositoryArgs'] repositories: One or more `repository` blocks as defined below.
-        :param List[str] search_paths: An array of strings used to search subdirectories of the Git repository.
-        :param List['GetSpringCloudServiceConfigServerGitSettingSshAuthArgs'] ssh_auths: A `ssh_auth` block as defined below.
+        :param Sequence['GetSpringCloudServiceConfigServerGitSettingRepositoryArgs'] repositories: One or more `repository` blocks as defined below.
+        :param Sequence[str] search_paths: An array of strings used to search subdirectories of the Git repository.
+        :param Sequence['GetSpringCloudServiceConfigServerGitSettingSshAuthArgs'] ssh_auths: A `ssh_auth` block as defined below.
         :param str uri: The URI of the Git repository
         """
         pulumi.set(__self__, "http_basic_auths", http_basic_auths)
@@ -537,7 +537,7 @@ class GetSpringCloudServiceConfigServerGitSettingResult(dict):
 
     @property
     @pulumi.getter(name="httpBasicAuths")
-    def http_basic_auths(self) -> List['outputs.GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult']:
+    def http_basic_auths(self) -> Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult']:
         """
         A `http_basic_auth` block as defined below.
         """
@@ -553,7 +553,7 @@ class GetSpringCloudServiceConfigServerGitSettingResult(dict):
 
     @property
     @pulumi.getter
-    def repositories(self) -> List['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryResult']:
+    def repositories(self) -> Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryResult']:
         """
         One or more `repository` blocks as defined below.
         """
@@ -561,7 +561,7 @@ class GetSpringCloudServiceConfigServerGitSettingResult(dict):
 
     @property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> List[str]:
+    def search_paths(self) -> Sequence[str]:
         """
         An array of strings used to search subdirectories of the Git repository.
         """
@@ -569,7 +569,7 @@ class GetSpringCloudServiceConfigServerGitSettingResult(dict):
 
     @property
     @pulumi.getter(name="sshAuths")
-    def ssh_auths(self) -> List['outputs.GetSpringCloudServiceConfigServerGitSettingSshAuthResult']:
+    def ssh_auths(self) -> Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingSshAuthResult']:
         """
         A `ssh_auth` block as defined below.
         """
@@ -616,20 +616,20 @@ class GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult(dict):
 @pulumi.output_type
 class GetSpringCloudServiceConfigServerGitSettingRepositoryResult(dict):
     def __init__(__self__, *,
-                 http_basic_auths: List['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult'],
+                 http_basic_auths: Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult'],
                  label: str,
                  name: str,
-                 patterns: List[str],
-                 search_paths: List[str],
-                 ssh_auths: List['outputs.GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthResult'],
+                 patterns: Sequence[str],
+                 search_paths: Sequence[str],
+                 ssh_auths: Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthResult'],
                  uri: str):
         """
-        :param List['GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs'] http_basic_auths: A `http_basic_auth` block as defined below.
+        :param Sequence['GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs'] http_basic_auths: A `http_basic_auth` block as defined below.
         :param str label: The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
         :param str name: Specifies The name of the Spring Cloud Service resource.
-        :param List[str] patterns: An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
-        :param List[str] search_paths: An array of strings used to search subdirectories of the Git repository.
-        :param List['GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs'] ssh_auths: A `ssh_auth` block as defined below.
+        :param Sequence[str] patterns: An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
+        :param Sequence[str] search_paths: An array of strings used to search subdirectories of the Git repository.
+        :param Sequence['GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs'] ssh_auths: A `ssh_auth` block as defined below.
         :param str uri: The URI of the Git repository
         """
         pulumi.set(__self__, "http_basic_auths", http_basic_auths)
@@ -642,7 +642,7 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryResult(dict):
 
     @property
     @pulumi.getter(name="httpBasicAuths")
-    def http_basic_auths(self) -> List['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult']:
+    def http_basic_auths(self) -> Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult']:
         """
         A `http_basic_auth` block as defined below.
         """
@@ -666,7 +666,7 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryResult(dict):
 
     @property
     @pulumi.getter
-    def patterns(self) -> List[str]:
+    def patterns(self) -> Sequence[str]:
         """
         An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
         """
@@ -674,7 +674,7 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryResult(dict):
 
     @property
     @pulumi.getter(name="searchPaths")
-    def search_paths(self) -> List[str]:
+    def search_paths(self) -> Sequence[str]:
         """
         An array of strings used to search subdirectories of the Git repository.
         """
@@ -682,7 +682,7 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryResult(dict):
 
     @property
     @pulumi.getter(name="sshAuths")
-    def ssh_auths(self) -> List['outputs.GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthResult']:
+    def ssh_auths(self) -> Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthResult']:
         """
         A `ssh_auth` block as defined below.
         """

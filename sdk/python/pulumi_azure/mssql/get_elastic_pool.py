@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetElasticPoolResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if max_size_bytes and not isinstance(max_size_bytes, float):
-            raise TypeError("Expected argument 'max_size_bytes' to be a float")
+        if max_size_bytes and not isinstance(max_size_bytes, int):
+            raise TypeError("Expected argument 'max_size_bytes' to be a int")
         pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if max_size_gb and not isinstance(max_size_gb, float):
             raise TypeError("Expected argument 'max_size_gb' to be a float")
@@ -38,11 +38,11 @@ class GetElasticPoolResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if per_db_max_capacity and not isinstance(per_db_max_capacity, float):
-            raise TypeError("Expected argument 'per_db_max_capacity' to be a float")
+        if per_db_max_capacity and not isinstance(per_db_max_capacity, int):
+            raise TypeError("Expected argument 'per_db_max_capacity' to be a int")
         pulumi.set(__self__, "per_db_max_capacity", per_db_max_capacity)
-        if per_db_min_capacity and not isinstance(per_db_min_capacity, float):
-            raise TypeError("Expected argument 'per_db_min_capacity' to be a float")
+        if per_db_min_capacity and not isinstance(per_db_min_capacity, int):
+            raise TypeError("Expected argument 'per_db_min_capacity' to be a int")
         pulumi.set(__self__, "per_db_min_capacity", per_db_min_capacity)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
@@ -83,7 +83,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter(name="maxSizeBytes")
-    def max_size_bytes(self) -> float:
+    def max_size_bytes(self) -> int:
         """
         The max data size of the elastic pool in bytes.
         """
@@ -104,7 +104,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter(name="perDbMaxCapacity")
-    def per_db_max_capacity(self) -> float:
+    def per_db_max_capacity(self) -> int:
         """
         The maximum capacity any one database can consume.
         """
@@ -112,7 +112,7 @@ class GetElasticPoolResult:
 
     @property
     @pulumi.getter(name="perDbMinCapacity")
-    def per_db_min_capacity(self) -> float:
+    def per_db_min_capacity(self) -> int:
         """
         The minimum capacity all databases are guaranteed.
         """

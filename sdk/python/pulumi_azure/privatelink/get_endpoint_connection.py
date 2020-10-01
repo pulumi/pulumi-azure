@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -63,7 +63,7 @@ class GetEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateServiceConnections")
-    def private_service_connections(self) -> List['outputs.GetEndpointConnectionPrivateServiceConnectionResult']:
+    def private_service_connections(self) -> Sequence['outputs.GetEndpointConnectionPrivateServiceConnectionResult']:
         return pulumi.get(self, "private_service_connections")
 
     @property

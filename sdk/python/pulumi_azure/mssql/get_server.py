@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -78,7 +78,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> List['outputs.GetServerIdentityResult']:
+    def identities(self) -> Sequence['outputs.GetServerIdentityResult']:
         """
         A `identity` block as defined below.
         """
@@ -104,7 +104,7 @@ class GetServerResult:
 
     @property
     @pulumi.getter(name="restorableDroppedDatabaseIds")
-    def restorable_dropped_database_ids(self) -> List[str]:
+    def restorable_dropped_database_ids(self) -> Sequence[str]:
         """
         A list of dropped restorable database IDs on the server.
         """

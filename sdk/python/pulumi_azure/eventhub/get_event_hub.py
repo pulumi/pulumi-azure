@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -29,8 +29,8 @@ class GetEventHubResult:
         if namespace_name and not isinstance(namespace_name, str):
             raise TypeError("Expected argument 'namespace_name' to be a str")
         pulumi.set(__self__, "namespace_name", namespace_name)
-        if partition_count and not isinstance(partition_count, float):
-            raise TypeError("Expected argument 'partition_count' to be a float")
+        if partition_count and not isinstance(partition_count, int):
+            raise TypeError("Expected argument 'partition_count' to be a int")
         pulumi.set(__self__, "partition_count", partition_count)
         if partition_ids and not isinstance(partition_ids, list):
             raise TypeError("Expected argument 'partition_ids' to be a list")
@@ -59,7 +59,7 @@ class GetEventHubResult:
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> float:
+    def partition_count(self) -> int:
         """
         The number of partitions in the EventHub.
         """
@@ -67,7 +67,7 @@ class GetEventHubResult:
 
     @property
     @pulumi.getter(name="partitionIds")
-    def partition_ids(self) -> List[str]:
+    def partition_ids(self) -> Sequence[str]:
         """
         The identifiers for the partitions of this EventHub.
         """

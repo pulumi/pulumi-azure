@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -32,8 +32,8 @@ class GetPublicIPResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
-            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
@@ -94,7 +94,7 @@ class GetPublicIPResult:
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> float:
+    def idle_timeout_in_minutes(self) -> int:
         """
         Specifies the timeout for the TCP idle connection.
         """
@@ -151,7 +151,7 @@ class GetPublicIPResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> List[str]:
+    def zones(self) -> Sequence[str]:
         return pulumi.get(self, "zones")
 
 
@@ -180,7 +180,7 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
 def get_public_ip(name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,
-                  zones: Optional[List[str]] = None,
+                  zones: Optional[Sequence[str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIPResult:
     """
     Use this data source to access information about an existing Public IP Address.

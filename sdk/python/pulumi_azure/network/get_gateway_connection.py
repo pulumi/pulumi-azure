@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -27,8 +27,8 @@ class GetGatewayConnectionResult:
         if connection_protocol and not isinstance(connection_protocol, str):
             raise TypeError("Expected argument 'connection_protocol' to be a str")
         pulumi.set(__self__, "connection_protocol", connection_protocol)
-        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
-            raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
+        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, int):
+            raise TypeError("Expected argument 'egress_bytes_transferred' to be a int")
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
         if enable_bgp and not isinstance(enable_bgp, bool):
             raise TypeError("Expected argument 'enable_bgp' to be a bool")
@@ -42,8 +42,8 @@ class GetGatewayConnectionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
-            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
+        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, int):
+            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a int")
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
         if ipsec_policies and not isinstance(ipsec_policies, list):
             raise TypeError("Expected argument 'ipsec_policies' to be a list")
@@ -66,8 +66,8 @@ class GetGatewayConnectionResult:
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
-        if routing_weight and not isinstance(routing_weight, float):
-            raise TypeError("Expected argument 'routing_weight' to be a float")
+        if routing_weight and not isinstance(routing_weight, int):
+            raise TypeError("Expected argument 'routing_weight' to be a int")
         pulumi.set(__self__, "routing_weight", routing_weight)
         if shared_key and not isinstance(shared_key, str):
             raise TypeError("Expected argument 'shared_key' to be a str")
@@ -105,7 +105,7 @@ class GetGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="egressBytesTransferred")
-    def egress_bytes_transferred(self) -> float:
+    def egress_bytes_transferred(self) -> int:
         return pulumi.get(self, "egress_bytes_transferred")
 
     @property
@@ -144,12 +144,12 @@ class GetGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
-    def ingress_bytes_transferred(self) -> float:
+    def ingress_bytes_transferred(self) -> int:
         return pulumi.get(self, "ingress_bytes_transferred")
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> List['outputs.GetGatewayConnectionIpsecPolicyResult']:
+    def ipsec_policies(self) -> Sequence['outputs.GetGatewayConnectionIpsecPolicyResult']:
         return pulumi.get(self, "ipsec_policies")
 
     @property
@@ -197,7 +197,7 @@ class GetGatewayConnectionResult:
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> float:
+    def routing_weight(self) -> int:
         """
         The routing weight.
         """

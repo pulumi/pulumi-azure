@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -30,8 +30,8 @@ class GetServiceResult:
         if cors_configurations and not isinstance(cors_configurations, list):
             raise TypeError("Expected argument 'cors_configurations' to be a list")
         pulumi.set(__self__, "cors_configurations", cors_configurations)
-        if cosmosdb_throughput and not isinstance(cosmosdb_throughput, float):
-            raise TypeError("Expected argument 'cosmosdb_throughput' to be a float")
+        if cosmosdb_throughput and not isinstance(cosmosdb_throughput, int):
+            raise TypeError("Expected argument 'cosmosdb_throughput' to be a int")
         pulumi.set(__self__, "cosmosdb_throughput", cosmosdb_throughput)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -54,12 +54,12 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="accessPolicyObjectIds")
-    def access_policy_object_ids(self) -> List[str]:
+    def access_policy_object_ids(self) -> Sequence[str]:
         return pulumi.get(self, "access_policy_object_ids")
 
     @property
     @pulumi.getter(name="authenticationConfigurations")
-    def authentication_configurations(self) -> List['outputs.GetServiceAuthenticationConfigurationResult']:
+    def authentication_configurations(self) -> Sequence['outputs.GetServiceAuthenticationConfigurationResult']:
         """
         An `authentication_configuration` block as defined below.
         """
@@ -67,7 +67,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="corsConfigurations")
-    def cors_configurations(self) -> List['outputs.GetServiceCorsConfigurationResult']:
+    def cors_configurations(self) -> Sequence['outputs.GetServiceCorsConfigurationResult']:
         """
         A `cors_configuration` block as defined below.
         """
@@ -75,7 +75,7 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="cosmosdbThroughput")
-    def cosmosdb_throughput(self) -> float:
+    def cosmosdb_throughput(self) -> int:
         return pulumi.get(self, "cosmosdb_throughput")
 
     @property

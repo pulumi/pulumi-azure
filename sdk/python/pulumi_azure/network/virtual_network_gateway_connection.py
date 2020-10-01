@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -28,7 +28,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_weight: Optional[pulumi.Input[float]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]] = None,
@@ -193,7 +193,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                in a different subscription.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the connection Changing the name forces a new resource to be created.
-        :param pulumi.Input[float] routing_weight: The routing weight. Defaults to `10`.
+        :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
                Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -274,7 +274,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            routing_weight: Optional[pulumi.Input[float]] = None,
+            routing_weight: Optional[pulumi.Input[int]] = None,
             shared_key: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]] = None,
@@ -316,7 +316,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                in a different subscription.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the connection Changing the name forces a new resource to be created.
-        :param pulumi.Input[float] routing_weight: The routing weight. Defaults to `10`.
+        :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
                Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -466,7 +466,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="routingWeight")
-    def routing_weight(self) -> pulumi.Output[float]:
+    def routing_weight(self) -> pulumi.Output[int]:
         """
         The routing weight. Defaults to `10`.
         """

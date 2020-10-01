@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -184,10 +184,10 @@ class ApiOauth2AuthorizationArgs:
 class ApiOpenidAuthenticationArgs:
     def __init__(__self__, *,
                  openid_provider_name: pulumi.Input[str],
-                 bearer_token_sending_methods: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] openid_provider_name: OpenID Connect provider identifier. The name of an OpenID Connect Provider.
-        :param pulumi.Input[List[pulumi.Input[str]]] bearer_token_sending_methods: How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bearer_token_sending_methods: How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
         """
         pulumi.set(__self__, "openid_provider_name", openid_provider_name)
         if bearer_token_sending_methods is not None:
@@ -207,14 +207,14 @@ class ApiOpenidAuthenticationArgs:
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")
-    def bearer_token_sending_methods(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def bearer_token_sending_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
         """
         return pulumi.get(self, "bearer_token_sending_methods")
 
     @bearer_token_sending_methods.setter
-    def bearer_token_sending_methods(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def bearer_token_sending_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "bearer_token_sending_methods", value)
 
 
@@ -222,14 +222,14 @@ class ApiOpenidAuthenticationArgs:
 class ApiOperationRequestArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestHeaderArgs']]]] = None,
-                 query_parameters: Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]] = None,
-                 representations: Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestRepresentationArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]]] = None,
+                 query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]] = None,
+                 representations: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]]] = None):
         """
         :param pulumi.Input[str] description: A description of the HTTP Request, which may include HTML tags.
-        :param pulumi.Input[List[pulumi.Input['ApiOperationRequestHeaderArgs']]] headers: One or more `header` blocks as defined above.
-        :param pulumi.Input[List[pulumi.Input['ApiOperationRequestQueryParameterArgs']]] query_parameters: One or more `query_parameter` blocks as defined above.
-        :param pulumi.Input[List[pulumi.Input['ApiOperationRequestRepresentationArgs']]] representations: One or more `representation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]] headers: One or more `header` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]] query_parameters: One or more `query_parameter` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]] representations: One or more `representation` blocks as defined below.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -254,38 +254,38 @@ class ApiOperationRequestArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]]]:
         """
         One or more `header` blocks as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]]:
+    def query_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]]:
         """
         One or more `query_parameter` blocks as defined above.
         """
         return pulumi.get(self, "query_parameters")
 
     @query_parameters.setter
-    def query_parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]]):
+    def query_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]]):
         pulumi.set(self, "query_parameters", value)
 
     @property
     @pulumi.getter
-    def representations(self) -> Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestRepresentationArgs']]]]:
+    def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]]]:
         """
         One or more `representation` blocks as defined below.
         """
         return pulumi.get(self, "representations")
 
     @representations.setter
-    def representations(self, value: Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestRepresentationArgs']]]]):
+    def representations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]]]):
         pulumi.set(self, "representations", value)
 
 
@@ -297,14 +297,14 @@ class ApiOperationRequestHeaderArgs:
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The Name of this Header.
         :param pulumi.Input[bool] required: Is this Header Required?
         :param pulumi.Input[str] type: The Type of this Header, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Header.
         :param pulumi.Input[str] description: A description of this Header.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: One or more acceptable values for this Header.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "required", required)
@@ -378,14 +378,14 @@ class ApiOperationRequestHeaderArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more acceptable values for this Header.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -397,14 +397,14 @@ class ApiOperationRequestQueryParameterArgs:
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The Name of this Query Parameter.
         :param pulumi.Input[bool] required: Is this Query Parameter Required?
         :param pulumi.Input[str] type: The Type of this Query Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Query Parameter.
         :param pulumi.Input[str] description: A description of this Query Parameter.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: One or more acceptable values for this Query Parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Query Parameter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "required", required)
@@ -478,14 +478,14 @@ class ApiOperationRequestQueryParameterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more acceptable values for this Query Parameter.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -493,13 +493,13 @@ class ApiOperationRequestQueryParameterArgs:
 class ApiOperationRequestRepresentationArgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str],
-                 form_parameters: Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]] = None,
+                 form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]] = None,
                  sample: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] content_type: The Content Type of this representation, such as `application/json`.
-        :param pulumi.Input[List[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]] form_parameters: One or more `form_parameter` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]] form_parameters: One or more `form_parameter` block as defined above.
         :param pulumi.Input[str] sample: An example of this representation.
         :param pulumi.Input[str] schema_id: The ID of an API Management Schema which represents this Response.
         :param pulumi.Input[str] type_name: The Type Name defined by the Schema.
@@ -528,14 +528,14 @@ class ApiOperationRequestRepresentationArgs:
 
     @property
     @pulumi.getter(name="formParameters")
-    def form_parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]]:
+    def form_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]]:
         """
         One or more `form_parameter` block as defined above.
         """
         return pulumi.get(self, "form_parameters")
 
     @form_parameters.setter
-    def form_parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]]):
+    def form_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]]):
         pulumi.set(self, "form_parameters", value)
 
     @property
@@ -583,14 +583,14 @@ class ApiOperationRequestRepresentationFormParameterArgs:
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The Name of this Form Parameter.
         :param pulumi.Input[bool] required: Is this Form Parameter Required?
         :param pulumi.Input[str] type: The Type of this Form Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Form Parameter.
         :param pulumi.Input[str] description: A description of this Form Parameter.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: One or more acceptable values for this Form Parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Form Parameter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "required", required)
@@ -664,29 +664,29 @@ class ApiOperationRequestRepresentationFormParameterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more acceptable values for this Form Parameter.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class ApiOperationResponseArgs:
     def __init__(__self__, *,
-                 status_code: pulumi.Input[float],
+                 status_code: pulumi.Input[int],
                  description: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseHeaderArgs']]]] = None,
-                 representations: Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseRepresentationArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]]] = None,
+                 representations: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]] = None):
         """
-        :param pulumi.Input[float] status_code: The HTTP Status Code.
+        :param pulumi.Input[int] status_code: The HTTP Status Code.
         :param pulumi.Input[str] description: A description of the HTTP Response, which may include HTML tags.
-        :param pulumi.Input[List[pulumi.Input['ApiOperationResponseHeaderArgs']]] headers: One or more `header` blocks as defined above.
-        :param pulumi.Input[List[pulumi.Input['ApiOperationResponseRepresentationArgs']]] representations: One or more `representation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]] headers: One or more `header` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]] representations: One or more `representation` blocks as defined below.
         """
         pulumi.set(__self__, "status_code", status_code)
         if description is not None:
@@ -698,14 +698,14 @@ class ApiOperationResponseArgs:
 
     @property
     @pulumi.getter(name="statusCode")
-    def status_code(self) -> pulumi.Input[float]:
+    def status_code(self) -> pulumi.Input[int]:
         """
         The HTTP Status Code.
         """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
-    def status_code(self, value: pulumi.Input[float]):
+    def status_code(self, value: pulumi.Input[int]):
         pulumi.set(self, "status_code", value)
 
     @property
@@ -722,26 +722,26 @@ class ApiOperationResponseArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]]]:
         """
         One or more `header` blocks as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter
-    def representations(self) -> Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseRepresentationArgs']]]]:
+    def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]]:
         """
         One or more `representation` blocks as defined below.
         """
         return pulumi.get(self, "representations")
 
     @representations.setter
-    def representations(self, value: Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseRepresentationArgs']]]]):
+    def representations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]]):
         pulumi.set(self, "representations", value)
 
 
@@ -753,14 +753,14 @@ class ApiOperationResponseHeaderArgs:
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The Name of this Header.
         :param pulumi.Input[bool] required: Is this Header Required?
         :param pulumi.Input[str] type: The Type of this Header, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Header.
         :param pulumi.Input[str] description: A description of this Header.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: One or more acceptable values for this Header.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "required", required)
@@ -834,14 +834,14 @@ class ApiOperationResponseHeaderArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more acceptable values for this Header.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -849,13 +849,13 @@ class ApiOperationResponseHeaderArgs:
 class ApiOperationResponseRepresentationArgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str],
-                 form_parameters: Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]] = None,
+                 form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]] = None,
                  sample: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] content_type: The Content Type of this representation, such as `application/json`.
-        :param pulumi.Input[List[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]] form_parameters: One or more `form_parameter` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]] form_parameters: One or more `form_parameter` block as defined above.
         :param pulumi.Input[str] sample: An example of this representation.
         :param pulumi.Input[str] schema_id: The ID of an API Management Schema which represents this Response.
         :param pulumi.Input[str] type_name: The Type Name defined by the Schema.
@@ -884,14 +884,14 @@ class ApiOperationResponseRepresentationArgs:
 
     @property
     @pulumi.getter(name="formParameters")
-    def form_parameters(self) -> Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]]:
+    def form_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]]:
         """
         One or more `form_parameter` block as defined above.
         """
         return pulumi.get(self, "form_parameters")
 
     @form_parameters.setter
-    def form_parameters(self, value: Optional[pulumi.Input[List[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]]):
+    def form_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]]):
         pulumi.set(self, "form_parameters", value)
 
     @property
@@ -939,14 +939,14 @@ class ApiOperationResponseRepresentationFormParameterArgs:
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The Name of this Form Parameter.
         :param pulumi.Input[bool] required: Is this Form Parameter Required?
         :param pulumi.Input[str] type: The Type of this Form Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Form Parameter.
         :param pulumi.Input[str] description: A description of this Form Parameter.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: One or more acceptable values for this Form Parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Form Parameter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "required", required)
@@ -1020,14 +1020,14 @@ class ApiOperationResponseRepresentationFormParameterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more acceptable values for this Form Parameter.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1039,14 +1039,14 @@ class ApiOperationTemplateParameterArgs:
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The Name of this Template Parameter.
         :param pulumi.Input[bool] required: Is this Template Parameter Required?
         :param pulumi.Input[str] type: The Type of this Template Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Template Parameter.
         :param pulumi.Input[str] description: A description of this Template Parameter.
-        :param pulumi.Input[List[pulumi.Input[str]]] values: One or more acceptable values for this Template Parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Template Parameter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "required", required)
@@ -1120,14 +1120,14 @@ class ApiOperationTemplateParameterArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more acceptable values for this Template Parameter.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1209,12 +1209,12 @@ class AuthorizationServerTokenBodyParameterArgs:
 class BackendCredentialsArgs:
     def __init__(__self__, *,
                  authorization: Optional[pulumi.Input['BackendCredentialsAuthorizationArgs']] = None,
-                 certificates: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  header: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  query: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input['BackendCredentialsAuthorizationArgs'] authorization: An `authorization` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[str]]] certificates: A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificates: A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] header: A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] query: A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
         """
@@ -1241,14 +1241,14 @@ class BackendCredentialsArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -1372,16 +1372,16 @@ class BackendProxyArgs:
 class BackendServiceFabricClusterArgs:
     def __init__(__self__, *,
                  client_certificate_thumbprint: pulumi.Input[str],
-                 management_endpoints: pulumi.Input[List[pulumi.Input[str]]],
-                 max_partition_resolution_retries: pulumi.Input[float],
-                 server_certificate_thumbprints: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 server_x509_names: Optional[pulumi.Input[List[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]] = None):
+                 management_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 max_partition_resolution_retries: pulumi.Input[int],
+                 server_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]] = None):
         """
         :param pulumi.Input[str] client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
-        :param pulumi.Input[List[pulumi.Input[str]]] management_endpoints: A list of cluster management endpoints.
-        :param pulumi.Input[float] max_partition_resolution_retries: The maximum number of retries when attempting resolve the partition.
-        :param pulumi.Input[List[pulumi.Input[str]]] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
-        :param pulumi.Input[List[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]] server_x509_names: One or more `server_x509_name` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] management_endpoints: A list of cluster management endpoints.
+        :param pulumi.Input[int] max_partition_resolution_retries: The maximum number of retries when attempting resolve the partition.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]] server_x509_names: One or more `server_x509_name` blocks as documented below.
         """
         pulumi.set(__self__, "client_certificate_thumbprint", client_certificate_thumbprint)
         pulumi.set(__self__, "management_endpoints", management_endpoints)
@@ -1405,50 +1405,50 @@ class BackendServiceFabricClusterArgs:
 
     @property
     @pulumi.getter(name="managementEndpoints")
-    def management_endpoints(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def management_endpoints(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of cluster management endpoints.
         """
         return pulumi.get(self, "management_endpoints")
 
     @management_endpoints.setter
-    def management_endpoints(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def management_endpoints(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "management_endpoints", value)
 
     @property
     @pulumi.getter(name="maxPartitionResolutionRetries")
-    def max_partition_resolution_retries(self) -> pulumi.Input[float]:
+    def max_partition_resolution_retries(self) -> pulumi.Input[int]:
         """
         The maximum number of retries when attempting resolve the partition.
         """
         return pulumi.get(self, "max_partition_resolution_retries")
 
     @max_partition_resolution_retries.setter
-    def max_partition_resolution_retries(self, value: pulumi.Input[float]):
+    def max_partition_resolution_retries(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_partition_resolution_retries", value)
 
     @property
     @pulumi.getter(name="serverCertificateThumbprints")
-    def server_certificate_thumbprints(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def server_certificate_thumbprints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of thumbprints of the server certificates of the Service Fabric cluster.
         """
         return pulumi.get(self, "server_certificate_thumbprints")
 
     @server_certificate_thumbprints.setter
-    def server_certificate_thumbprints(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def server_certificate_thumbprints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "server_certificate_thumbprints", value)
 
     @property
     @pulumi.getter(name="serverX509Names")
-    def server_x509_names(self) -> Optional[pulumi.Input[List[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]]:
+    def server_x509_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]]:
         """
         One or more `server_x509_name` blocks as documented below.
         """
         return pulumi.get(self, "server_x509_names")
 
     @server_x509_names.setter
-    def server_x509_names(self, value: Optional[pulumi.Input[List[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]]):
+    def server_x509_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]]):
         pulumi.set(self, "server_x509_names", value)
 
 
@@ -1592,14 +1592,14 @@ class ServiceAdditionalLocationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  gateway_regional_url: Optional[pulumi.Input[str]] = None,
-                 private_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_configuration: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] location: The name of the Azure Region in which the API Management Service should be expanded to.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
-        :param pulumi.Input[List[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
-        :param pulumi.Input[List[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
         """
         pulumi.set(__self__, "location", location)
@@ -1638,26 +1638,26 @@ class ServiceAdditionalLocationArgs:
 
     @property
     @pulumi.getter(name="privateIpAddresses")
-    def private_ip_addresses(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
         """
         return pulumi.get(self, "private_ip_addresses")
 
     @private_ip_addresses.setter
-    def private_ip_addresses(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "private_ip_addresses", value)
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """
         return pulumi.get(self, "public_ip_addresses")
 
     @public_ip_addresses.setter
-    def public_ip_addresses(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "public_ip_addresses", value)
 
     @property
@@ -1750,17 +1750,17 @@ class ServiceCertificateArgs:
 @pulumi.input_type
 class ServiceHostnameConfigurationArgs:
     def __init__(__self__, *,
-                 developer_portals: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]] = None,
-                 managements: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]] = None,
-                 portals: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]] = None,
-                 proxies: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]] = None,
-                 scms: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]] = None):
+                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]] = None,
+                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]] = None,
+                 portals: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]] = None,
+                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]] = None,
+                 scms: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]] developer_portals: One or more `developer_portal` blocks as documented below.
-        :param pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]] managements: One or more `management` blocks as documented below.
-        :param pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]] portals: One or more `portal` blocks as documented below.
-        :param pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]] proxies: One or more `proxy` blocks as documented below.
-        :param pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationScmArgs']]] scms: One or more `scm` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]] developer_portals: One or more `developer_portal` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]] managements: One or more `management` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]] portals: One or more `portal` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]] proxies: One or more `proxy` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]] scms: One or more `scm` blocks as documented below.
         """
         if developer_portals is not None:
             pulumi.set(__self__, "developer_portals", developer_portals)
@@ -1775,62 +1775,62 @@ class ServiceHostnameConfigurationArgs:
 
     @property
     @pulumi.getter(name="developerPortals")
-    def developer_portals(self) -> Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]]:
+    def developer_portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]]:
         """
         One or more `developer_portal` blocks as documented below.
         """
         return pulumi.get(self, "developer_portals")
 
     @developer_portals.setter
-    def developer_portals(self, value: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]]):
+    def developer_portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]]):
         pulumi.set(self, "developer_portals", value)
 
     @property
     @pulumi.getter
-    def managements(self) -> Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]]:
+    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]]:
         """
         One or more `management` blocks as documented below.
         """
         return pulumi.get(self, "managements")
 
     @managements.setter
-    def managements(self, value: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]]):
+    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]]):
         pulumi.set(self, "managements", value)
 
     @property
     @pulumi.getter
-    def portals(self) -> Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]]:
+    def portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]]:
         """
         One or more `portal` blocks as documented below.
         """
         return pulumi.get(self, "portals")
 
     @portals.setter
-    def portals(self, value: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]]):
+    def portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]]):
         pulumi.set(self, "portals", value)
 
     @property
     @pulumi.getter
-    def proxies(self) -> Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]]:
+    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]]:
         """
         One or more `proxy` blocks as documented below.
         """
         return pulumi.get(self, "proxies")
 
     @proxies.setter
-    def proxies(self, value: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]]):
+    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]]):
         pulumi.set(self, "proxies", value)
 
     @property
     @pulumi.getter
-    def scms(self) -> Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]]:
+    def scms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]]:
         """
         One or more `scm` blocks as documented below.
         """
         return pulumi.get(self, "scms")
 
     @scms.setter
-    def scms(self, value: Optional[pulumi.Input[List[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]]):
+    def scms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]]):
         pulumi.set(self, "scms", value)
 
 
@@ -2283,12 +2283,12 @@ class ServiceHostnameConfigurationScmArgs:
 @pulumi.input_type
 class ServiceIdentityArgs:
     def __init__(__self__, *,
-                 identity_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
@@ -2304,14 +2304,14 @@ class ServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of IDs for User Assigned Managed Identity resources to be assigned.
         """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter
-    def identity_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "identity_ids", value)
 
     @property

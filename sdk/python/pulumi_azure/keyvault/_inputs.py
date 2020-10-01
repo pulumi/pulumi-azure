@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -183,13 +183,13 @@ class CertifiateCertificatePolicyArgs:
                  issuer_parameters: pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs'],
                  key_properties: pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs'],
                  secret_properties: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs'],
-                 lifetime_actions: Optional[pulumi.Input[List[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]] = None,
+                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]] = None,
                  x509_certificate_properties: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']] = None):
         """
         :param pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
         :param pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs'] key_properties: A `key_properties` block as defined below.
         :param pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs'] secret_properties: A `secret_properties` block as defined below.
-        :param pulumi.Input[List[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]] lifetime_actions: A `lifetime_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]] lifetime_actions: A `lifetime_action` block as defined below.
         :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs'] x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
@@ -238,14 +238,14 @@ class CertifiateCertificatePolicyArgs:
 
     @property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]:
+    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]:
         """
         A `lifetime_action` block as defined below.
         """
         return pulumi.get(self, "lifetime_actions")
 
     @lifetime_actions.setter
-    def lifetime_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]):
+    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]):
         pulumi.set(self, "lifetime_actions", value)
 
     @property
@@ -287,12 +287,12 @@ class CertifiateCertificatePolicyIssuerParametersArgs:
 class CertifiateCertificatePolicyKeyPropertiesArgs:
     def __init__(__self__, *,
                  exportable: pulumi.Input[bool],
-                 key_size: pulumi.Input[float],
+                 key_size: pulumi.Input[int],
                  key_type: pulumi.Input[str],
                  reuse_key: pulumi.Input[bool]):
         """
         :param pulumi.Input[bool] exportable: Is this Certificate Exportable? Changing this forces a new resource to be created.
-        :param pulumi.Input[float] key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_type: Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] reuse_key: Is the key reusable? Changing this forces a new resource to be created.
         """
@@ -315,14 +315,14 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> pulumi.Input[float]:
+    def key_size(self) -> pulumi.Input[int]:
         """
         The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: pulumi.Input[float]):
+    def key_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "key_size", value)
 
     @property
@@ -412,11 +412,11 @@ class CertifiateCertificatePolicyLifetimeActionActionArgs:
 @pulumi.input_type
 class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
     def __init__(__self__, *,
-                 days_before_expiry: Optional[pulumi.Input[float]] = None,
-                 lifetime_percentage: Optional[pulumi.Input[float]] = None):
+                 days_before_expiry: Optional[pulumi.Input[int]] = None,
+                 lifetime_percentage: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
-        :param pulumi.Input[float] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        :param pulumi.Input[int] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+        :param pulumi.Input[int] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
         if days_before_expiry is not None:
             pulumi.set(__self__, "days_before_expiry", days_before_expiry)
@@ -425,26 +425,26 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
-    def days_before_expiry(self) -> Optional[pulumi.Input[float]]:
+    def days_before_expiry(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
         """
         return pulumi.get(self, "days_before_expiry")
 
     @days_before_expiry.setter
-    def days_before_expiry(self, value: Optional[pulumi.Input[float]]):
+    def days_before_expiry(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days_before_expiry", value)
 
     @property
     @pulumi.getter(name="lifetimePercentage")
-    def lifetime_percentage(self) -> Optional[pulumi.Input[float]]:
+    def lifetime_percentage(self) -> Optional[pulumi.Input[int]]:
         """
         The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
         return pulumi.get(self, "lifetime_percentage")
 
     @lifetime_percentage.setter
-    def lifetime_percentage(self, value: Optional[pulumi.Input[float]]):
+    def lifetime_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "lifetime_percentage", value)
 
 
@@ -473,16 +473,16 @@ class CertifiateCertificatePolicySecretPropertiesArgs:
 @pulumi.input_type
 class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
     def __init__(__self__, *,
-                 key_usages: pulumi.Input[List[pulumi.Input[str]]],
+                 key_usages: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subject: pulumi.Input[str],
-                 validity_in_months: pulumi.Input[float],
-                 extended_key_usages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 validity_in_months: pulumi.Input[int],
+                 extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subject_alternative_names: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject: The Certificate's Subject. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
         """
         pulumi.set(__self__, "key_usages", key_usages)
@@ -495,14 +495,14 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
 
     @property
     @pulumi.getter(name="keyUsages")
-    def key_usages(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def key_usages(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_usages")
 
     @key_usages.setter
-    def key_usages(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def key_usages(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "key_usages", value)
 
     @property
@@ -519,26 +519,26 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
 
     @property
     @pulumi.getter(name="validityInMonths")
-    def validity_in_months(self) -> pulumi.Input[float]:
+    def validity_in_months(self) -> pulumi.Input[int]:
         """
         The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "validity_in_months")
 
     @validity_in_months.setter
-    def validity_in_months(self, value: pulumi.Input[float]):
+    def validity_in_months(self, value: pulumi.Input[int]):
         pulumi.set(self, "validity_in_months", value)
 
     @property
     @pulumi.getter(name="extendedKeyUsages")
-    def extended_key_usages(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def extended_key_usages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "extended_key_usages")
 
     @extended_key_usages.setter
-    def extended_key_usages(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def extended_key_usages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "extended_key_usages", value)
 
     @property
@@ -557,13 +557,13 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
 @pulumi.input_type
 class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs:
     def __init__(__self__, *,
-                 dns_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 upns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 upns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
         if dns_names is not None:
             pulumi.set(__self__, "dns_names", dns_names)
@@ -574,38 +574,38 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 
     @property
     @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dns_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_names")
 
     @dns_names.setter
-    def dns_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dns_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_names", value)
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "emails", value)
 
     @property
     @pulumi.getter
-    def upns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def upns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "upns")
 
     @upns.setter
-    def upns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def upns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "upns", value)
 
 
@@ -756,13 +756,13 @@ class CertificateCertificatePolicyArgs:
                  issuer_parameters: pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs'],
                  key_properties: pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs'],
                  secret_properties: pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs'],
-                 lifetime_actions: Optional[pulumi.Input[List[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]] = None,
+                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]] = None,
                  x509_certificate_properties: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']] = None):
         """
         :param pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
         :param pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs'] key_properties: A `key_properties` block as defined below.
         :param pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs'] secret_properties: A `secret_properties` block as defined below.
-        :param pulumi.Input[List[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]] lifetime_actions: A `lifetime_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]] lifetime_actions: A `lifetime_action` block as defined below.
         :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs'] x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
@@ -811,14 +811,14 @@ class CertificateCertificatePolicyArgs:
 
     @property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[pulumi.Input[List[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]:
+    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]:
         """
         A `lifetime_action` block as defined below.
         """
         return pulumi.get(self, "lifetime_actions")
 
     @lifetime_actions.setter
-    def lifetime_actions(self, value: Optional[pulumi.Input[List[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]):
+    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]):
         pulumi.set(self, "lifetime_actions", value)
 
     @property
@@ -860,12 +860,12 @@ class CertificateCertificatePolicyIssuerParametersArgs:
 class CertificateCertificatePolicyKeyPropertiesArgs:
     def __init__(__self__, *,
                  exportable: pulumi.Input[bool],
-                 key_size: pulumi.Input[float],
+                 key_size: pulumi.Input[int],
                  key_type: pulumi.Input[str],
                  reuse_key: pulumi.Input[bool]):
         """
         :param pulumi.Input[bool] exportable: Is this Certificate Exportable? Changing this forces a new resource to be created.
-        :param pulumi.Input[float] key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] key_size: The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_type: Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] reuse_key: Is the key reusable? Changing this forces a new resource to be created.
         """
@@ -888,14 +888,14 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
 
     @property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> pulumi.Input[float]:
+    def key_size(self) -> pulumi.Input[int]:
         """
         The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: pulumi.Input[float]):
+    def key_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "key_size", value)
 
     @property
@@ -985,11 +985,11 @@ class CertificateCertificatePolicyLifetimeActionActionArgs:
 @pulumi.input_type
 class CertificateCertificatePolicyLifetimeActionTriggerArgs:
     def __init__(__self__, *,
-                 days_before_expiry: Optional[pulumi.Input[float]] = None,
-                 lifetime_percentage: Optional[pulumi.Input[float]] = None):
+                 days_before_expiry: Optional[pulumi.Input[int]] = None,
+                 lifetime_percentage: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
-        :param pulumi.Input[float] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        :param pulumi.Input[int] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+        :param pulumi.Input[int] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
         if days_before_expiry is not None:
             pulumi.set(__self__, "days_before_expiry", days_before_expiry)
@@ -998,26 +998,26 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
-    def days_before_expiry(self) -> Optional[pulumi.Input[float]]:
+    def days_before_expiry(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
         """
         return pulumi.get(self, "days_before_expiry")
 
     @days_before_expiry.setter
-    def days_before_expiry(self, value: Optional[pulumi.Input[float]]):
+    def days_before_expiry(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days_before_expiry", value)
 
     @property
     @pulumi.getter(name="lifetimePercentage")
-    def lifetime_percentage(self) -> Optional[pulumi.Input[float]]:
+    def lifetime_percentage(self) -> Optional[pulumi.Input[int]]:
         """
         The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
         return pulumi.get(self, "lifetime_percentage")
 
     @lifetime_percentage.setter
-    def lifetime_percentage(self, value: Optional[pulumi.Input[float]]):
+    def lifetime_percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "lifetime_percentage", value)
 
 
@@ -1046,16 +1046,16 @@ class CertificateCertificatePolicySecretPropertiesArgs:
 @pulumi.input_type
 class CertificateCertificatePolicyX509CertificatePropertiesArgs:
     def __init__(__self__, *,
-                 key_usages: pulumi.Input[List[pulumi.Input[str]]],
+                 key_usages: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subject: pulumi.Input[str],
-                 validity_in_months: pulumi.Input[float],
-                 extended_key_usages: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 validity_in_months: pulumi.Input[int],
+                 extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subject_alternative_names: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject: The Certificate's Subject. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
         """
         pulumi.set(__self__, "key_usages", key_usages)
@@ -1068,14 +1068,14 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
 
     @property
     @pulumi.getter(name="keyUsages")
-    def key_usages(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def key_usages(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_usages")
 
     @key_usages.setter
-    def key_usages(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def key_usages(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "key_usages", value)
 
     @property
@@ -1092,26 +1092,26 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
 
     @property
     @pulumi.getter(name="validityInMonths")
-    def validity_in_months(self) -> pulumi.Input[float]:
+    def validity_in_months(self) -> pulumi.Input[int]:
         """
         The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "validity_in_months")
 
     @validity_in_months.setter
-    def validity_in_months(self, value: pulumi.Input[float]):
+    def validity_in_months(self, value: pulumi.Input[int]):
         pulumi.set(self, "validity_in_months", value)
 
     @property
     @pulumi.getter(name="extendedKeyUsages")
-    def extended_key_usages(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def extended_key_usages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "extended_key_usages")
 
     @extended_key_usages.setter
-    def extended_key_usages(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def extended_key_usages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "extended_key_usages", value)
 
     @property
@@ -1130,13 +1130,13 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
 @pulumi.input_type
 class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs:
     def __init__(__self__, *,
-                 dns_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 emails: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 upns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 upns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
         if dns_names is not None:
             pulumi.set(__self__, "dns_names", dns_names)
@@ -1147,38 +1147,38 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 
     @property
     @pulumi.getter(name="dnsNames")
-    def dns_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def dns_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_names")
 
     @dns_names.setter
-    def dns_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def dns_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_names", value)
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def emails(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "emails", value)
 
     @property
     @pulumi.getter
-    def upns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def upns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "upns")
 
     @upns.setter
-    def upns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def upns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "upns", value)
 
 
@@ -1258,18 +1258,18 @@ class KeyVaultAccessPolicyArgs:
                  object_id: pulumi.Input[str],
                  tenant_id: pulumi.Input[str],
                  application_id: Optional[pulumi.Input[str]] = None,
-                 certificate_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 key_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 secret_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 storage_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
         :param pulumi.Input[str] application_id: The object ID of an Application in Azure Active Directory.
-        :param pulumi.Input[List[pulumi.Input[str]]] certificate_permissions: List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
-        :param pulumi.Input[List[pulumi.Input[str]]] key_permissions: List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
-        :param pulumi.Input[List[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
-        :param pulumi.Input[List[pulumi.Input[str]]] storage_permissions: List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_permissions: List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_permissions: List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_permissions: List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_permissions: List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
         """
         pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1322,50 +1322,50 @@ class KeyVaultAccessPolicyArgs:
 
     @property
     @pulumi.getter(name="certificatePermissions")
-    def certificate_permissions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def certificate_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of certificate permissions, must be one or more from the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`, `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
         """
         return pulumi.get(self, "certificate_permissions")
 
     @certificate_permissions.setter
-    def certificate_permissions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def certificate_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "certificate_permissions", value)
 
     @property
     @pulumi.getter(name="keyPermissions")
-    def key_permissions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def key_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of key permissions, must be one or more from the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`, `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
         """
         return pulumi.get(self, "key_permissions")
 
     @key_permissions.setter
-    def key_permissions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def key_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "key_permissions", value)
 
     @property
     @pulumi.getter(name="secretPermissions")
-    def secret_permissions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def secret_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of secret permissions, must be one or more from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
         """
         return pulumi.get(self, "secret_permissions")
 
     @secret_permissions.setter
-    def secret_permissions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def secret_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "secret_permissions", value)
 
     @property
     @pulumi.getter(name="storagePermissions")
-    def storage_permissions(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def storage_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
         """
         return pulumi.get(self, "storage_permissions")
 
     @storage_permissions.setter
-    def storage_permissions(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def storage_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "storage_permissions", value)
 
 
@@ -1374,13 +1374,13 @@ class KeyVaultNetworkAclsArgs:
     def __init__(__self__, *,
                  bypass: pulumi.Input[str],
                  default_action: pulumi.Input[str],
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 virtual_network_subnet_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] bypass: Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
         :param pulumi.Input[str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-        :param pulumi.Input[List[pulumi.Input[str]]] virtual_network_subnet_ids: One or more Subnet ID's which should be able to access this Key Vault.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: One or more Subnet ID's which should be able to access this Key Vault.
         """
         pulumi.set(__self__, "bypass", bypass)
         pulumi.set(__self__, "default_action", default_action)
@@ -1415,26 +1415,26 @@ class KeyVaultNetworkAclsArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
-    def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more Subnet ID's which should be able to access this Key Vault.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 
     @virtual_network_subnet_ids.setter
-    def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 

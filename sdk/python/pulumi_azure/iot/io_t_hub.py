@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,16 +17,16 @@ class IoTHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
-                 event_hub_partition_count: Optional[pulumi.Input[float]] = None,
-                 event_hub_retention_in_days: Optional[pulumi.Input[float]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
+                 event_hub_partition_count: Optional[pulumi.Input[int]] = None,
+                 event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
                  fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
                  file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
-                 ip_filter_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
+                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IoTHubSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -117,16 +117,16 @@ class IoTHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
-        :param pulumi.Input[float] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
-        :param pulumi.Input[float] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -180,22 +180,22 @@ class IoTHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            endpoints: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]]] = None,
             event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
             event_hub_events_path: Optional[pulumi.Input[str]] = None,
             event_hub_operations_endpoint: Optional[pulumi.Input[str]] = None,
             event_hub_operations_path: Optional[pulumi.Input[str]] = None,
-            event_hub_partition_count: Optional[pulumi.Input[float]] = None,
-            event_hub_retention_in_days: Optional[pulumi.Input[float]] = None,
+            event_hub_partition_count: Optional[pulumi.Input[int]] = None,
+            event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
             fallback_route: Optional[pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']]] = None,
             file_upload: Optional[pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
-            ip_filter_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
+            ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            routes: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
-            shared_access_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
+            shared_access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]]] = None,
             sku: Optional[pulumi.Input[pulumi.InputType['IoTHubSkuArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'IoTHub':
@@ -206,22 +206,22 @@ class IoTHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubEndpointArgs']]]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
         :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
         :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
         :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
-        :param pulumi.Input[float] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
-        :param pulumi.Input[float] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
+        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
@@ -253,7 +253,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoints(self) -> pulumi.Output[List['outputs.IoTHubEndpoint']]:
+    def endpoints(self) -> pulumi.Output[Sequence['outputs.IoTHubEndpoint']]:
         """
         An `endpoint` block as defined below.
         """
@@ -293,7 +293,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubPartitionCount")
-    def event_hub_partition_count(self) -> pulumi.Output[float]:
+    def event_hub_partition_count(self) -> pulumi.Output[int]:
         """
         The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         """
@@ -301,7 +301,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="eventHubRetentionInDays")
-    def event_hub_retention_in_days(self) -> pulumi.Output[float]:
+    def event_hub_retention_in_days(self) -> pulumi.Output[int]:
         """
         The event hub retention to use in days. Must be between `1` and `7`.
         """
@@ -333,7 +333,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipFilterRules")
-    def ip_filter_rules(self) -> pulumi.Output[Optional[List['outputs.IoTHubIpFilterRule']]]:
+    def ip_filter_rules(self) -> pulumi.Output[Optional[Sequence['outputs.IoTHubIpFilterRule']]]:
         """
         One or more `ip_filter_rule` blocks as defined below.
         """
@@ -365,7 +365,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def routes(self) -> pulumi.Output[List['outputs.IoTHubRoute']]:
+    def routes(self) -> pulumi.Output[Sequence['outputs.IoTHubRoute']]:
         """
         A `route` block as defined below.
         """
@@ -373,7 +373,7 @@ class IoTHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sharedAccessPolicies")
-    def shared_access_policies(self) -> pulumi.Output[List['outputs.IoTHubSharedAccessPolicy']]:
+    def shared_access_policies(self) -> pulumi.Output[Sequence['outputs.IoTHubSharedAccessPolicy']]:
         """
         One or more `shared_access_policy` blocks as defined below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -65,7 +65,7 @@ class GetPublicIPsResult:
 
     @property
     @pulumi.getter(name="publicIps")
-    def public_ips(self) -> List['outputs.GetPublicIPsPublicIpResult']:
+    def public_ips(self) -> Sequence['outputs.GetPublicIPsPublicIpResult']:
         """
         A List of `public_ips` blocks as defined below filtered by the criteria above.
         """

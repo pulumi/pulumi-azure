@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -19,7 +19,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_start: Optional[pulumi.Input[bool]] = None,
                  destination: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']]] = None,
-                 interval_in_seconds: Optional[pulumi.Input[float]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
@@ -74,7 +74,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']] destination: A `destination` block as defined below.
-        :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds.
+        :param pulumi.Input[int] interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
@@ -128,7 +128,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_start: Optional[pulumi.Input[bool]] = None,
             destination: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']]] = None,
-            interval_in_seconds: Optional[pulumi.Input[float]] = None,
+            interval_in_seconds: Optional[pulumi.Input[int]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_watcher_name: Optional[pulumi.Input[str]] = None,
@@ -144,7 +144,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Will the connection monitor start automatically once created? Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']] destination: A `destination` block as defined below.
-        :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds.
+        :param pulumi.Input[int] interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new Network Connection Monitor to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new Network Connection Monitor to be created.
@@ -185,7 +185,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> pulumi.Output[Optional[float]]:
+    def interval_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         Monitoring interval in seconds.
         """

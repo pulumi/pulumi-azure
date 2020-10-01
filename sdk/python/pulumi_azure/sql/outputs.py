@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -25,12 +25,12 @@ class DatabaseExtendedAuditingPolicy(dict):
     def __init__(__self__, *,
                  storage_account_access_key: str,
                  storage_endpoint: str,
-                 retention_in_days: Optional[float] = None,
+                 retention_in_days: Optional[int] = None,
                  storage_account_access_key_is_secondary: Optional[bool] = None):
         """
         :param str storage_account_access_key: Specifies the access key to use for the auditing storage account.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        :param float retention_in_days: Specifies the number of days to retain logs for in the storage account.
+        :param int retention_in_days: Specifies the number of days to retain logs for in the storage account.
         :param bool storage_account_access_key_is_secondary: Specifies whether `storage_account_access_key` value is the storage's secondary key.
         """
         pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
@@ -58,7 +58,7 @@ class DatabaseExtendedAuditingPolicy(dict):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[float]:
+    def retention_in_days(self) -> Optional[int]:
         """
         Specifies the number of days to retain logs for in the storage account.
         """
@@ -167,19 +167,19 @@ class DatabaseImport(dict):
 @pulumi.output_type
 class DatabaseThreatDetectionPolicy(dict):
     def __init__(__self__, *,
-                 disabled_alerts: Optional[List[str]] = None,
+                 disabled_alerts: Optional[Sequence[str]] = None,
                  email_account_admins: Optional[str] = None,
-                 email_addresses: Optional[List[str]] = None,
-                 retention_days: Optional[float] = None,
+                 email_addresses: Optional[Sequence[str]] = None,
+                 retention_days: Optional[int] = None,
                  state: Optional[str] = None,
                  storage_account_access_key: Optional[str] = None,
                  storage_endpoint: Optional[str] = None,
                  use_server_default: Optional[str] = None):
         """
-        :param List[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
         :param str email_account_admins: Should the account administrators be emailed when this alert is triggered?
-        :param List[str] email_addresses: A list of email addresses which alerts should be sent to.
-        :param float retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
+        :param Sequence[str] email_addresses: A list of email addresses which alerts should be sent to.
+        :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
@@ -204,7 +204,7 @@ class DatabaseThreatDetectionPolicy(dict):
 
     @property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> Optional[List[str]]:
+    def disabled_alerts(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
         """
@@ -220,7 +220,7 @@ class DatabaseThreatDetectionPolicy(dict):
 
     @property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> Optional[List[str]]:
+    def email_addresses(self) -> Optional[Sequence[str]]:
         """
         A list of email addresses which alerts should be sent to.
         """
@@ -228,7 +228,7 @@ class DatabaseThreatDetectionPolicy(dict):
 
     @property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[float]:
+    def retention_days(self) -> Optional[int]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs.
         """
@@ -319,10 +319,10 @@ class FailoverGroupPartnerServer(dict):
 class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
     def __init__(__self__, *,
                  mode: str,
-                 grace_minutes: Optional[float] = None):
+                 grace_minutes: Optional[int] = None):
         """
         :param str mode: the failover mode. Possible values are `Manual`, `Automatic`
-        :param float grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
+        :param int grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
         """
         pulumi.set(__self__, "mode", mode)
         if grace_minutes is not None:
@@ -338,7 +338,7 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
 
     @property
     @pulumi.getter(name="graceMinutes")
-    def grace_minutes(self) -> Optional[float]:
+    def grace_minutes(self) -> Optional[int]:
         """
         Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
         """
@@ -374,12 +374,12 @@ class SqlServerExtendedAuditingPolicy(dict):
     def __init__(__self__, *,
                  storage_account_access_key: str,
                  storage_endpoint: str,
-                 retention_in_days: Optional[float] = None,
+                 retention_in_days: Optional[int] = None,
                  storage_account_access_key_is_secondary: Optional[bool] = None):
         """
         :param str storage_account_access_key: (Required)  Specifies the access key to use for the auditing storage account.
         :param str storage_endpoint: (Required) Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net).
-        :param float retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
+        :param int retention_in_days: (Optional) Specifies the number of days to retain logs for in the storage account.
         :param bool storage_account_access_key_is_secondary: (Optional) Specifies whether `storage_account_access_key` value is the storage's secondary key.
         """
         pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
@@ -407,7 +407,7 @@ class SqlServerExtendedAuditingPolicy(dict):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[float]:
+    def retention_in_days(self) -> Optional[int]:
         """
         (Optional) Specifies the number of days to retain logs for in the storage account.
         """

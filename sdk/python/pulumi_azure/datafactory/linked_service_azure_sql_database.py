@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['LinkedServiceAzureSqlDatabase']
@@ -16,7 +16,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -51,7 +51,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
-        :param pulumi.Input[List[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with Azure SQL Database.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
@@ -103,7 +103,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            annotations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             connection_string: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
-        :param pulumi.Input[List[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with Azure SQL Database.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
@@ -153,7 +153,7 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> pulumi.Output[Optional[List[str]]]:
+    def annotations(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         """

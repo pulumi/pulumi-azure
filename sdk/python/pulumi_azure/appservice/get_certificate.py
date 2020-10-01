@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -75,7 +75,7 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> List[str]:
+    def host_names(self) -> Sequence[str]:
         """
         List of host names the certificate applies to.
         """

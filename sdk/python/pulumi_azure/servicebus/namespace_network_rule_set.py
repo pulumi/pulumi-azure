@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,9 +18,9 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 network_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -67,9 +67,9 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         :param pulumi.Input[str] namespace_name: Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]] network_rules: One or more `network_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -109,9 +109,9 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             default_action: Optional[pulumi.Input[str]] = None,
-            ip_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
-            network_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
+            network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'NamespaceNetworkRuleSet':
         """
         Get an existing NamespaceNetworkRuleSet resource's state with the given name, id, and optional extra
@@ -121,9 +121,9 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param pulumi.Input[List[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         :param pulumi.Input[str] namespace_name: Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]] network_rules: One or more `network_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -147,7 +147,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> pulumi.Output[Optional[List[str]]]:
+    def ip_rules(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         """
@@ -163,7 +163,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> pulumi.Output[Optional[List['outputs.NamespaceNetworkRuleSetNetworkRule']]]:
+    def network_rules(self) -> pulumi.Output[Optional[Sequence['outputs.NamespaceNetworkRuleSetNetworkRule']]]:
         """
         One or more `network_rules` blocks as defined below.
         """

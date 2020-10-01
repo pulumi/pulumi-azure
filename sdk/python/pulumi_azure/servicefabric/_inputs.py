@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -131,10 +131,10 @@ class ClusterCertificateArgs:
 @pulumi.input_type
 class ClusterCertificateCommonNamesArgs:
     def __init__(__self__, *,
-                 common_names: pulumi.Input[List[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]],
+                 common_names: pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]],
                  x509_store_name: pulumi.Input[str]):
         """
-        :param pulumi.Input[List[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]] common_names: A `common_names` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]] common_names: A `common_names` block as defined below.
         :param pulumi.Input[str] x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         """
         pulumi.set(__self__, "common_names", common_names)
@@ -142,14 +142,14 @@ class ClusterCertificateCommonNamesArgs:
 
     @property
     @pulumi.getter(name="commonNames")
-    def common_names(self) -> pulumi.Input[List[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]]:
+    def common_names(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]]:
         """
         A `common_names` block as defined below.
         """
         return pulumi.get(self, "common_names")
 
     @common_names.setter
-    def common_names(self, value: pulumi.Input[List[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]]):
+    def common_names(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]]):
         pulumi.set(self, "common_names", value)
 
     @property
@@ -412,9 +412,9 @@ class ClusterFabricSettingArgs:
 @pulumi.input_type
 class ClusterNodeTypeArgs:
     def __init__(__self__, *,
-                 client_endpoint_port: pulumi.Input[float],
-                 http_endpoint_port: pulumi.Input[float],
-                 instance_count: pulumi.Input[float],
+                 client_endpoint_port: pulumi.Input[int],
+                 http_endpoint_port: pulumi.Input[int],
+                 instance_count: pulumi.Input[int],
                  is_primary: pulumi.Input[bool],
                  name: pulumi.Input[str],
                  application_ports: Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArgs']] = None,
@@ -422,11 +422,11 @@ class ClusterNodeTypeArgs:
                  durability_level: Optional[pulumi.Input[str]] = None,
                  ephemeral_ports: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 reverse_proxy_endpoint_port: Optional[pulumi.Input[float]] = None):
+                 reverse_proxy_endpoint_port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] client_endpoint_port: The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] http_endpoint_port: The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] instance_count: The number of nodes for this Node Type.
+        :param pulumi.Input[int] client_endpoint_port: The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] http_endpoint_port: The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] instance_count: The number of nodes for this Node Type.
         :param pulumi.Input[bool] is_primary: Is this the Primary Node Type? Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Node Type. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterNodeTypeApplicationPortsArgs'] application_ports: A `application_ports` block as defined below.
@@ -434,7 +434,7 @@ class ClusterNodeTypeArgs:
         :param pulumi.Input[str] durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterNodeTypeEphemeralPortsArgs'] ephemeral_ports: A `ephemeral_ports` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-        :param pulumi.Input[float] reverse_proxy_endpoint_port: The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
+        :param pulumi.Input[int] reverse_proxy_endpoint_port: The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
         """
         pulumi.set(__self__, "client_endpoint_port", client_endpoint_port)
         pulumi.set(__self__, "http_endpoint_port", http_endpoint_port)
@@ -456,38 +456,38 @@ class ClusterNodeTypeArgs:
 
     @property
     @pulumi.getter(name="clientEndpointPort")
-    def client_endpoint_port(self) -> pulumi.Input[float]:
+    def client_endpoint_port(self) -> pulumi.Input[int]:
         """
         The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "client_endpoint_port")
 
     @client_endpoint_port.setter
-    def client_endpoint_port(self, value: pulumi.Input[float]):
+    def client_endpoint_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "client_endpoint_port", value)
 
     @property
     @pulumi.getter(name="httpEndpointPort")
-    def http_endpoint_port(self) -> pulumi.Input[float]:
+    def http_endpoint_port(self) -> pulumi.Input[int]:
         """
         The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "http_endpoint_port")
 
     @http_endpoint_port.setter
-    def http_endpoint_port(self, value: pulumi.Input[float]):
+    def http_endpoint_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "http_endpoint_port", value)
 
     @property
     @pulumi.getter(name="instanceCount")
-    def instance_count(self) -> pulumi.Input[float]:
+    def instance_count(self) -> pulumi.Input[int]:
         """
         The number of nodes for this Node Type.
         """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
-    def instance_count(self, value: pulumi.Input[float]):
+    def instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "instance_count", value)
 
     @property
@@ -576,88 +576,88 @@ class ClusterNodeTypeArgs:
 
     @property
     @pulumi.getter(name="reverseProxyEndpointPort")
-    def reverse_proxy_endpoint_port(self) -> Optional[pulumi.Input[float]]:
+    def reverse_proxy_endpoint_port(self) -> Optional[pulumi.Input[int]]:
         """
         The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
 
     @reverse_proxy_endpoint_port.setter
-    def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[float]]):
+    def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "reverse_proxy_endpoint_port", value)
 
 
 @pulumi.input_type
 class ClusterNodeTypeApplicationPortsArgs:
     def __init__(__self__, *,
-                 end_port: pulumi.Input[float],
-                 start_port: pulumi.Input[float]):
+                 end_port: pulumi.Input[int],
+                 start_port: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] end_port: The end of the Application Port Range on this Node Type.
-        :param pulumi.Input[float] start_port: The start of the Application Port Range on this Node Type.
+        :param pulumi.Input[int] end_port: The end of the Application Port Range on this Node Type.
+        :param pulumi.Input[int] start_port: The start of the Application Port Range on this Node Type.
         """
         pulumi.set(__self__, "end_port", end_port)
         pulumi.set(__self__, "start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
-    def end_port(self) -> pulumi.Input[float]:
+    def end_port(self) -> pulumi.Input[int]:
         """
         The end of the Application Port Range on this Node Type.
         """
         return pulumi.get(self, "end_port")
 
     @end_port.setter
-    def end_port(self, value: pulumi.Input[float]):
+    def end_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "end_port", value)
 
     @property
     @pulumi.getter(name="startPort")
-    def start_port(self) -> pulumi.Input[float]:
+    def start_port(self) -> pulumi.Input[int]:
         """
         The start of the Application Port Range on this Node Type.
         """
         return pulumi.get(self, "start_port")
 
     @start_port.setter
-    def start_port(self, value: pulumi.Input[float]):
+    def start_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_port", value)
 
 
 @pulumi.input_type
 class ClusterNodeTypeEphemeralPortsArgs:
     def __init__(__self__, *,
-                 end_port: pulumi.Input[float],
-                 start_port: pulumi.Input[float]):
+                 end_port: pulumi.Input[int],
+                 start_port: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] end_port: The end of the Ephemeral Port Range on this Node Type.
-        :param pulumi.Input[float] start_port: The start of the Ephemeral Port Range on this Node Type.
+        :param pulumi.Input[int] end_port: The end of the Ephemeral Port Range on this Node Type.
+        :param pulumi.Input[int] start_port: The start of the Ephemeral Port Range on this Node Type.
         """
         pulumi.set(__self__, "end_port", end_port)
         pulumi.set(__self__, "start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
-    def end_port(self) -> pulumi.Input[float]:
+    def end_port(self) -> pulumi.Input[int]:
         """
         The end of the Ephemeral Port Range on this Node Type.
         """
         return pulumi.get(self, "end_port")
 
     @end_port.setter
-    def end_port(self, value: pulumi.Input[float]):
+    def end_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "end_port", value)
 
     @property
     @pulumi.getter(name="startPort")
-    def start_port(self) -> pulumi.Input[float]:
+    def start_port(self) -> pulumi.Input[int]:
         """
         The start of the Ephemeral Port Range on this Node Type.
         """
         return pulumi.get(self, "start_port")
 
     @start_port.setter
-    def start_port(self, value: pulumi.Input[float]):
+    def start_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_port", value)
 
 

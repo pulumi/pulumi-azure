@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -160,11 +160,11 @@ class ApplicationGatewayAuthenticationCertificate(dict):
 @pulumi.output_type
 class ApplicationGatewayAutoscaleConfiguration(dict):
     def __init__(__self__, *,
-                 min_capacity: float,
-                 max_capacity: Optional[float] = None):
+                 min_capacity: int,
+                 max_capacity: Optional[int] = None):
         """
-        :param float min_capacity: Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
-        :param float max_capacity: Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
+        :param int min_capacity: Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
+        :param int max_capacity: Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
         """
         pulumi.set(__self__, "min_capacity", min_capacity)
         if max_capacity is not None:
@@ -172,7 +172,7 @@ class ApplicationGatewayAutoscaleConfiguration(dict):
 
     @property
     @pulumi.getter(name="minCapacity")
-    def min_capacity(self) -> float:
+    def min_capacity(self) -> int:
         """
         Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
         """
@@ -180,7 +180,7 @@ class ApplicationGatewayAutoscaleConfiguration(dict):
 
     @property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[float]:
+    def max_capacity(self) -> Optional[int]:
         """
         Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
         """
@@ -194,14 +194,14 @@ class ApplicationGatewayAutoscaleConfiguration(dict):
 class ApplicationGatewayBackendAddressPool(dict):
     def __init__(__self__, *,
                  name: str,
-                 fqdns: Optional[List[str]] = None,
+                 fqdns: Optional[Sequence[str]] = None,
                  id: Optional[str] = None,
-                 ip_addresses: Optional[List[str]] = None):
+                 ip_addresses: Optional[Sequence[str]] = None):
         """
         :param str name: The name of the Backend Address Pool.
-        :param List[str] fqdns: A list of FQDN's which should be part of the Backend Address Pool.
+        :param Sequence[str] fqdns: A list of FQDN's which should be part of the Backend Address Pool.
         :param str id: The ID of the Rewrite Rule Set
-        :param List[str] ip_addresses: A list of IP Addresses which should be part of the Backend Address Pool.
+        :param Sequence[str] ip_addresses: A list of IP Addresses which should be part of the Backend Address Pool.
         """
         pulumi.set(__self__, "name", name)
         if fqdns is not None:
@@ -221,7 +221,7 @@ class ApplicationGatewayBackendAddressPool(dict):
 
     @property
     @pulumi.getter
-    def fqdns(self) -> Optional[List[str]]:
+    def fqdns(self) -> Optional[Sequence[str]]:
         """
         A list of FQDN's which should be part of the Backend Address Pool.
         """
@@ -237,7 +237,7 @@ class ApplicationGatewayBackendAddressPool(dict):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[List[str]]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         """
         A list of IP Addresses which should be part of the Backend Address Pool.
         """
@@ -252,10 +252,10 @@ class ApplicationGatewayBackendHttpSetting(dict):
     def __init__(__self__, *,
                  cookie_based_affinity: str,
                  name: str,
-                 port: float,
+                 port: int,
                  protocol: str,
                  affinity_cookie_name: Optional[str] = None,
-                 authentication_certificates: Optional[List['outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate']] = None,
+                 authentication_certificates: Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate']] = None,
                  connection_draining: Optional['outputs.ApplicationGatewayBackendHttpSettingConnectionDraining'] = None,
                  host_name: Optional[str] = None,
                  id: Optional[str] = None,
@@ -263,15 +263,15 @@ class ApplicationGatewayBackendHttpSetting(dict):
                  pick_host_name_from_backend_address: Optional[bool] = None,
                  probe_id: Optional[str] = None,
                  probe_name: Optional[str] = None,
-                 request_timeout: Optional[float] = None,
-                 trusted_root_certificate_names: Optional[List[str]] = None):
+                 request_timeout: Optional[int] = None,
+                 trusted_root_certificate_names: Optional[Sequence[str]] = None):
         """
         :param str cookie_based_affinity: Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
         :param str name: The name of the Backend HTTP Settings Collection.
-        :param float port: The port which should be used for this Backend HTTP Settings Collection.
+        :param int port: The port which should be used for this Backend HTTP Settings Collection.
         :param str protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param str affinity_cookie_name: The name of the affinity cookie.
-        :param List['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks.
+        :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks.
         :param 'ApplicationGatewayBackendHttpSettingConnectionDrainingArgs' connection_draining: A `connection_draining` block as defined below.
         :param str host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         :param str id: The ID of the Rewrite Rule Set
@@ -279,8 +279,8 @@ class ApplicationGatewayBackendHttpSetting(dict):
         :param bool pick_host_name_from_backend_address: Whether host header should be picked from the host name of the backend server. Defaults to `false`.
         :param str probe_id: The ID of the associated Probe.
         :param str probe_name: The name of an associated HTTP Probe.
-        :param float request_timeout: The request timeout in seconds, which must be between 1 and 86400 seconds.
-        :param List[str] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
+        :param int request_timeout: The request timeout in seconds, which must be between 1 and 86400 seconds.
+        :param Sequence[str] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
         """
         pulumi.set(__self__, "cookie_based_affinity", cookie_based_affinity)
         pulumi.set(__self__, "name", name)
@@ -327,7 +327,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port which should be used for this Backend HTTP Settings Collection.
         """
@@ -351,7 +351,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
 
     @property
     @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> Optional[List['outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate']]:
+    def authentication_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate']]:
         """
         One or more `authentication_certificate` blocks.
         """
@@ -415,7 +415,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
 
     @property
     @pulumi.getter(name="requestTimeout")
-    def request_timeout(self) -> Optional[float]:
+    def request_timeout(self) -> Optional[int]:
         """
         The request timeout in seconds, which must be between 1 and 86400 seconds.
         """
@@ -423,7 +423,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
 
     @property
     @pulumi.getter(name="trustedRootCertificateNames")
-    def trusted_root_certificate_names(self) -> Optional[List[str]]:
+    def trusted_root_certificate_names(self) -> Optional[Sequence[str]]:
         """
         A list of `trusted_root_certificate` names.
         """
@@ -469,10 +469,10 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
 @pulumi.output_type
 class ApplicationGatewayBackendHttpSettingConnectionDraining(dict):
     def __init__(__self__, *,
-                 drain_timeout_sec: float,
+                 drain_timeout_sec: int,
                  enabled: bool):
         """
-        :param float drain_timeout_sec: The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
+        :param int drain_timeout_sec: The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
         :param bool enabled: If connection draining is enabled or not.
         """
         pulumi.set(__self__, "drain_timeout_sec", drain_timeout_sec)
@@ -480,7 +480,7 @@ class ApplicationGatewayBackendHttpSettingConnectionDraining(dict):
 
     @property
     @pulumi.getter(name="drainTimeoutSec")
-    def drain_timeout_sec(self) -> float:
+    def drain_timeout_sec(self) -> int:
         """
         The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
         """
@@ -627,11 +627,11 @@ class ApplicationGatewayFrontendIpConfiguration(dict):
 class ApplicationGatewayFrontendPort(dict):
     def __init__(__self__, *,
                  name: str,
-                 port: float,
+                 port: int,
                  id: Optional[str] = None):
         """
         :param str name: The name of the Frontend Port.
-        :param float port: The port used for this Frontend Port.
+        :param int port: The port used for this Frontend Port.
         :param str id: The ID of the Rewrite Rule Set
         """
         pulumi.set(__self__, "name", name)
@@ -649,7 +649,7 @@ class ApplicationGatewayFrontendPort(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port used for this Frontend Port.
         """
@@ -718,12 +718,12 @@ class ApplicationGatewayHttpListener(dict):
                  frontend_port_name: str,
                  name: str,
                  protocol: str,
-                 custom_error_configurations: Optional[List['outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration']] = None,
+                 custom_error_configurations: Optional[Sequence['outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration']] = None,
                  firewall_policy_id: Optional[str] = None,
                  frontend_ip_configuration_id: Optional[str] = None,
                  frontend_port_id: Optional[str] = None,
                  host_name: Optional[str] = None,
-                 host_names: Optional[List[str]] = None,
+                 host_names: Optional[Sequence[str]] = None,
                  id: Optional[str] = None,
                  require_sni: Optional[bool] = None,
                  ssl_certificate_id: Optional[str] = None,
@@ -733,12 +733,12 @@ class ApplicationGatewayHttpListener(dict):
         :param str frontend_port_name: The Name of the Frontend Port use for this HTTP Listener.
         :param str name: The Name of the HTTP Listener.
         :param str protocol: The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        :param List['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs'] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
+        :param Sequence['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs'] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param str firewall_policy_id: The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
         :param str frontend_ip_configuration_id: The ID of the associated Frontend Configuration.
         :param str frontend_port_id: The ID of the associated Frontend Port.
         :param str host_name: The Hostname which should be used for this HTTP Listener.
-        :param List[str] host_names: A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+        :param Sequence[str] host_names: A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
         :param str id: The ID of the Rewrite Rule Set
         :param bool require_sni: Should Server Name Indication be Required? Defaults to `false`.
         :param str ssl_certificate_id: The ID of the associated SSL Certificate.
@@ -803,7 +803,7 @@ class ApplicationGatewayHttpListener(dict):
 
     @property
     @pulumi.getter(name="customErrorConfigurations")
-    def custom_error_configurations(self) -> Optional[List['outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration']]:
+    def custom_error_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration']]:
         """
         One or more `custom_error_configuration` blocks as defined below.
         """
@@ -843,7 +843,7 @@ class ApplicationGatewayHttpListener(dict):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> Optional[List[str]]:
+    def host_names(self) -> Optional[Sequence[str]]:
         """
         A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
         """
@@ -965,31 +965,31 @@ class ApplicationGatewayIdentity(dict):
 @pulumi.output_type
 class ApplicationGatewayProbe(dict):
     def __init__(__self__, *,
-                 interval: float,
+                 interval: int,
                  name: str,
                  path: str,
                  protocol: str,
-                 timeout: float,
-                 unhealthy_threshold: float,
+                 timeout: int,
+                 unhealthy_threshold: int,
                  host: Optional[str] = None,
                  id: Optional[str] = None,
                  match: Optional['outputs.ApplicationGatewayProbeMatch'] = None,
-                 minimum_servers: Optional[float] = None,
+                 minimum_servers: Optional[int] = None,
                  pick_host_name_from_backend_http_settings: Optional[bool] = None,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
-        :param float interval: The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
+        :param int interval: The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
         :param str name: The Name of the Probe.
         :param str path: The Path used for this Probe.
         :param str protocol: The Protocol used for this Probe. Possible values are `Http` and `Https`.
-        :param float timeout: The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
-        :param float unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
+        :param int timeout: The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
+        :param int unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
         :param str host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
         :param str id: The ID of the Rewrite Rule Set
         :param 'ApplicationGatewayProbeMatchArgs' match: A `match` block as defined above.
-        :param float minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
+        :param int minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
         :param bool pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend http settings. Defaults to `false`.
-        :param float port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        :param int port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "name", name)
@@ -1012,7 +1012,7 @@ class ApplicationGatewayProbe(dict):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> int:
         """
         The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
         """
@@ -1044,7 +1044,7 @@ class ApplicationGatewayProbe(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> float:
+    def timeout(self) -> int:
         """
         The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
         """
@@ -1052,7 +1052,7 @@ class ApplicationGatewayProbe(dict):
 
     @property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> float:
+    def unhealthy_threshold(self) -> int:
         """
         The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 - 20 seconds.
         """
@@ -1084,7 +1084,7 @@ class ApplicationGatewayProbe(dict):
 
     @property
     @pulumi.getter(name="minimumServers")
-    def minimum_servers(self) -> Optional[float]:
+    def minimum_servers(self) -> Optional[int]:
         """
         The minimum number of servers that are always marked as healthy. Defaults to `0`.
         """
@@ -1100,7 +1100,7 @@ class ApplicationGatewayProbe(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
         """
@@ -1114,10 +1114,10 @@ class ApplicationGatewayProbe(dict):
 class ApplicationGatewayProbeMatch(dict):
     def __init__(__self__, *,
                  body: Optional[str] = None,
-                 status_codes: Optional[List[str]] = None):
+                 status_codes: Optional[Sequence[str]] = None):
         """
         :param str body: A snippet from the Response Body which must be present in the Response..
-        :param List[str] status_codes: A list of allowed status codes for this Health Probe.
+        :param Sequence[str] status_codes: A list of allowed status codes for this Health Probe.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -1134,7 +1134,7 @@ class ApplicationGatewayProbeMatch(dict):
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[List[str]]:
+    def status_codes(self) -> Optional[Sequence[str]]:
         """
         A list of allowed status codes for this Health Probe.
         """
@@ -1436,11 +1436,11 @@ class ApplicationGatewayRewriteRuleSet(dict):
     def __init__(__self__, *,
                  name: str,
                  id: Optional[str] = None,
-                 rewrite_rules: Optional[List['outputs.ApplicationGatewayRewriteRuleSetRewriteRule']] = None):
+                 rewrite_rules: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRule']] = None):
         """
         :param str name: Unique name of the rewrite rule set block
         :param str id: The ID of the Rewrite Rule Set
-        :param List['ApplicationGatewayRewriteRuleSetRewriteRuleArgs'] rewrite_rules: One or more `rewrite_rule` blocks as defined above.
+        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleArgs'] rewrite_rules: One or more `rewrite_rule` blocks as defined above.
         """
         pulumi.set(__self__, "name", name)
         if id is not None:
@@ -1466,7 +1466,7 @@ class ApplicationGatewayRewriteRuleSet(dict):
 
     @property
     @pulumi.getter(name="rewriteRules")
-    def rewrite_rules(self) -> Optional[List['outputs.ApplicationGatewayRewriteRuleSetRewriteRule']]:
+    def rewrite_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRule']]:
         """
         One or more `rewrite_rule` blocks as defined above.
         """
@@ -1480,16 +1480,16 @@ class ApplicationGatewayRewriteRuleSet(dict):
 class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
     def __init__(__self__, *,
                  name: str,
-                 rule_sequence: float,
-                 conditions: Optional[List['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleCondition']] = None,
-                 request_header_configurations: Optional[List['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration']] = None,
-                 response_header_configurations: Optional[List['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration']] = None):
+                 rule_sequence: int,
+                 conditions: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleCondition']] = None,
+                 request_header_configurations: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration']] = None,
+                 response_header_configurations: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration']] = None):
         """
         :param str name: Unique name of the rewrite rule block
-        :param float rule_sequence: Rule sequence of the rewrite rule that determines the order of execution in a set.
-        :param List['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs'] conditions: One or more `condition` blocks as defined above.
-        :param List['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs'] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
-        :param List['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs'] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
+        :param int rule_sequence: Rule sequence of the rewrite rule that determines the order of execution in a set.
+        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs'] conditions: One or more `condition` blocks as defined above.
+        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs'] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
+        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs'] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_sequence", rule_sequence)
@@ -1510,7 +1510,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
 
     @property
     @pulumi.getter(name="ruleSequence")
-    def rule_sequence(self) -> float:
+    def rule_sequence(self) -> int:
         """
         Rule sequence of the rewrite rule that determines the order of execution in a set.
         """
@@ -1518,7 +1518,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[List['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleCondition']]:
+    def conditions(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleCondition']]:
         """
         One or more `condition` blocks as defined above.
         """
@@ -1526,7 +1526,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
 
     @property
     @pulumi.getter(name="requestHeaderConfigurations")
-    def request_header_configurations(self) -> Optional[List['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration']]:
+    def request_header_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration']]:
         """
         One or more `request_header_configuration` blocks as defined above.
         """
@@ -1534,7 +1534,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
 
     @property
     @pulumi.getter(name="responseHeaderConfigurations")
-    def response_header_configurations(self) -> Optional[List['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration']]:
+    def response_header_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration']]:
         """
         One or more `response_header_configuration` blocks as defined above.
         """
@@ -1669,11 +1669,11 @@ class ApplicationGatewaySku(dict):
     def __init__(__self__, *,
                  name: str,
                  tier: str,
-                 capacity: Optional[float] = None):
+                 capacity: Optional[int] = None):
         """
         :param str name: The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
         :param str tier: The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
-        :param float capacity: The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
+        :param int capacity: The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -1698,7 +1698,7 @@ class ApplicationGatewaySku(dict):
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[float]:
+    def capacity(self) -> Optional[int]:
         """
         The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
         """
@@ -1792,14 +1792,14 @@ class ApplicationGatewaySslCertificate(dict):
 @pulumi.output_type
 class ApplicationGatewaySslPolicy(dict):
     def __init__(__self__, *,
-                 cipher_suites: Optional[List[str]] = None,
-                 disabled_protocols: Optional[List[str]] = None,
+                 cipher_suites: Optional[Sequence[str]] = None,
+                 disabled_protocols: Optional[Sequence[str]] = None,
                  min_protocol_version: Optional[str] = None,
                  policy_name: Optional[str] = None,
                  policy_type: Optional[str] = None):
         """
-        :param List[str] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
-        :param List[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        :param Sequence[str] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
+        :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
                are published here https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
@@ -1818,7 +1818,7 @@ class ApplicationGatewaySslPolicy(dict):
 
     @property
     @pulumi.getter(name="cipherSuites")
-    def cipher_suites(self) -> Optional[List[str]]:
+    def cipher_suites(self) -> Optional[Sequence[str]]:
         """
         A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
         """
@@ -1826,7 +1826,7 @@ class ApplicationGatewaySslPolicy(dict):
 
     @property
     @pulumi.getter(name="disabledProtocols")
-    def disabled_protocols(self) -> Optional[List[str]]:
+    def disabled_protocols(self) -> Optional[Sequence[str]]:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
         """
@@ -1909,7 +1909,7 @@ class ApplicationGatewayTrustedRootCertificate(dict):
 class ApplicationGatewayUrlPathMap(dict):
     def __init__(__self__, *,
                  name: str,
-                 path_rules: List['outputs.ApplicationGatewayUrlPathMapPathRule'],
+                 path_rules: Sequence['outputs.ApplicationGatewayUrlPathMapPathRule'],
                  default_backend_address_pool_id: Optional[str] = None,
                  default_backend_address_pool_name: Optional[str] = None,
                  default_backend_http_settings_id: Optional[str] = None,
@@ -1921,7 +1921,7 @@ class ApplicationGatewayUrlPathMap(dict):
                  id: Optional[str] = None):
         """
         :param str name: The Name of the URL Path Map.
-        :param List['ApplicationGatewayUrlPathMapPathRuleArgs'] path_rules: One or more `path_rule` blocks as defined above.
+        :param Sequence['ApplicationGatewayUrlPathMapPathRuleArgs'] path_rules: One or more `path_rule` blocks as defined above.
         :param str default_backend_address_pool_id: The ID of the Default Backend Address Pool.
         :param str default_backend_address_pool_name: The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
         :param str default_backend_http_settings_id: The ID of the Default Backend HTTP Settings Collection.
@@ -1962,7 +1962,7 @@ class ApplicationGatewayUrlPathMap(dict):
 
     @property
     @pulumi.getter(name="pathRules")
-    def path_rules(self) -> List['outputs.ApplicationGatewayUrlPathMapPathRule']:
+    def path_rules(self) -> Sequence['outputs.ApplicationGatewayUrlPathMapPathRule']:
         """
         One or more `path_rule` blocks as defined above.
         """
@@ -2045,7 +2045,7 @@ class ApplicationGatewayUrlPathMap(dict):
 class ApplicationGatewayUrlPathMapPathRule(dict):
     def __init__(__self__, *,
                  name: str,
-                 paths: List[str],
+                 paths: Sequence[str],
                  backend_address_pool_id: Optional[str] = None,
                  backend_address_pool_name: Optional[str] = None,
                  backend_http_settings_id: Optional[str] = None,
@@ -2057,7 +2057,7 @@ class ApplicationGatewayUrlPathMapPathRule(dict):
                  rewrite_rule_set_name: Optional[str] = None):
         """
         :param str name: The Name of the Path Rule.
-        :param List[str] paths: A list of Paths used in this Path Rule.
+        :param Sequence[str] paths: A list of Paths used in this Path Rule.
         :param str backend_address_pool_id: The ID of the associated Backend Address Pool.
         :param str backend_address_pool_name: The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
         :param str backend_http_settings_id: The ID of the associated Backend HTTP Settings Configuration.
@@ -2099,7 +2099,7 @@ class ApplicationGatewayUrlPathMapPathRule(dict):
 
     @property
     @pulumi.getter
-    def paths(self) -> List[str]:
+    def paths(self) -> Sequence[str]:
         """
         A list of Paths used in this Path Rule.
         """
@@ -2187,20 +2187,20 @@ class ApplicationGatewayWafConfiguration(dict):
                  enabled: bool,
                  firewall_mode: str,
                  rule_set_version: str,
-                 disabled_rule_groups: Optional[List['outputs.ApplicationGatewayWafConfigurationDisabledRuleGroup']] = None,
-                 exclusions: Optional[List['outputs.ApplicationGatewayWafConfigurationExclusion']] = None,
-                 file_upload_limit_mb: Optional[float] = None,
-                 max_request_body_size_kb: Optional[float] = None,
+                 disabled_rule_groups: Optional[Sequence['outputs.ApplicationGatewayWafConfigurationDisabledRuleGroup']] = None,
+                 exclusions: Optional[Sequence['outputs.ApplicationGatewayWafConfigurationExclusion']] = None,
+                 file_upload_limit_mb: Optional[int] = None,
+                 max_request_body_size_kb: Optional[int] = None,
                  request_body_check: Optional[bool] = None,
                  rule_set_type: Optional[str] = None):
         """
         :param bool enabled: Is the Web Application Firewall be enabled?
         :param str firewall_mode: The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
         :param str rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, and `3.1`.
-        :param List['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs'] disabled_rule_groups: one or more `disabled_rule_group` blocks as defined below.
-        :param List['ApplicationGatewayWafConfigurationExclusionArgs'] exclusions: one or more `exclusion` blocks as defined below.
-        :param float file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
-        :param float max_request_body_size_kb: The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
+        :param Sequence['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs'] disabled_rule_groups: one or more `disabled_rule_group` blocks as defined below.
+        :param Sequence['ApplicationGatewayWafConfigurationExclusionArgs'] exclusions: one or more `exclusion` blocks as defined below.
+        :param int file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
+        :param int max_request_body_size_kb: The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
         :param bool request_body_check: Is Request Body Inspection enabled?  Defaults to `true`.
         :param str rule_set_type: The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
         """
@@ -2246,7 +2246,7 @@ class ApplicationGatewayWafConfiguration(dict):
 
     @property
     @pulumi.getter(name="disabledRuleGroups")
-    def disabled_rule_groups(self) -> Optional[List['outputs.ApplicationGatewayWafConfigurationDisabledRuleGroup']]:
+    def disabled_rule_groups(self) -> Optional[Sequence['outputs.ApplicationGatewayWafConfigurationDisabledRuleGroup']]:
         """
         one or more `disabled_rule_group` blocks as defined below.
         """
@@ -2254,7 +2254,7 @@ class ApplicationGatewayWafConfiguration(dict):
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[List['outputs.ApplicationGatewayWafConfigurationExclusion']]:
+    def exclusions(self) -> Optional[Sequence['outputs.ApplicationGatewayWafConfigurationExclusion']]:
         """
         one or more `exclusion` blocks as defined below.
         """
@@ -2262,7 +2262,7 @@ class ApplicationGatewayWafConfiguration(dict):
 
     @property
     @pulumi.getter(name="fileUploadLimitMb")
-    def file_upload_limit_mb(self) -> Optional[float]:
+    def file_upload_limit_mb(self) -> Optional[int]:
         """
         The File Upload Limit in MB. Accepted values are in the range `1`MB to `500`MB. Defaults to `100`MB.
         """
@@ -2270,7 +2270,7 @@ class ApplicationGatewayWafConfiguration(dict):
 
     @property
     @pulumi.getter(name="maxRequestBodySizeKb")
-    def max_request_body_size_kb(self) -> Optional[float]:
+    def max_request_body_size_kb(self) -> Optional[int]:
         """
         The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
         """
@@ -2300,10 +2300,10 @@ class ApplicationGatewayWafConfiguration(dict):
 class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
     def __init__(__self__, *,
                  rule_group_name: str,
-                 rules: Optional[List[float]] = None):
+                 rules: Optional[Sequence[int]] = None):
         """
         :param str rule_group_name: The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
-        :param List[float] rules: A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
+        :param Sequence[int] rules: A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
@@ -2319,7 +2319,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List[float]]:
+    def rules(self) -> Optional[Sequence[int]]:
         """
         A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
         """
@@ -2377,12 +2377,12 @@ class ApplicationGatewayWafConfigurationExclusion(dict):
 @pulumi.output_type
 class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     def __init__(__self__, *,
-                 advertised_public_prefixes: List[str],
-                 customer_asn: Optional[float] = None,
+                 advertised_public_prefixes: Sequence[str],
+                 customer_asn: Optional[int] = None,
                  routing_registry_name: Optional[str] = None):
         """
-        :param List[str] advertised_public_prefixes: A list of Advertised Public Prefixes
-        :param float customer_asn: The CustomerASN of the peering
+        :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes
+        :param int customer_asn: The CustomerASN of the peering
         :param str routing_registry_name: The RoutingRegistryName of the configuration
         """
         pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
@@ -2393,7 +2393,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
 
     @property
     @pulumi.getter(name="advertisedPublicPrefixes")
-    def advertised_public_prefixes(self) -> List[str]:
+    def advertised_public_prefixes(self) -> Sequence[str]:
         """
         A list of Advertised Public Prefixes
         """
@@ -2401,7 +2401,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
 
     @property
     @pulumi.getter(name="customerAsn")
-    def customer_asn(self) -> Optional[float]:
+    def customer_asn(self) -> Optional[int]:
         """
         The CustomerASN of the peering
         """
@@ -2455,18 +2455,18 @@ class ExpressRouteCircuitSku(dict):
 class FirewallApplicationRuleCollectionRule(dict):
     def __init__(__self__, *,
                  name: str,
-                 source_addresses: List[str],
+                 source_addresses: Sequence[str],
                  description: Optional[str] = None,
-                 fqdn_tags: Optional[List[str]] = None,
-                 protocols: Optional[List['outputs.FirewallApplicationRuleCollectionRuleProtocol']] = None,
-                 target_fqdns: Optional[List[str]] = None):
+                 fqdn_tags: Optional[Sequence[str]] = None,
+                 protocols: Optional[Sequence['outputs.FirewallApplicationRuleCollectionRuleProtocol']] = None,
+                 target_fqdns: Optional[Sequence[str]] = None):
         """
         :param str name: Specifies the name of the rule.
-        :param List[str] source_addresses: A list of source IP addresses and/or IP ranges.
+        :param Sequence[str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param str description: Specifies a description for the rule.
-        :param List[str] fqdn_tags: A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
-        :param List['FirewallApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocol` blocks as defined below.
-        :param List[str] target_fqdns: A list of FQDNs.
+        :param Sequence[str] fqdn_tags: A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
+        :param Sequence['FirewallApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocol` blocks as defined below.
+        :param Sequence[str] target_fqdns: A list of FQDNs.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source_addresses", source_addresses)
@@ -2489,7 +2489,7 @@ class FirewallApplicationRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> List[str]:
+    def source_addresses(self) -> Sequence[str]:
         """
         A list of source IP addresses and/or IP ranges.
         """
@@ -2505,7 +2505,7 @@ class FirewallApplicationRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="fqdnTags")
-    def fqdn_tags(self) -> Optional[List[str]]:
+    def fqdn_tags(self) -> Optional[Sequence[str]]:
         """
         A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
         """
@@ -2513,7 +2513,7 @@ class FirewallApplicationRuleCollectionRule(dict):
 
     @property
     @pulumi.getter
-    def protocols(self) -> Optional[List['outputs.FirewallApplicationRuleCollectionRuleProtocol']]:
+    def protocols(self) -> Optional[Sequence['outputs.FirewallApplicationRuleCollectionRuleProtocol']]:
         """
         One or more `protocol` blocks as defined below.
         """
@@ -2521,7 +2521,7 @@ class FirewallApplicationRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="targetFqdns")
-    def target_fqdns(self) -> Optional[List[str]]:
+    def target_fqdns(self) -> Optional[Sequence[str]]:
         """
         A list of FQDNs.
         """
@@ -2535,10 +2535,10 @@ class FirewallApplicationRuleCollectionRule(dict):
 class FirewallApplicationRuleCollectionRuleProtocol(dict):
     def __init__(__self__, *,
                  type: str,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
         :param str type: Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
-        :param float port: Specify a port for the connection.
+        :param int port: Specify a port for the connection.
         """
         pulumi.set(__self__, "type", type)
         if port is not None:
@@ -2554,7 +2554,7 @@ class FirewallApplicationRuleCollectionRuleProtocol(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         Specify a port for the connection.
         """
@@ -2678,20 +2678,20 @@ class FirewallManagementIpConfiguration(dict):
 @pulumi.output_type
 class FirewallNatRuleCollectionRule(dict):
     def __init__(__self__, *,
-                 destination_addresses: List[str],
-                 destination_ports: List[str],
+                 destination_addresses: Sequence[str],
+                 destination_ports: Sequence[str],
                  name: str,
-                 protocols: List[str],
-                 source_addresses: List[str],
+                 protocols: Sequence[str],
+                 source_addresses: Sequence[str],
                  translated_address: str,
                  translated_port: str,
                  description: Optional[str] = None):
         """
-        :param List[str] destination_addresses: A list of destination IP addresses and/or IP ranges.
-        :param List[str] destination_ports: A list of destination ports.
+        :param Sequence[str] destination_addresses: A list of destination IP addresses and/or IP ranges.
+        :param Sequence[str] destination_ports: A list of destination ports.
         :param str name: Specifies the name of the rule.
-        :param List[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
-        :param List[str] source_addresses: A list of source IP addresses and/or IP ranges.
+        :param Sequence[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
+        :param Sequence[str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param str translated_address: The address of the service behind the Firewall.
         :param str translated_port: The port of the service behind the Firewall.
         :param str description: Specifies a description for the rule.
@@ -2708,7 +2708,7 @@ class FirewallNatRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> List[str]:
+    def destination_addresses(self) -> Sequence[str]:
         """
         A list of destination IP addresses and/or IP ranges.
         """
@@ -2716,7 +2716,7 @@ class FirewallNatRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="destinationPorts")
-    def destination_ports(self) -> List[str]:
+    def destination_ports(self) -> Sequence[str]:
         """
         A list of destination ports.
         """
@@ -2732,7 +2732,7 @@ class FirewallNatRuleCollectionRule(dict):
 
     @property
     @pulumi.getter
-    def protocols(self) -> List[str]:
+    def protocols(self) -> Sequence[str]:
         """
         A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
         """
@@ -2740,7 +2740,7 @@ class FirewallNatRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> List[str]:
+    def source_addresses(self) -> Sequence[str]:
         """
         A list of source IP addresses and/or IP ranges.
         """
@@ -2777,18 +2777,18 @@ class FirewallNatRuleCollectionRule(dict):
 @pulumi.output_type
 class FirewallNetworkRuleCollectionRule(dict):
     def __init__(__self__, *,
-                 destination_addresses: List[str],
-                 destination_ports: List[str],
+                 destination_addresses: Sequence[str],
+                 destination_ports: Sequence[str],
                  name: str,
-                 protocols: List[str],
-                 source_addresses: List[str],
+                 protocols: Sequence[str],
+                 source_addresses: Sequence[str],
                  description: Optional[str] = None):
         """
-        :param List[str] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
-        :param List[str] destination_ports: A list of destination ports.
+        :param Sequence[str] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+        :param Sequence[str] destination_ports: A list of destination ports.
         :param str name: Specifies the name of the rule.
-        :param List[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
-        :param List[str] source_addresses: A list of source IP addresses and/or IP ranges.
+        :param Sequence[str] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
+        :param Sequence[str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param str description: Specifies a description for the rule.
         """
         pulumi.set(__self__, "destination_addresses", destination_addresses)
@@ -2801,7 +2801,7 @@ class FirewallNetworkRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="destinationAddresses")
-    def destination_addresses(self) -> List[str]:
+    def destination_addresses(self) -> Sequence[str]:
         """
         Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
         """
@@ -2809,7 +2809,7 @@ class FirewallNetworkRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="destinationPorts")
-    def destination_ports(self) -> List[str]:
+    def destination_ports(self) -> Sequence[str]:
         """
         A list of destination ports.
         """
@@ -2825,7 +2825,7 @@ class FirewallNetworkRuleCollectionRule(dict):
 
     @property
     @pulumi.getter
-    def protocols(self) -> List[str]:
+    def protocols(self) -> Sequence[str]:
         """
         A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
         """
@@ -2833,7 +2833,7 @@ class FirewallNetworkRuleCollectionRule(dict):
 
     @property
     @pulumi.getter(name="sourceAddresses")
-    def source_addresses(self) -> List[str]:
+    def source_addresses(self) -> Sequence[str]:
         """
         A list of source IP addresses and/or IP ranges.
         """
@@ -2856,11 +2856,11 @@ class FirewallPolicyDns(dict):
     def __init__(__self__, *,
                  network_rule_fqdn_enabled: Optional[bool] = None,
                  proxy_enabled: Optional[bool] = None,
-                 servers: Optional[List[str]] = None):
+                 servers: Optional[Sequence[str]] = None):
         """
         :param bool network_rule_fqdn_enabled: Whether FQDNS in Network Rules belongs to this Firewall Policy are supported? Defaults to `false`.
         :param bool proxy_enabled: Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
-        :param List[str] servers: A list of custom DNS servers' IP addresses.
+        :param Sequence[str] servers: A list of custom DNS servers' IP addresses.
         """
         if network_rule_fqdn_enabled is not None:
             pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
@@ -2887,7 +2887,7 @@ class FirewallPolicyDns(dict):
 
     @property
     @pulumi.getter
-    def servers(self) -> Optional[List[str]]:
+    def servers(self) -> Optional[Sequence[str]]:
         """
         A list of custom DNS servers' IP addresses.
         """
@@ -2900,11 +2900,11 @@ class FirewallPolicyDns(dict):
 @pulumi.output_type
 class FirewallPolicyThreatIntelligenceAllowlist(dict):
     def __init__(__self__, *,
-                 fqdns: Optional[List[str]] = None,
-                 ip_addresses: Optional[List[str]] = None):
+                 fqdns: Optional[Sequence[str]] = None,
+                 ip_addresses: Optional[Sequence[str]] = None):
         """
-        :param List[str] fqdns: A list of FQDNs that will be skipped for threat detection.
-        :param List[str] ip_addresses: A list of IP addresses or IP address ranges that will be skipped for threat detection.
+        :param Sequence[str] fqdns: A list of FQDNs that will be skipped for threat detection.
+        :param Sequence[str] ip_addresses: A list of IP addresses or IP address ranges that will be skipped for threat detection.
         """
         if fqdns is not None:
             pulumi.set(__self__, "fqdns", fqdns)
@@ -2913,7 +2913,7 @@ class FirewallPolicyThreatIntelligenceAllowlist(dict):
 
     @property
     @pulumi.getter
-    def fqdns(self) -> Optional[List[str]]:
+    def fqdns(self) -> Optional[Sequence[str]]:
         """
         A list of FQDNs that will be skipped for threat detection.
         """
@@ -2921,7 +2921,7 @@ class FirewallPolicyThreatIntelligenceAllowlist(dict):
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> Optional[List[str]]:
+    def ip_addresses(self) -> Optional[Sequence[str]]:
         """
         A list of IP addresses or IP address ranges that will be skipped for threat detection.
         """
@@ -2934,14 +2934,14 @@ class FirewallPolicyThreatIntelligenceAllowlist(dict):
 @pulumi.output_type
 class LocalNetworkGatewayBgpSettings(dict):
     def __init__(__self__, *,
-                 asn: float,
+                 asn: int,
                  bgp_peering_address: str,
-                 peer_weight: Optional[float] = None):
+                 peer_weight: Optional[int] = None):
         """
-        :param float asn: The BGP speaker's ASN.
+        :param int asn: The BGP speaker's ASN.
         :param str bgp_peering_address: The BGP peering address and BGP identifier
                of this BGP speaker.
-        :param float peer_weight: The weight added to routes learned from this
+        :param int peer_weight: The weight added to routes learned from this
                BGP speaker.
         """
         pulumi.set(__self__, "asn", asn)
@@ -2951,7 +2951,7 @@ class LocalNetworkGatewayBgpSettings(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> float:
+    def asn(self) -> int:
         """
         The BGP speaker's ASN.
         """
@@ -2968,7 +2968,7 @@ class LocalNetworkGatewayBgpSettings(dict):
 
     @property
     @pulumi.getter(name="peerWeight")
-    def peer_weight(self) -> Optional[float]:
+    def peer_weight(self) -> Optional[int]:
         """
         The weight added to routes learned from this
         BGP speaker.
@@ -2982,11 +2982,11 @@ class LocalNetworkGatewayBgpSettings(dict):
 @pulumi.output_type
 class NetworkConnectionMonitorDestination(dict):
     def __init__(__self__, *,
-                 port: float,
+                 port: int,
                  address: Optional[str] = None,
                  virtual_machine_id: Optional[str] = None):
         """
-        :param float port: The destination port used by connection monitor.
+        :param int port: The destination port used by connection monitor.
         :param str address: The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
         :param str virtual_machine_id: The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
         """
@@ -2998,7 +2998,7 @@ class NetworkConnectionMonitorDestination(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The destination port used by connection monitor.
         """
@@ -3028,10 +3028,10 @@ class NetworkConnectionMonitorDestination(dict):
 class NetworkConnectionMonitorSource(dict):
     def __init__(__self__, *,
                  virtual_machine_id: str,
-                 port: Optional[float] = None):
+                 port: Optional[int] = None):
         """
         :param str virtual_machine_id: The ID of the virtual machine used as the source by connection monitor.
-        :param float port: The source port used by connection monitor.
+        :param int port: The source port used by connection monitor.
         """
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if port is not None:
@@ -3047,7 +3047,7 @@ class NetworkConnectionMonitorSource(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         """
         The source port used by connection monitor.
         """
@@ -3270,36 +3270,36 @@ class NetworkSecurityGroupSecurityRule(dict):
                  access: str,
                  direction: str,
                  name: str,
-                 priority: float,
+                 priority: int,
                  protocol: str,
                  description: Optional[str] = None,
                  destination_address_prefix: Optional[str] = None,
-                 destination_address_prefixes: Optional[List[str]] = None,
-                 destination_application_security_group_ids: Optional[List[str]] = None,
+                 destination_address_prefixes: Optional[Sequence[str]] = None,
+                 destination_application_security_group_ids: Optional[Sequence[str]] = None,
                  destination_port_range: Optional[str] = None,
-                 destination_port_ranges: Optional[List[str]] = None,
+                 destination_port_ranges: Optional[Sequence[str]] = None,
                  source_address_prefix: Optional[str] = None,
-                 source_address_prefixes: Optional[List[str]] = None,
-                 source_application_security_group_ids: Optional[List[str]] = None,
+                 source_address_prefixes: Optional[Sequence[str]] = None,
+                 source_application_security_group_ids: Optional[Sequence[str]] = None,
                  source_port_range: Optional[str] = None,
-                 source_port_ranges: Optional[List[str]] = None):
+                 source_port_ranges: Optional[Sequence[str]] = None):
         """
         :param str access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param str direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
         :param str name: The name of the security rule.
-        :param float priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param int priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to. Can be `Tcp`, `Udp`, `Icmp`, or `*` to match all.
         :param str description: A description for this rule. Restricted to 140 characters.
         :param str destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
-        :param List[str] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-        :param List[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
+        :param Sequence[str] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        :param Sequence[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
         :param str destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-        :param List[str] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        :param Sequence[str] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         :param str source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
-        :param List[str] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-        :param List[str] source_application_security_group_ids: A List of source Application Security Group ID's
+        :param Sequence[str] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        :param Sequence[str] source_application_security_group_ids: A List of source Application Security Group ID's
         :param str source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-        :param List[str] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        :param Sequence[str] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "direction", direction)
@@ -3355,7 +3355,7 @@ class NetworkSecurityGroupSecurityRule(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         """
         Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """
@@ -3387,7 +3387,7 @@ class NetworkSecurityGroupSecurityRule(dict):
 
     @property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> Optional[List[str]]:
+    def destination_address_prefixes(self) -> Optional[Sequence[str]]:
         """
         List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         """
@@ -3395,7 +3395,7 @@ class NetworkSecurityGroupSecurityRule(dict):
 
     @property
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
-    def destination_application_security_group_ids(self) -> Optional[List[str]]:
+    def destination_application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         A List of destination Application Security Group ID's
         """
@@ -3411,7 +3411,7 @@ class NetworkSecurityGroupSecurityRule(dict):
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[List[str]]:
+    def destination_port_ranges(self) -> Optional[Sequence[str]]:
         """
         List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         """
@@ -3427,7 +3427,7 @@ class NetworkSecurityGroupSecurityRule(dict):
 
     @property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> Optional[List[str]]:
+    def source_address_prefixes(self) -> Optional[Sequence[str]]:
         """
         List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         """
@@ -3435,7 +3435,7 @@ class NetworkSecurityGroupSecurityRule(dict):
 
     @property
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
-    def source_application_security_group_ids(self) -> Optional[List[str]]:
+    def source_application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         A List of source Application Security Group ID's
         """
@@ -3451,7 +3451,7 @@ class NetworkSecurityGroupSecurityRule(dict):
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[List[str]]:
+    def source_port_ranges(self) -> Optional[Sequence[str]]:
         """
         List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
@@ -3464,10 +3464,10 @@ class NetworkSecurityGroupSecurityRule(dict):
 @pulumi.output_type
 class NetworkWatcherFlowLogRetentionPolicy(dict):
     def __init__(__self__, *,
-                 days: float,
+                 days: int,
                  enabled: bool):
         """
-        :param float days: The number of days to retain flow log records.
+        :param int days: The number of days to retain flow log records.
         :param bool enabled: Boolean flag to enable/disable traffic analytics.
         """
         pulumi.set(__self__, "days", days)
@@ -3475,7 +3475,7 @@ class NetworkWatcherFlowLogRetentionPolicy(dict):
 
     @property
     @pulumi.getter
-    def days(self) -> float:
+    def days(self) -> int:
         """
         The number of days to retain flow log records.
         """
@@ -3500,13 +3500,13 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
                  workspace_id: str,
                  workspace_region: str,
                  workspace_resource_id: str,
-                 interval_in_minutes: Optional[float] = None):
+                 interval_in_minutes: Optional[int] = None):
         """
         :param bool enabled: Boolean flag to enable/disable traffic analytics.
         :param str workspace_id: The resource guid of the attached workspace.
         :param str workspace_region: The location of the attached workspace.
         :param str workspace_resource_id: The resource ID of the attached workspace.
-        :param float interval_in_minutes: How frequently service should do flow analytics in minutes.
+        :param int interval_in_minutes: How frequently service should do flow analytics in minutes.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -3549,7 +3549,7 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
 
     @property
     @pulumi.getter(name="intervalInMinutes")
-    def interval_in_minutes(self) -> Optional[float]:
+    def interval_in_minutes(self) -> Optional[int]:
         """
         How frequently service should do flow analytics in minutes.
         """
@@ -3709,15 +3709,15 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
 @pulumi.output_type
 class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(dict):
     def __init__(__self__, *,
-                 address_prefixes: List[str]):
+                 address_prefixes: Sequence[str]):
         """
-        :param List[str] address_prefixes: A list of CIDR Ranges which should be used as Address Prefixes.
+        :param Sequence[str] address_prefixes: A list of CIDR Ranges which should be used as Address Prefixes.
         """
         pulumi.set(__self__, "address_prefixes", address_prefixes)
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> List[str]:
+    def address_prefixes(self) -> Sequence[str]:
         """
         A list of CIDR Ranges which should be used as Address Prefixes.
         """
@@ -3730,10 +3730,10 @@ class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(dict):
 @pulumi.output_type
 class ProfileContainerNetworkInterface(dict):
     def __init__(__self__, *,
-                 ip_configurations: List['outputs.ProfileContainerNetworkInterfaceIpConfiguration'],
+                 ip_configurations: Sequence['outputs.ProfileContainerNetworkInterfaceIpConfiguration'],
                  name: str):
         """
-        :param List['ProfileContainerNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as documented below.
+        :param Sequence['ProfileContainerNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as documented below.
         :param str name: Specifies the name of the IP Configuration.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -3741,7 +3741,7 @@ class ProfileContainerNetworkInterface(dict):
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> List['outputs.ProfileContainerNetworkInterfaceIpConfiguration']:
+    def ip_configurations(self) -> Sequence['outputs.ProfileContainerNetworkInterfaceIpConfiguration']:
         """
         One or more `ip_configuration` blocks as documented below.
         """
@@ -3795,12 +3795,12 @@ class ProfileContainerNetworkInterfaceIpConfiguration(dict):
 class RouteFilterRule(dict):
     def __init__(__self__, *,
                  access: str,
-                 communities: List[str],
+                 communities: Sequence[str],
                  name: str,
                  rule_type: str):
         """
         :param str access: The access type of the rule. The only possible value is `Allow`.
-        :param List[str] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+        :param Sequence[str] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
         :param str name: The name of the route filter rule.
         :param str rule_type: The rule type of the rule. The only possible value is `Community`.
         """
@@ -3819,7 +3819,7 @@ class RouteFilterRule(dict):
 
     @property
     @pulumi.getter
-    def communities(self) -> List[str]:
+    def communities(self) -> Sequence[str]:
         """
         The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
         """
@@ -3936,10 +3936,10 @@ class SubnetDelegation(dict):
 class SubnetDelegationServiceDelegation(dict):
     def __init__(__self__, *,
                  name: str,
-                 actions: Optional[List[str]] = None):
+                 actions: Optional[Sequence[str]] = None):
         """
         :param str name: The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`,  `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
-        :param List[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+        :param Sequence[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -3955,7 +3955,7 @@ class SubnetDelegationServiceDelegation(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List[str]]:
+    def actions(self) -> Optional[Sequence[str]]:
         """
         A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
         """
@@ -4002,11 +4002,11 @@ class TrafficManagerEndpointSubnet(dict):
     def __init__(__self__, *,
                  first: str,
                  last: Optional[str] = None,
-                 scope: Optional[float] = None):
+                 scope: Optional[int] = None):
         """
         :param str first: The First IP....
         :param str last: The Last IP...
-        :param float scope: The Scope...
+        :param int scope: The Scope...
         """
         pulumi.set(__self__, "first", first)
         if last is not None:
@@ -4032,7 +4032,7 @@ class TrafficManagerEndpointSubnet(dict):
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[float]:
+    def scope(self) -> Optional[int]:
         """
         The Scope...
         """
@@ -4046,10 +4046,10 @@ class TrafficManagerEndpointSubnet(dict):
 class TrafficManagerProfileDnsConfig(dict):
     def __init__(__self__, *,
                  relative_name: str,
-                 ttl: float):
+                 ttl: int):
         """
         :param str relative_name: The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
-        :param float ttl: The TTL value of the Profile used by Local DNS resolvers and clients.
+        :param int ttl: The TTL value of the Profile used by Local DNS resolvers and clients.
         """
         pulumi.set(__self__, "relative_name", relative_name)
         pulumi.set(__self__, "ttl", ttl)
@@ -4064,7 +4064,7 @@ class TrafficManagerProfileDnsConfig(dict):
 
     @property
     @pulumi.getter
-    def ttl(self) -> float:
+    def ttl(self) -> int:
         """
         The TTL value of the Profile used by Local DNS resolvers and clients.
         """
@@ -4077,23 +4077,23 @@ class TrafficManagerProfileDnsConfig(dict):
 @pulumi.output_type
 class TrafficManagerProfileMonitorConfig(dict):
     def __init__(__self__, *,
-                 port: float,
+                 port: int,
                  protocol: str,
-                 custom_headers: Optional[List['outputs.TrafficManagerProfileMonitorConfigCustomHeader']] = None,
-                 expected_status_code_ranges: Optional[List[str]] = None,
-                 interval_in_seconds: Optional[float] = None,
+                 custom_headers: Optional[Sequence['outputs.TrafficManagerProfileMonitorConfigCustomHeader']] = None,
+                 expected_status_code_ranges: Optional[Sequence[str]] = None,
+                 interval_in_seconds: Optional[int] = None,
                  path: Optional[str] = None,
-                 timeout_in_seconds: Optional[float] = None,
-                 tolerated_number_of_failures: Optional[float] = None):
+                 timeout_in_seconds: Optional[int] = None,
+                 tolerated_number_of_failures: Optional[int] = None):
         """
-        :param float port: The port number used by the monitoring checks.
+        :param int port: The port number used by the monitoring checks.
         :param str protocol: The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-        :param List['TrafficManagerProfileMonitorConfigCustomHeaderArgs'] custom_headers: One or more `custom_header` blocks as defined below.
-        :param List[str] expected_status_code_ranges: A list of status code ranges in the format of `100-101`.
-        :param float interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
+        :param Sequence['TrafficManagerProfileMonitorConfigCustomHeaderArgs'] custom_headers: One or more `custom_header` blocks as defined below.
+        :param Sequence[str] expected_status_code_ranges: A list of status code ranges in the format of `100-101`.
+        :param int interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         :param str path: The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
-        :param float timeout_in_seconds: The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
-        :param float tolerated_number_of_failures: The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
+        :param int timeout_in_seconds: The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+        :param int tolerated_number_of_failures: The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
@@ -4112,7 +4112,7 @@ class TrafficManagerProfileMonitorConfig(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The port number used by the monitoring checks.
         """
@@ -4128,7 +4128,7 @@ class TrafficManagerProfileMonitorConfig(dict):
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[List['outputs.TrafficManagerProfileMonitorConfigCustomHeader']]:
+    def custom_headers(self) -> Optional[Sequence['outputs.TrafficManagerProfileMonitorConfigCustomHeader']]:
         """
         One or more `custom_header` blocks as defined below.
         """
@@ -4136,7 +4136,7 @@ class TrafficManagerProfileMonitorConfig(dict):
 
     @property
     @pulumi.getter(name="expectedStatusCodeRanges")
-    def expected_status_code_ranges(self) -> Optional[List[str]]:
+    def expected_status_code_ranges(self) -> Optional[Sequence[str]]:
         """
         A list of status code ranges in the format of `100-101`.
         """
@@ -4144,7 +4144,7 @@ class TrafficManagerProfileMonitorConfig(dict):
 
     @property
     @pulumi.getter(name="intervalInSeconds")
-    def interval_in_seconds(self) -> Optional[float]:
+    def interval_in_seconds(self) -> Optional[int]:
         """
         The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         """
@@ -4160,7 +4160,7 @@ class TrafficManagerProfileMonitorConfig(dict):
 
     @property
     @pulumi.getter(name="timeoutInSeconds")
-    def timeout_in_seconds(self) -> Optional[float]:
+    def timeout_in_seconds(self) -> Optional[int]:
         """
         The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
         """
@@ -4168,7 +4168,7 @@ class TrafficManagerProfileMonitorConfig(dict):
 
     @property
     @pulumi.getter(name="toleratedNumberOfFailures")
-    def tolerated_number_of_failures(self) -> Optional[float]:
+    def tolerated_number_of_failures(self) -> Optional[int]:
         """
         The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
         """
@@ -4213,10 +4213,10 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
 @pulumi.output_type
 class VirtualHubRoute(dict):
     def __init__(__self__, *,
-                 address_prefixes: List[str],
+                 address_prefixes: Sequence[str],
                  next_hop_ip_address: str):
         """
-        :param List[str] address_prefixes: A list of Address Prefixes.
+        :param Sequence[str] address_prefixes: A list of Address Prefixes.
         :param str next_hop_ip_address: The IP Address that Packets should be forwarded to as the Next Hop.
         """
         pulumi.set(__self__, "address_prefixes", address_prefixes)
@@ -4224,7 +4224,7 @@ class VirtualHubRoute(dict):
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> List[str]:
+    def address_prefixes(self) -> Sequence[str]:
         """
         A list of Address Prefixes.
         """
@@ -4277,12 +4277,12 @@ class VirtualNetworkDdosProtectionPlan(dict):
 @pulumi.output_type
 class VirtualNetworkGatewayBgpSettings(dict):
     def __init__(__self__, *,
-                 asn: Optional[float] = None,
-                 peer_weight: Optional[float] = None,
+                 asn: Optional[int] = None,
+                 peer_weight: Optional[int] = None,
                  peering_address: Optional[str] = None):
         """
-        :param float asn: The Autonomous System Number (ASN) to use as part of the BGP.
-        :param float peer_weight: The weight added to routes which have been learned
+        :param int asn: The Autonomous System Number (ASN) to use as part of the BGP.
+        :param int peer_weight: The weight added to routes which have been learned
                through BGP peering. Valid values can be between `0` and `100`.
         :param str peering_address: The BGP peer IP address of the virtual network
                gateway. This address is needed to configure the created gateway as a BGP Peer
@@ -4298,7 +4298,7 @@ class VirtualNetworkGatewayBgpSettings(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> Optional[float]:
+    def asn(self) -> Optional[int]:
         """
         The Autonomous System Number (ASN) to use as part of the BGP.
         """
@@ -4306,7 +4306,7 @@ class VirtualNetworkGatewayBgpSettings(dict):
 
     @property
     @pulumi.getter(name="peerWeight")
-    def peer_weight(self) -> Optional[float]:
+    def peer_weight(self) -> Optional[int]:
         """
         The weight added to routes which have been learned
         through BGP peering. Valid values can be between `0` and `100`.
@@ -4337,8 +4337,8 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
                  ipsec_encryption: str,
                  ipsec_integrity: str,
                  pfs_group: str,
-                 sa_datasize: Optional[float] = None,
-                 sa_lifetime: Optional[float] = None):
+                 sa_datasize: Optional[int] = None,
+                 sa_lifetime: Optional[int] = None):
         """
         :param str dh_group: The DH group used in IKE phase 1 for initial SA. Valid
                options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
@@ -4354,9 +4354,9 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
         :param str pfs_group: The DH group used in IKE phase 2 for new child SA.
                Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
                or `None`.
-        :param float sa_datasize: The IPSec SA payload size in KB. Must be at least
+        :param int sa_datasize: The IPSec SA payload size in KB. Must be at least
                `1024` KB. Defaults to `102400000` KB.
-        :param float sa_lifetime: The IPSec SA lifetime in seconds. Must be at least
+        :param int sa_lifetime: The IPSec SA lifetime in seconds. Must be at least
                `300` seconds. Defaults to `27000` seconds.
         """
         pulumi.set(__self__, "dh_group", dh_group)
@@ -4428,7 +4428,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
 
     @property
     @pulumi.getter(name="saDatasize")
-    def sa_datasize(self) -> Optional[float]:
+    def sa_datasize(self) -> Optional[int]:
         """
         The IPSec SA payload size in KB. Must be at least
         `1024` KB. Defaults to `102400000` KB.
@@ -4437,7 +4437,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
 
     @property
     @pulumi.getter(name="saLifetime")
-    def sa_lifetime(self) -> Optional[float]:
+    def sa_lifetime(self) -> Optional[int]:
         """
         The IPSec SA lifetime in seconds. Must be at least
         `300` seconds. Defaults to `27000` seconds.
@@ -4451,19 +4451,19 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
 @pulumi.output_type
 class VirtualNetworkGatewayConnectionTrafficSelectorPolicy(dict):
     def __init__(__self__, *,
-                 local_address_cidrs: List[str],
-                 remote_address_cidrs: List[str]):
+                 local_address_cidrs: Sequence[str],
+                 remote_address_cidrs: Sequence[str]):
         pulumi.set(__self__, "local_address_cidrs", local_address_cidrs)
         pulumi.set(__self__, "remote_address_cidrs", remote_address_cidrs)
 
     @property
     @pulumi.getter(name="localAddressCidrs")
-    def local_address_cidrs(self) -> List[str]:
+    def local_address_cidrs(self) -> Sequence[str]:
         return pulumi.get(self, "local_address_cidrs")
 
     @property
     @pulumi.getter(name="remoteAddressCidrs")
-    def remote_address_cidrs(self) -> List[str]:
+    def remote_address_cidrs(self) -> Sequence[str]:
         return pulumi.get(self, "remote_address_cidrs")
 
     def _translate_property(self, prop):
@@ -4541,17 +4541,17 @@ class VirtualNetworkGatewayIpConfiguration(dict):
 @pulumi.output_type
 class VirtualNetworkGatewayVpnClientConfiguration(dict):
     def __init__(__self__, *,
-                 address_spaces: List[str],
+                 address_spaces: Sequence[str],
                  aad_audience: Optional[str] = None,
                  aad_issuer: Optional[str] = None,
                  aad_tenant: Optional[str] = None,
                  radius_server_address: Optional[str] = None,
                  radius_server_secret: Optional[str] = None,
-                 revoked_certificates: Optional[List['outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate']] = None,
-                 root_certificates: Optional[List['outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate']] = None,
-                 vpn_client_protocols: Optional[List[str]] = None):
+                 revoked_certificates: Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate']] = None,
+                 root_certificates: Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate']] = None,
+                 vpn_client_protocols: Optional[Sequence[str]] = None):
         """
-        :param List[str] address_spaces: The address space out of which ip addresses for
+        :param Sequence[str] address_spaces: The address space out of which ip addresses for
                vpn clients will be taken. You can provide more than one address space, e.g.
                in CIDR notation.
         :param str aad_audience: The client id of the Azure VPN application.
@@ -4570,16 +4570,16 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         :param str radius_server_secret: The secret used by the Radius server.
                This setting is incompatible with the use of
                `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
-        :param List['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which
+        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which
                are defined below.
                This setting is incompatible with the use of
                `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
-        :param List['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are
+        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are
                defined below. These root certificates are used to sign the client certificate
                used by the VPN clients to connect to the gateway.
                This setting is incompatible with the use of
                `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
-        :param List[str] vpn_client_protocols: List of the protocols supported by the vpn client.
+        :param Sequence[str] vpn_client_protocols: List of the protocols supported by the vpn client.
                The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
                Values `SSTP` and `IkeV2` are incompatible with the use of
                `aad_tenant`, `aad_audience` and `aad_issuer`.
@@ -4604,7 +4604,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
 
     @property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> List[str]:
+    def address_spaces(self) -> Sequence[str]:
         """
         The address space out of which ip addresses for
         vpn clients will be taken. You can provide more than one address space, e.g.
@@ -4665,7 +4665,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
 
     @property
     @pulumi.getter(name="revokedCertificates")
-    def revoked_certificates(self) -> Optional[List['outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate']]:
+    def revoked_certificates(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate']]:
         """
         One or more `revoked_certificate` blocks which
         are defined below.
@@ -4676,7 +4676,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
 
     @property
     @pulumi.getter(name="rootCertificates")
-    def root_certificates(self) -> Optional[List['outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate']]:
+    def root_certificates(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate']]:
         """
         One or more `root_certificate` blocks which are
         defined below. These root certificates are used to sign the client certificate
@@ -4688,7 +4688,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
 
     @property
     @pulumi.getter(name="vpnClientProtocols")
-    def vpn_client_protocols(self) -> Optional[List[str]]:
+    def vpn_client_protocols(self) -> Optional[Sequence[str]]:
         """
         List of the protocols supported by the vpn client.
         The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
@@ -4822,12 +4822,12 @@ class VirtualNetworkSubnet(dict):
 @pulumi.output_type
 class VpnGatewayBgpSetting(dict):
     def __init__(__self__, *,
-                 asn: float,
-                 peer_weight: float,
+                 asn: int,
+                 peer_weight: int,
                  bgp_peering_address: Optional[str] = None):
         """
-        :param float asn: The ASN of the BGP Speaker. Changing this forces a new resource to be created.
-        :param float peer_weight: The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
+        :param int asn: The ASN of the BGP Speaker. Changing this forces a new resource to be created.
+        :param int peer_weight: The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
         :param str bgp_peering_address: The Address which should be used for the BGP Peering.
         """
         pulumi.set(__self__, "asn", asn)
@@ -4837,7 +4837,7 @@ class VpnGatewayBgpSetting(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> float:
+    def asn(self) -> int:
         """
         The ASN of the BGP Speaker. Changing this forces a new resource to be created.
         """
@@ -4845,7 +4845,7 @@ class VpnGatewayBgpSetting(dict):
 
     @property
     @pulumi.getter(name="peerWeight")
-    def peer_weight(self) -> float:
+    def peer_weight(self) -> int:
         """
         The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
         """
@@ -4979,8 +4979,8 @@ class VpnServerConfigurationIpsecPolicy(dict):
                  ipsec_encryption: str,
                  ipsec_integrity: str,
                  pfs_group: str,
-                 sa_data_size_kilobytes: float,
-                 sa_lifetime_seconds: float):
+                 sa_data_size_kilobytes: int,
+                 sa_lifetime_seconds: int):
         """
         :param str dh_group: The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
         :param str ike_encryption: The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
@@ -4988,8 +4988,8 @@ class VpnServerConfigurationIpsecPolicy(dict):
         :param str ipsec_encryption: The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
         :param str ipsec_integrity: The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
         :param str pfs_group: The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
-        :param float sa_data_size_kilobytes: The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
-        :param float sa_lifetime_seconds: The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+        :param int sa_data_size_kilobytes: The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
+        :param int sa_lifetime_seconds: The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
         """
         pulumi.set(__self__, "dh_group", dh_group)
         pulumi.set(__self__, "ike_encryption", ike_encryption)
@@ -5050,7 +5050,7 @@ class VpnServerConfigurationIpsecPolicy(dict):
 
     @property
     @pulumi.getter(name="saDataSizeKilobytes")
-    def sa_data_size_kilobytes(self) -> float:
+    def sa_data_size_kilobytes(self) -> int:
         """
         The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
         """
@@ -5058,7 +5058,7 @@ class VpnServerConfigurationIpsecPolicy(dict):
 
     @property
     @pulumi.getter(name="saLifetimeSeconds")
-    def sa_lifetime_seconds(self) -> float:
+    def sa_lifetime_seconds(self) -> int:
         """
         The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
         """
@@ -5073,13 +5073,13 @@ class VpnServerConfigurationRadiusServer(dict):
     def __init__(__self__, *,
                  address: str,
                  secret: str,
-                 server_root_certificates: List['outputs.VpnServerConfigurationRadiusServerServerRootCertificate'],
-                 client_root_certificates: Optional[List['outputs.VpnServerConfigurationRadiusServerClientRootCertificate']] = None):
+                 server_root_certificates: Sequence['outputs.VpnServerConfigurationRadiusServerServerRootCertificate'],
+                 client_root_certificates: Optional[Sequence['outputs.VpnServerConfigurationRadiusServerClientRootCertificate']] = None):
         """
         :param str address: The Address of the Radius Server.
         :param str secret: The Secret used to communicate with the Radius Server.
-        :param List['VpnServerConfigurationRadiusServerServerRootCertificateArgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
-        :param List['VpnServerConfigurationRadiusServerClientRootCertificateArgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined above.
+        :param Sequence['VpnServerConfigurationRadiusServerServerRootCertificateArgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
+        :param Sequence['VpnServerConfigurationRadiusServerClientRootCertificateArgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined above.
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "secret", secret)
@@ -5105,7 +5105,7 @@ class VpnServerConfigurationRadiusServer(dict):
 
     @property
     @pulumi.getter(name="serverRootCertificates")
-    def server_root_certificates(self) -> List['outputs.VpnServerConfigurationRadiusServerServerRootCertificate']:
+    def server_root_certificates(self) -> Sequence['outputs.VpnServerConfigurationRadiusServerServerRootCertificate']:
         """
         One or more `server_root_certificate` blocks as defined below.
         """
@@ -5113,7 +5113,7 @@ class VpnServerConfigurationRadiusServer(dict):
 
     @property
     @pulumi.getter(name="clientRootCertificates")
-    def client_root_certificates(self) -> Optional[List['outputs.VpnServerConfigurationRadiusServerClientRootCertificate']]:
+    def client_root_certificates(self) -> Optional[Sequence['outputs.VpnServerConfigurationRadiusServerClientRootCertificate']]:
         """
         One or more `client_root_certificate` blocks as defined above.
         """
@@ -5190,21 +5190,21 @@ class VpnServerConfigurationRadiusServerServerRootCertificate(dict):
 @pulumi.output_type
 class GetExpressRouteCircuitPeeringResult(dict):
     def __init__(__self__, *,
-                 azure_asn: float,
-                 peer_asn: float,
+                 azure_asn: int,
+                 peer_asn: int,
                  peering_type: str,
                  primary_peer_address_prefix: str,
                  secondary_peer_address_prefix: str,
                  shared_key: str,
-                 vlan_id: float):
+                 vlan_id: int):
         """
-        :param float azure_asn: The Either a 16-bit or a 32-bit ASN for Azure.
-        :param float peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
+        :param int azure_asn: The Either a 16-bit or a 32-bit ASN for Azure.
+        :param int peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         :param str peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
         :param str primary_peer_address_prefix: A `/30` subnet for the primary link.
         :param str secondary_peer_address_prefix: A `/30` subnet for the secondary link.
         :param str shared_key: The shared key. Can be a maximum of 25 characters.
-        :param float vlan_id: A valid VLAN ID to establish this peering on.
+        :param int vlan_id: A valid VLAN ID to establish this peering on.
         """
         pulumi.set(__self__, "azure_asn", azure_asn)
         pulumi.set(__self__, "peer_asn", peer_asn)
@@ -5216,7 +5216,7 @@ class GetExpressRouteCircuitPeeringResult(dict):
 
     @property
     @pulumi.getter(name="azureAsn")
-    def azure_asn(self) -> float:
+    def azure_asn(self) -> int:
         """
         The Either a 16-bit or a 32-bit ASN for Azure.
         """
@@ -5224,7 +5224,7 @@ class GetExpressRouteCircuitPeeringResult(dict):
 
     @property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> float:
+    def peer_asn(self) -> int:
         """
         The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         """
@@ -5264,7 +5264,7 @@ class GetExpressRouteCircuitPeeringResult(dict):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> float:
+    def vlan_id(self) -> int:
         """
         A valid VLAN ID to establish this peering on.
         """
@@ -5274,11 +5274,11 @@ class GetExpressRouteCircuitPeeringResult(dict):
 @pulumi.output_type
 class GetExpressRouteCircuitServiceProviderPropertyResult(dict):
     def __init__(__self__, *,
-                 bandwidth_in_mbps: float,
+                 bandwidth_in_mbps: int,
                  peering_location: str,
                  service_provider_name: str):
         """
-        :param float bandwidth_in_mbps: The bandwidth in Mbps of the ExpressRoute circuit.
+        :param int bandwidth_in_mbps: The bandwidth in Mbps of the ExpressRoute circuit.
         :param str peering_location: The name of the peering location and **not** the Azure resource location.
         :param str service_provider_name: The name of the ExpressRoute Service Provider.
         """
@@ -5288,7 +5288,7 @@ class GetExpressRouteCircuitServiceProviderPropertyResult(dict):
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
-    def bandwidth_in_mbps(self) -> float:
+    def bandwidth_in_mbps(self) -> int:
         """
         The bandwidth in Mbps of the ExpressRoute circuit.
         """
@@ -5399,7 +5399,7 @@ class GetFirewallPolicyDnResult(dict):
     def __init__(__self__, *,
                  network_rule_fqdn_enabled: bool,
                  proxy_enabled: bool,
-                 servers: List[str]):
+                 servers: Sequence[str]):
         pulumi.set(__self__, "network_rule_fqdn_enabled", network_rule_fqdn_enabled)
         pulumi.set(__self__, "proxy_enabled", proxy_enabled)
         pulumi.set(__self__, "servers", servers)
@@ -5416,26 +5416,26 @@ class GetFirewallPolicyDnResult(dict):
 
     @property
     @pulumi.getter
-    def servers(self) -> List[str]:
+    def servers(self) -> Sequence[str]:
         return pulumi.get(self, "servers")
 
 
 @pulumi.output_type
 class GetFirewallPolicyThreatIntelligenceAllowlistResult(dict):
     def __init__(__self__, *,
-                 fqdns: List[str],
-                 ip_addresses: List[str]):
+                 fqdns: Sequence[str],
+                 ip_addresses: Sequence[str]):
         pulumi.set(__self__, "fqdns", fqdns)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter
-    def fqdns(self) -> List[str]:
+    def fqdns(self) -> Sequence[str]:
         return pulumi.get(self, "fqdns")
 
     @property
     @pulumi.getter(name="ipAddresses")
-    def ip_addresses(self) -> List[str]:
+    def ip_addresses(self) -> Sequence[str]:
         return pulumi.get(self, "ip_addresses")
 
 
@@ -5448,8 +5448,8 @@ class GetGatewayConnectionIpsecPolicyResult(dict):
                  ipsec_encryption: str,
                  ipsec_integrity: str,
                  pfs_group: str,
-                 sa_datasize: float,
-                 sa_lifetime: float):
+                 sa_datasize: int,
+                 sa_lifetime: int):
         """
         :param str dh_group: The DH group used in IKE phase 1 for initial SA. Valid
                options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
@@ -5465,9 +5465,9 @@ class GetGatewayConnectionIpsecPolicyResult(dict):
         :param str pfs_group: The DH group used in IKE phase 2 for new child SA.
                Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
                or `None`.
-        :param float sa_datasize: The IPSec SA payload size in KB. Must be at least
+        :param int sa_datasize: The IPSec SA payload size in KB. Must be at least
                `1024` KB.
-        :param float sa_lifetime: The IPSec SA lifetime in seconds. Must be at least
+        :param int sa_lifetime: The IPSec SA lifetime in seconds. Must be at least
                `300` seconds.
         """
         pulumi.set(__self__, "dh_group", dh_group)
@@ -5537,7 +5537,7 @@ class GetGatewayConnectionIpsecPolicyResult(dict):
 
     @property
     @pulumi.getter(name="saDatasize")
-    def sa_datasize(self) -> float:
+    def sa_datasize(self) -> int:
         """
         The IPSec SA payload size in KB. Must be at least
         `1024` KB.
@@ -5546,7 +5546,7 @@ class GetGatewayConnectionIpsecPolicyResult(dict):
 
     @property
     @pulumi.getter(name="saLifetime")
-    def sa_lifetime(self) -> float:
+    def sa_lifetime(self) -> int:
         """
         The IPSec SA lifetime in seconds. Must be at least
         `300` seconds.
@@ -5557,18 +5557,18 @@ class GetGatewayConnectionIpsecPolicyResult(dict):
 @pulumi.output_type
 class GetGatewayConnectionTrafficSelectorPolicyResult(dict):
     def __init__(__self__, *,
-                 local_address_cidrs: List[str],
-                 remote_address_cidrs: List[str]):
+                 local_address_cidrs: Sequence[str],
+                 remote_address_cidrs: Sequence[str]):
         """
-        :param List[str] local_address_cidrs: List of local CIDRs.
-        :param List[str] remote_address_cidrs: List of remote CIDRs.
+        :param Sequence[str] local_address_cidrs: List of local CIDRs.
+        :param Sequence[str] remote_address_cidrs: List of remote CIDRs.
         """
         pulumi.set(__self__, "local_address_cidrs", local_address_cidrs)
         pulumi.set(__self__, "remote_address_cidrs", remote_address_cidrs)
 
     @property
     @pulumi.getter(name="localAddressCidrs")
-    def local_address_cidrs(self) -> List[str]:
+    def local_address_cidrs(self) -> Sequence[str]:
         """
         List of local CIDRs.
         """
@@ -5576,7 +5576,7 @@ class GetGatewayConnectionTrafficSelectorPolicyResult(dict):
 
     @property
     @pulumi.getter(name="remoteAddressCidrs")
-    def remote_address_cidrs(self) -> List[str]:
+    def remote_address_cidrs(self) -> Sequence[str]:
         """
         List of remote CIDRs.
         """
@@ -5586,10 +5586,10 @@ class GetGatewayConnectionTrafficSelectorPolicyResult(dict):
 @pulumi.output_type
 class GetNetworkInterfaceIpConfigurationResult(dict):
     def __init__(__self__, *,
-                 application_gateway_backend_address_pools_ids: List[str],
-                 application_security_group_ids: List[str],
-                 load_balancer_backend_address_pools_ids: List[str],
-                 load_balancer_inbound_nat_rules_ids: List[str],
+                 application_gateway_backend_address_pools_ids: Sequence[str],
+                 application_security_group_ids: Sequence[str],
+                 load_balancer_backend_address_pools_ids: Sequence[str],
+                 load_balancer_inbound_nat_rules_ids: Sequence[str],
                  name: str,
                  primary: bool,
                  private_ip_address: str,
@@ -5598,9 +5598,9 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
                  public_ip_address_id: str,
                  subnet_id: str):
         """
-        :param List[str] application_gateway_backend_address_pools_ids: A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
-        :param List[str] load_balancer_backend_address_pools_ids: A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
-        :param List[str] load_balancer_inbound_nat_rules_ids: A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
+        :param Sequence[str] application_gateway_backend_address_pools_ids: A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
+        :param Sequence[str] load_balancer_backend_address_pools_ids: A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
+        :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
         :param str name: Specifies the name of the Network Interface.
         :param bool primary: is this the Primary IP Configuration for this Network Interface?
         :param str private_ip_address: The Private IP Address assigned to this Network Interface.
@@ -5622,7 +5622,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPoolsIds")
-    def application_gateway_backend_address_pools_ids(self) -> List[str]:
+    def application_gateway_backend_address_pools_ids(self) -> Sequence[str]:
         """
         A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
         """
@@ -5630,12 +5630,12 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="applicationSecurityGroupIds")
-    def application_security_group_ids(self) -> List[str]:
+    def application_security_group_ids(self) -> Sequence[str]:
         return pulumi.get(self, "application_security_group_ids")
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddressPoolsIds")
-    def load_balancer_backend_address_pools_ids(self) -> List[str]:
+    def load_balancer_backend_address_pools_ids(self) -> Sequence[str]:
         """
         A list of Backend Address Pool ID's within a Load Balancer that this Network Interface is connected to.
         """
@@ -5643,7 +5643,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="loadBalancerInboundNatRulesIds")
-    def load_balancer_inbound_nat_rules_ids(self) -> List[str]:
+    def load_balancer_inbound_nat_rules_ids(self) -> Sequence[str]:
         """
         A list of Inbound NAT Rule ID's within a Load Balancer that this Network Interface is connected to.
         """
@@ -5709,34 +5709,34 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
                  access: str,
                  description: str,
                  destination_address_prefix: str,
-                 destination_address_prefixes: List[str],
+                 destination_address_prefixes: Sequence[str],
                  destination_port_range: str,
-                 destination_port_ranges: List[str],
+                 destination_port_ranges: Sequence[str],
                  direction: str,
                  name: str,
-                 priority: float,
+                 priority: int,
                  protocol: str,
                  source_address_prefix: str,
-                 source_address_prefixes: List[str],
+                 source_address_prefixes: Sequence[str],
                  source_port_range: str,
-                 source_port_ranges: List[str],
-                 destination_application_security_group_ids: Optional[List[str]] = None,
-                 source_application_security_group_ids: Optional[List[str]] = None):
+                 source_port_ranges: Sequence[str],
+                 destination_application_security_group_ids: Optional[Sequence[str]] = None,
+                 source_application_security_group_ids: Optional[Sequence[str]] = None):
         """
         :param str access: Is network traffic is allowed or denied?
         :param str description: The description for this rule.
         :param str destination_address_prefix: CIDR or destination IP range or * to match any IP.
-        :param List[str] destination_address_prefixes: A list of CIDRs or destination IP ranges.
+        :param Sequence[str] destination_address_prefixes: A list of CIDRs or destination IP ranges.
         :param str destination_port_range: The Destination Port or Range.
         :param str direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         :param str name: Specifies the Name of the Network Security Group.
-        :param float priority: The priority of the rule
+        :param int priority: The priority of the rule
         :param str protocol: The network protocol this rule applies to.
         :param str source_address_prefix: CIDR or source IP range or * to match any IP.
-        :param List[str] source_address_prefixes: A list of CIDRs or source IP ranges.
+        :param Sequence[str] source_address_prefixes: A list of CIDRs or source IP ranges.
         :param str source_port_range: The Source Port or Range.
-        :param List[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
-        :param List[str] source_application_security_group_ids: A List of source Application Security Group ID's
+        :param Sequence[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
+        :param Sequence[str] source_application_security_group_ids: A List of source Application Security Group ID's
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "description", description)
@@ -5783,7 +5783,7 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
 
     @property
     @pulumi.getter(name="destinationAddressPrefixes")
-    def destination_address_prefixes(self) -> List[str]:
+    def destination_address_prefixes(self) -> Sequence[str]:
         """
         A list of CIDRs or destination IP ranges.
         """
@@ -5799,7 +5799,7 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> List[str]:
+    def destination_port_ranges(self) -> Sequence[str]:
         return pulumi.get(self, "destination_port_ranges")
 
     @property
@@ -5820,7 +5820,7 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
 
     @property
     @pulumi.getter
-    def priority(self) -> float:
+    def priority(self) -> int:
         """
         The priority of the rule
         """
@@ -5844,7 +5844,7 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
 
     @property
     @pulumi.getter(name="sourceAddressPrefixes")
-    def source_address_prefixes(self) -> List[str]:
+    def source_address_prefixes(self) -> Sequence[str]:
         """
         A list of CIDRs or source IP ranges.
         """
@@ -5860,12 +5860,12 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> List[str]:
+    def source_port_ranges(self) -> Sequence[str]:
         return pulumi.get(self, "source_port_ranges")
 
     @property
     @pulumi.getter(name="destinationApplicationSecurityGroupIds")
-    def destination_application_security_group_ids(self) -> Optional[List[str]]:
+    def destination_application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         A List of destination Application Security Group ID's
         """
@@ -5873,7 +5873,7 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
 
     @property
     @pulumi.getter(name="sourceApplicationSecurityGroupIds")
-    def source_application_security_group_ids(self) -> Optional[List[str]]:
+    def source_application_security_group_ids(self) -> Optional[Sequence[str]]:
         """
         A List of source Application Security Group ID's
         """
@@ -5942,12 +5942,12 @@ class GetPublicIPsPublicIpResult(dict):
 class GetRouteFilterRuleResult(dict):
     def __init__(__self__, *,
                  access: str,
-                 communities: List[str],
+                 communities: Sequence[str],
                  name: str,
                  rule_type: str):
         """
         :param str access: The access type of the rule
-        :param List[str] communities: The collection for bgp community values.
+        :param Sequence[str] communities: The collection for bgp community values.
         :param str name: The Name of this Route Filter.
         :param str rule_type: The Route Filter Rule Type.
         """
@@ -5966,7 +5966,7 @@ class GetRouteFilterRuleResult(dict):
 
     @property
     @pulumi.getter
-    def communities(self) -> List[str]:
+    def communities(self) -> Sequence[str]:
         """
         The collection for bgp community values.
         """
@@ -6043,12 +6043,12 @@ class GetRouteTableRouteResult(dict):
 @pulumi.output_type
 class GetVirtualNetworkGatewayBgpSettingResult(dict):
     def __init__(__self__, *,
-                 asn: float,
-                 peer_weight: float,
+                 asn: int,
+                 peer_weight: int,
                  peering_address: str):
         """
-        :param float asn: The Autonomous System Number (ASN) to use as part of the BGP.
-        :param float peer_weight: The weight added to routes which have been learned
+        :param int asn: The Autonomous System Number (ASN) to use as part of the BGP.
+        :param int peer_weight: The weight added to routes which have been learned
                through BGP peering.
         :param str peering_address: The BGP peer IP address of the virtual network
                gateway. This address is needed to configure the created gateway as a BGP Peer
@@ -6060,7 +6060,7 @@ class GetVirtualNetworkGatewayBgpSettingResult(dict):
 
     @property
     @pulumi.getter
-    def asn(self) -> float:
+    def asn(self) -> int:
         """
         The Autonomous System Number (ASN) to use as part of the BGP.
         """
@@ -6068,7 +6068,7 @@ class GetVirtualNetworkGatewayBgpSettingResult(dict):
 
     @property
     @pulumi.getter(name="peerWeight")
-    def peer_weight(self) -> float:
+    def peer_weight(self) -> int:
         """
         The weight added to routes which have been learned
         through BGP peering.
@@ -6153,12 +6153,12 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
                  aad_audience: str,
                  aad_issuer: str,
                  aad_tenant: str,
-                 address_spaces: List[str],
+                 address_spaces: Sequence[str],
                  radius_server_address: str,
                  radius_server_secret: str,
-                 revoked_certificates: List['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult'],
-                 root_certificates: List['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult'],
-                 vpn_client_protocols: List[str]):
+                 revoked_certificates: Sequence['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult'],
+                 root_certificates: Sequence['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult'],
+                 vpn_client_protocols: Sequence[str]):
         """
         :param str aad_audience: The client id of the Azure VPN application.
                See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
@@ -6170,7 +6170,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
         :param str aad_tenant: AzureAD Tenant URL
                This setting is incompatible with the use of
                `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
-        :param List[str] address_spaces: The address space out of which ip addresses for
+        :param Sequence[str] address_spaces: The address space out of which ip addresses for
                vpn clients will be taken. You can provide more than one address space, e.g.
                in CIDR notation.
         :param str radius_server_address: The address of the Radius server.
@@ -6179,16 +6179,16 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
         :param str radius_server_secret: The secret used by the Radius server.
                This setting is incompatible with the use of
                `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
-        :param List['GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which
+        :param Sequence['GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which
                are defined below.
                This setting is incompatible with the use of
                `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
-        :param List['GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are
+        :param Sequence['GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are
                defined below. These root certificates are used to sign the client certificate
                used by the VPN clients to connect to the gateway.
                This setting is incompatible with the use of
                `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
-        :param List[str] vpn_client_protocols: List of the protocols supported by the vpn client.
+        :param Sequence[str] vpn_client_protocols: List of the protocols supported by the vpn client.
                The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
         """
         pulumi.set(__self__, "aad_audience", aad_audience)
@@ -6234,7 +6234,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="addressSpaces")
-    def address_spaces(self) -> List[str]:
+    def address_spaces(self) -> Sequence[str]:
         """
         The address space out of which ip addresses for
         vpn clients will be taken. You can provide more than one address space, e.g.
@@ -6264,7 +6264,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="revokedCertificates")
-    def revoked_certificates(self) -> List['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult']:
+    def revoked_certificates(self) -> Sequence['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult']:
         """
         One or more `revoked_certificate` blocks which
         are defined below.
@@ -6275,7 +6275,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="rootCertificates")
-    def root_certificates(self) -> List['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult']:
+    def root_certificates(self) -> Sequence['outputs.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult']:
         """
         One or more `root_certificate` blocks which are
         defined below. These root certificates are used to sign the client certificate
@@ -6287,7 +6287,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
 
     @property
     @pulumi.getter(name="vpnClientProtocols")
-    def vpn_client_protocols(self) -> List[str]:
+    def vpn_client_protocols(self) -> Sequence[str]:
         """
         List of the protocols supported by the vpn client.
         The supported values are `SSTP`, `IkeV2` and `OpenVPN`.

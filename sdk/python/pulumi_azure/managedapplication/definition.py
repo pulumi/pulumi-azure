@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class Definition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
                  create_ui_definition: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,7 @@ class Definition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: One or more `authorization` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: One or more `authorization` block defined below.
         :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
@@ -116,7 +116,7 @@ class Definition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorizations: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
+            authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
             create_ui_definition: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class Definition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: One or more `authorization` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: One or more `authorization` block defined below.
         :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
@@ -168,7 +168,7 @@ class Definition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authorizations(self) -> pulumi.Output[Optional[List['outputs.DefinitionAuthorization']]]:
+    def authorizations(self) -> pulumi.Output[Optional[Sequence['outputs.DefinitionAuthorization']]]:
         """
         One or more `authorization` block defined below.
         """

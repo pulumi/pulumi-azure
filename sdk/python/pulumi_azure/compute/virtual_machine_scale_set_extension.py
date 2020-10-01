@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['VirtualMachineScaleSetExtension']
@@ -19,7 +19,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
-                 provision_after_extensions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
-        :param pulumi.Input[List[pulumi.Input[str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
         :param pulumi.Input[str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: A JSON String which specifies Settings for the Extension.
         :param pulumi.Input[str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
@@ -114,7 +114,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             force_update_tag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             protected_settings: Optional[pulumi.Input[str]] = None,
-            provision_after_extensions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             publisher: Optional[pulumi.Input[str]] = None,
             settings: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
-        :param pulumi.Input[List[pulumi.Input[str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
         :param pulumi.Input[str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] settings: A JSON String which specifies Settings for the Extension.
         :param pulumi.Input[str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
@@ -188,7 +188,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisionAfterExtensions")
-    def provision_after_extensions(self) -> pulumi.Output[Optional[List[str]]]:
+    def provision_after_extensions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An ordered list of Extension names which this should be provisioned after.
         """

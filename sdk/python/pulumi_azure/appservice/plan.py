@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class Plan(pulumi.CustomResource):
                  is_xenon: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maximum_elastic_worker_count: Optional[pulumi.Input[float]] = None,
+                 maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
@@ -106,7 +106,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
         :param pulumi.Input[str] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
@@ -161,8 +161,8 @@ class Plan(pulumi.CustomResource):
             is_xenon: Optional[pulumi.Input[bool]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            maximum_elastic_worker_count: Optional[pulumi.Input[float]] = None,
-            maximum_number_of_workers: Optional[pulumi.Input[float]] = None,
+            maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
+            maximum_number_of_workers: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             per_site_scaling: Optional[pulumi.Input[bool]] = None,
             reserved: Optional[pulumi.Input[bool]] = None,
@@ -179,8 +179,8 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
         :param pulumi.Input[str] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
-        :param pulumi.Input[float] maximum_number_of_workers: The maximum number of workers supported with the App Service Plan's sku.
+        :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+        :param pulumi.Input[int] maximum_number_of_workers: The maximum number of workers supported with the App Service Plan's sku.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
@@ -237,7 +237,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumElasticWorkerCount")
-    def maximum_elastic_worker_count(self) -> pulumi.Output[float]:
+    def maximum_elastic_worker_count(self) -> pulumi.Output[int]:
         """
         The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         """
@@ -245,7 +245,7 @@ class Plan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumNumberOfWorkers")
-    def maximum_number_of_workers(self) -> pulumi.Output[float]:
+    def maximum_number_of_workers(self) -> pulumi.Output[int]:
         """
         The maximum number of workers supported with the App Service Plan's sku.
         """

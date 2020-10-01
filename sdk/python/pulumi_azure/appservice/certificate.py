@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Certificate']
@@ -85,7 +85,7 @@ class Certificate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             expiration_date: Optional[pulumi.Input[str]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
-            host_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             hosting_environment_profile_id: Optional[pulumi.Input[str]] = None,
             issue_date: Optional[pulumi.Input[str]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] expiration_date: The expiration date for the certificate.
         :param pulumi.Input[str] friendly_name: The friendly name of the certificate.
-        :param pulumi.Input[List[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: List of host names the certificate applies to.
         :param pulumi.Input[str] hosting_environment_profile_id: Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
@@ -159,7 +159,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> pulumi.Output[List[str]]:
+    def host_names(self) -> pulumi.Output[Sequence[str]]:
         """
         List of host names the certificate applies to.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -25,8 +25,8 @@ class ApiOperation(pulumi.CustomResource):
                  operation_id: Optional[pulumi.Input[str]] = None,
                  request: Optional[pulumi.Input[pulumi.InputType['ApiOperationRequestArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 responses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]]] = None,
-                 template_parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]]] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]]] = None,
+                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]]] = None,
                  url_template: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -68,8 +68,8 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[str] operation_id: A unique identifier for this API Operation. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ApiOperationRequestArgs']] request: A `request` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]] responses: One or more `response` blocks as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]] template_parameters: One or more `template_parameter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]] responses: One or more `response` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]] template_parameters: One or more `template_parameter` blocks as defined below.
         :param pulumi.Input[str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
         """
         if __name__ is not None:
@@ -132,8 +132,8 @@ class ApiOperation(pulumi.CustomResource):
             operation_id: Optional[pulumi.Input[str]] = None,
             request: Optional[pulumi.Input[pulumi.InputType['ApiOperationRequestArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            responses: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]]] = None,
-            template_parameters: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]]] = None,
+            responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]]] = None,
+            template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]]] = None,
             url_template: Optional[pulumi.Input[str]] = None) -> 'ApiOperation':
         """
         Get an existing ApiOperation resource's state with the given name, id, and optional extra
@@ -150,8 +150,8 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[str] operation_id: A unique identifier for this API Operation. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ApiOperationRequestArgs']] request: A `request` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]] responses: One or more `response` blocks as defined below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]] template_parameters: One or more `template_parameter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]] responses: One or more `response` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]] template_parameters: One or more `template_parameter` blocks as defined below.
         :param pulumi.Input[str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -237,7 +237,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def responses(self) -> pulumi.Output[Optional[List['outputs.ApiOperationResponse']]]:
+    def responses(self) -> pulumi.Output[Optional[Sequence['outputs.ApiOperationResponse']]]:
         """
         One or more `response` blocks as defined below.
         """
@@ -245,7 +245,7 @@ class ApiOperation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateParameters")
-    def template_parameters(self) -> pulumi.Output[Optional[List['outputs.ApiOperationTemplateParameter']]]:
+    def template_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ApiOperationTemplateParameter']]]:
         """
         One or more `template_parameter` blocks as defined below.
         """

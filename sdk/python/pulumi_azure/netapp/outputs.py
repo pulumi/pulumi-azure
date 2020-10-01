@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,14 +16,14 @@ __all__ = [
 @pulumi.output_type
 class AccountActiveDirectory(dict):
     def __init__(__self__, *,
-                 dns_servers: List[str],
+                 dns_servers: Sequence[str],
                  domain: str,
                  password: str,
                  smb_server_name: str,
                  username: str,
                  organizational_unit: Optional[str] = None):
         """
-        :param List[str] dns_servers: A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+        :param Sequence[str] dns_servers: A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
         :param str domain: The name of the Active Directory domain.
         :param str password: The password associated with the `username`.
         :param str smb_server_name: The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
@@ -40,7 +40,7 @@ class AccountActiveDirectory(dict):
 
     @property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> List[str]:
+    def dns_servers(self) -> Sequence[str]:
         """
         A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
         """
@@ -93,8 +93,8 @@ class AccountActiveDirectory(dict):
 @pulumi.output_type
 class VolumeExportPolicyRule(dict):
     def __init__(__self__, *,
-                 allowed_clients: List[str],
-                 rule_index: float,
+                 allowed_clients: Sequence[str],
+                 rule_index: int,
                  cifs_enabled: Optional[bool] = None,
                  nfsv3_enabled: Optional[bool] = None,
                  nfsv4_enabled: Optional[bool] = None,
@@ -102,8 +102,8 @@ class VolumeExportPolicyRule(dict):
                  unix_read_only: Optional[bool] = None,
                  unix_read_write: Optional[bool] = None):
         """
-        :param List[str] allowed_clients: A list of allowed clients IPv4 addresses.
-        :param float rule_index: The index number of the rule.
+        :param Sequence[str] allowed_clients: A list of allowed clients IPv4 addresses.
+        :param int rule_index: The index number of the rule.
         :param bool cifs_enabled: Is the CIFS protocol allowed?
         :param bool nfsv3_enabled: Is the NFSv3 protocol allowed?
         :param bool nfsv4_enabled: Is the NFSv4 protocol allowed?
@@ -128,7 +128,7 @@ class VolumeExportPolicyRule(dict):
 
     @property
     @pulumi.getter(name="allowedClients")
-    def allowed_clients(self) -> List[str]:
+    def allowed_clients(self) -> Sequence[str]:
         """
         A list of allowed clients IPv4 addresses.
         """
@@ -136,7 +136,7 @@ class VolumeExportPolicyRule(dict):
 
     @property
     @pulumi.getter(name="ruleIndex")
-    def rule_index(self) -> float:
+    def rule_index(self) -> int:
         """
         The index number of the rule.
         """

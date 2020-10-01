@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ServerSecurityAlertPolicy']
@@ -15,11 +15,11 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_alerts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins: Optional[pulumi.Input[bool]] = None,
-                 email_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_days: Optional[pulumi.Input[float]] = None,
+                 retention_days: Optional[pulumi.Input[int]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -65,11 +65,11 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         :param pulumi.Input[bool] email_account_admins: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input[str]]] email_addresses: Specifies an array of e-mail addresses to which the alert is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of e-mail addresses to which the alert is sent.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
+        :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
@@ -117,11 +117,11 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            disabled_alerts: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             email_account_admins: Optional[pulumi.Input[bool]] = None,
-            email_addresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            retention_days: Optional[pulumi.Input[float]] = None,
+            retention_days: Optional[pulumi.Input[int]] = None,
             server_name: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
@@ -133,11 +133,11 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         :param pulumi.Input[bool] email_account_admins: Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
-        :param pulumi.Input[List[pulumi.Input[str]]] email_addresses: Specifies an array of e-mail addresses to which the alert is sent.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies an array of e-mail addresses to which the alert is sent.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
+        :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] state: Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Allowed values are: `Disabled`, `Enabled`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
@@ -160,7 +160,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disabledAlerts")
-    def disabled_alerts(self) -> pulumi.Output[Optional[List[str]]]:
+    def disabled_alerts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
         """
@@ -176,7 +176,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailAddresses")
-    def email_addresses(self) -> pulumi.Output[Optional[List[str]]]:
+    def email_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies an array of e-mail addresses to which the alert is sent.
         """
@@ -192,7 +192,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> pulumi.Output[Optional[float]]:
+    def retention_days(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         """

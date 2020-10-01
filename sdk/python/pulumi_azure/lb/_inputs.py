@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -18,9 +18,9 @@ class LoadBalancerFrontendIpConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 load_balancer_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 outbound_rules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  private_ip_address_allocation: Optional[pulumi.Input[str]] = None,
                  private_ip_address_version: Optional[pulumi.Input[str]] = None,
@@ -31,9 +31,9 @@ class LoadBalancerFrontendIpConfigurationArgs:
         """
         :param pulumi.Input[str] name: Specifies the name of the frontend ip configuration.
         :param pulumi.Input[str] id: The id of the Frontend IP Configuration.
-        :param pulumi.Input[List[pulumi.Input[str]]] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
-        :param pulumi.Input[List[pulumi.Input[str]]] load_balancer_rules: The list of IDs of load balancing rules that use this frontend IP.
-        :param pulumi.Input[List[pulumi.Input[str]]] outbound_rules: The list of IDs outbound rules that use this frontend IP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inbound_nat_rules: The list of IDs of inbound rules that use this frontend IP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_rules: The list of IDs of load balancing rules that use this frontend IP.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_rules: The list of IDs outbound rules that use this frontend IP.
         :param pulumi.Input[str] private_ip_address: Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
         :param pulumi.Input[str] private_ip_address_allocation: The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
         :param pulumi.Input[str] private_ip_address_version: The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
@@ -92,38 +92,38 @@ class LoadBalancerFrontendIpConfigurationArgs:
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of IDs of inbound rules that use this frontend IP.
         """
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "inbound_nat_rules", value)
 
     @property
     @pulumi.getter(name="loadBalancerRules")
-    def load_balancer_rules(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def load_balancer_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of IDs of load balancing rules that use this frontend IP.
         """
         return pulumi.get(self, "load_balancer_rules")
 
     @load_balancer_rules.setter
-    def load_balancer_rules(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def load_balancer_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "load_balancer_rules", value)
 
     @property
     @pulumi.getter(name="outboundRules")
-    def outbound_rules(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def outbound_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of IDs outbound rules that use this frontend IP.
         """
         return pulumi.get(self, "outbound_rules")
 
     @outbound_rules.setter
-    def outbound_rules(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def outbound_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "outbound_rules", value)
 
     @property

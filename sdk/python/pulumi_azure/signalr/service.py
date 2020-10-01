@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,8 +17,8 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
-                 features: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
+                 cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
+                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -55,8 +55,8 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
@@ -109,19 +109,19 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cors: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
-            features: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
+            cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
+            features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
-            public_port: Optional[pulumi.Input[float]] = None,
+            public_port: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
             secondary_connection_string: Optional[pulumi.Input[str]] = None,
-            server_port: Optional[pulumi.Input[float]] = None,
+            server_port: Optional[pulumi.Input[int]] = None,
             sku: Optional[pulumi.Input[pulumi.InputType['ServiceSkuArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Service':
         """
@@ -131,19 +131,19 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceFeatureArgs']]]] features: A `features` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_access_key: The primary access key for the SignalR service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the SignalR service.
-        :param pulumi.Input[float] public_port: The publicly accessible port of the SignalR service which is designed for browser/client use.
+        :param pulumi.Input[int] public_port: The publicly accessible port of the SignalR service which is designed for browser/client use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the SignalR service.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string for the SignalR service.
-        :param pulumi.Input[float] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
+        :param pulumi.Input[int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -170,7 +170,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cors(self) -> pulumi.Output[List['outputs.ServiceCor']]:
+    def cors(self) -> pulumi.Output[Sequence['outputs.ServiceCor']]:
         """
         A `cors` block as documented below.
         """
@@ -178,7 +178,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def features(self) -> pulumi.Output[List['outputs.ServiceFeature']]:
+    def features(self) -> pulumi.Output[Sequence['outputs.ServiceFeature']]:
         """
         A `features` block as documented below.
         """
@@ -234,7 +234,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicPort")
-    def public_port(self) -> pulumi.Output[float]:
+    def public_port(self) -> pulumi.Output[int]:
         """
         The publicly accessible port of the SignalR service which is designed for browser/client use.
         """
@@ -266,7 +266,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> pulumi.Output[float]:
+    def server_port(self) -> pulumi.Output[int]:
         """
         The publicly accessible port of the SignalR service which is designed for customer server side use.
         """

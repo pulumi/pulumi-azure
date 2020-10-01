@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,20 +21,20 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_headers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointCustomHeaderArgs']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomHeaderArgs']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  endpoint_status: Optional[pulumi.Input[str]] = None,
-                 geo_mappings: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 min_child_endpoints: Optional[pulumi.Input[float]] = None,
+                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 min_child_endpoints: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[float]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointSubnetArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointSubnetArgs']]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 weight: Optional[pulumi.Input[float]] = None,
+                 weight: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -81,7 +81,7 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method
                if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
@@ -89,22 +89,22 @@ class Endpoint(pulumi.CustomResource):
                location of the Azure target resource.
         :param pulumi.Input[str] endpoint_status: The status of the Endpoint, can be set to
                either `Enabled` or `Disabled`. Defaults to `Enabled`.
-        :param pulumi.Input[List[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
-        :param pulumi.Input[float] min_child_endpoints: This argument specifies the minimum number
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[int] min_child_endpoints: This argument specifies the minimum number
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
                profile. This argument only applies to Endpoints of type `nestedEndpoints`
                and defaults to `1`.
         :param pulumi.Input[str] name: The name of the Traffic Manager endpoint. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[float] priority: Specifies the priority of this Endpoint, this must be
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
                specified for Profiles using the `Priority` traffic routing method. Supports
                values between 1 and 1000, with no Endpoints sharing the same value. If
                omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager Profile to attach
                create the Traffic Manager endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Traffic Manager Profile exists.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target. This argument must be
                provided for an endpoint of type `externalEndpoints`, for other types it
                will be computed.
@@ -115,7 +115,7 @@ class Endpoint(pulumi.CustomResource):
                - `azureEndpoints`
                - `externalEndpoints`
                - `nestedEndpoints`
-        :param pulumi.Input[float] weight: Specifies how much traffic should be distributed to this
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
         """
@@ -168,21 +168,21 @@ class Endpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_headers: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointCustomHeaderArgs']]]]] = None,
+            custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomHeaderArgs']]]]] = None,
             endpoint_location: Optional[pulumi.Input[str]] = None,
             endpoint_monitor_status: Optional[pulumi.Input[str]] = None,
             endpoint_status: Optional[pulumi.Input[str]] = None,
-            geo_mappings: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            min_child_endpoints: Optional[pulumi.Input[float]] = None,
+            geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            min_child_endpoints: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[float]] = None,
+            priority: Optional[pulumi.Input[int]] = None,
             profile_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            subnets: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointSubnetArgs']]]]] = None,
+            subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointSubnetArgs']]]]] = None,
             target: Optional[pulumi.Input[str]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            weight: Optional[pulumi.Input[float]] = None) -> 'Endpoint':
+            weight: Optional[pulumi.Input[int]] = None) -> 'Endpoint':
         """
         Get an existing Endpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -190,7 +190,7 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method
                if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
@@ -198,22 +198,22 @@ class Endpoint(pulumi.CustomResource):
                location of the Azure target resource.
         :param pulumi.Input[str] endpoint_status: The status of the Endpoint, can be set to
                either `Enabled` or `Disabled`. Defaults to `Enabled`.
-        :param pulumi.Input[List[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
-        :param pulumi.Input[float] min_child_endpoints: This argument specifies the minimum number
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[int] min_child_endpoints: This argument specifies the minimum number
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
                profile. This argument only applies to Endpoints of type `nestedEndpoints`
                and defaults to `1`.
         :param pulumi.Input[str] name: The name of the Traffic Manager endpoint. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[float] priority: Specifies the priority of this Endpoint, this must be
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
                specified for Profiles using the `Priority` traffic routing method. Supports
                values between 1 and 1000, with no Endpoints sharing the same value. If
                omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager Profile to attach
                create the Traffic Manager endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Traffic Manager Profile exists.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['EndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target. This argument must be
                provided for an endpoint of type `externalEndpoints`, for other types it
                will be computed.
@@ -224,7 +224,7 @@ class Endpoint(pulumi.CustomResource):
                - `azureEndpoints`
                - `externalEndpoints`
                - `nestedEndpoints`
-        :param pulumi.Input[float] weight: Specifies how much traffic should be distributed to this
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
         """
@@ -251,7 +251,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> pulumi.Output[Optional[List['outputs.EndpointCustomHeader']]]:
+    def custom_headers(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointCustomHeader']]]:
         """
         One or more `custom_header` blocks as defined below
         """
@@ -285,7 +285,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="geoMappings")
-    def geo_mappings(self) -> pulumi.Output[Optional[List[str]]]:
+    def geo_mappings(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
         """
@@ -293,7 +293,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="minChildEndpoints")
-    def min_child_endpoints(self) -> pulumi.Output[Optional[float]]:
+    def min_child_endpoints(self) -> pulumi.Output[Optional[int]]:
         """
         This argument specifies the minimum number
         of endpoints that must be ‘online’ in the child profile in order for the
@@ -314,7 +314,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Output[float]:
+    def priority(self) -> pulumi.Output[int]:
         """
         Specifies the priority of this Endpoint, this must be
         specified for Profiles using the `Priority` traffic routing method. Supports
@@ -342,7 +342,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnets(self) -> pulumi.Output[Optional[List['outputs.EndpointSubnet']]]:
+    def subnets(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointSubnet']]]:
         """
         One or more `subnet` blocks as defined below
         """
@@ -381,7 +381,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def weight(self) -> pulumi.Output[float]:
+    def weight(self) -> pulumi.Output[int]:
         """
         Specifies how much traffic should be distributed to this
         endpoint, this must be specified for Profiles using the  `Weighted` traffic

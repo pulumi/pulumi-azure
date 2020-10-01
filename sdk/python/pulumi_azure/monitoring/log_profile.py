@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,8 +17,8 @@ class LogProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[pulumi.InputType['LogProfileRetentionPolicyArgs']]] = None,
                  servicebus_rule_id: Optional[pulumi.Input[str]] = None,
@@ -68,8 +68,8 @@ class LogProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] categories: List of categories of the logs.
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: List of regions for which Activity Log events are stored or streamed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: List of categories of the logs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events are stored or streamed.
         :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a
                new resource to be created.
         :param pulumi.Input[pulumi.InputType['LogProfileRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
@@ -115,8 +115,8 @@ class LogProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            categories: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            locations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             retention_policy: Optional[pulumi.Input[pulumi.InputType['LogProfileRetentionPolicyArgs']]] = None,
             servicebus_rule_id: Optional[pulumi.Input[str]] = None,
@@ -128,8 +128,8 @@ class LogProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] categories: List of categories of the logs.
-        :param pulumi.Input[List[pulumi.Input[str]]] locations: List of regions for which Activity Log events are stored or streamed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: List of categories of the logs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of regions for which Activity Log events are stored or streamed.
         :param pulumi.Input[str] name: The name of the Log Profile. Changing this forces a
                new resource to be created.
         :param pulumi.Input[pulumi.InputType['LogProfileRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
@@ -150,7 +150,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def categories(self) -> pulumi.Output[List[str]]:
+    def categories(self) -> pulumi.Output[Sequence[str]]:
         """
         List of categories of the logs.
         """
@@ -158,7 +158,7 @@ class LogProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def locations(self) -> pulumi.Output[List[str]]:
+    def locations(self) -> pulumi.Output[Sequence[str]]:
         """
         List of regions for which Activity Log events are stored or streamed.
         """

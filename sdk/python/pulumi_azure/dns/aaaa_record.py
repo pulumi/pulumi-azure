@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['AaaaRecord']
@@ -16,11 +16,11 @@ class AaaaRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 ttl: Optional[pulumi.Input[float]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -64,7 +64,7 @@ class AaaaRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS AAAA Record.
-        :param pulumi.Input[List[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
@@ -113,11 +113,11 @@ class AaaaRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
-            ttl: Optional[pulumi.Input[float]] = None,
+            ttl: Optional[pulumi.Input[int]] = None,
             zone_name: Optional[pulumi.Input[str]] = None) -> 'AaaaRecord':
         """
         Get an existing AaaaRecord resource's state with the given name, id, and optional extra
@@ -128,7 +128,7 @@ class AaaaRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS AAAA Record.
         :param pulumi.Input[str] name: The name of the DNS AAAA Record.
-        :param pulumi.Input[List[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
@@ -166,7 +166,7 @@ class AaaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def records(self) -> pulumi.Output[Optional[List[str]]]:
+    def records(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of IPv4 Addresses. Conflicts with `target_resource_id`.
         """
@@ -198,7 +198,7 @@ class AaaaRecord(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ttl(self) -> pulumi.Output[float]:
+    def ttl(self) -> pulumi.Output[int]:
         return pulumi.get(self, "ttl")
 
     @property

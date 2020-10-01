@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -72,7 +72,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter
-    def peerings(self) -> List['outputs.GetExpressRouteCircuitPeeringResult']:
+    def peerings(self) -> Sequence['outputs.GetExpressRouteCircuitPeeringResult']:
         """
         A `peerings` block for the ExpressRoute circuit as documented below
         """
@@ -93,7 +93,7 @@ class GetExpressRouteCircuitResult:
 
     @property
     @pulumi.getter(name="serviceProviderProperties")
-    def service_provider_properties(self) -> List['outputs.GetExpressRouteCircuitServiceProviderPropertyResult']:
+    def service_provider_properties(self) -> Sequence['outputs.GetExpressRouteCircuitServiceProviderPropertyResult']:
         """
         A `service_provider_properties` block for the ExpressRoute circuit as documented below
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -171,10 +171,10 @@ class RunBookPublishContentLinkHash(dict):
 class ScheduleMonthlyOccurrence(dict):
     def __init__(__self__, *,
                  day: str,
-                 occurrence: float):
+                 occurrence: int):
         """
         :param str day: Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
-        :param float occurrence: Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        :param int occurrence: Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "occurrence", occurrence)
@@ -189,7 +189,7 @@ class ScheduleMonthlyOccurrence(dict):
 
     @property
     @pulumi.getter
-    def occurrence(self) -> float:
+    def occurrence(self) -> int:
         """
         Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """

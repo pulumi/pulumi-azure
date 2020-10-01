@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 annotations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  collection_name: Optional[pulumi.Input[str]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -27,7 +27,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -37,7 +37,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
-        :param pulumi.Input[List[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] collection_name: The collection name of the Data Factory Dataset Azure Cosmos DB SQL API.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -46,7 +46,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,7 +93,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            annotations: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             collection_name: Optional[pulumi.Input[str]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            schema_columns: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]]] = None) -> 'DatasetCosmosDBApi':
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]]] = None) -> 'DatasetCosmosDBApi':
         """
         Get an existing DatasetCosmosDBApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -111,7 +111,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
-        :param pulumi.Input[List[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] collection_name: The collection name of the Data Factory Dataset Azure Cosmos DB SQL API.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -120,7 +120,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -149,7 +149,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def annotations(self) -> pulumi.Output[Optional[List[str]]]:
+    def annotations(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of tags that can be used for describing the Data Factory Dataset.
         """
@@ -221,7 +221,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> pulumi.Output[Optional[List['outputs.DatasetCosmosDBApiSchemaColumn']]]:
+    def schema_columns(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetCosmosDBApiSchemaColumn']]]:
         """
         A `schema_column` block as defined below.
         """

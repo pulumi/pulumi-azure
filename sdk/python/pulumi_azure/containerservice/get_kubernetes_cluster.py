@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -109,7 +109,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="addonProfiles")
-    def addon_profiles(self) -> List['outputs.GetKubernetesClusterAddonProfileResult']:
+    def addon_profiles(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileResult']:
         """
         A `addon_profile` block as documented below.
         """
@@ -117,7 +117,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="agentPoolProfiles")
-    def agent_pool_profiles(self) -> List['outputs.GetKubernetesClusterAgentPoolProfileResult']:
+    def agent_pool_profiles(self) -> Sequence['outputs.GetKubernetesClusterAgentPoolProfileResult']:
         """
         An `agent_pool_profile` block as documented below.
         """
@@ -125,7 +125,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
-    def api_server_authorized_ip_ranges(self) -> List[str]:
+    def api_server_authorized_ip_ranges(self) -> Sequence[str]:
         """
         The IP ranges to whitelist for incoming traffic to the primaries.
         """
@@ -165,7 +165,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> List['outputs.GetKubernetesClusterIdentityResult']:
+    def identities(self) -> Sequence['outputs.GetKubernetesClusterIdentityResult']:
         """
         A `identity` block as documented below.
         """
@@ -181,7 +181,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="kubeAdminConfigs")
-    def kube_admin_configs(self) -> List['outputs.GetKubernetesClusterKubeAdminConfigResult']:
+    def kube_admin_configs(self) -> Sequence['outputs.GetKubernetesClusterKubeAdminConfigResult']:
         """
         A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         """
@@ -197,7 +197,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="kubeConfigs")
-    def kube_configs(self) -> List['outputs.GetKubernetesClusterKubeConfigResult']:
+    def kube_configs(self) -> Sequence['outputs.GetKubernetesClusterKubeConfigResult']:
         """
         A `kube_config` block as defined below.
         """
@@ -205,7 +205,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="kubeletIdentities")
-    def kubelet_identities(self) -> List['outputs.GetKubernetesClusterKubeletIdentityResult']:
+    def kubelet_identities(self) -> Sequence['outputs.GetKubernetesClusterKubeletIdentityResult']:
         """
         A `kubelet_identity` block as documented below.
         """
@@ -221,7 +221,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="linuxProfiles")
-    def linux_profiles(self) -> List['outputs.GetKubernetesClusterLinuxProfileResult']:
+    def linux_profiles(self) -> Sequence['outputs.GetKubernetesClusterLinuxProfileResult']:
         """
         A `linux_profile` block as documented below.
         """
@@ -245,7 +245,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="networkProfiles")
-    def network_profiles(self) -> List['outputs.GetKubernetesClusterNetworkProfileResult']:
+    def network_profiles(self) -> Sequence['outputs.GetKubernetesClusterNetworkProfileResult']:
         """
         A `network_profile` block as documented below.
         """
@@ -287,7 +287,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="roleBasedAccessControls")
-    def role_based_access_controls(self) -> List['outputs.GetKubernetesClusterRoleBasedAccessControlResult']:
+    def role_based_access_controls(self) -> Sequence['outputs.GetKubernetesClusterRoleBasedAccessControlResult']:
         """
         A `role_based_access_control` block as documented below.
         """
@@ -295,7 +295,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="servicePrincipals")
-    def service_principals(self) -> List['outputs.GetKubernetesClusterServicePrincipalResult']:
+    def service_principals(self) -> Sequence['outputs.GetKubernetesClusterServicePrincipalResult']:
         """
         A `service_principal` block as documented below.
         """
@@ -311,7 +311,7 @@ class GetKubernetesClusterResult:
 
     @property
     @pulumi.getter(name="windowsProfiles")
-    def windows_profiles(self) -> List['outputs.GetKubernetesClusterWindowsProfileResult']:
+    def windows_profiles(self) -> Sequence['outputs.GetKubernetesClusterWindowsProfileResult']:
         """
         A `windows_profile` block as documented below.
         """

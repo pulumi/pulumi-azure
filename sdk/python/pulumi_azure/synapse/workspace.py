@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -124,7 +124,7 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
             connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            identities: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]]] = None,
+            identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
             managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
@@ -143,7 +143,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]]] identities: An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
         :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace. Changing this forces a new resource to be created.
@@ -190,7 +190,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identities(self) -> pulumi.Output[List['outputs.WorkspaceIdentity']]:
+    def identities(self) -> pulumi.Output[Sequence['outputs.WorkspaceIdentity']]:
         """
         An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,17 +17,17 @@ class Cache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity: Optional[pulumi.Input[float]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 patch_schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]]] = None,
+                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shard_count: Optional[pulumi.Input[float]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -87,19 +87,19 @@ class Cache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
-        :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
+        :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -162,15 +162,15 @@ class Cache(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capacity: Optional[pulumi.Input[float]] = None,
+            capacity: Optional[pulumi.Input[int]] = None,
             enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
             family: Optional[pulumi.Input[str]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             minimum_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            patch_schedules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
             private_static_ip_address: Optional[pulumi.Input[str]] = None,
@@ -178,9 +178,9 @@ class Cache(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
             secondary_connection_string: Optional[pulumi.Input[str]] = None,
-            shard_count: Optional[pulumi.Input[float]] = None,
+            shard_count: Optional[pulumi.Input[int]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
-            ssl_port: Optional[pulumi.Input[float]] = None,
+            ssl_port: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zones: Optional[pulumi.Input[str]] = None) -> 'Cache':
@@ -191,7 +191,7 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
@@ -199,8 +199,8 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
-        :param pulumi.Input[float] port: The non-SSL Port of the Redis Instance
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
@@ -209,9 +209,9 @@ class Cache(pulumi.CustomResource):
                create the Redis instance.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Redis Instance.
-        :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
+        :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
-        :param pulumi.Input[float] ssl_port: The SSL Port of the Redis Instance
+        :param pulumi.Input[int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
@@ -246,7 +246,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capacity(self) -> pulumi.Output[float]:
+    def capacity(self) -> pulumi.Output[int]:
         """
         The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
         """
@@ -303,7 +303,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="patchSchedules")
-    def patch_schedules(self) -> pulumi.Output[Optional[List['outputs.CachePatchSchedule']]]:
+    def patch_schedules(self) -> pulumi.Output[Optional[Sequence['outputs.CachePatchSchedule']]]:
         """
         A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         """
@@ -311,7 +311,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[float]:
+    def port(self) -> pulumi.Output[int]:
         """
         The non-SSL Port of the Redis Instance
         """
@@ -376,7 +376,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> pulumi.Output[Optional[float]]:
+    def shard_count(self) -> pulumi.Output[Optional[int]]:
         """
         *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         """
@@ -392,7 +392,7 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslPort")
-    def ssl_port(self) -> pulumi.Output[float]:
+    def ssl_port(self) -> pulumi.Output[int]:
         """
         The SSL Port of the Redis Instance
         """

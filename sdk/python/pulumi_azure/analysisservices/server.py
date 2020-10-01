@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,10 +17,10 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
                  enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
-                 ipv4_firewall_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]]] = None,
+                 ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  querypool_connection_mode: Optional[pulumi.Input[str]] = None,
@@ -60,10 +60,10 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
         :param pulumi.Input[str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
         :param pulumi.Input[bool] enable_power_bi_service: Indicates if the Power BI service is allowed to access or not.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
         :param pulumi.Input[str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the firewall rule.
         :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
@@ -112,10 +112,10 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_users: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
             enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
-            ipv4_firewall_rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]]] = None,
+            ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             querypool_connection_mode: Optional[pulumi.Input[str]] = None,
@@ -130,10 +130,10 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
         :param pulumi.Input[str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
         :param pulumi.Input[bool] enable_power_bi_service: Indicates if the Power BI service is allowed to access or not.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
         :param pulumi.Input[str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the firewall rule.
         :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
@@ -160,7 +160,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminUsers")
-    def admin_users(self) -> pulumi.Output[Optional[List[str]]]:
+    def admin_users(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of email addresses of admin users.
         """
@@ -184,7 +184,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv4FirewallRules")
-    def ipv4_firewall_rules(self) -> pulumi.Output[Optional[List['outputs.ServerIpv4FirewallRule']]]:
+    def ipv4_firewall_rules(self) -> pulumi.Output[Optional[Sequence['outputs.ServerIpv4FirewallRule']]]:
         """
         One or more `ipv4_firewall_rule` block(s) as defined below.
         """

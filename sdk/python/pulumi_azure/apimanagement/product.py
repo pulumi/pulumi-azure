@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Product']
@@ -23,7 +23,7 @@ class Product(pulumi.CustomResource):
                  published: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
-                 subscriptions_limit: Optional[pulumi.Input[float]] = None,
+                 subscriptions_limit: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -64,7 +64,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] published: Is this Product Published?
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
-        :param pulumi.Input[float] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
+        :param pulumi.Input[int] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         if __name__ is not None:
@@ -124,7 +124,7 @@ class Product(pulumi.CustomResource):
             published: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             subscription_required: Optional[pulumi.Input[bool]] = None,
-            subscriptions_limit: Optional[pulumi.Input[float]] = None,
+            subscriptions_limit: Optional[pulumi.Input[int]] = None,
             terms: Optional[pulumi.Input[str]] = None) -> 'Product':
         """
         Get an existing Product resource's state with the given name, id, and optional extra
@@ -141,7 +141,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] published: Is this Product Published?
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
-        :param pulumi.Input[float] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
+        :param pulumi.Input[int] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -226,7 +226,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionsLimit")
-    def subscriptions_limit(self) -> pulumi.Output[Optional[float]]:
+    def subscriptions_limit(self) -> pulumi.Output[Optional[int]]:
         """
         The number of subscriptions a user can have to this Product at the same time.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -18,11 +18,11 @@ __all__ = [
 @pulumi.input_type
 class CaaRecordRecordArgs:
     def __init__(__self__, *,
-                 flags: pulumi.Input[float],
+                 flags: pulumi.Input[int],
                  tag: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[float] flags: Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+        :param pulumi.Input[int] flags: Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
         :param pulumi.Input[str] tag: A property tag, options are issue, issuewild and iodef.
         :param pulumi.Input[str] value: A property value such as a registrar domain.
         """
@@ -32,14 +32,14 @@ class CaaRecordRecordArgs:
 
     @property
     @pulumi.getter
-    def flags(self) -> pulumi.Input[float]:
+    def flags(self) -> pulumi.Input[int]:
         """
         Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
         """
         return pulumi.get(self, "flags")
 
     @flags.setter
-    def flags(self, value: pulumi.Input[float]):
+    def flags(self, value: pulumi.Input[int]):
         pulumi.set(self, "flags", value)
 
     @property
@@ -107,15 +107,15 @@ class MxRecordRecordArgs:
 @pulumi.input_type
 class SrvRecordRecordArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[float],
-                 priority: pulumi.Input[float],
+                 port: pulumi.Input[int],
+                 priority: pulumi.Input[int],
                  target: pulumi.Input[str],
-                 weight: pulumi.Input[float]):
+                 weight: pulumi.Input[int]):
         """
-        :param pulumi.Input[float] port: Port the service is listening on.
-        :param pulumi.Input[float] priority: Priority of the SRV record.
+        :param pulumi.Input[int] port: Port the service is listening on.
+        :param pulumi.Input[int] priority: Priority of the SRV record.
         :param pulumi.Input[str] target: FQDN of the service.
-        :param pulumi.Input[float] weight: Weight of the SRV record.
+        :param pulumi.Input[int] weight: Weight of the SRV record.
         """
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "priority", priority)
@@ -124,26 +124,26 @@ class SrvRecordRecordArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Input[float]:
+    def port(self) -> pulumi.Input[int]:
         """
         Port the service is listening on.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: pulumi.Input[float]):
+    def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter
-    def priority(self) -> pulumi.Input[float]:
+    def priority(self) -> pulumi.Input[int]:
         """
         Priority of the SRV record.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: pulumi.Input[float]):
+    def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -160,14 +160,14 @@ class SrvRecordRecordArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> pulumi.Input[float]:
+    def weight(self) -> pulumi.Input[int]:
         """
         Weight of the SRV record.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: pulumi.Input[float]):
+    def weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "weight", value)
 
 

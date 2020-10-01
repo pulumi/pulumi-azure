@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -36,12 +36,12 @@ class GetRecommendationsResult:
 
     @property
     @pulumi.getter(name="filterByCategories")
-    def filter_by_categories(self) -> Optional[List[str]]:
+    def filter_by_categories(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_by_categories")
 
     @property
     @pulumi.getter(name="filterByResourceGroups")
-    def filter_by_resource_groups(self) -> Optional[List[str]]:
+    def filter_by_resource_groups(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "filter_by_resource_groups")
 
     @property
@@ -54,7 +54,7 @@ class GetRecommendationsResult:
 
     @property
     @pulumi.getter
-    def recommendations(self) -> List['outputs.GetRecommendationsRecommendationResult']:
+    def recommendations(self) -> Sequence['outputs.GetRecommendationsRecommendationResult']:
         """
         One or more `recommendations` blocks as defined below.
         """
@@ -73,8 +73,8 @@ class AwaitableGetRecommendationsResult(GetRecommendationsResult):
             recommendations=self.recommendations)
 
 
-def get_recommendations(filter_by_categories: Optional[List[str]] = None,
-                        filter_by_resource_groups: Optional[List[str]] = None,
+def get_recommendations(filter_by_categories: Optional[Sequence[str]] = None,
+                        filter_by_resource_groups: Optional[Sequence[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecommendationsResult:
     """
     Use this data source to access information about an existing Advisor Recommendations.
@@ -94,8 +94,8 @@ def get_recommendations(filter_by_categories: Optional[List[str]] = None,
     ```
 
 
-    :param List[str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
-    :param List[str] filter_by_resource_groups: Specifies a list of resource groups about which the Advisor Recommendations will be listed.
+    :param Sequence[str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
+    :param Sequence[str] filter_by_resource_groups: Specifies a list of resource groups about which the Advisor Recommendations will be listed.
     """
     __args__ = dict()
     __args__['filterByCategories'] = filter_by_categories

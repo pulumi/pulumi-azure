@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -48,7 +48,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter(name="githubConfigurations")
-    def github_configurations(self) -> List['outputs.GetFactoryGithubConfigurationResult']:
+    def github_configurations(self) -> Sequence['outputs.GetFactoryGithubConfigurationResult']:
         """
         A `github_configuration` block as defined below.
         """
@@ -64,7 +64,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter
-    def identities(self) -> List['outputs.GetFactoryIdentityResult']:
+    def identities(self) -> Sequence['outputs.GetFactoryIdentityResult']:
         """
         An `identity` block as defined below.
         """
@@ -99,7 +99,7 @@ class GetFactoryResult:
 
     @property
     @pulumi.getter(name="vstsConfigurations")
-    def vsts_configurations(self) -> List['outputs.GetFactoryVstsConfigurationResult']:
+    def vsts_configurations(self) -> Sequence['outputs.GetFactoryVstsConfigurationResult']:
         """
         A `vsts_configuration` block as defined below.
         """

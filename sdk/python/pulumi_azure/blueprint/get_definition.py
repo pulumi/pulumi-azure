@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -108,7 +108,7 @@ class GetDefinitionResult:
 
     @property
     @pulumi.getter
-    def versions(self) -> List[str]:
+    def versions(self) -> Sequence[str]:
         """
         A list of versions published for this Blueprint Definition.
         """

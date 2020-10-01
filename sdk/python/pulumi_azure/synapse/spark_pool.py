@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,7 @@ class SparkPool(pulumi.CustomResource):
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']]] = None,
                  library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 node_count: Optional[pulumi.Input[float]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
                  node_size: Optional[pulumi.Input[str]] = None,
                  node_size_family: Optional[pulumi.Input[str]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
@@ -78,7 +78,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
-        :param pulumi.Input[float] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
@@ -136,7 +136,7 @@ class SparkPool(pulumi.CustomResource):
             auto_scale: Optional[pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']]] = None,
             library_requirement: Optional[pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            node_count: Optional[pulumi.Input[float]] = None,
+            node_count: Optional[pulumi.Input[int]] = None,
             node_size: Optional[pulumi.Input[str]] = None,
             node_size_family: Optional[pulumi.Input[str]] = None,
             spark_events_folder: Optional[pulumi.Input[str]] = None,
@@ -155,7 +155,7 @@ class SparkPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkPoolAutoScaleArgs']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[pulumi.InputType['SparkPoolLibraryRequirementArgs']] library_requirement: A `library_requirement` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
-        :param pulumi.Input[float] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
         :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
         :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
@@ -216,7 +216,7 @@ class SparkPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> pulumi.Output[Optional[float]]:
+    def node_count(self) -> pulumi.Output[Optional[int]]:
         """
         The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
         """

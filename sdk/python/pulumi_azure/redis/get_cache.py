@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -21,8 +21,8 @@ class GetCacheResult:
     A collection of values returned by getCache.
     """
     def __init__(__self__, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, id=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, primary_connection_string=None, private_static_ip_address=None, redis_configurations=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
-        if capacity and not isinstance(capacity, float):
-            raise TypeError("Expected argument 'capacity' to be a float")
+        if capacity and not isinstance(capacity, int):
+            raise TypeError("Expected argument 'capacity' to be a int")
         pulumi.set(__self__, "capacity", capacity)
         if enable_non_ssl_port and not isinstance(enable_non_ssl_port, bool):
             raise TypeError("Expected argument 'enable_non_ssl_port' to be a bool")
@@ -48,8 +48,8 @@ class GetCacheResult:
         if patch_schedules and not isinstance(patch_schedules, list):
             raise TypeError("Expected argument 'patch_schedules' to be a list")
         pulumi.set(__self__, "patch_schedules", patch_schedules)
-        if port and not isinstance(port, float):
-            raise TypeError("Expected argument 'port' to be a float")
+        if port and not isinstance(port, int):
+            raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
         if primary_access_key and not isinstance(primary_access_key, str):
             raise TypeError("Expected argument 'primary_access_key' to be a str")
@@ -72,14 +72,14 @@ class GetCacheResult:
         if secondary_connection_string and not isinstance(secondary_connection_string, str):
             raise TypeError("Expected argument 'secondary_connection_string' to be a str")
         pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
-        if shard_count and not isinstance(shard_count, float):
-            raise TypeError("Expected argument 'shard_count' to be a float")
+        if shard_count and not isinstance(shard_count, int):
+            raise TypeError("Expected argument 'shard_count' to be a int")
         pulumi.set(__self__, "shard_count", shard_count)
         if sku_name and not isinstance(sku_name, str):
             raise TypeError("Expected argument 'sku_name' to be a str")
         pulumi.set(__self__, "sku_name", sku_name)
-        if ssl_port and not isinstance(ssl_port, float):
-            raise TypeError("Expected argument 'ssl_port' to be a float")
+        if ssl_port and not isinstance(ssl_port, int):
+            raise TypeError("Expected argument 'ssl_port' to be a int")
         pulumi.set(__self__, "ssl_port", ssl_port)
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
@@ -93,7 +93,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def capacity(self) -> float:
+    def capacity(self) -> int:
         """
         The size of the Redis Cache deployed.
         """
@@ -154,7 +154,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="patchSchedules")
-    def patch_schedules(self) -> List['outputs.GetCachePatchScheduleResult']:
+    def patch_schedules(self) -> Sequence['outputs.GetCachePatchScheduleResult']:
         """
         A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
         """
@@ -162,7 +162,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> int:
         """
         The non-SSL Port of the Redis Instance
         """
@@ -191,7 +191,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="redisConfigurations")
-    def redis_configurations(self) -> List['outputs.GetCacheRedisConfigurationResult']:
+    def redis_configurations(self) -> Sequence['outputs.GetCacheRedisConfigurationResult']:
         """
         A `redis_configuration` block as defined below.
         """
@@ -220,7 +220,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> float:
+    def shard_count(self) -> int:
         return pulumi.get(self, "shard_count")
 
     @property
@@ -233,7 +233,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter(name="sslPort")
-    def ssl_port(self) -> float:
+    def ssl_port(self) -> int:
         """
         The SSL Port of the Redis Instance
         """
@@ -251,7 +251,7 @@ class GetCacheResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> List[str]:
+    def zones(self) -> Sequence[str]:
         return pulumi.get(self, "zones")
 
 
@@ -288,7 +288,7 @@ class AwaitableGetCacheResult(GetCacheResult):
 
 def get_cache(name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
-              zones: Optional[List[str]] = None,
+              zones: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
     Use this data source to access information about an existing Redis Cache

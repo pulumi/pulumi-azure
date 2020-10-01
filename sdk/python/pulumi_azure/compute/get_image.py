@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -54,7 +54,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="dataDisks")
-    def data_disks(self) -> List['outputs.GetImageDataDiskResult']:
+    def data_disks(self) -> Sequence['outputs.GetImageDataDiskResult']:
         """
         a collection of `data_disk` blocks as defined below.
         """
@@ -91,7 +91,7 @@ class GetImageResult:
 
     @property
     @pulumi.getter(name="osDisks")
-    def os_disks(self) -> List['outputs.GetImageOsDiskResult']:
+    def os_disks(self) -> Sequence['outputs.GetImageOsDiskResult']:
         """
         a `os_disk` block as defined below.
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -101,7 +101,7 @@ class GetPolicySetDefinitionResult:
 
     @property
     @pulumi.getter(name="policyDefinitionReferences")
-    def policy_definition_references(self) -> List['outputs.GetPolicySetDefinitionPolicyDefinitionReferenceResult']:
+    def policy_definition_references(self) -> Sequence['outputs.GetPolicySetDefinitionPolicyDefinitionReferenceResult']:
         """
         One or more `policy_definition_reference` blocks as defined below.
         """

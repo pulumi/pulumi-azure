@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ApiKey']
@@ -17,8 +17,8 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 read_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 write_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -73,8 +73,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,8 +113,8 @@ class ApiKey(pulumi.CustomResource):
             api_key: Optional[pulumi.Input[str]] = None,
             application_insights_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            read_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            write_permissions: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ApiKey':
+            read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -126,8 +126,8 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
-        :param pulumi.Input[List[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -167,7 +167,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readPermissions")
-    def read_permissions(self) -> pulumi.Output[Optional[List[str]]]:
+    def read_permissions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
@@ -175,7 +175,7 @@ class ApiKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writePermissions")
-    def write_permissions(self) -> pulumi.Output[Optional[List[str]]]:
+    def write_permissions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """

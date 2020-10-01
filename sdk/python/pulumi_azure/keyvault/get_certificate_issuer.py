@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -53,7 +53,7 @@ class GetCertificateIssuerResult:
 
     @property
     @pulumi.getter
-    def admins(self) -> List['outputs.GetCertificateIssuerAdminResult']:
+    def admins(self) -> Sequence['outputs.GetCertificateIssuerAdminResult']:
         """
         A list of `admin` blocks as defined below.
         """

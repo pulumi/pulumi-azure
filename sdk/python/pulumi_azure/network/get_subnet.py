@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -64,7 +64,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> List[str]:
+    def address_prefixes(self) -> Sequence[str]:
         """
         The address prefixes for the subnet.
         """
@@ -122,7 +122,7 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> List[str]:
+    def service_endpoints(self) -> Sequence[str]:
         """
         A list of Service Endpoints within this subnet.
         """

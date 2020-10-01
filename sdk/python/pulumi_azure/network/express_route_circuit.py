@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
-                 bandwidth_in_mbps: Optional[pulumi.Input[float]] = None,
+                 bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-        :param pulumi.Input[float] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
+        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location.
@@ -115,7 +115,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_classic_operations: Optional[pulumi.Input[bool]] = None,
-            bandwidth_in_mbps: Optional[pulumi.Input[float]] = None,
+            bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             peering_location: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
-        :param pulumi.Input[float] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
+        :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location.
@@ -171,7 +171,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bandwidthInMbps")
-    def bandwidth_in_mbps(self) -> pulumi.Output[float]:
+    def bandwidth_in_mbps(self) -> pulumi.Output[int]:
         """
         The bandwidth in Mbps of the circuit being created.
         """

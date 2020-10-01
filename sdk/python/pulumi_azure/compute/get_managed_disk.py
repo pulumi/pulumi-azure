@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -26,14 +26,14 @@ class GetManagedDiskResult:
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        if disk_iops_read_write and not isinstance(disk_iops_read_write, float):
-            raise TypeError("Expected argument 'disk_iops_read_write' to be a float")
+        if disk_iops_read_write and not isinstance(disk_iops_read_write, int):
+            raise TypeError("Expected argument 'disk_iops_read_write' to be a int")
         pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
-        if disk_mbps_read_write and not isinstance(disk_mbps_read_write, float):
-            raise TypeError("Expected argument 'disk_mbps_read_write' to be a float")
+        if disk_mbps_read_write and not isinstance(disk_mbps_read_write, int):
+            raise TypeError("Expected argument 'disk_mbps_read_write' to be a int")
         pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
-        if disk_size_gb and not isinstance(disk_size_gb, float):
-            raise TypeError("Expected argument 'disk_size_gb' to be a float")
+        if disk_size_gb and not isinstance(disk_size_gb, int):
+            raise TypeError("Expected argument 'disk_size_gb' to be a int")
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -84,7 +84,7 @@ class GetManagedDiskResult:
 
     @property
     @pulumi.getter(name="diskIopsReadWrite")
-    def disk_iops_read_write(self) -> float:
+    def disk_iops_read_write(self) -> int:
         """
         The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
         """
@@ -92,7 +92,7 @@ class GetManagedDiskResult:
 
     @property
     @pulumi.getter(name="diskMbpsReadWrite")
-    def disk_mbps_read_write(self) -> float:
+    def disk_mbps_read_write(self) -> int:
         """
         The bandwidth allowed for this disk.
         """
@@ -100,7 +100,7 @@ class GetManagedDiskResult:
 
     @property
     @pulumi.getter(name="diskSizeGb")
-    def disk_size_gb(self) -> float:
+    def disk_size_gb(self) -> int:
         """
         The size of the Managed Disk in gigabytes.
         """
@@ -182,7 +182,7 @@ class GetManagedDiskResult:
 
     @property
     @pulumi.getter
-    def zones(self) -> List[str]:
+    def zones(self) -> Sequence[str]:
         """
         A list of Availability Zones where the Managed Disk exists.
         """
@@ -216,7 +216,7 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
 def get_managed_disk(name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
-                     zones: Optional[List[str]] = None,
+                     zones: Optional[Sequence[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedDiskResult:
     """
     Use this data source to access information about an existing Managed Disk.
@@ -236,7 +236,7 @@ def get_managed_disk(name: Optional[str] = None,
     :param str name: Specifies the name of the Managed Disk.
     :param str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
     :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
-    :param List[str] zones: A list of Availability Zones where the Managed Disk exists.
+    :param Sequence[str] zones: A list of Availability Zones where the Managed Disk exists.
     """
     __args__ = dict()
     __args__['name'] = name

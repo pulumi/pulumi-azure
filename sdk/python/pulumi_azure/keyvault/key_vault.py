@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class KeyVault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
                  enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
                  enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
@@ -28,7 +28,7 @@ class KeyVault(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
-                 soft_delete_retention_days: Optional[pulumi.Input[float]] = None,
+                 soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -78,7 +78,7 @@ class KeyVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
@@ -89,7 +89,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        :param pulumi.Input[float] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted.
+        :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
@@ -141,7 +141,7 @@ class KeyVault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_policies: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
+            access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
             enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
             enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
             enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
@@ -152,7 +152,7 @@ class KeyVault(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
-            soft_delete_retention_days: Optional[pulumi.Input[float]] = None,
+            soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenant_id: Optional[pulumi.Input[str]] = None,
             vault_uri: Optional[pulumi.Input[str]] = None) -> 'KeyVault':
@@ -163,7 +163,7 @@ class KeyVault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
@@ -174,7 +174,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[bool] soft_delete_enabled: Should Soft Delete be enabled for this Key Vault? Defaults to `false`.
-        :param pulumi.Input[float] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted.
+        :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
@@ -202,7 +202,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> pulumi.Output[List['outputs.KeyVaultAccessPolicy']]:
+    def access_policies(self) -> pulumi.Output[Sequence['outputs.KeyVaultAccessPolicy']]:
         """
         A list of up to 16 objects describing access policies, as described below.
         """
@@ -290,7 +290,7 @@ class KeyVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="softDeleteRetentionDays")
-    def soft_delete_retention_days(self) -> pulumi.Output[Optional[float]]:
+    def soft_delete_retention_days(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days that items should be retained for once soft-deleted.
         """

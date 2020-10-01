@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -26,11 +26,11 @@ class GetJobResult:
         if data_locale and not isinstance(data_locale, str):
             raise TypeError("Expected argument 'data_locale' to be a str")
         pulumi.set(__self__, "data_locale", data_locale)
-        if events_late_arrival_max_delay_in_seconds and not isinstance(events_late_arrival_max_delay_in_seconds, float):
-            raise TypeError("Expected argument 'events_late_arrival_max_delay_in_seconds' to be a float")
+        if events_late_arrival_max_delay_in_seconds and not isinstance(events_late_arrival_max_delay_in_seconds, int):
+            raise TypeError("Expected argument 'events_late_arrival_max_delay_in_seconds' to be a int")
         pulumi.set(__self__, "events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
-        if events_out_of_order_max_delay_in_seconds and not isinstance(events_out_of_order_max_delay_in_seconds, float):
-            raise TypeError("Expected argument 'events_out_of_order_max_delay_in_seconds' to be a float")
+        if events_out_of_order_max_delay_in_seconds and not isinstance(events_out_of_order_max_delay_in_seconds, int):
+            raise TypeError("Expected argument 'events_out_of_order_max_delay_in_seconds' to be a int")
         pulumi.set(__self__, "events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
         if events_out_of_order_policy and not isinstance(events_out_of_order_policy, str):
             raise TypeError("Expected argument 'events_out_of_order_policy' to be a str")
@@ -53,8 +53,8 @@ class GetJobResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if streaming_units and not isinstance(streaming_units, float):
-            raise TypeError("Expected argument 'streaming_units' to be a float")
+        if streaming_units and not isinstance(streaming_units, int):
+            raise TypeError("Expected argument 'streaming_units' to be a int")
         pulumi.set(__self__, "streaming_units", streaming_units)
         if transformation_query and not isinstance(transformation_query, str):
             raise TypeError("Expected argument 'transformation_query' to be a str")
@@ -78,7 +78,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
-    def events_late_arrival_max_delay_in_seconds(self) -> float:
+    def events_late_arrival_max_delay_in_seconds(self) -> int:
         """
         The maximum tolerable delay in seconds where events arriving late could be included.
         """
@@ -86,7 +86,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="eventsOutOfOrderMaxDelayInSeconds")
-    def events_out_of_order_max_delay_in_seconds(self) -> float:
+    def events_out_of_order_max_delay_in_seconds(self) -> int:
         """
         The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
         """
@@ -144,7 +144,7 @@ class GetJobResult:
 
     @property
     @pulumi.getter(name="streamingUnits")
-    def streaming_units(self) -> float:
+    def streaming_units(self) -> int:
         """
         The number of streaming units that the streaming job uses.
         """

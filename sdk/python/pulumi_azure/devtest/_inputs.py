@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -25,11 +25,11 @@ __all__ = [
 class GlobalVMShutdownScheduleNotificationSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 time_in_minutes: Optional[pulumi.Input[float]] = None,
+                 time_in_minutes: Optional[pulumi.Input[int]] = None,
                  webhook_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
-        :param pulumi.Input[float] time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+        :param pulumi.Input[int] time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         :param pulumi.Input[str] webhook_url: The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -52,14 +52,14 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
 
     @property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def time_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         """
         return pulumi.get(self, "time_in_minutes")
 
     @time_in_minutes.setter
-    def time_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def time_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_in_minutes", value)
 
     @property
@@ -145,13 +145,13 @@ class LinuxVirtualMachineGalleryImageReferenceArgs:
 @pulumi.input_type
 class LinuxVirtualMachineInboundNatRuleArgs:
     def __init__(__self__, *,
-                 backend_port: pulumi.Input[float],
+                 backend_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
-                 frontend_port: Optional[pulumi.Input[float]] = None):
+                 frontend_port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] frontend_port: The frontend port associated with this Inbound NAT Rule.
+        :param pulumi.Input[int] frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -160,14 +160,14 @@ class LinuxVirtualMachineInboundNatRuleArgs:
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> pulumi.Input[float]:
+    def backend_port(self) -> pulumi.Input[int]:
         """
         The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: pulumi.Input[float]):
+    def backend_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "backend_port", value)
 
     @property
@@ -184,14 +184,14 @@ class LinuxVirtualMachineInboundNatRuleArgs:
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[pulumi.Input[float]]:
+    def frontend_port(self) -> Optional[pulumi.Input[int]]:
         """
         The frontend port associated with this Inbound NAT Rule.
         """
         return pulumi.get(self, "frontend_port")
 
     @frontend_port.setter
-    def frontend_port(self, value: Optional[pulumi.Input[float]]):
+    def frontend_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "frontend_port", value)
 
 
@@ -220,16 +220,16 @@ class ScheduleDailyRecurrenceArgs:
 @pulumi.input_type
 class ScheduleHourlyRecurrenceArgs:
     def __init__(__self__, *,
-                 minute: pulumi.Input[float]):
+                 minute: pulumi.Input[int]):
         pulumi.set(__self__, "minute", minute)
 
     @property
     @pulumi.getter
-    def minute(self) -> pulumi.Input[float]:
+    def minute(self) -> pulumi.Input[int]:
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: pulumi.Input[float]):
+    def minute(self, value: pulumi.Input[int]):
         pulumi.set(self, "minute", value)
 
 
@@ -237,11 +237,11 @@ class ScheduleHourlyRecurrenceArgs:
 class ScheduleNotificationSettingsArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None,
-                 time_in_minutes: Optional[pulumi.Input[float]] = None,
+                 time_in_minutes: Optional[pulumi.Input[int]] = None,
                  webhook_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] status: The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
-        :param pulumi.Input[float] time_in_minutes: Time in minutes before event at which notification will be sent.
+        :param pulumi.Input[int] time_in_minutes: Time in minutes before event at which notification will be sent.
         :param pulumi.Input[str] webhook_url: The webhook URL to which the notification will be sent.
         """
         if status is not None:
@@ -265,14 +265,14 @@ class ScheduleNotificationSettingsArgs:
 
     @property
     @pulumi.getter(name="timeInMinutes")
-    def time_in_minutes(self) -> Optional[pulumi.Input[float]]:
+    def time_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Time in minutes before event at which notification will be sent.
         """
         return pulumi.get(self, "time_in_minutes")
 
     @time_in_minutes.setter
-    def time_in_minutes(self, value: Optional[pulumi.Input[float]]):
+    def time_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_in_minutes", value)
 
     @property
@@ -292,10 +292,10 @@ class ScheduleNotificationSettingsArgs:
 class ScheduleWeeklyRecurrenceArgs:
     def __init__(__self__, *,
                  time: pulumi.Input[str],
-                 week_days: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] time: The time when the schedule takes effect.
-        :param pulumi.Input[List[pulumi.Input[str]]] week_days: A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         pulumi.set(__self__, "time", time)
         if week_days is not None:
@@ -315,14 +315,14 @@ class ScheduleWeeklyRecurrenceArgs:
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
-    def week_days(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "week_days", value)
 
 
@@ -451,13 +451,13 @@ class WindowsVirtualMachineGalleryImageReferenceArgs:
 @pulumi.input_type
 class WindowsVirtualMachineInboundNatRuleArgs:
     def __init__(__self__, *,
-                 backend_port: pulumi.Input[float],
+                 backend_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
-                 frontend_port: Optional[pulumi.Input[float]] = None):
+                 frontend_port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] backend_port: The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
-        :param pulumi.Input[float] frontend_port: The frontend port associated with this Inbound NAT Rule.
+        :param pulumi.Input[int] frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -466,14 +466,14 @@ class WindowsVirtualMachineInboundNatRuleArgs:
 
     @property
     @pulumi.getter(name="backendPort")
-    def backend_port(self) -> pulumi.Input[float]:
+    def backend_port(self) -> pulumi.Input[int]:
         """
         The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-    def backend_port(self, value: pulumi.Input[float]):
+    def backend_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "backend_port", value)
 
     @property
@@ -490,14 +490,14 @@ class WindowsVirtualMachineInboundNatRuleArgs:
 
     @property
     @pulumi.getter(name="frontendPort")
-    def frontend_port(self) -> Optional[pulumi.Input[float]]:
+    def frontend_port(self) -> Optional[pulumi.Input[int]]:
         """
         The frontend port associated with this Inbound NAT Rule.
         """
         return pulumi.get(self, "frontend_port")
 
     @frontend_port.setter
-    def frontend_port(self, value: Optional[pulumi.Input[float]]):
+    def frontend_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "frontend_port", value)
 
 

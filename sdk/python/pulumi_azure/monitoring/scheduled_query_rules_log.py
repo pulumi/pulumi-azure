@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,7 +17,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorized_resource_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorized_resource_ids: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
             data_source_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizedResourceIds")
-    def authorized_resource_ids(self) -> pulumi.Output[Optional[List[str]]]:
+    def authorized_resource_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "authorized_resource_ids")
 
     @property

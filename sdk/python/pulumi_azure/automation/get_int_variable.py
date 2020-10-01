@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetIntVariableResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if value and not isinstance(value, float):
-            raise TypeError("Expected argument 'value' to be a float")
+        if value and not isinstance(value, int):
+            raise TypeError("Expected argument 'value' to be a int")
         pulumi.set(__self__, "value", value)
 
     @property
@@ -83,7 +83,7 @@ class GetIntVariableResult:
 
     @property
     @pulumi.getter
-    def value(self) -> float:
+    def value(self) -> int:
         """
         The value of the Automation Variable as a `integer`.
         """

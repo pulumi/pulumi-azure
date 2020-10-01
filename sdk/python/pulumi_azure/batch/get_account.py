@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -73,7 +73,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="keyVaultReferences")
-    def key_vault_references(self) -> List['outputs.GetAccountKeyVaultReferenceResult']:
+    def key_vault_references(self) -> Sequence['outputs.GetAccountKeyVaultReferenceResult']:
         """
         The `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         """

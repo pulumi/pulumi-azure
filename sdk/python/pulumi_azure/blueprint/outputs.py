@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -15,7 +15,7 @@ __all__ = [
 @pulumi.output_type
 class AssignmentIdentity(dict):
     def __init__(__self__, *,
-                 identity_ids: List[str],
+                 identity_ids: Sequence[str],
                  type: str,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
@@ -31,7 +31,7 @@ class AssignmentIdentity(dict):
 
     @property
     @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> List[str]:
+    def identity_ids(self) -> Sequence[str]:
         return pulumi.get(self, "identity_ids")
 
     @property

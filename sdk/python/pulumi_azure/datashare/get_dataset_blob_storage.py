@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -101,7 +101,7 @@ class GetDatasetBlobStorageResult:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> List['outputs.GetDatasetBlobStorageStorageAccountResult']:
+    def storage_accounts(self) -> Sequence['outputs.GetDatasetBlobStorageStorageAccountResult']:
         """
         A `storage_account` block as defined below.
         """

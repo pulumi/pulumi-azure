@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -69,7 +69,7 @@ class GetKeyVaultResult:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> List['outputs.GetKeyVaultAccessPolicyResult']:
+    def access_policies(self) -> Sequence['outputs.GetKeyVaultAccessPolicyResult']:
         """
         One or more `access_policy` blocks as defined below.
         """
@@ -122,7 +122,7 @@ class GetKeyVaultResult:
 
     @property
     @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> List['outputs.GetKeyVaultNetworkAclResult']:
+    def network_acls(self) -> Sequence['outputs.GetKeyVaultNetworkAclResult']:
         return pulumi.get(self, "network_acls")
 
     @property

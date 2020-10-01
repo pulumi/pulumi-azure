@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -133,7 +133,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def protocols(self) -> List[str]:
+    def protocols(self) -> Sequence[str]:
         """
         A list of protocols the operations in this API can be invoked.
         """
@@ -167,7 +167,7 @@ class GetApiResult:
 
     @property
     @pulumi.getter(name="subscriptionKeyParameterNames")
-    def subscription_key_parameter_names(self) -> List['outputs.GetApiSubscriptionKeyParameterNameResult']:
+    def subscription_key_parameter_names(self) -> Sequence['outputs.GetApiSubscriptionKeyParameterNameResult']:
         """
         A `subscription_key_parameter_names` block as documented below.
         """
