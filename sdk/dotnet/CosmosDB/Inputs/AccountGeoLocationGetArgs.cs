@@ -36,6 +36,12 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// Should zone redundancy be enabled for this region? Defaults to `false`.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
+
         public AccountGeoLocationGetArgs()
         {
         }

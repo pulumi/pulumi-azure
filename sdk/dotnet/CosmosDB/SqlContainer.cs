@@ -98,7 +98,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.SqlContainerIndexingPolicy> IndexingPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+        /// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> PartitionKeyPath { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+        /// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.SqlContainerIndexingPolicyArgs>? IndexingPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+        /// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? PartitionKeyPath { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+        /// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.SqlContainerIndexingPolicyGetArgs>? IndexingPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+        /// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? PartitionKeyPath { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+        /// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

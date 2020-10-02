@@ -10,5 +10,7 @@ export * from "./getSubscription";
 export * from "./getSubscriptions";
 export * from "./getUserAssignedIdentity";
 export * from "./resourceGroup";
+export * from "./resourceGroupTemplateDeployment";
+export * from "./subscriptionTemplateDeployment";
 export * from "./templateDeployment";
 export * from "./zMixins";

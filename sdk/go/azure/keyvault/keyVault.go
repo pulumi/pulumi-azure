@@ -85,6 +85,8 @@ type KeyVault struct {
 
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayOutput `pulumi:"accessPolicies"`
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	EnableRbacAuthorization pulumi.BoolPtrOutput `pulumi:"enableRbacAuthorization"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment pulumi.BoolPtrOutput `pulumi:"enabledForDeployment"`
 	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
@@ -154,6 +156,8 @@ func GetKeyVault(ctx *pulumi.Context,
 type keyVaultState struct {
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
 	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
@@ -187,6 +191,8 @@ type keyVaultState struct {
 type KeyVaultState struct {
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	EnableRbacAuthorization pulumi.BoolPtrInput
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment pulumi.BoolPtrInput
 	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
@@ -224,6 +230,8 @@ func (KeyVaultState) ElementType() reflect.Type {
 type keyVaultArgs struct {
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment *bool `pulumi:"enabledForDeployment"`
 	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
@@ -256,6 +264,8 @@ type keyVaultArgs struct {
 type KeyVaultArgs struct {
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
+	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+	EnableRbacAuthorization pulumi.BoolPtrInput
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment pulumi.BoolPtrInput
 	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.

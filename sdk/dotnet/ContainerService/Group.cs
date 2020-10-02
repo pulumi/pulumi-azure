@@ -85,6 +85,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.GroupDiagnostics?> Diagnostics { get; private set; } = null!;
 
         /// <summary>
+        /// A `dns_config` block as documented below.
+        /// </summary>
+        [Output("dnsConfig")]
+        public Output<Outputs.GroupDnsConfig?> DnsConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsNameLabel")]
@@ -227,6 +233,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.GroupDiagnosticsArgs>? Diagnostics { get; set; }
 
         /// <summary>
+        /// A `dns_config` block as documented below.
+        /// </summary>
+        [Input("dnsConfig")]
+        public Input<Inputs.GroupDnsConfigArgs>? DnsConfig { get; set; }
+
+        /// <summary>
         /// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsNameLabel")]
@@ -328,6 +340,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("diagnostics")]
         public Input<Inputs.GroupDiagnosticsGetArgs>? Diagnostics { get; set; }
+
+        /// <summary>
+        /// A `dns_config` block as documented below.
+        /// </summary>
+        [Input("dnsConfig")]
+        public Input<Inputs.GroupDnsConfigGetArgs>? DnsConfig { get; set; }
 
         /// <summary>
         /// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.

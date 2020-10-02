@@ -35,6 +35,7 @@ namespace Pulumi.Azure.FrontDoor
     ///         });
     ///         var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new Azure.FrontDoor.FrontdoorArgs
     ///         {
+    ///             Location = "EastUS2",
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             EnforceBackendPoolsCertificateNameCheck = false,
     ///             RoutingRules = 
@@ -172,6 +173,9 @@ namespace Pulumi.Azure.FrontDoor
         [Output("loadBalancerEnabled")]
         public Output<bool?> LoadBalancerEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
@@ -317,6 +321,9 @@ namespace Pulumi.Azure.FrontDoor
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -447,6 +454,9 @@ namespace Pulumi.Azure.FrontDoor
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 

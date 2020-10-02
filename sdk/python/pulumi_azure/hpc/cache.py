@@ -17,8 +17,10 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 root_squash_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -58,8 +60,10 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] root_squash_enabled: Whether root squash property is enabled for this HPC Cache.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         """
@@ -84,10 +88,12 @@ class Cache(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cache_size_in_gb'")
             __props__['cache_size_in_gb'] = cache_size_in_gb
             __props__['location'] = location
+            __props__['mtu'] = mtu
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['root_squash_enabled'] = root_squash_enabled
             if sku_name is None:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
@@ -108,8 +114,10 @@ class Cache(pulumi.CustomResource):
             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            mtu: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            root_squash_enabled: Optional[pulumi.Input[bool]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None) -> 'Cache':
         """
@@ -122,8 +130,10 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
+        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] root_squash_enabled: Whether root squash property is enabled for this HPC Cache.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         """
@@ -134,8 +144,10 @@ class Cache(pulumi.CustomResource):
         __props__["cache_size_in_gb"] = cache_size_in_gb
         __props__["location"] = location
         __props__["mount_addresses"] = mount_addresses
+        __props__["mtu"] = mtu
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
+        __props__["root_squash_enabled"] = root_squash_enabled
         __props__["sku_name"] = sku_name
         __props__["subnet_id"] = subnet_id
         return Cache(resource_name, opts=opts, __props__=__props__)
@@ -166,6 +178,14 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def mtu(self) -> pulumi.Output[Optional[int]]:
+        """
+        The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        """
+        return pulumi.get(self, "mtu")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the HPC Cache. Changing this forces a new resource to be created.
@@ -179,6 +199,14 @@ class Cache(pulumi.CustomResource):
         The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="rootSquashEnabled")
+    def root_squash_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether root squash property is enabled for this HPC Cache.
+        """
+        return pulumi.get(self, "root_squash_enabled")
 
     @property
     @pulumi.getter(name="skuName")

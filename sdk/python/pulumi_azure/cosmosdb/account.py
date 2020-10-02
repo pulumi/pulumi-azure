@@ -77,7 +77,6 @@ class Account(pulumi.CustomResource):
                     failover_priority=1,
                 ),
                 azure.cosmosdb.AccountGeoLocationArgs(
-                    prefix=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}-customid"),
                     location=rg.location,
                     failover_priority=0,
                 ),
@@ -144,10 +143,14 @@ class Account(pulumi.CustomResource):
             __props__['virtual_network_rules'] = virtual_network_rules
             __props__['connection_strings'] = None
             __props__['endpoint'] = None
+            __props__['primary_key'] = None
             __props__['primary_master_key'] = None
+            __props__['primary_readonly_key'] = None
             __props__['primary_readonly_master_key'] = None
             __props__['read_endpoints'] = None
+            __props__['secondary_key'] = None
             __props__['secondary_master_key'] = None
+            __props__['secondary_readonly_key'] = None
             __props__['secondary_readonly_master_key'] = None
             __props__['write_endpoints'] = None
         super(Account, __self__).__init__(
@@ -174,11 +177,15 @@ class Account(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             offer_type: Optional[pulumi.Input[str]] = None,
+            primary_key: Optional[pulumi.Input[str]] = None,
             primary_master_key: Optional[pulumi.Input[str]] = None,
+            primary_readonly_key: Optional[pulumi.Input[str]] = None,
             primary_readonly_master_key: Optional[pulumi.Input[str]] = None,
             read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            secondary_key: Optional[pulumi.Input[str]] = None,
             secondary_master_key: Optional[pulumi.Input[str]] = None,
+            secondary_readonly_key: Optional[pulumi.Input[str]] = None,
             secondary_readonly_master_key: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]]] = None,
@@ -204,12 +211,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
-        :param pulumi.Input[str] primary_master_key: The Primary master key for the CosmosDB Account.
-        :param pulumi.Input[str] primary_readonly_master_key: The Primary read-only master Key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_key: The Primary master key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_readonly_key: The Primary read-only master Key for the CosmosDB Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] secondary_master_key: The Secondary master key for the CosmosDB Account.
-        :param pulumi.Input[str] secondary_readonly_master_key: The Secondary read-only master key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_key: The Secondary master key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only master key for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
@@ -232,11 +239,15 @@ class Account(pulumi.CustomResource):
         __props__["location"] = location
         __props__["name"] = name
         __props__["offer_type"] = offer_type
+        __props__["primary_key"] = primary_key
         __props__["primary_master_key"] = primary_master_key
+        __props__["primary_readonly_key"] = primary_readonly_key
         __props__["primary_readonly_master_key"] = primary_readonly_master_key
         __props__["read_endpoints"] = read_endpoints
         __props__["resource_group_name"] = resource_group_name
+        __props__["secondary_key"] = secondary_key
         __props__["secondary_master_key"] = secondary_master_key
+        __props__["secondary_readonly_key"] = secondary_readonly_key
         __props__["secondary_readonly_master_key"] = secondary_readonly_master_key
         __props__["tags"] = tags
         __props__["virtual_network_rules"] = virtual_network_rules
@@ -356,19 +367,29 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "offer_type")
 
     @property
-    @pulumi.getter(name="primaryMasterKey")
-    def primary_master_key(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Output[str]:
         """
         The Primary master key for the CosmosDB Account.
         """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="primaryMasterKey")
+    def primary_master_key(self) -> pulumi.Output[str]:
         return pulumi.get(self, "primary_master_key")
+
+    @property
+    @pulumi.getter(name="primaryReadonlyKey")
+    def primary_readonly_key(self) -> pulumi.Output[str]:
+        """
+        The Primary read-only master Key for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_readonly_key")
 
     @property
     @pulumi.getter(name="primaryReadonlyMasterKey")
     def primary_readonly_master_key(self) -> pulumi.Output[str]:
-        """
-        The Primary read-only master Key for the CosmosDB Account.
-        """
         return pulumi.get(self, "primary_readonly_master_key")
 
     @property
@@ -388,19 +409,29 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
-    @pulumi.getter(name="secondaryMasterKey")
-    def secondary_master_key(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> pulumi.Output[str]:
         """
         The Secondary master key for the CosmosDB Account.
         """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter(name="secondaryMasterKey")
+    def secondary_master_key(self) -> pulumi.Output[str]:
         return pulumi.get(self, "secondary_master_key")
+
+    @property
+    @pulumi.getter(name="secondaryReadonlyKey")
+    def secondary_readonly_key(self) -> pulumi.Output[str]:
+        """
+        The Secondary read-only master key for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_readonly_key")
 
     @property
     @pulumi.getter(name="secondaryReadonlyMasterKey")
     def secondary_readonly_master_key(self) -> pulumi.Output[str]:
-        """
-        The Secondary read-only master key for the CosmosDB Account.
-        """
         return pulumi.get(self, "secondary_readonly_master_key")
 
     @property

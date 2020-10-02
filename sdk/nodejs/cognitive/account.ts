@@ -86,7 +86,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
-     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface AccountState {
      */
     readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
      */
     readonly skuName?: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface AccountArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+     * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
      */
     readonly skuName: pulumi.Input<string>;
     /**

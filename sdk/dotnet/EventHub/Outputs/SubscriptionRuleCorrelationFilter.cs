@@ -30,6 +30,10 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly string? MessageId;
         /// <summary>
+        /// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
         /// Address of the queue to reply to.
         /// </summary>
         public readonly string? ReplyTo;
@@ -56,6 +60,8 @@ namespace Pulumi.Azure.EventHub.Outputs
 
             string? messageId,
 
+            ImmutableDictionary<string, string>? properties,
+
             string? replyTo,
 
             string? replyToSessionId,
@@ -68,6 +74,7 @@ namespace Pulumi.Azure.EventHub.Outputs
             CorrelationId = correlationId;
             Label = label;
             MessageId = messageId;
+            Properties = properties;
             ReplyTo = replyTo;
             ReplyToSessionId = replyToSessionId;
             SessionId = sessionId;

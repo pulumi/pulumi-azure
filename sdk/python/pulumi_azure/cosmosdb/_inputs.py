@@ -114,12 +114,14 @@ class AccountGeoLocationArgs:
                  failover_priority: pulumi.Input[int],
                  location: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
-                 prefix: Optional[pulumi.Input[str]] = None):
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
         :param pulumi.Input[str] location: The name of the Azure region to host replicated data.
         :param pulumi.Input[str] id: The ID of the virtual network subnet.
         :param pulumi.Input[str] prefix: The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+        :param pulumi.Input[bool] zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
         """
         pulumi.set(__self__, "failover_priority", failover_priority)
         pulumi.set(__self__, "location", location)
@@ -130,6 +132,8 @@ class AccountGeoLocationArgs:
             pulumi.log.warn("prefix is deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019")
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="failoverPriority")
@@ -178,6 +182,18 @@ class AccountGeoLocationArgs:
     @prefix.setter
     def prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should zone redundancy be enabled for this region? Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
 
 
 @pulumi.input_type

@@ -100,6 +100,9 @@ class SubscriptionRule(pulumi.CustomResource):
             correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
                 correlation_id="high",
                 label="red",
+                properties={
+                    "customProperty": "value",
+                },
             ))
         ```
 

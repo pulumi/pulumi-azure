@@ -15,6 +15,7 @@ namespace Pulumi.Azure.Outputs
     {
         public readonly Outputs.ProviderFeaturesKeyVault? KeyVault;
         public readonly Outputs.ProviderFeaturesNetwork? Network;
+        public readonly Outputs.ProviderFeaturesTemplateDeployment? TemplateDeployment;
         public readonly Outputs.ProviderFeaturesVirtualMachine? VirtualMachine;
         public readonly Outputs.ProviderFeaturesVirtualMachineScaleSet? VirtualMachineScaleSet;
 
@@ -24,12 +25,15 @@ namespace Pulumi.Azure.Outputs
 
             Outputs.ProviderFeaturesNetwork? network,
 
+            Outputs.ProviderFeaturesTemplateDeployment? templateDeployment,
+
             Outputs.ProviderFeaturesVirtualMachine? virtualMachine,
 
             Outputs.ProviderFeaturesVirtualMachineScaleSet? virtualMachineScaleSet)
         {
             KeyVault = keyVault;
             Network = network;
+            TemplateDeployment = templateDeployment;
             VirtualMachine = virtualMachine;
             VirtualMachineScaleSet = virtualMachineScaleSet;
         }

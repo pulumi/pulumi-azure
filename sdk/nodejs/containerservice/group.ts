@@ -85,6 +85,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly diagnostics!: pulumi.Output<outputs.containerservice.GroupDiagnostics | undefined>;
     /**
+     * A `dnsConfig` block as documented below.
+     */
+    public readonly dnsConfig!: pulumi.Output<outputs.containerservice.GroupDnsConfig | undefined>;
+    /**
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
@@ -151,6 +155,7 @@ export class Group extends pulumi.CustomResource {
             const state = argsOrState as GroupState | undefined;
             inputs["containers"] = state ? state.containers : undefined;
             inputs["diagnostics"] = state ? state.diagnostics : undefined;
+            inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             inputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["identity"] = state ? state.identity : undefined;
@@ -177,6 +182,7 @@ export class Group extends pulumi.CustomResource {
             }
             inputs["containers"] = args ? args.containers : undefined;
             inputs["diagnostics"] = args ? args.diagnostics : undefined;
+            inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
             inputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
@@ -214,6 +220,10 @@ export interface GroupState {
      * A `diagnostics` block as documented below.
      */
     readonly diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
+    /**
+     * A `dnsConfig` block as documented below.
+     */
+    readonly dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
@@ -280,6 +290,10 @@ export interface GroupArgs {
      * A `diagnostics` block as documented below.
      */
     readonly diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
+    /**
+     * A `dnsConfig` block as documented below.
+     */
+    readonly dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */

@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *     name: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.then(primary => primary.id),
  *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
  * ### Custom Role & Management Group)
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *     name: "00000000-0000-0000-0000-000000000000",
  *     scope: data.azurerm_management_group.primary.id,
  *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.clientId),
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
  *

@@ -19,7 +19,7 @@ class GetFunctionAppHostKeysResult:
     """
     A collection of values returned by getFunctionAppHostKeys.
     """
-    def __init__(__self__, default_function_key=None, id=None, master_key=None, name=None, resource_group_name=None):
+    def __init__(__self__, default_function_key=None, id=None, master_key=None, name=None, primary_key=None, resource_group_name=None):
         if default_function_key and not isinstance(default_function_key, str):
             raise TypeError("Expected argument 'default_function_key' to be a str")
         pulumi.set(__self__, "default_function_key", default_function_key)
@@ -28,10 +28,17 @@ class GetFunctionAppHostKeysResult:
         pulumi.set(__self__, "id", id)
         if master_key and not isinstance(master_key, str):
             raise TypeError("Expected argument 'master_key' to be a str")
+        if master_key is not None:
+            warnings.warn("This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes", DeprecationWarning)
+            pulumi.log.warn("master_key is deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")
+
         pulumi.set(__self__, "master_key", master_key)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if primary_key and not isinstance(primary_key, str):
+            raise TypeError("Expected argument 'primary_key' to be a str")
+        pulumi.set(__self__, "primary_key", primary_key)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -66,6 +73,11 @@ class GetFunctionAppHostKeysResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        return pulumi.get(self, "primary_key")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -81,6 +93,7 @@ class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
             id=self.id,
             master_key=self.master_key,
             name=self.name,
+            primary_key=self.primary_key,
             resource_group_name=self.resource_group_name)
 
 
@@ -120,4 +133,5 @@ def get_function_app_host_keys(name: Optional[str] = None,
         id=__ret__.id,
         master_key=__ret__.master_key,
         name=__ret__.name,
+        primary_key=__ret__.primary_key,
         resource_group_name=__ret__.resource_group_name)

@@ -111,6 +111,10 @@ namespace Pulumi.Azure.ServiceBus
     ///             {
     ///                 CorrelationId = "high",
     ///                 Label = "red",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "customProperty", "value" },
+    ///                 },
     ///             },
     ///         });
     ///     }

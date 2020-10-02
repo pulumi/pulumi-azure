@@ -803,7 +803,7 @@ class ManagementPolicyRuleFilters(dict):
                  blob_types: Optional[Sequence[str]] = None,
                  prefix_matches: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] blob_types: An array of predefined values. Only `blockBlob` is supported.
+        :param Sequence[str] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         :param Sequence[str] prefix_matches: An array of strings for prefixes to be matched.
         """
         if blob_types is not None:
@@ -815,7 +815,7 @@ class ManagementPolicyRuleFilters(dict):
     @pulumi.getter(name="blobTypes")
     def blob_types(self) -> Optional[Sequence[str]]:
         """
-        An array of predefined values. Only `blockBlob` is supported.
+        An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         """
         return pulumi.get(self, "blob_types")
 
@@ -1404,7 +1404,7 @@ class GetPolicyRuleFilterResult(dict):
                  blob_types: Sequence[str],
                  prefix_matches: Sequence[str]):
         """
-        :param Sequence[str] blob_types: An array of predefined values. Only `blockBlob` is supported.
+        :param Sequence[str] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         :param Sequence[str] prefix_matches: An array of strings for prefixes to be matched.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -1414,7 +1414,7 @@ class GetPolicyRuleFilterResult(dict):
     @pulumi.getter(name="blobTypes")
     def blob_types(self) -> Sequence[str]:
         """
-        An array of predefined values. Only `blockBlob` is supported.
+        An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         """
         return pulumi.get(self, "blob_types")
 

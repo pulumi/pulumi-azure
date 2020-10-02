@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * const exampleServer = new azure.postgresql.Server("exampleServer", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "B_Gen5_2",
+ *     skuName: "GP_Gen5_2",
  *     storageProfile: {
  *         storageMb: 5120,
  *         backupRetentionDays: 7,

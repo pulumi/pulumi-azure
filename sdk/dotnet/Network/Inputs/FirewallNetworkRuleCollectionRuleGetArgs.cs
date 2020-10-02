@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("destinationAddresses", required: true)]
+        [Input("destinationAddresses")]
         private InputList<string>? _destinationAddresses;
 
         /// <summary>
@@ -28,6 +28,18 @@ namespace Pulumi.Azure.Network.Inputs
         {
             get => _destinationAddresses ?? (_destinationAddresses = new InputList<string>());
             set => _destinationAddresses = value;
+        }
+
+        [Input("destinationIpGroups")]
+        private InputList<string>? _destinationIpGroups;
+
+        /// <summary>
+        /// A list of destination IP Group IDs for the rule.
+        /// </summary>
+        public InputList<string> DestinationIpGroups
+        {
+            get => _destinationIpGroups ?? (_destinationIpGroups = new InputList<string>());
+            set => _destinationIpGroups = value;
         }
 
         [Input("destinationPorts", required: true)]
@@ -60,7 +72,7 @@ namespace Pulumi.Azure.Network.Inputs
             set => _protocols = value;
         }
 
-        [Input("sourceAddresses", required: true)]
+        [Input("sourceAddresses")]
         private InputList<string>? _sourceAddresses;
 
         /// <summary>
@@ -70,6 +82,18 @@ namespace Pulumi.Azure.Network.Inputs
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
             set => _sourceAddresses = value;
+        }
+
+        [Input("sourceIpGroups")]
+        private InputList<string>? _sourceIpGroups;
+
+        /// <summary>
+        /// A list of IP Group IDs for the rule.
+        /// </summary>
+        public InputList<string> SourceIpGroups
+        {
+            get => _sourceIpGroups ?? (_sourceIpGroups = new InputList<string>());
+            set => _sourceIpGroups = value;
         }
 
         public FirewallNetworkRuleCollectionRuleGetArgs()

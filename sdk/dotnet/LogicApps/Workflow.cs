@@ -57,6 +57,12 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableArray<string>> ConnectorOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        /// </summary>
+        [Output("integrationServiceEnvironmentId")]
+        public Output<string?> IntegrationServiceEnvironmentId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -163,6 +169,12 @@ namespace Pulumi.Azure.LogicApps
     public sealed class WorkflowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        /// </summary>
+        [Input("integrationServiceEnvironmentId")]
+        public Input<string>? IntegrationServiceEnvironmentId { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -258,6 +270,12 @@ namespace Pulumi.Azure.LogicApps
             get => _connectorOutboundIpAddresses ?? (_connectorOutboundIpAddresses = new InputList<string>());
             set => _connectorOutboundIpAddresses = value;
         }
+
+        /// <summary>
+        /// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        /// </summary>
+        [Input("integrationServiceEnvironmentId")]
+        public Input<string>? IntegrationServiceEnvironmentId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.

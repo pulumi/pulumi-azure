@@ -13,6 +13,7 @@ import (
 type ProviderFeatures struct {
 	KeyVault               *ProviderFeaturesKeyVault               `pulumi:"keyVault"`
 	Network                *ProviderFeaturesNetwork                `pulumi:"network"`
+	TemplateDeployment     *ProviderFeaturesTemplateDeployment     `pulumi:"templateDeployment"`
 	VirtualMachine         *ProviderFeaturesVirtualMachine         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet *ProviderFeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
 }
@@ -31,6 +32,7 @@ type ProviderFeaturesInput interface {
 type ProviderFeaturesArgs struct {
 	KeyVault               ProviderFeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
 	Network                ProviderFeaturesNetworkPtrInput                `pulumi:"network"`
+	TemplateDeployment     ProviderFeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
 	VirtualMachine         ProviderFeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
 	VirtualMachineScaleSet ProviderFeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
 }
@@ -119,6 +121,10 @@ func (o ProviderFeaturesOutput) Network() ProviderFeaturesNetworkPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesNetwork { return v.Network }).(ProviderFeaturesNetworkPtrOutput)
 }
 
+func (o ProviderFeaturesOutput) TemplateDeployment() ProviderFeaturesTemplateDeploymentPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesTemplateDeployment { return v.TemplateDeployment }).(ProviderFeaturesTemplateDeploymentPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) VirtualMachine() ProviderFeaturesVirtualMachinePtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesVirtualMachine { return v.VirtualMachine }).(ProviderFeaturesVirtualMachinePtrOutput)
 }
@@ -161,6 +167,15 @@ func (o ProviderFeaturesPtrOutput) Network() ProviderFeaturesNetworkPtrOutput {
 		}
 		return v.Network
 	}).(ProviderFeaturesNetworkPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) TemplateDeployment() ProviderFeaturesTemplateDeploymentPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesTemplateDeployment {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateDeployment
+	}).(ProviderFeaturesTemplateDeploymentPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) VirtualMachine() ProviderFeaturesVirtualMachinePtrOutput {
@@ -323,7 +338,7 @@ func (o ProviderFeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.
 }
 
 type ProviderFeaturesNetwork struct {
-	RelaxedLocking *bool `pulumi:"relaxedLocking"`
+	RelaxedLocking bool `pulumi:"relaxedLocking"`
 }
 
 // ProviderFeaturesNetworkInput is an input type that accepts ProviderFeaturesNetworkArgs and ProviderFeaturesNetworkOutput values.
@@ -338,7 +353,7 @@ type ProviderFeaturesNetworkInput interface {
 }
 
 type ProviderFeaturesNetworkArgs struct {
-	RelaxedLocking pulumi.BoolPtrInput `pulumi:"relaxedLocking"`
+	RelaxedLocking pulumi.BoolInput `pulumi:"relaxedLocking"`
 }
 
 func (ProviderFeaturesNetworkArgs) ElementType() reflect.Type {
@@ -417,8 +432,8 @@ func (o ProviderFeaturesNetworkOutput) ToProviderFeaturesNetworkPtrOutputWithCon
 		return &v
 	}).(ProviderFeaturesNetworkPtrOutput)
 }
-func (o ProviderFeaturesNetworkOutput) RelaxedLocking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProviderFeaturesNetwork) *bool { return v.RelaxedLocking }).(pulumi.BoolPtrOutput)
+func (o ProviderFeaturesNetworkOutput) RelaxedLocking() pulumi.BoolOutput {
+	return o.ApplyT(func(v ProviderFeaturesNetwork) bool { return v.RelaxedLocking }).(pulumi.BoolOutput)
 }
 
 type ProviderFeaturesNetworkPtrOutput struct{ *pulumi.OutputState }
@@ -444,7 +459,133 @@ func (o ProviderFeaturesNetworkPtrOutput) RelaxedLocking() pulumi.BoolPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return v.RelaxedLocking
+		return &v.RelaxedLocking
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesTemplateDeployment struct {
+	DeleteNestedItemsDuringDeletion bool `pulumi:"deleteNestedItemsDuringDeletion"`
+}
+
+// ProviderFeaturesTemplateDeploymentInput is an input type that accepts ProviderFeaturesTemplateDeploymentArgs and ProviderFeaturesTemplateDeploymentOutput values.
+// You can construct a concrete instance of `ProviderFeaturesTemplateDeploymentInput` via:
+//
+//          ProviderFeaturesTemplateDeploymentArgs{...}
+type ProviderFeaturesTemplateDeploymentInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesTemplateDeploymentOutput() ProviderFeaturesTemplateDeploymentOutput
+	ToProviderFeaturesTemplateDeploymentOutputWithContext(context.Context) ProviderFeaturesTemplateDeploymentOutput
+}
+
+type ProviderFeaturesTemplateDeploymentArgs struct {
+	DeleteNestedItemsDuringDeletion pulumi.BoolInput `pulumi:"deleteNestedItemsDuringDeletion"`
+}
+
+func (ProviderFeaturesTemplateDeploymentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesTemplateDeployment)(nil)).Elem()
+}
+
+func (i ProviderFeaturesTemplateDeploymentArgs) ToProviderFeaturesTemplateDeploymentOutput() ProviderFeaturesTemplateDeploymentOutput {
+	return i.ToProviderFeaturesTemplateDeploymentOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesTemplateDeploymentArgs) ToProviderFeaturesTemplateDeploymentOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesTemplateDeploymentOutput)
+}
+
+func (i ProviderFeaturesTemplateDeploymentArgs) ToProviderFeaturesTemplateDeploymentPtrOutput() ProviderFeaturesTemplateDeploymentPtrOutput {
+	return i.ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesTemplateDeploymentArgs) ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesTemplateDeploymentOutput).ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesTemplateDeploymentPtrInput is an input type that accepts ProviderFeaturesTemplateDeploymentArgs, ProviderFeaturesTemplateDeploymentPtr and ProviderFeaturesTemplateDeploymentPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesTemplateDeploymentPtrInput` via:
+//
+//          ProviderFeaturesTemplateDeploymentArgs{...}
+//
+//  or:
+//
+//          nil
+type ProviderFeaturesTemplateDeploymentPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesTemplateDeploymentPtrOutput() ProviderFeaturesTemplateDeploymentPtrOutput
+	ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(context.Context) ProviderFeaturesTemplateDeploymentPtrOutput
+}
+
+type providerFeaturesTemplateDeploymentPtrType ProviderFeaturesTemplateDeploymentArgs
+
+func ProviderFeaturesTemplateDeploymentPtr(v *ProviderFeaturesTemplateDeploymentArgs) ProviderFeaturesTemplateDeploymentPtrInput {
+	return (*providerFeaturesTemplateDeploymentPtrType)(v)
+}
+
+func (*providerFeaturesTemplateDeploymentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesTemplateDeployment)(nil)).Elem()
+}
+
+func (i *providerFeaturesTemplateDeploymentPtrType) ToProviderFeaturesTemplateDeploymentPtrOutput() ProviderFeaturesTemplateDeploymentPtrOutput {
+	return i.ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesTemplateDeploymentPtrType) ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesTemplateDeploymentPtrOutput)
+}
+
+type ProviderFeaturesTemplateDeploymentOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesTemplateDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesTemplateDeployment)(nil)).Elem()
+}
+
+func (o ProviderFeaturesTemplateDeploymentOutput) ToProviderFeaturesTemplateDeploymentOutput() ProviderFeaturesTemplateDeploymentOutput {
+	return o
+}
+
+func (o ProviderFeaturesTemplateDeploymentOutput) ToProviderFeaturesTemplateDeploymentOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentOutput {
+	return o
+}
+
+func (o ProviderFeaturesTemplateDeploymentOutput) ToProviderFeaturesTemplateDeploymentPtrOutput() ProviderFeaturesTemplateDeploymentPtrOutput {
+	return o.ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesTemplateDeploymentOutput) ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesTemplateDeployment) *ProviderFeaturesTemplateDeployment {
+		return &v
+	}).(ProviderFeaturesTemplateDeploymentPtrOutput)
+}
+func (o ProviderFeaturesTemplateDeploymentOutput) DeleteNestedItemsDuringDeletion() pulumi.BoolOutput {
+	return o.ApplyT(func(v ProviderFeaturesTemplateDeployment) bool { return v.DeleteNestedItemsDuringDeletion }).(pulumi.BoolOutput)
+}
+
+type ProviderFeaturesTemplateDeploymentPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesTemplateDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesTemplateDeployment)(nil)).Elem()
+}
+
+func (o ProviderFeaturesTemplateDeploymentPtrOutput) ToProviderFeaturesTemplateDeploymentPtrOutput() ProviderFeaturesTemplateDeploymentPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesTemplateDeploymentPtrOutput) ToProviderFeaturesTemplateDeploymentPtrOutputWithContext(ctx context.Context) ProviderFeaturesTemplateDeploymentPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesTemplateDeploymentPtrOutput) Elem() ProviderFeaturesTemplateDeploymentOutput {
+	return o.ApplyT(func(v *ProviderFeaturesTemplateDeployment) ProviderFeaturesTemplateDeployment { return *v }).(ProviderFeaturesTemplateDeploymentOutput)
+}
+
+func (o ProviderFeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesTemplateDeployment) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DeleteNestedItemsDuringDeletion
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -707,6 +848,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesNetworkOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesNetworkPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesTemplateDeploymentOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesTemplateDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachinePtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesVirtualMachineScaleSetOutput{})

@@ -15,6 +15,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -43,6 +44,7 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -69,6 +71,7 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['integration_service_environment_id'] = integration_service_environment_id
             __props__['location'] = location
             __props__['logic_app_integration_account_id'] = logic_app_integration_account_id
             __props__['name'] = name
@@ -97,6 +100,7 @@ class Workflow(pulumi.CustomResource):
             access_endpoint: Optional[pulumi.Input[str]] = None,
             connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            integration_service_environment_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -117,6 +121,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] access_endpoint: The Access Endpoint for the Logic App Workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_endpoint_ip_addresses: The list of access endpoint ip addresses of connector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing ip addresses of connector.
+        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
         :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
@@ -135,6 +140,7 @@ class Workflow(pulumi.CustomResource):
         __props__["access_endpoint"] = access_endpoint
         __props__["connector_endpoint_ip_addresses"] = connector_endpoint_ip_addresses
         __props__["connector_outbound_ip_addresses"] = connector_outbound_ip_addresses
+        __props__["integration_service_environment_id"] = integration_service_environment_id
         __props__["location"] = location
         __props__["logic_app_integration_account_id"] = logic_app_integration_account_id
         __props__["name"] = name
@@ -170,6 +176,14 @@ class Workflow(pulumi.CustomResource):
         The list of outgoing ip addresses of connector.
         """
         return pulumi.get(self, "connector_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="integrationServiceEnvironmentId")
+    def integration_service_environment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        """
+        return pulumi.get(self, "integration_service_environment_id")
 
     @property
     @pulumi.getter

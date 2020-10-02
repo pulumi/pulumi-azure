@@ -80,6 +80,9 @@ import * as utilities from "../utilities";
  *     correlationFilter: {
  *         correlationId: "high",
  *         label: "red",
+ *         properties: {
+ *             customProperty: "value",
+ *         },
  *     },
  * });
  * ```

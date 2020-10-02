@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Network.Inputs
             set => _protocols = value;
         }
 
-        [Input("sourceAddresses", required: true)]
+        [Input("sourceAddresses")]
         private InputList<string>? _sourceAddresses;
 
         /// <summary>
@@ -58,6 +58,18 @@ namespace Pulumi.Azure.Network.Inputs
         {
             get => _sourceAddresses ?? (_sourceAddresses = new InputList<string>());
             set => _sourceAddresses = value;
+        }
+
+        [Input("sourceIpGroups")]
+        private InputList<string>? _sourceIpGroups;
+
+        /// <summary>
+        /// A list of source IP Group IDs for the rule.
+        /// </summary>
+        public InputList<string> SourceIpGroups
+        {
+            get => _sourceIpGroups ?? (_sourceIpGroups = new InputList<string>());
+            set => _sourceIpGroups = value;
         }
 
         [Input("targetFqdns")]

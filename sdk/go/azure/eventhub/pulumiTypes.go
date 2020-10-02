@@ -4689,6 +4689,8 @@ type SubscriptionRuleCorrelationFilter struct {
 	Label *string `pulumi:"label"`
 	// Identifier of the message.
 	MessageId *string `pulumi:"messageId"`
+	// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+	Properties map[string]string `pulumi:"properties"`
 	// Address of the queue to reply to.
 	ReplyTo *string `pulumi:"replyTo"`
 	// Session identifier to reply to.
@@ -4719,6 +4721,8 @@ type SubscriptionRuleCorrelationFilterArgs struct {
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// Identifier of the message.
 	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Address of the queue to reply to.
 	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
 	// Session identifier to reply to.
@@ -4826,6 +4830,11 @@ func (o SubscriptionRuleCorrelationFilterOutput) MessageId() pulumi.StringPtrOut
 	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
+// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+func (o SubscriptionRuleCorrelationFilterOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
 // Address of the queue to reply to.
 func (o SubscriptionRuleCorrelationFilterOutput) ReplyTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionRuleCorrelationFilter) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
@@ -4902,6 +4911,16 @@ func (o SubscriptionRuleCorrelationFilterPtrOutput) MessageId() pulumi.StringPtr
 		}
 		return v.MessageId
 	}).(pulumi.StringPtrOutput)
+}
+
+// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+func (o SubscriptionRuleCorrelationFilterPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SubscriptionRuleCorrelationFilter) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
 }
 
 // Address of the queue to reply to.

@@ -111,6 +111,10 @@ namespace Pulumi.Azure.EventHub
     ///             {
     ///                 CorrelationId = "high",
     ///                 Label = "red",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "customProperty", "value" },
+    ///                 },
     ///             },
     ///         });
     ///     }

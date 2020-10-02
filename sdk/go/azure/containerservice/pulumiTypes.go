@@ -1643,6 +1643,175 @@ func (o GroupDiagnosticsLogAnalyticsPtrOutput) WorkspaceKey() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GroupDnsConfig struct {
+	// A list of nameservers the containers will search out to resolve requests.
+	Nameservers []string `pulumi:"nameservers"`
+	// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+	Options []string `pulumi:"options"`
+	// A list of search domains that DNS requests will search along.
+	SearchDomains []string `pulumi:"searchDomains"`
+}
+
+// GroupDnsConfigInput is an input type that accepts GroupDnsConfigArgs and GroupDnsConfigOutput values.
+// You can construct a concrete instance of `GroupDnsConfigInput` via:
+//
+//          GroupDnsConfigArgs{...}
+type GroupDnsConfigInput interface {
+	pulumi.Input
+
+	ToGroupDnsConfigOutput() GroupDnsConfigOutput
+	ToGroupDnsConfigOutputWithContext(context.Context) GroupDnsConfigOutput
+}
+
+type GroupDnsConfigArgs struct {
+	// A list of nameservers the containers will search out to resolve requests.
+	Nameservers pulumi.StringArrayInput `pulumi:"nameservers"`
+	// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+	Options pulumi.StringArrayInput `pulumi:"options"`
+	// A list of search domains that DNS requests will search along.
+	SearchDomains pulumi.StringArrayInput `pulumi:"searchDomains"`
+}
+
+func (GroupDnsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupDnsConfig)(nil)).Elem()
+}
+
+func (i GroupDnsConfigArgs) ToGroupDnsConfigOutput() GroupDnsConfigOutput {
+	return i.ToGroupDnsConfigOutputWithContext(context.Background())
+}
+
+func (i GroupDnsConfigArgs) ToGroupDnsConfigOutputWithContext(ctx context.Context) GroupDnsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupDnsConfigOutput)
+}
+
+func (i GroupDnsConfigArgs) ToGroupDnsConfigPtrOutput() GroupDnsConfigPtrOutput {
+	return i.ToGroupDnsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GroupDnsConfigArgs) ToGroupDnsConfigPtrOutputWithContext(ctx context.Context) GroupDnsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupDnsConfigOutput).ToGroupDnsConfigPtrOutputWithContext(ctx)
+}
+
+// GroupDnsConfigPtrInput is an input type that accepts GroupDnsConfigArgs, GroupDnsConfigPtr and GroupDnsConfigPtrOutput values.
+// You can construct a concrete instance of `GroupDnsConfigPtrInput` via:
+//
+//          GroupDnsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupDnsConfigPtrInput interface {
+	pulumi.Input
+
+	ToGroupDnsConfigPtrOutput() GroupDnsConfigPtrOutput
+	ToGroupDnsConfigPtrOutputWithContext(context.Context) GroupDnsConfigPtrOutput
+}
+
+type groupDnsConfigPtrType GroupDnsConfigArgs
+
+func GroupDnsConfigPtr(v *GroupDnsConfigArgs) GroupDnsConfigPtrInput {
+	return (*groupDnsConfigPtrType)(v)
+}
+
+func (*groupDnsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupDnsConfig)(nil)).Elem()
+}
+
+func (i *groupDnsConfigPtrType) ToGroupDnsConfigPtrOutput() GroupDnsConfigPtrOutput {
+	return i.ToGroupDnsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *groupDnsConfigPtrType) ToGroupDnsConfigPtrOutputWithContext(ctx context.Context) GroupDnsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupDnsConfigPtrOutput)
+}
+
+type GroupDnsConfigOutput struct{ *pulumi.OutputState }
+
+func (GroupDnsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupDnsConfig)(nil)).Elem()
+}
+
+func (o GroupDnsConfigOutput) ToGroupDnsConfigOutput() GroupDnsConfigOutput {
+	return o
+}
+
+func (o GroupDnsConfigOutput) ToGroupDnsConfigOutputWithContext(ctx context.Context) GroupDnsConfigOutput {
+	return o
+}
+
+func (o GroupDnsConfigOutput) ToGroupDnsConfigPtrOutput() GroupDnsConfigPtrOutput {
+	return o.ToGroupDnsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GroupDnsConfigOutput) ToGroupDnsConfigPtrOutputWithContext(ctx context.Context) GroupDnsConfigPtrOutput {
+	return o.ApplyT(func(v GroupDnsConfig) *GroupDnsConfig {
+		return &v
+	}).(GroupDnsConfigPtrOutput)
+}
+
+// A list of nameservers the containers will search out to resolve requests.
+func (o GroupDnsConfigOutput) Nameservers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupDnsConfig) []string { return v.Nameservers }).(pulumi.StringArrayOutput)
+}
+
+// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+func (o GroupDnsConfigOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupDnsConfig) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+// A list of search domains that DNS requests will search along.
+func (o GroupDnsConfigOutput) SearchDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupDnsConfig) []string { return v.SearchDomains }).(pulumi.StringArrayOutput)
+}
+
+type GroupDnsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupDnsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupDnsConfig)(nil)).Elem()
+}
+
+func (o GroupDnsConfigPtrOutput) ToGroupDnsConfigPtrOutput() GroupDnsConfigPtrOutput {
+	return o
+}
+
+func (o GroupDnsConfigPtrOutput) ToGroupDnsConfigPtrOutputWithContext(ctx context.Context) GroupDnsConfigPtrOutput {
+	return o
+}
+
+func (o GroupDnsConfigPtrOutput) Elem() GroupDnsConfigOutput {
+	return o.ApplyT(func(v *GroupDnsConfig) GroupDnsConfig { return *v }).(GroupDnsConfigOutput)
+}
+
+// A list of nameservers the containers will search out to resolve requests.
+func (o GroupDnsConfigPtrOutput) Nameservers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupDnsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Nameservers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+func (o GroupDnsConfigPtrOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupDnsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of search domains that DNS requests will search along.
+func (o GroupDnsConfigPtrOutput) SearchDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupDnsConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchDomains
+	}).(pulumi.StringArrayOutput)
+}
+
 type GroupIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -8342,6 +8511,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupDiagnosticsPtrOutput{})
 	pulumi.RegisterOutputType(GroupDiagnosticsLogAnalyticsOutput{})
 	pulumi.RegisterOutputType(GroupDiagnosticsLogAnalyticsPtrOutput{})
+	pulumi.RegisterOutputType(GroupDnsConfigOutput{})
+	pulumi.RegisterOutputType(GroupDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(GroupIdentityOutput{})
 	pulumi.RegisterOutputType(GroupIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GroupImageRegistryCredentialOutput{})

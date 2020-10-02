@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_key=None, primary_master_key=None, primary_readonly_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_master_key=None, secondary_readonly_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
@@ -63,11 +63,25 @@ class GetAccountResult:
         if offer_type and not isinstance(offer_type, str):
             raise TypeError("Expected argument 'offer_type' to be a str")
         pulumi.set(__self__, "offer_type", offer_type)
+        if primary_key and not isinstance(primary_key, str):
+            raise TypeError("Expected argument 'primary_key' to be a str")
+        pulumi.set(__self__, "primary_key", primary_key)
         if primary_master_key and not isinstance(primary_master_key, str):
             raise TypeError("Expected argument 'primary_master_key' to be a str")
+        if primary_master_key is not None:
+            warnings.warn("This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes", DeprecationWarning)
+            pulumi.log.warn("primary_master_key is deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")
+
         pulumi.set(__self__, "primary_master_key", primary_master_key)
+        if primary_readonly_key and not isinstance(primary_readonly_key, str):
+            raise TypeError("Expected argument 'primary_readonly_key' to be a str")
+        pulumi.set(__self__, "primary_readonly_key", primary_readonly_key)
         if primary_readonly_master_key and not isinstance(primary_readonly_master_key, str):
             raise TypeError("Expected argument 'primary_readonly_master_key' to be a str")
+        if primary_readonly_master_key is not None:
+            warnings.warn("This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes", DeprecationWarning)
+            pulumi.log.warn("primary_readonly_master_key is deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")
+
         pulumi.set(__self__, "primary_readonly_master_key", primary_readonly_master_key)
         if read_endpoints and not isinstance(read_endpoints, list):
             raise TypeError("Expected argument 'read_endpoints' to be a list")
@@ -75,11 +89,25 @@ class GetAccountResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_key and not isinstance(secondary_key, str):
+            raise TypeError("Expected argument 'secondary_key' to be a str")
+        pulumi.set(__self__, "secondary_key", secondary_key)
         if secondary_master_key and not isinstance(secondary_master_key, str):
             raise TypeError("Expected argument 'secondary_master_key' to be a str")
+        if secondary_master_key is not None:
+            warnings.warn("This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes", DeprecationWarning)
+            pulumi.log.warn("secondary_master_key is deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")
+
         pulumi.set(__self__, "secondary_master_key", secondary_master_key)
+        if secondary_readonly_key and not isinstance(secondary_readonly_key, str):
+            raise TypeError("Expected argument 'secondary_readonly_key' to be a str")
+        pulumi.set(__self__, "secondary_readonly_key", secondary_readonly_key)
         if secondary_readonly_master_key and not isinstance(secondary_readonly_master_key, str):
             raise TypeError("Expected argument 'secondary_readonly_master_key' to be a str")
+        if secondary_readonly_master_key is not None:
+            warnings.warn("This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes", DeprecationWarning)
+            pulumi.log.warn("secondary_readonly_master_key is deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes")
+
         pulumi.set(__self__, "secondary_readonly_master_key", secondary_readonly_master_key)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -195,19 +223,29 @@ class GetAccountResult:
         return pulumi.get(self, "offer_type")
 
     @property
-    @pulumi.getter(name="primaryMasterKey")
-    def primary_master_key(self) -> str:
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
         """
         The Primary master key for the CosmosDB Account.
         """
+        return pulumi.get(self, "primary_key")
+
+    @property
+    @pulumi.getter(name="primaryMasterKey")
+    def primary_master_key(self) -> str:
         return pulumi.get(self, "primary_master_key")
+
+    @property
+    @pulumi.getter(name="primaryReadonlyKey")
+    def primary_readonly_key(self) -> str:
+        """
+        The Primary read-only master Key for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_readonly_key")
 
     @property
     @pulumi.getter(name="primaryReadonlyMasterKey")
     def primary_readonly_master_key(self) -> str:
-        """
-        The Primary read-only master Key for the CosmosDB Account.
-        """
         return pulumi.get(self, "primary_readonly_master_key")
 
     @property
@@ -224,19 +262,29 @@ class GetAccountResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
-    @pulumi.getter(name="secondaryMasterKey")
-    def secondary_master_key(self) -> str:
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> str:
         """
         The Secondary master key for the CosmosDB Account.
         """
+        return pulumi.get(self, "secondary_key")
+
+    @property
+    @pulumi.getter(name="secondaryMasterKey")
+    def secondary_master_key(self) -> str:
         return pulumi.get(self, "secondary_master_key")
+
+    @property
+    @pulumi.getter(name="secondaryReadonlyKey")
+    def secondary_readonly_key(self) -> str:
+        """
+        The Secondary read-only master key for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_readonly_key")
 
     @property
     @pulumi.getter(name="secondaryReadonlyMasterKey")
     def secondary_readonly_master_key(self) -> str:
-        """
-        The Secondary read-only master key for the CosmosDB Account.
-        """
         return pulumi.get(self, "secondary_readonly_master_key")
 
     @property
@@ -284,11 +332,15 @@ class AwaitableGetAccountResult(GetAccountResult):
             location=self.location,
             name=self.name,
             offer_type=self.offer_type,
+            primary_key=self.primary_key,
             primary_master_key=self.primary_master_key,
+            primary_readonly_key=self.primary_readonly_key,
             primary_readonly_master_key=self.primary_readonly_master_key,
             read_endpoints=self.read_endpoints,
             resource_group_name=self.resource_group_name,
+            secondary_key=self.secondary_key,
             secondary_master_key=self.secondary_master_key,
+            secondary_readonly_key=self.secondary_readonly_key,
             secondary_readonly_master_key=self.secondary_readonly_master_key,
             tags=self.tags,
             virtual_network_rules=self.virtual_network_rules,
@@ -340,11 +392,15 @@ def get_account(name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         offer_type=__ret__.offer_type,
+        primary_key=__ret__.primary_key,
         primary_master_key=__ret__.primary_master_key,
+        primary_readonly_key=__ret__.primary_readonly_key,
         primary_readonly_master_key=__ret__.primary_readonly_master_key,
         read_endpoints=__ret__.read_endpoints,
         resource_group_name=__ret__.resource_group_name,
+        secondary_key=__ret__.secondary_key,
         secondary_master_key=__ret__.secondary_master_key,
+        secondary_readonly_key=__ret__.secondary_readonly_key,
         secondary_readonly_master_key=__ret__.secondary_readonly_master_key,
         tags=__ret__.tags,
         virtual_network_rules=__ret__.virtual_network_rules,

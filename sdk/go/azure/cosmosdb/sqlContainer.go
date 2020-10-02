@@ -74,11 +74,11 @@ type SqlContainer struct {
 	DefaultTtl pulumi.IntOutput `pulumi:"defaultTtl"`
 	// An `indexingPolicy` block as defined below.
 	IndexingPolicy SqlContainerIndexingPolicyOutput `pulumi:"indexingPolicy"`
-	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath pulumi.StringPtrOutput `pulumi:"partitionKeyPath"`
-	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
@@ -132,11 +132,11 @@ type sqlContainerState struct {
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// An `indexingPolicy` block as defined below.
 	IndexingPolicy *SqlContainerIndexingPolicy `pulumi:"indexingPolicy"`
-	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
-	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput *int `pulumi:"throughput"`
@@ -154,11 +154,11 @@ type SqlContainerState struct {
 	DefaultTtl pulumi.IntPtrInput
 	// An `indexingPolicy` block as defined below.
 	IndexingPolicy SqlContainerIndexingPolicyPtrInput
-	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath pulumi.StringPtrInput
-	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput
@@ -180,11 +180,11 @@ type sqlContainerArgs struct {
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// An `indexingPolicy` block as defined below.
 	IndexingPolicy *SqlContainerIndexingPolicy `pulumi:"indexingPolicy"`
-	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
-	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput *int `pulumi:"throughput"`
@@ -203,11 +203,11 @@ type SqlContainerArgs struct {
 	DefaultTtl pulumi.IntPtrInput
 	// An `indexingPolicy` block as defined below.
 	IndexingPolicy SqlContainerIndexingPolicyPtrInput
-	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.
 	PartitionKeyPath pulumi.StringPtrInput
-	// The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
 	Throughput pulumi.IntPtrInput

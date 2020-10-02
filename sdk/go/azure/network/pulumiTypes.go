@@ -4951,6 +4951,8 @@ type FirewallApplicationRuleCollectionRule struct {
 	Protocols []FirewallApplicationRuleCollectionRuleProtocol `pulumi:"protocols"`
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// A list of source IP Group IDs for the rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
 	// A list of FQDNs.
 	TargetFqdns []string `pulumi:"targetFqdns"`
 }
@@ -4977,6 +4979,8 @@ type FirewallApplicationRuleCollectionRuleArgs struct {
 	Protocols FirewallApplicationRuleCollectionRuleProtocolArrayInput `pulumi:"protocols"`
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// A list of source IP Group IDs for the rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
 	// A list of FQDNs.
 	TargetFqdns pulumi.StringArrayInput `pulumi:"targetFqdns"`
 }
@@ -5057,6 +5061,11 @@ func (o FirewallApplicationRuleCollectionRuleOutput) Protocols() FirewallApplica
 // A list of source IP addresses and/or IP ranges.
 func (o FirewallApplicationRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallApplicationRuleCollectionRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// A list of source IP Group IDs for the rule.
+func (o FirewallApplicationRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallApplicationRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
 }
 
 // A list of FQDNs.
@@ -5515,6 +5524,8 @@ type FirewallNatRuleCollectionRule struct {
 	Protocols []string `pulumi:"protocols"`
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// A list of source IP Group IDs for the rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
 	// The address of the service behind the Firewall.
 	TranslatedAddress string `pulumi:"translatedAddress"`
 	// The port of the service behind the Firewall.
@@ -5545,6 +5556,8 @@ type FirewallNatRuleCollectionRuleArgs struct {
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// A list of source IP Group IDs for the rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
 	// The address of the service behind the Firewall.
 	TranslatedAddress pulumi.StringInput `pulumi:"translatedAddress"`
 	// The port of the service behind the Firewall.
@@ -5632,6 +5645,11 @@ func (o FirewallNatRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArra
 	return o.ApplyT(func(v FirewallNatRuleCollectionRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
 }
 
+// A list of source IP Group IDs for the rule.
+func (o FirewallNatRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallNatRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
 // The address of the service behind the Firewall.
 func (o FirewallNatRuleCollectionRuleOutput) TranslatedAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallNatRuleCollectionRule) string { return v.TranslatedAddress }).(pulumi.StringOutput)
@@ -5667,6 +5685,8 @@ type FirewallNetworkRuleCollectionRule struct {
 	Description *string `pulumi:"description"`
 	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// A list of destination IP Group IDs for the rule.
+	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
 	// A list of destination ports.
 	DestinationPorts []string `pulumi:"destinationPorts"`
 	// Specifies the name of the rule.
@@ -5675,6 +5695,8 @@ type FirewallNetworkRuleCollectionRule struct {
 	Protocols []string `pulumi:"protocols"`
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// A list of IP Group IDs for the rule.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
 }
 
 // FirewallNetworkRuleCollectionRuleInput is an input type that accepts FirewallNetworkRuleCollectionRuleArgs and FirewallNetworkRuleCollectionRuleOutput values.
@@ -5693,6 +5715,8 @@ type FirewallNetworkRuleCollectionRuleArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// A list of destination IP Group IDs for the rule.
+	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
 	// A list of destination ports.
 	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
 	// Specifies the name of the rule.
@@ -5701,6 +5725,8 @@ type FirewallNetworkRuleCollectionRuleArgs struct {
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
 	// A list of source IP addresses and/or IP ranges.
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// A list of IP Group IDs for the rule.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
 }
 
 func (FirewallNetworkRuleCollectionRuleArgs) ElementType() reflect.Type {
@@ -5764,6 +5790,11 @@ func (o FirewallNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.S
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
 }
 
+// A list of destination IP Group IDs for the rule.
+func (o FirewallNetworkRuleCollectionRuleOutput) DestinationIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationIpGroups }).(pulumi.StringArrayOutput)
+}
+
 // A list of destination ports.
 func (o FirewallNetworkRuleCollectionRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
@@ -5782,6 +5813,11 @@ func (o FirewallNetworkRuleCollectionRuleOutput) Protocols() pulumi.StringArrayO
 // A list of source IP addresses and/or IP ranges.
 func (o FirewallNetworkRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// A list of IP Group IDs for the rule.
+func (o FirewallNetworkRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
 }
 
 type FirewallNetworkRuleCollectionRuleArrayOutput struct{ *pulumi.OutputState }

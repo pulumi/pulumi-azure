@@ -20,6 +20,7 @@ from .get_express_route_circuit import *
 from .get_firewall import *
 from .get_firewall_policy import *
 from .get_gateway_connection import *
+from .get_ip_group import *
 from .get_nat_gateway import *
 from .get_network_ddos_protection_plan import *
 from .get_network_interface import *
@@ -36,6 +37,7 @@ from .get_traffic_manager import *
 from .get_virtual_hub import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
+from .ip_group import *
 from .local_network_gateway import *
 from .nat_gateway import *
 from .nat_gateway_public_ip_association import *

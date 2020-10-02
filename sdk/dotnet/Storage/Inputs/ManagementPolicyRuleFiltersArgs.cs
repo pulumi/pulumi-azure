@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _blobTypes;
 
         /// <summary>
-        /// An array of predefined values. Only `blockBlob` is supported.
+        /// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         /// </summary>
         public InputList<string> BlobTypes
         {

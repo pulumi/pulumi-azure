@@ -51,7 +51,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         {
     ///             Location = exampleResourceGroup.Location,
     ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "B_Gen5_2",
+    ///             SkuName = "GP_Gen5_2",
     ///             StorageProfile = new Azure.PostgreSql.Inputs.ServerStorageProfileArgs
     ///             {
     ///                 StorageMb = 5120,

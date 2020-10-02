@@ -13,6 +13,7 @@ __all__ = [
     'Features',
     'FeaturesKeyVault',
     'FeaturesNetwork',
+    'FeaturesTemplateDeployment',
     'FeaturesVirtualMachine',
     'FeaturesVirtualMachineScaleSet',
 ]
@@ -22,12 +23,15 @@ class Features(dict):
     def __init__(__self__, *,
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  network: Optional['outputs.FeaturesNetwork'] = None,
+                 template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.FeaturesVirtualMachine'] = None,
                  virtual_machine_scale_set: Optional['outputs.FeaturesVirtualMachineScaleSet'] = None):
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if template_deployment is not None:
+            pulumi.set(__self__, "template_deployment", template_deployment)
         if virtual_machine is not None:
             pulumi.set(__self__, "virtual_machine", virtual_machine)
         if virtual_machine_scale_set is not None:
@@ -42,6 +46,11 @@ class Features(dict):
     @pulumi.getter
     def network(self) -> Optional['outputs.FeaturesNetwork']:
         return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter(name="templateDeployment")
+    def template_deployment(self) -> Optional['outputs.FeaturesTemplateDeployment']:
+        return pulumi.get(self, "template_deployment")
 
     @property
     @pulumi.getter(name="virtualMachine")
@@ -84,14 +93,28 @@ class FeaturesKeyVault(dict):
 @pulumi.output_type
 class FeaturesNetwork(dict):
     def __init__(__self__, *,
-                 relaxed_locking: Optional[bool] = None):
-        if relaxed_locking is not None:
-            pulumi.set(__self__, "relaxed_locking", relaxed_locking)
+                 relaxed_locking: bool):
+        pulumi.set(__self__, "relaxed_locking", relaxed_locking)
 
     @property
     @pulumi.getter(name="relaxedLocking")
-    def relaxed_locking(self) -> Optional[bool]:
+    def relaxed_locking(self) -> bool:
         return pulumi.get(self, "relaxed_locking")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FeaturesTemplateDeployment(dict):
+    def __init__(__self__, *,
+                 delete_nested_items_during_deletion: bool):
+        pulumi.set(__self__, "delete_nested_items_during_deletion", delete_nested_items_during_deletion)
+
+    @property
+    @pulumi.getter(name="deleteNestedItemsDuringDeletion")
+    def delete_nested_items_during_deletion(self) -> bool:
+        return pulumi.get(self, "delete_nested_items_during_deletion")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

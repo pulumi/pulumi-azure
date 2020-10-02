@@ -100,7 +100,7 @@ export class Server extends pulumi.CustomResource {
      */
     public /*out*/ readonly serverFullName!: pulumi.Output<string>;
     /**
-     * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+     * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
      */
     public readonly sku!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -200,7 +200,7 @@ export interface ServerState {
      */
     readonly serverFullName?: pulumi.Input<string>;
     /**
-     * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+     * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
      */
     readonly sku?: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -243,7 +243,7 @@ export interface ServerArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+     * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
      */
     readonly sku: pulumi.Input<string>;
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

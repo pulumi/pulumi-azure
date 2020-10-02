@@ -18,8 +18,6 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-//
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/cosmosdb"
 // 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
@@ -34,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ri, err := random.NewRandomInteger(ctx, "ri", &random.RandomIntegerArgs{
+// 		_, err = random.NewRandomInteger(ctx, "ri", &random.RandomIntegerArgs{
 // 			Min: pulumi.Int(10000),
 // 			Max: pulumi.Int(99999),
 // 		})
@@ -69,9 +67,6 @@ import (
 // 					FailoverPriority: pulumi.Int(1),
 // 				},
 // 				&cosmosdb.AccountGeoLocationArgs{
-// 					Prefix: ri.Result.ApplyT(func(result int) (string, error) {
-// 						return fmt.Sprintf("%v%v%v", "tfex-cosmos-db-", result, "-customid"), nil
-// 					}).(pulumi.StringOutput),
 // 					Location:         rg.Location,
 // 					FailoverPriority: pulumi.Int(0),
 // 				},
@@ -116,16 +111,24 @@ type Account struct {
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType pulumi.StringOutput `pulumi:"offerType"`
 	// The Primary master key for the CosmosDB Account.
+	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
+	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryMasterKey pulumi.StringOutput `pulumi:"primaryMasterKey"`
 	// The Primary read-only master Key for the CosmosDB Account.
+	PrimaryReadonlyKey pulumi.StringOutput `pulumi:"primaryReadonlyKey"`
+	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryReadonlyMasterKey pulumi.StringOutput `pulumi:"primaryReadonlyMasterKey"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints pulumi.StringArrayOutput `pulumi:"readEndpoints"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary master key for the CosmosDB Account.
+	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
+	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	SecondaryMasterKey pulumi.StringOutput `pulumi:"secondaryMasterKey"`
 	// The Secondary read-only master key for the CosmosDB Account.
+	SecondaryReadonlyKey pulumi.StringOutput `pulumi:"secondaryReadonlyKey"`
+	// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	SecondaryReadonlyMasterKey pulumi.StringOutput `pulumi:"secondaryReadonlyMasterKey"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -204,16 +207,24 @@ type accountState struct {
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType *string `pulumi:"offerType"`
 	// The Primary master key for the CosmosDB Account.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryMasterKey *string `pulumi:"primaryMasterKey"`
 	// The Primary read-only master Key for the CosmosDB Account.
+	PrimaryReadonlyKey *string `pulumi:"primaryReadonlyKey"`
+	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryReadonlyMasterKey *string `pulumi:"primaryReadonlyMasterKey"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints []string `pulumi:"readEndpoints"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary master key for the CosmosDB Account.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	SecondaryMasterKey *string `pulumi:"secondaryMasterKey"`
 	// The Secondary read-only master key for the CosmosDB Account.
+	SecondaryReadonlyKey *string `pulumi:"secondaryReadonlyKey"`
+	// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	SecondaryReadonlyMasterKey *string `pulumi:"secondaryReadonlyMasterKey"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -253,16 +264,24 @@ type AccountState struct {
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType pulumi.StringPtrInput
 	// The Primary master key for the CosmosDB Account.
+	PrimaryKey pulumi.StringPtrInput
+	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryMasterKey pulumi.StringPtrInput
 	// The Primary read-only master Key for the CosmosDB Account.
+	PrimaryReadonlyKey pulumi.StringPtrInput
+	// Deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	PrimaryReadonlyMasterKey pulumi.StringPtrInput
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints pulumi.StringArrayInput
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary master key for the CosmosDB Account.
+	SecondaryKey pulumi.StringPtrInput
+	// Deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	SecondaryMasterKey pulumi.StringPtrInput
 	// The Secondary read-only master key for the CosmosDB Account.
+	SecondaryReadonlyKey pulumi.StringPtrInput
+	// Deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	SecondaryReadonlyMasterKey pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

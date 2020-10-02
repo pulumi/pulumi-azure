@@ -141,7 +141,7 @@ import (
 // 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			Scope:            pulumi.String(primary.Id),
 // 			RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
-// 			PrincipalId:      pulumi.String(exampleClientConfig.ClientId),
+// 			PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -198,7 +198,7 @@ import (
 // 			Name:             pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			Scope:            pulumi.Any(data.Azurerm_management_group.Primary.Id),
 // 			RoleDefinitionId: exampleRoleDefinition.RoleDefinitionResourceId,
-// 			PrincipalId:      pulumi.String(exampleClientConfig.ClientId),
+// 			PrincipalId:      pulumi.String(exampleClientConfig.ObjectId),
 // 		})
 // 		if err != nil {
 // 			return err

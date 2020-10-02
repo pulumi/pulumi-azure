@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
         /// <summary>
+        /// A list of destination IP Group IDs for the rule.
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationIpGroups;
+        /// <summary>
         /// A list of destination ports.
         /// </summary>
         public readonly ImmutableArray<string> DestinationPorts;
@@ -37,6 +41,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// A list of source IP addresses and/or IP ranges.
         /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
+        /// <summary>
+        /// A list of IP Group IDs for the rule.
+        /// </summary>
+        public readonly ImmutableArray<string> SourceIpGroups;
 
         [OutputConstructor]
         private FirewallNetworkRuleCollectionRule(
@@ -44,20 +52,26 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> destinationAddresses,
 
+            ImmutableArray<string> destinationIpGroups,
+
             ImmutableArray<string> destinationPorts,
 
             string name,
 
             ImmutableArray<string> protocols,
 
-            ImmutableArray<string> sourceAddresses)
+            ImmutableArray<string> sourceAddresses,
+
+            ImmutableArray<string> sourceIpGroups)
         {
             Description = description;
             DestinationAddresses = destinationAddresses;
+            DestinationIpGroups = destinationIpGroups;
             DestinationPorts = destinationPorts;
             Name = name;
             Protocols = protocols;
             SourceAddresses = sourceAddresses;
+            SourceIpGroups = sourceIpGroups;
         }
     }
 }

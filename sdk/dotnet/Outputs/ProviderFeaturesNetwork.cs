@@ -13,10 +13,10 @@ namespace Pulumi.Azure.Outputs
     [OutputType]
     public sealed class ProviderFeaturesNetwork
     {
-        public readonly bool? RelaxedLocking;
+        public readonly bool RelaxedLocking;
 
         [OutputConstructor]
-        private ProviderFeaturesNetwork(bool? relaxedLocking)
+        private ProviderFeaturesNetwork(bool relaxedLocking)
         {
             RelaxedLocking = relaxedLocking;
         }

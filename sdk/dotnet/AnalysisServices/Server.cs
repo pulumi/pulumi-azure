@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Output<string> ServerFullName { get; private set; } = null!;
 
         /// <summary>
-        /// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+        /// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+        /// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Input<string>? ServerFullName { get; set; }
 
         /// <summary>
-        /// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+        /// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

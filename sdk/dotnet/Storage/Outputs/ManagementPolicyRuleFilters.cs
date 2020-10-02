@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ManagementPolicyRuleFilters
     {
         /// <summary>
-        /// An array of predefined values. Only `blockBlob` is supported.
+        /// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         /// </summary>
         public readonly ImmutableArray<string> BlobTypes;
         /// <summary>

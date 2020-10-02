@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Use this data source to access information about an existing App Service Environment
+// Use this data source to access information about an existing App Service Environment.
 //
 // ## Example Usage
 //
@@ -21,14 +21,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appservice.GetAppServiceEnvironment(ctx, &appservice.GetAppServiceEnvironmentArgs{
-// 			Name:              "example-ase",
-// 			ResourceGroupName: "example-rg",
+// 		example, err := appservice.GetAppServiceEnvironment(ctx, &appservice.GetAppServiceEnvironmentArgs{
+// 			Name:              "existing-ase",
+// 			ResourceGroupName: "existing-rg",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("appServiceEnvironmentId", data.Azurerm_app_service_environment.Id)
+// 		ctx.Export("id", example.Id)
 // 		return nil
 // 	})
 // }
@@ -44,30 +44,30 @@ func GetAppServiceEnvironment(ctx *pulumi.Context, args *GetAppServiceEnvironmen
 
 // A collection of arguments for invoking getAppServiceEnvironment.
 type GetAppServiceEnvironmentArgs struct {
-	// The name of the App Service Environment.
+	// The name of this App Service Environment.
 	Name string `pulumi:"name"`
-	// The Name of the Resource Group where the App Service Environment exists.
+	// The name of the Resource Group where the App Service Environment exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAppServiceEnvironment.
 type GetAppServiceEnvironmentResult struct {
-	// The number of app instances per App Service Environment Front End
+	// The number of app instances per App Service Environment Front End.
 	FrontEndScaleFactor int `pulumi:"frontEndScaleFactor"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// IP address of internal load balancer of the App Service Environment.
 	InternalIpAddress string `pulumi:"internalIpAddress"`
-	// The Azure location where the App Service Environment exists
+	// The Azure Region where the App Service Environment exists.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
-	// Outbound IP addresses of the App Service Environment.
+	// List of outbound IP addresses of the App Service Environment.
 	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
 	// The Pricing Tier (Isolated SKU) of the App Service Environment.
 	PricingTier       string `pulumi:"pricingTier"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// IP address of service endpoint of the App Service Environment.
 	ServiceIpAddress string `pulumi:"serviceIpAddress"`
-	// A mapping of tags assigned to the resource.
+	// A mapping of tags assigned to the App Service Environment.
 	Tags map[string]string `pulumi:"tags"`
 }

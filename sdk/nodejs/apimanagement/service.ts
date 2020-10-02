@@ -155,7 +155,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly signUp!: pulumi.Output<outputs.apimanagement.ServiceSignUp>;
     /**
-     * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -360,7 +360,7 @@ export interface ServiceState {
      */
     readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
-     * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      */
     readonly skuName?: pulumi.Input<string>;
     /**
@@ -442,7 +442,7 @@ export interface ServiceArgs {
      */
     readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
-     * `skuName` is a string consisting of two parts separated by an underscore(\_). The fist part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      */
     readonly skuName: pulumi.Input<string>;
     /**

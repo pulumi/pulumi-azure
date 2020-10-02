@@ -8,6 +8,7 @@ import * as outputs from "../types/output";
 export interface ProviderFeatures {
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
     network?: pulumi.Input<inputs.ProviderFeaturesNetwork>;
+    templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
     virtualMachine?: pulumi.Input<inputs.ProviderFeaturesVirtualMachine>;
     virtualMachineScaleSet?: pulumi.Input<inputs.ProviderFeaturesVirtualMachineScaleSet>;
 }
@@ -18,7 +19,11 @@ export interface ProviderFeaturesKeyVault {
 }
 
 export interface ProviderFeaturesNetwork {
-    relaxedLocking?: pulumi.Input<boolean>;
+    relaxedLocking: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesTemplateDeployment {
+    deleteNestedItemsDuringDeletion: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesVirtualMachine {
@@ -5745,6 +5750,21 @@ export namespace containerservice {
         workspaceKey: pulumi.Input<string>;
     }
 
+    export interface GroupDnsConfig {
+        /**
+         * A list of nameservers the containers will search out to resolve requests.
+         */
+        nameservers: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+         */
+        options: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of search domains that DNS requests will search along.
+         */
+        searchDomains: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface GroupIdentity {
         /**
          * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
@@ -6311,6 +6331,10 @@ export namespace cosmosdb {
          * @deprecated This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
          */
         prefix?: pulumi.Input<string>;
+        /**
+         * Should zone redundancy be enabled for this region? Defaults to `false`.
+         */
+        zoneRedundant?: pulumi.Input<boolean>;
     }
 
     export interface AccountVirtualNetworkRule {
@@ -7922,6 +7946,10 @@ export namespace eventhub {
          * Identifier of the message.
          */
         messageId?: pulumi.Input<string>;
+        /**
+         * A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+         */
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Address of the queue to reply to.
          */
@@ -13214,7 +13242,11 @@ export namespace network {
         /**
          * A list of source IP addresses and/or IP ranges.
          */
-        sourceAddresses: pulumi.Input<pulumi.Input<string>[]>;
+        sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of source IP Group IDs for the rule.
+         */
+        sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of FQDNs.
          */
@@ -13294,7 +13326,11 @@ export namespace network {
         /**
          * A list of source IP addresses and/or IP ranges.
          */
-        sourceAddresses: pulumi.Input<pulumi.Input<string>[]>;
+        sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of source IP Group IDs for the rule.
+         */
+        sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The address of the service behind the Firewall.
          */
@@ -13313,7 +13349,11 @@ export namespace network {
         /**
          * Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
          */
-        destinationAddresses: pulumi.Input<pulumi.Input<string>[]>;
+        destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of destination IP Group IDs for the rule.
+         */
+        destinationIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of destination ports.
          */
@@ -13329,7 +13369,11 @@ export namespace network {
         /**
          * A list of source IP addresses and/or IP ranges.
          */
-        sourceAddresses: pulumi.Input<pulumi.Input<string>[]>;
+        sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of IP Group IDs for the rule.
+         */
+        sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FirewallPolicyDns {
@@ -14580,6 +14624,10 @@ export namespace servicebus {
          */
         messageId?: pulumi.Input<string>;
         /**
+         * A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+         */
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
          * Address of the queue to reply to.
          */
         replyTo?: pulumi.Input<string>;
@@ -15372,7 +15420,7 @@ export namespace storage {
 
     export interface ManagementPolicyRuleFilters {
         /**
-         * An array of predefined values. Only `blockBlob` is supported.
+         * An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
          */
         blobTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.AppService
     public static class GetAppServiceEnvironment
     {
         /// <summary>
-        /// Use this data source to access information about an existing App Service Environment
+        /// Use this data source to access information about an existing App Service Environment.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -28,14 +28,14 @@ namespace Pulumi.Azure.AppService
         ///     {
         ///         var example = Output.Create(Azure.AppService.GetAppServiceEnvironment.InvokeAsync(new Azure.AppService.GetAppServiceEnvironmentArgs
         ///         {
-        ///             Name = "example-ase",
-        ///             ResourceGroupName = "example-rg",
+        ///             Name = "existing-ase",
+        ///             ResourceGroupName = "existing-rg",
         ///         }));
-        ///         this.AppServiceEnvironmentId = data.Azurerm_app_service_environment.Id;
+        ///         this.Id = example.Apply(example =&gt; example.Id);
         ///     }
         /// 
-        ///     [Output("appServiceEnvironmentId")]
-        ///     public Output&lt;string&gt; AppServiceEnvironmentId { get; set; }
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
         /// }
         /// ```
         /// {{% /example %}}
@@ -49,13 +49,13 @@ namespace Pulumi.Azure.AppService
     public sealed class GetAppServiceEnvironmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the App Service Environment.
+        /// The name of this App Service Environment.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the Resource Group where the App Service Environment exists.
+        /// The name of the Resource Group where the App Service Environment exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.AppService
     public sealed class GetAppServiceEnvironmentResult
     {
         /// <summary>
-        /// The number of app instances per App Service Environment Front End
+        /// The number of app instances per App Service Environment Front End.
         /// </summary>
         public readonly int FrontEndScaleFactor;
         /// <summary>
@@ -82,12 +82,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string InternalIpAddress;
         /// <summary>
-        /// The Azure location where the App Service Environment exists
+        /// The Azure Region where the App Service Environment exists.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         /// <summary>
-        /// Outbound IP addresses of the App Service Environment.
+        /// List of outbound IP addresses of the App Service Environment.
         /// </summary>
         public readonly ImmutableArray<string> OutboundIpAddresses;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string ServiceIpAddress;
         /// <summary>
-        /// A mapping of tags assigned to the resource.
+        /// A mapping of tags assigned to the App Service Environment.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

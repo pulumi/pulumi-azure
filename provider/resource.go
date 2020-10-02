@@ -565,8 +565,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_template_deployment": {Tok: azureResource(azureCore, "TemplateDeployment")},
-			"azurerm_custom_provider":     {Tok: azureResource(azureCore, "CustomProvider")},
+			"azurerm_template_deployment":                {Tok: azureResource(azureCore, "TemplateDeployment")},
+			"azurerm_resource_group_template_deployment": {Tok: azureResource(azureCore, "ResourceGroupTemplateDeployment")},
+			"azurerm_subscription_template_deployment":   {Tok: azureResource(azureCore, "SubscriptionTemplateDeployment")},
+			"azurerm_custom_provider":                    {Tok: azureResource(azureCore, "CustomProvider")},
 
 			// CDN
 			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
@@ -934,14 +936,15 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_cosmosdb_cassandra_keyspace": {Tok: azureResource(azureCosmosDB, "CassandraKeyspace")},
-			"azurerm_cosmosdb_mongo_collection":   {Tok: azureResource(azureCosmosDB, "MongoCollection")},
-			"azurerm_cosmosdb_mongo_database":     {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
-			"azurerm_cosmosdb_sql_container":      {Tok: azureResource(azureCosmosDB, "SqlContainer")},
-			"azurerm_cosmosdb_sql_database":       {Tok: azureResource(azureCosmosDB, "SqlDatabase")},
-			"azurerm_cosmosdb_table":              {Tok: azureResource(azureCosmosDB, "Table")},
-			"azurerm_cosmosdb_gremlin_database":   {Tok: azureResource(azureCosmosDB, "GremlinDatabase")},
-			"azurerm_cosmosdb_gremlin_graph":      {Tok: azureResource(azureCosmosDB, "GremlinGraph")},
+			"azurerm_cosmosdb_cassandra_keyspace":   {Tok: azureResource(azureCosmosDB, "CassandraKeyspace")},
+			"azurerm_cosmosdb_mongo_collection":     {Tok: azureResource(azureCosmosDB, "MongoCollection")},
+			"azurerm_cosmosdb_mongo_database":       {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
+			"azurerm_cosmosdb_sql_container":        {Tok: azureResource(azureCosmosDB, "SqlContainer")},
+			"azurerm_cosmosdb_sql_database":         {Tok: azureResource(azureCosmosDB, "SqlDatabase")},
+			"azurerm_cosmosdb_table":                {Tok: azureResource(azureCosmosDB, "Table")},
+			"azurerm_cosmosdb_gremlin_database":     {Tok: azureResource(azureCosmosDB, "GremlinDatabase")},
+			"azurerm_cosmosdb_gremlin_graph":        {Tok: azureResource(azureCosmosDB, "GremlinGraph")},
+			"azurerm_cosmosdb_sql_stored_procedure": {Tok: azureResource(azureCosmosDB, "SqlStoredProcedure")},
 
 			// Cost Management
 			"azurerm_cost_management_export_resource_group": {
@@ -1240,6 +1243,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_hub_connection":         {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
 			"azurerm_vpn_gateway":                    {Tok: azureResource(azureNetwork, "VpnGateway")},
 			"azurerm_vpn_server_configuration":       {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
+			"azurerm_ip_group":                       {Tok: azureResource(azureNetwork, "IPGroup")},
 
 			// Redis
 			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
@@ -1747,6 +1751,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_nat_gateway":                 {Tok: azureDataSource(azureNetwork, "getNatGateway")},
 			"azurerm_virtual_hub":                 {Tok: azureDataSource(azureNetwork, "getVirtualHub")},
 			"azurerm_firewall_policy":             {Tok: azureDataSource(azureNetwork, "getFirewallPolicy")},
+			"azurerm_ip_group":                    {Tok: azureDataSource(azureNetwork, "getIpGroup")},
 			"azurerm_signalr_service":             {Tok: azureDataSource(azureSignalr, "getService")},
 			"azurerm_storage_container":           {Tok: azureDataSource(azureStorage, "getStorageContainer")},
 			"azurerm_storage_sync":                {Tok: azureDataSource(azureStorage, "getSync")},
