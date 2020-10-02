@@ -8,6 +8,7 @@ import * as outputs from "../types/output";
 export interface ProviderFeatures {
     keyVault?: outputs.ProviderFeaturesKeyVault;
     network?: outputs.ProviderFeaturesNetwork;
+    templateDeployment?: outputs.ProviderFeaturesTemplateDeployment;
     virtualMachine?: outputs.ProviderFeaturesVirtualMachine;
     virtualMachineScaleSet?: outputs.ProviderFeaturesVirtualMachineScaleSet;
 }
@@ -19,6 +20,10 @@ export interface ProviderFeaturesKeyVault {
 
 export interface ProviderFeaturesNetwork {
     relaxedLocking?: boolean;
+}
+
+export interface ProviderFeaturesTemplateDeployment {
+    deleteNestedItemsDuringDeletion?: boolean;
 }
 
 export interface ProviderFeaturesVirtualMachine {
@@ -6572,6 +6577,7 @@ export namespace config {
     export interface Features {
         keyVault?: outputs.config.FeaturesKeyVault;
         network?: outputs.config.FeaturesNetwork;
+        templateDeployment?: outputs.config.FeaturesTemplateDeployment;
         virtualMachine?: outputs.config.FeaturesVirtualMachine;
         virtualMachineScaleSet?: outputs.config.FeaturesVirtualMachineScaleSet;
     }
@@ -6582,7 +6588,11 @@ export namespace config {
     }
 
     export interface FeaturesNetwork {
-        relaxedLocking?: boolean;
+        relaxedLocking: boolean;
+    }
+
+    export interface FeaturesTemplateDeployment {
+        deleteNestedItemsDuringDeletion: boolean;
     }
 
     export interface FeaturesVirtualMachine {
@@ -7128,6 +7138,21 @@ export namespace containerservice {
          * The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
          */
         workspaceKey: string;
+    }
+
+    export interface GroupDnsConfig {
+        /**
+         * A list of nameservers the containers will search out to resolve requests.
+         */
+        nameservers: string[];
+        /**
+         * A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+         */
+        options: string[];
+        /**
+         * A list of search domains that DNS requests will search along.
+         */
+        searchDomains: string[];
     }
 
     export interface GroupIdentity {
@@ -7749,6 +7774,10 @@ export namespace cosmosdb {
          * @deprecated This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
          */
         prefix?: string;
+        /**
+         * Should zone redundancy be enabled for this region? Defaults to `false`.
+         */
+        zoneRedundant?: boolean;
     }
 
     export interface AccountVirtualNetworkRule {
@@ -9546,6 +9575,10 @@ export namespace eventhub {
          * Identifier of the message.
          */
         messageId?: string;
+        /**
+         * A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+         */
+        properties?: {[key: string]: string};
         /**
          * Address of the queue to reply to.
          */
@@ -15403,7 +15436,11 @@ export namespace network {
         /**
          * A list of source IP addresses and/or IP ranges.
          */
-        sourceAddresses: string[];
+        sourceAddresses?: string[];
+        /**
+         * A list of source IP Group IDs for the rule.
+         */
+        sourceIpGroups?: string[];
         /**
          * A list of FQDNs.
          */
@@ -15483,7 +15520,11 @@ export namespace network {
         /**
          * A list of source IP addresses and/or IP ranges.
          */
-        sourceAddresses: string[];
+        sourceAddresses?: string[];
+        /**
+         * A list of source IP Group IDs for the rule.
+         */
+        sourceIpGroups?: string[];
         /**
          * The address of the service behind the Firewall.
          */
@@ -15502,7 +15543,11 @@ export namespace network {
         /**
          * Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
          */
-        destinationAddresses: string[];
+        destinationAddresses?: string[];
+        /**
+         * A list of destination IP Group IDs for the rule.
+         */
+        destinationIpGroups?: string[];
         /**
          * A list of destination ports.
          */
@@ -15518,7 +15563,11 @@ export namespace network {
         /**
          * A list of source IP addresses and/or IP ranges.
          */
-        sourceAddresses: string[];
+        sourceAddresses?: string[];
+        /**
+         * A list of IP Group IDs for the rule.
+         */
+        sourceIpGroups?: string[];
     }
 
     export interface FirewallPolicyDns {
@@ -17399,6 +17448,10 @@ export namespace servicebus {
          */
         messageId?: string;
         /**
+         * A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+         */
+        properties?: {[key: string]: string};
+        /**
          * Address of the queue to reply to.
          */
         replyTo?: string;
@@ -18213,7 +18266,7 @@ export namespace storage {
 
     export interface GetPolicyRuleFilter {
         /**
-         * An array of predefined values. Only `blockBlob` is supported.
+         * An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
          */
         blobTypes: string[];
         /**
@@ -18276,7 +18329,7 @@ export namespace storage {
 
     export interface ManagementPolicyRuleFilters {
         /**
-         * An array of predefined values. Only `blockBlob` is supported.
+         * An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
          */
         blobTypes?: string[];
         /**

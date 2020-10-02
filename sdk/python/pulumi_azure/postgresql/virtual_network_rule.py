@@ -47,7 +47,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         example_server = azure.postgresql.Server("exampleServer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku_name="B_Gen5_2",
+            sku_name="GP_Gen5_2",
             storage_profile=azure.postgresql.ServerStorageProfileArgs(
                 storage_mb=5120,
                 backup_retention_days=7,

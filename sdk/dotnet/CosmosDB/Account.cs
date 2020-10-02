@@ -69,7 +69,6 @@ namespace Pulumi.Azure.CosmosDB
     ///                 },
     ///                 new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///                 {
-    ///                     Prefix = ri.Result.Apply(result =&gt; $"tfex-cosmos-db-{result}-customid"),
     ///                     Location = rg.Location,
     ///                     FailoverPriority = 0,
     ///                 },
@@ -169,12 +168,18 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The Primary master key for the CosmosDB Account.
         /// </summary>
+        [Output("primaryKey")]
+        public Output<string> PrimaryKey { get; private set; } = null!;
+
         [Output("primaryMasterKey")]
         public Output<string> PrimaryMasterKey { get; private set; } = null!;
 
         /// <summary>
         /// The Primary read-only master Key for the CosmosDB Account.
         /// </summary>
+        [Output("primaryReadonlyKey")]
+        public Output<string> PrimaryReadonlyKey { get; private set; } = null!;
+
         [Output("primaryReadonlyMasterKey")]
         public Output<string> PrimaryReadonlyMasterKey { get; private set; } = null!;
 
@@ -193,12 +198,18 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The Secondary master key for the CosmosDB Account.
         /// </summary>
+        [Output("secondaryKey")]
+        public Output<string> SecondaryKey { get; private set; } = null!;
+
         [Output("secondaryMasterKey")]
         public Output<string> SecondaryMasterKey { get; private set; } = null!;
 
         /// <summary>
         /// The Secondary read-only master key for the CosmosDB Account.
         /// </summary>
+        [Output("secondaryReadonlyKey")]
+        public Output<string> SecondaryReadonlyKey { get; private set; } = null!;
+
         [Output("secondaryReadonlyMasterKey")]
         public Output<string> SecondaryReadonlyMasterKey { get; private set; } = null!;
 
@@ -492,12 +503,18 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The Primary master key for the CosmosDB Account.
         /// </summary>
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
+
         [Input("primaryMasterKey")]
         public Input<string>? PrimaryMasterKey { get; set; }
 
         /// <summary>
         /// The Primary read-only master Key for the CosmosDB Account.
         /// </summary>
+        [Input("primaryReadonlyKey")]
+        public Input<string>? PrimaryReadonlyKey { get; set; }
+
         [Input("primaryReadonlyMasterKey")]
         public Input<string>? PrimaryReadonlyMasterKey { get; set; }
 
@@ -522,12 +539,18 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The Secondary master key for the CosmosDB Account.
         /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
+
         [Input("secondaryMasterKey")]
         public Input<string>? SecondaryMasterKey { get; set; }
 
         /// <summary>
         /// The Secondary read-only master key for the CosmosDB Account.
         /// </summary>
+        [Input("secondaryReadonlyKey")]
+        public Input<string>? SecondaryReadonlyKey { get; set; }
+
         [Input("secondaryReadonlyMasterKey")]
         public Input<string>? SecondaryReadonlyMasterKey { get; set; }
 

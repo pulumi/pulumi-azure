@@ -87,6 +87,12 @@ namespace Pulumi.Azure.KeyVault
         public Output<ImmutableArray<Outputs.KeyVaultAccessPolicy>> AccessPolicies { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        /// </summary>
+        [Output("enableRbacAuthorization")]
+        public Output<bool?> EnableRbacAuthorization { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         /// </summary>
         [Output("enabledForDeployment")]
@@ -229,6 +235,12 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        /// </summary>
+        [Input("enableRbacAuthorization")]
+        public Input<bool>? EnableRbacAuthorization { get; set; }
+
+        /// <summary>
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         /// </summary>
         [Input("enabledForDeployment")]
@@ -330,6 +342,12 @@ namespace Pulumi.Azure.KeyVault
             get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.KeyVaultAccessPolicyGetArgs>());
             set => _accessPolicies = value;
         }
+
+        /// <summary>
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        /// </summary>
+        [Input("enableRbacAuthorization")]
+        public Input<bool>? EnableRbacAuthorization { get; set; }
 
         /// <summary>
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.

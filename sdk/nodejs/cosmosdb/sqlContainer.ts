@@ -90,7 +90,7 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly indexingPolicy!: pulumi.Output<outputs.cosmosdb.SqlContainerIndexingPolicy>;
     /**
-     * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+     * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -98,7 +98,7 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly partitionKeyPath!: pulumi.Output<string | undefined>;
     /**
-     * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+     * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export interface SqlContainerState {
      */
     readonly indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
     /**
-     * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+     * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -195,7 +195,7 @@ export interface SqlContainerState {
      */
     readonly partitionKeyPath?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+     * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface SqlContainerArgs {
      */
     readonly indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
     /**
-     * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
+     * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -238,7 +238,7 @@ export interface SqlContainerArgs {
      */
     readonly partitionKeyPath?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
+     * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

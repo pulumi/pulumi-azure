@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Inputs
         [Input("network")]
         public Input<Inputs.ProviderFeaturesNetworkArgs>? Network { get; set; }
 
+        [Input("templateDeployment")]
+        public Input<Inputs.ProviderFeaturesTemplateDeploymentArgs>? TemplateDeployment { get; set; }
+
         [Input("virtualMachine")]
         public Input<Inputs.ProviderFeaturesVirtualMachineArgs>? VirtualMachine { get; set; }
 

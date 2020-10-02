@@ -109,12 +109,14 @@ class AccountGeoLocation(dict):
                  failover_priority: int,
                  location: str,
                  id: Optional[str] = None,
-                 prefix: Optional[str] = None):
+                 prefix: Optional[str] = None,
+                 zone_redundant: Optional[bool] = None):
         """
         :param int failover_priority: The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
         :param str location: The name of the Azure region to host replicated data.
         :param str id: The ID of the virtual network subnet.
         :param str prefix: The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
+        :param bool zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
         """
         pulumi.set(__self__, "failover_priority", failover_priority)
         pulumi.set(__self__, "location", location)
@@ -122,6 +124,8 @@ class AccountGeoLocation(dict):
             pulumi.set(__self__, "id", id)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="failoverPriority")
@@ -154,6 +158,14 @@ class AccountGeoLocation(dict):
         The string used to generate the document endpoints for this region. If not specified it defaults to `${cosmosdb_account.name}-${location}`. Changing this causes the location to be deleted and re-provisioned and cannot be changed for the location with failover priority `0`.
         """
         return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Should zone redundancy be enabled for this region? Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundant")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

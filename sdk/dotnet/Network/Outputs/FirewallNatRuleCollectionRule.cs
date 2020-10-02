@@ -38,6 +38,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
         /// <summary>
+        /// A list of source IP Group IDs for the rule.
+        /// </summary>
+        public readonly ImmutableArray<string> SourceIpGroups;
+        /// <summary>
         /// The address of the service behind the Firewall.
         /// </summary>
         public readonly string TranslatedAddress;
@@ -60,6 +64,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> sourceAddresses,
 
+            ImmutableArray<string> sourceIpGroups,
+
             string translatedAddress,
 
             string translatedPort)
@@ -70,6 +76,7 @@ namespace Pulumi.Azure.Network.Outputs
             Name = name;
             Protocols = protocols;
             SourceAddresses = sourceAddresses;
+            SourceIpGroups = sourceIpGroups;
             TranslatedAddress = translatedAddress;
             TranslatedPort = translatedPort;
         }

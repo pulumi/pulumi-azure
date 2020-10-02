@@ -287,6 +287,8 @@ type AccountGeoLocation struct {
 	//
 	// Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
 	Prefix *string `pulumi:"prefix"`
+	// Should zone redundancy be enabled for this region? Defaults to `false`.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // AccountGeoLocationInput is an input type that accepts AccountGeoLocationArgs and AccountGeoLocationOutput values.
@@ -311,6 +313,8 @@ type AccountGeoLocationArgs struct {
 	//
 	// Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Should zone redundancy be enabled for this region? Defaults to `false`.
+	ZoneRedundant pulumi.BoolPtrInput `pulumi:"zoneRedundant"`
 }
 
 func (AccountGeoLocationArgs) ElementType() reflect.Type {
@@ -384,6 +388,11 @@ func (o AccountGeoLocationOutput) Location() pulumi.StringOutput {
 // Deprecated: This is deprecated because the service no longer accepts this as an input since Apr 25, 2019
 func (o AccountGeoLocationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountGeoLocation) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// Should zone redundancy be enabled for this region? Defaults to `false`.
+func (o AccountGeoLocationOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountGeoLocation) *bool { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }
 
 type AccountGeoLocationArrayOutput struct{ *pulumi.OutputState }

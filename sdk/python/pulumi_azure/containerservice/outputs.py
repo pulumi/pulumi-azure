@@ -20,6 +20,7 @@ __all__ = [
     'GroupContainerVolume',
     'GroupDiagnostics',
     'GroupDiagnosticsLogAnalytics',
+    'GroupDnsConfig',
     'GroupIdentity',
     'GroupImageRegistryCredential',
     'KubernetesClusterAddonProfile',
@@ -713,6 +714,49 @@ class GroupDiagnosticsLogAnalytics(dict):
         Any metadata required for Log Analytics. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "metadata")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GroupDnsConfig(dict):
+    def __init__(__self__, *,
+                 nameservers: Sequence[str],
+                 options: Sequence[str],
+                 search_domains: Sequence[str]):
+        """
+        :param Sequence[str] nameservers: A list of nameservers the containers will search out to resolve requests.
+        :param Sequence[str] options: A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+        :param Sequence[str] search_domains: A list of search domains that DNS requests will search along.
+        """
+        pulumi.set(__self__, "nameservers", nameservers)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "search_domains", search_domains)
+
+    @property
+    @pulumi.getter
+    def nameservers(self) -> Sequence[str]:
+        """
+        A list of nameservers the containers will search out to resolve requests.
+        """
+        return pulumi.get(self, "nameservers")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Sequence[str]:
+        """
+        A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+        """
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter(name="searchDomains")
+    def search_domains(self) -> Sequence[str]:
+        """
+        A list of search domains that DNS requests will search along.
+        """
+        return pulumi.get(self, "search_domains")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

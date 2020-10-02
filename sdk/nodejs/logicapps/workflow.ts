@@ -61,6 +61,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectorOutboundIpAddresses!: pulumi.Output<string[]>;
     /**
+     * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+     */
+    public readonly integrationServiceEnvironmentId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class Workflow extends pulumi.CustomResource {
             inputs["accessEndpoint"] = state ? state.accessEndpoint : undefined;
             inputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
             inputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
+            inputs["integrationServiceEnvironmentId"] = state ? state.integrationServiceEnvironmentId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["logicAppIntegrationAccountId"] = state ? state.logicAppIntegrationAccountId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -131,6 +136,7 @@ export class Workflow extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["integrationServiceEnvironmentId"] = args ? args.integrationServiceEnvironmentId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logicAppIntegrationAccountId"] = args ? args.logicAppIntegrationAccountId : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -172,6 +178,10 @@ export interface WorkflowState {
      * The list of outgoing ip addresses of connector.
      */
     readonly connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+     */
+    readonly integrationServiceEnvironmentId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
@@ -218,6 +228,10 @@ export interface WorkflowState {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
+    /**
+     * The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+     */
+    readonly integrationServiceEnvironmentId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */

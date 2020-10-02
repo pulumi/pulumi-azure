@@ -77,6 +77,8 @@ type Group struct {
 	Containers GroupContainerArrayOutput `pulumi:"containers"`
 	// A `diagnostics` block as documented below.
 	Diagnostics GroupDiagnosticsPtrOutput `pulumi:"diagnostics"`
+	// A `dnsConfig` block as documented below.
+	DnsConfig GroupDnsConfigPtrOutput `pulumi:"dnsConfig"`
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrOutput `pulumi:"dnsNameLabel"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
@@ -146,6 +148,8 @@ type groupState struct {
 	Containers []GroupContainer `pulumi:"containers"`
 	// A `diagnostics` block as documented below.
 	Diagnostics *GroupDiagnostics `pulumi:"diagnostics"`
+	// A `dnsConfig` block as documented below.
+	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
@@ -179,6 +183,8 @@ type GroupState struct {
 	Containers GroupContainerArrayInput
 	// A `diagnostics` block as documented below.
 	Diagnostics GroupDiagnosticsPtrInput
+	// A `dnsConfig` block as documented below.
+	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
 	// The FQDN of the container group derived from `dnsNameLabel`.
@@ -216,6 +222,8 @@ type groupArgs struct {
 	Containers []GroupContainer `pulumi:"containers"`
 	// A `diagnostics` block as documented below.
 	Diagnostics *GroupDiagnostics `pulumi:"diagnostics"`
+	// A `dnsConfig` block as documented below.
+	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
 	// An `identity` block as defined below.
@@ -246,6 +254,8 @@ type GroupArgs struct {
 	Containers GroupContainerArrayInput
 	// A `diagnostics` block as documented below.
 	Diagnostics GroupDiagnosticsPtrInput
+	// A `dnsConfig` block as documented below.
+	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
 	// An `identity` block as defined below.

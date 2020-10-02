@@ -51,6 +51,8 @@ type Workflow struct {
 	ConnectorEndpointIpAddresses pulumi.StringArrayOutput `pulumi:"connectorEndpointIpAddresses"`
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayOutput `pulumi:"connectorOutboundIpAddresses"`
+	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+	IntegrationServiceEnvironmentId pulumi.StringPtrOutput `pulumi:"integrationServiceEnvironmentId"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the integration account linked by this Logic App Workflow.
@@ -110,6 +112,8 @@ type workflowState struct {
 	ConnectorEndpointIpAddresses []string `pulumi:"connectorEndpointIpAddresses"`
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses []string `pulumi:"connectorOutboundIpAddresses"`
+	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+	IntegrationServiceEnvironmentId *string `pulumi:"integrationServiceEnvironmentId"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the integration account linked by this Logic App Workflow.
@@ -139,6 +143,8 @@ type WorkflowState struct {
 	ConnectorEndpointIpAddresses pulumi.StringArrayInput
 	// The list of outgoing ip addresses of connector.
 	ConnectorOutboundIpAddresses pulumi.StringArrayInput
+	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+	IntegrationServiceEnvironmentId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the integration account linked by this Logic App Workflow.
@@ -166,6 +172,8 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
+	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+	IntegrationServiceEnvironmentId *string `pulumi:"integrationServiceEnvironmentId"`
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The ID of the integration account linked by this Logic App Workflow.
@@ -186,6 +194,8 @@ type workflowArgs struct {
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
+	// The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+	IntegrationServiceEnvironmentId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The ID of the integration account linked by this Logic App Workflow.

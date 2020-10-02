@@ -81,6 +81,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string MasterKey;
         public readonly string Name;
+        public readonly string PrimaryKey;
         public readonly string ResourceGroupName;
 
         [OutputConstructor]
@@ -93,12 +94,15 @@ namespace Pulumi.Azure.AppService
 
             string name,
 
+            string primaryKey,
+
             string resourceGroupName)
         {
             DefaultFunctionKey = defaultFunctionKey;
             Id = id;
             MasterKey = masterKey;
             Name = name;
+            PrimaryKey = primaryKey;
             ResourceGroupName = resourceGroupName;
         }
     }

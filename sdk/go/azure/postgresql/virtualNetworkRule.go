@@ -58,7 +58,7 @@ import (
 // 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
 // 			Location:          exampleResourceGroup.Location,
 // 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("B_Gen5_2"),
+// 			SkuName:           pulumi.String("GP_Gen5_2"),
 // 			StorageProfile: &postgresql.ServerStorageProfileArgs{
 // 				StorageMb:           pulumi.Int(5120),
 // 				BackupRetentionDays: pulumi.Int(7),

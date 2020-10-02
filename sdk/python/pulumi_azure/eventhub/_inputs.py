@@ -1728,6 +1728,7 @@ class SubscriptionRuleCorrelationFilterArgs:
                  correlation_id: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  message_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  reply_to: Optional[pulumi.Input[str]] = None,
                  reply_to_session_id: Optional[pulumi.Input[str]] = None,
                  session_id: Optional[pulumi.Input[str]] = None,
@@ -1737,6 +1738,7 @@ class SubscriptionRuleCorrelationFilterArgs:
         :param pulumi.Input[str] correlation_id: Identifier of the correlation.
         :param pulumi.Input[str] label: Application specific label.
         :param pulumi.Input[str] message_id: Identifier of the message.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
         :param pulumi.Input[str] reply_to: Address of the queue to reply to.
         :param pulumi.Input[str] reply_to_session_id: Session identifier to reply to.
         :param pulumi.Input[str] session_id: Session identifier.
@@ -1750,6 +1752,8 @@ class SubscriptionRuleCorrelationFilterArgs:
             pulumi.set(__self__, "label", label)
         if message_id is not None:
             pulumi.set(__self__, "message_id", message_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if reply_to is not None:
             pulumi.set(__self__, "reply_to", reply_to)
         if reply_to_session_id is not None:
@@ -1806,6 +1810,18 @@ class SubscriptionRuleCorrelationFilterArgs:
     @message_id.setter
     def message_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_id", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="replyTo")

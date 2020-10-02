@@ -12,8 +12,8 @@ namespace Pulumi.Azure.Inputs
 
     public sealed class ProviderFeaturesNetworkArgs : Pulumi.ResourceArgs
     {
-        [Input("relaxedLocking")]
-        public Input<bool>? RelaxedLocking { get; set; }
+        [Input("relaxedLocking", required: true)]
+        public Input<bool> RelaxedLocking { get; set; } = null!;
 
         public ProviderFeaturesNetworkArgs()
         {

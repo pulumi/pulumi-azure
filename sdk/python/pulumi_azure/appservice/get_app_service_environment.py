@@ -55,7 +55,7 @@ class GetAppServiceEnvironmentResult:
     @pulumi.getter(name="frontEndScaleFactor")
     def front_end_scale_factor(self) -> int:
         """
-        The number of app instances per App Service Environment Front End
+        The number of app instances per App Service Environment Front End.
         """
         return pulumi.get(self, "front_end_scale_factor")
 
@@ -79,7 +79,7 @@ class GetAppServiceEnvironmentResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The Azure location where the App Service Environment exists
+        The Azure Region where the App Service Environment exists.
         """
         return pulumi.get(self, "location")
 
@@ -92,7 +92,7 @@ class GetAppServiceEnvironmentResult:
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> Sequence[str]:
         """
-        Outbound IP addresses of the App Service Environment.
+        List of outbound IP addresses of the App Service Environment.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
@@ -121,7 +121,7 @@ class GetAppServiceEnvironmentResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags assigned to the resource.
+        A mapping of tags assigned to the App Service Environment.
         """
         return pulumi.get(self, "tags")
 
@@ -148,7 +148,7 @@ def get_app_service_environment(name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentResult:
     """
-    Use this data source to access information about an existing App Service Environment
+    Use this data source to access information about an existing App Service Environment.
 
     ## Example Usage
 
@@ -156,14 +156,14 @@ def get_app_service_environment(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appservice.get_app_service_environment(name="example-ase",
-        resource_group_name="example-rg")
-    pulumi.export("appServiceEnvironmentId", data["azurerm_app_service_environment"]["id"])
+    example = azure.appservice.get_app_service_environment(name="existing-ase",
+        resource_group_name="existing-rg")
+    pulumi.export("id", example.id)
     ```
 
 
-    :param str name: The name of the App Service Environment.
-    :param str resource_group_name: The Name of the Resource Group where the App Service Environment exists.
+    :param str name: The name of this App Service Environment.
+    :param str resource_group_name: The name of the Resource Group where the App Service Environment exists.
     """
     __args__ = dict()
     __args__['name'] = name

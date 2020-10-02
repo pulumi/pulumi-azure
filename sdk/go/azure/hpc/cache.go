@@ -77,10 +77,14 @@ type Cache struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
 	MountAddresses pulumi.StringArrayOutput `pulumi:"mountAddresses"`
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Whether root squash property is enabled for this HPC Cache.
+	RootSquashEnabled pulumi.BoolOutput `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
@@ -133,10 +137,14 @@ type cacheState struct {
 	Location *string `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
 	MountAddresses []string `pulumi:"mountAddresses"`
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	Mtu *int `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Whether root squash property is enabled for this HPC Cache.
+	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
@@ -150,10 +158,14 @@ type CacheState struct {
 	Location pulumi.StringPtrInput
 	// A list of IP Addresses where the HPC Cache can be mounted.
 	MountAddresses pulumi.StringArrayInput
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	Mtu pulumi.IntPtrInput
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Whether root squash property is enabled for this HPC Cache.
+	RootSquashEnabled pulumi.BoolPtrInput
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
@@ -169,10 +181,14 @@ type cacheArgs struct {
 	CacheSizeInGb int `pulumi:"cacheSizeInGb"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	Mtu *int `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Whether root squash property is enabled for this HPC Cache.
+	RootSquashEnabled *bool `pulumi:"rootSquashEnabled"`
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
@@ -185,10 +201,14 @@ type CacheArgs struct {
 	CacheSizeInGb pulumi.IntInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+	Mtu pulumi.IntPtrInput
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Whether root squash property is enabled for this HPC Cache.
+	RootSquashEnabled pulumi.BoolPtrInput
 	// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.

@@ -2489,7 +2489,7 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) DeleteAfterDaysSinceCreati
 }
 
 type ManagementPolicyRuleFilters struct {
-	// An array of predefined values. Only `blockBlob` is supported.
+	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches []string `pulumi:"prefixMatches"`
@@ -2507,7 +2507,7 @@ type ManagementPolicyRuleFiltersInput interface {
 }
 
 type ManagementPolicyRuleFiltersArgs struct {
-	// An array of predefined values. Only `blockBlob` is supported.
+	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
@@ -2590,7 +2590,7 @@ func (o ManagementPolicyRuleFiltersOutput) ToManagementPolicyRuleFiltersPtrOutpu
 	}).(ManagementPolicyRuleFiltersPtrOutput)
 }
 
-// An array of predefined values. Only `blockBlob` is supported.
+// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 func (o ManagementPolicyRuleFiltersOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
@@ -2618,7 +2618,7 @@ func (o ManagementPolicyRuleFiltersPtrOutput) Elem() ManagementPolicyRuleFilters
 	return o.ApplyT(func(v *ManagementPolicyRuleFilters) ManagementPolicyRuleFilters { return *v }).(ManagementPolicyRuleFiltersOutput)
 }
 
-// An array of predefined values. Only `blockBlob` is supported.
+// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 func (o ManagementPolicyRuleFiltersPtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleFilters) []string {
 		if v == nil {
@@ -3981,7 +3981,7 @@ func (o GetPolicyRuleActionSnapshotArrayOutput) Index(i pulumi.IntInput) GetPoli
 }
 
 type GetPolicyRuleFilter struct {
-	// An array of predefined values. Only `blockBlob` is supported.
+	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches []string `pulumi:"prefixMatches"`
@@ -3999,7 +3999,7 @@ type GetPolicyRuleFilterInput interface {
 }
 
 type GetPolicyRuleFilterArgs struct {
-	// An array of predefined values. Only `blockBlob` is supported.
+	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
@@ -4056,7 +4056,7 @@ func (o GetPolicyRuleFilterOutput) ToGetPolicyRuleFilterOutputWithContext(ctx co
 	return o
 }
 
-// An array of predefined values. Only `blockBlob` is supported.
+// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 func (o GetPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }

@@ -19,6 +19,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]]] = None,
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
+                 dns_config: Optional[pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']]] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
@@ -78,6 +79,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
+        :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
@@ -111,6 +113,7 @@ class Group(pulumi.CustomResource):
                 raise TypeError("Missing required property 'containers'")
             __props__['containers'] = containers
             __props__['diagnostics'] = diagnostics
+            __props__['dns_config'] = dns_config
             __props__['dns_name_label'] = dns_name_label
             __props__['identity'] = identity
             __props__['image_registry_credentials'] = image_registry_credentials
@@ -140,6 +143,7 @@ class Group(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]]] = None,
             diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
+            dns_config: Optional[pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']]] = None,
             dns_name_label: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
@@ -162,6 +166,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupContainerArgs']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
+        :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
@@ -182,6 +187,7 @@ class Group(pulumi.CustomResource):
 
         __props__["containers"] = containers
         __props__["diagnostics"] = diagnostics
+        __props__["dns_config"] = dns_config
         __props__["dns_name_label"] = dns_name_label
         __props__["fqdn"] = fqdn
         __props__["identity"] = identity
@@ -212,6 +218,14 @@ class Group(pulumi.CustomResource):
         A `diagnostics` block as documented below.
         """
         return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter(name="dnsConfig")
+    def dns_config(self) -> pulumi.Output[Optional['outputs.GroupDnsConfig']]:
+        """
+        A `dns_config` block as documented below.
+        """
+        return pulumi.get(self, "dns_config")
 
     @property
     @pulumi.getter(name="dnsNameLabel")

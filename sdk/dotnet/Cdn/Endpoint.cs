@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> ProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         /// </summary>
         [Output("querystringCachingBehaviour")]
         public Output<string?> QuerystringCachingBehaviour { get; private set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         /// </summary>
         [Input("querystringCachingBehaviour")]
         public Input<string>? QuerystringCachingBehaviour { get; set; }
@@ -479,7 +479,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ProfileName { get; set; }
 
         /// <summary>
-        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+        /// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
         /// </summary>
         [Input("querystringCachingBehaviour")]
         public Input<string>? QuerystringCachingBehaviour { get; set; }

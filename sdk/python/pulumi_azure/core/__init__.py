@@ -11,6 +11,8 @@ from .get_subscription import *
 from .get_subscriptions import *
 from .get_user_assigned_identity import *
 from .resource_group import *
+from .resource_group_template_deployment import *
+from .subscription_template_deployment import *
 from .template_deployment import *
 from ._inputs import *
 from . import outputs

@@ -11,5 +11,6 @@ export * from "./mongoCollection";
 export * from "./mongoDatabase";
 export * from "./sqlContainer";
 export * from "./sqlDatabase";
+export * from "./sqlStoredProcedure";
 export * from "./table";
 export * from "./zMixins";

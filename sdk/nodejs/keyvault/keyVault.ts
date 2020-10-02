@@ -82,6 +82,10 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly accessPolicies!: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
     /**
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+     */
+    public readonly enableRbacAuthorization!: pulumi.Output<boolean | undefined>;
+    /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */
     public readonly enabledForDeployment!: pulumi.Output<boolean | undefined>;
@@ -151,6 +155,7 @@ export class KeyVault extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as KeyVaultState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
+            inputs["enableRbacAuthorization"] = state ? state.enableRbacAuthorization : undefined;
             inputs["enabledForDeployment"] = state ? state.enabledForDeployment : undefined;
             inputs["enabledForDiskEncryption"] = state ? state.enabledForDiskEncryption : undefined;
             inputs["enabledForTemplateDeployment"] = state ? state.enabledForTemplateDeployment : undefined;
@@ -177,6 +182,7 @@ export class KeyVault extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
+            inputs["enableRbacAuthorization"] = args ? args.enableRbacAuthorization : undefined;
             inputs["enabledForDeployment"] = args ? args.enabledForDeployment : undefined;
             inputs["enabledForDiskEncryption"] = args ? args.enabledForDiskEncryption : undefined;
             inputs["enabledForTemplateDeployment"] = args ? args.enabledForTemplateDeployment : undefined;
@@ -211,6 +217,10 @@ export interface KeyVaultState {
      * A list of up to 16 objects describing access policies, as described below.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
+    /**
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+     */
+    readonly enableRbacAuthorization?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */
@@ -277,6 +287,10 @@ export interface KeyVaultArgs {
      * A list of up to 16 objects describing access policies, as described below.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
+    /**
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+     */
+    readonly enableRbacAuthorization?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */

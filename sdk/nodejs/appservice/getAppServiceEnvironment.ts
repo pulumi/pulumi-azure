@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing App Service Environment
+ * Use this data source to access information about an existing App Service Environment.
  *
  * ## Example Usage
  *
@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appservice.getAppServiceEnvironment({
- *     name: "example-ase",
- *     resourceGroupName: "example-rg",
+ *     name: "existing-ase",
+ *     resourceGroupName: "existing-rg",
  * });
- * export const appServiceEnvironmentId = data.azurerm_app_service_environment.id;
+ * export const id = example.then(example => example.id);
  * ```
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
@@ -41,11 +41,11 @@ export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opt
  */
 export interface GetAppServiceEnvironmentArgs {
     /**
-     * The name of the App Service Environment.
+     * The name of this App Service Environment.
      */
     readonly name: string;
     /**
-     * The Name of the Resource Group where the App Service Environment exists.
+     * The name of the Resource Group where the App Service Environment exists.
      */
     readonly resourceGroupName: string;
 }
@@ -55,7 +55,7 @@ export interface GetAppServiceEnvironmentArgs {
  */
 export interface GetAppServiceEnvironmentResult {
     /**
-     * The number of app instances per App Service Environment Front End
+     * The number of app instances per App Service Environment Front End.
      */
     readonly frontEndScaleFactor: number;
     /**
@@ -67,12 +67,12 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly internalIpAddress: string;
     /**
-     * The Azure location where the App Service Environment exists
+     * The Azure Region where the App Service Environment exists.
      */
     readonly location: string;
     readonly name: string;
     /**
-     * Outbound IP addresses of the App Service Environment.
+     * List of outbound IP addresses of the App Service Environment.
      */
     readonly outboundIpAddresses: string[];
     /**
@@ -85,7 +85,7 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly serviceIpAddress: string;
     /**
-     * A mapping of tags assigned to the resource.
+     * A mapping of tags assigned to the App Service Environment.
      */
     readonly tags: {[key: string]: string};
 }

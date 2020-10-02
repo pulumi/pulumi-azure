@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "EastUS2"});
  * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
+ *     location: "EastUS2",
  *     resourceGroupName: exampleResourceGroup.name,
  *     enforceBackendPoolsCertificateNameCheck: false,
  *     routingRules: [{
@@ -133,6 +134,8 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly loadBalancerEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+     *
      * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
      */
     public readonly location!: pulumi.Output<string>;
@@ -275,6 +278,8 @@ export interface FrontdoorState {
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
     /**
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+     *
      * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
      */
     readonly location?: pulumi.Input<string>;
@@ -333,6 +338,8 @@ export interface FrontdoorArgs {
      */
     readonly loadBalancerEnabled?: pulumi.Input<boolean>;
     /**
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+     *
      * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
      */
     readonly location?: pulumi.Input<string>;

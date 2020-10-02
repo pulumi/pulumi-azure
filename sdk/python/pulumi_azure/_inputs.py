@@ -12,6 +12,7 @@ __all__ = [
     'ProviderFeaturesArgs',
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesNetworkArgs',
+    'ProviderFeaturesTemplateDeploymentArgs',
     'ProviderFeaturesVirtualMachineArgs',
     'ProviderFeaturesVirtualMachineScaleSetArgs',
 ]
@@ -21,12 +22,15 @@ class ProviderFeaturesArgs:
     def __init__(__self__, *,
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
                  network: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']] = None,
+                 template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
                  virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
         if network is not None:
             pulumi.set(__self__, "network", network)
+        if template_deployment is not None:
+            pulumi.set(__self__, "template_deployment", template_deployment)
         if virtual_machine is not None:
             pulumi.set(__self__, "virtual_machine", virtual_machine)
         if virtual_machine_scale_set is not None:
@@ -49,6 +53,15 @@ class ProviderFeaturesArgs:
     @network.setter
     def network(self, value: Optional[pulumi.Input['ProviderFeaturesNetworkArgs']]):
         pulumi.set(self, "network", value)
+
+    @property
+    @pulumi.getter(name="templateDeployment")
+    def template_deployment(self) -> Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']]:
+        return pulumi.get(self, "template_deployment")
+
+    @template_deployment.setter
+    def template_deployment(self, value: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']]):
+        pulumi.set(self, "template_deployment", value)
 
     @property
     @pulumi.getter(name="virtualMachine")
@@ -101,18 +114,33 @@ class ProviderFeaturesKeyVaultArgs:
 @pulumi.input_type
 class ProviderFeaturesNetworkArgs:
     def __init__(__self__, *,
-                 relaxed_locking: Optional[pulumi.Input[bool]] = None):
-        if relaxed_locking is not None:
-            pulumi.set(__self__, "relaxed_locking", relaxed_locking)
+                 relaxed_locking: pulumi.Input[bool]):
+        pulumi.set(__self__, "relaxed_locking", relaxed_locking)
 
     @property
     @pulumi.getter(name="relaxedLocking")
-    def relaxed_locking(self) -> Optional[pulumi.Input[bool]]:
+    def relaxed_locking(self) -> pulumi.Input[bool]:
         return pulumi.get(self, "relaxed_locking")
 
     @relaxed_locking.setter
-    def relaxed_locking(self, value: Optional[pulumi.Input[bool]]):
+    def relaxed_locking(self, value: pulumi.Input[bool]):
         pulumi.set(self, "relaxed_locking", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesTemplateDeploymentArgs:
+    def __init__(__self__, *,
+                 delete_nested_items_during_deletion: pulumi.Input[bool]):
+        pulumi.set(__self__, "delete_nested_items_during_deletion", delete_nested_items_during_deletion)
+
+    @property
+    @pulumi.getter(name="deleteNestedItemsDuringDeletion")
+    def delete_nested_items_during_deletion(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "delete_nested_items_during_deletion")
+
+    @delete_nested_items_during_deletion.setter
+    def delete_nested_items_during_deletion(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "delete_nested_items_during_deletion", value)
 
 
 @pulumi.input_type

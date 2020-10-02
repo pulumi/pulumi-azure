@@ -58,7 +58,10 @@ type GetFunctionAppHostKeysResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Function App resource's secret key
+	//
+	// Deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes
 	MasterKey         string `pulumi:"masterKey"`
 	Name              string `pulumi:"name"`
+	PrimaryKey        string `pulumi:"primaryKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

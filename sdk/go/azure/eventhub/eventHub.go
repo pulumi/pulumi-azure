@@ -63,7 +63,7 @@ type EventHub struct {
 	CaptureDescription EventHubCaptureDescriptionPtrOutput `pulumi:"captureDescription"`
 	// Specifies the number of days to retain the events for this Event Hub.
 	MessageRetention pulumi.IntOutput `pulumi:"messageRetention"`
-	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
@@ -119,7 +119,7 @@ type eventHubState struct {
 	CaptureDescription *EventHubCaptureDescription `pulumi:"captureDescription"`
 	// Specifies the number of days to retain the events for this Event Hub.
 	MessageRetention *int `pulumi:"messageRetention"`
-	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName *string `pulumi:"namespaceName"`
@@ -136,7 +136,7 @@ type EventHubState struct {
 	CaptureDescription EventHubCaptureDescriptionPtrInput
 	// Specifies the number of days to retain the events for this Event Hub.
 	MessageRetention pulumi.IntPtrInput
-	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringPtrInput
@@ -157,7 +157,7 @@ type eventHubArgs struct {
 	CaptureDescription *EventHubCaptureDescription `pulumi:"captureDescription"`
 	// Specifies the number of days to retain the events for this Event Hub.
 	MessageRetention int `pulumi:"messageRetention"`
-	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName string `pulumi:"namespaceName"`
@@ -173,7 +173,7 @@ type EventHubArgs struct {
 	CaptureDescription EventHubCaptureDescriptionPtrInput
 	// Specifies the number of days to retain the events for this Event Hub.
 	MessageRetention pulumi.IntInput
-	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringInput

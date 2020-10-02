@@ -80,7 +80,7 @@ type Server struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The full name of the Analysis Services Server.
 	ServerFullName pulumi.StringOutput `pulumi:"serverFullName"`
-	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
 	Sku  pulumi.StringOutput    `pulumi:"sku"`
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -137,7 +137,7 @@ type serverState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The full name of the Analysis Services Server.
 	ServerFullName *string `pulumi:"serverFullName"`
-	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
 	Sku  *string           `pulumi:"sku"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -161,7 +161,7 @@ type ServerState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The full name of the Analysis Services Server.
 	ServerFullName pulumi.StringPtrInput
-	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
 	Sku  pulumi.StringPtrInput
 	Tags pulumi.StringMapInput
 }
@@ -187,7 +187,7 @@ type serverArgs struct {
 	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
 	Sku  string            `pulumi:"sku"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -210,7 +210,7 @@ type ServerArgs struct {
 	QuerypoolConnectionMode pulumi.StringPtrInput
 	// The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8` and `S9`
+	// SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
 	Sku  pulumi.StringInput
 	Tags pulumi.StringMapInput
 }

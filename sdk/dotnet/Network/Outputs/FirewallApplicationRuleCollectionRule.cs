@@ -34,6 +34,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
         /// <summary>
+        /// A list of source IP Group IDs for the rule.
+        /// </summary>
+        public readonly ImmutableArray<string> SourceIpGroups;
+        /// <summary>
         /// A list of FQDNs.
         /// </summary>
         public readonly ImmutableArray<string> TargetFqdns;
@@ -50,6 +54,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> sourceAddresses,
 
+            ImmutableArray<string> sourceIpGroups,
+
             ImmutableArray<string> targetFqdns)
         {
             Description = description;
@@ -57,6 +63,7 @@ namespace Pulumi.Azure.Network.Outputs
             Name = name;
             Protocols = protocols;
             SourceAddresses = sourceAddresses;
+            SourceIpGroups = sourceIpGroups;
             TargetFqdns = targetFqdns;
         }
     }

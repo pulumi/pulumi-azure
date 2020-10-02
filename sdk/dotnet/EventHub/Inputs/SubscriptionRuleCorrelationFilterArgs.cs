@@ -36,6 +36,18 @@ namespace Pulumi.Azure.EventHub.Inputs
         [Input("messageId")]
         public Input<string>? MessageId { get; set; }
 
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
+
         /// <summary>
         /// Address of the queue to reply to.
         /// </summary>

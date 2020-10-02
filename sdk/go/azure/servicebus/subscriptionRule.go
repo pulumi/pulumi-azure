@@ -131,6 +131,9 @@ import (
 // 			CorrelationFilter: &servicebus.SubscriptionRuleCorrelationFilterArgs{
 // 				CorrelationId: pulumi.String("high"),
 // 				Label:         pulumi.String("red"),
+// 				Properties: pulumi.StringMap{
+// 					"customProperty": pulumi.String("value"),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {

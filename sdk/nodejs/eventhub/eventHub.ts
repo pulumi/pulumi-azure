@@ -70,7 +70,7 @@ export class EventHub extends pulumi.CustomResource {
      */
     public readonly messageRetention!: pulumi.Output<number>;
     /**
-     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+     * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export interface EventHubState {
      */
     readonly messageRetention?: pulumi.Input<number>;
     /**
-     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+     * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface EventHubArgs {
      */
     readonly messageRetention: pulumi.Input<number>;
     /**
-     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+     * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

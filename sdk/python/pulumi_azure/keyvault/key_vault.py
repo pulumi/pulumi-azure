@@ -18,6 +18,7 @@ class KeyVault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
+                 enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
                  enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
                  enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
                  enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
@@ -79,6 +80,7 @@ class KeyVault(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
@@ -111,6 +113,7 @@ class KeyVault(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_policies'] = access_policies
+            __props__['enable_rbac_authorization'] = enable_rbac_authorization
             __props__['enabled_for_deployment'] = enabled_for_deployment
             __props__['enabled_for_disk_encryption'] = enabled_for_disk_encryption
             __props__['enabled_for_template_deployment'] = enabled_for_template_deployment
@@ -142,6 +145,7 @@ class KeyVault(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
+            enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
             enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
             enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
             enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
@@ -164,6 +168,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
@@ -184,6 +189,7 @@ class KeyVault(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["access_policies"] = access_policies
+        __props__["enable_rbac_authorization"] = enable_rbac_authorization
         __props__["enabled_for_deployment"] = enabled_for_deployment
         __props__["enabled_for_disk_encryption"] = enabled_for_disk_encryption
         __props__["enabled_for_template_deployment"] = enabled_for_template_deployment
@@ -207,6 +213,14 @@ class KeyVault(pulumi.CustomResource):
         A list of up to 16 objects describing access policies, as described below.
         """
         return pulumi.get(self, "access_policies")
+
+    @property
+    @pulumi.getter(name="enableRbacAuthorization")
+    def enable_rbac_authorization(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_rbac_authorization")
 
     @property
     @pulumi.getter(name="enabledForDeployment")

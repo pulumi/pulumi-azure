@@ -19,6 +19,7 @@ __all__ = [
     'GroupContainerVolumeArgs',
     'GroupDiagnosticsArgs',
     'GroupDiagnosticsLogAnalyticsArgs',
+    'GroupDnsConfigArgs',
     'GroupIdentityArgs',
     'GroupImageRegistryCredentialArgs',
     'KubernetesClusterAddonProfileArgs',
@@ -855,6 +856,58 @@ class GroupDiagnosticsLogAnalyticsArgs:
     @metadata.setter
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "metadata", value)
+
+
+@pulumi.input_type
+class GroupDnsConfigArgs:
+    def __init__(__self__, *,
+                 nameservers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 options: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 search_domains: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] nameservers: A list of nameservers the containers will search out to resolve requests.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] options: A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] search_domains: A list of search domains that DNS requests will search along.
+        """
+        pulumi.set(__self__, "nameservers", nameservers)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "search_domains", search_domains)
+
+    @property
+    @pulumi.getter
+    def nameservers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of nameservers the containers will search out to resolve requests.
+        """
+        return pulumi.get(self, "nameservers")
+
+    @nameservers.setter
+    def nameservers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "nameservers", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter(name="searchDomains")
+    def search_domains(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of search domains that DNS requests will search along.
+        """
+        return pulumi.get(self, "search_domains")
+
+    @search_domains.setter
+    def search_domains(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "search_domains", value)
 
 
 @pulumi.input_type

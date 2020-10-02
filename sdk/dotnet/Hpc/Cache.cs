@@ -79,6 +79,12 @@ namespace Pulumi.Azure.Hpc
         public Output<ImmutableArray<string>> MountAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        /// </summary>
+        [Output("mtu")]
+        public Output<int?> Mtu { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the HPC Cache. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -89,6 +95,12 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether root squash property is enabled for this HPC Cache.
+        /// </summary>
+        [Output("rootSquashEnabled")]
+        public Output<bool> RootSquashEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
@@ -161,6 +173,12 @@ namespace Pulumi.Azure.Hpc
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        /// </summary>
+        [Input("mtu")]
+        public Input<int>? Mtu { get; set; }
+
+        /// <summary>
         /// The name of the HPC Cache. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -171,6 +189,12 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether root squash property is enabled for this HPC Cache.
+        /// </summary>
+        [Input("rootSquashEnabled")]
+        public Input<bool>? RootSquashEnabled { get; set; }
 
         /// <summary>
         /// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
@@ -216,6 +240,12 @@ namespace Pulumi.Azure.Hpc
         }
 
         /// <summary>
+        /// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        /// </summary>
+        [Input("mtu")]
+        public Input<int>? Mtu { get; set; }
+
+        /// <summary>
         /// The name of the HPC Cache. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -226,6 +256,12 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Whether root squash property is enabled for this HPC Cache.
+        /// </summary>
+        [Input("rootSquashEnabled")]
+        public Input<bool>? RootSquashEnabled { get; set; }
 
         /// <summary>
         /// The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.

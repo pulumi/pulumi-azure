@@ -952,7 +952,7 @@ class ManagementPolicyRuleFiltersArgs:
                  blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined values. Only `blockBlob` is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_matches: An array of strings for prefixes to be matched.
         """
         if blob_types is not None:
@@ -964,7 +964,7 @@ class ManagementPolicyRuleFiltersArgs:
     @pulumi.getter(name="blobTypes")
     def blob_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of predefined values. Only `blockBlob` is supported.
+        An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         """
         return pulumi.get(self, "blob_types")
 

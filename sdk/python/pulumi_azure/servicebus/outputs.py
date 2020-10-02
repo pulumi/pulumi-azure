@@ -53,6 +53,7 @@ class SubscriptionRuleCorrelationFilter(dict):
                  correlation_id: Optional[str] = None,
                  label: Optional[str] = None,
                  message_id: Optional[str] = None,
+                 properties: Optional[Mapping[str, str]] = None,
                  reply_to: Optional[str] = None,
                  reply_to_session_id: Optional[str] = None,
                  session_id: Optional[str] = None,
@@ -62,6 +63,7 @@ class SubscriptionRuleCorrelationFilter(dict):
         :param str correlation_id: Identifier of the correlation.
         :param str label: Application specific label.
         :param str message_id: Identifier of the message.
+        :param Mapping[str, str] properties: A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
         :param str reply_to: Address of the queue to reply to.
         :param str reply_to_session_id: Session identifier to reply to.
         :param str session_id: Session identifier.
@@ -75,6 +77,8 @@ class SubscriptionRuleCorrelationFilter(dict):
             pulumi.set(__self__, "label", label)
         if message_id is not None:
             pulumi.set(__self__, "message_id", message_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if reply_to is not None:
             pulumi.set(__self__, "reply_to", reply_to)
         if reply_to_session_id is not None:
@@ -115,6 +119,14 @@ class SubscriptionRuleCorrelationFilter(dict):
         Identifier of the message.
         """
         return pulumi.get(self, "message_id")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+        """
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="replyTo")

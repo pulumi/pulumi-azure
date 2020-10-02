@@ -78,6 +78,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
     /**
+     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     */
+    public readonly mtu!: pulumi.Output<number | undefined>;
+    /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -85,6 +89,10 @@ export class Cache extends pulumi.CustomResource {
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Whether root squash property is enabled for this HPC Cache.
+     */
+    public readonly rootSquashEnabled!: pulumi.Output<boolean>;
     /**
      * The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
      */
@@ -109,8 +117,10 @@ export class Cache extends pulumi.CustomResource {
             inputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mountAddresses"] = state ? state.mountAddresses : undefined;
+            inputs["mtu"] = state ? state.mtu : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["rootSquashEnabled"] = state ? state.rootSquashEnabled : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
@@ -129,8 +139,10 @@ export class Cache extends pulumi.CustomResource {
             }
             inputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mtu"] = args ? args.mtu : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rootSquashEnabled"] = args ? args.rootSquashEnabled : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["mountAddresses"] = undefined /*out*/;
@@ -163,6 +175,10 @@ export interface CacheState {
      */
     readonly mountAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     */
+    readonly mtu?: pulumi.Input<number>;
+    /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -170,6 +186,10 @@ export interface CacheState {
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Whether root squash property is enabled for this HPC Cache.
+     */
+    readonly rootSquashEnabled?: pulumi.Input<boolean>;
     /**
      * The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
      */
@@ -193,6 +213,10 @@ export interface CacheArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+     */
+    readonly mtu?: pulumi.Input<number>;
+    /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -200,6 +224,10 @@ export interface CacheArgs {
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Whether root squash property is enabled for this HPC Cache.
+     */
+    readonly rootSquashEnabled?: pulumi.Input<boolean>;
     /**
      * The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
      */

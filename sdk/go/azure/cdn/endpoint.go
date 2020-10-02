@@ -92,7 +92,7 @@ type Endpoint struct {
 	ProbePath pulumi.StringOutput `pulumi:"probePath"`
 	// The CDN Profile to which to attach the CDN Endpoint.
 	ProfileName pulumi.StringOutput `pulumi:"profileName"`
-	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour pulumi.StringPtrOutput `pulumi:"querystringCachingBehaviour"`
 	// The name of the resource group in which to create the CDN Endpoint.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -169,7 +169,7 @@ type endpointState struct {
 	ProbePath *string `pulumi:"probePath"`
 	// The CDN Profile to which to attach the CDN Endpoint.
 	ProfileName *string `pulumi:"profileName"`
-	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour *string `pulumi:"querystringCachingBehaviour"`
 	// The name of the resource group in which to create the CDN Endpoint.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -210,7 +210,7 @@ type EndpointState struct {
 	ProbePath pulumi.StringPtrInput
 	// The CDN Profile to which to attach the CDN Endpoint.
 	ProfileName pulumi.StringPtrInput
-	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour pulumi.StringPtrInput
 	// The name of the resource group in which to create the CDN Endpoint.
 	ResourceGroupName pulumi.StringPtrInput
@@ -253,7 +253,7 @@ type endpointArgs struct {
 	ProbePath *string `pulumi:"probePath"`
 	// The CDN Profile to which to attach the CDN Endpoint.
 	ProfileName string `pulumi:"profileName"`
-	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour *string `pulumi:"querystringCachingBehaviour"`
 	// The name of the resource group in which to create the CDN Endpoint.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -293,7 +293,7 @@ type EndpointArgs struct {
 	ProbePath pulumi.StringPtrInput
 	// The CDN Profile to which to attach the CDN Endpoint.
 	ProfileName pulumi.StringInput
-	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+	// Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
 	QuerystringCachingBehaviour pulumi.StringPtrInput
 	// The name of the resource group in which to create the CDN Endpoint.
 	ResourceGroupName pulumi.StringInput
