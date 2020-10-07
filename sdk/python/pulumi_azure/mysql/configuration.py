@@ -52,6 +52,7 @@ class Configuration(pulumi.CustomResource):
             ssl_enforcement_enabled=True,
             ssl_minimal_tls_version_enforced="TLS1_2")
         example_configuration = azure.mysql.Configuration("exampleConfiguration",
+            name="interactive_timeout",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             value="600")
@@ -81,6 +82,8 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -44,6 +44,7 @@ namespace Pulumi.Azure.MariaDB
     ///         });
     ///         var exampleConfiguration = new Azure.MariaDB.Configuration("exampleConfiguration", new Azure.MariaDB.ConfigurationArgs
     ///         {
+    ///             Name = "interactive_timeout",
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ServerName = exampleServer.Name,
     ///             Value = "600",
@@ -128,8 +129,8 @@ namespace Pulumi.Azure.MariaDB
         /// <summary>
         /// Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.

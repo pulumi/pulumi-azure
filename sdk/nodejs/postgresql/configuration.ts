@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *     sslEnforcementEnabled: true,
  * });
  * const exampleConfiguration = new azure.postgresql.Configuration("exampleConfiguration", {
+ *     name: "backslash_quote",
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
  *     value: "on",
@@ -101,6 +102,9 @@ export class Configuration extends pulumi.CustomResource {
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -155,7 +159,7 @@ export interface ConfigurationArgs {
     /**
      * Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
      */

@@ -52,6 +52,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = postgresql.NewConfiguration(ctx, "exampleConfiguration", &postgresql.ConfigurationArgs{
+// 			Name:              pulumi.String("backslash_quote"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ServerName:        exampleServer.Name,
 // 			Value:             pulumi.String("on"),
@@ -79,6 +80,9 @@ type Configuration struct {
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewConfiguration(ctx *pulumi.Context,
 	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOption) (*Configuration, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -140,7 +144,7 @@ func (ConfigurationState) ElementType() reflect.Type {
 
 type configurationArgs struct {
 	// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
@@ -152,7 +156,7 @@ type configurationArgs struct {
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
 	// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.

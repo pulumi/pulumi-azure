@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Disable autonaming for `mysql.Configuration`, `mariadb.Configuration` and `postgres.Configuration` as the resource
+  names need to relate to validate database configuration names.
 
 ---
 

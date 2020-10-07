@@ -46,6 +46,7 @@ namespace Pulumi.Azure.PostgreSql
     ///         });
     ///         var exampleConfiguration = new Azure.PostgreSql.Configuration("exampleConfiguration", new Azure.PostgreSql.ConfigurationArgs
     ///         {
+    ///             Name = "backslash_quote",
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ServerName = exampleServer.Name,
     ///             Value = "on",
@@ -130,8 +131,8 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
