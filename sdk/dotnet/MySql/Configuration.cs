@@ -49,6 +49,7 @@ namespace Pulumi.Azure.MySql
     ///         });
     ///         var exampleConfiguration = new Azure.MySql.Configuration("exampleConfiguration", new Azure.MySql.ConfigurationArgs
     ///         {
+    ///             Name = "interactive_timeout",
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             ServerName = exampleServer.Name,
     ///             Value = "600",
@@ -133,8 +134,8 @@ namespace Pulumi.Azure.MySql
         /// <summary>
         /// Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.

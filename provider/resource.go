@@ -902,7 +902,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// MariaDB
-			"azurerm_mariadb_configuration":        {Tok: azureResource(azureMariaDB, "Configuration")},
+			"azurerm_mariadb_configuration": {
+				Tok: azureResource(azureMariaDB, "Configuration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {Name: "name"},
+				},
+			},
 			"azurerm_mariadb_database":             {Tok: azureResource(azureMariaDB, "Database")},
 			"azurerm_mariadb_firewall_rule":        {Tok: azureResource(azureMariaDB, "FirewallRule")},
 			"azurerm_mariadb_server":               {Tok: azureResource(azureMariaDB, "Server")},
@@ -1014,7 +1019,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_server_extended_auditing_policy":   {Tok: azureResource(azureMSSQL, "ServerExtendedAuditingPolicy")},
 
 			// MySQL
-			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
+			"azurerm_mysql_configuration": {
+				Tok: azureResource(azureMySQL, "Configuration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {Name: "name"},
+				},
+			},
 			"azurerm_mysql_database":             {Tok: azureResource(azureMySQL, "Database")},
 			"azurerm_mysql_firewall_rule":        {Tok: azureResource(azureMySQL, "FirewallRule")},
 			"azurerm_mysql_server":               {Tok: azureResource(azureMySQL, "Server")},
@@ -1025,7 +1035,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// Postgress SQL
-			"azurerm_postgresql_configuration":        {Tok: azureResource(azurePostgresql, "Configuration")},
+			"azurerm_postgresql_configuration": {
+				Tok: azureResource(azurePostgresql, "Configuration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"name": {Name: "name"},
+				},
+			},
 			"azurerm_postgresql_database":             {Tok: azureResource(azurePostgresql, "Database")},
 			"azurerm_postgresql_firewall_rule":        {Tok: azureResource(azurePostgresql, "FirewallRule")},
 			"azurerm_postgresql_server":               {Tok: azureResource(azurePostgresql, "Server")},

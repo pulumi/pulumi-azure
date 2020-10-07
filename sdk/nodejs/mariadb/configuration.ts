@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  *     sslEnforcement: "Enabled",
  * });
  * const exampleConfiguration = new azure.mariadb.Configuration("exampleConfiguration", {
+ *     name: "interactive_timeout",
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
  *     value: "600",
@@ -98,6 +99,9 @@ export class Configuration extends pulumi.CustomResource {
             inputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -152,7 +156,7 @@ export interface ConfigurationArgs {
     /**
      * Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
      */
