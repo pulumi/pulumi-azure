@@ -49,6 +49,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = mariadb.NewConfiguration(ctx, "exampleConfiguration", &mariadb.ConfigurationArgs{
+// 			Name:              pulumi.String("interactive_timeout"),
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			ServerName:        exampleServer.Name,
 // 			Value:             pulumi.String("600"),
@@ -76,6 +77,9 @@ type Configuration struct {
 // NewConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewConfiguration(ctx *pulumi.Context,
 	name string, args *ConfigurationArgs, opts ...pulumi.ResourceOption) (*Configuration, error) {
+	if args == nil || args.Name == nil {
+		return nil, errors.New("missing required argument 'Name'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -137,7 +141,7 @@ func (ConfigurationState) ElementType() reflect.Type {
 
 type configurationArgs struct {
 	// Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
@@ -149,7 +153,7 @@ type configurationArgs struct {
 // The set of arguments for constructing a Configuration resource.
 type ConfigurationArgs struct {
 	// Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.

@@ -49,6 +49,7 @@ class Configuration(pulumi.CustomResource):
             version="9.5",
             ssl_enforcement_enabled=True)
         example_configuration = azure.postgresql.Configuration("exampleConfiguration",
+            name="backslash_quote",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             value="on")
@@ -78,6 +79,8 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
