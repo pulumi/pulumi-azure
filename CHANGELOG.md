@@ -7,6 +7,9 @@ CHANGELOG
 
 ---
 
+## 3.24.1 (2020-10-08)
+* Upgrade to pulumi-terraform-bridge v2.10.4 which fixes a regression in how config values are passed to the provider
+
 ## 3.24.0 (2020-10-02)
 * Upgrade to pulumi-terraform-bridge v2.10.2
 * Upgrade to Pulumi v2.10.2

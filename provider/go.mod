@@ -5,7 +5,7 @@ go 1.14
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.3.1
 	github.com/hashicorp/terraform-plugin-sdk v1.13.1
-	github.com/pulumi/pulumi-terraform-bridge/v2 v2.10.2
+	github.com/pulumi/pulumi-terraform-bridge/v2 v2.10.4
 	github.com/pulumi/pulumi/sdk/v2 v2.10.2
 	github.com/terraform-providers/terraform-provider-azurerm v1.44.0
 )
