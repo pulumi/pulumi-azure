@@ -48,7 +48,9 @@ import (
 // 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.0.1.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.1.0/24"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -141,7 +143,9 @@ import (
 // 		usGateway, err := network.NewSubnet(ctx, "usGateway", &network.SubnetArgs{
 // 			ResourceGroupName:  usResourceGroup.Name,
 // 			VirtualNetworkName: usVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.0.1.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.1.0/24"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -190,7 +194,9 @@ import (
 // 		europeGateway, err := network.NewSubnet(ctx, "europeGateway", &network.SubnetArgs{
 // 			ResourceGroupName:  europeResourceGroup.Name,
 // 			VirtualNetworkName: europeVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.1.1.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.1.1.0/24"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

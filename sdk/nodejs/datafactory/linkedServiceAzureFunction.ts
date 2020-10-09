@@ -89,7 +89,7 @@ export class LinkedServiceAzureFunction extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linfked Service.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface LinkedServiceAzureFunctionState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linfked Service.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -238,7 +238,7 @@ export interface LinkedServiceAzureFunctionArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linfked Service.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -4164,12 +4164,15 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetPlan {
         /**
-         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
+        /**
+         * Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+         */
         product: pulumi.Input<string>;
         /**
-         * Specifies the Publisher of the Extension.
+         * Specifies the publisher of the image. Changing this forces a new resource to be created.
          */
         publisher: pulumi.Input<string>;
     }
@@ -5386,12 +5389,15 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetPlan {
         /**
-         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
+        /**
+         * Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+         */
         product: pulumi.Input<string>;
         /**
-         * Specifies the Publisher of the Extension.
+         * Specifies the publisher of the image. Changing this forces a new resource to be created.
          */
         publisher: pulumi.Input<string>;
     }
@@ -6895,6 +6901,17 @@ export namespace datashare {
     }
 }
 
+export namespace desktopvirtualization {
+    export interface HostPoolRegistrationInfo {
+        /**
+         * A valid `RFC3339Time` for the expiration of the token.
+         */
+        expirationDate: pulumi.Input<string>;
+        resetToken?: pulumi.Input<boolean>;
+        token?: pulumi.Input<string>;
+    }
+}
+
 export namespace devtest {
     export interface GlobalVMShutdownScheduleNotificationSettings {
         /**
@@ -8161,7 +8178,7 @@ export namespace frontdoor {
          */
         backends: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolBackend>[]>;
         /**
-         * Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
+         * Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
          */
         healthProbeName: pulumi.Input<string>;
         /**
@@ -8347,7 +8364,7 @@ export namespace frontdoor {
          */
         forwardingConfiguration?: pulumi.Input<inputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration>;
         /**
-         * The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
+         * The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
          */
         frontendEndpoints: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -12123,6 +12140,32 @@ export namespace mssql {
         storageEndpoint: pulumi.Input<string>;
     }
 
+    export interface DatabaseLongTermRetentionPolicy {
+        /**
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         */
+        monthlyRetention?: pulumi.Input<string>;
+        /**
+         * The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+         */
+        weekOfYear?: pulumi.Input<number>;
+        /**
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         */
+        weeklyRetention?: pulumi.Input<string>;
+        /**
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         */
+        yearlyRetention?: pulumi.Input<string>;
+    }
+
+    export interface DatabaseShortTermRetentionPolicy {
+        /**
+         * Point In Time Restore configuration. Value has to be between `7` and `35`.
+         */
+        retentionDays: pulumi.Input<number>;
+    }
+
     export interface DatabaseThreatDetectionPolicy {
         /**
          * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -12291,6 +12334,62 @@ export namespace mssql {
          * The service principal name secret to access key vault. Changing this forces a new resource to be created.
          */
         servicePrincipalSecret: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineStorageConfiguration {
+        /**
+         * An `storageSettings` as defined below.
+         */
+        dataSettings?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfigurationDataSettings>;
+        /**
+         * The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+         */
+        diskType: pulumi.Input<string>;
+        /**
+         * An `storageSettings` as defined below.
+         */
+        logSettings?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfigurationLogSettings>;
+        /**
+         * The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+         */
+        storageWorkloadType: pulumi.Input<string>;
+        /**
+         * An `storageSettings` as defined below.
+         */
+        tempDbSettings?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfigurationTempDbSettings>;
+    }
+
+    export interface VirtualMachineStorageConfigurationDataSettings {
+        /**
+         * The SQL Server default path
+         */
+        defaultFilePath: pulumi.Input<string>;
+        /**
+         * A list of Logical Unit Numbers for the disks.
+         */
+        luns: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface VirtualMachineStorageConfigurationLogSettings {
+        /**
+         * The SQL Server default path
+         */
+        defaultFilePath: pulumi.Input<string>;
+        /**
+         * A list of Logical Unit Numbers for the disks.
+         */
+        luns: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface VirtualMachineStorageConfigurationTempDbSettings {
+        /**
+         * The SQL Server default path
+         */
+        defaultFilePath: pulumi.Input<string>;
+        /**
+         * A list of Logical Unit Numbers for the disks.
+         */
+        luns: pulumi.Input<pulumi.Input<number>[]>;
     }
 }
 
@@ -12664,7 +12763,7 @@ export namespace network {
          */
         frontendPortName: pulumi.Input<string>;
         /**
-         * The Hostname which should be used for this HTTP Listener.
+         * The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
          */
         hostName?: pulumi.Input<string>;
         /**
@@ -14838,6 +14937,69 @@ export namespace servicefabric {
          * The X509 Store where the Certificate Exists, such as `My`.
          */
         x509StoreName: pulumi.Input<string>;
+    }
+
+    export interface MeshApplicationService {
+        /**
+         * Any number `codePackage` block as described below.
+         */
+        codePackages: pulumi.Input<pulumi.Input<inputs.servicefabric.MeshApplicationServiceCodePackage>[]>;
+        /**
+         * The name of the service resource.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+         */
+        osType: pulumi.Input<string>;
+    }
+
+    export interface MeshApplicationServiceCodePackage {
+        /**
+         * The Container image the code package will use.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The name of the code package.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `resources` block as defined below.
+         */
+        resources: pulumi.Input<inputs.servicefabric.MeshApplicationServiceCodePackageResources>;
+    }
+
+    export interface MeshApplicationServiceCodePackageResources {
+        /**
+         * A `limits` block as defined below.
+         */
+        limits?: pulumi.Input<inputs.servicefabric.MeshApplicationServiceCodePackageResourcesLimits>;
+        /**
+         * A `requests` block as defined below.
+         */
+        requests: pulumi.Input<inputs.servicefabric.MeshApplicationServiceCodePackageResourcesRequests>;
+    }
+
+    export interface MeshApplicationServiceCodePackageResourcesLimits {
+        /**
+         * The maximum number of CPU cores the container can use.
+         */
+        cpu: pulumi.Input<number>;
+        /**
+         * The maximum memory request in GB the container can use.
+         */
+        memory: pulumi.Input<number>;
+    }
+
+    export interface MeshApplicationServiceCodePackageResourcesRequests {
+        /**
+         * The minimum number of CPU cores the container requires.
+         */
+        cpu: pulumi.Input<number>;
+        /**
+         * The minimum memory request in GB the container requires.
+         */
+        memory: pulumi.Input<number>;
     }
 }
 

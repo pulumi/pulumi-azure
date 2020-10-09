@@ -52,6 +52,8 @@ type Insights struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringOutput `pulumi:"applicationType"`
+	// The Connection String for this Application Insights component. (Sensitive)
+	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
 	// Specifies the Application Insights component daily data volume cap in GB.
 	DailyDataCapInGb pulumi.Float64Output `pulumi:"dailyDataCapInGb"`
 	// Specifies if a notification email will be send when the daily data volume cap is met.
@@ -114,6 +116,8 @@ type insightsState struct {
 	AppId *string `pulumi:"appId"`
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType *string `pulumi:"applicationType"`
+	// The Connection String for this Application Insights component. (Sensitive)
+	ConnectionString *string `pulumi:"connectionString"`
 	// Specifies the Application Insights component daily data volume cap in GB.
 	DailyDataCapInGb *float64 `pulumi:"dailyDataCapInGb"`
 	// Specifies if a notification email will be send when the daily data volume cap is met.
@@ -143,6 +147,8 @@ type InsightsState struct {
 	AppId pulumi.StringPtrInput
 	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType pulumi.StringPtrInput
+	// The Connection String for this Application Insights component. (Sensitive)
+	ConnectionString pulumi.StringPtrInput
 	// Specifies the Application Insights component daily data volume cap in GB.
 	DailyDataCapInGb pulumi.Float64PtrInput
 	// Specifies if a notification email will be send when the daily data volume cap is met.

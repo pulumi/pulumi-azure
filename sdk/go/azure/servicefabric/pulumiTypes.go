@@ -1791,6 +1791,516 @@ func (o ClusterReverseProxyCertificatePtrOutput) X509StoreName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type MeshApplicationService struct {
+	// Any number `codePackage` block as described below.
+	CodePackages []MeshApplicationServiceCodePackage `pulumi:"codePackages"`
+	// The name of the service resource.
+	Name string `pulumi:"name"`
+	// The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+	OsType string `pulumi:"osType"`
+}
+
+// MeshApplicationServiceInput is an input type that accepts MeshApplicationServiceArgs and MeshApplicationServiceOutput values.
+// You can construct a concrete instance of `MeshApplicationServiceInput` via:
+//
+//          MeshApplicationServiceArgs{...}
+type MeshApplicationServiceInput interface {
+	pulumi.Input
+
+	ToMeshApplicationServiceOutput() MeshApplicationServiceOutput
+	ToMeshApplicationServiceOutputWithContext(context.Context) MeshApplicationServiceOutput
+}
+
+type MeshApplicationServiceArgs struct {
+	// Any number `codePackage` block as described below.
+	CodePackages MeshApplicationServiceCodePackageArrayInput `pulumi:"codePackages"`
+	// The name of the service resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+	OsType pulumi.StringInput `pulumi:"osType"`
+}
+
+func (MeshApplicationServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationService)(nil)).Elem()
+}
+
+func (i MeshApplicationServiceArgs) ToMeshApplicationServiceOutput() MeshApplicationServiceOutput {
+	return i.ToMeshApplicationServiceOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationServiceArgs) ToMeshApplicationServiceOutputWithContext(ctx context.Context) MeshApplicationServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceOutput)
+}
+
+// MeshApplicationServiceArrayInput is an input type that accepts MeshApplicationServiceArray and MeshApplicationServiceArrayOutput values.
+// You can construct a concrete instance of `MeshApplicationServiceArrayInput` via:
+//
+//          MeshApplicationServiceArray{ MeshApplicationServiceArgs{...} }
+type MeshApplicationServiceArrayInput interface {
+	pulumi.Input
+
+	ToMeshApplicationServiceArrayOutput() MeshApplicationServiceArrayOutput
+	ToMeshApplicationServiceArrayOutputWithContext(context.Context) MeshApplicationServiceArrayOutput
+}
+
+type MeshApplicationServiceArray []MeshApplicationServiceInput
+
+func (MeshApplicationServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MeshApplicationService)(nil)).Elem()
+}
+
+func (i MeshApplicationServiceArray) ToMeshApplicationServiceArrayOutput() MeshApplicationServiceArrayOutput {
+	return i.ToMeshApplicationServiceArrayOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationServiceArray) ToMeshApplicationServiceArrayOutputWithContext(ctx context.Context) MeshApplicationServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceArrayOutput)
+}
+
+type MeshApplicationServiceOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationService)(nil)).Elem()
+}
+
+func (o MeshApplicationServiceOutput) ToMeshApplicationServiceOutput() MeshApplicationServiceOutput {
+	return o
+}
+
+func (o MeshApplicationServiceOutput) ToMeshApplicationServiceOutputWithContext(ctx context.Context) MeshApplicationServiceOutput {
+	return o
+}
+
+// Any number `codePackage` block as described below.
+func (o MeshApplicationServiceOutput) CodePackages() MeshApplicationServiceCodePackageArrayOutput {
+	return o.ApplyT(func(v MeshApplicationService) []MeshApplicationServiceCodePackage { return v.CodePackages }).(MeshApplicationServiceCodePackageArrayOutput)
+}
+
+// The name of the service resource.
+func (o MeshApplicationServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MeshApplicationService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+func (o MeshApplicationServiceOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v MeshApplicationService) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+type MeshApplicationServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MeshApplicationService)(nil)).Elem()
+}
+
+func (o MeshApplicationServiceArrayOutput) ToMeshApplicationServiceArrayOutput() MeshApplicationServiceArrayOutput {
+	return o
+}
+
+func (o MeshApplicationServiceArrayOutput) ToMeshApplicationServiceArrayOutputWithContext(ctx context.Context) MeshApplicationServiceArrayOutput {
+	return o
+}
+
+func (o MeshApplicationServiceArrayOutput) Index(i pulumi.IntInput) MeshApplicationServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MeshApplicationService {
+		return vs[0].([]MeshApplicationService)[vs[1].(int)]
+	}).(MeshApplicationServiceOutput)
+}
+
+type MeshApplicationServiceCodePackage struct {
+	// The Container image the code package will use.
+	ImageName string `pulumi:"imageName"`
+	// The name of the code package.
+	Name string `pulumi:"name"`
+	// A `resources` block as defined below.
+	Resources MeshApplicationServiceCodePackageResources `pulumi:"resources"`
+}
+
+// MeshApplicationServiceCodePackageInput is an input type that accepts MeshApplicationServiceCodePackageArgs and MeshApplicationServiceCodePackageOutput values.
+// You can construct a concrete instance of `MeshApplicationServiceCodePackageInput` via:
+//
+//          MeshApplicationServiceCodePackageArgs{...}
+type MeshApplicationServiceCodePackageInput interface {
+	pulumi.Input
+
+	ToMeshApplicationServiceCodePackageOutput() MeshApplicationServiceCodePackageOutput
+	ToMeshApplicationServiceCodePackageOutputWithContext(context.Context) MeshApplicationServiceCodePackageOutput
+}
+
+type MeshApplicationServiceCodePackageArgs struct {
+	// The Container image the code package will use.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The name of the code package.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `resources` block as defined below.
+	Resources MeshApplicationServiceCodePackageResourcesInput `pulumi:"resources"`
+}
+
+func (MeshApplicationServiceCodePackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationServiceCodePackage)(nil)).Elem()
+}
+
+func (i MeshApplicationServiceCodePackageArgs) ToMeshApplicationServiceCodePackageOutput() MeshApplicationServiceCodePackageOutput {
+	return i.ToMeshApplicationServiceCodePackageOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationServiceCodePackageArgs) ToMeshApplicationServiceCodePackageOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceCodePackageOutput)
+}
+
+// MeshApplicationServiceCodePackageArrayInput is an input type that accepts MeshApplicationServiceCodePackageArray and MeshApplicationServiceCodePackageArrayOutput values.
+// You can construct a concrete instance of `MeshApplicationServiceCodePackageArrayInput` via:
+//
+//          MeshApplicationServiceCodePackageArray{ MeshApplicationServiceCodePackageArgs{...} }
+type MeshApplicationServiceCodePackageArrayInput interface {
+	pulumi.Input
+
+	ToMeshApplicationServiceCodePackageArrayOutput() MeshApplicationServiceCodePackageArrayOutput
+	ToMeshApplicationServiceCodePackageArrayOutputWithContext(context.Context) MeshApplicationServiceCodePackageArrayOutput
+}
+
+type MeshApplicationServiceCodePackageArray []MeshApplicationServiceCodePackageInput
+
+func (MeshApplicationServiceCodePackageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MeshApplicationServiceCodePackage)(nil)).Elem()
+}
+
+func (i MeshApplicationServiceCodePackageArray) ToMeshApplicationServiceCodePackageArrayOutput() MeshApplicationServiceCodePackageArrayOutput {
+	return i.ToMeshApplicationServiceCodePackageArrayOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationServiceCodePackageArray) ToMeshApplicationServiceCodePackageArrayOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceCodePackageArrayOutput)
+}
+
+type MeshApplicationServiceCodePackageOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationServiceCodePackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationServiceCodePackage)(nil)).Elem()
+}
+
+func (o MeshApplicationServiceCodePackageOutput) ToMeshApplicationServiceCodePackageOutput() MeshApplicationServiceCodePackageOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageOutput) ToMeshApplicationServiceCodePackageOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageOutput {
+	return o
+}
+
+// The Container image the code package will use.
+func (o MeshApplicationServiceCodePackageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The name of the code package.
+func (o MeshApplicationServiceCodePackageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackage) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `resources` block as defined below.
+func (o MeshApplicationServiceCodePackageOutput) Resources() MeshApplicationServiceCodePackageResourcesOutput {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackage) MeshApplicationServiceCodePackageResources {
+		return v.Resources
+	}).(MeshApplicationServiceCodePackageResourcesOutput)
+}
+
+type MeshApplicationServiceCodePackageArrayOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationServiceCodePackageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MeshApplicationServiceCodePackage)(nil)).Elem()
+}
+
+func (o MeshApplicationServiceCodePackageArrayOutput) ToMeshApplicationServiceCodePackageArrayOutput() MeshApplicationServiceCodePackageArrayOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageArrayOutput) ToMeshApplicationServiceCodePackageArrayOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageArrayOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageArrayOutput) Index(i pulumi.IntInput) MeshApplicationServiceCodePackageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MeshApplicationServiceCodePackage {
+		return vs[0].([]MeshApplicationServiceCodePackage)[vs[1].(int)]
+	}).(MeshApplicationServiceCodePackageOutput)
+}
+
+type MeshApplicationServiceCodePackageResources struct {
+	// A `limits` block as defined below.
+	Limits *MeshApplicationServiceCodePackageResourcesLimits `pulumi:"limits"`
+	// A `requests` block as defined below.
+	Requests MeshApplicationServiceCodePackageResourcesRequests `pulumi:"requests"`
+}
+
+// MeshApplicationServiceCodePackageResourcesInput is an input type that accepts MeshApplicationServiceCodePackageResourcesArgs and MeshApplicationServiceCodePackageResourcesOutput values.
+// You can construct a concrete instance of `MeshApplicationServiceCodePackageResourcesInput` via:
+//
+//          MeshApplicationServiceCodePackageResourcesArgs{...}
+type MeshApplicationServiceCodePackageResourcesInput interface {
+	pulumi.Input
+
+	ToMeshApplicationServiceCodePackageResourcesOutput() MeshApplicationServiceCodePackageResourcesOutput
+	ToMeshApplicationServiceCodePackageResourcesOutputWithContext(context.Context) MeshApplicationServiceCodePackageResourcesOutput
+}
+
+type MeshApplicationServiceCodePackageResourcesArgs struct {
+	// A `limits` block as defined below.
+	Limits MeshApplicationServiceCodePackageResourcesLimitsPtrInput `pulumi:"limits"`
+	// A `requests` block as defined below.
+	Requests MeshApplicationServiceCodePackageResourcesRequestsInput `pulumi:"requests"`
+}
+
+func (MeshApplicationServiceCodePackageResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationServiceCodePackageResources)(nil)).Elem()
+}
+
+func (i MeshApplicationServiceCodePackageResourcesArgs) ToMeshApplicationServiceCodePackageResourcesOutput() MeshApplicationServiceCodePackageResourcesOutput {
+	return i.ToMeshApplicationServiceCodePackageResourcesOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationServiceCodePackageResourcesArgs) ToMeshApplicationServiceCodePackageResourcesOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceCodePackageResourcesOutput)
+}
+
+type MeshApplicationServiceCodePackageResourcesOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationServiceCodePackageResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationServiceCodePackageResources)(nil)).Elem()
+}
+
+func (o MeshApplicationServiceCodePackageResourcesOutput) ToMeshApplicationServiceCodePackageResourcesOutput() MeshApplicationServiceCodePackageResourcesOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageResourcesOutput) ToMeshApplicationServiceCodePackageResourcesOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesOutput {
+	return o
+}
+
+// A `limits` block as defined below.
+func (o MeshApplicationServiceCodePackageResourcesOutput) Limits() MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackageResources) *MeshApplicationServiceCodePackageResourcesLimits {
+		return v.Limits
+	}).(MeshApplicationServiceCodePackageResourcesLimitsPtrOutput)
+}
+
+// A `requests` block as defined below.
+func (o MeshApplicationServiceCodePackageResourcesOutput) Requests() MeshApplicationServiceCodePackageResourcesRequestsOutput {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackageResources) MeshApplicationServiceCodePackageResourcesRequests {
+		return v.Requests
+	}).(MeshApplicationServiceCodePackageResourcesRequestsOutput)
+}
+
+type MeshApplicationServiceCodePackageResourcesLimits struct {
+	// The maximum number of CPU cores the container can use.
+	Cpu float64 `pulumi:"cpu"`
+	// The maximum memory request in GB the container can use.
+	Memory float64 `pulumi:"memory"`
+}
+
+// MeshApplicationServiceCodePackageResourcesLimitsInput is an input type that accepts MeshApplicationServiceCodePackageResourcesLimitsArgs and MeshApplicationServiceCodePackageResourcesLimitsOutput values.
+// You can construct a concrete instance of `MeshApplicationServiceCodePackageResourcesLimitsInput` via:
+//
+//          MeshApplicationServiceCodePackageResourcesLimitsArgs{...}
+type MeshApplicationServiceCodePackageResourcesLimitsInput interface {
+	pulumi.Input
+
+	ToMeshApplicationServiceCodePackageResourcesLimitsOutput() MeshApplicationServiceCodePackageResourcesLimitsOutput
+	ToMeshApplicationServiceCodePackageResourcesLimitsOutputWithContext(context.Context) MeshApplicationServiceCodePackageResourcesLimitsOutput
+}
+
+type MeshApplicationServiceCodePackageResourcesLimitsArgs struct {
+	// The maximum number of CPU cores the container can use.
+	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	// The maximum memory request in GB the container can use.
+	Memory pulumi.Float64Input `pulumi:"memory"`
+}
+
+func (MeshApplicationServiceCodePackageResourcesLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationServiceCodePackageResourcesLimits)(nil)).Elem()
+}
+
+func (i MeshApplicationServiceCodePackageResourcesLimitsArgs) ToMeshApplicationServiceCodePackageResourcesLimitsOutput() MeshApplicationServiceCodePackageResourcesLimitsOutput {
+	return i.ToMeshApplicationServiceCodePackageResourcesLimitsOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationServiceCodePackageResourcesLimitsArgs) ToMeshApplicationServiceCodePackageResourcesLimitsOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceCodePackageResourcesLimitsOutput)
+}
+
+func (i MeshApplicationServiceCodePackageResourcesLimitsArgs) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutput() MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return i.ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationServiceCodePackageResourcesLimitsArgs) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceCodePackageResourcesLimitsOutput).ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(ctx)
+}
+
+// MeshApplicationServiceCodePackageResourcesLimitsPtrInput is an input type that accepts MeshApplicationServiceCodePackageResourcesLimitsArgs, MeshApplicationServiceCodePackageResourcesLimitsPtr and MeshApplicationServiceCodePackageResourcesLimitsPtrOutput values.
+// You can construct a concrete instance of `MeshApplicationServiceCodePackageResourcesLimitsPtrInput` via:
+//
+//          MeshApplicationServiceCodePackageResourcesLimitsArgs{...}
+//
+//  or:
+//
+//          nil
+type MeshApplicationServiceCodePackageResourcesLimitsPtrInput interface {
+	pulumi.Input
+
+	ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutput() MeshApplicationServiceCodePackageResourcesLimitsPtrOutput
+	ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(context.Context) MeshApplicationServiceCodePackageResourcesLimitsPtrOutput
+}
+
+type meshApplicationServiceCodePackageResourcesLimitsPtrType MeshApplicationServiceCodePackageResourcesLimitsArgs
+
+func MeshApplicationServiceCodePackageResourcesLimitsPtr(v *MeshApplicationServiceCodePackageResourcesLimitsArgs) MeshApplicationServiceCodePackageResourcesLimitsPtrInput {
+	return (*meshApplicationServiceCodePackageResourcesLimitsPtrType)(v)
+}
+
+func (*meshApplicationServiceCodePackageResourcesLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshApplicationServiceCodePackageResourcesLimits)(nil)).Elem()
+}
+
+func (i *meshApplicationServiceCodePackageResourcesLimitsPtrType) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutput() MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return i.ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *meshApplicationServiceCodePackageResourcesLimitsPtrType) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceCodePackageResourcesLimitsPtrOutput)
+}
+
+type MeshApplicationServiceCodePackageResourcesLimitsOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationServiceCodePackageResourcesLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationServiceCodePackageResourcesLimits)(nil)).Elem()
+}
+
+func (o MeshApplicationServiceCodePackageResourcesLimitsOutput) ToMeshApplicationServiceCodePackageResourcesLimitsOutput() MeshApplicationServiceCodePackageResourcesLimitsOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageResourcesLimitsOutput) ToMeshApplicationServiceCodePackageResourcesLimitsOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesLimitsOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageResourcesLimitsOutput) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutput() MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return o.ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o MeshApplicationServiceCodePackageResourcesLimitsOutput) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackageResourcesLimits) *MeshApplicationServiceCodePackageResourcesLimits {
+		return &v
+	}).(MeshApplicationServiceCodePackageResourcesLimitsPtrOutput)
+}
+
+// The maximum number of CPU cores the container can use.
+func (o MeshApplicationServiceCodePackageResourcesLimitsOutput) Cpu() pulumi.Float64Output {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackageResourcesLimits) float64 { return v.Cpu }).(pulumi.Float64Output)
+}
+
+// The maximum memory request in GB the container can use.
+func (o MeshApplicationServiceCodePackageResourcesLimitsOutput) Memory() pulumi.Float64Output {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackageResourcesLimits) float64 { return v.Memory }).(pulumi.Float64Output)
+}
+
+type MeshApplicationServiceCodePackageResourcesLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationServiceCodePackageResourcesLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MeshApplicationServiceCodePackageResourcesLimits)(nil)).Elem()
+}
+
+func (o MeshApplicationServiceCodePackageResourcesLimitsPtrOutput) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutput() MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageResourcesLimitsPtrOutput) ToMeshApplicationServiceCodePackageResourcesLimitsPtrOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesLimitsPtrOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageResourcesLimitsPtrOutput) Elem() MeshApplicationServiceCodePackageResourcesLimitsOutput {
+	return o.ApplyT(func(v *MeshApplicationServiceCodePackageResourcesLimits) MeshApplicationServiceCodePackageResourcesLimits {
+		return *v
+	}).(MeshApplicationServiceCodePackageResourcesLimitsOutput)
+}
+
+// The maximum number of CPU cores the container can use.
+func (o MeshApplicationServiceCodePackageResourcesLimitsPtrOutput) Cpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MeshApplicationServiceCodePackageResourcesLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Cpu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum memory request in GB the container can use.
+func (o MeshApplicationServiceCodePackageResourcesLimitsPtrOutput) Memory() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MeshApplicationServiceCodePackageResourcesLimits) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Memory
+	}).(pulumi.Float64PtrOutput)
+}
+
+type MeshApplicationServiceCodePackageResourcesRequests struct {
+	// The minimum number of CPU cores the container requires.
+	Cpu float64 `pulumi:"cpu"`
+	// The minimum memory request in GB the container requires.
+	Memory float64 `pulumi:"memory"`
+}
+
+// MeshApplicationServiceCodePackageResourcesRequestsInput is an input type that accepts MeshApplicationServiceCodePackageResourcesRequestsArgs and MeshApplicationServiceCodePackageResourcesRequestsOutput values.
+// You can construct a concrete instance of `MeshApplicationServiceCodePackageResourcesRequestsInput` via:
+//
+//          MeshApplicationServiceCodePackageResourcesRequestsArgs{...}
+type MeshApplicationServiceCodePackageResourcesRequestsInput interface {
+	pulumi.Input
+
+	ToMeshApplicationServiceCodePackageResourcesRequestsOutput() MeshApplicationServiceCodePackageResourcesRequestsOutput
+	ToMeshApplicationServiceCodePackageResourcesRequestsOutputWithContext(context.Context) MeshApplicationServiceCodePackageResourcesRequestsOutput
+}
+
+type MeshApplicationServiceCodePackageResourcesRequestsArgs struct {
+	// The minimum number of CPU cores the container requires.
+	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	// The minimum memory request in GB the container requires.
+	Memory pulumi.Float64Input `pulumi:"memory"`
+}
+
+func (MeshApplicationServiceCodePackageResourcesRequestsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationServiceCodePackageResourcesRequests)(nil)).Elem()
+}
+
+func (i MeshApplicationServiceCodePackageResourcesRequestsArgs) ToMeshApplicationServiceCodePackageResourcesRequestsOutput() MeshApplicationServiceCodePackageResourcesRequestsOutput {
+	return i.ToMeshApplicationServiceCodePackageResourcesRequestsOutputWithContext(context.Background())
+}
+
+func (i MeshApplicationServiceCodePackageResourcesRequestsArgs) ToMeshApplicationServiceCodePackageResourcesRequestsOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesRequestsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MeshApplicationServiceCodePackageResourcesRequestsOutput)
+}
+
+type MeshApplicationServiceCodePackageResourcesRequestsOutput struct{ *pulumi.OutputState }
+
+func (MeshApplicationServiceCodePackageResourcesRequestsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MeshApplicationServiceCodePackageResourcesRequests)(nil)).Elem()
+}
+
+func (o MeshApplicationServiceCodePackageResourcesRequestsOutput) ToMeshApplicationServiceCodePackageResourcesRequestsOutput() MeshApplicationServiceCodePackageResourcesRequestsOutput {
+	return o
+}
+
+func (o MeshApplicationServiceCodePackageResourcesRequestsOutput) ToMeshApplicationServiceCodePackageResourcesRequestsOutputWithContext(ctx context.Context) MeshApplicationServiceCodePackageResourcesRequestsOutput {
+	return o
+}
+
+// The minimum number of CPU cores the container requires.
+func (o MeshApplicationServiceCodePackageResourcesRequestsOutput) Cpu() pulumi.Float64Output {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackageResourcesRequests) float64 { return v.Cpu }).(pulumi.Float64Output)
+}
+
+// The minimum memory request in GB the container requires.
+func (o MeshApplicationServiceCodePackageResourcesRequestsOutput) Memory() pulumi.Float64Output {
+	return o.ApplyT(func(v MeshApplicationServiceCodePackageResourcesRequests) float64 { return v.Memory }).(pulumi.Float64Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterAzureActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(ClusterAzureActiveDirectoryPtrOutput{})
@@ -1816,4 +2326,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNodeTypeEphemeralPortsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterReverseProxyCertificateOutput{})
 	pulumi.RegisterOutputType(ClusterReverseProxyCertificatePtrOutput{})
+	pulumi.RegisterOutputType(MeshApplicationServiceOutput{})
+	pulumi.RegisterOutputType(MeshApplicationServiceArrayOutput{})
+	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageOutput{})
+	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageArrayOutput{})
+	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageResourcesOutput{})
+	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageResourcesLimitsOutput{})
+	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageResourcesLimitsPtrOutput{})
+	pulumi.RegisterOutputType(MeshApplicationServiceCodePackageResourcesRequestsOutput{})
 }

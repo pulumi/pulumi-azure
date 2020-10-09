@@ -61,8 +61,7 @@ type Definition struct {
 	// with the policy definition.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
-	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified".
+	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -130,8 +129,7 @@ type definitionState struct {
 	// with the policy definition.
 	Metadata *string `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
-	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified".
+	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -163,8 +161,7 @@ type DefinitionState struct {
 	// with the policy definition.
 	Metadata pulumi.StringPtrInput
 	// The policy mode that allows you to specify which resource
-	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified".
+	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
 	Mode pulumi.StringPtrInput
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -200,8 +197,7 @@ type definitionArgs struct {
 	// with the policy definition.
 	Metadata *string `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
-	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified".
+	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
 	Mode string `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -234,8 +230,7 @@ type DefinitionArgs struct {
 	// with the policy definition.
 	Metadata pulumi.StringPtrInput
 	// The policy mode that allows you to specify which resource
-	// types will be evaluated.  The value can be "All", "Indexed" or
-	// "NotSpecified".
+	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
 	Mode pulumi.StringInput
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.

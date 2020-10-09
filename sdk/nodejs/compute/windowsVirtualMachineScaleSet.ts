@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * const internal = new azure.network.Subnet("internal", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.2.0/24",
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleWindowsVirtualMachineScaleSet = new azure.compute.WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", {
  *     resourceGroupName: exampleResourceGroup.name,
@@ -191,6 +191,9 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
     public readonly overprovision!: pulumi.Output<boolean | undefined>;
+    /**
+     * A `plan` block as documented below.
+     */
     public readonly plan!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetPlan | undefined>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
@@ -510,6 +513,9 @@ export interface WindowsVirtualMachineScaleSetState {
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
     readonly overprovision?: pulumi.Input<boolean>;
+    /**
+     * A `plan` block as documented below.
+     */
     readonly plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
@@ -693,6 +699,9 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
     readonly overprovision?: pulumi.Input<boolean>;
+    /**
+     * A `plan` block as documented below.
+     */
     readonly plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.

@@ -21,7 +21,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datashare.LookupAccount(ctx, &datashare.LookupAccountArgs{
+// 		exampleAccount, err := datashare.LookupAccount(ctx, &datashare.LookupAccountArgs{
 // 			Name:              "example-account",
 // 			ResourceGroupName: "example-resource-group",
 // 		}, nil)
@@ -30,7 +30,7 @@ import (
 // 		}
 // 		exampleShare, err := datashare.LookupShare(ctx, &datashare.LookupShareArgs{
 // 			Name:      "existing",
-// 			AccountId: data.Azurerm_data_share_account.Exmaple.Id,
+// 			AccountId: exampleAccount.Id,
 // 		}, nil)
 // 		if err != nil {
 // 			return err

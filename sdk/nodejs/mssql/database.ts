@@ -110,6 +110,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly licenseType!: pulumi.Output<string>;
     /**
+     * A `longTermRetentionPolicy` block as defined below.
+     */
+    public readonly longTermRetentionPolicy!: pulumi.Output<outputs.mssql.DatabaseLongTermRetentionPolicy>;
+    /**
      * The max size of the database in gigabytes.
      */
     public readonly maxSizeGb!: pulumi.Output<number>;
@@ -150,7 +154,11 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly serverId!: pulumi.Output<string>;
     /**
-     * Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+     * A `shortTermRetentionPolicy` block as defined below.
+     */
+    public readonly shortTermRetentionPolicy!: pulumi.Output<outputs.mssql.DatabaseShortTermRetentionPolicy>;
+    /**
+     * Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -185,6 +193,7 @@ export class Database extends pulumi.CustomResource {
             inputs["elasticPoolId"] = state ? state.elasticPoolId : undefined;
             inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
+            inputs["longTermRetentionPolicy"] = state ? state.longTermRetentionPolicy : undefined;
             inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
             inputs["minCapacity"] = state ? state.minCapacity : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -195,6 +204,7 @@ export class Database extends pulumi.CustomResource {
             inputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
             inputs["sampleName"] = state ? state.sampleName : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
+            inputs["shortTermRetentionPolicy"] = state ? state.shortTermRetentionPolicy : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
@@ -211,6 +221,7 @@ export class Database extends pulumi.CustomResource {
             inputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
             inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
+            inputs["longTermRetentionPolicy"] = args ? args.longTermRetentionPolicy : undefined;
             inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
             inputs["minCapacity"] = args ? args.minCapacity : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -221,6 +232,7 @@ export class Database extends pulumi.CustomResource {
             inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
             inputs["sampleName"] = args ? args.sampleName : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
+            inputs["shortTermRetentionPolicy"] = args ? args.shortTermRetentionPolicy : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
@@ -272,6 +284,10 @@ export interface DatabaseState {
      */
     readonly licenseType?: pulumi.Input<string>;
     /**
+     * A `longTermRetentionPolicy` block as defined below.
+     */
+    readonly longTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseLongTermRetentionPolicy>;
+    /**
      * The max size of the database in gigabytes.
      */
     readonly maxSizeGb?: pulumi.Input<number>;
@@ -312,7 +328,11 @@ export interface DatabaseState {
      */
     readonly serverId?: pulumi.Input<string>;
     /**
-     * Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+     * A `shortTermRetentionPolicy` block as defined below.
+     */
+    readonly shortTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseShortTermRetentionPolicy>;
+    /**
+     * Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
      */
     readonly skuName?: pulumi.Input<string>;
     /**
@@ -364,6 +384,10 @@ export interface DatabaseArgs {
      */
     readonly licenseType?: pulumi.Input<string>;
     /**
+     * A `longTermRetentionPolicy` block as defined below.
+     */
+    readonly longTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseLongTermRetentionPolicy>;
+    /**
      * The max size of the database in gigabytes.
      */
     readonly maxSizeGb?: pulumi.Input<number>;
@@ -404,7 +428,11 @@ export interface DatabaseArgs {
      */
     readonly serverId: pulumi.Input<string>;
     /**
-     * Specifies the name of the sku used by the database. Only changing this from tier `Hyperscale` to another tier will force a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+     * A `shortTermRetentionPolicy` block as defined below.
+     */
+    readonly shortTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseShortTermRetentionPolicy>;
+    /**
+     * Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
      */
     readonly skuName?: pulumi.Input<string>;
     /**

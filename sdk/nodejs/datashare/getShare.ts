@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  *     name: "example-account",
  *     resourceGroupName: "example-resource-group",
  * });
- * const exampleShare = azure.datashare.getShare({
+ * const exampleShare = exampleAccount.then(exampleAccount => azure.datashare.getShare({
  *     name: "existing",
- *     accountId: data.azurerm_data_share_account.exmaple.id,
- * });
+ *     accountId: exampleAccount.id,
+ * }));
  * export const id = exampleShare.then(exampleShare => exampleShare.id);
  * ```
  */

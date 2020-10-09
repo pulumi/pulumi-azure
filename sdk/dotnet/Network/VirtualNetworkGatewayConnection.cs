@@ -43,7 +43,10 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.1.0/24",
+    ///             },
     ///         });
     ///         var onpremiseLocalNetworkGateway = new Azure.Network.LocalNetworkGateway("onpremiseLocalNetworkGateway", new Azure.Network.LocalNetworkGatewayArgs
     ///         {
@@ -123,7 +126,10 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ResourceGroupName = usResourceGroup.Name,
     ///             VirtualNetworkName = usVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.1.0/24",
+    ///             },
     ///         });
     ///         var usPublicIp = new Azure.Network.PublicIp("usPublicIp", new Azure.Network.PublicIpArgs
     ///         {
@@ -165,7 +171,10 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ResourceGroupName = europeResourceGroup.Name,
     ///             VirtualNetworkName = europeVirtualNetwork.Name,
-    ///             AddressPrefix = "10.1.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.1.1.0/24",
+    ///             },
     ///         });
     ///         var europePublicIp = new Azure.Network.PublicIp("europePublicIp", new Azure.Network.PublicIpArgs
     ///         {

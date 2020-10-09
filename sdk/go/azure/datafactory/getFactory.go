@@ -21,14 +21,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datafactory.LookupFactory(ctx, &datafactory.LookupFactoryArgs{
-// 			Name:              azurerm_data_factory.Example.Name,
-// 			ResourceGroupName: azurerm_data_factory.Example.Resource_group_name,
+// 		example, err := datafactory.LookupFactory(ctx, &datafactory.LookupFactoryArgs{
+// 			Name:              "existing-adf",
+// 			ResourceGroupName: "existing-rg",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("dataFactoryId", azurerm_data_factory.Example.Id)
+// 		ctx.Export("id", example.Id)
 // 		return nil
 // 	})
 // }
@@ -44,9 +44,9 @@ func LookupFactory(ctx *pulumi.Context, args *LookupFactoryArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getFactory.
 type LookupFactoryArgs struct {
-	// Specifies the name of the Data Factory to retrieve information about.
+	// The name of this Azure Data Factory.
 	Name string `pulumi:"name"`
-	// The name of the resource group where the Data Factory exists.
+	// The name of the Resource Group where the Azure Data Factory exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -58,12 +58,11 @@ type LookupFactoryResult struct {
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
 	Identities []GetFactoryIdentity `pulumi:"identities"`
-	// The Azure location where the resource exists.
+	// The Azure Region where the Azure Data Factory exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags assigned to the resource.
-	// ---
+	// A mapping of tags assigned to the Azure Data Factory.
 	Tags map[string]string `pulumi:"tags"`
 	// A `vstsConfiguration` block as defined below.
 	VstsConfigurations []GetFactoryVstsConfiguration `pulumi:"vstsConfigurations"`

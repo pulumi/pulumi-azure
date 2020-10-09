@@ -51,7 +51,10 @@ namespace Pulumi.Azure.ServiceBus
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "172.17.0.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "172.17.0.0/24",
+    ///             },
     ///             ServiceEndpoints = 
     ///             {
     ///                 "Microsoft.ServiceBus",

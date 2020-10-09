@@ -142,7 +142,7 @@ class GetServiceAuthenticationConfigurationResult(dict):
         """
         :param str audience: The intended audience to receive authentication tokens for the service.
         :param str authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service.
-        :param bool smart_proxy_enabled: Is the 'SMART on FHIR' option for mobile and web implementations enbled?
+        :param bool smart_proxy_enabled: Is the 'SMART on FHIR' option for mobile and web implementations enabled?
         """
         pulumi.set(__self__, "audience", audience)
         pulumi.set(__self__, "authority", authority)
@@ -168,7 +168,7 @@ class GetServiceAuthenticationConfigurationResult(dict):
     @pulumi.getter(name="smartProxyEnabled")
     def smart_proxy_enabled(self) -> bool:
         """
-        Is the 'SMART on FHIR' option for mobile and web implementations enbled?
+        Is the 'SMART on FHIR' option for mobile and web implementations enabled?
         """
         return pulumi.get(self, "smart_proxy_enabled")
 

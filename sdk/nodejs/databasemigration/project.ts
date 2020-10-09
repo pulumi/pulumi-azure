@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.1.0/24",
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const exampleService = new azure.databasemigration.Service("exampleService", {
  *     location: exampleResourceGroup.location,

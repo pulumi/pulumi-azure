@@ -40,7 +40,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<string>? _frontendEndpoints;
 
         /// <summary>
-        /// The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
+        /// The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         /// </summary>
         public InputList<string> FrontendEndpoints
         {

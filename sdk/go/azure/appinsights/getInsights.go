@@ -56,6 +56,8 @@ type LookupInsightsResult struct {
 	AppId string `pulumi:"appId"`
 	// The type of the component.
 	ApplicationType string `pulumi:"applicationType"`
+	// The connection string of the Application Insights component. (Sensitive)
+	ConnectionString string `pulumi:"connectionString"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The instrumentation key of the Application Insights component.

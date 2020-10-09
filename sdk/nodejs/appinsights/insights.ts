@@ -60,6 +60,10 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly applicationType!: pulumi.Output<string>;
     /**
+     * The Connection String for this Application Insights component. (Sensitive)
+     */
+    public /*out*/ readonly connectionString!: pulumi.Output<string>;
+    /**
      * Specifies the Application Insights component daily data volume cap in GB.
      */
     public readonly dailyDataCapInGb!: pulumi.Output<number>;
@@ -116,6 +120,7 @@ export class Insights extends pulumi.CustomResource {
             const state = argsOrState as InsightsState | undefined;
             inputs["appId"] = state ? state.appId : undefined;
             inputs["applicationType"] = state ? state.applicationType : undefined;
+            inputs["connectionString"] = state ? state.connectionString : undefined;
             inputs["dailyDataCapInGb"] = state ? state.dailyDataCapInGb : undefined;
             inputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
             inputs["disableIpMasking"] = state ? state.disableIpMasking : undefined;
@@ -145,6 +150,7 @@ export class Insights extends pulumi.CustomResource {
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["appId"] = undefined /*out*/;
+            inputs["connectionString"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
         }
         if (!opts) {
@@ -170,6 +176,10 @@ export interface InsightsState {
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      */
     readonly applicationType?: pulumi.Input<string>;
+    /**
+     * The Connection String for this Application Insights component. (Sensitive)
+     */
+    readonly connectionString?: pulumi.Input<string>;
     /**
      * Specifies the Application Insights component daily data volume cap in GB.
      */

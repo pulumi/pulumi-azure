@@ -22,6 +22,11 @@ __all__ = [
     'ClusterNodeTypeApplicationPorts',
     'ClusterNodeTypeEphemeralPorts',
     'ClusterReverseProxyCertificate',
+    'MeshApplicationService',
+    'MeshApplicationServiceCodePackage',
+    'MeshApplicationServiceCodePackageResources',
+    'MeshApplicationServiceCodePackageResourcesLimits',
+    'MeshApplicationServiceCodePackageResourcesRequests',
 ]
 
 @pulumi.output_type
@@ -586,6 +591,189 @@ class ClusterReverseProxyCertificate(dict):
         The Secondary Thumbprint of the Certificate.
         """
         return pulumi.get(self, "thumbprint_secondary")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MeshApplicationService(dict):
+    def __init__(__self__, *,
+                 code_packages: Sequence['outputs.MeshApplicationServiceCodePackage'],
+                 name: str,
+                 os_type: str):
+        """
+        :param Sequence['MeshApplicationServiceCodePackageArgs'] code_packages: Any number `code_package` block as described below.
+        :param str name: The name of the service resource.
+        :param str os_type: The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+        """
+        pulumi.set(__self__, "code_packages", code_packages)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "os_type", os_type)
+
+    @property
+    @pulumi.getter(name="codePackages")
+    def code_packages(self) -> Sequence['outputs.MeshApplicationServiceCodePackage']:
+        """
+        Any number `code_package` block as described below.
+        """
+        return pulumi.get(self, "code_packages")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the service resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+        """
+        return pulumi.get(self, "os_type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MeshApplicationServiceCodePackage(dict):
+    def __init__(__self__, *,
+                 image_name: str,
+                 name: str,
+                 resources: 'outputs.MeshApplicationServiceCodePackageResources'):
+        """
+        :param str image_name: The Container image the code package will use.
+        :param str name: The name of the code package.
+        :param 'MeshApplicationServiceCodePackageResourcesArgs' resources: A `resources` block as defined below.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        The Container image the code package will use.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the code package.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> 'outputs.MeshApplicationServiceCodePackageResources':
+        """
+        A `resources` block as defined below.
+        """
+        return pulumi.get(self, "resources")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MeshApplicationServiceCodePackageResources(dict):
+    def __init__(__self__, *,
+                 requests: 'outputs.MeshApplicationServiceCodePackageResourcesRequests',
+                 limits: Optional['outputs.MeshApplicationServiceCodePackageResourcesLimits'] = None):
+        """
+        :param 'MeshApplicationServiceCodePackageResourcesRequestsArgs' requests: A `requests` block as defined below.
+        :param 'MeshApplicationServiceCodePackageResourcesLimitsArgs' limits: A `limits` block as defined below.
+        """
+        pulumi.set(__self__, "requests", requests)
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> 'outputs.MeshApplicationServiceCodePackageResourcesRequests':
+        """
+        A `requests` block as defined below.
+        """
+        return pulumi.get(self, "requests")
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional['outputs.MeshApplicationServiceCodePackageResourcesLimits']:
+        """
+        A `limits` block as defined below.
+        """
+        return pulumi.get(self, "limits")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MeshApplicationServiceCodePackageResourcesLimits(dict):
+    def __init__(__self__, *,
+                 cpu: float,
+                 memory: float):
+        """
+        :param float cpu: The maximum number of CPU cores the container can use.
+        :param float memory: The maximum memory request in GB the container can use.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> float:
+        """
+        The maximum number of CPU cores the container can use.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> float:
+        """
+        The maximum memory request in GB the container can use.
+        """
+        return pulumi.get(self, "memory")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MeshApplicationServiceCodePackageResourcesRequests(dict):
+    def __init__(__self__, *,
+                 cpu: float,
+                 memory: float):
+        """
+        :param float cpu: The minimum number of CPU cores the container requires.
+        :param float memory: The minimum memory request in GB the container requires.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> float:
+        """
+        The minimum number of CPU cores the container requires.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> float:
+        """
+        The minimum memory request in GB the container requires.
+        """
+        return pulumi.get(self, "memory")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

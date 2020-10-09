@@ -25,7 +25,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         }
 
         /// <summary>
-        /// Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
+        /// Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
         /// </summary>
         [Input("healthProbeName", required: true)]
         public Input<string> HealthProbeName { get; set; } = null!;

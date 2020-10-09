@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./cluster";
+export * from "./meshApplication";

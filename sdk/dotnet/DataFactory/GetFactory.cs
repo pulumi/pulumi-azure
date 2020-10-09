@@ -28,14 +28,14 @@ namespace Pulumi.Azure.DataFactory
         ///     {
         ///         var example = Output.Create(Azure.DataFactory.GetFactory.InvokeAsync(new Azure.DataFactory.GetFactoryArgs
         ///         {
-        ///             Name = azurerm_data_factory.Example.Name,
-        ///             ResourceGroupName = azurerm_data_factory.Example.Resource_group_name,
+        ///             Name = "existing-adf",
+        ///             ResourceGroupName = "existing-rg",
         ///         }));
-        ///         this.DataFactoryId = azurerm_data_factory.Example.Id;
+        ///         this.Id = example.Apply(example =&gt; example.Id);
         ///     }
         /// 
-        ///     [Output("dataFactoryId")]
-        ///     public Output&lt;string&gt; DataFactoryId { get; set; }
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
         /// }
         /// ```
         /// {{% /example %}}
@@ -49,13 +49,13 @@ namespace Pulumi.Azure.DataFactory
     public sealed class GetFactoryArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the name of the Data Factory to retrieve information about.
+        /// The name of this Azure Data Factory.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group where the Data Factory exists.
+        /// The name of the Resource Group where the Azure Data Factory exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -82,14 +82,13 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFactoryIdentityResult> Identities;
         /// <summary>
-        /// The Azure location where the resource exists.
+        /// The Azure Region where the Azure Data Factory exists.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A mapping of tags assigned to the resource.
-        /// ---
+        /// A mapping of tags assigned to the Azure Data Factory.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>

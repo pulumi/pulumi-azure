@@ -137,7 +137,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
     /**
      * A `authSettings` block as defined below.
      */

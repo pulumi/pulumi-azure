@@ -104,8 +104,7 @@ export class Definition extends pulumi.CustomResource {
     public readonly metadata!: pulumi.Output<string>;
     /**
      * The policy mode that allows you to specify which resource
-     * types will be evaluated.  The value can be "All", "Indexed" or
-     * "NotSpecified".
+     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -214,8 +213,7 @@ export interface DefinitionState {
     readonly metadata?: pulumi.Input<string>;
     /**
      * The policy mode that allows you to specify which resource
-     * types will be evaluated.  The value can be "All", "Indexed" or
-     * "NotSpecified".
+     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      */
     readonly mode?: pulumi.Input<string>;
     /**
@@ -270,8 +268,7 @@ export interface DefinitionArgs {
     readonly metadata?: pulumi.Input<string>;
     /**
      * The policy mode that allows you to specify which resource
-     * types will be evaluated.  The value can be "All", "Indexed" or
-     * "NotSpecified".
+     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      */
     readonly mode: pulumi.Input<string>;
     /**

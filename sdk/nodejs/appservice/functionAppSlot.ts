@@ -83,7 +83,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
     /**
      * An `authSettings` block as defined below.
      */

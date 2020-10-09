@@ -19,13 +19,16 @@ class GetInsightsResult:
     """
     A collection of values returned by getInsights.
     """
-    def __init__(__self__, app_id=None, application_type=None, id=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, retention_in_days=None, tags=None):
+    def __init__(__self__, app_id=None, application_type=None, connection_string=None, id=None, instrumentation_key=None, location=None, name=None, resource_group_name=None, retention_in_days=None, tags=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
         if application_type and not isinstance(application_type, str):
             raise TypeError("Expected argument 'application_type' to be a str")
         pulumi.set(__self__, "application_type", application_type)
+        if connection_string and not isinstance(connection_string, str):
+            raise TypeError("Expected argument 'connection_string' to be a str")
+        pulumi.set(__self__, "connection_string", connection_string)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -63,6 +66,14 @@ class GetInsightsResult:
         The type of the component.
         """
         return pulumi.get(self, "application_type")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> str:
+        """
+        The connection string of the Application Insights component. (Sensitive)
+        """
+        return pulumi.get(self, "connection_string")
 
     @property
     @pulumi.getter
@@ -123,6 +134,7 @@ class AwaitableGetInsightsResult(GetInsightsResult):
         return GetInsightsResult(
             app_id=self.app_id,
             application_type=self.application_type,
+            connection_string=self.connection_string,
             id=self.id,
             instrumentation_key=self.instrumentation_key,
             location=self.location,
@@ -165,6 +177,7 @@ def get_insights(name: Optional[str] = None,
     return AwaitableGetInsightsResult(
         app_id=__ret__.app_id,
         application_type=__ret__.application_type,
+        connection_string=__ret__.connection_string,
         id=__ret__.id,
         instrumentation_key=__ret__.instrumentation_key,
         location=__ret__.location,

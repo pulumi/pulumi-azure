@@ -1463,8 +1463,9 @@ class LinuxVirtualMachineScaleSetPlan(dict):
                  product: str,
                  publisher: str):
         """
-        :param str name: The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param str publisher: Specifies the Publisher of the Extension.
+        :param str name: Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+        :param str product: Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        :param str publisher: Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -1474,20 +1475,23 @@ class LinuxVirtualMachineScaleSetPlan(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def product(self) -> str:
+        """
+        Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "product")
 
     @property
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the Publisher of the Extension.
+        Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -5129,8 +5133,9 @@ class WindowsVirtualMachineScaleSetPlan(dict):
                  product: str,
                  publisher: str):
         """
-        :param str name: The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param str publisher: Specifies the Publisher of the Extension.
+        :param str name: Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+        :param str product: Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        :param str publisher: Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -5140,20 +5145,23 @@ class WindowsVirtualMachineScaleSetPlan(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def product(self) -> str:
+        """
+        Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "product")
 
     @property
     @pulumi.getter
     def publisher(self) -> str:
         """
-        Specifies the Publisher of the Extension.
+        Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 

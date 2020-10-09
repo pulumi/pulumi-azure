@@ -44,11 +44,11 @@ class Environment(pulumi.CustomResource):
         ase = azure.network.Subnet("ase",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.1.0/24")
+            address_prefixes=["10.0.1.0/24"])
         gateway = azure.network.Subnet("gateway",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.2.0/24")
+            address_prefixes=["10.0.2.0/24"])
         example_environment = azure.appservice.Environment("exampleEnvironment",
             subnet_id=ase.id,
             pricing_tier="I2",

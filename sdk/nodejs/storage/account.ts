@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.2.0/24",
+ *     addressPrefixes: ["10.0.2.0/24"],
  *     serviceEndpoints: [
  *         "Microsoft.Sql",
  *         "Microsoft.Storage",
@@ -132,6 +132,10 @@ export class Account extends pulumi.CustomResource {
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
     public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Is Large File Share Enabled?
+     */
+    public readonly largeFileShareEnabled!: pulumi.Output<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -315,6 +319,7 @@ export class Account extends pulumi.CustomResource {
             inputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["isHnsEnabled"] = state ? state.isHnsEnabled : undefined;
+            inputs["largeFileShareEnabled"] = state ? state.largeFileShareEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -376,6 +381,7 @@ export class Account extends pulumi.CustomResource {
             inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
+            inputs["largeFileShareEnabled"] = args ? args.largeFileShareEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -473,6 +479,10 @@ export interface AccountState {
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
     readonly isHnsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is Large File Share Enabled?
+     */
+    readonly largeFileShareEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -680,6 +690,10 @@ export interface AccountArgs {
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
     readonly isHnsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is Large File Share Enabled?
+     */
+    readonly largeFileShareEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

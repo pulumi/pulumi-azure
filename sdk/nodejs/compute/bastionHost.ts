@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "192.168.1.224/27",
+ *     addressPrefixes: ["192.168.1.224/27"],
  * });
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
  *     location: exampleResourceGroup.location,

@@ -24,6 +24,7 @@ class Server(pulumi.CustomResource):
                  extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -56,6 +57,7 @@ class Server(pulumi.CustomResource):
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
+            minimum_tls_version="1.2",
             azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
                 login_username="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
@@ -73,18 +75,19 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The administrator's login name for the new server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] version: This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,6 +120,7 @@ class Server(pulumi.CustomResource):
             __props__['extended_auditing_policy'] = extended_auditing_policy
             __props__['identity'] = identity
             __props__['location'] = location
+            __props__['minimum_tls_version'] = minimum_tls_version
             __props__['name'] = name
             __props__['public_network_access_enabled'] = public_network_access_enabled
             if resource_group_name is None:
@@ -146,6 +150,7 @@ class Server(pulumi.CustomResource):
             fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            minimum_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -159,7 +164,7 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login: The administrator's login name for the new server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
@@ -167,12 +172,13 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
         :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] restorable_dropped_database_ids: A list of dropped restorable database IDs on the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] version: This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -186,6 +192,7 @@ class Server(pulumi.CustomResource):
         __props__["fully_qualified_domain_name"] = fully_qualified_domain_name
         __props__["identity"] = identity
         __props__["location"] = location
+        __props__["minimum_tls_version"] = minimum_tls_version
         __props__["name"] = name
         __props__["public_network_access_enabled"] = public_network_access_enabled
         __props__["resource_group_name"] = resource_group_name
@@ -198,7 +205,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Output[str]:
         """
-        The administrator's login name for the new server. Changing this forces a new resource to be created.
+        The administrator login name for the new server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "administrator_login")
 
@@ -259,6 +266,14 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -302,7 +317,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         return pulumi.get(self, "version")
 

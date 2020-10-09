@@ -78,6 +78,10 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         public readonly string ApplicationType;
         /// <summary>
+        /// The connection string of the Application Insights component. (Sensitive)
+        /// </summary>
+        public readonly string ConnectionString;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -106,6 +110,8 @@ namespace Pulumi.Azure.AppInsights
 
             string applicationType,
 
+            string connectionString,
+
             string id,
 
             string instrumentationKey,
@@ -122,6 +128,7 @@ namespace Pulumi.Azure.AppInsights
         {
             AppId = appId;
             ApplicationType = applicationType;
+            ConnectionString = connectionString;
             Id = id;
             InstrumentationKey = instrumentationKey;
             Location = location;

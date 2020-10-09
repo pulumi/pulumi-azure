@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string FrontendPortName;
         /// <summary>
-        /// The Hostname which should be used for this HTTP Listener.
+        /// The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         /// </summary>
         public readonly string? HostName;
         /// <summary>

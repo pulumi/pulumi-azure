@@ -27,6 +27,7 @@ class Account(pulumi.CustomResource):
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -71,7 +72,7 @@ class Account(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.2.0/24",
+            address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
                 "Microsoft.Sql",
                 "Microsoft.Storage",
@@ -104,6 +105,7 @@ class Account(pulumi.CustomResource):
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -144,6 +146,7 @@ class Account(pulumi.CustomResource):
             __props__['enable_https_traffic_only'] = enable_https_traffic_only
             __props__['identity'] = identity
             __props__['is_hns_enabled'] = is_hns_enabled
+            __props__['large_file_share_enabled'] = large_file_share_enabled
             __props__['location'] = location
             __props__['min_tls_version'] = min_tls_version
             __props__['name'] = name
@@ -206,6 +209,7 @@ class Account(pulumi.CustomResource):
             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+            large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             min_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -264,6 +268,7 @@ class Account(pulumi.CustomResource):
                for more information. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -319,6 +324,7 @@ class Account(pulumi.CustomResource):
         __props__["enable_https_traffic_only"] = enable_https_traffic_only
         __props__["identity"] = identity
         __props__["is_hns_enabled"] = is_hns_enabled
+        __props__["large_file_share_enabled"] = large_file_share_enabled
         __props__["location"] = location
         __props__["min_tls_version"] = min_tls_version
         __props__["name"] = name
@@ -441,6 +447,14 @@ class Account(pulumi.CustomResource):
         Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "is_hns_enabled")
+
+    @property
+    @pulumi.getter(name="largeFileShareEnabled")
+    def large_file_share_enabled(self) -> pulumi.Output[bool]:
+        """
+        Is Large File Share Enabled?
+        """
+        return pulumi.get(self, "large_file_share_enabled")
 
     @property
     @pulumi.getter

@@ -10,6 +10,8 @@ from .. import _utilities, _tables
 
 __all__ = [
     'DatabaseExtendedAuditingPolicyArgs',
+    'DatabaseLongTermRetentionPolicyArgs',
+    'DatabaseShortTermRetentionPolicyArgs',
     'DatabaseThreatDetectionPolicyArgs',
     'DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs',
     'ElasticPoolPerDatabaseSettingsArgs',
@@ -20,6 +22,10 @@ __all__ = [
     'ServerVulnerabilityAssessmentRecurringScansArgs',
     'VirtualMachineAutoPatchingArgs',
     'VirtualMachineKeyVaultCredentialArgs',
+    'VirtualMachineStorageConfigurationArgs',
+    'VirtualMachineStorageConfigurationDataSettingsArgs',
+    'VirtualMachineStorageConfigurationLogSettingsArgs',
+    'VirtualMachineStorageConfigurationTempDbSettingsArgs',
 ]
 
 @pulumi.input_type
@@ -89,6 +95,99 @@ class DatabaseExtendedAuditingPolicyArgs:
     @storage_account_access_key_is_secondary.setter
     def storage_account_access_key_is_secondary(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "storage_account_access_key_is_secondary", value)
+
+
+@pulumi.input_type
+class DatabaseLongTermRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 monthly_retention: Optional[pulumi.Input[str]] = None,
+                 week_of_year: Optional[pulumi.Input[int]] = None,
+                 weekly_retention: Optional[pulumi.Input[str]] = None,
+                 yearly_retention: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        :param pulumi.Input[int] week_of_year: The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+        :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        """
+        if monthly_retention is not None:
+            pulumi.set(__self__, "monthly_retention", monthly_retention)
+        if week_of_year is not None:
+            pulumi.set(__self__, "week_of_year", week_of_year)
+        if weekly_retention is not None:
+            pulumi.set(__self__, "weekly_retention", weekly_retention)
+        if yearly_retention is not None:
+            pulumi.set(__self__, "yearly_retention", yearly_retention)
+
+    @property
+    @pulumi.getter(name="monthlyRetention")
+    def monthly_retention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        """
+        return pulumi.get(self, "monthly_retention")
+
+    @monthly_retention.setter
+    def monthly_retention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monthly_retention", value)
+
+    @property
+    @pulumi.getter(name="weekOfYear")
+    def week_of_year(self) -> Optional[pulumi.Input[int]]:
+        """
+        The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+        """
+        return pulumi.get(self, "week_of_year")
+
+    @week_of_year.setter
+    def week_of_year(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "week_of_year", value)
+
+    @property
+    @pulumi.getter(name="weeklyRetention")
+    def weekly_retention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        """
+        return pulumi.get(self, "weekly_retention")
+
+    @weekly_retention.setter
+    def weekly_retention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "weekly_retention", value)
+
+    @property
+    @pulumi.getter(name="yearlyRetention")
+    def yearly_retention(self) -> Optional[pulumi.Input[str]]:
+        """
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        """
+        return pulumi.get(self, "yearly_retention")
+
+    @yearly_retention.setter
+    def yearly_retention(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "yearly_retention", value)
+
+
+@pulumi.input_type
+class DatabaseShortTermRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 retention_days: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] retention_days: Point In Time Restore configuration. Value has to be between `7` and `35`.
+        """
+        pulumi.set(__self__, "retention_days", retention_days)
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> pulumi.Input[int]:
+        """
+        Point In Time Restore configuration. Value has to be between `7` and `35`.
+        """
+        return pulumi.get(self, "retention_days")
+
+    @retention_days.setter
+    def retention_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "retention_days", value)
 
 
 @pulumi.input_type
@@ -701,5 +800,201 @@ class VirtualMachineKeyVaultCredentialArgs:
     @service_principal_secret.setter
     def service_principal_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_principal_secret", value)
+
+
+@pulumi.input_type
+class VirtualMachineStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 disk_type: pulumi.Input[str],
+                 storage_workload_type: pulumi.Input[str],
+                 data_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']] = None,
+                 log_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']] = None,
+                 temp_db_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']] = None):
+        """
+        :param pulumi.Input[str] disk_type: The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+        :param pulumi.Input[str] storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+        :param pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs'] data_settings: An `storage_settings` as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs'] log_settings: An `storage_settings` as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs'] temp_db_settings: An `storage_settings` as defined below.
+        """
+        pulumi.set(__self__, "disk_type", disk_type)
+        pulumi.set(__self__, "storage_workload_type", storage_workload_type)
+        if data_settings is not None:
+            pulumi.set(__self__, "data_settings", data_settings)
+        if log_settings is not None:
+            pulumi.set(__self__, "log_settings", log_settings)
+        if temp_db_settings is not None:
+            pulumi.set(__self__, "temp_db_settings", temp_db_settings)
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> pulumi.Input[str]:
+        """
+        The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+        """
+        return pulumi.get(self, "disk_type")
+
+    @disk_type.setter
+    def disk_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "disk_type", value)
+
+    @property
+    @pulumi.getter(name="storageWorkloadType")
+    def storage_workload_type(self) -> pulumi.Input[str]:
+        """
+        The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+        """
+        return pulumi.get(self, "storage_workload_type")
+
+    @storage_workload_type.setter
+    def storage_workload_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_workload_type", value)
+
+    @property
+    @pulumi.getter(name="dataSettings")
+    def data_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']]:
+        """
+        An `storage_settings` as defined below.
+        """
+        return pulumi.get(self, "data_settings")
+
+    @data_settings.setter
+    def data_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']]):
+        pulumi.set(self, "data_settings", value)
+
+    @property
+    @pulumi.getter(name="logSettings")
+    def log_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']]:
+        """
+        An `storage_settings` as defined below.
+        """
+        return pulumi.get(self, "log_settings")
+
+    @log_settings.setter
+    def log_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']]):
+        pulumi.set(self, "log_settings", value)
+
+    @property
+    @pulumi.getter(name="tempDbSettings")
+    def temp_db_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']]:
+        """
+        An `storage_settings` as defined below.
+        """
+        return pulumi.get(self, "temp_db_settings")
+
+    @temp_db_settings.setter
+    def temp_db_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']]):
+        pulumi.set(self, "temp_db_settings", value)
+
+
+@pulumi.input_type
+class VirtualMachineStorageConfigurationDataSettingsArgs:
+    def __init__(__self__, *,
+                 default_file_path: pulumi.Input[str],
+                 luns: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        """
+        :param pulumi.Input[str] default_file_path: The SQL Server default path
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] luns: A list of Logical Unit Numbers for the disks.
+        """
+        pulumi.set(__self__, "default_file_path", default_file_path)
+        pulumi.set(__self__, "luns", luns)
+
+    @property
+    @pulumi.getter(name="defaultFilePath")
+    def default_file_path(self) -> pulumi.Input[str]:
+        """
+        The SQL Server default path
+        """
+        return pulumi.get(self, "default_file_path")
+
+    @default_file_path.setter
+    def default_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_file_path", value)
+
+    @property
+    @pulumi.getter
+    def luns(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        A list of Logical Unit Numbers for the disks.
+        """
+        return pulumi.get(self, "luns")
+
+    @luns.setter
+    def luns(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "luns", value)
+
+
+@pulumi.input_type
+class VirtualMachineStorageConfigurationLogSettingsArgs:
+    def __init__(__self__, *,
+                 default_file_path: pulumi.Input[str],
+                 luns: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        """
+        :param pulumi.Input[str] default_file_path: The SQL Server default path
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] luns: A list of Logical Unit Numbers for the disks.
+        """
+        pulumi.set(__self__, "default_file_path", default_file_path)
+        pulumi.set(__self__, "luns", luns)
+
+    @property
+    @pulumi.getter(name="defaultFilePath")
+    def default_file_path(self) -> pulumi.Input[str]:
+        """
+        The SQL Server default path
+        """
+        return pulumi.get(self, "default_file_path")
+
+    @default_file_path.setter
+    def default_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_file_path", value)
+
+    @property
+    @pulumi.getter
+    def luns(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        A list of Logical Unit Numbers for the disks.
+        """
+        return pulumi.get(self, "luns")
+
+    @luns.setter
+    def luns(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "luns", value)
+
+
+@pulumi.input_type
+class VirtualMachineStorageConfigurationTempDbSettingsArgs:
+    def __init__(__self__, *,
+                 default_file_path: pulumi.Input[str],
+                 luns: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        """
+        :param pulumi.Input[str] default_file_path: The SQL Server default path
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] luns: A list of Logical Unit Numbers for the disks.
+        """
+        pulumi.set(__self__, "default_file_path", default_file_path)
+        pulumi.set(__self__, "luns", luns)
+
+    @property
+    @pulumi.getter(name="defaultFilePath")
+    def default_file_path(self) -> pulumi.Input[str]:
+        """
+        The SQL Server default path
+        """
+        return pulumi.get(self, "default_file_path")
+
+    @default_file_path.setter
+    def default_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_file_path", value)
+
+    @property
+    @pulumi.getter
+    def luns(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        A list of Logical Unit Numbers for the disks.
+        """
+        return pulumi.get(self, "luns")
+
+    @luns.setter
+    def luns(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "luns", value)
 
 

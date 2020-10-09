@@ -31,11 +31,11 @@ namespace Pulumi.Azure.DataShare
         ///             Name = "example-account",
         ///             ResourceGroupName = "example-resource-group",
         ///         }));
-        ///         var exampleShare = Output.Create(Azure.DataShare.GetShare.InvokeAsync(new Azure.DataShare.GetShareArgs
+        ///         var exampleShare = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.DataShare.GetShare.InvokeAsync(new Azure.DataShare.GetShareArgs
         ///         {
         ///             Name = "existing",
-        ///             AccountId = data.Azurerm_data_share_account.Exmaple.Id,
-        ///         }));
+        ///             AccountId = exampleAccount.Id,
+        ///         })));
         ///         this.Id = exampleShare.Apply(exampleShare =&gt; exampleShare.Id);
         ///     }
         /// 

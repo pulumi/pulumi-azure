@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
+ *     minimumTlsVersion: "1.2",
  *     azureadAdministrator: {
  *         loginUsername: "AzureAD Admin",
  *         objectId: "00000000-0000-0000-0000-000000000000",
@@ -76,7 +77,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /**
-     * The administrator's login name for the new server. Changing this forces a new resource to be created.
+     * The administrator login name for the new server. Changing this forces a new resource to be created.
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
@@ -110,6 +111,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+     */
+    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     public readonly name!: pulumi.Output<string>;
@@ -130,7 +135,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -154,6 +159,7 @@ export class Server extends pulumi.CustomResource {
             inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -181,6 +187,7 @@ export class Server extends pulumi.CustomResource {
             inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -205,7 +212,7 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerState {
     /**
-     * The administrator's login name for the new server. Changing this forces a new resource to be created.
+     * The administrator login name for the new server. Changing this forces a new resource to be created.
      */
     readonly administratorLogin?: pulumi.Input<string>;
     /**
@@ -239,6 +246,10 @@ export interface ServerState {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+     */
+    readonly minimumTlsVersion?: pulumi.Input<string>;
+    /**
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
@@ -259,7 +270,7 @@ export interface ServerState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -269,7 +280,7 @@ export interface ServerState {
  */
 export interface ServerArgs {
     /**
-     * The administrator's login name for the new server. Changing this forces a new resource to be created.
+     * The administrator login name for the new server. Changing this forces a new resource to be created.
      */
     readonly administratorLogin: pulumi.Input<string>;
     /**
@@ -299,6 +310,10 @@ export interface ServerArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+     */
+    readonly minimumTlsVersion?: pulumi.Input<string>;
+    /**
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
     readonly name?: pulumi.Input<string>;
@@ -315,7 +330,7 @@ export interface ServerArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+     * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
     readonly version: pulumi.Input<string>;
 }

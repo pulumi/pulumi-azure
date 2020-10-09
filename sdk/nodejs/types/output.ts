@@ -5209,12 +5209,15 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetPlan {
         /**
-         * The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+         */
         product: string;
         /**
-         * Specifies the Publisher of the Extension.
+         * Specifies the publisher of the image. Changing this forces a new resource to be created.
          */
         publisher: string;
     }
@@ -6431,12 +6434,15 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetPlan {
         /**
-         * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+         */
         product: string;
         /**
-         * Specifies the Publisher of the Extension.
+         * Specifies the publisher of the image. Changing this forces a new resource to be created.
          */
         publisher: string;
     }
@@ -8489,6 +8495,17 @@ export namespace datashare {
     }
 }
 
+export namespace desktopvirtualization {
+    export interface HostPoolRegistrationInfo {
+        /**
+         * A valid `RFC3339Time` for the expiration of the token.
+         */
+        expirationDate: string;
+        resetToken: boolean;
+        token: string;
+    }
+}
+
 export namespace devtest {
     export interface GetVirtualNetworkAllowedSubnet {
         /**
@@ -9790,7 +9807,7 @@ export namespace frontdoor {
          */
         backends: outputs.frontdoor.FrontdoorBackendPoolBackend[];
         /**
-         * Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
+         * Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
          */
         healthProbeName: string;
         /**
@@ -9976,7 +9993,7 @@ export namespace frontdoor {
          */
         forwardingConfiguration?: outputs.frontdoor.FrontdoorRoutingRuleForwardingConfiguration;
         /**
-         * The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
+         * The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
          */
         frontendEndpoints: string[];
         /**
@@ -11912,7 +11929,7 @@ export namespace healthcare {
          */
         authority: string;
         /**
-         * Is the 'SMART on FHIR' option for mobile and web implementations enbled?
+         * Is the 'SMART on FHIR' option for mobile and web implementations enabled?
          */
         smartProxyEnabled: boolean;
     }
@@ -13884,6 +13901,9 @@ export namespace monitoring {
     }
 
     export interface GetActionGroupAzureFunctionReceiver {
+        /**
+         * The Azure resource ID of the function app.
+         */
         functionAppResourceId: string;
         /**
          * The function name in the function app.
@@ -14302,6 +14322,32 @@ export namespace mssql {
         storageEndpoint: string;
     }
 
+    export interface DatabaseLongTermRetentionPolicy {
+        /**
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+         */
+        monthlyRetention: string;
+        /**
+         * The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+         */
+        weekOfYear: number;
+        /**
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+         */
+        weeklyRetention: string;
+        /**
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+         */
+        yearlyRetention: string;
+    }
+
+    export interface DatabaseShortTermRetentionPolicy {
+        /**
+         * Point In Time Restore configuration. Value has to be between `7` and `35`.
+         */
+        retentionDays: number;
+    }
+
     export interface DatabaseThreatDetectionPolicy {
         /**
          * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -14485,6 +14531,62 @@ export namespace mssql {
          * The service principal name secret to access key vault. Changing this forces a new resource to be created.
          */
         servicePrincipalSecret: string;
+    }
+
+    export interface VirtualMachineStorageConfiguration {
+        /**
+         * An `storageSettings` as defined below.
+         */
+        dataSettings?: outputs.mssql.VirtualMachineStorageConfigurationDataSettings;
+        /**
+         * The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+         */
+        diskType: string;
+        /**
+         * An `storageSettings` as defined below.
+         */
+        logSettings?: outputs.mssql.VirtualMachineStorageConfigurationLogSettings;
+        /**
+         * The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+         */
+        storageWorkloadType: string;
+        /**
+         * An `storageSettings` as defined below.
+         */
+        tempDbSettings?: outputs.mssql.VirtualMachineStorageConfigurationTempDbSettings;
+    }
+
+    export interface VirtualMachineStorageConfigurationDataSettings {
+        /**
+         * The SQL Server default path
+         */
+        defaultFilePath: string;
+        /**
+         * A list of Logical Unit Numbers for the disks.
+         */
+        luns: number[];
+    }
+
+    export interface VirtualMachineStorageConfigurationLogSettings {
+        /**
+         * The SQL Server default path
+         */
+        defaultFilePath: string;
+        /**
+         * A list of Logical Unit Numbers for the disks.
+         */
+        luns: number[];
+    }
+
+    export interface VirtualMachineStorageConfigurationTempDbSettings {
+        /**
+         * The SQL Server default path
+         */
+        defaultFilePath: string;
+        /**
+         * A list of Logical Unit Numbers for the disks.
+         */
+        luns: number[];
     }
 }
 
@@ -14858,7 +14960,7 @@ export namespace network {
          */
         frontendPortName: string;
         /**
-         * The Hostname which should be used for this HTTP Listener.
+         * The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
          */
         hostName?: string;
         /**
@@ -17663,6 +17765,69 @@ export namespace servicefabric {
          */
         x509StoreName: string;
     }
+
+    export interface MeshApplicationService {
+        /**
+         * Any number `codePackage` block as described below.
+         */
+        codePackages: outputs.servicefabric.MeshApplicationServiceCodePackage[];
+        /**
+         * The name of the service resource.
+         */
+        name: string;
+        /**
+         * The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+         */
+        osType: string;
+    }
+
+    export interface MeshApplicationServiceCodePackage {
+        /**
+         * The Container image the code package will use.
+         */
+        imageName: string;
+        /**
+         * The name of the code package.
+         */
+        name: string;
+        /**
+         * A `resources` block as defined below.
+         */
+        resources: outputs.servicefabric.MeshApplicationServiceCodePackageResources;
+    }
+
+    export interface MeshApplicationServiceCodePackageResources {
+        /**
+         * A `limits` block as defined below.
+         */
+        limits?: outputs.servicefabric.MeshApplicationServiceCodePackageResourcesLimits;
+        /**
+         * A `requests` block as defined below.
+         */
+        requests: outputs.servicefabric.MeshApplicationServiceCodePackageResourcesRequests;
+    }
+
+    export interface MeshApplicationServiceCodePackageResourcesLimits {
+        /**
+         * The maximum number of CPU cores the container can use.
+         */
+        cpu: number;
+        /**
+         * The maximum memory request in GB the container can use.
+         */
+        memory: number;
+    }
+
+    export interface MeshApplicationServiceCodePackageResourcesRequests {
+        /**
+         * The minimum number of CPU cores the container requires.
+         */
+        cpu: number;
+        /**
+         * The minimum memory request in GB the container requires.
+         */
+        memory: number;
+    }
 }
 
 export namespace signalr {
@@ -18259,7 +18424,7 @@ export namespace storage {
 
     export interface GetPolicyRuleActionSnapshot {
         /**
-         * The age in days after create to delete the snaphot.
+         * The age in days after create to delete the snapshot.
          */
         deleteAfterDaysSinceCreationGreaterThan: number;
     }

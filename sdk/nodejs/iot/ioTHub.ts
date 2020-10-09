@@ -176,6 +176,10 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Is the IotHub resource accessible from a public network?
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -225,6 +229,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["routes"] = state ? state.routes : undefined;
             inputs["sharedAccessPolicies"] = state ? state.sharedAccessPolicies : undefined;
@@ -247,6 +252,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routes"] = args ? args.routes : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -327,6 +333,10 @@ export interface IoTHubState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * Is the IotHub resource accessible from a public network?
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -388,6 +398,10 @@ export interface IoTHubArgs {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Is the IotHub resource accessible from a public network?
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */

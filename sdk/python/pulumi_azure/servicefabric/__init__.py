@@ -4,5 +4,6 @@
 
 # Export this package's modules as members:
 from .cluster import *
+from .mesh_application import *
 from ._inputs import *
 from . import outputs

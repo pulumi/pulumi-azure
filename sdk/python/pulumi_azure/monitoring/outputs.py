@@ -3014,6 +3014,7 @@ class GetActionGroupAzureFunctionReceiverResult(dict):
                  name: str,
                  use_common_alert_schema: bool):
         """
+        :param str function_app_resource_id: The Azure resource ID of the function app.
         :param str function_name: The function name in the function app.
         :param str http_trigger_url: The http trigger url where http request sent to.
         :param str name: Specifies the name of the Action Group.
@@ -3028,6 +3029,9 @@ class GetActionGroupAzureFunctionReceiverResult(dict):
     @property
     @pulumi.getter(name="functionAppResourceId")
     def function_app_resource_id(self) -> str:
+        """
+        The Azure resource ID of the function app.
+        """
         return pulumi.get(self, "function_app_resource_id")
 
     @property

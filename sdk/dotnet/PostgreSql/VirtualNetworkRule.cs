@@ -41,7 +41,10 @@ namespace Pulumi.Azure.PostgreSql
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.7.29.0/29",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.7.29.0/29",
+    ///             },
     ///             ServiceEndpoints = 
     ///             {
     ///                 "Microsoft.Sql",

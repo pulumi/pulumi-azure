@@ -73,7 +73,7 @@ type LinkedServiceAzureFileStorage struct {
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	Password   pulumi.StringPtrOutput `pulumi:"password"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
@@ -133,7 +133,7 @@ type linkedServiceAzureFileStorageState struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
@@ -157,7 +157,7 @@ type LinkedServiceAzureFileStorageState struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
@@ -185,7 +185,7 @@ type linkedServiceAzureFileStorageArgs struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	Password   *string           `pulumi:"password"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
@@ -210,7 +210,7 @@ type LinkedServiceAzureFileStorageArgs struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	Password   pulumi.StringPtrInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource

@@ -43,6 +43,7 @@ namespace Pulumi.Azure.MSSql
     ///             Version = "12.0",
     ///             AdministratorLogin = "missadministrator",
     ///             AdministratorLoginPassword = "thisIsKat11",
+    ///             MinimumTlsVersion = "1.2",
     ///             AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
     ///             {
     ///                 LoginUsername = "AzureAD Admin",
@@ -68,7 +69,7 @@ namespace Pulumi.Azure.MSSql
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
-        /// The administrator's login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Changing this forces a new resource to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
@@ -116,6 +117,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         /// </summary>
         [Output("name")]
@@ -146,7 +153,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -198,7 +205,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator's login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin", required: true)]
         public Input<string> AdministratorLogin { get; set; } = null!;
@@ -240,6 +247,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         /// </summary>
         [Input("name")]
@@ -270,7 +283,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -283,7 +296,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class ServerState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator's login name for the new server. Changing this forces a new resource to be created.
+        /// The administrator login name for the new server. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -331,6 +344,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
         /// </summary>
         [Input("name")]
@@ -373,7 +392,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        /// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

@@ -70,10 +70,10 @@ type CertificateIssuer struct {
 	// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the organization as provided to the issuer.
-	OrgId pulumi.StringOutput `pulumi:"orgId"`
+	OrgId pulumi.StringPtrOutput `pulumi:"orgId"`
 	// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
 }
 
@@ -82,9 +82,6 @@ func NewCertificateIssuer(ctx *pulumi.Context,
 	name string, args *CertificateIssuerArgs, opts ...pulumi.ResourceOption) (*CertificateIssuer, error) {
 	if args == nil || args.KeyVaultId == nil {
 		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
-	if args == nil || args.OrgId == nil {
-		return nil, errors.New("missing required argument 'OrgId'")
 	}
 	if args == nil || args.ProviderName == nil {
 		return nil, errors.New("missing required argument 'ProviderName'")
@@ -126,7 +123,7 @@ type certificateIssuerState struct {
 	OrgId *string `pulumi:"orgId"`
 	// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
 	Password *string `pulumi:"password"`
-	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
 	ProviderName *string `pulumi:"providerName"`
 }
 
@@ -143,7 +140,7 @@ type CertificateIssuerState struct {
 	OrgId pulumi.StringPtrInput
 	// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
 	Password pulumi.StringPtrInput
-	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
 	ProviderName pulumi.StringPtrInput
 }
 
@@ -161,10 +158,10 @@ type certificateIssuerArgs struct {
 	// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the organization as provided to the issuer.
-	OrgId string `pulumi:"orgId"`
+	OrgId *string `pulumi:"orgId"`
 	// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
 	Password *string `pulumi:"password"`
-	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
 	ProviderName string `pulumi:"providerName"`
 }
 
@@ -179,10 +176,10 @@ type CertificateIssuerArgs struct {
 	// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the organization as provided to the issuer.
-	OrgId pulumi.StringInput
+	OrgId pulumi.StringPtrInput
 	// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
 	Password pulumi.StringPtrInput
-	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+	// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
 	ProviderName pulumi.StringInput
 }
 

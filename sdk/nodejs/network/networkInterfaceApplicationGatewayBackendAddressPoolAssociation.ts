@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  * const frontend = new azure.network.Subnet("frontend", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.1.0/24",
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const backend = new azure.network.Subnet("backend", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.2.0/24",
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
  *     location: exampleResourceGroup.location,

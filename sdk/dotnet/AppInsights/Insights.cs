@@ -58,6 +58,12 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ApplicationType { get; private set; } = null!;
 
         /// <summary>
+        /// The Connection String for this Application Insights component. (Sensitive)
+        /// </summary>
+        [Output("connectionString")]
+        public Output<string> ConnectionString { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Application Insights component daily data volume cap in GB.
         /// </summary>
         [Output("dailyDataCapInGb")]
@@ -251,6 +257,12 @@ namespace Pulumi.Azure.AppInsights
         /// </summary>
         [Input("applicationType")]
         public Input<string>? ApplicationType { get; set; }
+
+        /// <summary>
+        /// The Connection String for this Application Insights component. (Sensitive)
+        /// </summary>
+        [Input("connectionString")]
+        public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
         /// Specifies the Application Insights component daily data volume cap in GB.

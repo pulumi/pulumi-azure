@@ -90,6 +90,8 @@ def get_workspace(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Machine Learning Workspace.
 
+    ## Example Usage
+
     ```python
     import pulumi
     import pulumi_azure as azure

@@ -39,7 +39,10 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.1.0.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.1.0.0/24",
+    ///             },
     ///             Delegations = 
     ///             {
     ///                 new Azure.Network.Inputs.SubnetDelegationArgs

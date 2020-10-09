@@ -39,13 +39,19 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.1.0/24",
+    ///             },
     ///         });
     ///         var gateway = new Azure.Network.Subnet("gateway", new Azure.Network.SubnetArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.2.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
     ///         });
     ///         var exampleEnvironment = new Azure.AppService.Environment("exampleEnvironment", new Azure.AppService.EnvironmentArgs
     ///         {

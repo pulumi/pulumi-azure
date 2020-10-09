@@ -70,7 +70,7 @@ class ScaleSet(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.2.0/24")
+            address_prefixes=["10.0.2.0/24"])
         example_public_ip = azure.network.PublicIp("examplePublicIp",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -178,7 +178,7 @@ class ScaleSet(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.2.0/24")
+            address_prefixes=["10.0.2.0/24"])
         example_account = azure.storage.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location="westus",

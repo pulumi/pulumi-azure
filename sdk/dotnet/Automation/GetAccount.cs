@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Automation
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// The Endpoint for this Auomation Account.
+        /// The Endpoint for this Automation Account.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>

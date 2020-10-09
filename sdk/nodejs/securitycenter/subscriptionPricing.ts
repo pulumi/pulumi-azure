@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.securitycenter.SubscriptionPricing("example", {
+ *     resourceType: "VirtualMachines",
  *     tier: "Standard",
  * });
  * ```
@@ -51,6 +52,10 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     }
 
     /**
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+     */
+    public readonly resourceType!: pulumi.Output<string | undefined>;
+    /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
     public readonly tier!: pulumi.Output<string>;
@@ -67,12 +72,14 @@ export class SubscriptionPricing extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as SubscriptionPricingState | undefined;
+            inputs["resourceType"] = state ? state.resourceType : undefined;
             inputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as SubscriptionPricingArgs | undefined;
             if (!args || args.tier === undefined) {
                 throw new Error("Missing required property 'tier'");
             }
+            inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["tier"] = args ? args.tier : undefined;
         }
         if (!opts) {
@@ -91,6 +98,10 @@ export class SubscriptionPricing extends pulumi.CustomResource {
  */
 export interface SubscriptionPricingState {
     /**
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+     */
+    readonly resourceType?: pulumi.Input<string>;
+    /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
     readonly tier?: pulumi.Input<string>;
@@ -100,6 +111,10 @@ export interface SubscriptionPricingState {
  * The set of arguments for constructing a SubscriptionPricing resource.
  */
 export interface SubscriptionPricingArgs {
+    /**
+     * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+     */
+    readonly resourceType?: pulumi.Input<string>;
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */

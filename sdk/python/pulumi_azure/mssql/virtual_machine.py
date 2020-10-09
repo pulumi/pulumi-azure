@@ -25,6 +25,7 @@ class VirtualMachine(pulumi.CustomResource):
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
                  sql_license_type: Optional[pulumi.Input[str]] = None,
+                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -68,6 +69,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -98,6 +100,7 @@ class VirtualMachine(pulumi.CustomResource):
             if sql_license_type is None:
                 raise TypeError("Missing required property 'sql_license_type'")
             __props__['sql_license_type'] = sql_license_type
+            __props__['storage_configuration'] = storage_configuration
             __props__['tags'] = tags
             if virtual_machine_id is None:
                 raise TypeError("Missing required property 'virtual_machine_id'")
@@ -120,6 +123,7 @@ class VirtualMachine(pulumi.CustomResource):
             sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
             sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
             sql_license_type: Optional[pulumi.Input[str]] = None,
+            storage_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None) -> 'VirtualMachine':
         """
@@ -137,6 +141,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageConfigurationArgs']] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -152,6 +157,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__["sql_connectivity_update_password"] = sql_connectivity_update_password
         __props__["sql_connectivity_update_username"] = sql_connectivity_update_username
         __props__["sql_license_type"] = sql_license_type
+        __props__["storage_configuration"] = storage_configuration
         __props__["tags"] = tags
         __props__["virtual_machine_id"] = virtual_machine_id
         return VirtualMachine(resource_name, opts=opts, __props__=__props__)
@@ -219,6 +225,14 @@ class VirtualMachine(pulumi.CustomResource):
         The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sql_license_type")
+
+    @property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> pulumi.Output[Optional['outputs.VirtualMachineStorageConfiguration']]:
+        """
+        An `storage_configuration` block as defined below.
+        """
+        return pulumi.get(self, "storage_configuration")
 
     @property
     @pulumi.getter

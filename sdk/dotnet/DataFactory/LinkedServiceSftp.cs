@@ -99,7 +99,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of parameters to associate with the Data Factory Linfked Service.
+        /// A map of parameters to associate with the Data Factory Linked Service.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.DataFactory
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of parameters to associate with the Data Factory Linfked Service.
+        /// A map of parameters to associate with the Data Factory Linked Service.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.DataFactory
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of parameters to associate with the Data Factory Linfked Service.
+        /// A map of parameters to associate with the Data Factory Linked Service.
         /// </summary>
         public InputMap<string> Parameters
         {

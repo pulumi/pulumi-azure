@@ -85,7 +85,7 @@ export class LinkedServiceWeb extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linfked Service.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly password!: pulumi.Output<string | undefined>;
@@ -194,7 +194,7 @@ export interface LinkedServiceWebState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linfked Service.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly password?: pulumi.Input<string>;
@@ -242,7 +242,7 @@ export interface LinkedServiceWebArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linfked Service.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     readonly password?: pulumi.Input<string>;

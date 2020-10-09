@@ -28,6 +28,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///     {
     ///         var example = new Azure.SecurityCenter.SubscriptionPricing("example", new Azure.SecurityCenter.SubscriptionPricingArgs
     ///         {
+    ///             ResourceType = "VirtualMachines",
     ///             Tier = "Standard",
     ///         });
     ///     }
@@ -37,6 +38,12 @@ namespace Pulumi.Azure.SecurityCenter
     /// </summary>
     public partial class SubscriptionPricing : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+        /// </summary>
+        [Output("resourceType")]
+        public Output<string?> ResourceType { get; private set; } = null!;
+
         /// <summary>
         /// The pricing tier to use. Possible values are `Free` and `Standard`.
         /// </summary>
@@ -90,6 +97,12 @@ namespace Pulumi.Azure.SecurityCenter
     public sealed class SubscriptionPricingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+        /// </summary>
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
+
+        /// <summary>
         /// The pricing tier to use. Possible values are `Free` and `Standard`.
         /// </summary>
         [Input("tier", required: true)]
@@ -102,6 +115,12 @@ namespace Pulumi.Azure.SecurityCenter
 
     public sealed class SubscriptionPricingState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+        /// </summary>
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
+
         /// <summary>
         /// The pricing tier to use. Possible values are `Free` and `Standard`.
         /// </summary>

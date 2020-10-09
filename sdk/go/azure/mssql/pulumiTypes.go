@@ -198,6 +198,325 @@ func (o DatabaseExtendedAuditingPolicyTypePtrOutput) StorageEndpoint() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type DatabaseLongTermRetentionPolicy struct {
+	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+	MonthlyRetention *string `pulumi:"monthlyRetention"`
+	// The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+	WeekOfYear *int `pulumi:"weekOfYear"`
+	// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+	WeeklyRetention *string `pulumi:"weeklyRetention"`
+	// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+	YearlyRetention *string `pulumi:"yearlyRetention"`
+}
+
+// DatabaseLongTermRetentionPolicyInput is an input type that accepts DatabaseLongTermRetentionPolicyArgs and DatabaseLongTermRetentionPolicyOutput values.
+// You can construct a concrete instance of `DatabaseLongTermRetentionPolicyInput` via:
+//
+//          DatabaseLongTermRetentionPolicyArgs{...}
+type DatabaseLongTermRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToDatabaseLongTermRetentionPolicyOutput() DatabaseLongTermRetentionPolicyOutput
+	ToDatabaseLongTermRetentionPolicyOutputWithContext(context.Context) DatabaseLongTermRetentionPolicyOutput
+}
+
+type DatabaseLongTermRetentionPolicyArgs struct {
+	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
+	// The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+	WeekOfYear pulumi.IntPtrInput `pulumi:"weekOfYear"`
+	// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+	WeeklyRetention pulumi.StringPtrInput `pulumi:"weeklyRetention"`
+	// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+	YearlyRetention pulumi.StringPtrInput `pulumi:"yearlyRetention"`
+}
+
+func (DatabaseLongTermRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i DatabaseLongTermRetentionPolicyArgs) ToDatabaseLongTermRetentionPolicyOutput() DatabaseLongTermRetentionPolicyOutput {
+	return i.ToDatabaseLongTermRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i DatabaseLongTermRetentionPolicyArgs) ToDatabaseLongTermRetentionPolicyOutputWithContext(ctx context.Context) DatabaseLongTermRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseLongTermRetentionPolicyOutput)
+}
+
+func (i DatabaseLongTermRetentionPolicyArgs) ToDatabaseLongTermRetentionPolicyPtrOutput() DatabaseLongTermRetentionPolicyPtrOutput {
+	return i.ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseLongTermRetentionPolicyArgs) ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseLongTermRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseLongTermRetentionPolicyOutput).ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// DatabaseLongTermRetentionPolicyPtrInput is an input type that accepts DatabaseLongTermRetentionPolicyArgs, DatabaseLongTermRetentionPolicyPtr and DatabaseLongTermRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `DatabaseLongTermRetentionPolicyPtrInput` via:
+//
+//          DatabaseLongTermRetentionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseLongTermRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseLongTermRetentionPolicyPtrOutput() DatabaseLongTermRetentionPolicyPtrOutput
+	ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Context) DatabaseLongTermRetentionPolicyPtrOutput
+}
+
+type databaseLongTermRetentionPolicyPtrType DatabaseLongTermRetentionPolicyArgs
+
+func DatabaseLongTermRetentionPolicyPtr(v *DatabaseLongTermRetentionPolicyArgs) DatabaseLongTermRetentionPolicyPtrInput {
+	return (*databaseLongTermRetentionPolicyPtrType)(v)
+}
+
+func (*databaseLongTermRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i *databaseLongTermRetentionPolicyPtrType) ToDatabaseLongTermRetentionPolicyPtrOutput() DatabaseLongTermRetentionPolicyPtrOutput {
+	return i.ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseLongTermRetentionPolicyPtrType) ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseLongTermRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseLongTermRetentionPolicyPtrOutput)
+}
+
+type DatabaseLongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (DatabaseLongTermRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicyOutput() DatabaseLongTermRetentionPolicyOutput {
+	return o
+}
+
+func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicyOutputWithContext(ctx context.Context) DatabaseLongTermRetentionPolicyOutput {
+	return o
+}
+
+func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicyPtrOutput() DatabaseLongTermRetentionPolicyPtrOutput {
+	return o.ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseLongTermRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *DatabaseLongTermRetentionPolicy {
+		return &v
+	}).(DatabaseLongTermRetentionPolicyPtrOutput)
+}
+
+// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+func (o DatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
+}
+
+// The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+func (o DatabaseLongTermRetentionPolicyOutput) WeekOfYear() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *int { return v.WeekOfYear }).(pulumi.IntPtrOutput)
+}
+
+// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+func (o DatabaseLongTermRetentionPolicyOutput) WeeklyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *string { return v.WeeklyRetention }).(pulumi.StringPtrOutput)
+}
+
+// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+func (o DatabaseLongTermRetentionPolicyOutput) YearlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *string { return v.YearlyRetention }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseLongTermRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseLongTermRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseLongTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o DatabaseLongTermRetentionPolicyPtrOutput) ToDatabaseLongTermRetentionPolicyPtrOutput() DatabaseLongTermRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DatabaseLongTermRetentionPolicyPtrOutput) ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseLongTermRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DatabaseLongTermRetentionPolicyPtrOutput) Elem() DatabaseLongTermRetentionPolicyOutput {
+	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) DatabaseLongTermRetentionPolicy { return *v }).(DatabaseLongTermRetentionPolicyOutput)
+}
+
+// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+func (o DatabaseLongTermRetentionPolicyPtrOutput) MonthlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MonthlyRetention
+	}).(pulumi.StringPtrOutput)
+}
+
+// The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+func (o DatabaseLongTermRetentionPolicyPtrOutput) WeekOfYear() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WeekOfYear
+	}).(pulumi.IntPtrOutput)
+}
+
+// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+func (o DatabaseLongTermRetentionPolicyPtrOutput) WeeklyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklyRetention
+	}).(pulumi.StringPtrOutput)
+}
+
+// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+func (o DatabaseLongTermRetentionPolicyPtrOutput) YearlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.YearlyRetention
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatabaseShortTermRetentionPolicy struct {
+	// Point In Time Restore configuration. Value has to be between `7` and `35`.
+	RetentionDays int `pulumi:"retentionDays"`
+}
+
+// DatabaseShortTermRetentionPolicyInput is an input type that accepts DatabaseShortTermRetentionPolicyArgs and DatabaseShortTermRetentionPolicyOutput values.
+// You can construct a concrete instance of `DatabaseShortTermRetentionPolicyInput` via:
+//
+//          DatabaseShortTermRetentionPolicyArgs{...}
+type DatabaseShortTermRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToDatabaseShortTermRetentionPolicyOutput() DatabaseShortTermRetentionPolicyOutput
+	ToDatabaseShortTermRetentionPolicyOutputWithContext(context.Context) DatabaseShortTermRetentionPolicyOutput
+}
+
+type DatabaseShortTermRetentionPolicyArgs struct {
+	// Point In Time Restore configuration. Value has to be between `7` and `35`.
+	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
+}
+
+func (DatabaseShortTermRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseShortTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i DatabaseShortTermRetentionPolicyArgs) ToDatabaseShortTermRetentionPolicyOutput() DatabaseShortTermRetentionPolicyOutput {
+	return i.ToDatabaseShortTermRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i DatabaseShortTermRetentionPolicyArgs) ToDatabaseShortTermRetentionPolicyOutputWithContext(ctx context.Context) DatabaseShortTermRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseShortTermRetentionPolicyOutput)
+}
+
+func (i DatabaseShortTermRetentionPolicyArgs) ToDatabaseShortTermRetentionPolicyPtrOutput() DatabaseShortTermRetentionPolicyPtrOutput {
+	return i.ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseShortTermRetentionPolicyArgs) ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseShortTermRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseShortTermRetentionPolicyOutput).ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// DatabaseShortTermRetentionPolicyPtrInput is an input type that accepts DatabaseShortTermRetentionPolicyArgs, DatabaseShortTermRetentionPolicyPtr and DatabaseShortTermRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `DatabaseShortTermRetentionPolicyPtrInput` via:
+//
+//          DatabaseShortTermRetentionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseShortTermRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseShortTermRetentionPolicyPtrOutput() DatabaseShortTermRetentionPolicyPtrOutput
+	ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(context.Context) DatabaseShortTermRetentionPolicyPtrOutput
+}
+
+type databaseShortTermRetentionPolicyPtrType DatabaseShortTermRetentionPolicyArgs
+
+func DatabaseShortTermRetentionPolicyPtr(v *DatabaseShortTermRetentionPolicyArgs) DatabaseShortTermRetentionPolicyPtrInput {
+	return (*databaseShortTermRetentionPolicyPtrType)(v)
+}
+
+func (*databaseShortTermRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseShortTermRetentionPolicy)(nil)).Elem()
+}
+
+func (i *databaseShortTermRetentionPolicyPtrType) ToDatabaseShortTermRetentionPolicyPtrOutput() DatabaseShortTermRetentionPolicyPtrOutput {
+	return i.ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseShortTermRetentionPolicyPtrType) ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseShortTermRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseShortTermRetentionPolicyPtrOutput)
+}
+
+type DatabaseShortTermRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (DatabaseShortTermRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseShortTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o DatabaseShortTermRetentionPolicyOutput) ToDatabaseShortTermRetentionPolicyOutput() DatabaseShortTermRetentionPolicyOutput {
+	return o
+}
+
+func (o DatabaseShortTermRetentionPolicyOutput) ToDatabaseShortTermRetentionPolicyOutputWithContext(ctx context.Context) DatabaseShortTermRetentionPolicyOutput {
+	return o
+}
+
+func (o DatabaseShortTermRetentionPolicyOutput) ToDatabaseShortTermRetentionPolicyPtrOutput() DatabaseShortTermRetentionPolicyPtrOutput {
+	return o.ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseShortTermRetentionPolicyOutput) ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseShortTermRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v DatabaseShortTermRetentionPolicy) *DatabaseShortTermRetentionPolicy {
+		return &v
+	}).(DatabaseShortTermRetentionPolicyPtrOutput)
+}
+
+// Point In Time Restore configuration. Value has to be between `7` and `35`.
+func (o DatabaseShortTermRetentionPolicyOutput) RetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v DatabaseShortTermRetentionPolicy) int { return v.RetentionDays }).(pulumi.IntOutput)
+}
+
+type DatabaseShortTermRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseShortTermRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseShortTermRetentionPolicy)(nil)).Elem()
+}
+
+func (o DatabaseShortTermRetentionPolicyPtrOutput) ToDatabaseShortTermRetentionPolicyPtrOutput() DatabaseShortTermRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DatabaseShortTermRetentionPolicyPtrOutput) ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseShortTermRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DatabaseShortTermRetentionPolicyPtrOutput) Elem() DatabaseShortTermRetentionPolicyOutput {
+	return o.ApplyT(func(v *DatabaseShortTermRetentionPolicy) DatabaseShortTermRetentionPolicy { return *v }).(DatabaseShortTermRetentionPolicyOutput)
+}
+
+// Point In Time Restore configuration. Value has to be between `7` and `35`.
+func (o DatabaseShortTermRetentionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseShortTermRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
 type DatabaseThreatDetectionPolicy struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
@@ -1951,6 +2270,675 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) ServicePrincipalSecret() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type VirtualMachineStorageConfiguration struct {
+	// An `storageSettings` as defined below.
+	DataSettings *VirtualMachineStorageConfigurationDataSettings `pulumi:"dataSettings"`
+	// The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+	DiskType string `pulumi:"diskType"`
+	// An `storageSettings` as defined below.
+	LogSettings *VirtualMachineStorageConfigurationLogSettings `pulumi:"logSettings"`
+	// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+	StorageWorkloadType string `pulumi:"storageWorkloadType"`
+	// An `storageSettings` as defined below.
+	TempDbSettings *VirtualMachineStorageConfigurationTempDbSettings `pulumi:"tempDbSettings"`
+}
+
+// VirtualMachineStorageConfigurationInput is an input type that accepts VirtualMachineStorageConfigurationArgs and VirtualMachineStorageConfigurationOutput values.
+// You can construct a concrete instance of `VirtualMachineStorageConfigurationInput` via:
+//
+//          VirtualMachineStorageConfigurationArgs{...}
+type VirtualMachineStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageConfigurationOutput() VirtualMachineStorageConfigurationOutput
+	ToVirtualMachineStorageConfigurationOutputWithContext(context.Context) VirtualMachineStorageConfigurationOutput
+}
+
+type VirtualMachineStorageConfigurationArgs struct {
+	// An `storageSettings` as defined below.
+	DataSettings VirtualMachineStorageConfigurationDataSettingsPtrInput `pulumi:"dataSettings"`
+	// The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+	DiskType pulumi.StringInput `pulumi:"diskType"`
+	// An `storageSettings` as defined below.
+	LogSettings VirtualMachineStorageConfigurationLogSettingsPtrInput `pulumi:"logSettings"`
+	// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+	StorageWorkloadType pulumi.StringInput `pulumi:"storageWorkloadType"`
+	// An `storageSettings` as defined below.
+	TempDbSettings VirtualMachineStorageConfigurationTempDbSettingsPtrInput `pulumi:"tempDbSettings"`
+}
+
+func (VirtualMachineStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineStorageConfiguration)(nil)).Elem()
+}
+
+func (i VirtualMachineStorageConfigurationArgs) ToVirtualMachineStorageConfigurationOutput() VirtualMachineStorageConfigurationOutput {
+	return i.ToVirtualMachineStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineStorageConfigurationArgs) ToVirtualMachineStorageConfigurationOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationOutput)
+}
+
+func (i VirtualMachineStorageConfigurationArgs) ToVirtualMachineStorageConfigurationPtrOutput() VirtualMachineStorageConfigurationPtrOutput {
+	return i.ToVirtualMachineStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineStorageConfigurationArgs) ToVirtualMachineStorageConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationOutput).ToVirtualMachineStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineStorageConfigurationPtrInput is an input type that accepts VirtualMachineStorageConfigurationArgs, VirtualMachineStorageConfigurationPtr and VirtualMachineStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineStorageConfigurationPtrInput` via:
+//
+//          VirtualMachineStorageConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageConfigurationPtrOutput() VirtualMachineStorageConfigurationPtrOutput
+	ToVirtualMachineStorageConfigurationPtrOutputWithContext(context.Context) VirtualMachineStorageConfigurationPtrOutput
+}
+
+type virtualMachineStorageConfigurationPtrType VirtualMachineStorageConfigurationArgs
+
+func VirtualMachineStorageConfigurationPtr(v *VirtualMachineStorageConfigurationArgs) VirtualMachineStorageConfigurationPtrInput {
+	return (*virtualMachineStorageConfigurationPtrType)(v)
+}
+
+func (*virtualMachineStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineStorageConfiguration)(nil)).Elem()
+}
+
+func (i *virtualMachineStorageConfigurationPtrType) ToVirtualMachineStorageConfigurationPtrOutput() VirtualMachineStorageConfigurationPtrOutput {
+	return i.ToVirtualMachineStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineStorageConfigurationPtrType) ToVirtualMachineStorageConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationPtrOutput)
+}
+
+type VirtualMachineStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineStorageConfiguration)(nil)).Elem()
+}
+
+func (o VirtualMachineStorageConfigurationOutput) ToVirtualMachineStorageConfigurationOutput() VirtualMachineStorageConfigurationOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationOutput) ToVirtualMachineStorageConfigurationOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationOutput) ToVirtualMachineStorageConfigurationPtrOutput() VirtualMachineStorageConfigurationPtrOutput {
+	return o.ToVirtualMachineStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineStorageConfigurationOutput) ToVirtualMachineStorageConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfiguration {
+		return &v
+	}).(VirtualMachineStorageConfigurationPtrOutput)
+}
+
+// An `storageSettings` as defined below.
+func (o VirtualMachineStorageConfigurationOutput) DataSettings() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationDataSettings {
+		return v.DataSettings
+	}).(VirtualMachineStorageConfigurationDataSettingsPtrOutput)
+}
+
+// The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+func (o VirtualMachineStorageConfigurationOutput) DiskType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfiguration) string { return v.DiskType }).(pulumi.StringOutput)
+}
+
+// An `storageSettings` as defined below.
+func (o VirtualMachineStorageConfigurationOutput) LogSettings() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationLogSettings {
+		return v.LogSettings
+	}).(VirtualMachineStorageConfigurationLogSettingsPtrOutput)
+}
+
+// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+func (o VirtualMachineStorageConfigurationOutput) StorageWorkloadType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfiguration) string { return v.StorageWorkloadType }).(pulumi.StringOutput)
+}
+
+// An `storageSettings` as defined below.
+func (o VirtualMachineStorageConfigurationOutput) TempDbSettings() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationTempDbSettings {
+		return v.TempDbSettings
+	}).(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput)
+}
+
+type VirtualMachineStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineStorageConfiguration)(nil)).Elem()
+}
+
+func (o VirtualMachineStorageConfigurationPtrOutput) ToVirtualMachineStorageConfigurationPtrOutput() VirtualMachineStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationPtrOutput) ToVirtualMachineStorageConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationPtrOutput) Elem() VirtualMachineStorageConfigurationOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) VirtualMachineStorageConfiguration { return *v }).(VirtualMachineStorageConfigurationOutput)
+}
+
+// An `storageSettings` as defined below.
+func (o VirtualMachineStorageConfigurationPtrOutput) DataSettings() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationDataSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DataSettings
+	}).(VirtualMachineStorageConfigurationDataSettingsPtrOutput)
+}
+
+// The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+func (o VirtualMachineStorageConfigurationPtrOutput) DiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DiskType
+	}).(pulumi.StringPtrOutput)
+}
+
+// An `storageSettings` as defined below.
+func (o VirtualMachineStorageConfigurationPtrOutput) LogSettings() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationLogSettings {
+		if v == nil {
+			return nil
+		}
+		return v.LogSettings
+	}).(VirtualMachineStorageConfigurationLogSettingsPtrOutput)
+}
+
+// The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+func (o VirtualMachineStorageConfigurationPtrOutput) StorageWorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageWorkloadType
+	}).(pulumi.StringPtrOutput)
+}
+
+// An `storageSettings` as defined below.
+func (o VirtualMachineStorageConfigurationPtrOutput) TempDbSettings() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationTempDbSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TempDbSettings
+	}).(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput)
+}
+
+type VirtualMachineStorageConfigurationDataSettings struct {
+	// The SQL Server default path
+	DefaultFilePath string `pulumi:"defaultFilePath"`
+	// A list of Logical Unit Numbers for the disks.
+	Luns []int `pulumi:"luns"`
+}
+
+// VirtualMachineStorageConfigurationDataSettingsInput is an input type that accepts VirtualMachineStorageConfigurationDataSettingsArgs and VirtualMachineStorageConfigurationDataSettingsOutput values.
+// You can construct a concrete instance of `VirtualMachineStorageConfigurationDataSettingsInput` via:
+//
+//          VirtualMachineStorageConfigurationDataSettingsArgs{...}
+type VirtualMachineStorageConfigurationDataSettingsInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageConfigurationDataSettingsOutput() VirtualMachineStorageConfigurationDataSettingsOutput
+	ToVirtualMachineStorageConfigurationDataSettingsOutputWithContext(context.Context) VirtualMachineStorageConfigurationDataSettingsOutput
+}
+
+type VirtualMachineStorageConfigurationDataSettingsArgs struct {
+	// The SQL Server default path
+	DefaultFilePath pulumi.StringInput `pulumi:"defaultFilePath"`
+	// A list of Logical Unit Numbers for the disks.
+	Luns pulumi.IntArrayInput `pulumi:"luns"`
+}
+
+func (VirtualMachineStorageConfigurationDataSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineStorageConfigurationDataSettings)(nil)).Elem()
+}
+
+func (i VirtualMachineStorageConfigurationDataSettingsArgs) ToVirtualMachineStorageConfigurationDataSettingsOutput() VirtualMachineStorageConfigurationDataSettingsOutput {
+	return i.ToVirtualMachineStorageConfigurationDataSettingsOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineStorageConfigurationDataSettingsArgs) ToVirtualMachineStorageConfigurationDataSettingsOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationDataSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationDataSettingsOutput)
+}
+
+func (i VirtualMachineStorageConfigurationDataSettingsArgs) ToVirtualMachineStorageConfigurationDataSettingsPtrOutput() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return i.ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineStorageConfigurationDataSettingsArgs) ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationDataSettingsOutput).ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineStorageConfigurationDataSettingsPtrInput is an input type that accepts VirtualMachineStorageConfigurationDataSettingsArgs, VirtualMachineStorageConfigurationDataSettingsPtr and VirtualMachineStorageConfigurationDataSettingsPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineStorageConfigurationDataSettingsPtrInput` via:
+//
+//          VirtualMachineStorageConfigurationDataSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineStorageConfigurationDataSettingsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageConfigurationDataSettingsPtrOutput() VirtualMachineStorageConfigurationDataSettingsPtrOutput
+	ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(context.Context) VirtualMachineStorageConfigurationDataSettingsPtrOutput
+}
+
+type virtualMachineStorageConfigurationDataSettingsPtrType VirtualMachineStorageConfigurationDataSettingsArgs
+
+func VirtualMachineStorageConfigurationDataSettingsPtr(v *VirtualMachineStorageConfigurationDataSettingsArgs) VirtualMachineStorageConfigurationDataSettingsPtrInput {
+	return (*virtualMachineStorageConfigurationDataSettingsPtrType)(v)
+}
+
+func (*virtualMachineStorageConfigurationDataSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineStorageConfigurationDataSettings)(nil)).Elem()
+}
+
+func (i *virtualMachineStorageConfigurationDataSettingsPtrType) ToVirtualMachineStorageConfigurationDataSettingsPtrOutput() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return i.ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineStorageConfigurationDataSettingsPtrType) ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationDataSettingsPtrOutput)
+}
+
+type VirtualMachineStorageConfigurationDataSettingsOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineStorageConfigurationDataSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineStorageConfigurationDataSettings)(nil)).Elem()
+}
+
+func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToVirtualMachineStorageConfigurationDataSettingsOutput() VirtualMachineStorageConfigurationDataSettingsOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToVirtualMachineStorageConfigurationDataSettingsOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationDataSettingsOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToVirtualMachineStorageConfigurationDataSettingsPtrOutput() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return o.ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationDataSettings) *VirtualMachineStorageConfigurationDataSettings {
+		return &v
+	}).(VirtualMachineStorageConfigurationDataSettingsPtrOutput)
+}
+
+// The SQL Server default path
+func (o VirtualMachineStorageConfigurationDataSettingsOutput) DefaultFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationDataSettings) string { return v.DefaultFilePath }).(pulumi.StringOutput)
+}
+
+// A list of Logical Unit Numbers for the disks.
+func (o VirtualMachineStorageConfigurationDataSettingsOutput) Luns() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationDataSettings) []int { return v.Luns }).(pulumi.IntArrayOutput)
+}
+
+type VirtualMachineStorageConfigurationDataSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineStorageConfigurationDataSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineStorageConfigurationDataSettings)(nil)).Elem()
+}
+
+func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) ToVirtualMachineStorageConfigurationDataSettingsPtrOutput() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationDataSettingsPtrOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationDataSettingsOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationDataSettings) VirtualMachineStorageConfigurationDataSettings {
+		return *v
+	}).(VirtualMachineStorageConfigurationDataSettingsOutput)
+}
+
+// The SQL Server default path
+func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) DefaultFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationDataSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of Logical Unit Numbers for the disks.
+func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) Luns() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationDataSettings) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Luns
+	}).(pulumi.IntArrayOutput)
+}
+
+type VirtualMachineStorageConfigurationLogSettings struct {
+	// The SQL Server default path
+	DefaultFilePath string `pulumi:"defaultFilePath"`
+	// A list of Logical Unit Numbers for the disks.
+	Luns []int `pulumi:"luns"`
+}
+
+// VirtualMachineStorageConfigurationLogSettingsInput is an input type that accepts VirtualMachineStorageConfigurationLogSettingsArgs and VirtualMachineStorageConfigurationLogSettingsOutput values.
+// You can construct a concrete instance of `VirtualMachineStorageConfigurationLogSettingsInput` via:
+//
+//          VirtualMachineStorageConfigurationLogSettingsArgs{...}
+type VirtualMachineStorageConfigurationLogSettingsInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageConfigurationLogSettingsOutput() VirtualMachineStorageConfigurationLogSettingsOutput
+	ToVirtualMachineStorageConfigurationLogSettingsOutputWithContext(context.Context) VirtualMachineStorageConfigurationLogSettingsOutput
+}
+
+type VirtualMachineStorageConfigurationLogSettingsArgs struct {
+	// The SQL Server default path
+	DefaultFilePath pulumi.StringInput `pulumi:"defaultFilePath"`
+	// A list of Logical Unit Numbers for the disks.
+	Luns pulumi.IntArrayInput `pulumi:"luns"`
+}
+
+func (VirtualMachineStorageConfigurationLogSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineStorageConfigurationLogSettings)(nil)).Elem()
+}
+
+func (i VirtualMachineStorageConfigurationLogSettingsArgs) ToVirtualMachineStorageConfigurationLogSettingsOutput() VirtualMachineStorageConfigurationLogSettingsOutput {
+	return i.ToVirtualMachineStorageConfigurationLogSettingsOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineStorageConfigurationLogSettingsArgs) ToVirtualMachineStorageConfigurationLogSettingsOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationLogSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationLogSettingsOutput)
+}
+
+func (i VirtualMachineStorageConfigurationLogSettingsArgs) ToVirtualMachineStorageConfigurationLogSettingsPtrOutput() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return i.ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineStorageConfigurationLogSettingsArgs) ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationLogSettingsOutput).ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineStorageConfigurationLogSettingsPtrInput is an input type that accepts VirtualMachineStorageConfigurationLogSettingsArgs, VirtualMachineStorageConfigurationLogSettingsPtr and VirtualMachineStorageConfigurationLogSettingsPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineStorageConfigurationLogSettingsPtrInput` via:
+//
+//          VirtualMachineStorageConfigurationLogSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineStorageConfigurationLogSettingsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageConfigurationLogSettingsPtrOutput() VirtualMachineStorageConfigurationLogSettingsPtrOutput
+	ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(context.Context) VirtualMachineStorageConfigurationLogSettingsPtrOutput
+}
+
+type virtualMachineStorageConfigurationLogSettingsPtrType VirtualMachineStorageConfigurationLogSettingsArgs
+
+func VirtualMachineStorageConfigurationLogSettingsPtr(v *VirtualMachineStorageConfigurationLogSettingsArgs) VirtualMachineStorageConfigurationLogSettingsPtrInput {
+	return (*virtualMachineStorageConfigurationLogSettingsPtrType)(v)
+}
+
+func (*virtualMachineStorageConfigurationLogSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineStorageConfigurationLogSettings)(nil)).Elem()
+}
+
+func (i *virtualMachineStorageConfigurationLogSettingsPtrType) ToVirtualMachineStorageConfigurationLogSettingsPtrOutput() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return i.ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineStorageConfigurationLogSettingsPtrType) ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationLogSettingsPtrOutput)
+}
+
+type VirtualMachineStorageConfigurationLogSettingsOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineStorageConfigurationLogSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineStorageConfigurationLogSettings)(nil)).Elem()
+}
+
+func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToVirtualMachineStorageConfigurationLogSettingsOutput() VirtualMachineStorageConfigurationLogSettingsOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToVirtualMachineStorageConfigurationLogSettingsOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationLogSettingsOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToVirtualMachineStorageConfigurationLogSettingsPtrOutput() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return o.ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationLogSettings) *VirtualMachineStorageConfigurationLogSettings {
+		return &v
+	}).(VirtualMachineStorageConfigurationLogSettingsPtrOutput)
+}
+
+// The SQL Server default path
+func (o VirtualMachineStorageConfigurationLogSettingsOutput) DefaultFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationLogSettings) string { return v.DefaultFilePath }).(pulumi.StringOutput)
+}
+
+// A list of Logical Unit Numbers for the disks.
+func (o VirtualMachineStorageConfigurationLogSettingsOutput) Luns() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationLogSettings) []int { return v.Luns }).(pulumi.IntArrayOutput)
+}
+
+type VirtualMachineStorageConfigurationLogSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineStorageConfigurationLogSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineStorageConfigurationLogSettings)(nil)).Elem()
+}
+
+func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) ToVirtualMachineStorageConfigurationLogSettingsPtrOutput() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationLogSettingsPtrOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationLogSettingsOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationLogSettings) VirtualMachineStorageConfigurationLogSettings {
+		return *v
+	}).(VirtualMachineStorageConfigurationLogSettingsOutput)
+}
+
+// The SQL Server default path
+func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) DefaultFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationLogSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of Logical Unit Numbers for the disks.
+func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) Luns() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationLogSettings) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Luns
+	}).(pulumi.IntArrayOutput)
+}
+
+type VirtualMachineStorageConfigurationTempDbSettings struct {
+	// The SQL Server default path
+	DefaultFilePath string `pulumi:"defaultFilePath"`
+	// A list of Logical Unit Numbers for the disks.
+	Luns []int `pulumi:"luns"`
+}
+
+// VirtualMachineStorageConfigurationTempDbSettingsInput is an input type that accepts VirtualMachineStorageConfigurationTempDbSettingsArgs and VirtualMachineStorageConfigurationTempDbSettingsOutput values.
+// You can construct a concrete instance of `VirtualMachineStorageConfigurationTempDbSettingsInput` via:
+//
+//          VirtualMachineStorageConfigurationTempDbSettingsArgs{...}
+type VirtualMachineStorageConfigurationTempDbSettingsInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageConfigurationTempDbSettingsOutput() VirtualMachineStorageConfigurationTempDbSettingsOutput
+	ToVirtualMachineStorageConfigurationTempDbSettingsOutputWithContext(context.Context) VirtualMachineStorageConfigurationTempDbSettingsOutput
+}
+
+type VirtualMachineStorageConfigurationTempDbSettingsArgs struct {
+	// The SQL Server default path
+	DefaultFilePath pulumi.StringInput `pulumi:"defaultFilePath"`
+	// A list of Logical Unit Numbers for the disks.
+	Luns pulumi.IntArrayInput `pulumi:"luns"`
+}
+
+func (VirtualMachineStorageConfigurationTempDbSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineStorageConfigurationTempDbSettings)(nil)).Elem()
+}
+
+func (i VirtualMachineStorageConfigurationTempDbSettingsArgs) ToVirtualMachineStorageConfigurationTempDbSettingsOutput() VirtualMachineStorageConfigurationTempDbSettingsOutput {
+	return i.ToVirtualMachineStorageConfigurationTempDbSettingsOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineStorageConfigurationTempDbSettingsArgs) ToVirtualMachineStorageConfigurationTempDbSettingsOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationTempDbSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationTempDbSettingsOutput)
+}
+
+func (i VirtualMachineStorageConfigurationTempDbSettingsArgs) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutput() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return i.ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineStorageConfigurationTempDbSettingsArgs) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationTempDbSettingsOutput).ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineStorageConfigurationTempDbSettingsPtrInput is an input type that accepts VirtualMachineStorageConfigurationTempDbSettingsArgs, VirtualMachineStorageConfigurationTempDbSettingsPtr and VirtualMachineStorageConfigurationTempDbSettingsPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineStorageConfigurationTempDbSettingsPtrInput` via:
+//
+//          VirtualMachineStorageConfigurationTempDbSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualMachineStorageConfigurationTempDbSettingsPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutput() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput
+	ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(context.Context) VirtualMachineStorageConfigurationTempDbSettingsPtrOutput
+}
+
+type virtualMachineStorageConfigurationTempDbSettingsPtrType VirtualMachineStorageConfigurationTempDbSettingsArgs
+
+func VirtualMachineStorageConfigurationTempDbSettingsPtr(v *VirtualMachineStorageConfigurationTempDbSettingsArgs) VirtualMachineStorageConfigurationTempDbSettingsPtrInput {
+	return (*virtualMachineStorageConfigurationTempDbSettingsPtrType)(v)
+}
+
+func (*virtualMachineStorageConfigurationTempDbSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineStorageConfigurationTempDbSettings)(nil)).Elem()
+}
+
+func (i *virtualMachineStorageConfigurationTempDbSettingsPtrType) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutput() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return i.ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineStorageConfigurationTempDbSettingsPtrType) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput)
+}
+
+type VirtualMachineStorageConfigurationTempDbSettingsOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineStorageConfigurationTempDbSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineStorageConfigurationTempDbSettings)(nil)).Elem()
+}
+
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToVirtualMachineStorageConfigurationTempDbSettingsOutput() VirtualMachineStorageConfigurationTempDbSettingsOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToVirtualMachineStorageConfigurationTempDbSettingsOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationTempDbSettingsOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutput() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return o.ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) *VirtualMachineStorageConfigurationTempDbSettings {
+		return &v
+	}).(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput)
+}
+
+// The SQL Server default path
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) DefaultFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) string { return v.DefaultFilePath }).(pulumi.StringOutput)
+}
+
+// A list of Logical Unit Numbers for the disks.
+func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) Luns() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v VirtualMachineStorageConfigurationTempDbSettings) []int { return v.Luns }).(pulumi.IntArrayOutput)
+}
+
+type VirtualMachineStorageConfigurationTempDbSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineStorageConfigurationTempDbSettings)(nil)).Elem()
+}
+
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutput() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
+	return o
+}
+
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationTempDbSettingsOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) VirtualMachineStorageConfigurationTempDbSettings {
+		return *v
+	}).(VirtualMachineStorageConfigurationTempDbSettingsOutput)
+}
+
+// The SQL Server default path
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) DefaultFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of Logical Unit Numbers for the disks.
+func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) Luns() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineStorageConfigurationTempDbSettings) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Luns
+	}).(pulumi.IntArrayOutput)
+}
+
 type GetServerIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId string `pulumi:"principalId"`
@@ -2069,6 +3057,10 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 func init() {
 	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseExtendedAuditingPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(DatabaseLongTermRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(DatabaseLongTermRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseShortTermRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(DatabaseShortTermRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyOutput{})
 	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput{})
@@ -2089,6 +3081,14 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineAutoPatchingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialOutput{})
 	pulumi.RegisterOutputType(VirtualMachineKeyVaultCredentialPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationDataSettingsOutput{})
+	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationDataSettingsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationLogSettingsOutput{})
+	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationLogSettingsPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationTempDbSettingsOutput{})
+	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityOutput{})
 	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
 }

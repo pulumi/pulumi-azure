@@ -45,7 +45,9 @@ import (
 // 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.0.1.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.1.0/24"),
+// 			},
 // 			Delegations: network.SubnetDelegationArray{
 // 				&network.SubnetDelegationArgs{
 // 					Name: pulumi.String("example-delegation"),

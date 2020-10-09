@@ -46,7 +46,10 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             ResourceGroupName = mainResourceGroup.Name,
     ///             VirtualNetworkName = mainVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.2.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
     ///         });
     ///         var mainNetworkInterface = new Azure.Network.NetworkInterface("mainNetworkInterface", new Azure.Network.NetworkInterfaceArgs
     ///         {

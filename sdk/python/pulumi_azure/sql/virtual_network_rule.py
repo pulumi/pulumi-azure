@@ -40,7 +40,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         subnet = azure.network.Subnet("subnet",
             resource_group_name=example.name,
             virtual_network_name=vnet.name,
-            address_prefix="10.7.29.0/29",
+            address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
         sqlserver = azure.sql.SqlServer("sqlserver",
             resource_group_name=example.name,

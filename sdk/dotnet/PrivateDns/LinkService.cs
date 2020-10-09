@@ -41,7 +41,10 @@ namespace Pulumi.Azure.PrivateDns
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.5.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.5.1.0/24",
+    ///             },
     ///             EnforcePrivateLinkServiceNetworkPolicies = true,
     ///         });
     ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs

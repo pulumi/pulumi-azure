@@ -46,7 +46,9 @@ import (
 // 		frontend, err := network.NewSubnet(ctx, "frontend", &network.SubnetArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.0.1.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.1.0/24"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -54,7 +56,9 @@ import (
 // 		_, err = network.NewSubnet(ctx, "backend", &network.SubnetArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.0.2.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

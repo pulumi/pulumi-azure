@@ -74,7 +74,7 @@ class VirtualMachine(pulumi.CustomResource):
         internal = azure.network.Subnet("internal",
             resource_group_name=main_resource_group.name,
             virtual_network_name=main_virtual_network.name,
-            address_prefix="10.0.2.0/24")
+            address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
             location=main_resource_group.location,
             resource_group_name=main_resource_group.name,

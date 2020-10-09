@@ -36,6 +36,30 @@ class DatasetHttp(pulumi.CustomResource):
         """
         Manages an Azure HTTP Dataset inside an Azure Data Factory.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="northeurope")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
+            resource_group_name=example_resource_group.name,
+            data_factory_name=example_factory.name,
+            authentication_type="Anonymous",
+            url="https://www.bing.com")
+        example_dataset_http = azure.datafactory.DatasetHttp("exampleDatasetHttp",
+            resource_group_name=example_resource_group.name,
+            data_factory_name=example_factory.name,
+            linked_service_name=example_linked_service_web.name,
+            relative_url="http://www.bing.com",
+            request_body="foo=bar",
+            request_method="POST")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.

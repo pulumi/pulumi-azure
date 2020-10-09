@@ -43,88 +43,89 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
-	advisor                  = "Advisor"             // Advisor
-	azureAnalysisServices    = "AnalysisServices"    // Analysis Services
-	azureAPIManagement       = "ApiManagement"       // API Management
-	azureAppConfiguration    = "AppConfiguration"    // App Configuration
-	azureAppInsights         = "AppInsights"         // AppInsights
-	azureAppPlatform         = "AppPlatform"         // AppPlatform
-	azureAppService          = "AppService"          // App Service
-	azureAttestation         = "Attestation"         // Attestation
-	azureAutomation          = "Automation"          // Automation
-	azureAuthorization       = "Authorization"       // Authorization
-	azureBackup              = "Backup"              // Backup
-	azureBatch               = "Batch"               // Batch
-	azureBlueprint           = "Blueprint"           // Blueprint
-	azureBot                 = "Bot"                 // Bot
-	azureCDN                 = "Cdn"                 // CDN
-	azureCognitive           = "Cognitive"           // Cognitive
-	azureCompute             = "Compute"             // Virtual Machines
-	azureContainerService    = "ContainerService"    // Azure Container Service
-	azureCore                = "Core"                // Base Resources
-	azureCosmosDB            = "CosmosDB"            // Cosmos DB
-	azureCostManagement      = "CostManagement"      // CostManagement
-	azureDashboard           = "Dashboard"           // Dashboard
-	azureDatabaseMigration   = "DatabaseMigration"   // Database Migration
-	azureDataFactory         = "DataFactory"         // Data Factory
-	azureDatalake            = "DataLake"            // Data Lake
-	azureDataShare           = "DataShare"           // DataShare
-	azureDataBricks          = "DataBricks"          // DataBricks
-	azureDevSpace            = "DevSpace"            // DevSpace
-	azureDevTest             = "DevTest"             // Dev Test Labs
-	azureDNS                 = "Dns"                 // DNS
-	azureFrontdoor           = "FrontDoor"           // Frontdoor
-	azureHdInsight           = "HDInsight"           // nolint:misspell // HDInsight
-	azureHealthcare          = "Healthcare"          // HealthCare
-	azureHpc                 = "Hpc"                 // High-performance Compute
-	azureHsm                 = "Hsm"                 // Hardware Security Module
-	azureIot                 = "Iot"                 // IoT resource
-	azureIotCentral          = "IotCentral"          // IoT central
-	azureKeyVault            = "KeyVault"            // Key Vault
-	azureKusto               = "Kusto"               // Kusto
-	azureLighthouse          = "Lighthouse"          // Lighthouse
-	azureLogAnalytics        = "LogAnalytics"        // Log Analytics
-	azureLogicApps           = "LogicApps"           // Logic Apps
-	azureLB                  = "Lb"                  // Load Balancer
-	azureMariaDB             = "MariaDB"             // MariaDB
-	azureEventGrid           = "EventGrid"           // Event Grid
-	azureEventHub            = "EventHub"            // Event Hub
-	azureMachineLearning     = "MachineLearning"     // Machine Learning Resources
-	azureMaintenance         = "Maintenance"         // Maintenance Resources
-	azureManagedApplication  = "ManagedApplication"  // ManagedApplication
-	azureManagement          = "Management"          // Management Resources
-	azureMaps                = "Maps"                // Maps
-	azureMarketPlace         = "Marketplace"         // Marketplace
-	azureMediaServices       = "MediaServices"       // Media Services
-	azureMixedReality        = "MixedReality"        // Mixed Reality
-	azureMonitoring          = "Monitoring"          // Metrics/monitoring resources
-	azureMSSQL               = "MSSql"               // MS Sql
-	azureMySQL               = "MySql"               // MySql
-	azureNetapp              = "NetApp"              // NetApp
-	azureNetwork             = "Network"             // Networking
-	azureNotificationHub     = "NotificationHub"     // Notification Hub
-	azureOperationalInsights = "OperationalInsights" // Operational Insights
-	azurePostgresql          = "PostgreSql"          // Postgress SQL
-	azurePolicy              = "Policy"              // Policy
-	azurePowerBi             = "PowerBI"             // PowerBI
-	azureProximity           = "Proximity"           // Proximity
-	azurePrivateDNS          = "PrivateDns"          // Private DNS
-	azurePrivateLink         = "PrivateLink"         // PrivateLink
-	azureRecoveryServices    = "RecoveryServices"    // Recovery Services
-	azureRedis               = "Redis"               // RedisCache
-	azureRelay               = "Relay"               // Relay
-	azureSecurityCenter      = "SecurityCenter"      // Security Center
-	azureSentinel            = "Sentinel"            // Sentinel
-	azureServiceBus          = "ServiceBus"          // ServiceBus
-	azureServiceFabric       = "ServiceFabric"       // Service Fabric
-	azureSearch              = "Search"              // Search
-	azureSignalr             = "SignalR"             // SignalR
-	azureSiteRecovery        = "SiteRecovery"        // SiteRecovery
-	azureSQL                 = "Sql"                 // SQL
-	azureStorage             = "Storage"             // Storage
-	azureStreamAnalytics     = "StreamAnalytics"     // StreamAnalytics
-	azureSynapse             = "Synapse"             // Synapse
-	azureWaf                 = "Waf"                 // WAF
+	advisor                    = "Advisor"               // Advisor
+	azureAnalysisServices      = "AnalysisServices"      // Analysis Services
+	azureAPIManagement         = "ApiManagement"         // API Management
+	azureAppConfiguration      = "AppConfiguration"      // App Configuration
+	azureAppInsights           = "AppInsights"           // AppInsights
+	azureAppPlatform           = "AppPlatform"           // AppPlatform
+	azureAppService            = "AppService"            // App Service
+	azureAttestation           = "Attestation"           // Attestation
+	azureAutomation            = "Automation"            // Automation
+	azureAuthorization         = "Authorization"         // Authorization
+	azureBackup                = "Backup"                // Backup
+	azureBatch                 = "Batch"                 // Batch
+	azureBlueprint             = "Blueprint"             // Blueprint
+	azureBot                   = "Bot"                   // Bot
+	azureCDN                   = "Cdn"                   // CDN
+	azureCognitive             = "Cognitive"             // Cognitive
+	azureCompute               = "Compute"               // Virtual Machines
+	azureContainerService      = "ContainerService"      // Azure Container Service
+	azureCore                  = "Core"                  // Base Resources
+	azureCosmosDB              = "CosmosDB"              // Cosmos DB
+	azureCostManagement        = "CostManagement"        // CostManagement
+	azureDashboard             = "Dashboard"             // Dashboard
+	azureDatabaseMigration     = "DatabaseMigration"     // Database Migration
+	azureDataFactory           = "DataFactory"           // Data Factory
+	azureDatalake              = "DataLake"              // Data Lake
+	azureDataShare             = "DataShare"             // DataShare
+	azureDataBricks            = "DataBricks"            // DataBricks
+	azureDesktopVirtualization = "DesktopVirtualization" // Desktop Virtualization
+	azureDevSpace              = "DevSpace"              // DevSpace
+	azureDevTest               = "DevTest"               // Dev Test Labs
+	azureDNS                   = "Dns"                   // DNS
+	azureFrontdoor             = "FrontDoor"             // Frontdoor
+	azureHdInsight             = "HDInsight"             // nolint:misspell // HDInsight
+	azureHealthcare            = "Healthcare"            // HealthCare
+	azureHpc                   = "Hpc"                   // High-performance Compute
+	azureHsm                   = "Hsm"                   // Hardware Security Module
+	azureIot                   = "Iot"                   // IoT resource
+	azureIotCentral            = "IotCentral"            // IoT central
+	azureKeyVault              = "KeyVault"              // Key Vault
+	azureKusto                 = "Kusto"                 // Kusto
+	azureLighthouse            = "Lighthouse"            // Lighthouse
+	azureLogAnalytics          = "LogAnalytics"          // Log Analytics
+	azureLogicApps             = "LogicApps"             // Logic Apps
+	azureLB                    = "Lb"                    // Load Balancer
+	azureMariaDB               = "MariaDB"               // MariaDB
+	azureEventGrid             = "EventGrid"             // Event Grid
+	azureEventHub              = "EventHub"              // Event Hub
+	azureMachineLearning       = "MachineLearning"       // Machine Learning Resources
+	azureMaintenance           = "Maintenance"           // Maintenance Resources
+	azureManagedApplication    = "ManagedApplication"    // ManagedApplication
+	azureManagement            = "Management"            // Management Resources
+	azureMaps                  = "Maps"                  // Maps
+	azureMarketPlace           = "Marketplace"           // Marketplace
+	azureMediaServices         = "MediaServices"         // Media Services
+	azureMixedReality          = "MixedReality"          // Mixed Reality
+	azureMonitoring            = "Monitoring"            // Metrics/monitoring resources
+	azureMSSQL                 = "MSSql"                 // MS Sql
+	azureMySQL                 = "MySql"                 // MySql
+	azureNetapp                = "NetApp"                // NetApp
+	azureNetwork               = "Network"               // Networking
+	azureNotificationHub       = "NotificationHub"       // Notification Hub
+	azureOperationalInsights   = "OperationalInsights"   // Operational Insights
+	azurePostgresql            = "PostgreSql"            // Postgress SQL
+	azurePolicy                = "Policy"                // Policy
+	azurePowerBi               = "PowerBI"               // PowerBI
+	azureProximity             = "Proximity"             // Proximity
+	azurePrivateDNS            = "PrivateDns"            // Private DNS
+	azurePrivateLink           = "PrivateLink"           // PrivateLink
+	azureRecoveryServices      = "RecoveryServices"      // Recovery Services
+	azureRedis                 = "Redis"                 // RedisCache
+	azureRelay                 = "Relay"                 // Relay
+	azureSecurityCenter        = "SecurityCenter"        // Security Center
+	azureSentinel              = "Sentinel"              // Sentinel
+	azureServiceBus            = "ServiceBus"            // ServiceBus
+	azureServiceFabric         = "ServiceFabric"         // Service Fabric
+	azureSearch                = "Search"                // Search
+	azureSignalr               = "SignalR"               // SignalR
+	azureSiteRecovery          = "SiteRecovery"          // SiteRecovery
+	azureSQL                   = "Sql"                   // SQL
+	azureStorage               = "Storage"               // Storage
+	azureStreamAnalytics       = "StreamAnalytics"       // StreamAnalytics
+	azureSynapse               = "Synapse"               // Synapse
+	azureWaf                   = "Waf"                   // WAF
 
 	// Legacy Module Names
 	azureLegacyRole             = "Role"               // Azure Role (Legacy)
@@ -1276,7 +1277,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_advanced_threat_protection":           {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
 
 			// Service Fabric
-			"azurerm_service_fabric_cluster": {Tok: azureResource(azureServiceFabric, "Cluster")},
+			"azurerm_service_fabric_cluster":          {Tok: azureResource(azureServiceFabric, "Cluster")},
+			"azurerm_service_fabric_mesh_application": {Tok: azureResource(azureServiceFabric, "MeshApplication")},
 
 			// Search
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},
@@ -1568,6 +1570,14 @@ func Provider() tfbridge.ProviderInfo {
 			// Lighthouse
 			"azurerm_lighthouse_definition": {Tok: azureResource(azureLighthouse, "Definition")},
 			"azurerm_lighthouse_assignment": {Tok: azureResource(azureLighthouse, "Assignment")},
+
+			// DesktopVirtualization
+			"azurerm_virtual_desktop_application_group": {Tok: azureResource(azureDesktopVirtualization, "ApplicationGroup")},
+			"azurerm_virtual_desktop_workspace_application_group_association": {
+				Tok: azureResource(azureDesktopVirtualization, "WorkspaceApplicationGroupAssociation"),
+			},
+			"azurerm_virtual_desktop_host_pool": {Tok: azureResource(azureDesktopVirtualization, "HostPool")},
+			"azurerm_virtual_desktop_workspace": {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},

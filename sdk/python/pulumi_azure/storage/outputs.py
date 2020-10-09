@@ -1385,7 +1385,7 @@ class GetPolicyRuleActionSnapshotResult(dict):
     def __init__(__self__, *,
                  delete_after_days_since_creation_greater_than: int):
         """
-        :param int delete_after_days_since_creation_greater_than: The age in days after create to delete the snaphot.
+        :param int delete_after_days_since_creation_greater_than: The age in days after create to delete the snapshot.
         """
         pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
 
@@ -1393,7 +1393,7 @@ class GetPolicyRuleActionSnapshotResult(dict):
     @pulumi.getter(name="deleteAfterDaysSinceCreationGreaterThan")
     def delete_after_days_since_creation_greater_than(self) -> int:
         """
-        The age in days after create to delete the snaphot.
+        The age in days after create to delete the snapshot.
         """
         return pulumi.get(self, "delete_after_days_since_creation_greater_than")
 

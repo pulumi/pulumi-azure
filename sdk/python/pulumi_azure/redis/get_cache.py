@@ -293,6 +293,8 @@ def get_cache(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Redis Cache
 
+    ## Example Usage
+
     ```python
     import pulumi
     import pulumi_azure as azure

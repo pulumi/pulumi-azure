@@ -1384,7 +1384,7 @@ type ApplicationGatewayHttpListener struct {
 	FrontendPortId *string `pulumi:"frontendPortId"`
 	// The Name of the Frontend Port use for this HTTP Listener.
 	FrontendPortName string `pulumi:"frontendPortName"`
-	// The Hostname which should be used for this HTTP Listener.
+	// The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
 	HostName *string `pulumi:"hostName"`
 	// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
 	HostNames []string `pulumi:"hostNames"`
@@ -1426,7 +1426,7 @@ type ApplicationGatewayHttpListenerArgs struct {
 	FrontendPortId pulumi.StringPtrInput `pulumi:"frontendPortId"`
 	// The Name of the Frontend Port use for this HTTP Listener.
 	FrontendPortName pulumi.StringInput `pulumi:"frontendPortName"`
-	// The Hostname which should be used for this HTTP Listener.
+	// The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
 	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
@@ -1527,7 +1527,7 @@ func (o ApplicationGatewayHttpListenerOutput) FrontendPortName() pulumi.StringOu
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) string { return v.FrontendPortName }).(pulumi.StringOutput)
 }
 
-// The Hostname which should be used for this HTTP Listener.
+// The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
 func (o ApplicationGatewayHttpListenerOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }

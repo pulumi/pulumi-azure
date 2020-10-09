@@ -101,6 +101,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> SqlLicenseType { get; private set; } = null!;
 
         /// <summary>
+        /// An `storage_configuration` block as defined below.
+        /// </summary>
+        [Output("storageConfiguration")]
+        public Output<Outputs.VirtualMachineStorageConfiguration?> StorageConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
@@ -206,6 +212,12 @@ namespace Pulumi.Azure.MSSql
         [Input("sqlLicenseType", required: true)]
         public Input<string> SqlLicenseType { get; set; } = null!;
 
+        /// <summary>
+        /// An `storage_configuration` block as defined below.
+        /// </summary>
+        [Input("storageConfiguration")]
+        public Input<Inputs.VirtualMachineStorageConfigurationArgs>? StorageConfiguration { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -278,6 +290,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("sqlLicenseType")]
         public Input<string>? SqlLicenseType { get; set; }
+
+        /// <summary>
+        /// An `storage_configuration` block as defined below.
+        /// </summary>
+        [Input("storageConfiguration")]
+        public Input<Inputs.VirtualMachineStorageConfigurationGetArgs>? StorageConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

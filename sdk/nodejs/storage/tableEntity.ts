@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  *     tableName: exampleTable.name,
  *     partitionKey: "examplepartition",
- *     rowKey: "exmamplerow",
+ *     rowKey: "examplerow",
  *     entity: {
  *         example: "example",
  *     },

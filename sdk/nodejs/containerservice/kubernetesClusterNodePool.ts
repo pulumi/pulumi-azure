@@ -91,7 +91,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly kubernetesClusterId!: pulumi.Output<string>;
     /**
-     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
      */
     public readonly maxCount!: pulumi.Output<number | undefined>;
     /**
@@ -99,7 +99,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly maxPods!: pulumi.Output<number>;
     /**
-     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
      */
     public readonly minCount!: pulumi.Output<number | undefined>;
     /**
@@ -111,7 +111,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
      */
     public readonly nodeCount!: pulumi.Output<number>;
     /**
@@ -254,7 +254,7 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly kubernetesClusterId?: pulumi.Input<string>;
     /**
-     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
      */
     readonly maxCount?: pulumi.Input<number>;
     /**
@@ -262,7 +262,7 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly maxPods?: pulumi.Input<number>;
     /**
-     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
      */
     readonly minCount?: pulumi.Input<number>;
     /**
@@ -274,7 +274,7 @@ export interface KubernetesClusterNodePoolState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
      */
     readonly nodeCount?: pulumi.Input<number>;
     /**
@@ -344,7 +344,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     readonly kubernetesClusterId: pulumi.Input<string>;
     /**
-     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+     * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
      */
     readonly maxCount?: pulumi.Input<number>;
     /**
@@ -352,7 +352,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     readonly maxPods?: pulumi.Input<number>;
     /**
-     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+     * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
      */
     readonly minCount?: pulumi.Input<number>;
     /**
@@ -364,7 +364,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
+     * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
      */
     readonly nodeCount?: pulumi.Input<number>;
     /**
