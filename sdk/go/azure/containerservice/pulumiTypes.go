@@ -3138,9 +3138,7 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ObjectId() 
 
 // The ID of the User Assigned Identity used by the OMS Agents.
 func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string {
-		return v.UserAssignedIdentityId
-	}).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput struct{ *pulumi.OutputState }

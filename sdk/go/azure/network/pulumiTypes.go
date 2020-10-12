@@ -13650,9 +13650,7 @@ func (o GetNetworkInterfaceIpConfigurationOutput) ToGetNetworkInterfaceIpConfigu
 
 // A list of Backend Address Pool ID's within a Application Gateway that this Network Interface is connected to.
 func (o GetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolsIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string {
-		return v.ApplicationGatewayBackendAddressPoolsIds
-	}).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v GetNetworkInterfaceIpConfiguration) []string { return v.ApplicationGatewayBackendAddressPoolsIds }).(pulumi.StringArrayOutput)
 }
 
 func (o GetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {

@@ -2196,9 +2196,7 @@ func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) Host
 
 // The host key algorithm.
 func (o GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthOutput) HostKeyAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth) string {
-		return v.HostKeyAlgorithm
-	}).(pulumi.StringOutput)
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth) string { return v.HostKeyAlgorithm }).(pulumi.StringOutput)
 }
 
 // The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
@@ -2334,9 +2332,7 @@ func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) PrivateKey() p
 
 // Indicates whether the Config Server instance will fail to start if the hostKey does not match.
 func (o GetSpringCloudServiceConfigServerGitSettingSshAuthOutput) StrictHostKeyCheckingEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingSshAuth) bool {
-		return v.StrictHostKeyCheckingEnabled
-	}).(pulumi.BoolOutput)
+	return o.ApplyT(func(v GetSpringCloudServiceConfigServerGitSettingSshAuth) bool { return v.StrictHostKeyCheckingEnabled }).(pulumi.BoolOutput)
 }
 
 type GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput struct{ *pulumi.OutputState }
