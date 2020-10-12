@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Disable autonaming for `mysql.Configuration`, `mariadb.Configuration` and `postgres.Configuration` as the resource
   names need to relate to validate database configuration names.
+* Upgrade to pulumi-terraform-bridge v2.11.0.
 
 ---
 

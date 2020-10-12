@@ -7144,7 +7144,9 @@ func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput)
 
 // The ID of the Application Insights Resource.
 func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ComponentId() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) string { return v.ComponentId }).(pulumi.StringOutput)
+	return o.ApplyT(func(v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) string {
+		return v.ComponentId
+	}).(pulumi.StringOutput)
 }
 
 // The number of failed locations.
