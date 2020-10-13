@@ -31,10 +31,16 @@ import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		prefix := "tfvmex"
+// 		if param := cfg.Get("prefix"); param != "" {
+// 			prefix = param
+// 		}
 // 		mainResourceGroup, err := core.NewResourceGroup(ctx, "mainResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West US 2"),
 // 		})
