@@ -737,7 +737,7 @@ class ApplicationGatewayHttpListener(dict):
         :param str firewall_policy_id: The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
         :param str frontend_ip_configuration_id: The ID of the associated Frontend Configuration.
         :param str frontend_port_id: The ID of the associated Frontend Port.
-        :param str host_name: The Hostname which should be used for this HTTP Listener.
+        :param str host_name: The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         :param Sequence[str] host_names: A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
         :param str id: The ID of the Rewrite Rule Set
         :param bool require_sni: Should Server Name Indication be Required? Defaults to `false`.
@@ -837,7 +837,7 @@ class ApplicationGatewayHttpListener(dict):
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[str]:
         """
-        The Hostname which should be used for this HTTP Listener.
+        The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         """
         return pulumi.get(self, "host_name")
 

@@ -79,13 +79,13 @@ export class CertificateIssuer extends pulumi.CustomResource {
     /**
      * The ID of the organization as provided to the issuer.
      */
-    public readonly orgId!: pulumi.Output<string>;
+    public readonly orgId!: pulumi.Output<string | undefined>;
     /**
      * The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+     * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
      */
     public readonly providerName!: pulumi.Output<string>;
 
@@ -112,9 +112,6 @@ export class CertificateIssuer extends pulumi.CustomResource {
             const args = argsOrState as CertificateIssuerArgs | undefined;
             if (!args || args.keyVaultId === undefined) {
                 throw new Error("Missing required property 'keyVaultId'");
-            }
-            if (!args || args.orgId === undefined) {
-                throw new Error("Missing required property 'orgId'");
             }
             if (!args || args.providerName === undefined) {
                 throw new Error("Missing required property 'providerName'");
@@ -167,7 +164,7 @@ export interface CertificateIssuerState {
      */
     readonly password?: pulumi.Input<string>;
     /**
-     * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+     * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
      */
     readonly providerName?: pulumi.Input<string>;
 }
@@ -195,13 +192,13 @@ export interface CertificateIssuerArgs {
     /**
      * The ID of the organization as provided to the issuer.
      */
-    readonly orgId: pulumi.Input<string>;
+    readonly orgId?: pulumi.Input<string>;
     /**
      * The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
      */
     readonly password?: pulumi.Input<string>;
     /**
-     * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+     * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
      */
     readonly providerName: pulumi.Input<string>;
 }

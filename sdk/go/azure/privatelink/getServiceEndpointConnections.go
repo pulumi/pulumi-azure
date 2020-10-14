@@ -9,8 +9,6 @@ import (
 
 // Use this data source to access endpoint connection information about an existing Private Link Service.
 //
-// > **NOTE** Private Link is currently in Public Preview.
-//
 // ## Example Usage
 //
 // ```go

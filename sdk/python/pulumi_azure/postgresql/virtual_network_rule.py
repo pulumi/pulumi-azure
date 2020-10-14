@@ -42,7 +42,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         internal = azure.network.Subnet("internal",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.7.29.0/29",
+            address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
         example_server = azure.postgresql.Server("exampleServer",
             location=example_resource_group.location,

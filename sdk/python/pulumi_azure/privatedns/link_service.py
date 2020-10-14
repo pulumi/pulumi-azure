@@ -48,7 +48,7 @@ class LinkService(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.5.1.0/24",
+            address_prefixes=["10.5.1.0/24"],
             enforce_private_link_service_network_policies=True)
         example_public_ip = azure.network.PublicIp("examplePublicIp",
             sku="Standard",

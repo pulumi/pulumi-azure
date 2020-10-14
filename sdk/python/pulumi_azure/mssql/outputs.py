@@ -7,9 +7,12 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
 
 __all__ = [
     'DatabaseExtendedAuditingPolicy',
+    'DatabaseLongTermRetentionPolicy',
+    'DatabaseShortTermRetentionPolicy',
     'DatabaseThreatDetectionPolicy',
     'DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult',
     'ElasticPoolPerDatabaseSettings',
@@ -20,6 +23,10 @@ __all__ = [
     'ServerVulnerabilityAssessmentRecurringScans',
     'VirtualMachineAutoPatching',
     'VirtualMachineKeyVaultCredential',
+    'VirtualMachineStorageConfiguration',
+    'VirtualMachineStorageConfigurationDataSettings',
+    'VirtualMachineStorageConfigurationLogSettings',
+    'VirtualMachineStorageConfigurationTempDbSettings',
     'GetServerIdentityResult',
 ]
 
@@ -74,6 +81,85 @@ class DatabaseExtendedAuditingPolicy(dict):
         Specifies whether `storage_account_access_key` value is the storage's secondary key.
         """
         return pulumi.get(self, "storage_account_access_key_is_secondary")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DatabaseLongTermRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 monthly_retention: Optional[str] = None,
+                 week_of_year: Optional[int] = None,
+                 weekly_retention: Optional[str] = None,
+                 yearly_retention: Optional[str] = None):
+        """
+        :param str monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        :param int week_of_year: The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+        :param str weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        :param str yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        """
+        if monthly_retention is not None:
+            pulumi.set(__self__, "monthly_retention", monthly_retention)
+        if week_of_year is not None:
+            pulumi.set(__self__, "week_of_year", week_of_year)
+        if weekly_retention is not None:
+            pulumi.set(__self__, "weekly_retention", weekly_retention)
+        if yearly_retention is not None:
+            pulumi.set(__self__, "yearly_retention", yearly_retention)
+
+    @property
+    @pulumi.getter(name="monthlyRetention")
+    def monthly_retention(self) -> Optional[str]:
+        """
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        """
+        return pulumi.get(self, "monthly_retention")
+
+    @property
+    @pulumi.getter(name="weekOfYear")
+    def week_of_year(self) -> Optional[int]:
+        """
+        The week of year to take the yearly backup in an ISO 8601 format. Value has to be between `1` and `52`.
+        """
+        return pulumi.get(self, "week_of_year")
+
+    @property
+    @pulumi.getter(name="weeklyRetention")
+    def weekly_retention(self) -> Optional[str]:
+        """
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        """
+        return pulumi.get(self, "weekly_retention")
+
+    @property
+    @pulumi.getter(name="yearlyRetention")
+    def yearly_retention(self) -> Optional[str]:
+        """
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        """
+        return pulumi.get(self, "yearly_retention")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class DatabaseShortTermRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 retention_days: int):
+        """
+        :param int retention_days: Point In Time Restore configuration. Value has to be between `7` and `35`.
+        """
+        pulumi.set(__self__, "retention_days", retention_days)
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> int:
+        """
+        Point In Time Restore configuration. Value has to be between `7` and `35`.
+        """
+        return pulumi.get(self, "retention_days")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -576,6 +662,170 @@ class VirtualMachineKeyVaultCredential(dict):
         The service principal name secret to access key vault. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_principal_secret")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineStorageConfiguration(dict):
+    def __init__(__self__, *,
+                 disk_type: str,
+                 storage_workload_type: str,
+                 data_settings: Optional['outputs.VirtualMachineStorageConfigurationDataSettings'] = None,
+                 log_settings: Optional['outputs.VirtualMachineStorageConfigurationLogSettings'] = None,
+                 temp_db_settings: Optional['outputs.VirtualMachineStorageConfigurationTempDbSettings'] = None):
+        """
+        :param str disk_type: The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+        :param str storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+        :param 'VirtualMachineStorageConfigurationDataSettingsArgs' data_settings: An `storage_settings` as defined below.
+        :param 'VirtualMachineStorageConfigurationLogSettingsArgs' log_settings: An `storage_settings` as defined below.
+        :param 'VirtualMachineStorageConfigurationTempDbSettingsArgs' temp_db_settings: An `storage_settings` as defined below.
+        """
+        pulumi.set(__self__, "disk_type", disk_type)
+        pulumi.set(__self__, "storage_workload_type", storage_workload_type)
+        if data_settings is not None:
+            pulumi.set(__self__, "data_settings", data_settings)
+        if log_settings is not None:
+            pulumi.set(__self__, "log_settings", log_settings)
+        if temp_db_settings is not None:
+            pulumi.set(__self__, "temp_db_settings", temp_db_settings)
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> str:
+        """
+        The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+        """
+        return pulumi.get(self, "disk_type")
+
+    @property
+    @pulumi.getter(name="storageWorkloadType")
+    def storage_workload_type(self) -> str:
+        """
+        The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+        """
+        return pulumi.get(self, "storage_workload_type")
+
+    @property
+    @pulumi.getter(name="dataSettings")
+    def data_settings(self) -> Optional['outputs.VirtualMachineStorageConfigurationDataSettings']:
+        """
+        An `storage_settings` as defined below.
+        """
+        return pulumi.get(self, "data_settings")
+
+    @property
+    @pulumi.getter(name="logSettings")
+    def log_settings(self) -> Optional['outputs.VirtualMachineStorageConfigurationLogSettings']:
+        """
+        An `storage_settings` as defined below.
+        """
+        return pulumi.get(self, "log_settings")
+
+    @property
+    @pulumi.getter(name="tempDbSettings")
+    def temp_db_settings(self) -> Optional['outputs.VirtualMachineStorageConfigurationTempDbSettings']:
+        """
+        An `storage_settings` as defined below.
+        """
+        return pulumi.get(self, "temp_db_settings")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineStorageConfigurationDataSettings(dict):
+    def __init__(__self__, *,
+                 default_file_path: str,
+                 luns: Sequence[int]):
+        """
+        :param str default_file_path: The SQL Server default path
+        :param Sequence[int] luns: A list of Logical Unit Numbers for the disks.
+        """
+        pulumi.set(__self__, "default_file_path", default_file_path)
+        pulumi.set(__self__, "luns", luns)
+
+    @property
+    @pulumi.getter(name="defaultFilePath")
+    def default_file_path(self) -> str:
+        """
+        The SQL Server default path
+        """
+        return pulumi.get(self, "default_file_path")
+
+    @property
+    @pulumi.getter
+    def luns(self) -> Sequence[int]:
+        """
+        A list of Logical Unit Numbers for the disks.
+        """
+        return pulumi.get(self, "luns")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineStorageConfigurationLogSettings(dict):
+    def __init__(__self__, *,
+                 default_file_path: str,
+                 luns: Sequence[int]):
+        """
+        :param str default_file_path: The SQL Server default path
+        :param Sequence[int] luns: A list of Logical Unit Numbers for the disks.
+        """
+        pulumi.set(__self__, "default_file_path", default_file_path)
+        pulumi.set(__self__, "luns", luns)
+
+    @property
+    @pulumi.getter(name="defaultFilePath")
+    def default_file_path(self) -> str:
+        """
+        The SQL Server default path
+        """
+        return pulumi.get(self, "default_file_path")
+
+    @property
+    @pulumi.getter
+    def luns(self) -> Sequence[int]:
+        """
+        A list of Logical Unit Numbers for the disks.
+        """
+        return pulumi.get(self, "luns")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VirtualMachineStorageConfigurationTempDbSettings(dict):
+    def __init__(__self__, *,
+                 default_file_path: str,
+                 luns: Sequence[int]):
+        """
+        :param str default_file_path: The SQL Server default path
+        :param Sequence[int] luns: A list of Logical Unit Numbers for the disks.
+        """
+        pulumi.set(__self__, "default_file_path", default_file_path)
+        pulumi.set(__self__, "luns", luns)
+
+    @property
+    @pulumi.getter(name="defaultFilePath")
+    def default_file_path(self) -> str:
+        """
+        The SQL Server default path
+        """
+        return pulumi.get(self, "default_file_path")
+
+    @property
+    @pulumi.getter
+    def luns(self) -> Sequence[int]:
+        """
+        A list of Logical Unit Numbers for the disks.
+        """
+        return pulumi.get(self, "luns")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

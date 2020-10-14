@@ -93,6 +93,7 @@ class Insights(pulumi.CustomResource):
             __props__['sampling_percentage'] = sampling_percentage
             __props__['tags'] = tags
             __props__['app_id'] = None
+            __props__['connection_string'] = None
             __props__['instrumentation_key'] = None
         super(Insights, __self__).__init__(
             'azure:appinsights/insights:Insights',
@@ -106,6 +107,7 @@ class Insights(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: Optional[pulumi.Input[str]] = None,
             application_type: Optional[pulumi.Input[str]] = None,
+            connection_string: Optional[pulumi.Input[str]] = None,
             daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
             daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
             disable_ip_masking: Optional[pulumi.Input[bool]] = None,
@@ -125,6 +127,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The App ID associated with this Application Insights component.
         :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] connection_string: The Connection String for this Application Insights component. (Sensitive)
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
@@ -144,6 +147,7 @@ class Insights(pulumi.CustomResource):
 
         __props__["app_id"] = app_id
         __props__["application_type"] = application_type
+        __props__["connection_string"] = connection_string
         __props__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
         __props__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
         __props__["disable_ip_masking"] = disable_ip_masking
@@ -171,6 +175,14 @@ class Insights(pulumi.CustomResource):
         Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_type")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> pulumi.Output[str]:
+        """
+        The Connection String for this Application Insights component. (Sensitive)
+        """
+        return pulumi.get(self, "connection_string")
 
     @property
     @pulumi.getter(name="dailyDataCapInGb")

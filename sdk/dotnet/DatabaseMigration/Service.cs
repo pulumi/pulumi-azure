@@ -41,7 +41,10 @@ namespace Pulumi.Azure.DatabaseMigration
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.1.0/24",
+    ///             },
     ///         });
     ///         var exampleService = new Azure.DatabaseMigration.Service("exampleService", new Azure.DatabaseMigration.ServiceArgs
     ///         {

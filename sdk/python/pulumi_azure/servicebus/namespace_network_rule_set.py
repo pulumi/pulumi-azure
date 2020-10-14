@@ -51,7 +51,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="172.17.0.0/24",
+            address_prefixes=["172.17.0.0/24"],
             service_endpoints=["Microsoft.ServiceBus"])
         example_namespace_network_rule_set = azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet",
             namespace_name=example_namespace.name,

@@ -59,7 +59,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.1.0/24")
+            address_prefixes=["10.0.1.0/24"])
         onpremise_local_network_gateway = azure.network.LocalNetworkGateway("onpremiseLocalNetworkGateway",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -107,7 +107,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         us_gateway = azure.network.Subnet("usGateway",
             resource_group_name=us_resource_group.name,
             virtual_network_name=us_virtual_network.name,
-            address_prefix="10.0.1.0/24")
+            address_prefixes=["10.0.1.0/24"])
         us_public_ip = azure.network.PublicIp("usPublicIp",
             location=us_resource_group.location,
             resource_group_name=us_resource_group.name,
@@ -131,7 +131,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         europe_gateway = azure.network.Subnet("europeGateway",
             resource_group_name=europe_resource_group.name,
             virtual_network_name=europe_virtual_network.name,
-            address_prefix="10.1.1.0/24")
+            address_prefixes=["10.1.1.0/24"])
         europe_public_ip = azure.network.PublicIp("europePublicIp",
             location=europe_resource_group.location,
             resource_group_name=europe_resource_group.name,

@@ -1748,8 +1748,9 @@ class LinuxVirtualMachineScaleSetPlanArgs:
                  product: pulumi.Input[str],
                  publisher: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] publisher: Specifies the Publisher of the Extension.
+        :param pulumi.Input[str] name: Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] product: Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher: Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -1759,7 +1760,7 @@ class LinuxVirtualMachineScaleSetPlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1770,6 +1771,9 @@ class LinuxVirtualMachineScaleSetPlanArgs:
     @property
     @pulumi.getter
     def product(self) -> pulumi.Input[str]:
+        """
+        Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "product")
 
     @product.setter
@@ -1780,7 +1784,7 @@ class LinuxVirtualMachineScaleSetPlanArgs:
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
         """
-        Specifies the Publisher of the Extension.
+        Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 
@@ -6225,8 +6229,9 @@ class WindowsVirtualMachineScaleSetPlanArgs:
                  product: pulumi.Input[str],
                  publisher: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] publisher: Specifies the Publisher of the Extension.
+        :param pulumi.Input[str] name: Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] product: Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher: Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -6236,7 +6241,7 @@ class WindowsVirtualMachineScaleSetPlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -6247,6 +6252,9 @@ class WindowsVirtualMachineScaleSetPlanArgs:
     @property
     @pulumi.getter
     def product(self) -> pulumi.Input[str]:
+        """
+        Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "product")
 
     @product.setter
@@ -6257,7 +6265,7 @@ class WindowsVirtualMachineScaleSetPlanArgs:
     @pulumi.getter
     def publisher(self) -> pulumi.Input[str]:
         """
-        Specifies the Publisher of the Extension.
+        Specifies the publisher of the image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
 

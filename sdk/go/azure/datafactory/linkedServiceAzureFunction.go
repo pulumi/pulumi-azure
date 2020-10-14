@@ -73,7 +73,7 @@ type LinkedServiceAzureFunction struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -135,7 +135,7 @@ type linkedServiceAzureFunctionState struct {
 	Key *string `pulumi:"key"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -158,7 +158,7 @@ type LinkedServiceAzureFunctionState struct {
 	Key pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
@@ -185,7 +185,7 @@ type linkedServiceAzureFunctionArgs struct {
 	Key string `pulumi:"key"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -209,7 +209,7 @@ type LinkedServiceAzureFunctionArgs struct {
 	Key pulumi.StringInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput

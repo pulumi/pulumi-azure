@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const internal = new azure.network.Subnet("internal", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.7.29.0/29",
+ *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
  * const exampleServer = new azure.mariadb.Server("exampleServer", {

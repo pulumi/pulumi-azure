@@ -60,7 +60,9 @@ import (
 // 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
 // 			ResourceGroupName:  mainResourceGroup.Name,
 // 			VirtualNetworkName: mainVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.0.2.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

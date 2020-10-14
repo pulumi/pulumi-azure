@@ -86,8 +86,7 @@ class Definition(pulumi.CustomResource):
                is a json object representing additional metadata that should be stored
                with the policy definition.
         :param pulumi.Input[str] mode: The policy mode that allows you to specify which resource
-               types will be evaluated.  The value can be "All", "Indexed" or
-               "NotSpecified".
+               types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
@@ -168,8 +167,7 @@ class Definition(pulumi.CustomResource):
                is a json object representing additional metadata that should be stored
                with the policy definition.
         :param pulumi.Input[str] mode: The policy mode that allows you to specify which resource
-               types will be evaluated.  The value can be "All", "Indexed" or
-               "NotSpecified".
+               types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
@@ -242,8 +240,7 @@ class Definition(pulumi.CustomResource):
     def mode(self) -> pulumi.Output[str]:
         """
         The policy mode that allows you to specify which resource
-        types will be evaluated.  The value can be "All", "Indexed" or
-        "NotSpecified".
+        types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         """
         return pulumi.get(self, "mode")
 

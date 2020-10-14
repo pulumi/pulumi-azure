@@ -74,6 +74,8 @@ type VirtualMachine struct {
 	SqlConnectivityUpdateUsername pulumi.StringPtrOutput `pulumi:"sqlConnectivityUpdateUsername"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringOutput `pulumi:"sqlLicenseType"`
+	// An `storageConfiguration` block as defined below.
+	StorageConfiguration VirtualMachineStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
@@ -130,6 +132,8 @@ type virtualMachineState struct {
 	SqlConnectivityUpdateUsername *string `pulumi:"sqlConnectivityUpdateUsername"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType *string `pulumi:"sqlLicenseType"`
+	// An `storageConfiguration` block as defined below.
+	StorageConfiguration *VirtualMachineStorageConfiguration `pulumi:"storageConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
@@ -153,6 +157,8 @@ type VirtualMachineState struct {
 	SqlConnectivityUpdateUsername pulumi.StringPtrInput
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringPtrInput
+	// An `storageConfiguration` block as defined below.
+	StorageConfiguration VirtualMachineStorageConfigurationPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
@@ -180,6 +186,8 @@ type virtualMachineArgs struct {
 	SqlConnectivityUpdateUsername *string `pulumi:"sqlConnectivityUpdateUsername"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType string `pulumi:"sqlLicenseType"`
+	// An `storageConfiguration` block as defined below.
+	StorageConfiguration *VirtualMachineStorageConfiguration `pulumi:"storageConfiguration"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.
@@ -204,6 +212,8 @@ type VirtualMachineArgs struct {
 	SqlConnectivityUpdateUsername pulumi.StringPtrInput
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
 	SqlLicenseType pulumi.StringInput
+	// An `storageConfiguration` block as defined below.
+	StorageConfiguration VirtualMachineStorageConfigurationPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The ID of the Virtual Machine. Changing this forces a new resource to be created.

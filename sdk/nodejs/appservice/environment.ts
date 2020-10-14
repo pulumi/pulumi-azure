@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  * const ase = new azure.network.Subnet("ase", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.1.0/24",
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const gateway = new azure.network.Subnet("gateway", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.2.0/24",
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleEnvironment = new azure.appservice.Environment("exampleEnvironment", {
  *     subnetId: ase.id,

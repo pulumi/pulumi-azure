@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetPolicyRuleActionSnapshotResult
     {
         /// <summary>
-        /// The age in days after create to delete the snaphot.
+        /// The age in days after create to delete the snapshot.
         /// </summary>
         public readonly int DeleteAfterDaysSinceCreationGreaterThan;
 

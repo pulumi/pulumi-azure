@@ -47,7 +47,7 @@ class Cache(pulumi.CustomResource):
         example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefix="10.0.1.0/24")
+            address_prefixes=["10.0.1.0/24"])
         example_cache = azure.hpc.Cache("exampleCache",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,

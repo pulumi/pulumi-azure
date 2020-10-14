@@ -395,7 +395,7 @@ type GetServiceAuthenticationConfiguration struct {
 	Audience string `pulumi:"audience"`
 	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service.
 	Authority string `pulumi:"authority"`
-	// Is the 'SMART on FHIR' option for mobile and web implementations enbled?
+	// Is the 'SMART on FHIR' option for mobile and web implementations enabled?
 	SmartProxyEnabled bool `pulumi:"smartProxyEnabled"`
 }
 
@@ -415,7 +415,7 @@ type GetServiceAuthenticationConfigurationArgs struct {
 	Audience pulumi.StringInput `pulumi:"audience"`
 	// The Azure Active Directory (tenant) that serves as the authentication authority to access the service.
 	Authority pulumi.StringInput `pulumi:"authority"`
-	// Is the 'SMART on FHIR' option for mobile and web implementations enbled?
+	// Is the 'SMART on FHIR' option for mobile and web implementations enabled?
 	SmartProxyEnabled pulumi.BoolInput `pulumi:"smartProxyEnabled"`
 }
 
@@ -480,7 +480,7 @@ func (o GetServiceAuthenticationConfigurationOutput) Authority() pulumi.StringOu
 	return o.ApplyT(func(v GetServiceAuthenticationConfiguration) string { return v.Authority }).(pulumi.StringOutput)
 }
 
-// Is the 'SMART on FHIR' option for mobile and web implementations enbled?
+// Is the 'SMART on FHIR' option for mobile and web implementations enabled?
 func (o GetServiceAuthenticationConfigurationOutput) SmartProxyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetServiceAuthenticationConfiguration) bool { return v.SmartProxyEnabled }).(pulumi.BoolOutput)
 }

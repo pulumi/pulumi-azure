@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const subnet = new azure.network.Subnet("subnet", {
  *     resourceGroupName: example.name,
  *     virtualNetworkName: vnet.name,
- *     addressPrefix: "10.7.29.0/29",
+ *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
  * const sqlserver = new azure.sql.SqlServer("sqlserver", {

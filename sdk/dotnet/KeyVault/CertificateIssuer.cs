@@ -77,7 +77,7 @@ namespace Pulumi.Azure.KeyVault
         /// The ID of the organization as provided to the issuer.
         /// </summary>
         [Output("orgId")]
-        public Output<string> OrgId { get; private set; } = null!;
+        public Output<string?> OrgId { get; private set; } = null!;
 
         /// <summary>
         /// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+        /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
         /// </summary>
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
@@ -170,8 +170,8 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// The ID of the organization as provided to the issuer.
         /// </summary>
-        [Input("orgId", required: true)]
-        public Input<string> OrgId { get; set; } = null!;
+        [Input("orgId")]
+        public Input<string>? OrgId { get; set; }
 
         /// <summary>
         /// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+        /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
         /// </summary>
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`.
+        /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
         /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }

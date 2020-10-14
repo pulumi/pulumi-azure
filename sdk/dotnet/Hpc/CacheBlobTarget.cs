@@ -42,7 +42,10 @@ namespace Pulumi.Azure.Hpc
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.1.0/24",
+    ///             },
     ///         });
     ///         var exampleCache = new Azure.Hpc.Cache("exampleCache", new Azure.Hpc.CacheArgs
     ///         {

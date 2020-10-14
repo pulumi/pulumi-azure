@@ -63,6 +63,10 @@ export interface GetInsightsResult {
      */
     readonly applicationType: string;
     /**
+     * The connection string of the Application Insights component. (Sensitive)
+     */
+    readonly connectionString: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

@@ -165,6 +165,8 @@ type IoTHub struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Is the IotHub resource accessible from a public network?
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `route` block as defined below.
@@ -239,6 +241,8 @@ type ioTHubState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Is the IotHub resource accessible from a public network?
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `route` block as defined below.
@@ -280,6 +284,8 @@ type IoTHubState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Is the IotHub resource accessible from a public network?
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `route` block as defined below.
@@ -315,6 +321,8 @@ type ioTHubArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Is the IotHub resource accessible from a public network?
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `route` block as defined below.
@@ -343,6 +351,8 @@ type IoTHubArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Is the IotHub resource accessible from a public network?
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `route` block as defined below.

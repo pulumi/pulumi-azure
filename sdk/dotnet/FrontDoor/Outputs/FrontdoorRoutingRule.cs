@@ -26,7 +26,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly Outputs.FrontdoorRoutingRuleForwardingConfiguration? ForwardingConfiguration;
         /// <summary>
-        /// The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
+        /// The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         /// </summary>
         public readonly ImmutableArray<string> FrontendEndpoints;
         /// <summary>

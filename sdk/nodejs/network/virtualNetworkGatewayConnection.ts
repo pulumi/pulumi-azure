@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.1.0/24",
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const onpremiseLocalNetworkGateway = new azure.network.LocalNetworkGateway("onpremiseLocalNetworkGateway", {
  *     location: exampleResourceGroup.location,
@@ -82,7 +82,7 @@ import * as utilities from "../utilities";
  * const usGateway = new azure.network.Subnet("usGateway", {
  *     resourceGroupName: usResourceGroup.name,
  *     virtualNetworkName: usVirtualNetwork.name,
- *     addressPrefix: "10.0.1.0/24",
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const usPublicIp = new azure.network.PublicIp("usPublicIp", {
  *     location: usResourceGroup.location,
@@ -110,7 +110,7 @@ import * as utilities from "../utilities";
  * const europeGateway = new azure.network.Subnet("europeGateway", {
  *     resourceGroupName: europeResourceGroup.name,
  *     virtualNetworkName: europeVirtualNetwork.name,
- *     addressPrefix: "10.1.1.0/24",
+ *     addressPrefixes: ["10.1.1.0/24"],
  * });
  * const europePublicIp = new azure.network.PublicIp("europePublicIp", {
  *     location: europeResourceGroup.location,

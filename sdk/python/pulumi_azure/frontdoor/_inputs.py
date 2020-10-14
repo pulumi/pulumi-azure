@@ -730,7 +730,7 @@ class FrontdoorBackendPoolArgs:
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArgs']]] backends: A `backend` block as defined below.
-        :param pulumi.Input[str] health_probe_name: Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
+        :param pulumi.Input[str] health_probe_name: Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
         :param pulumi.Input[str] load_balancing_name: Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
         :param pulumi.Input[str] name: Specifies the name of the Backend Pool.
         :param pulumi.Input[str] id: The ID of the FrontDoor.
@@ -758,7 +758,7 @@ class FrontdoorBackendPoolArgs:
     @pulumi.getter(name="healthProbeName")
     def health_probe_name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the `backend_pool_health_probe` block whithin this resource to use for this `Backend Pool`.
+        Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
         """
         return pulumi.get(self, "health_probe_name")
 
@@ -1393,7 +1393,7 @@ class FrontdoorRoutingRuleArgs:
                  redirect_configuration: Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoints: The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoints: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         :param pulumi.Input[str] name: Specifies the name of the Routing Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_matches: The route patterns for the Backend Routing Rule. Defaults to `/*`.
         :param pulumi.Input[bool] enabled: `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
@@ -1430,7 +1430,7 @@ class FrontdoorRoutingRuleArgs:
     @pulumi.getter(name="frontendEndpoints")
     def frontend_endpoints(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The names of the `frontend_endpoint` blocks whithin this resource to associate with this `routing_rule`.
+        The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         """
         return pulumi.get(self, "frontend_endpoints")
 

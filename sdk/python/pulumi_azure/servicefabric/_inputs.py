@@ -21,6 +21,11 @@ __all__ = [
     'ClusterNodeTypeApplicationPortsArgs',
     'ClusterNodeTypeEphemeralPortsArgs',
     'ClusterReverseProxyCertificateArgs',
+    'MeshApplicationServiceArgs',
+    'MeshApplicationServiceCodePackageArgs',
+    'MeshApplicationServiceCodePackageResourcesArgs',
+    'MeshApplicationServiceCodePackageResourcesLimitsArgs',
+    'MeshApplicationServiceCodePackageResourcesRequestsArgs',
 ]
 
 @pulumi.input_type
@@ -712,5 +717,221 @@ class ClusterReverseProxyCertificateArgs:
     @thumbprint_secondary.setter
     def thumbprint_secondary(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbprint_secondary", value)
+
+
+@pulumi.input_type
+class MeshApplicationServiceArgs:
+    def __init__(__self__, *,
+                 code_packages: pulumi.Input[Sequence[pulumi.Input['MeshApplicationServiceCodePackageArgs']]],
+                 name: pulumi.Input[str],
+                 os_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['MeshApplicationServiceCodePackageArgs']]] code_packages: Any number `code_package` block as described below.
+        :param pulumi.Input[str] name: The name of the service resource.
+        :param pulumi.Input[str] os_type: The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+        """
+        pulumi.set(__self__, "code_packages", code_packages)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "os_type", os_type)
+
+    @property
+    @pulumi.getter(name="codePackages")
+    def code_packages(self) -> pulumi.Input[Sequence[pulumi.Input['MeshApplicationServiceCodePackageArgs']]]:
+        """
+        Any number `code_package` block as described below.
+        """
+        return pulumi.get(self, "code_packages")
+
+    @code_packages.setter
+    def code_packages(self, value: pulumi.Input[Sequence[pulumi.Input['MeshApplicationServiceCodePackageArgs']]]):
+        pulumi.set(self, "code_packages", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the service resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> pulumi.Input[str]:
+        """
+        The operating system required by the code in service. Valid values are `Linux` or `Windows`.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "os_type", value)
+
+
+@pulumi.input_type
+class MeshApplicationServiceCodePackageArgs:
+    def __init__(__self__, *,
+                 image_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resources: pulumi.Input['MeshApplicationServiceCodePackageResourcesArgs']):
+        """
+        :param pulumi.Input[str] image_name: The Container image the code package will use.
+        :param pulumi.Input[str] name: The name of the code package.
+        :param pulumi.Input['MeshApplicationServiceCodePackageResourcesArgs'] resources: A `resources` block as defined below.
+        """
+        pulumi.set(__self__, "image_name", image_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The Container image the code package will use.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the code package.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input['MeshApplicationServiceCodePackageResourcesArgs']:
+        """
+        A `resources` block as defined below.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input['MeshApplicationServiceCodePackageResourcesArgs']):
+        pulumi.set(self, "resources", value)
+
+
+@pulumi.input_type
+class MeshApplicationServiceCodePackageResourcesArgs:
+    def __init__(__self__, *,
+                 requests: pulumi.Input['MeshApplicationServiceCodePackageResourcesRequestsArgs'],
+                 limits: Optional[pulumi.Input['MeshApplicationServiceCodePackageResourcesLimitsArgs']] = None):
+        """
+        :param pulumi.Input['MeshApplicationServiceCodePackageResourcesRequestsArgs'] requests: A `requests` block as defined below.
+        :param pulumi.Input['MeshApplicationServiceCodePackageResourcesLimitsArgs'] limits: A `limits` block as defined below.
+        """
+        pulumi.set(__self__, "requests", requests)
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> pulumi.Input['MeshApplicationServiceCodePackageResourcesRequestsArgs']:
+        """
+        A `requests` block as defined below.
+        """
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: pulumi.Input['MeshApplicationServiceCodePackageResourcesRequestsArgs']):
+        pulumi.set(self, "requests", value)
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional[pulumi.Input['MeshApplicationServiceCodePackageResourcesLimitsArgs']]:
+        """
+        A `limits` block as defined below.
+        """
+        return pulumi.get(self, "limits")
+
+    @limits.setter
+    def limits(self, value: Optional[pulumi.Input['MeshApplicationServiceCodePackageResourcesLimitsArgs']]):
+        pulumi.set(self, "limits", value)
+
+
+@pulumi.input_type
+class MeshApplicationServiceCodePackageResourcesLimitsArgs:
+    def __init__(__self__, *,
+                 cpu: pulumi.Input[float],
+                 memory: pulumi.Input[float]):
+        """
+        :param pulumi.Input[float] cpu: The maximum number of CPU cores the container can use.
+        :param pulumi.Input[float] memory: The maximum memory request in GB the container can use.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> pulumi.Input[float]:
+        """
+        The maximum number of CPU cores the container can use.
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: pulumi.Input[float]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> pulumi.Input[float]:
+        """
+        The maximum memory request in GB the container can use.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: pulumi.Input[float]):
+        pulumi.set(self, "memory", value)
+
+
+@pulumi.input_type
+class MeshApplicationServiceCodePackageResourcesRequestsArgs:
+    def __init__(__self__, *,
+                 cpu: pulumi.Input[float],
+                 memory: pulumi.Input[float]):
+        """
+        :param pulumi.Input[float] cpu: The minimum number of CPU cores the container requires.
+        :param pulumi.Input[float] memory: The minimum memory request in GB the container requires.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> pulumi.Input[float]:
+        """
+        The minimum number of CPU cores the container requires.
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: pulumi.Input[float]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> pulumi.Input[float]:
+        """
+        The minimum memory request in GB the container requires.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: pulumi.Input[float]):
+        pulumi.set(self, "memory", value)
 
 

@@ -91,8 +91,6 @@ def get_endpoint_connection(name: Optional[str] = None,
     """
     Use this data source to access the connection status information about an existing Private Endpoint Connection.
 
-    > **NOTE** Private Endpoint is currently in Public Preview.
-
     ## Example Usage
 
     ```python

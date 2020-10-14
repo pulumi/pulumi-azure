@@ -55,7 +55,7 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * The Endpoint for this Auomation Account.
+     * The Endpoint for this Automation Account.
      */
     readonly endpoint: string;
     /**

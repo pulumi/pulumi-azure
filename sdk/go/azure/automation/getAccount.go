@@ -52,7 +52,7 @@ type LookupAccountArgs struct {
 
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
-	// The Endpoint for this Auomation Account.
+	// The Endpoint for this Automation Account.
 	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`

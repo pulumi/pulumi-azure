@@ -80,7 +80,9 @@ import (
 // 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.0.2.0/24"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.2.0/24"),
+// 			},
 // 			ServiceEndpoints: pulumi.StringArray{
 // 				pulumi.String("Microsoft.Sql"),
 // 				pulumi.String("Microsoft.Storage"),
@@ -138,6 +140,8 @@ type Account struct {
 	Identity AccountIdentityOutput `pulumi:"identity"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled pulumi.BoolPtrOutput `pulumi:"isHnsEnabled"`
+	// Is Large File Share Enabled?
+	LargeFileShareEnabled pulumi.BoolOutput `pulumi:"largeFileShareEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
@@ -278,6 +282,8 @@ type accountState struct {
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
+	// Is Large File Share Enabled?
+	LargeFileShareEnabled *bool `pulumi:"largeFileShareEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
@@ -382,6 +388,8 @@ type AccountState struct {
 	Identity AccountIdentityPtrInput
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled pulumi.BoolPtrInput
+	// Is Large File Share Enabled?
+	LargeFileShareEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
@@ -490,6 +498,8 @@ type accountArgs struct {
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
+	// Is Large File Share Enabled?
+	LargeFileShareEnabled *bool `pulumi:"largeFileShareEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
@@ -531,6 +541,8 @@ type AccountArgs struct {
 	Identity AccountIdentityPtrInput
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled pulumi.BoolPtrInput
+	// Is Large File Share Enabled?
+	LargeFileShareEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.

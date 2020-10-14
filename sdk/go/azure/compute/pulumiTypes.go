@@ -3921,10 +3921,11 @@ func (o LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() pul
 }
 
 type LinuxVirtualMachineScaleSetPlan struct {
-	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name    string `pulumi:"name"`
+	// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 	Product string `pulumi:"product"`
-	// Specifies the Publisher of the Extension.
+	// Specifies the publisher of the image. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -3940,10 +3941,11 @@ type LinuxVirtualMachineScaleSetPlanInput interface {
 }
 
 type LinuxVirtualMachineScaleSetPlanArgs struct {
-	// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name    pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 	Product pulumi.StringInput `pulumi:"product"`
-	// Specifies the Publisher of the Extension.
+	// Specifies the publisher of the image. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -4024,16 +4026,17 @@ func (o LinuxVirtualMachineScaleSetPlanOutput) ToLinuxVirtualMachineScaleSetPlan
 	}).(LinuxVirtualMachineScaleSetPlanPtrOutput)
 }
 
-// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// Specifies the Publisher of the Extension.
+// Specifies the publisher of the image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -4056,7 +4059,7 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Elem() LinuxVirtualMachineScal
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) LinuxVirtualMachineScaleSetPlan { return *v }).(LinuxVirtualMachineScaleSetPlanOutput)
 }
 
-// The name of the Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -4066,6 +4069,7 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -4075,7 +4079,7 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Publisher of the Extension.
+// Specifies the publisher of the image. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -15481,10 +15485,11 @@ func (o WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Option() p
 }
 
 type WindowsVirtualMachineScaleSetPlan struct {
-	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name    string `pulumi:"name"`
+	// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 	Product string `pulumi:"product"`
-	// Specifies the Publisher of the Extension.
+	// Specifies the publisher of the image. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 }
 
@@ -15500,10 +15505,11 @@ type WindowsVirtualMachineScaleSetPlanInput interface {
 }
 
 type WindowsVirtualMachineScaleSetPlanArgs struct {
-	// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
-	Name    pulumi.StringInput `pulumi:"name"`
+	// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 	Product pulumi.StringInput `pulumi:"product"`
-	// Specifies the Publisher of the Extension.
+	// Specifies the publisher of the image. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 }
 
@@ -15584,16 +15590,17 @@ func (o WindowsVirtualMachineScaleSetPlanOutput) ToWindowsVirtualMachineScaleSet
 	}).(WindowsVirtualMachineScaleSetPlanPtrOutput)
 }
 
-// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetPlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// Specifies the Publisher of the Extension.
+// Specifies the publisher of the image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetPlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetPlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -15616,7 +15623,7 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Elem() WindowsVirtualMachine
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) WindowsVirtualMachineScaleSetPlan { return *v }).(WindowsVirtualMachineScaleSetPlanOutput)
 }
 
-// The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
+// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -15626,6 +15633,7 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) *string {
 		if v == nil {
@@ -15635,7 +15643,7 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Product() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Publisher of the Extension.
+// Specifies the publisher of the image. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetPlan) *string {
 		if v == nil {

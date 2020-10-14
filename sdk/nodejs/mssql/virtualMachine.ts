@@ -98,6 +98,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly sqlLicenseType!: pulumi.Output<string>;
     /**
+     * An `storageConfiguration` block as defined below.
+     */
+    public readonly storageConfiguration!: pulumi.Output<outputs.mssql.VirtualMachineStorageConfiguration | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -126,6 +130,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["sqlConnectivityUpdatePassword"] = state ? state.sqlConnectivityUpdatePassword : undefined;
             inputs["sqlConnectivityUpdateUsername"] = state ? state.sqlConnectivityUpdateUsername : undefined;
             inputs["sqlLicenseType"] = state ? state.sqlLicenseType : undefined;
+            inputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
@@ -144,6 +149,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["sqlConnectivityUpdatePassword"] = args ? args.sqlConnectivityUpdatePassword : undefined;
             inputs["sqlConnectivityUpdateUsername"] = args ? args.sqlConnectivityUpdateUsername : undefined;
             inputs["sqlLicenseType"] = args ? args.sqlLicenseType : undefined;
+            inputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
@@ -195,6 +201,10 @@ export interface VirtualMachineState {
      */
     readonly sqlLicenseType?: pulumi.Input<string>;
     /**
+     * An `storageConfiguration` block as defined below.
+     */
+    readonly storageConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfiguration>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -240,6 +250,10 @@ export interface VirtualMachineArgs {
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
     readonly sqlLicenseType: pulumi.Input<string>;
+    /**
+     * An `storageConfiguration` block as defined below.
+     */
+    readonly storageConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfiguration>;
     /**
      * A mapping of tags to assign to the resource.
      */

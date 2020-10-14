@@ -102,8 +102,7 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// The policy mode that allows you to specify which resource
-        /// types will be evaluated.  The value can be "All", "Indexed" or
-        /// "NotSpecified".
+        /// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -216,8 +215,7 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// The policy mode that allows you to specify which resource
-        /// types will be evaluated.  The value can be "All", "Indexed" or
-        /// "NotSpecified".
+        /// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -291,8 +289,7 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// The policy mode that allows you to specify which resource
-        /// types will be evaluated.  The value can be "All", "Indexed" or
-        /// "NotSpecified".
+        /// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

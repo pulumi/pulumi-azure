@@ -1272,7 +1272,7 @@ func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) Index(i pulum
 type FrontdoorBackendPool struct {
 	// A `backend` block as defined below.
 	Backends []FrontdoorBackendPoolBackend `pulumi:"backends"`
-	// Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
+	// Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
 	HealthProbeName string `pulumi:"healthProbeName"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
@@ -1296,7 +1296,7 @@ type FrontdoorBackendPoolInput interface {
 type FrontdoorBackendPoolArgs struct {
 	// A `backend` block as defined below.
 	Backends FrontdoorBackendPoolBackendArrayInput `pulumi:"backends"`
-	// Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
+	// Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
 	HealthProbeName pulumi.StringInput `pulumi:"healthProbeName"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1362,7 +1362,7 @@ func (o FrontdoorBackendPoolOutput) Backends() FrontdoorBackendPoolBackendArrayO
 	return o.ApplyT(func(v FrontdoorBackendPool) []FrontdoorBackendPoolBackend { return v.Backends }).(FrontdoorBackendPoolBackendArrayOutput)
 }
 
-// Specifies the name of the `backendPoolHealthProbe` block whithin this resource to use for this `Backend Pool`.
+// Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
 func (o FrontdoorBackendPoolOutput) HealthProbeName() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorBackendPool) string { return v.HealthProbeName }).(pulumi.StringOutput)
 }
@@ -2271,7 +2271,7 @@ type FrontdoorRoutingRule struct {
 	Enabled *bool `pulumi:"enabled"`
 	// A `forwardingConfiguration` block as defined below.
 	ForwardingConfiguration *FrontdoorRoutingRuleForwardingConfiguration `pulumi:"forwardingConfiguration"`
-	// The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
+	// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
 	FrontendEndpoints []string `pulumi:"frontendEndpoints"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
@@ -2301,7 +2301,7 @@ type FrontdoorRoutingRuleArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A `forwardingConfiguration` block as defined below.
 	ForwardingConfiguration FrontdoorRoutingRuleForwardingConfigurationPtrInput `pulumi:"forwardingConfiguration"`
-	// The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
+	// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
 	FrontendEndpoints pulumi.StringArrayInput `pulumi:"frontendEndpoints"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2381,7 +2381,7 @@ func (o FrontdoorRoutingRuleOutput) ForwardingConfiguration() FrontdoorRoutingRu
 	}).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
 
-// The names of the `frontendEndpoint` blocks whithin this resource to associate with this `routingRule`.
+// The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
 func (o FrontdoorRoutingRuleOutput) FrontendEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRule) []string { return v.FrontendEndpoints }).(pulumi.StringArrayOutput)
 }

@@ -25,6 +25,7 @@ class IoTHub(pulumi.CustomResource):
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IoTHubSkuArgs']]] = None,
@@ -125,6 +126,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
@@ -155,6 +157,7 @@ class IoTHub(pulumi.CustomResource):
             __props__['ip_filter_rules'] = ip_filter_rules
             __props__['location'] = location
             __props__['name'] = name
+            __props__['public_network_access_enabled'] = public_network_access_enabled
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -193,6 +196,7 @@ class IoTHub(pulumi.CustomResource):
             ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
             shared_access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]]] = None,
@@ -219,6 +223,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubIpFilterRuleArgs']]]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
@@ -243,6 +248,7 @@ class IoTHub(pulumi.CustomResource):
         __props__["ip_filter_rules"] = ip_filter_rules
         __props__["location"] = location
         __props__["name"] = name
+        __props__["public_network_access_enabled"] = public_network_access_enabled
         __props__["resource_group_name"] = resource_group_name
         __props__["routes"] = routes
         __props__["shared_access_policies"] = shared_access_policies
@@ -354,6 +360,14 @@ class IoTHub(pulumi.CustomResource):
         Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the IotHub resource accessible from a public network?
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

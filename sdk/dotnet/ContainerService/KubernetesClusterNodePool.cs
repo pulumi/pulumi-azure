@@ -95,7 +95,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> KubernetesClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
+        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `min_count`.
         /// </summary>
         [Output("maxCount")]
         public Output<int?> MaxCount { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<int> MaxPods { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
+        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `max_count`.
         /// </summary>
         [Output("minCount")]
         public Output<int?> MinCount { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
+        /// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `min_count` - `max_count`.
         /// </summary>
         [Output("nodeCount")]
         public Output<int> NodeCount { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> KubernetesClusterId { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
+        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `min_count`.
         /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<int>? MaxPods { get; set; }
 
         /// <summary>
-        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
+        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `max_count`.
         /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
+        /// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `min_count` - `max_count`.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? KubernetesClusterId { get; set; }
 
         /// <summary>
-        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `min_count`.
+        /// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `min_count`.
         /// </summary>
         [Input("maxCount")]
         public Input<int>? MaxCount { get; set; }
@@ -442,7 +442,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<int>? MaxPods { get; set; }
 
         /// <summary>
-        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `max_count`.
+        /// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `max_count`.
         /// </summary>
         [Input("minCount")]
         public Input<int>? MinCount { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `min_count` - `max_count`.
+        /// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `min_count` - `max_count`.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }

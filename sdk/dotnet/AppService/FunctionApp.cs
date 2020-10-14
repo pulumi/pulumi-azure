@@ -159,7 +159,7 @@ namespace Pulumi.Azure.AppService
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         [Output("appSettings")]
-        public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
 
         /// <summary>
         /// A `auth_settings` block as defined below.

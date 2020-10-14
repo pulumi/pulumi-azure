@@ -75,7 +75,7 @@ type LinkedServiceSftp struct {
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password pulumi.StringOutput `pulumi:"password"`
@@ -152,7 +152,7 @@ type linkedServiceSftpState struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password *string `pulumi:"password"`
@@ -181,7 +181,7 @@ type LinkedServiceSftpState struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password pulumi.StringPtrInput
@@ -214,7 +214,7 @@ type linkedServiceSftpArgs struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password string `pulumi:"password"`
@@ -244,7 +244,7 @@ type LinkedServiceSftpArgs struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// A map of parameters to associate with the Data Factory Linfked Service.
+	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
 	// Password to logon to the SFTP Server for Basic Authentication.
 	Password pulumi.StringInput

@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.2.0/24",
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
  *     location: exampleResourceGroup.location,
@@ -147,7 +147,7 @@ import * as utilities from "../utilities";
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefix: "10.0.2.0/24",
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
  *     resourceGroupName: exampleResourceGroup.name,

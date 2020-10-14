@@ -37,6 +37,7 @@ from . import (
     datafactory,
     datalake,
     datashare,
+    desktopvirtualization,
     devspace,
     devtest,
     dns,

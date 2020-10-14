@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.datafactory.getFactory({
- *     name: azurerm_data_factory.example.name,
- *     resourceGroupName: azurerm_data_factory.example.resource_group_name,
+ *     name: "existing-adf",
+ *     resourceGroupName: "existing-rg",
  * });
- * export const dataFactoryId = azurerm_data_factory.example.id;
+ * export const id = example.then(example => example.id);
  * ```
  */
 export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryResult> {
@@ -41,11 +41,11 @@ export function getFactory(args: GetFactoryArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetFactoryArgs {
     /**
-     * Specifies the name of the Data Factory to retrieve information about.
+     * The name of this Azure Data Factory.
      */
     readonly name: string;
     /**
-     * The name of the resource group where the Data Factory exists.
+     * The name of the Resource Group where the Azure Data Factory exists.
      */
     readonly resourceGroupName: string;
 }
@@ -67,14 +67,13 @@ export interface GetFactoryResult {
      */
     readonly identities: outputs.datafactory.GetFactoryIdentity[];
     /**
-     * The Azure location where the resource exists.
+     * The Azure Region where the Azure Data Factory exists.
      */
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * A mapping of tags assigned to the resource.
-     * ---
+     * A mapping of tags assigned to the Azure Data Factory.
      */
     readonly tags: {[key: string]: string};
     /**

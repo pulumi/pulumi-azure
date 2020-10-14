@@ -43,7 +43,7 @@ class GetAccountResult:
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        The Endpoint for this Auomation Account.
+        The Endpoint for this Automation Account.
         """
         return pulumi.get(self, "endpoint")
 

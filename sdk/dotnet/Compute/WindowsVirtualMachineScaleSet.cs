@@ -47,7 +47,10 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.2.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
     ///         });
     ///         var exampleWindowsVirtualMachineScaleSet = new Azure.Compute.WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", new Azure.Compute.WindowsVirtualMachineScaleSetArgs
     ///         {
@@ -244,6 +247,9 @@ namespace Pulumi.Azure.Compute
         [Output("overprovision")]
         public Output<bool?> Overprovision { get; private set; } = null!;
 
+        /// <summary>
+        /// A `plan` block as documented below.
+        /// </summary>
         [Output("plan")]
         public Output<Outputs.WindowsVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
 
@@ -581,6 +587,9 @@ namespace Pulumi.Azure.Compute
         [Input("overprovision")]
         public Input<bool>? Overprovision { get; set; }
 
+        /// <summary>
+        /// A `plan` block as documented below.
+        /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
 
@@ -897,6 +906,9 @@ namespace Pulumi.Azure.Compute
         [Input("overprovision")]
         public Input<bool>? Overprovision { get; set; }
 
+        /// <summary>
+        /// A `plan` block as documented below.
+        /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }
 

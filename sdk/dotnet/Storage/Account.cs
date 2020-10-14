@@ -68,7 +68,10 @@ namespace Pulumi.Azure.Storage
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.2.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
     ///             ServiceEndpoints = 
     ///             {
     ///                 "Microsoft.Sql",
@@ -165,6 +168,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("isHnsEnabled")]
         public Output<bool?> IsHnsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Is Large File Share Enabled?
+        /// </summary>
+        [Output("largeFileShareEnabled")]
+        public Output<bool> LargeFileShareEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -514,6 +523,12 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? IsHnsEnabled { get; set; }
 
         /// <summary>
+        /// Is Large File Share Enabled?
+        /// </summary>
+        [Input("largeFileShareEnabled")]
+        public Input<bool>? LargeFileShareEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -634,6 +649,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("isHnsEnabled")]
         public Input<bool>? IsHnsEnabled { get; set; }
+
+        /// <summary>
+        /// Is Large File Share Enabled?
+        /// </summary>
+        [Input("largeFileShareEnabled")]
+        public Input<bool>? LargeFileShareEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

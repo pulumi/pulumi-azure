@@ -166,8 +166,6 @@ def get_service(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Private Link Service.
 
-    > **NOTE** Private Link is currently in Public Preview.
-
     ## Example Usage
 
     ```python

@@ -11,6 +11,46 @@ namespace Pulumi.Azure.DataFactory
 {
     /// <summary>
     /// Manages an Azure HTTP Dataset inside an Azure Data Factory.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "northeurope",
+    ///         });
+    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///         });
+    ///         var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("exampleLinkedServiceWeb", new Azure.DataFactory.LinkedServiceWebArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DataFactoryName = exampleFactory.Name,
+    ///             AuthenticationType = "Anonymous",
+    ///             Url = "https://www.bing.com",
+    ///         });
+    ///         var exampleDatasetHttp = new Azure.DataFactory.DatasetHttp("exampleDatasetHttp", new Azure.DataFactory.DatasetHttpArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             DataFactoryName = exampleFactory.Name,
+    ///             LinkedServiceName = exampleLinkedServiceWeb.Name,
+    ///             RelativeUrl = "http://www.bing.com",
+    ///             RequestBody = "foo=bar",
+    ///             RequestMethod = "POST",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DatasetHttp : Pulumi.CustomResource
     {

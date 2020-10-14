@@ -262,7 +262,7 @@ class FunctionAppSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appSettings")
-    def app_settings(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def app_settings(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A key-value pair of App Settings.
         """

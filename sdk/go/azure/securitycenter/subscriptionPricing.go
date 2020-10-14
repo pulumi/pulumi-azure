@@ -29,7 +29,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := securitycenter.NewSubscriptionPricing(ctx, "example", &securitycenter.SubscriptionPricingArgs{
-// 			Tier: pulumi.String("Standard"),
+// 			ResourceType: pulumi.String("VirtualMachines"),
+// 			Tier:         pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -41,6 +42,8 @@ import (
 type SubscriptionPricing struct {
 	pulumi.CustomResourceState
 
+	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier pulumi.StringOutput `pulumi:"tier"`
 }
@@ -76,11 +79,15 @@ func GetSubscriptionPricing(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubscriptionPricing resources.
 type subscriptionPricingState struct {
+	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+	ResourceType *string `pulumi:"resourceType"`
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier *string `pulumi:"tier"`
 }
 
 type SubscriptionPricingState struct {
+	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+	ResourceType pulumi.StringPtrInput
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier pulumi.StringPtrInput
 }
@@ -90,12 +97,16 @@ func (SubscriptionPricingState) ElementType() reflect.Type {
 }
 
 type subscriptionPricingArgs struct {
+	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+	ResourceType *string `pulumi:"resourceType"`
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier string `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a SubscriptionPricing resource.
 type SubscriptionPricingArgs struct {
+	// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, and `VirtualMachines`.
+	ResourceType pulumi.StringPtrInput
 	// The pricing tier to use. Possible values are `Free` and `Standard`.
 	Tier pulumi.StringInput
 }

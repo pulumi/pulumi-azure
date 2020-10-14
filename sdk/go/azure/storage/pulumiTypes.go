@@ -3884,7 +3884,7 @@ func (o GetPolicyRuleActionBaseBlobArrayOutput) Index(i pulumi.IntInput) GetPoli
 }
 
 type GetPolicyRuleActionSnapshot struct {
-	// The age in days after create to delete the snaphot.
+	// The age in days after create to delete the snapshot.
 	DeleteAfterDaysSinceCreationGreaterThan int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
@@ -3900,7 +3900,7 @@ type GetPolicyRuleActionSnapshotInput interface {
 }
 
 type GetPolicyRuleActionSnapshotArgs struct {
-	// The age in days after create to delete the snaphot.
+	// The age in days after create to delete the snapshot.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
@@ -3955,7 +3955,7 @@ func (o GetPolicyRuleActionSnapshotOutput) ToGetPolicyRuleActionSnapshotOutputWi
 	return o
 }
 
-// The age in days after create to delete the snaphot.
+// The age in days after create to delete the snapshot.
 func (o GetPolicyRuleActionSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPolicyRuleActionSnapshot) int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
 }

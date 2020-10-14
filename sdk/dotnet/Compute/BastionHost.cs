@@ -43,7 +43,10 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "192.168.1.224/27",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "192.168.1.224/27",
+    ///             },
     ///         });
     ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
     ///         {

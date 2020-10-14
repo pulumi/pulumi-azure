@@ -74,7 +74,7 @@ class GetFactoryResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The Azure location where the resource exists.
+        The Azure Region where the Azure Data Factory exists.
         """
         return pulumi.get(self, "location")
 
@@ -92,8 +92,7 @@ class GetFactoryResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags assigned to the resource.
-        ---
+        A mapping of tags assigned to the Azure Data Factory.
         """
         return pulumi.get(self, "tags")
 
@@ -134,14 +133,14 @@ def get_factory(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.datafactory.get_factory(name=azurerm_data_factory["example"]["name"],
-        resource_group_name=azurerm_data_factory["example"]["resource_group_name"])
-    pulumi.export("dataFactoryId", azurerm_data_factory["example"]["id"])
+    example = azure.datafactory.get_factory(name="existing-adf",
+        resource_group_name="existing-rg")
+    pulumi.export("id", example.id)
     ```
 
 
-    :param str name: Specifies the name of the Data Factory to retrieve information about.
-    :param str resource_group_name: The name of the resource group where the Data Factory exists.
+    :param str name: The name of this Azure Data Factory.
+    :param str resource_group_name: The name of the Resource Group where the Azure Data Factory exists.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -47,7 +47,9 @@ import (
 // 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
 // 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefix:      pulumi.String("10.7.29.0/29"),
+// 			AddressPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.7.29.0/29"),
+// 			},
 // 			ServiceEndpoints: pulumi.StringArray{
 // 				pulumi.String("Microsoft.Sql"),
 // 			},

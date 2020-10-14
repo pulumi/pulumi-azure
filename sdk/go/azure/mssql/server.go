@@ -50,6 +50,7 @@ import (
 // 			Version:                    pulumi.String("12.0"),
 // 			AdministratorLogin:         pulumi.String("missadministrator"),
 // 			AdministratorLoginPassword: pulumi.String("thisIsKat11"),
+// 			MinimumTlsVersion:          pulumi.String("1.2"),
 // 			AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
 // 				LoginUsername: pulumi.String("AzureAD Admin"),
 // 				ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
@@ -74,7 +75,7 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The administrator's login name for the new server. Changing this forces a new resource to be created.
+	// The administrator login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
@@ -92,6 +93,8 @@ type Server struct {
 	Identity ServerIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -102,7 +105,7 @@ type Server struct {
 	RestorableDroppedDatabaseIds pulumi.StringArrayOutput `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -146,7 +149,7 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// The administrator's login name for the new server. Changing this forces a new resource to be created.
+	// The administrator login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
@@ -164,6 +167,8 @@ type serverState struct {
 	Identity *ServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -174,12 +179,12 @@ type serverState struct {
 	RestorableDroppedDatabaseIds []string `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version *string `pulumi:"version"`
 }
 
 type ServerState struct {
-	// The administrator's login name for the new server. Changing this forces a new resource to be created.
+	// The administrator login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringPtrInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringPtrInput
@@ -197,6 +202,8 @@ type ServerState struct {
 	Identity ServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -207,7 +214,7 @@ type ServerState struct {
 	RestorableDroppedDatabaseIds pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringPtrInput
 }
 
@@ -216,7 +223,7 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// The administrator's login name for the new server. Changing this forces a new resource to be created.
+	// The administrator login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
@@ -232,6 +239,8 @@ type serverArgs struct {
 	Identity *ServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name *string `pulumi:"name"`
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -240,13 +249,13 @@ type serverArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// The administrator's login name for the new server. Changing this forces a new resource to be created.
+	// The administrator login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin pulumi.StringInput
 	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword pulumi.StringInput
@@ -262,6 +271,8 @@ type ServerArgs struct {
 	Identity ServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
 	Name pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this server. Defaults to `true`.
@@ -270,7 +281,7 @@ type ServerArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// This servers MS SQL version. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
 	Version pulumi.StringInput
 }
 

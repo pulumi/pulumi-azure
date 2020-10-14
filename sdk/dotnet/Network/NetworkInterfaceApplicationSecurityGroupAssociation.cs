@@ -39,7 +39,10 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefix = "10.0.1.0/24",
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.1.0/24",
+    ///             },
     ///         });
     ///         var exampleApplicationSecurityGroup = new Azure.Network.ApplicationSecurityGroup("exampleApplicationSecurityGroup", new Azure.Network.ApplicationSecurityGroupArgs
     ///         {

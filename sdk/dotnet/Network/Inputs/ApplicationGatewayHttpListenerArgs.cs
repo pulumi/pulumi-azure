@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> FrontendPortName { get; set; } = null!;
 
         /// <summary>
-        /// The Hostname which should be used for this HTTP Listener.
+        /// The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }

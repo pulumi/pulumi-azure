@@ -11,6 +11,48 @@ namespace Pulumi.Azure.LogAnalytics
 {
     /// <summary>
     /// Links a Log Analytics (formally Operational Insights) Workspace to another resource. The (currently) only linkable service is an Azure Automation Account.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "Basic",
+    ///             Tags = 
+    ///             {
+    ///                 { "environment", "development" },
+    ///             },
+    ///         });
+    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Sku = "PerGB2018",
+    ///             RetentionInDays = 30,
+    ///         });
+    ///         var exampleLinkedService = new Azure.LogAnalytics.LinkedService("exampleLinkedService", new Azure.LogAnalytics.LinkedServiceArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///             ResourceId = exampleAccount.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class LinkedService : Pulumi.CustomResource
     {

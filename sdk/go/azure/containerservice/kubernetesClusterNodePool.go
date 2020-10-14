@@ -80,17 +80,17 @@ type KubernetesClusterNodePool struct {
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrOutput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntOutput `pulumi:"maxPods"`
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
 	MinCount pulumi.IntPtrOutput `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
@@ -158,17 +158,17 @@ type kubernetesClusterNodePoolState struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
 	MaxCount *int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
 	MinCount *int `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
@@ -203,17 +203,17 @@ type KubernetesClusterNodePoolState struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringPtrInput
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
 	MinCount pulumi.IntPtrInput
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput
@@ -252,17 +252,17 @@ type kubernetesClusterNodePoolArgs struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
 	MaxCount *int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
 	MinCount *int `pulumi:"minCount"`
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
@@ -298,17 +298,17 @@ type KubernetesClusterNodePoolArgs struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringInput
-	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be greater than or equal to `minCount`.
+	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput
-	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be less than or equal to `maxCount`.
+	// The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be less than or equal to `maxCount`.
 	MinCount pulumi.IntPtrInput
 	// Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
 	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The initial number of nodes which should exist within this Node Pool. Valid values are between `1` and `100` and must be a value in the range `minCount` - `maxCount`.
+	// The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `100` and must be a value in the range `minCount` - `maxCount`.
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput

@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *     authenticationType: "Anonymous",
  *     url: "https://www.bing.com",
  * });
- * const exampleDatasetDelimitedText = new azure.datafactory.DatasetDelimitedText("exampleDatasetDelimitedText", {
+ * const exampleDatasetHttp = new azure.datafactory.DatasetHttp("exampleDatasetHttp", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryName: exampleFactory.name,
  *     linkedServiceName: exampleLinkedServiceWeb.name,
- *     url: "http://www.bing.com",
+ *     relativeUrl: "http://www.bing.com",
  *     requestBody: "foo=bar",
  *     requestMethod: "POST",
  * });
