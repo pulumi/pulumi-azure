@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 3.25.0 (2020-10-14)
 * Upgrade to v2.31.1 of the AzureRM Terraform Provider 
 * Disable autonaming for `mysql.Configuration`, `mariadb.Configuration` and `postgres.Configuration` as the resource
   names need to relate to validate database configuration names.
 * Upgrade to pulumi-terraform-bridge v2.11.0.
-
----
 
 ## 3.24.1 (2020-10-08)
 * Upgrade to pulumi-terraform-bridge v2.10.4 which fixes a regression in how config values are passed to the provider
