@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Storage
         /// A mapping of MetaData for this File Share.
         /// </summary>
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the share. Must be unique within the storage account where the share is located.

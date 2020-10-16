@@ -66,7 +66,7 @@ type Service struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Search Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -126,7 +126,7 @@ type serviceState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey *string `pulumi:"secondaryKey"`
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Search Service.
 	Tags map[string]string `pulumi:"tags"`
@@ -153,7 +153,7 @@ type ServiceState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey pulumi.StringPtrInput
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Search Service.
 	Tags pulumi.StringMapInput
@@ -178,7 +178,7 @@ type serviceArgs struct {
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Search Service.
 	Tags map[string]string `pulumi:"tags"`
@@ -200,7 +200,7 @@ type ServiceArgs struct {
 	ReplicaCount pulumi.IntPtrInput
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku pulumi.StringInput
 	// A mapping of tags which should be assigned to the Search Service.
 	Tags pulumi.StringMapInput

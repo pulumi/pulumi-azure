@@ -46,6 +46,8 @@ __all__ = [
     'RegistryNetworkRuleSetArgs',
     'RegistryNetworkRuleSetIpRuleArgs',
     'RegistryNetworkRuleSetVirtualNetworkArgs',
+    'RegistryRetentionPolicyArgs',
+    'RegistryTrustPolicyArgs',
 ]
 
 @pulumi.input_type
@@ -2710,5 +2712,67 @@ class RegistryNetworkRuleSetVirtualNetworkArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class RegistryRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 days: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[int] days: The number of days to retain an untagged manifest after which it gets purged.
+        :param pulumi.Input[bool] enabled: Boolean value that indicates whether the policy is enabled. Default is `7`.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value that indicates whether the policy is enabled. Default is `7`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class RegistryTrustPolicyArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Boolean value that indicates whether the policy is enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value that indicates whether the policy is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 

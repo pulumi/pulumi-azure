@@ -6285,6 +6285,287 @@ func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) Index(i pulumi.IntInput
 	}).(RegistryNetworkRuleSetVirtualNetworkOutput)
 }
 
+type RegistryRetentionPolicy struct {
+	// The number of days to retain an untagged manifest after which it gets purged.
+	Days *int `pulumi:"days"`
+	// Boolean value that indicates whether the policy is enabled. Default is `7`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// RegistryRetentionPolicyInput is an input type that accepts RegistryRetentionPolicyArgs and RegistryRetentionPolicyOutput values.
+// You can construct a concrete instance of `RegistryRetentionPolicyInput` via:
+//
+//          RegistryRetentionPolicyArgs{...}
+type RegistryRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToRegistryRetentionPolicyOutput() RegistryRetentionPolicyOutput
+	ToRegistryRetentionPolicyOutputWithContext(context.Context) RegistryRetentionPolicyOutput
+}
+
+type RegistryRetentionPolicyArgs struct {
+	// The number of days to retain an untagged manifest after which it gets purged.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// Boolean value that indicates whether the policy is enabled. Default is `7`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (RegistryRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRetentionPolicy)(nil)).Elem()
+}
+
+func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyOutput() RegistryRetentionPolicyOutput {
+	return i.ToRegistryRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyOutputWithContext(ctx context.Context) RegistryRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRetentionPolicyOutput)
+}
+
+func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
+	return i.ToRegistryRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryRetentionPolicyArgs) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRetentionPolicyOutput).ToRegistryRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// RegistryRetentionPolicyPtrInput is an input type that accepts RegistryRetentionPolicyArgs, RegistryRetentionPolicyPtr and RegistryRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `RegistryRetentionPolicyPtrInput` via:
+//
+//          RegistryRetentionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput
+	ToRegistryRetentionPolicyPtrOutputWithContext(context.Context) RegistryRetentionPolicyPtrOutput
+}
+
+type registryRetentionPolicyPtrType RegistryRetentionPolicyArgs
+
+func RegistryRetentionPolicyPtr(v *RegistryRetentionPolicyArgs) RegistryRetentionPolicyPtrInput {
+	return (*registryRetentionPolicyPtrType)(v)
+}
+
+func (*registryRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRetentionPolicy)(nil)).Elem()
+}
+
+func (i *registryRetentionPolicyPtrType) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
+	return i.ToRegistryRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *registryRetentionPolicyPtrType) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRetentionPolicyPtrOutput)
+}
+
+type RegistryRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (RegistryRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRetentionPolicy)(nil)).Elem()
+}
+
+func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyOutput() RegistryRetentionPolicyOutput {
+	return o
+}
+
+func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyOutputWithContext(ctx context.Context) RegistryRetentionPolicyOutput {
+	return o
+}
+
+func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
+	return o.ToRegistryRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v RegistryRetentionPolicy) *RegistryRetentionPolicy {
+		return &v
+	}).(RegistryRetentionPolicyPtrOutput)
+}
+
+// The number of days to retain an untagged manifest after which it gets purged.
+func (o RegistryRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RegistryRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// Boolean value that indicates whether the policy is enabled. Default is `7`.
+func (o RegistryRetentionPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryRetentionPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type RegistryRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRetentionPolicy)(nil)).Elem()
+}
+
+func (o RegistryRetentionPolicyPtrOutput) ToRegistryRetentionPolicyPtrOutput() RegistryRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o RegistryRetentionPolicyPtrOutput) ToRegistryRetentionPolicyPtrOutputWithContext(ctx context.Context) RegistryRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o RegistryRetentionPolicyPtrOutput) Elem() RegistryRetentionPolicyOutput {
+	return o.ApplyT(func(v *RegistryRetentionPolicy) RegistryRetentionPolicy { return *v }).(RegistryRetentionPolicyOutput)
+}
+
+// The number of days to retain an untagged manifest after which it gets purged.
+func (o RegistryRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RegistryRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// Boolean value that indicates whether the policy is enabled. Default is `7`.
+func (o RegistryRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RegistryRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RegistryTrustPolicy struct {
+	// Boolean value that indicates whether the policy is enabled.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// RegistryTrustPolicyInput is an input type that accepts RegistryTrustPolicyArgs and RegistryTrustPolicyOutput values.
+// You can construct a concrete instance of `RegistryTrustPolicyInput` via:
+//
+//          RegistryTrustPolicyArgs{...}
+type RegistryTrustPolicyInput interface {
+	pulumi.Input
+
+	ToRegistryTrustPolicyOutput() RegistryTrustPolicyOutput
+	ToRegistryTrustPolicyOutputWithContext(context.Context) RegistryTrustPolicyOutput
+}
+
+type RegistryTrustPolicyArgs struct {
+	// Boolean value that indicates whether the policy is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (RegistryTrustPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTrustPolicy)(nil)).Elem()
+}
+
+func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyOutput() RegistryTrustPolicyOutput {
+	return i.ToRegistryTrustPolicyOutputWithContext(context.Background())
+}
+
+func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyOutputWithContext(ctx context.Context) RegistryTrustPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTrustPolicyOutput)
+}
+
+func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
+	return i.ToRegistryTrustPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryTrustPolicyArgs) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTrustPolicyOutput).ToRegistryTrustPolicyPtrOutputWithContext(ctx)
+}
+
+// RegistryTrustPolicyPtrInput is an input type that accepts RegistryTrustPolicyArgs, RegistryTrustPolicyPtr and RegistryTrustPolicyPtrOutput values.
+// You can construct a concrete instance of `RegistryTrustPolicyPtrInput` via:
+//
+//          RegistryTrustPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryTrustPolicyPtrInput interface {
+	pulumi.Input
+
+	ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput
+	ToRegistryTrustPolicyPtrOutputWithContext(context.Context) RegistryTrustPolicyPtrOutput
+}
+
+type registryTrustPolicyPtrType RegistryTrustPolicyArgs
+
+func RegistryTrustPolicyPtr(v *RegistryTrustPolicyArgs) RegistryTrustPolicyPtrInput {
+	return (*registryTrustPolicyPtrType)(v)
+}
+
+func (*registryTrustPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTrustPolicy)(nil)).Elem()
+}
+
+func (i *registryTrustPolicyPtrType) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
+	return i.ToRegistryTrustPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *registryTrustPolicyPtrType) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryTrustPolicyPtrOutput)
+}
+
+type RegistryTrustPolicyOutput struct{ *pulumi.OutputState }
+
+func (RegistryTrustPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryTrustPolicy)(nil)).Elem()
+}
+
+func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyOutput() RegistryTrustPolicyOutput {
+	return o
+}
+
+func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyOutputWithContext(ctx context.Context) RegistryTrustPolicyOutput {
+	return o
+}
+
+func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
+	return o.ToRegistryTrustPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryTrustPolicyOutput) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
+	return o.ApplyT(func(v RegistryTrustPolicy) *RegistryTrustPolicy {
+		return &v
+	}).(RegistryTrustPolicyPtrOutput)
+}
+
+// Boolean value that indicates whether the policy is enabled.
+func (o RegistryTrustPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryTrustPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type RegistryTrustPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryTrustPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryTrustPolicy)(nil)).Elem()
+}
+
+func (o RegistryTrustPolicyPtrOutput) ToRegistryTrustPolicyPtrOutput() RegistryTrustPolicyPtrOutput {
+	return o
+}
+
+func (o RegistryTrustPolicyPtrOutput) ToRegistryTrustPolicyPtrOutputWithContext(ctx context.Context) RegistryTrustPolicyPtrOutput {
+	return o
+}
+
+func (o RegistryTrustPolicyPtrOutput) Elem() RegistryTrustPolicyOutput {
+	return o.ApplyT(func(v *RegistryTrustPolicy) RegistryTrustPolicy { return *v }).(RegistryTrustPolicyOutput)
+}
+
+// Boolean value that indicates whether the policy is enabled.
+func (o RegistryTrustPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RegistryTrustPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetKubernetesClusterAddonProfile struct {
 	// A `azurePolicy` block.
 	AzurePolicies []GetKubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicies"`
@@ -8565,6 +8846,10 @@ func init() {
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworkOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetVirtualNetworkArrayOutput{})
+	pulumi.RegisterOutputType(RegistryRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(RegistryRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RegistryTrustPolicyOutput{})
+	pulumi.RegisterOutputType(RegistryTrustPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzurePolicyOutput{})

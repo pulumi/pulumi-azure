@@ -93,6 +93,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `retentionPolicy` block as documented below.
+     */
+    public readonly retentionPolicy!: pulumi.Output<outputs.containerservice.RegistryRetentionPolicy>;
+    /**
      * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
@@ -104,6 +108,10 @@ export class Registry extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A `trustPolicy` block as documented below.
+     */
+    public readonly trustPolicy!: pulumi.Output<outputs.containerservice.RegistryTrustPolicy>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -126,9 +134,11 @@ export class Registry extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trustPolicy"] = state ? state.trustPolicy : undefined;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
@@ -140,9 +150,11 @@ export class Registry extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trustPolicy"] = args ? args.trustPolicy : undefined;
             inputs["adminPassword"] = undefined /*out*/;
             inputs["adminUsername"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
@@ -199,6 +211,10 @@ export interface RegistryState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * A `retentionPolicy` block as documented below.
+     */
+    readonly retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
+    /**
      * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
      */
     readonly sku?: pulumi.Input<string>;
@@ -210,6 +226,10 @@ export interface RegistryState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `trustPolicy` block as documented below.
+     */
+    readonly trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
 }
 
 /**
@@ -241,6 +261,10 @@ export interface RegistryArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * A `retentionPolicy` block as documented below.
+     */
+    readonly retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
+    /**
      * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
      */
     readonly sku?: pulumi.Input<string>;
@@ -252,4 +276,8 @@ export interface RegistryArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `trustPolicy` block as documented below.
+     */
+    readonly trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
 }

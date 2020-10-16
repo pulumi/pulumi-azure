@@ -26,9 +26,9 @@ import * as utilities from "../utilities";
  *     version: "5.7",
  *     autoGrowEnabled: true,
  *     backupRetentionDays: 7,
- *     geoRedundantBackupEnabled: true,
- *     infrastructureEncryptionEnabled: true,
- *     publicNetworkAccessEnabled: false,
+ *     geoRedundantBackupEnabled: false,
+ *     infrastructureEncryptionEnabled: false,
+ *     publicNetworkAccessEnabled: true,
  *     sslEnforcementEnabled: true,
  *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });

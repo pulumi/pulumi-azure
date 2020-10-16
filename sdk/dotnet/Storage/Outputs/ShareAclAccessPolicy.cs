@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
-        public readonly string Expiry;
+        public readonly string? Expiry;
         /// <summary>
         /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
-        public readonly string Start;
+        public readonly string? Start;
 
         [OutputConstructor]
         private ShareAclAccessPolicy(
-            string expiry,
+            string? expiry,
 
             string permissions,
 
-            string start)
+            string? start)
         {
             Expiry = expiry;
             Permissions = permissions;

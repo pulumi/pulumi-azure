@@ -69,12 +69,16 @@ type Registry struct {
 	NetworkRuleSet RegistryNetworkRuleSetOutput `pulumi:"networkRuleSet"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `retentionPolicy` block as documented below.
+	RetentionPolicy RegistryRetentionPolicyOutput `pulumi:"retentionPolicy"`
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A `trustPolicy` block as documented below.
+	TrustPolicy RegistryTrustPolicyOutput `pulumi:"trustPolicy"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -126,12 +130,16 @@ type registryState struct {
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `retentionPolicy` block as documented below.
+	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku *string `pulumi:"sku"`
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `trustPolicy` block as documented below.
+	TrustPolicy *RegistryTrustPolicy `pulumi:"trustPolicy"`
 }
 
 type RegistryState struct {
@@ -153,12 +161,16 @@ type RegistryState struct {
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `retentionPolicy` block as documented below.
+	RetentionPolicy RegistryRetentionPolicyPtrInput
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrInput
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `trustPolicy` block as documented below.
+	TrustPolicy RegistryTrustPolicyPtrInput
 }
 
 func (RegistryState) ElementType() reflect.Type {
@@ -178,12 +190,16 @@ type registryArgs struct {
 	NetworkRuleSet *RegistryNetworkRuleSet `pulumi:"networkRuleSet"`
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `retentionPolicy` block as documented below.
+	RetentionPolicy *RegistryRetentionPolicy `pulumi:"retentionPolicy"`
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku *string `pulumi:"sku"`
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// A `trustPolicy` block as documented below.
+	TrustPolicy *RegistryTrustPolicy `pulumi:"trustPolicy"`
 }
 
 // The set of arguments for constructing a Registry resource.
@@ -200,12 +216,16 @@ type RegistryArgs struct {
 	NetworkRuleSet RegistryNetworkRuleSetPtrInput
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `retentionPolicy` block as documented below.
+	RetentionPolicy RegistryRetentionPolicyPtrInput
 	// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
 	Sku pulumi.StringPtrInput
 	// The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// A `trustPolicy` block as documented below.
+	TrustPolicy RegistryTrustPolicyPtrInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {

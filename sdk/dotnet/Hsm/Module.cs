@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Hsm
         /// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         [Output("stampId")]
-        public Output<string> StampId { get; private set; } = null!;
+        public Output<string?> StampId { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
@@ -264,8 +264,8 @@ namespace Pulumi.Azure.Hsm
         /// <summary>
         /// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
-        [Input("stampId", required: true)]
-        public Input<string> StampId { get; set; } = null!;
+        [Input("stampId")]
+        public Input<string>? StampId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

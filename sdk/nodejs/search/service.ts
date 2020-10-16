@@ -92,7 +92,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
-     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -201,7 +201,7 @@ export interface ServiceState {
      */
     readonly secondaryKey?: pulumi.Input<string>;
     /**
-     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      */
     readonly sku?: pulumi.Input<string>;
     /**
@@ -243,7 +243,7 @@ export interface ServiceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2` and `standard3` Changing this forces a new Search Service to be created.
+     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      */
     readonly sku: pulumi.Input<string>;
     /**

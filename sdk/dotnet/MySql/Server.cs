@@ -37,9 +37,9 @@ namespace Pulumi.Azure.MySql
     ///             Version = "5.7",
     ///             AutoGrowEnabled = true,
     ///             BackupRetentionDays = 7,
-    ///             GeoRedundantBackupEnabled = true,
-    ///             InfrastructureEncryptionEnabled = true,
-    ///             PublicNetworkAccessEnabled = false,
+    ///             GeoRedundantBackupEnabled = false,
+    ///             InfrastructureEncryptionEnabled = false,
+    ///             PublicNetworkAccessEnabled = true,
     ///             SslEnforcementEnabled = true,
     ///             SslMinimalTlsVersionEnforced = "TLS1_2",
     ///         });

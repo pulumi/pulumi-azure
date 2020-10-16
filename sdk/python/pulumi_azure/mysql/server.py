@@ -63,9 +63,9 @@ class Server(pulumi.CustomResource):
             version="5.7",
             auto_grow_enabled=True,
             backup_retention_days=7,
-            geo_redundant_backup_enabled=True,
-            infrastructure_encryption_enabled=True,
-            public_network_access_enabled=False,
+            geo_redundant_backup_enabled=False,
+            infrastructure_encryption_enabled=False,
+            public_network_access_enabled=True,
             ssl_enforcement_enabled=True,
             ssl_minimal_tls_version_enforced="TLS1_2")
         ```

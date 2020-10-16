@@ -1026,29 +1026,19 @@ class ShareAclArgs:
 @pulumi.input_type
 class ShareAclAccessPolicyArgs:
     def __init__(__self__, *,
-                 expiry: pulumi.Input[str],
                  permissions: pulumi.Input[str],
-                 start: pulumi.Input[str]):
+                 expiry: Optional[pulumi.Input[str]] = None,
+                 start: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         :param pulumi.Input[str] permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        :param pulumi.Input[str] expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         :param pulumi.Input[str] start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
-        pulumi.set(__self__, "expiry", expiry)
         pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def expiry(self) -> pulumi.Input[str]:
-        """
-        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-        """
-        return pulumi.get(self, "expiry")
-
-    @expiry.setter
-    def expiry(self, value: pulumi.Input[str]):
-        pulumi.set(self, "expiry", value)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -1064,14 +1054,26 @@ class ShareAclAccessPolicyArgs:
 
     @property
     @pulumi.getter
-    def start(self) -> pulumi.Input[str]:
+    def expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        return pulumi.get(self, "expiry")
+
+    @expiry.setter
+    def expiry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[pulumi.Input[str]]:
         """
         The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
         return pulumi.get(self, "start")
 
     @start.setter
-    def start(self, value: pulumi.Input[str]):
+    def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
 
 

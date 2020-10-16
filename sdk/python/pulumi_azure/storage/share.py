@@ -146,7 +146,7 @@ class Share(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def metadata(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A mapping of MetaData for this File Share.
         """

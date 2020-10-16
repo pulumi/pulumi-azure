@@ -41,9 +41,9 @@ import (
 // 			Version:                         pulumi.String("5.7"),
 // 			AutoGrowEnabled:                 pulumi.Bool(true),
 // 			BackupRetentionDays:             pulumi.Int(7),
-// 			GeoRedundantBackupEnabled:       pulumi.Bool(true),
-// 			InfrastructureEncryptionEnabled: pulumi.Bool(true),
-// 			PublicNetworkAccessEnabled:      pulumi.Bool(false),
+// 			GeoRedundantBackupEnabled:       pulumi.Bool(false),
+// 			InfrastructureEncryptionEnabled: pulumi.Bool(false),
+// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
 // 			SslEnforcementEnabled:           pulumi.Bool(true),
 // 			SslMinimalTlsVersionEnforced:    pulumi.String("TLS1_2"),
 // 		})

@@ -6257,6 +6257,24 @@ export namespace containerservice {
          */
         subnetId: pulumi.Input<string>;
     }
+
+    export interface RegistryRetentionPolicy {
+        /**
+         * The number of days to retain an untagged manifest after which it gets purged.
+         */
+        days?: pulumi.Input<number>;
+        /**
+         * Boolean value that indicates whether the policy is enabled. Default is `7`.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface RegistryTrustPolicy {
+        /**
+         * Boolean value that indicates whether the policy is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
 }
 
 export namespace core {
@@ -15606,7 +15624,7 @@ export namespace storage {
         /**
          * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
-        expiry: pulumi.Input<string>;
+        expiry?: pulumi.Input<string>;
         /**
          * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
          */
@@ -15614,7 +15632,7 @@ export namespace storage {
         /**
          * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
-        start: pulumi.Input<string>;
+        start?: pulumi.Input<string>;
     }
 
     export interface TableAcl {

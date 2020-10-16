@@ -6,6 +6,7 @@
 from .domain import *
 from .domain_topic import *
 from .event_subscription import *
+from .get_system_topic import *
 from .get_topic import *
 from .topic import *
 from ._inputs import *
