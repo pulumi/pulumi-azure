@@ -867,25 +867,19 @@ class ShareAcl(dict):
 @pulumi.output_type
 class ShareAclAccessPolicy(dict):
     def __init__(__self__, *,
-                 expiry: str,
                  permissions: str,
-                 start: str):
+                 expiry: Optional[str] = None,
+                 start: Optional[str] = None):
         """
-        :param str expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         :param str permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        :param str expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         :param str start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
-        pulumi.set(__self__, "expiry", expiry)
         pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "start", start)
-
-    @property
-    @pulumi.getter
-    def expiry(self) -> str:
-        """
-        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-        """
-        return pulumi.get(self, "expiry")
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -897,7 +891,15 @@ class ShareAclAccessPolicy(dict):
 
     @property
     @pulumi.getter
-    def start(self) -> str:
+    def expiry(self) -> Optional[str]:
+        """
+        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
         """
         The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """

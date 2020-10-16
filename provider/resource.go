@@ -797,6 +797,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_eventhub_cluster": {Tok: azureResource(azureEventHub, "Cluster")},
 
+			// Eventgrid
+			"azurerm_eventgrid_system_topic": {Tok: azureResource(azureEventGrid, "getSystemTopic")},
+
 			// IoT Resources
 			"azurerm_iothub": {Tok: azureResource(azureIot, "IoTHub"),
 				Docs: &tfbridge.DocInfo{
@@ -1275,6 +1278,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_security_center_subscription_pricing": {Tok: azureResource(azureSecurityCenter, "SubscriptionPricing")},
 			"azurerm_security_center_workspace":            {Tok: azureResource(azureSecurityCenter, "Workspace")},
 			"azurerm_advanced_threat_protection":           {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
+			"azurerm_security_center_setting":              {Tok: azureResource(azureSecurityCenter, "Setting")},
 
 			// Service Fabric
 			"azurerm_service_fabric_cluster":          {Tok: azureResource(azureServiceFabric, "Cluster")},
@@ -1829,6 +1833,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_synapse_workspace":               {Tok: azureDataSource(azureSynapse, "getWorkspace")},
 			"azurerm_attestation_provider":            {Tok: azureDataSource(azureAttestation, "getProvider")},
 			"azurerm_databricks_workspace":            {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
+			"azurerm_mysql_server":                    {Tok: azureDataSource(azureMySQL, "getServer")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

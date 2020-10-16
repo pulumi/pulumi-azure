@@ -628,6 +628,275 @@ func (o ServerThreatDetectionPolicyPtrOutput) StorageEndpoint() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetServerIdentity struct {
+	// The Client ID of the Service Principal assigned to this MySQL Server.
+	PrincipalId string `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	// ---
+	TenantId string `pulumi:"tenantId"`
+	// The Type of Identity used for this MySQL Server.
+	Type string `pulumi:"type"`
+}
+
+// GetServerIdentityInput is an input type that accepts GetServerIdentityArgs and GetServerIdentityOutput values.
+// You can construct a concrete instance of `GetServerIdentityInput` via:
+//
+//          GetServerIdentityArgs{...}
+type GetServerIdentityInput interface {
+	pulumi.Input
+
+	ToGetServerIdentityOutput() GetServerIdentityOutput
+	ToGetServerIdentityOutputWithContext(context.Context) GetServerIdentityOutput
+}
+
+type GetServerIdentityArgs struct {
+	// The Client ID of the Service Principal assigned to this MySQL Server.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the Tenant the Service Principal is assigned in.
+	// ---
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Type of Identity used for this MySQL Server.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServerIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerIdentity)(nil)).Elem()
+}
+
+func (i GetServerIdentityArgs) ToGetServerIdentityOutput() GetServerIdentityOutput {
+	return i.ToGetServerIdentityOutputWithContext(context.Background())
+}
+
+func (i GetServerIdentityArgs) ToGetServerIdentityOutputWithContext(ctx context.Context) GetServerIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityOutput)
+}
+
+// GetServerIdentityArrayInput is an input type that accepts GetServerIdentityArray and GetServerIdentityArrayOutput values.
+// You can construct a concrete instance of `GetServerIdentityArrayInput` via:
+//
+//          GetServerIdentityArray{ GetServerIdentityArgs{...} }
+type GetServerIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetServerIdentityArrayOutput() GetServerIdentityArrayOutput
+	ToGetServerIdentityArrayOutputWithContext(context.Context) GetServerIdentityArrayOutput
+}
+
+type GetServerIdentityArray []GetServerIdentityInput
+
+func (GetServerIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerIdentity)(nil)).Elem()
+}
+
+func (i GetServerIdentityArray) ToGetServerIdentityArrayOutput() GetServerIdentityArrayOutput {
+	return i.ToGetServerIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerIdentityArray) ToGetServerIdentityArrayOutputWithContext(ctx context.Context) GetServerIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityArrayOutput)
+}
+
+type GetServerIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetServerIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerIdentity)(nil)).Elem()
+}
+
+func (o GetServerIdentityOutput) ToGetServerIdentityOutput() GetServerIdentityOutput {
+	return o
+}
+
+func (o GetServerIdentityOutput) ToGetServerIdentityOutputWithContext(ctx context.Context) GetServerIdentityOutput {
+	return o
+}
+
+// The Client ID of the Service Principal assigned to this MySQL Server.
+func (o GetServerIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The ID of the Tenant the Service Principal is assigned in.
+// ---
+func (o GetServerIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The Type of Identity used for this MySQL Server.
+func (o GetServerIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServerIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerIdentity)(nil)).Elem()
+}
+
+func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutput() GetServerIdentityArrayOutput {
+	return o
+}
+
+func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutputWithContext(ctx context.Context) GetServerIdentityArrayOutput {
+	return o
+}
+
+func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerIdentity {
+		return vs[0].([]GetServerIdentity)[vs[1].(int)]
+	}).(GetServerIdentityOutput)
+}
+
+type GetServerThreatDetectionPolicy struct {
+	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+	DisabledAlerts []string `pulumi:"disabledAlerts"`
+	// Should the account administrators be emailed when this alert is triggered?
+	EmailAccountAdmins bool `pulumi:"emailAccountAdmins"`
+	// A list of email addresses which alerts should be sent to.
+	EmailAddresses []string `pulumi:"emailAddresses"`
+	// Is the policy enabled?
+	Enabled bool `pulumi:"enabled"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays int `pulumi:"retentionDays"`
+	// Specifies the identifier key of the Threat Detection audit storage account.
+	StorageAccountAccessKey string `pulumi:"storageAccountAccessKey"`
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	StorageEndpoint string `pulumi:"storageEndpoint"`
+}
+
+// GetServerThreatDetectionPolicyInput is an input type that accepts GetServerThreatDetectionPolicyArgs and GetServerThreatDetectionPolicyOutput values.
+// You can construct a concrete instance of `GetServerThreatDetectionPolicyInput` via:
+//
+//          GetServerThreatDetectionPolicyArgs{...}
+type GetServerThreatDetectionPolicyInput interface {
+	pulumi.Input
+
+	ToGetServerThreatDetectionPolicyOutput() GetServerThreatDetectionPolicyOutput
+	ToGetServerThreatDetectionPolicyOutputWithContext(context.Context) GetServerThreatDetectionPolicyOutput
+}
+
+type GetServerThreatDetectionPolicyArgs struct {
+	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
+	// Should the account administrators be emailed when this alert is triggered?
+	EmailAccountAdmins pulumi.BoolInput `pulumi:"emailAccountAdmins"`
+	// A list of email addresses which alerts should be sent to.
+	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
+	// Is the policy enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
+	// Specifies the identifier key of the Threat Detection audit storage account.
+	StorageAccountAccessKey pulumi.StringInput `pulumi:"storageAccountAccessKey"`
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+	StorageEndpoint pulumi.StringInput `pulumi:"storageEndpoint"`
+}
+
+func (GetServerThreatDetectionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (i GetServerThreatDetectionPolicyArgs) ToGetServerThreatDetectionPolicyOutput() GetServerThreatDetectionPolicyOutput {
+	return i.ToGetServerThreatDetectionPolicyOutputWithContext(context.Background())
+}
+
+func (i GetServerThreatDetectionPolicyArgs) ToGetServerThreatDetectionPolicyOutputWithContext(ctx context.Context) GetServerThreatDetectionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerThreatDetectionPolicyOutput)
+}
+
+// GetServerThreatDetectionPolicyArrayInput is an input type that accepts GetServerThreatDetectionPolicyArray and GetServerThreatDetectionPolicyArrayOutput values.
+// You can construct a concrete instance of `GetServerThreatDetectionPolicyArrayInput` via:
+//
+//          GetServerThreatDetectionPolicyArray{ GetServerThreatDetectionPolicyArgs{...} }
+type GetServerThreatDetectionPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetServerThreatDetectionPolicyArrayOutput() GetServerThreatDetectionPolicyArrayOutput
+	ToGetServerThreatDetectionPolicyArrayOutputWithContext(context.Context) GetServerThreatDetectionPolicyArrayOutput
+}
+
+type GetServerThreatDetectionPolicyArray []GetServerThreatDetectionPolicyInput
+
+func (GetServerThreatDetectionPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (i GetServerThreatDetectionPolicyArray) ToGetServerThreatDetectionPolicyArrayOutput() GetServerThreatDetectionPolicyArrayOutput {
+	return i.ToGetServerThreatDetectionPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerThreatDetectionPolicyArray) ToGetServerThreatDetectionPolicyArrayOutputWithContext(ctx context.Context) GetServerThreatDetectionPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerThreatDetectionPolicyArrayOutput)
+}
+
+type GetServerThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetServerThreatDetectionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (o GetServerThreatDetectionPolicyOutput) ToGetServerThreatDetectionPolicyOutput() GetServerThreatDetectionPolicyOutput {
+	return o
+}
+
+func (o GetServerThreatDetectionPolicyOutput) ToGetServerThreatDetectionPolicyOutputWithContext(ctx context.Context) GetServerThreatDetectionPolicyOutput {
+	return o
+}
+
+// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+func (o GetServerThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServerThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+}
+
+// Should the account administrators be emailed when this alert is triggered?
+func (o GetServerThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerThreatDetectionPolicy) bool { return v.EmailAccountAdmins }).(pulumi.BoolOutput)
+}
+
+// A list of email addresses which alerts should be sent to.
+func (o GetServerThreatDetectionPolicyOutput) EmailAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServerThreatDetectionPolicy) []string { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Is the policy enabled?
+func (o GetServerThreatDetectionPolicyOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServerThreatDetectionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o GetServerThreatDetectionPolicyOutput) RetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerThreatDetectionPolicy) int { return v.RetentionDays }).(pulumi.IntOutput)
+}
+
+// Specifies the identifier key of the Threat Detection audit storage account.
+func (o GetServerThreatDetectionPolicyOutput) StorageAccountAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerThreatDetectionPolicy) string { return v.StorageAccountAccessKey }).(pulumi.StringOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+func (o GetServerThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerThreatDetectionPolicy) string { return v.StorageEndpoint }).(pulumi.StringOutput)
+}
+
+type GetServerThreatDetectionPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerThreatDetectionPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerThreatDetectionPolicy)(nil)).Elem()
+}
+
+func (o GetServerThreatDetectionPolicyArrayOutput) ToGetServerThreatDetectionPolicyArrayOutput() GetServerThreatDetectionPolicyArrayOutput {
+	return o
+}
+
+func (o GetServerThreatDetectionPolicyArrayOutput) ToGetServerThreatDetectionPolicyArrayOutputWithContext(ctx context.Context) GetServerThreatDetectionPolicyArrayOutput {
+	return o
+}
+
+func (o GetServerThreatDetectionPolicyArrayOutput) Index(i pulumi.IntInput) GetServerThreatDetectionPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerThreatDetectionPolicy {
+		return vs[0].([]GetServerThreatDetectionPolicy)[vs[1].(int)]
+	}).(GetServerThreatDetectionPolicyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerIdentityOutput{})
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
@@ -635,4 +904,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyOutput{})
 	pulumi.RegisterOutputType(ServerThreatDetectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GetServerIdentityOutput{})
+	pulumi.RegisterOutputType(GetServerIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetServerThreatDetectionPolicyOutput{})
+	pulumi.RegisterOutputType(GetServerThreatDetectionPolicyArrayOutput{})
 }

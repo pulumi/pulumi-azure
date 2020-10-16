@@ -135,7 +135,7 @@ export class Module extends pulumi.CustomResource {
     /**
      * The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    public readonly stampId!: pulumi.Output<string>;
+    public readonly stampId!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
      */
@@ -175,9 +175,6 @@ export class Module extends pulumi.CustomResource {
             }
             if (!args || args.skuName === undefined) {
                 throw new Error("Missing required property 'skuName'");
-            }
-            if (!args || args.stampId === undefined) {
-                throw new Error("Missing required property 'stampId'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -264,7 +261,7 @@ export interface ModuleArgs {
     /**
      * The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly stampId: pulumi.Input<string>;
+    readonly stampId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
      */

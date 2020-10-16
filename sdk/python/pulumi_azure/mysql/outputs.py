@@ -12,6 +12,8 @@ __all__ = [
     'ServerIdentity',
     'ServerStorageProfile',
     'ServerThreatDetectionPolicy',
+    'GetServerIdentityResult',
+    'GetServerThreatDetectionPolicyResult',
 ]
 
 @pulumi.output_type
@@ -201,5 +203,131 @@ class ServerThreatDetectionPolicy(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetServerIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Client ID of the Service Principal assigned to this MySQL Server.
+        :param str tenant_id: The ID of the Tenant the Service Principal is assigned in.
+               ---
+        :param str type: The Type of Identity used for this MySQL Server.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Client ID of the Service Principal assigned to this MySQL Server.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The ID of the Tenant the Service Principal is assigned in.
+        ---
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of Identity used for this MySQL Server.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetServerThreatDetectionPolicyResult(dict):
+    def __init__(__self__, *,
+                 disabled_alerts: Sequence[str],
+                 email_account_admins: bool,
+                 email_addresses: Sequence[str],
+                 enabled: bool,
+                 retention_days: int,
+                 storage_account_access_key: str,
+                 storage_endpoint: str):
+        """
+        :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        :param bool email_account_admins: Should the account administrators be emailed when this alert is triggered?
+        :param Sequence[str] email_addresses: A list of email addresses which alerts should be sent to.
+        :param bool enabled: Is the policy enabled?
+        :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
+        :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
+        :param str storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        """
+        pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+        pulumi.set(__self__, "email_account_admins", email_account_admins)
+        pulumi.set(__self__, "email_addresses", email_addresses)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "retention_days", retention_days)
+        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+        pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+
+    @property
+    @pulumi.getter(name="disabledAlerts")
+    def disabled_alerts(self) -> Sequence[str]:
+        """
+        Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        """
+        return pulumi.get(self, "disabled_alerts")
+
+    @property
+    @pulumi.getter(name="emailAccountAdmins")
+    def email_account_admins(self) -> bool:
+        """
+        Should the account administrators be emailed when this alert is triggered?
+        """
+        return pulumi.get(self, "email_account_admins")
+
+    @property
+    @pulumi.getter(name="emailAddresses")
+    def email_addresses(self) -> Sequence[str]:
+        """
+        A list of email addresses which alerts should be sent to.
+        """
+        return pulumi.get(self, "email_addresses")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Is the policy enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> int:
+        """
+        Specifies the number of days to keep in the Threat Detection audit logs.
+        """
+        return pulumi.get(self, "retention_days")
+
+    @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> str:
+        """
+        Specifies the identifier key of the Threat Detection audit storage account.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @property
+    @pulumi.getter(name="storageEndpoint")
+    def storage_endpoint(self) -> str:
+        """
+        Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+        """
+        return pulumi.get(self, "storage_endpoint")
 
 

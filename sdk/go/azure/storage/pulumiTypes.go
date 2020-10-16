@@ -2746,11 +2746,11 @@ func (o ShareAclArrayOutput) Index(i pulumi.IntInput) ShareAclOutput {
 
 type ShareAclAccessPolicy struct {
 	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-	Expiry string `pulumi:"expiry"`
+	Expiry *string `pulumi:"expiry"`
 	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 	Permissions string `pulumi:"permissions"`
 	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-	Start string `pulumi:"start"`
+	Start *string `pulumi:"start"`
 }
 
 // ShareAclAccessPolicyInput is an input type that accepts ShareAclAccessPolicyArgs and ShareAclAccessPolicyOutput values.
@@ -2766,11 +2766,11 @@ type ShareAclAccessPolicyInput interface {
 
 type ShareAclAccessPolicyArgs struct {
 	// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-	Expiry pulumi.StringInput `pulumi:"expiry"`
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
 	Permissions pulumi.StringInput `pulumi:"permissions"`
 	// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-	Start pulumi.StringInput `pulumi:"start"`
+	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
 func (ShareAclAccessPolicyArgs) ElementType() reflect.Type {
@@ -2825,8 +2825,8 @@ func (o ShareAclAccessPolicyOutput) ToShareAclAccessPolicyOutputWithContext(ctx 
 }
 
 // The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-func (o ShareAclAccessPolicyOutput) Expiry() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Expiry }).(pulumi.StringOutput)
+func (o ShareAclAccessPolicyOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareAclAccessPolicy) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
 
 // The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
@@ -2835,8 +2835,8 @@ func (o ShareAclAccessPolicyOutput) Permissions() pulumi.StringOutput {
 }
 
 // The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-func (o ShareAclAccessPolicyOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareAclAccessPolicy) string { return v.Start }).(pulumi.StringOutput)
+func (o ShareAclAccessPolicyOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShareAclAccessPolicy) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
 type ShareAclAccessPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -137,8 +137,6 @@ class Module(pulumi.CustomResource):
             if sku_name is None:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
-            if stamp_id is None:
-                raise TypeError("Missing required property 'stamp_id'")
             __props__['stamp_id'] = stamp_id
             __props__['tags'] = tags
             __props__['zones'] = zones
@@ -232,7 +230,7 @@ class Module(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stampId")
-    def stamp_id(self) -> pulumi.Output[str]:
+    def stamp_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         """

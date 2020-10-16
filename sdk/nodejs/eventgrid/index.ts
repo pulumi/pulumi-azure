@@ -5,6 +5,7 @@
 export * from "./domain";
 export * from "./domainTopic";
 export * from "./eventSubscription";
+export * from "./getSystemTopic";
 export * from "./getTopic";
 export * from "./topic";
 export * from "./zMixins";

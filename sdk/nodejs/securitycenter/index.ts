@@ -4,5 +4,6 @@
 // Export members:
 export * from "./advancedThreatProtection";
 export * from "./contact";
+export * from "./setting";
 export * from "./subscriptionPricing";
 export * from "./workspace";

@@ -7647,6 +7647,24 @@ export namespace containerservice {
          */
         subnetId: string;
     }
+
+    export interface RegistryRetentionPolicy {
+        /**
+         * The number of days to retain an untagged manifest after which it gets purged.
+         */
+        days?: number;
+        /**
+         * Boolean value that indicates whether the policy is enabled. Default is `7`.
+         */
+        enabled?: boolean;
+    }
+
+    export interface RegistryTrustPolicy {
+        /**
+         * Boolean value that indicates whether the policy is enabled.
+         */
+        enabled?: boolean;
+    }
 }
 
 export namespace core {
@@ -14591,6 +14609,53 @@ export namespace mssql {
 }
 
 export namespace mysql {
+    export interface GetServerIdentity {
+        /**
+         * The Client ID of the Service Principal assigned to this MySQL Server.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         * ---
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity used for this MySQL Server.
+         */
+        type: string;
+    }
+
+    export interface GetServerThreatDetectionPolicy {
+        /**
+         * Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+         */
+        disabledAlerts: string[];
+        /**
+         * Should the account administrators be emailed when this alert is triggered?
+         */
+        emailAccountAdmins: boolean;
+        /**
+         * A list of email addresses which alerts should be sent to.
+         */
+        emailAddresses: string[];
+        /**
+         * Is the policy enabled?
+         */
+        enabled: boolean;
+        /**
+         * Specifies the number of days to keep in the Threat Detection audit logs.
+         */
+        retentionDays: number;
+        /**
+         * Specifies the identifier key of the Threat Detection audit storage account.
+         */
+        storageAccountAccessKey: string;
+        /**
+         * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+         */
+        storageEndpoint: string;
+    }
+
     export interface ServerIdentity {
         /**
          * The Client ID of the Service Principal assigned to this MySQL Server.
@@ -18518,7 +18583,7 @@ export namespace storage {
         /**
          * The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
-        expiry: string;
+        expiry?: string;
         /**
          * The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
          */
@@ -18526,7 +18591,7 @@ export namespace storage {
         /**
          * The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
          */
-        start: string;
+        start?: string;
     }
 
     export interface TableAcl {

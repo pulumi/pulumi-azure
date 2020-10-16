@@ -23,9 +23,11 @@ class Registry(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_policy: Optional[pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -58,9 +60,11 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,9 +91,11 @@ class Registry(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['retention_policy'] = retention_policy
             __props__['sku'] = sku
             __props__['storage_account_id'] = storage_account_id
             __props__['tags'] = tags
+            __props__['trust_policy'] = trust_policy
             __props__['admin_password'] = None
             __props__['admin_username'] = None
             __props__['login_server'] = None
@@ -112,9 +118,11 @@ class Registry(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            retention_policy: Optional[pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Registry':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None) -> 'Registry':
         """
         Get an existing Registry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -131,9 +139,11 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -148,9 +158,11 @@ class Registry(pulumi.CustomResource):
         __props__["name"] = name
         __props__["network_rule_set"] = network_rule_set
         __props__["resource_group_name"] = resource_group_name
+        __props__["retention_policy"] = retention_policy
         __props__["sku"] = sku
         __props__["storage_account_id"] = storage_account_id
         __props__["tags"] = tags
+        __props__["trust_policy"] = trust_policy
         return Registry(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -226,6 +238,14 @@ class Registry(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> pulumi.Output['outputs.RegistryRetentionPolicy']:
+        """
+        A `retention_policy` block as documented below.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
@@ -248,6 +268,14 @@ class Registry(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustPolicy")
+    def trust_policy(self) -> pulumi.Output['outputs.RegistryTrustPolicy']:
+        """
+        A `trust_policy` block as documented below.
+        """
+        return pulumi.get(self, "trust_policy")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

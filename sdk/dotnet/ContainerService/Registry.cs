@@ -100,6 +100,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `retention_policy` block as documented below.
+        /// </summary>
+        [Output("retentionPolicy")]
+        public Output<Outputs.RegistryRetentionPolicy> RetentionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
         /// </summary>
         [Output("sku")]
@@ -116,6 +122,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A `trust_policy` block as documented below.
+        /// </summary>
+        [Output("trustPolicy")]
+        public Output<Outputs.RegistryTrustPolicy> TrustPolicy { get; private set; } = null!;
 
 
         /// <summary>
@@ -206,6 +218,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `retention_policy` block as documented below.
+        /// </summary>
+        [Input("retentionPolicy")]
+        public Input<Inputs.RegistryRetentionPolicyArgs>? RetentionPolicy { get; set; }
+
+        /// <summary>
         /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
         /// </summary>
         [Input("sku")]
@@ -228,6 +246,12 @@ namespace Pulumi.Azure.ContainerService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `trust_policy` block as documented below.
+        /// </summary>
+        [Input("trustPolicy")]
+        public Input<Inputs.RegistryTrustPolicyArgs>? TrustPolicy { get; set; }
 
         public RegistryArgs()
         {
@@ -297,6 +321,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// A `retention_policy` block as documented below.
+        /// </summary>
+        [Input("retentionPolicy")]
+        public Input<Inputs.RegistryRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
+
+        /// <summary>
         /// The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
         /// </summary>
         [Input("sku")]
@@ -319,6 +349,12 @@ namespace Pulumi.Azure.ContainerService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `trust_policy` block as documented below.
+        /// </summary>
+        [Input("trustPolicy")]
+        public Input<Inputs.RegistryTrustPolicyGetArgs>? TrustPolicy { get; set; }
 
         public RegistryState()
         {

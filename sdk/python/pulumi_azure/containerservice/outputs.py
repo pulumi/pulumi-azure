@@ -47,6 +47,8 @@ __all__ = [
     'RegistryNetworkRuleSet',
     'RegistryNetworkRuleSetIpRule',
     'RegistryNetworkRuleSetVirtualNetwork',
+    'RegistryRetentionPolicy',
+    'RegistryTrustPolicy',
     'GetKubernetesClusterAddonProfileResult',
     'GetKubernetesClusterAddonProfileAzurePolicyResult',
     'GetKubernetesClusterAddonProfileHttpApplicationRoutingResult',
@@ -2225,6 +2227,62 @@ class RegistryNetworkRuleSetVirtualNetwork(dict):
         The subnet id from which requests will match the rule.
         """
         return pulumi.get(self, "subnet_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RegistryRetentionPolicy(dict):
+    def __init__(__self__, *,
+                 days: Optional[int] = None,
+                 enabled: Optional[bool] = None):
+        """
+        :param int days: The number of days to retain an untagged manifest after which it gets purged.
+        :param bool enabled: Boolean value that indicates whether the policy is enabled. Default is `7`.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean value that indicates whether the policy is enabled. Default is `7`.
+        """
+        return pulumi.get(self, "enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class RegistryTrustPolicy(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Boolean value that indicates whether the policy is enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean value that indicates whether the policy is enabled.
+        """
+        return pulumi.get(self, "enabled")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

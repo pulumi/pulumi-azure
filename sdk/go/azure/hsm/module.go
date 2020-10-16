@@ -151,7 +151,7 @@ type Module struct {
 	// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
-	StampId pulumi.StringOutput `pulumi:"stampId"`
+	StampId pulumi.StringPtrOutput `pulumi:"stampId"`
 	// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -169,9 +169,6 @@ func NewModule(ctx *pulumi.Context,
 	}
 	if args == nil || args.SkuName == nil {
 		return nil, errors.New("missing required argument 'SkuName'")
-	}
-	if args == nil || args.StampId == nil {
-		return nil, errors.New("missing required argument 'StampId'")
 	}
 	if args == nil {
 		args = &ModuleArgs{}
@@ -251,7 +248,7 @@ type moduleArgs struct {
 	// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName string `pulumi:"skuName"`
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
-	StampId string `pulumi:"stampId"`
+	StampId *string `pulumi:"stampId"`
 	// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
 	Tags map[string]string `pulumi:"tags"`
 	// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -271,7 +268,7 @@ type ModuleArgs struct {
 	// The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	SkuName pulumi.StringInput
 	// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
-	StampId pulumi.StringInput
+	StampId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
 	Tags pulumi.StringMapInput
 	// The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.

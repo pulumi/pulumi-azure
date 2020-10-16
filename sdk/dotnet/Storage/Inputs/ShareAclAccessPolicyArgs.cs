@@ -15,8 +15,8 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
-        [Input("expiry", required: true)]
-        public Input<string> Expiry { get; set; } = null!;
+        [Input("expiry")]
+        public Input<string>? Expiry { get; set; }
 
         /// <summary>
         /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
@@ -27,8 +27,8 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
-        [Input("start", required: true)]
-        public Input<string> Start { get; set; } = null!;
+        [Input("start")]
+        public Input<string>? Start { get; set; }
 
         public ShareAclAccessPolicyArgs()
         {
