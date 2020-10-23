@@ -1281,8 +1281,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_security_center_setting":              {Tok: azureResource(azureSecurityCenter, "Setting")},
 
 			// Service Fabric
-			"azurerm_service_fabric_cluster":          {Tok: azureResource(azureServiceFabric, "Cluster")},
-			"azurerm_service_fabric_mesh_application": {Tok: azureResource(azureServiceFabric, "MeshApplication")},
+			"azurerm_service_fabric_cluster":            {Tok: azureResource(azureServiceFabric, "Cluster")},
+			"azurerm_service_fabric_mesh_application":   {Tok: azureResource(azureServiceFabric, "MeshApplication")},
+			"azurerm_service_fabric_mesh_secret":        {Tok: azureResource(azureServiceFabric, "MeshSecret")},
+			"azurerm_service_fabric_mesh_secret_value":  {Tok: azureResource(azureServiceFabric, "MeshSecretValue")},
+			"azurerm_service_fabric_mesh_local_network": {Tok: azureResource(azureServiceFabric, "MeshLocalNetwork")},
 
 			// Search
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},

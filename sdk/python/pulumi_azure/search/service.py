@@ -18,6 +18,7 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
@@ -48,6 +49,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses that are allowed access to the search service endpoint.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: The number of partitions which should be created.
@@ -75,6 +77,7 @@ class Service(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['allowed_ips'] = allowed_ips
+            __props__['identity'] = identity
             __props__['location'] = location
             __props__['name'] = name
             __props__['partition_count'] = partition_count
@@ -101,6 +104,7 @@ class Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition_count: Optional[pulumi.Input[int]] = None,
@@ -120,6 +124,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: A list of IPv4 addresses that are allowed access to the search service endpoint.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: The number of partitions which should be created.
@@ -137,6 +142,7 @@ class Service(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["allowed_ips"] = allowed_ips
+        __props__["identity"] = identity
         __props__["location"] = location
         __props__["name"] = name
         __props__["partition_count"] = partition_count
@@ -157,6 +163,14 @@ class Service(pulumi.CustomResource):
         A list of IPv4 addresses that are allowed access to the search service endpoint.
         """
         return pulumi.get(self, "allowed_ips")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ServiceIdentity']]:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

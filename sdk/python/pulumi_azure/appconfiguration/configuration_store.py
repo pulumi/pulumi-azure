@@ -17,6 +17,7 @@ class ConfigurationStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ConfigurationStoreIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class ConfigurationStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ConfigurationStoreIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
@@ -65,6 +67,7 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['identity'] = identity
             __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None:
@@ -88,6 +91,7 @@ class ConfigurationStore(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ConfigurationStoreIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryReadKeyArgs']]]]] = None,
@@ -105,6 +109,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint: The URL of the App Configuration.
+        :param pulumi.Input[pulumi.InputType['ConfigurationStoreIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationStorePrimaryReadKeyArgs']]]] primary_read_keys: A `primary_read_key` block as defined below containing the primary read access key.
@@ -120,6 +125,7 @@ class ConfigurationStore(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["endpoint"] = endpoint
+        __props__["identity"] = identity
         __props__["location"] = location
         __props__["name"] = name
         __props__["primary_read_keys"] = primary_read_keys
@@ -138,6 +144,14 @@ class ConfigurationStore(pulumi.CustomResource):
         The URL of the App Configuration.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ConfigurationStoreIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

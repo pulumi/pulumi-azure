@@ -25,6 +25,8 @@ __all__ = [
     'MongoDatabaseAutoscaleSettingsArgs',
     'SqlContainerAutoscaleSettingsArgs',
     'SqlContainerIndexingPolicyArgs',
+    'SqlContainerIndexingPolicyCompositeIndexArgs',
+    'SqlContainerIndexingPolicyCompositeIndexIndexArgs',
     'SqlContainerIndexingPolicyExcludedPathArgs',
     'SqlContainerIndexingPolicyIncludedPathArgs',
     'SqlContainerUniqueKeyArgs',
@@ -598,20 +600,36 @@ class SqlContainerAutoscaleSettingsArgs:
 @pulumi.input_type
 class SqlContainerIndexingPolicyArgs:
     def __init__(__self__, *,
+                 composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]] = None,
                  indexing_mode: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]] composite_indices: One or more `composite_index` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
         """
+        if composite_indices is not None:
+            pulumi.set(__self__, "composite_indices", composite_indices)
         if excluded_paths is not None:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
         if indexing_mode is not None:
             pulumi.set(__self__, "indexing_mode", indexing_mode)
+
+    @property
+    @pulumi.getter(name="compositeIndices")
+    def composite_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]:
+        """
+        One or more `composite_index` blocks as defined below.
+        """
+        return pulumi.get(self, "composite_indices")
+
+    @composite_indices.setter
+    def composite_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]):
+        pulumi.set(self, "composite_indices", value)
 
     @property
     @pulumi.getter(name="excludedPaths")
@@ -648,6 +666,65 @@ class SqlContainerIndexingPolicyArgs:
     @indexing_mode.setter
     def indexing_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "indexing_mode", value)
+
+
+@pulumi.input_type
+class SqlContainerIndexingPolicyCompositeIndexArgs:
+    def __init__(__self__, *,
+                 indices: pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgs']]] indices: One or more `index` blocks as defined below.
+        """
+        pulumi.set(__self__, "indices", indices)
+
+    @property
+    @pulumi.getter
+    def indices(self) -> pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgs']]]:
+        """
+        One or more `index` blocks as defined below.
+        """
+        return pulumi.get(self, "indices")
+
+    @indices.setter
+    def indices(self, value: pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgs']]]):
+        pulumi.set(self, "indices", value)
+
+
+@pulumi.input_type
+class SqlContainerIndexingPolicyCompositeIndexIndexArgs:
+    def __init__(__self__, *,
+                 order: pulumi.Input[str],
+                 path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] order: Order of the index. Possible values are `Ascending` or `Descending`.
+        :param pulumi.Input[str] path: Path for which the indexing behavior applies to.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        """
+        Order of the index. Possible values are `Ascending` or `Descending`.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path for which the indexing behavior applies to.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type

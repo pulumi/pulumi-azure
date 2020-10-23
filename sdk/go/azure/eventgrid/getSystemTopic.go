@@ -72,26 +72,8 @@ type GetSystemTopic struct {
 	SourceArmResourceId pulumi.StringOutput `pulumi:"sourceArmResourceId"`
 	// A mapping of tags which should be assigned to the Event Grid System Topic.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-	// * `Microsoft.AppConfiguration.ConfigurationStores`
-	// * `Microsoft.Communication.CommunicationServices`
-	// * `Microsoft.ContainerRegistry.Registries`
-	// * `Microsoft.Devices.IoTHubs`
-	// * `Microsoft.EventGrid.Domains`
-	// * `Microsoft.EventGrid.Topics`
-	// * `Microsoft.Eventhub.Namespaces`
-	// * `Microsoft.KeyVault.vaults`
-	// * `Microsoft.MachineLearningServices.Workspaces`
-	// * `Microsoft.Maps.Accounts`
-	// * `Microsoft.Media.MediaServices`
-	// * `Microsoft.Resources.ResourceGroups`
-	// * `Microsoft.Resources.Subscriptions`
-	// * `Microsoft.ServiceBus.Namespaces`
-	// * `Microsoft.SignalRService.SignalR`
-	// * `Microsoft.Storage.StorageAccounts`
-	// * `Microsoft.Web.ServerFarms`
-	// * `Microsoft.Web.Sites`
-	// ***
+	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	TopicType pulumi.StringOutput `pulumi:"topicType"`
 }
 
@@ -144,26 +126,8 @@ type getSystemTopicState struct {
 	SourceArmResourceId *string `pulumi:"sourceArmResourceId"`
 	// A mapping of tags which should be assigned to the Event Grid System Topic.
 	Tags map[string]string `pulumi:"tags"`
-	// The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-	// * `Microsoft.AppConfiguration.ConfigurationStores`
-	// * `Microsoft.Communication.CommunicationServices`
-	// * `Microsoft.ContainerRegistry.Registries`
-	// * `Microsoft.Devices.IoTHubs`
-	// * `Microsoft.EventGrid.Domains`
-	// * `Microsoft.EventGrid.Topics`
-	// * `Microsoft.Eventhub.Namespaces`
-	// * `Microsoft.KeyVault.vaults`
-	// * `Microsoft.MachineLearningServices.Workspaces`
-	// * `Microsoft.Maps.Accounts`
-	// * `Microsoft.Media.MediaServices`
-	// * `Microsoft.Resources.ResourceGroups`
-	// * `Microsoft.Resources.Subscriptions`
-	// * `Microsoft.ServiceBus.Namespaces`
-	// * `Microsoft.SignalRService.SignalR`
-	// * `Microsoft.Storage.StorageAccounts`
-	// * `Microsoft.Web.ServerFarms`
-	// * `Microsoft.Web.Sites`
-	// ***
+	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	TopicType *string `pulumi:"topicType"`
 }
 
@@ -180,26 +144,8 @@ type GetSystemTopicState struct {
 	SourceArmResourceId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Event Grid System Topic.
 	Tags pulumi.StringMapInput
-	// The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-	// * `Microsoft.AppConfiguration.ConfigurationStores`
-	// * `Microsoft.Communication.CommunicationServices`
-	// * `Microsoft.ContainerRegistry.Registries`
-	// * `Microsoft.Devices.IoTHubs`
-	// * `Microsoft.EventGrid.Domains`
-	// * `Microsoft.EventGrid.Topics`
-	// * `Microsoft.Eventhub.Namespaces`
-	// * `Microsoft.KeyVault.vaults`
-	// * `Microsoft.MachineLearningServices.Workspaces`
-	// * `Microsoft.Maps.Accounts`
-	// * `Microsoft.Media.MediaServices`
-	// * `Microsoft.Resources.ResourceGroups`
-	// * `Microsoft.Resources.Subscriptions`
-	// * `Microsoft.ServiceBus.Namespaces`
-	// * `Microsoft.SignalRService.SignalR`
-	// * `Microsoft.Storage.StorageAccounts`
-	// * `Microsoft.Web.ServerFarms`
-	// * `Microsoft.Web.Sites`
-	// ***
+	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	TopicType pulumi.StringPtrInput
 }
 
@@ -218,26 +164,8 @@ type getSystemTopicArgs struct {
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
 	// A mapping of tags which should be assigned to the Event Grid System Topic.
 	Tags map[string]string `pulumi:"tags"`
-	// The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-	// * `Microsoft.AppConfiguration.ConfigurationStores`
-	// * `Microsoft.Communication.CommunicationServices`
-	// * `Microsoft.ContainerRegistry.Registries`
-	// * `Microsoft.Devices.IoTHubs`
-	// * `Microsoft.EventGrid.Domains`
-	// * `Microsoft.EventGrid.Topics`
-	// * `Microsoft.Eventhub.Namespaces`
-	// * `Microsoft.KeyVault.vaults`
-	// * `Microsoft.MachineLearningServices.Workspaces`
-	// * `Microsoft.Maps.Accounts`
-	// * `Microsoft.Media.MediaServices`
-	// * `Microsoft.Resources.ResourceGroups`
-	// * `Microsoft.Resources.Subscriptions`
-	// * `Microsoft.ServiceBus.Namespaces`
-	// * `Microsoft.SignalRService.SignalR`
-	// * `Microsoft.Storage.StorageAccounts`
-	// * `Microsoft.Web.ServerFarms`
-	// * `Microsoft.Web.Sites`
-	// ***
+	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	TopicType string `pulumi:"topicType"`
 }
 
@@ -253,26 +181,8 @@ type GetSystemTopicArgs struct {
 	SourceArmResourceId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Event Grid System Topic.
 	Tags pulumi.StringMapInput
-	// The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-	// * `Microsoft.AppConfiguration.ConfigurationStores`
-	// * `Microsoft.Communication.CommunicationServices`
-	// * `Microsoft.ContainerRegistry.Registries`
-	// * `Microsoft.Devices.IoTHubs`
-	// * `Microsoft.EventGrid.Domains`
-	// * `Microsoft.EventGrid.Topics`
-	// * `Microsoft.Eventhub.Namespaces`
-	// * `Microsoft.KeyVault.vaults`
-	// * `Microsoft.MachineLearningServices.Workspaces`
-	// * `Microsoft.Maps.Accounts`
-	// * `Microsoft.Media.MediaServices`
-	// * `Microsoft.Resources.ResourceGroups`
-	// * `Microsoft.Resources.Subscriptions`
-	// * `Microsoft.ServiceBus.Namespaces`
-	// * `Microsoft.SignalRService.SignalR`
-	// * `Microsoft.Storage.StorageAccounts`
-	// * `Microsoft.Web.ServerFarms`
-	// * `Microsoft.Web.Sites`
-	// ***
+	// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+	// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
 	TopicType pulumi.StringInput
 }
 

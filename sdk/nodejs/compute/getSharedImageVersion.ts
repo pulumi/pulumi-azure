@@ -88,6 +88,10 @@ export interface GetSharedImageVersionResult {
      */
     readonly name: string;
     /**
+     * The size of the OS disk snapshot (in Gigabytes) which was the source of this Shared Image Version.
+     */
+    readonly osDiskImageSizeGb: number;
+    /**
      * The ID of the OS disk snapshot which was the source of this Shared Image Version.
      */
     readonly osDiskSnapshotId: string;

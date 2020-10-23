@@ -12,6 +12,18 @@ namespace Pulumi.Azure.CosmosDB.Inputs
 
     public sealed class SqlContainerIndexingPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("compositeIndices")]
+        private InputList<Inputs.SqlContainerIndexingPolicyCompositeIndexArgs>? _compositeIndices;
+
+        /// <summary>
+        /// One or more `composite_index` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SqlContainerIndexingPolicyCompositeIndexArgs> CompositeIndices
+        {
+            get => _compositeIndices ?? (_compositeIndices = new InputList<Inputs.SqlContainerIndexingPolicyCompositeIndexArgs>());
+            set => _compositeIndices = value;
+        }
+
         [Input("excludedPaths")]
         private InputList<Inputs.SqlContainerIndexingPolicyExcludedPathArgs>? _excludedPaths;
 

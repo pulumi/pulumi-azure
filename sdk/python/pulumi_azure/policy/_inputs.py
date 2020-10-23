@@ -77,7 +77,7 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
                  reference_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition that will be included in this policy set definition.
-        :param pulumi.Input[str] parameter_values: Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+        :param pulumi.Input[str] parameter_values: Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
         :param pulumi.Input[Mapping[str, Any]] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         :param pulumi.Input[str] reference_id: A unique ID within this policy set definition for this policy definition reference.
         """
@@ -108,7 +108,7 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[str]]:
         """
-        Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+        Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
         """
         return pulumi.get(self, "parameter_values")
 

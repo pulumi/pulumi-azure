@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Policy.Inputs
     public sealed class PolicySetDefinitionPolicyDefinitionReferenceGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+        /// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
         /// </summary>
         [Input("parameterValues")]
         public Input<string>? ParameterValues { get; set; }

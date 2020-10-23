@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryRetentionPolicy
     {
         /// <summary>
-        /// The number of days to retain an untagged manifest after which it gets purged.
+        /// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
         /// </summary>
         public readonly int? Days;
         /// <summary>
-        /// Boolean value that indicates whether the policy is enabled. Default is `7`.
+        /// Boolean value that indicates whether the policy is enabled.
         /// </summary>
         public readonly bool? Enabled;
 

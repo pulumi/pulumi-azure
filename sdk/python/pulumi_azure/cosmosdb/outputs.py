@@ -26,6 +26,8 @@ __all__ = [
     'MongoDatabaseAutoscaleSettings',
     'SqlContainerAutoscaleSettings',
     'SqlContainerIndexingPolicy',
+    'SqlContainerIndexingPolicyCompositeIndex',
+    'SqlContainerIndexingPolicyCompositeIndexIndex',
     'SqlContainerIndexingPolicyExcludedPath',
     'SqlContainerIndexingPolicyIncludedPath',
     'SqlContainerUniqueKey',
@@ -529,20 +531,32 @@ class SqlContainerAutoscaleSettings(dict):
 @pulumi.output_type
 class SqlContainerIndexingPolicy(dict):
     def __init__(__self__, *,
+                 composite_indices: Optional[Sequence['outputs.SqlContainerIndexingPolicyCompositeIndex']] = None,
                  excluded_paths: Optional[Sequence['outputs.SqlContainerIndexingPolicyExcludedPath']] = None,
                  included_paths: Optional[Sequence['outputs.SqlContainerIndexingPolicyIncludedPath']] = None,
                  indexing_mode: Optional[str] = None):
         """
+        :param Sequence['SqlContainerIndexingPolicyCompositeIndexArgs'] composite_indices: One or more `composite_index` blocks as defined below.
         :param Sequence['SqlContainerIndexingPolicyExcludedPathArgs'] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param Sequence['SqlContainerIndexingPolicyIncludedPathArgs'] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param str indexing_mode: Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
         """
+        if composite_indices is not None:
+            pulumi.set(__self__, "composite_indices", composite_indices)
         if excluded_paths is not None:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
         if indexing_mode is not None:
             pulumi.set(__self__, "indexing_mode", indexing_mode)
+
+    @property
+    @pulumi.getter(name="compositeIndices")
+    def composite_indices(self) -> Optional[Sequence['outputs.SqlContainerIndexingPolicyCompositeIndex']]:
+        """
+        One or more `composite_index` blocks as defined below.
+        """
+        return pulumi.get(self, "composite_indices")
 
     @property
     @pulumi.getter(name="excludedPaths")
@@ -567,6 +581,59 @@ class SqlContainerIndexingPolicy(dict):
         Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
         """
         return pulumi.get(self, "indexing_mode")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlContainerIndexingPolicyCompositeIndex(dict):
+    def __init__(__self__, *,
+                 indices: Sequence['outputs.SqlContainerIndexingPolicyCompositeIndexIndex']):
+        """
+        :param Sequence['SqlContainerIndexingPolicyCompositeIndexIndexArgs'] indices: One or more `index` blocks as defined below.
+        """
+        pulumi.set(__self__, "indices", indices)
+
+    @property
+    @pulumi.getter
+    def indices(self) -> Sequence['outputs.SqlContainerIndexingPolicyCompositeIndexIndex']:
+        """
+        One or more `index` blocks as defined below.
+        """
+        return pulumi.get(self, "indices")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
+    def __init__(__self__, *,
+                 order: str,
+                 path: str):
+        """
+        :param str order: Order of the index. Possible values are `Ascending` or `Descending`.
+        :param str path: Path for which the indexing behavior applies to.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def order(self) -> str:
+        """
+        Order of the index. Possible values are `Ascending` or `Descending`.
+        """
+        return pulumi.get(self, "order")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        Path for which the indexing behavior applies to.
+        """
+        return pulumi.get(self, "path")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

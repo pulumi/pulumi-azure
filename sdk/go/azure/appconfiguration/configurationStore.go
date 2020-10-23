@@ -47,6 +47,8 @@ type ConfigurationStore struct {
 
 	// The URL of the App Configuration.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// An `identity` block as defined below.
+	Identity ConfigurationStoreIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -100,6 +102,8 @@ func GetConfigurationStore(ctx *pulumi.Context,
 type configurationStoreState struct {
 	// The URL of the App Configuration.
 	Endpoint *string `pulumi:"endpoint"`
+	// An `identity` block as defined below.
+	Identity *ConfigurationStoreIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -123,6 +127,8 @@ type configurationStoreState struct {
 type ConfigurationStoreState struct {
 	// The URL of the App Configuration.
 	Endpoint pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ConfigurationStoreIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -148,6 +154,8 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 }
 
 type configurationStoreArgs struct {
+	// An `identity` block as defined below.
+	Identity *ConfigurationStoreIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -162,6 +170,8 @@ type configurationStoreArgs struct {
 
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
+	// An `identity` block as defined below.
+	Identity ConfigurationStoreIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.

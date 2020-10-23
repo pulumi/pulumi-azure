@@ -56,26 +56,8 @@ class GetSystemTopic(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[str] source_arm_resource_id: The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Event Grid System Topic.
-        :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-               * `Microsoft.AppConfiguration.ConfigurationStores`
-               * `Microsoft.Communication.CommunicationServices`
-               * `Microsoft.ContainerRegistry.Registries`
-               * `Microsoft.Devices.IoTHubs`
-               * `Microsoft.EventGrid.Domains`
-               * `Microsoft.EventGrid.Topics`
-               * `Microsoft.Eventhub.Namespaces`
-               * `Microsoft.KeyVault.vaults`
-               * `Microsoft.MachineLearningServices.Workspaces`
-               * `Microsoft.Maps.Accounts`
-               * `Microsoft.Media.MediaServices`
-               * `Microsoft.Resources.ResourceGroups`
-               * `Microsoft.Resources.Subscriptions`
-               * `Microsoft.ServiceBus.Namespaces`
-               * `Microsoft.SignalRService.SignalR`
-               * `Microsoft.Storage.StorageAccounts`
-               * `Microsoft.Web.ServerFarms`
-               * `Microsoft.Web.Sites`
-               ---
+        :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+               , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -137,26 +119,8 @@ class GetSystemTopic(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[str] source_arm_resource_id: The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Event Grid System Topic.
-        :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-               * `Microsoft.AppConfiguration.ConfigurationStores`
-               * `Microsoft.Communication.CommunicationServices`
-               * `Microsoft.ContainerRegistry.Registries`
-               * `Microsoft.Devices.IoTHubs`
-               * `Microsoft.EventGrid.Domains`
-               * `Microsoft.EventGrid.Topics`
-               * `Microsoft.Eventhub.Namespaces`
-               * `Microsoft.KeyVault.vaults`
-               * `Microsoft.MachineLearningServices.Workspaces`
-               * `Microsoft.Maps.Accounts`
-               * `Microsoft.Media.MediaServices`
-               * `Microsoft.Resources.ResourceGroups`
-               * `Microsoft.Resources.Subscriptions`
-               * `Microsoft.ServiceBus.Namespaces`
-               * `Microsoft.SignalRService.SignalR`
-               * `Microsoft.Storage.StorageAccounts`
-               * `Microsoft.Web.ServerFarms`
-               * `Microsoft.Web.Sites`
-               ---
+        :param pulumi.Input[str] topic_type: The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+               , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -223,26 +187,8 @@ class GetSystemTopic(pulumi.CustomResource):
     @pulumi.getter(name="topicType")
     def topic_type(self) -> pulumi.Output[str]:
         """
-        The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-        * `Microsoft.AppConfiguration.ConfigurationStores`
-        * `Microsoft.Communication.CommunicationServices`
-        * `Microsoft.ContainerRegistry.Registries`
-        * `Microsoft.Devices.IoTHubs`
-        * `Microsoft.EventGrid.Domains`
-        * `Microsoft.EventGrid.Topics`
-        * `Microsoft.Eventhub.Namespaces`
-        * `Microsoft.KeyVault.vaults`
-        * `Microsoft.MachineLearningServices.Workspaces`
-        * `Microsoft.Maps.Accounts`
-        * `Microsoft.Media.MediaServices`
-        * `Microsoft.Resources.ResourceGroups`
-        * `Microsoft.Resources.Subscriptions`
-        * `Microsoft.ServiceBus.Namespaces`
-        * `Microsoft.SignalRService.SignalR`
-        * `Microsoft.Storage.StorageAccounts`
-        * `Microsoft.Web.ServerFarms`
-        * `Microsoft.Web.Sites`
-        ---
+        The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+        , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         """
         return pulumi.get(self, "topic_type")
 

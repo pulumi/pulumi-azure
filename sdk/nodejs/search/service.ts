@@ -56,6 +56,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly allowedIps!: pulumi.Output<string[] | undefined>;
     /**
+     * A `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.search.ServiceIdentity | undefined>;
+    /**
      * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class Service extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ServiceState | undefined;
             inputs["allowedIps"] = state ? state.allowedIps : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionCount"] = state ? state.partitionCount : undefined;
@@ -133,6 +138,7 @@ export class Service extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["allowedIps"] = args ? args.allowedIps : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partitionCount"] = args ? args.partitionCount : undefined;
@@ -164,6 +170,10 @@ export interface ServiceState {
      * A list of IPv4 addresses that are allowed access to the search service endpoint.
      */
     readonly allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.search.ServiceIdentity>;
     /**
      * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
@@ -218,6 +228,10 @@ export interface ServiceArgs {
      * A list of IPv4 addresses that are allowed access to the search service endpoint.
      */
     readonly allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.search.ServiceIdentity>;
     /**
      * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */

@@ -110,7 +110,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+        /// The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
         /// </summary>
         [Output("metadata")]
         public Output<string> Metadata { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Policy
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+        /// Parameters for the policy definition. This field is a JSON string that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
         /// </summary>
         [Output("parameters")]
         public Output<string?> Parameters { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+        /// The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Policy
         }
 
         /// <summary>
-        /// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+        /// Parameters for the policy definition. This field is a JSON string that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+        /// The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
         /// </summary>
         [Input("metadata")]
         public Input<string>? Metadata { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.Policy
         }
 
         /// <summary>
-        /// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+        /// Parameters for the policy definition. This field is a JSON string that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }

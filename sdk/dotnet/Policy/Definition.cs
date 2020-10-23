@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// The metadata for the policy definition. This
-        /// is a json object representing additional metadata that should be stored
+        /// is a JSON string representing additional metadata that should be stored
         /// with the policy definition.
         /// </summary>
         [Output("metadata")]
@@ -116,14 +116,14 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// Parameters for the policy definition. This field
-        /// is a json object that allows you to parameterize your policy definition.
+        /// is a JSON string that allows you to parameterize your policy definition.
         /// </summary>
         [Output("parameters")]
         public Output<string?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The policy rule for the policy definition. This
-        /// is a json object representing the rule that contains an if and
+        /// is a JSON string representing the rule that contains an if and
         /// a then block.
         /// </summary>
         [Output("policyRule")]
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// The metadata for the policy definition. This
-        /// is a json object representing additional metadata that should be stored
+        /// is a JSON string representing additional metadata that should be stored
         /// with the policy definition.
         /// </summary>
         [Input("metadata")]
@@ -229,14 +229,14 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// Parameters for the policy definition. This field
-        /// is a json object that allows you to parameterize your policy definition.
+        /// is a JSON string that allows you to parameterize your policy definition.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
         /// <summary>
         /// The policy rule for the policy definition. This
-        /// is a json object representing the rule that contains an if and
+        /// is a JSON string representing the rule that contains an if and
         /// a then block.
         /// </summary>
         [Input("policyRule")]
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// The metadata for the policy definition. This
-        /// is a json object representing additional metadata that should be stored
+        /// is a JSON string representing additional metadata that should be stored
         /// with the policy definition.
         /// </summary>
         [Input("metadata")]
@@ -303,14 +303,14 @@ namespace Pulumi.Azure.Policy
 
         /// <summary>
         /// Parameters for the policy definition. This field
-        /// is a json object that allows you to parameterize your policy definition.
+        /// is a JSON string that allows you to parameterize your policy definition.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }
 
         /// <summary>
         /// The policy rule for the policy definition. This
-        /// is a json object representing the rule that contains an if and
+        /// is a JSON string representing the rule that contains an if and
         /// a then block.
         /// </summary>
         [Input("policyRule")]

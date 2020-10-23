@@ -14,6 +14,10 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class SqlContainerIndexingPolicy
     {
         /// <summary>
+        /// One or more `composite_index` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicyCompositeIndex> CompositeIndices;
+        /// <summary>
         /// One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         /// </summary>
         public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicyExcludedPath> ExcludedPaths;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.CosmosDB.Outputs
 
         [OutputConstructor]
         private SqlContainerIndexingPolicy(
+            ImmutableArray<Outputs.SqlContainerIndexingPolicyCompositeIndex> compositeIndices,
+
             ImmutableArray<Outputs.SqlContainerIndexingPolicyExcludedPath> excludedPaths,
 
             ImmutableArray<Outputs.SqlContainerIndexingPolicyIncludedPath> includedPaths,
 
             string? indexingMode)
         {
+            CompositeIndices = compositeIndices;
             ExcludedPaths = excludedPaths;
             IncludedPaths = includedPaths;
             IndexingMode = indexingMode;

@@ -1856,6 +1856,8 @@ func (o SqlContainerAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOut
 }
 
 type SqlContainerIndexingPolicy struct {
+	// One or more `compositeIndex` blocks as defined below.
+	CompositeIndices []SqlContainerIndexingPolicyCompositeIndex `pulumi:"compositeIndices"`
 	// One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
 	ExcludedPaths []SqlContainerIndexingPolicyExcludedPath `pulumi:"excludedPaths"`
 	// One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
@@ -1876,6 +1878,8 @@ type SqlContainerIndexingPolicyInput interface {
 }
 
 type SqlContainerIndexingPolicyArgs struct {
+	// One or more `compositeIndex` blocks as defined below.
+	CompositeIndices SqlContainerIndexingPolicyCompositeIndexArrayInput `pulumi:"compositeIndices"`
 	// One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
 	ExcludedPaths SqlContainerIndexingPolicyExcludedPathArrayInput `pulumi:"excludedPaths"`
 	// One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
@@ -1961,6 +1965,13 @@ func (o SqlContainerIndexingPolicyOutput) ToSqlContainerIndexingPolicyPtrOutputW
 	}).(SqlContainerIndexingPolicyPtrOutput)
 }
 
+// One or more `compositeIndex` blocks as defined below.
+func (o SqlContainerIndexingPolicyOutput) CompositeIndices() SqlContainerIndexingPolicyCompositeIndexArrayOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyCompositeIndex {
+		return v.CompositeIndices
+	}).(SqlContainerIndexingPolicyCompositeIndexArrayOutput)
+}
+
 // One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
 func (o SqlContainerIndexingPolicyOutput) ExcludedPaths() SqlContainerIndexingPolicyExcludedPathArrayOutput {
 	return o.ApplyT(func(v SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyExcludedPath { return v.ExcludedPaths }).(SqlContainerIndexingPolicyExcludedPathArrayOutput)
@@ -1994,6 +2005,16 @@ func (o SqlContainerIndexingPolicyPtrOutput) Elem() SqlContainerIndexingPolicyOu
 	return o.ApplyT(func(v *SqlContainerIndexingPolicy) SqlContainerIndexingPolicy { return *v }).(SqlContainerIndexingPolicyOutput)
 }
 
+// One or more `compositeIndex` blocks as defined below.
+func (o SqlContainerIndexingPolicyPtrOutput) CompositeIndices() SqlContainerIndexingPolicyCompositeIndexArrayOutput {
+	return o.ApplyT(func(v *SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyCompositeIndex {
+		if v == nil {
+			return nil
+		}
+		return v.CompositeIndices
+	}).(SqlContainerIndexingPolicyCompositeIndexArrayOutput)
+}
+
 // One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
 func (o SqlContainerIndexingPolicyPtrOutput) ExcludedPaths() SqlContainerIndexingPolicyExcludedPathArrayOutput {
 	return o.ApplyT(func(v *SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyExcludedPath {
@@ -2022,6 +2043,211 @@ func (o SqlContainerIndexingPolicyPtrOutput) IndexingMode() pulumi.StringPtrOutp
 		}
 		return v.IndexingMode
 	}).(pulumi.StringPtrOutput)
+}
+
+type SqlContainerIndexingPolicyCompositeIndex struct {
+	// One or more `index` blocks as defined below.
+	Indices []SqlContainerIndexingPolicyCompositeIndexIndex `pulumi:"indices"`
+}
+
+// SqlContainerIndexingPolicyCompositeIndexInput is an input type that accepts SqlContainerIndexingPolicyCompositeIndexArgs and SqlContainerIndexingPolicyCompositeIndexOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyCompositeIndexInput` via:
+//
+//          SqlContainerIndexingPolicyCompositeIndexArgs{...}
+type SqlContainerIndexingPolicyCompositeIndexInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyCompositeIndexOutput() SqlContainerIndexingPolicyCompositeIndexOutput
+	ToSqlContainerIndexingPolicyCompositeIndexOutputWithContext(context.Context) SqlContainerIndexingPolicyCompositeIndexOutput
+}
+
+type SqlContainerIndexingPolicyCompositeIndexArgs struct {
+	// One or more `index` blocks as defined below.
+	Indices SqlContainerIndexingPolicyCompositeIndexIndexArrayInput `pulumi:"indices"`
+}
+
+func (SqlContainerIndexingPolicyCompositeIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicyCompositeIndex)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyCompositeIndexArgs) ToSqlContainerIndexingPolicyCompositeIndexOutput() SqlContainerIndexingPolicyCompositeIndexOutput {
+	return i.ToSqlContainerIndexingPolicyCompositeIndexOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyCompositeIndexArgs) ToSqlContainerIndexingPolicyCompositeIndexOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyCompositeIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyCompositeIndexOutput)
+}
+
+// SqlContainerIndexingPolicyCompositeIndexArrayInput is an input type that accepts SqlContainerIndexingPolicyCompositeIndexArray and SqlContainerIndexingPolicyCompositeIndexArrayOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyCompositeIndexArrayInput` via:
+//
+//          SqlContainerIndexingPolicyCompositeIndexArray{ SqlContainerIndexingPolicyCompositeIndexArgs{...} }
+type SqlContainerIndexingPolicyCompositeIndexArrayInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyCompositeIndexArrayOutput() SqlContainerIndexingPolicyCompositeIndexArrayOutput
+	ToSqlContainerIndexingPolicyCompositeIndexArrayOutputWithContext(context.Context) SqlContainerIndexingPolicyCompositeIndexArrayOutput
+}
+
+type SqlContainerIndexingPolicyCompositeIndexArray []SqlContainerIndexingPolicyCompositeIndexInput
+
+func (SqlContainerIndexingPolicyCompositeIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicyCompositeIndex)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyCompositeIndexArray) ToSqlContainerIndexingPolicyCompositeIndexArrayOutput() SqlContainerIndexingPolicyCompositeIndexArrayOutput {
+	return i.ToSqlContainerIndexingPolicyCompositeIndexArrayOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyCompositeIndexArray) ToSqlContainerIndexingPolicyCompositeIndexArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyCompositeIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyCompositeIndexArrayOutput)
+}
+
+type SqlContainerIndexingPolicyCompositeIndexOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyCompositeIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicyCompositeIndex)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexOutput) ToSqlContainerIndexingPolicyCompositeIndexOutput() SqlContainerIndexingPolicyCompositeIndexOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexOutput) ToSqlContainerIndexingPolicyCompositeIndexOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyCompositeIndexOutput {
+	return o
+}
+
+// One or more `index` blocks as defined below.
+func (o SqlContainerIndexingPolicyCompositeIndexOutput) Indices() SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicyCompositeIndex) []SqlContainerIndexingPolicyCompositeIndexIndex {
+		return v.Indices
+	}).(SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput)
+}
+
+type SqlContainerIndexingPolicyCompositeIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyCompositeIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicyCompositeIndex)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexArrayOutput) ToSqlContainerIndexingPolicyCompositeIndexArrayOutput() SqlContainerIndexingPolicyCompositeIndexArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexArrayOutput) ToSqlContainerIndexingPolicyCompositeIndexArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyCompositeIndexArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexArrayOutput) Index(i pulumi.IntInput) SqlContainerIndexingPolicyCompositeIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainerIndexingPolicyCompositeIndex {
+		return vs[0].([]SqlContainerIndexingPolicyCompositeIndex)[vs[1].(int)]
+	}).(SqlContainerIndexingPolicyCompositeIndexOutput)
+}
+
+type SqlContainerIndexingPolicyCompositeIndexIndex struct {
+	// Order of the index. Possible values are `Ascending` or `Descending`.
+	Order string `pulumi:"order"`
+	// Path for which the indexing behavior applies to.
+	Path string `pulumi:"path"`
+}
+
+// SqlContainerIndexingPolicyCompositeIndexIndexInput is an input type that accepts SqlContainerIndexingPolicyCompositeIndexIndexArgs and SqlContainerIndexingPolicyCompositeIndexIndexOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyCompositeIndexIndexInput` via:
+//
+//          SqlContainerIndexingPolicyCompositeIndexIndexArgs{...}
+type SqlContainerIndexingPolicyCompositeIndexIndexInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyCompositeIndexIndexOutput() SqlContainerIndexingPolicyCompositeIndexIndexOutput
+	ToSqlContainerIndexingPolicyCompositeIndexIndexOutputWithContext(context.Context) SqlContainerIndexingPolicyCompositeIndexIndexOutput
+}
+
+type SqlContainerIndexingPolicyCompositeIndexIndexArgs struct {
+	// Order of the index. Possible values are `Ascending` or `Descending`.
+	Order pulumi.StringInput `pulumi:"order"`
+	// Path for which the indexing behavior applies to.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (SqlContainerIndexingPolicyCompositeIndexIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicyCompositeIndexIndex)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyCompositeIndexIndexArgs) ToSqlContainerIndexingPolicyCompositeIndexIndexOutput() SqlContainerIndexingPolicyCompositeIndexIndexOutput {
+	return i.ToSqlContainerIndexingPolicyCompositeIndexIndexOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyCompositeIndexIndexArgs) ToSqlContainerIndexingPolicyCompositeIndexIndexOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyCompositeIndexIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyCompositeIndexIndexOutput)
+}
+
+// SqlContainerIndexingPolicyCompositeIndexIndexArrayInput is an input type that accepts SqlContainerIndexingPolicyCompositeIndexIndexArray and SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput values.
+// You can construct a concrete instance of `SqlContainerIndexingPolicyCompositeIndexIndexArrayInput` via:
+//
+//          SqlContainerIndexingPolicyCompositeIndexIndexArray{ SqlContainerIndexingPolicyCompositeIndexIndexArgs{...} }
+type SqlContainerIndexingPolicyCompositeIndexIndexArrayInput interface {
+	pulumi.Input
+
+	ToSqlContainerIndexingPolicyCompositeIndexIndexArrayOutput() SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput
+	ToSqlContainerIndexingPolicyCompositeIndexIndexArrayOutputWithContext(context.Context) SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput
+}
+
+type SqlContainerIndexingPolicyCompositeIndexIndexArray []SqlContainerIndexingPolicyCompositeIndexIndexInput
+
+func (SqlContainerIndexingPolicyCompositeIndexIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicyCompositeIndexIndex)(nil)).Elem()
+}
+
+func (i SqlContainerIndexingPolicyCompositeIndexIndexArray) ToSqlContainerIndexingPolicyCompositeIndexIndexArrayOutput() SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput {
+	return i.ToSqlContainerIndexingPolicyCompositeIndexIndexArrayOutputWithContext(context.Background())
+}
+
+func (i SqlContainerIndexingPolicyCompositeIndexIndexArray) ToSqlContainerIndexingPolicyCompositeIndexIndexArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput)
+}
+
+type SqlContainerIndexingPolicyCompositeIndexIndexOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyCompositeIndexIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerIndexingPolicyCompositeIndexIndex)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexIndexOutput) ToSqlContainerIndexingPolicyCompositeIndexIndexOutput() SqlContainerIndexingPolicyCompositeIndexIndexOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexIndexOutput) ToSqlContainerIndexingPolicyCompositeIndexIndexOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyCompositeIndexIndexOutput {
+	return o
+}
+
+// Order of the index. Possible values are `Ascending` or `Descending`.
+func (o SqlContainerIndexingPolicyCompositeIndexIndexOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicyCompositeIndexIndex) string { return v.Order }).(pulumi.StringOutput)
+}
+
+// Path for which the indexing behavior applies to.
+func (o SqlContainerIndexingPolicyCompositeIndexIndexOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerIndexingPolicyCompositeIndexIndex) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SqlContainerIndexingPolicyCompositeIndexIndex)(nil)).Elem()
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput) ToSqlContainerIndexingPolicyCompositeIndexIndexArrayOutput() SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput) ToSqlContainerIndexingPolicyCompositeIndexIndexArrayOutputWithContext(ctx context.Context) SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput {
+	return o
+}
+
+func (o SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput) Index(i pulumi.IntInput) SqlContainerIndexingPolicyCompositeIndexIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SqlContainerIndexingPolicyCompositeIndexIndex {
+		return vs[0].([]SqlContainerIndexingPolicyCompositeIndexIndex)[vs[1].(int)]
+	}).(SqlContainerIndexingPolicyCompositeIndexIndexOutput)
 }
 
 type SqlContainerIndexingPolicyExcludedPath struct {
@@ -3031,6 +3257,10 @@ func init() {
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyCompositeIndexOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyCompositeIndexArrayOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyCompositeIndexIndexOutput{})
+	pulumi.RegisterOutputType(SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyExcludedPathOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyExcludedPathArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyIncludedPathOutput{})

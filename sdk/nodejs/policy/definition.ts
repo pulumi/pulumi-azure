@@ -98,7 +98,7 @@ export class Definition extends pulumi.CustomResource {
     public readonly managementGroupName!: pulumi.Output<string>;
     /**
      * The metadata for the policy definition. This
-     * is a json object representing additional metadata that should be stored
+     * is a JSON string representing additional metadata that should be stored
      * with the policy definition.
      */
     public readonly metadata!: pulumi.Output<string>;
@@ -114,12 +114,12 @@ export class Definition extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Parameters for the policy definition. This field
-     * is a json object that allows you to parameterize your policy definition.
+     * is a JSON string that allows you to parameterize your policy definition.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
      * The policy rule for the policy definition. This
-     * is a json object representing the rule that contains an if and
+     * is a JSON string representing the rule that contains an if and
      * a then block.
      */
     public readonly policyRule!: pulumi.Output<string | undefined>;
@@ -207,7 +207,7 @@ export interface DefinitionState {
     readonly managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
-     * is a json object representing additional metadata that should be stored
+     * is a JSON string representing additional metadata that should be stored
      * with the policy definition.
      */
     readonly metadata?: pulumi.Input<string>;
@@ -223,12 +223,12 @@ export interface DefinitionState {
     readonly name?: pulumi.Input<string>;
     /**
      * Parameters for the policy definition. This field
-     * is a json object that allows you to parameterize your policy definition.
+     * is a JSON string that allows you to parameterize your policy definition.
      */
     readonly parameters?: pulumi.Input<string>;
     /**
      * The policy rule for the policy definition. This
-     * is a json object representing the rule that contains an if and
+     * is a JSON string representing the rule that contains an if and
      * a then block.
      */
     readonly policyRule?: pulumi.Input<string>;
@@ -262,7 +262,7 @@ export interface DefinitionArgs {
     readonly managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
-     * is a json object representing additional metadata that should be stored
+     * is a JSON string representing additional metadata that should be stored
      * with the policy definition.
      */
     readonly metadata?: pulumi.Input<string>;
@@ -278,12 +278,12 @@ export interface DefinitionArgs {
     readonly name?: pulumi.Input<string>;
     /**
      * Parameters for the policy definition. This field
-     * is a json object that allows you to parameterize your policy definition.
+     * is a JSON string that allows you to parameterize your policy definition.
      */
     readonly parameters?: pulumi.Input<string>;
     /**
      * The policy rule for the policy definition. This
-     * is a json object representing the rule that contains an if and
+     * is a JSON string representing the rule that contains an if and
      * a then block.
      */
     readonly policyRule?: pulumi.Input<string>;
