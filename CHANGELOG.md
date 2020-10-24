@@ -3,16 +3,20 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v2.33.0 of the AzureRM Terraform Provider 
-* Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
-* Improving the accuracy of previews leading to a more accurate understanding of what will actually change rather than assuming all output properties will change
 
 ---
 
+## 3.27.0 (2020-10-23)
+* Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
+* Improving the accuracy of previews leading to a more accurate understanding of what will actually change rather than assuming all output properties will change.  
+  ** PLEASE NOTE:**  
+  This new preview functionality can be disabled by setting `PULUMI_DISABLE_PROVIDER_PREVIEW` to `1` or `false`.
+
 ## 3.26.0 (2020-10-16)
-* Upgrade to v2.32.0 of the AzureRM Terraform Provider 
+* Upgrade to v2.32.0 of the AzureRM Terraform Provider
 
 ## 3.25.0 (2020-10-14)
-* Upgrade to v2.31.1 of the AzureRM Terraform Provider 
+* Upgrade to v2.31.1 of the AzureRM Terraform Provider
 * Disable autonaming for `mysql.Configuration`, `mariadb.Configuration` and `postgres.Configuration` as the resource
   names need to relate to validate database configuration names.
 * Upgrade to pulumi-terraform-bridge v2.11.0.
