@@ -45,6 +45,12 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ConfigurationStoreIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -145,6 +151,12 @@ namespace Pulumi.Azure.AppConfiguration
     public sealed class ConfigurationStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ConfigurationStoreIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -192,6 +204,12 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ConfigurationStoreIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -964,6 +964,21 @@ export namespace apimanagement {
 }
 
 export namespace appconfiguration {
+    export interface ConfigurationStoreIdentity {
+        /**
+         * The ID of the Principal (Client) in Azure Active Directory.
+         */
+        principalId: string;
+        /**
+         * The ID of the Azure Active Directory Tenant.
+         */
+        tenantId: string;
+        /**
+         * Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface ConfigurationStorePrimaryReadKey {
         /**
          * The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -7650,11 +7665,11 @@ export namespace containerservice {
 
     export interface RegistryRetentionPolicy {
         /**
-         * The number of days to retain an untagged manifest after which it gets purged.
+         * The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
          */
         days?: number;
         /**
-         * Boolean value that indicates whether the policy is enabled. Default is `7`.
+         * Boolean value that indicates whether the policy is enabled.
          */
         enabled?: boolean;
     }
@@ -7963,6 +7978,10 @@ export namespace cosmosdb {
 
     export interface SqlContainerIndexingPolicy {
         /**
+         * One or more `compositeIndex` blocks as defined below.
+         */
+        compositeIndices?: outputs.cosmosdb.SqlContainerIndexingPolicyCompositeIndex[];
+        /**
          * One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
          */
         excludedPaths: outputs.cosmosdb.SqlContainerIndexingPolicyExcludedPath[];
@@ -7974,6 +7993,24 @@ export namespace cosmosdb {
          * Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
          */
         indexingMode?: string;
+    }
+
+    export interface SqlContainerIndexingPolicyCompositeIndex {
+        /**
+         * One or more `index` blocks as defined below.
+         */
+        indices: outputs.cosmosdb.SqlContainerIndexingPolicyCompositeIndexIndex[];
+    }
+
+    export interface SqlContainerIndexingPolicyCompositeIndexIndex {
+        /**
+         * Order of the index. Possible values are `Ascending` or `Descending`.
+         */
+        order: string;
+        /**
+         * Path for which the indexing behavior applies to.
+         */
+        path: string;
     }
 
     export interface SqlContainerIndexingPolicyExcludedPath {
@@ -17089,7 +17126,7 @@ export namespace policy {
 
     export interface PolicySetDefinitionPolicyDefinitionReference {
         /**
-         * Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+         * Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
          */
         parameterValues: string;
         /**
@@ -17573,6 +17610,21 @@ export namespace role {
 }
 
 export namespace search {
+    export interface ServiceIdentity {
+        /**
+         * The (Client) ID of the Service Principal.
+         */
+        principalId: string;
+        /**
+         * The ID of the Tenant the Service Principal is assigned in.
+         */
+        tenantId: string;
+        /**
+         * The Type of Identity which should be used for the Search Service. At this time the only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface ServiceQueryKey {
         /**
          * The value of this Query Key.

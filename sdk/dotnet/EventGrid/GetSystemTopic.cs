@@ -88,26 +88,8 @@ namespace Pulumi.Azure.EventGrid
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-        /// * `Microsoft.AppConfiguration.ConfigurationStores`
-        /// * `Microsoft.Communication.CommunicationServices`
-        /// * `Microsoft.ContainerRegistry.Registries`
-        /// * `Microsoft.Devices.IoTHubs`
-        /// * `Microsoft.EventGrid.Domains`
-        /// * `Microsoft.EventGrid.Topics`
-        /// * `Microsoft.Eventhub.Namespaces`
-        /// * `Microsoft.KeyVault.vaults`
-        /// * `Microsoft.MachineLearningServices.Workspaces`
-        /// * `Microsoft.Maps.Accounts`
-        /// * `Microsoft.Media.MediaServices`
-        /// * `Microsoft.Resources.ResourceGroups`
-        /// * `Microsoft.Resources.Subscriptions`
-        /// * `Microsoft.ServiceBus.Namespaces`
-        /// * `Microsoft.SignalRService.SignalR`
-        /// * `Microsoft.Storage.StorageAccounts`
-        /// * `Microsoft.Web.ServerFarms`
-        /// * `Microsoft.Web.Sites`
-        /// ---
+        /// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+        /// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
         [Output("topicType")]
         public Output<string> TopicType { get; private set; } = null!;
@@ -195,26 +177,8 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-        /// * `Microsoft.AppConfiguration.ConfigurationStores`
-        /// * `Microsoft.Communication.CommunicationServices`
-        /// * `Microsoft.ContainerRegistry.Registries`
-        /// * `Microsoft.Devices.IoTHubs`
-        /// * `Microsoft.EventGrid.Domains`
-        /// * `Microsoft.EventGrid.Topics`
-        /// * `Microsoft.Eventhub.Namespaces`
-        /// * `Microsoft.KeyVault.vaults`
-        /// * `Microsoft.MachineLearningServices.Workspaces`
-        /// * `Microsoft.Maps.Accounts`
-        /// * `Microsoft.Media.MediaServices`
-        /// * `Microsoft.Resources.ResourceGroups`
-        /// * `Microsoft.Resources.Subscriptions`
-        /// * `Microsoft.ServiceBus.Namespaces`
-        /// * `Microsoft.SignalRService.SignalR`
-        /// * `Microsoft.Storage.StorageAccounts`
-        /// * `Microsoft.Web.ServerFarms`
-        /// * `Microsoft.Web.Sites`
-        /// ---
+        /// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+        /// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
         [Input("topicType", required: true)]
         public Input<string> TopicType { get; set; } = null!;
@@ -269,26 +233,8 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// The Topic Type of the Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created. Possible values are:
-        /// * `Microsoft.AppConfiguration.ConfigurationStores`
-        /// * `Microsoft.Communication.CommunicationServices`
-        /// * `Microsoft.ContainerRegistry.Registries`
-        /// * `Microsoft.Devices.IoTHubs`
-        /// * `Microsoft.EventGrid.Domains`
-        /// * `Microsoft.EventGrid.Topics`
-        /// * `Microsoft.Eventhub.Namespaces`
-        /// * `Microsoft.KeyVault.vaults`
-        /// * `Microsoft.MachineLearningServices.Workspaces`
-        /// * `Microsoft.Maps.Accounts`
-        /// * `Microsoft.Media.MediaServices`
-        /// * `Microsoft.Resources.ResourceGroups`
-        /// * `Microsoft.Resources.Subscriptions`
-        /// * `Microsoft.ServiceBus.Namespaces`
-        /// * `Microsoft.SignalRService.SignalR`
-        /// * `Microsoft.Storage.StorageAccounts`
-        /// * `Microsoft.Web.ServerFarms`
-        /// * `Microsoft.Web.Sites`
-        /// ---
+        /// The Topic Type of the Event Grid System Topic. Possible values are: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`
+        /// , `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
         [Input("topicType")]
         public Input<string>? TopicType { get; set; }

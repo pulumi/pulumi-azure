@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ConfigurationStoreIdentity struct {
+	// The ID of the Principal (Client) in Azure Active Directory.
+	PrincipalId *string `pulumi:"principalId"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ConfigurationStoreIdentityInput is an input type that accepts ConfigurationStoreIdentityArgs and ConfigurationStoreIdentityOutput values.
+// You can construct a concrete instance of `ConfigurationStoreIdentityInput` via:
+//
+//          ConfigurationStoreIdentityArgs{...}
+type ConfigurationStoreIdentityInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreIdentityOutput() ConfigurationStoreIdentityOutput
+	ToConfigurationStoreIdentityOutputWithContext(context.Context) ConfigurationStoreIdentityOutput
+}
+
+type ConfigurationStoreIdentityArgs struct {
+	// The ID of the Principal (Client) in Azure Active Directory.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The ID of the Azure Active Directory Tenant.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ConfigurationStoreIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStoreIdentity)(nil)).Elem()
+}
+
+func (i ConfigurationStoreIdentityArgs) ToConfigurationStoreIdentityOutput() ConfigurationStoreIdentityOutput {
+	return i.ToConfigurationStoreIdentityOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStoreIdentityArgs) ToConfigurationStoreIdentityOutputWithContext(ctx context.Context) ConfigurationStoreIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreIdentityOutput)
+}
+
+func (i ConfigurationStoreIdentityArgs) ToConfigurationStoreIdentityPtrOutput() ConfigurationStoreIdentityPtrOutput {
+	return i.ToConfigurationStoreIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStoreIdentityArgs) ToConfigurationStoreIdentityPtrOutputWithContext(ctx context.Context) ConfigurationStoreIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreIdentityOutput).ToConfigurationStoreIdentityPtrOutputWithContext(ctx)
+}
+
+// ConfigurationStoreIdentityPtrInput is an input type that accepts ConfigurationStoreIdentityArgs, ConfigurationStoreIdentityPtr and ConfigurationStoreIdentityPtrOutput values.
+// You can construct a concrete instance of `ConfigurationStoreIdentityPtrInput` via:
+//
+//          ConfigurationStoreIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationStoreIdentityPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreIdentityPtrOutput() ConfigurationStoreIdentityPtrOutput
+	ToConfigurationStoreIdentityPtrOutputWithContext(context.Context) ConfigurationStoreIdentityPtrOutput
+}
+
+type configurationStoreIdentityPtrType ConfigurationStoreIdentityArgs
+
+func ConfigurationStoreIdentityPtr(v *ConfigurationStoreIdentityArgs) ConfigurationStoreIdentityPtrInput {
+	return (*configurationStoreIdentityPtrType)(v)
+}
+
+func (*configurationStoreIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationStoreIdentity)(nil)).Elem()
+}
+
+func (i *configurationStoreIdentityPtrType) ToConfigurationStoreIdentityPtrOutput() ConfigurationStoreIdentityPtrOutput {
+	return i.ToConfigurationStoreIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationStoreIdentityPtrType) ToConfigurationStoreIdentityPtrOutputWithContext(ctx context.Context) ConfigurationStoreIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreIdentityPtrOutput)
+}
+
+type ConfigurationStoreIdentityOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStoreIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStoreIdentity)(nil)).Elem()
+}
+
+func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityOutput() ConfigurationStoreIdentityOutput {
+	return o
+}
+
+func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityOutputWithContext(ctx context.Context) ConfigurationStoreIdentityOutput {
+	return o
+}
+
+func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutput() ConfigurationStoreIdentityPtrOutput {
+	return o.ToConfigurationStoreIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutputWithContext(ctx context.Context) ConfigurationStoreIdentityPtrOutput {
+	return o.ApplyT(func(v ConfigurationStoreIdentity) *ConfigurationStoreIdentity {
+		return &v
+	}).(ConfigurationStoreIdentityPtrOutput)
+}
+
+// The ID of the Principal (Client) in Azure Active Directory.
+func (o ConfigurationStoreIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationStoreIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Active Directory Tenant.
+func (o ConfigurationStoreIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationStoreIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+func (o ConfigurationStoreIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationStoreIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ConfigurationStoreIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStoreIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationStoreIdentity)(nil)).Elem()
+}
+
+func (o ConfigurationStoreIdentityPtrOutput) ToConfigurationStoreIdentityPtrOutput() ConfigurationStoreIdentityPtrOutput {
+	return o
+}
+
+func (o ConfigurationStoreIdentityPtrOutput) ToConfigurationStoreIdentityPtrOutputWithContext(ctx context.Context) ConfigurationStoreIdentityPtrOutput {
+	return o
+}
+
+func (o ConfigurationStoreIdentityPtrOutput) Elem() ConfigurationStoreIdentityOutput {
+	return o.ApplyT(func(v *ConfigurationStoreIdentity) ConfigurationStoreIdentity { return *v }).(ConfigurationStoreIdentityOutput)
+}
+
+// The ID of the Principal (Client) in Azure Active Directory.
+func (o ConfigurationStoreIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStoreIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Azure Active Directory Tenant.
+func (o ConfigurationStoreIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStoreIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the App Configuration. At this time the only allowed value is `SystemAssigned`.
+func (o ConfigurationStoreIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStoreIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationStorePrimaryReadKey struct {
 	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 	ConnectionString *string `pulumi:"connectionString"`
@@ -931,6 +1100,8 @@ func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) Index(i pulumi.IntInp
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConfigurationStoreIdentityOutput{})
+	pulumi.RegisterOutputType(ConfigurationStoreIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePrimaryReadKeyOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePrimaryReadKeyArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePrimaryWriteKeyOutput{})

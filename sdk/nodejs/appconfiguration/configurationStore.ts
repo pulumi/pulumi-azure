@@ -55,6 +55,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreIdentity | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ConfigurationStoreState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["primaryReadKeys"] = state ? state.primaryReadKeys : undefined;
@@ -118,6 +123,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -148,6 +154,10 @@ export interface ConfigurationStoreState {
      * The URL of the App Configuration.
      */
     readonly endpoint?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -190,6 +200,10 @@ export interface ConfigurationStoreState {
  * The set of arguments for constructing a ConfigurationStore resource.
  */
 export interface ConfigurationStoreArgs {
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.appconfiguration.ConfigurationStoreIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

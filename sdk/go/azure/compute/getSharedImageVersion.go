@@ -69,6 +69,8 @@ type LookupSharedImageVersionResult struct {
 	ManagedImageId string `pulumi:"managedImageId"`
 	// The Azure Region in which this Image Version exists.
 	Name string `pulumi:"name"`
+	// The size of the OS disk snapshot (in Gigabytes) which was the source of this Shared Image Version.
+	OsDiskImageSizeGb int `pulumi:"osDiskImageSizeGb"`
 	// The ID of the OS disk snapshot which was the source of this Shared Image Version.
 	OsDiskSnapshotId  string `pulumi:"osDiskSnapshotId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`

@@ -103,6 +103,10 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The size of the OS disk snapshot (in Gigabytes) which was the source of this Shared Image Version.
+        /// </summary>
+        public readonly int OsDiskImageSizeGb;
+        /// <summary>
         /// The ID of the OS disk snapshot which was the source of this Shared Image Version.
         /// </summary>
         public readonly string OsDiskSnapshotId;
@@ -132,6 +136,8 @@ namespace Pulumi.Azure.Compute
 
             string name,
 
+            int osDiskImageSizeGb,
+
             string osDiskSnapshotId,
 
             string resourceGroupName,
@@ -147,6 +153,7 @@ namespace Pulumi.Azure.Compute
             Location = location;
             ManagedImageId = managedImageId;
             Name = name;
+            OsDiskImageSizeGb = osDiskImageSizeGb;
             OsDiskSnapshotId = osDiskSnapshotId;
             ResourceGroupName = resourceGroupName;
             Tags = tags;

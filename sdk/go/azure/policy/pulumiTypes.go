@@ -180,7 +180,7 @@ func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type PolicySetDefinitionPolicyDefinitionReference struct {
-	// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+	// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
 	ParameterValues *string `pulumi:"parameterValues"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	//
@@ -204,7 +204,7 @@ type PolicySetDefinitionPolicyDefinitionReferenceInput interface {
 }
 
 type PolicySetDefinitionPolicyDefinitionReferenceArgs struct {
-	// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+	// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
 	ParameterValues pulumi.StringPtrInput `pulumi:"parameterValues"`
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	//
@@ -267,7 +267,7 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ToPolicySetDefinitio
 	return o
 }
 
-// Parameter values for the referenced policy rule. This field is a json object that allows you to assign parameters to this policy rule.
+// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
 func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) *string { return v.ParameterValues }).(pulumi.StringPtrOutput)
 }

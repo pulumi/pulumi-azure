@@ -111,7 +111,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+     * The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
      */
     public readonly metadata!: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly notScopes!: pulumi.Output<string[] | undefined>;
     /**
-     * Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+     * Parameters for the policy definition. This field is a JSON string that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface AssignmentState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+     * The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
      */
     readonly metadata?: pulumi.Input<string>;
     /**
@@ -226,7 +226,7 @@ export interface AssignmentState {
      */
     readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+     * Parameters for the policy definition. This field is a JSON string that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
      */
     readonly parameters?: pulumi.Input<string>;
     /**
@@ -264,7 +264,7 @@ export interface AssignmentArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The metadata for the policy assignment. This is a json object representing additional metadata that should be stored with the policy assignment.
+     * The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
      */
     readonly metadata?: pulumi.Input<string>;
     /**
@@ -276,7 +276,7 @@ export interface AssignmentArgs {
      */
     readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+     * Parameters for the policy definition. This field is a JSON string that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
      */
     readonly parameters?: pulumi.Input<string>;
     /**

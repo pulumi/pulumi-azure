@@ -57,7 +57,7 @@ type Definition struct {
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupName pulumi.StringOutput `pulumi:"managementGroupName"`
 	// The metadata for the policy definition. This
-	// is a json object representing additional metadata that should be stored
+	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
@@ -67,10 +67,10 @@ type Definition struct {
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parameters for the policy definition. This field
-	// is a json object that allows you to parameterize your policy definition.
+	// is a JSON string that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// The policy rule for the policy definition. This
-	// is a json object representing the rule that contains an if and
+	// is a JSON string representing the rule that contains an if and
 	// a then block.
 	PolicyRule pulumi.StringPtrOutput `pulumi:"policyRule"`
 	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
@@ -125,7 +125,7 @@ type definitionState struct {
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// The metadata for the policy definition. This
-	// is a json object representing additional metadata that should be stored
+	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata *string `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
@@ -135,10 +135,10 @@ type definitionState struct {
 	// new resource to be created.
 	Name *string `pulumi:"name"`
 	// Parameters for the policy definition. This field
-	// is a json object that allows you to parameterize your policy definition.
+	// is a JSON string that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
 	// The policy rule for the policy definition. This
-	// is a json object representing the rule that contains an if and
+	// is a JSON string representing the rule that contains an if and
 	// a then block.
 	PolicyRule *string `pulumi:"policyRule"`
 	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
@@ -157,7 +157,7 @@ type DefinitionState struct {
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupName pulumi.StringPtrInput
 	// The metadata for the policy definition. This
-	// is a json object representing additional metadata that should be stored
+	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata pulumi.StringPtrInput
 	// The policy mode that allows you to specify which resource
@@ -167,10 +167,10 @@ type DefinitionState struct {
 	// new resource to be created.
 	Name pulumi.StringPtrInput
 	// Parameters for the policy definition. This field
-	// is a json object that allows you to parameterize your policy definition.
+	// is a JSON string that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
 	// The policy rule for the policy definition. This
-	// is a json object representing the rule that contains an if and
+	// is a JSON string representing the rule that contains an if and
 	// a then block.
 	PolicyRule pulumi.StringPtrInput
 	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
@@ -193,7 +193,7 @@ type definitionArgs struct {
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupName *string `pulumi:"managementGroupName"`
 	// The metadata for the policy definition. This
-	// is a json object representing additional metadata that should be stored
+	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata *string `pulumi:"metadata"`
 	// The policy mode that allows you to specify which resource
@@ -203,10 +203,10 @@ type definitionArgs struct {
 	// new resource to be created.
 	Name *string `pulumi:"name"`
 	// Parameters for the policy definition. This field
-	// is a json object that allows you to parameterize your policy definition.
+	// is a JSON string that allows you to parameterize your policy definition.
 	Parameters *string `pulumi:"parameters"`
 	// The policy rule for the policy definition. This
-	// is a json object representing the rule that contains an if and
+	// is a JSON string representing the rule that contains an if and
 	// a then block.
 	PolicyRule *string `pulumi:"policyRule"`
 	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
@@ -226,7 +226,7 @@ type DefinitionArgs struct {
 	// The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
 	ManagementGroupName pulumi.StringPtrInput
 	// The metadata for the policy definition. This
-	// is a json object representing additional metadata that should be stored
+	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata pulumi.StringPtrInput
 	// The policy mode that allows you to specify which resource
@@ -236,10 +236,10 @@ type DefinitionArgs struct {
 	// new resource to be created.
 	Name pulumi.StringPtrInput
 	// Parameters for the policy definition. This field
-	// is a json object that allows you to parameterize your policy definition.
+	// is a JSON string that allows you to parameterize your policy definition.
 	Parameters pulumi.StringPtrInput
 	// The policy rule for the policy definition. This
-	// is a json object representing the rule that contains an if and
+	// is a JSON string representing the rule that contains an if and
 	// a then block.
 	PolicyRule pulumi.StringPtrInput
 	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class RegistryRetentionPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days to retain an untagged manifest after which it gets purged.
+        /// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// Boolean value that indicates whether the policy is enabled. Default is `7`.
+        /// Boolean value that indicates whether the policy is enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -6286,9 +6286,9 @@ func (o RegistryNetworkRuleSetVirtualNetworkArrayOutput) Index(i pulumi.IntInput
 }
 
 type RegistryRetentionPolicy struct {
-	// The number of days to retain an untagged manifest after which it gets purged.
+	// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
 	Days *int `pulumi:"days"`
-	// Boolean value that indicates whether the policy is enabled. Default is `7`.
+	// Boolean value that indicates whether the policy is enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -6304,9 +6304,9 @@ type RegistryRetentionPolicyInput interface {
 }
 
 type RegistryRetentionPolicyArgs struct {
-	// The number of days to retain an untagged manifest after which it gets purged.
+	// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Boolean value that indicates whether the policy is enabled. Default is `7`.
+	// Boolean value that indicates whether the policy is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -6387,12 +6387,12 @@ func (o RegistryRetentionPolicyOutput) ToRegistryRetentionPolicyPtrOutputWithCon
 	}).(RegistryRetentionPolicyPtrOutput)
 }
 
-// The number of days to retain an untagged manifest after which it gets purged.
+// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
 func (o RegistryRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RegistryRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Boolean value that indicates whether the policy is enabled. Default is `7`.
+// Boolean value that indicates whether the policy is enabled.
 func (o RegistryRetentionPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryRetentionPolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -6415,7 +6415,7 @@ func (o RegistryRetentionPolicyPtrOutput) Elem() RegistryRetentionPolicyOutput {
 	return o.ApplyT(func(v *RegistryRetentionPolicy) RegistryRetentionPolicy { return *v }).(RegistryRetentionPolicyOutput)
 }
 
-// The number of days to retain an untagged manifest after which it gets purged.
+// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
 func (o RegistryRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RegistryRetentionPolicy) *int {
 		if v == nil {
@@ -6425,7 +6425,7 @@ func (o RegistryRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Boolean value that indicates whether the policy is enabled. Default is `7`.
+// Boolean value that indicates whether the policy is enabled.
 func (o RegistryRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegistryRetentionPolicy) *bool {
 		if v == nil {

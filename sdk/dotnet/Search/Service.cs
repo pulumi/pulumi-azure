@@ -46,6 +46,12 @@ namespace Pulumi.Azure.Search
         public Output<ImmutableArray<string>> AllowedIps { get; private set; } = null!;
 
         /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Output("location")]
@@ -170,6 +176,12 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("location")]
@@ -241,6 +253,12 @@ namespace Pulumi.Azure.Search
             get => _allowedIps ?? (_allowedIps = new InputList<string>());
             set => _allowedIps = value;
         }
+
+        /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.

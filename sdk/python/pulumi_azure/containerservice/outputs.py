@@ -2238,8 +2238,8 @@ class RegistryRetentionPolicy(dict):
                  days: Optional[int] = None,
                  enabled: Optional[bool] = None):
         """
-        :param int days: The number of days to retain an untagged manifest after which it gets purged.
-        :param bool enabled: Boolean value that indicates whether the policy is enabled. Default is `7`.
+        :param int days: The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
+        :param bool enabled: Boolean value that indicates whether the policy is enabled.
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -2250,7 +2250,7 @@ class RegistryRetentionPolicy(dict):
     @pulumi.getter
     def days(self) -> Optional[int]:
         """
-        The number of days to retain an untagged manifest after which it gets purged.
+        The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
         """
         return pulumi.get(self, "days")
 
@@ -2258,7 +2258,7 @@ class RegistryRetentionPolicy(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Boolean value that indicates whether the policy is enabled. Default is `7`.
+        Boolean value that indicates whether the policy is enabled.
         """
         return pulumi.get(self, "enabled")
 
