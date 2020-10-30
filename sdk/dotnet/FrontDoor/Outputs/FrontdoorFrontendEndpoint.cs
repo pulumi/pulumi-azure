@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly bool? CustomHttpsProvisioningEnabled;
         /// <summary>
-        /// Specifies the host name of the `frontend_endpoint`. Must be a domain name.
+        /// Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
         /// </summary>
         public readonly string HostName;
         /// <summary>

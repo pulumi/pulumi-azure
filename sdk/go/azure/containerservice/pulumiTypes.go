@@ -1183,6 +1183,8 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GroupContainerVolume struct {
+	// A `gitRepo` block as defined below.
+	GitRepo *GroupContainerVolumeGitRepo `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath string `pulumi:"mountPath"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -1190,11 +1192,11 @@ type GroupContainerVolume struct {
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly *bool `pulumi:"readOnly"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
-	ShareName string `pulumi:"shareName"`
+	ShareName *string `pulumi:"shareName"`
 	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
-	StorageAccountKey string `pulumi:"storageAccountKey"`
+	StorageAccountKey *string `pulumi:"storageAccountKey"`
 	// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 // GroupContainerVolumeInput is an input type that accepts GroupContainerVolumeArgs and GroupContainerVolumeOutput values.
@@ -1209,6 +1211,8 @@ type GroupContainerVolumeInput interface {
 }
 
 type GroupContainerVolumeArgs struct {
+	// A `gitRepo` block as defined below.
+	GitRepo GroupContainerVolumeGitRepoPtrInput `pulumi:"gitRepo"`
 	// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 	MountPath pulumi.StringInput `pulumi:"mountPath"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -1216,11 +1220,11 @@ type GroupContainerVolumeArgs struct {
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
-	ShareName pulumi.StringInput `pulumi:"shareName"`
+	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
 	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
-	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
+	StorageAccountKey pulumi.StringPtrInput `pulumi:"storageAccountKey"`
 	// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
 }
 
 func (GroupContainerVolumeArgs) ElementType() reflect.Type {
@@ -1274,6 +1278,11 @@ func (o GroupContainerVolumeOutput) ToGroupContainerVolumeOutputWithContext(ctx 
 	return o
 }
 
+// A `gitRepo` block as defined below.
+func (o GroupContainerVolumeOutput) GitRepo() GroupContainerVolumeGitRepoPtrOutput {
+	return o.ApplyT(func(v GroupContainerVolume) *GroupContainerVolumeGitRepo { return v.GitRepo }).(GroupContainerVolumeGitRepoPtrOutput)
+}
+
 // The path on which this volume is to be mounted. Changing this forces a new resource to be created.
 func (o GroupContainerVolumeOutput) MountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupContainerVolume) string { return v.MountPath }).(pulumi.StringOutput)
@@ -1290,18 +1299,18 @@ func (o GroupContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 }
 
 // The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
-func (o GroupContainerVolumeOutput) ShareName() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupContainerVolume) string { return v.ShareName }).(pulumi.StringOutput)
+func (o GroupContainerVolumeOutput) ShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupContainerVolume) *string { return v.ShareName }).(pulumi.StringPtrOutput)
 }
 
 // The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
-func (o GroupContainerVolumeOutput) StorageAccountKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupContainerVolume) string { return v.StorageAccountKey }).(pulumi.StringOutput)
+func (o GroupContainerVolumeOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupContainerVolume) *string { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
 }
 
 // The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
-func (o GroupContainerVolumeOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupContainerVolume) string { return v.StorageAccountName }).(pulumi.StringOutput)
+func (o GroupContainerVolumeOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupContainerVolume) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
 }
 
 type GroupContainerVolumeArrayOutput struct{ *pulumi.OutputState }
@@ -1322,6 +1331,175 @@ func (o GroupContainerVolumeArrayOutput) Index(i pulumi.IntInput) GroupContainer
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupContainerVolume {
 		return vs[0].([]GroupContainerVolume)[vs[1].(int)]
 	}).(GroupContainerVolumeOutput)
+}
+
+type GroupContainerVolumeGitRepo struct {
+	// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+	Directory *string `pulumi:"directory"`
+	// Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+	Revision *string `pulumi:"revision"`
+	// Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+	Url string `pulumi:"url"`
+}
+
+// GroupContainerVolumeGitRepoInput is an input type that accepts GroupContainerVolumeGitRepoArgs and GroupContainerVolumeGitRepoOutput values.
+// You can construct a concrete instance of `GroupContainerVolumeGitRepoInput` via:
+//
+//          GroupContainerVolumeGitRepoArgs{...}
+type GroupContainerVolumeGitRepoInput interface {
+	pulumi.Input
+
+	ToGroupContainerVolumeGitRepoOutput() GroupContainerVolumeGitRepoOutput
+	ToGroupContainerVolumeGitRepoOutputWithContext(context.Context) GroupContainerVolumeGitRepoOutput
+}
+
+type GroupContainerVolumeGitRepoArgs struct {
+	// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+	Directory pulumi.StringPtrInput `pulumi:"directory"`
+	// Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+	Revision pulumi.StringPtrInput `pulumi:"revision"`
+	// Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GroupContainerVolumeGitRepoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupContainerVolumeGitRepo)(nil)).Elem()
+}
+
+func (i GroupContainerVolumeGitRepoArgs) ToGroupContainerVolumeGitRepoOutput() GroupContainerVolumeGitRepoOutput {
+	return i.ToGroupContainerVolumeGitRepoOutputWithContext(context.Background())
+}
+
+func (i GroupContainerVolumeGitRepoArgs) ToGroupContainerVolumeGitRepoOutputWithContext(ctx context.Context) GroupContainerVolumeGitRepoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeGitRepoOutput)
+}
+
+func (i GroupContainerVolumeGitRepoArgs) ToGroupContainerVolumeGitRepoPtrOutput() GroupContainerVolumeGitRepoPtrOutput {
+	return i.ToGroupContainerVolumeGitRepoPtrOutputWithContext(context.Background())
+}
+
+func (i GroupContainerVolumeGitRepoArgs) ToGroupContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupContainerVolumeGitRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeGitRepoOutput).ToGroupContainerVolumeGitRepoPtrOutputWithContext(ctx)
+}
+
+// GroupContainerVolumeGitRepoPtrInput is an input type that accepts GroupContainerVolumeGitRepoArgs, GroupContainerVolumeGitRepoPtr and GroupContainerVolumeGitRepoPtrOutput values.
+// You can construct a concrete instance of `GroupContainerVolumeGitRepoPtrInput` via:
+//
+//          GroupContainerVolumeGitRepoArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupContainerVolumeGitRepoPtrInput interface {
+	pulumi.Input
+
+	ToGroupContainerVolumeGitRepoPtrOutput() GroupContainerVolumeGitRepoPtrOutput
+	ToGroupContainerVolumeGitRepoPtrOutputWithContext(context.Context) GroupContainerVolumeGitRepoPtrOutput
+}
+
+type groupContainerVolumeGitRepoPtrType GroupContainerVolumeGitRepoArgs
+
+func GroupContainerVolumeGitRepoPtr(v *GroupContainerVolumeGitRepoArgs) GroupContainerVolumeGitRepoPtrInput {
+	return (*groupContainerVolumeGitRepoPtrType)(v)
+}
+
+func (*groupContainerVolumeGitRepoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupContainerVolumeGitRepo)(nil)).Elem()
+}
+
+func (i *groupContainerVolumeGitRepoPtrType) ToGroupContainerVolumeGitRepoPtrOutput() GroupContainerVolumeGitRepoPtrOutput {
+	return i.ToGroupContainerVolumeGitRepoPtrOutputWithContext(context.Background())
+}
+
+func (i *groupContainerVolumeGitRepoPtrType) ToGroupContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupContainerVolumeGitRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupContainerVolumeGitRepoPtrOutput)
+}
+
+type GroupContainerVolumeGitRepoOutput struct{ *pulumi.OutputState }
+
+func (GroupContainerVolumeGitRepoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupContainerVolumeGitRepo)(nil)).Elem()
+}
+
+func (o GroupContainerVolumeGitRepoOutput) ToGroupContainerVolumeGitRepoOutput() GroupContainerVolumeGitRepoOutput {
+	return o
+}
+
+func (o GroupContainerVolumeGitRepoOutput) ToGroupContainerVolumeGitRepoOutputWithContext(ctx context.Context) GroupContainerVolumeGitRepoOutput {
+	return o
+}
+
+func (o GroupContainerVolumeGitRepoOutput) ToGroupContainerVolumeGitRepoPtrOutput() GroupContainerVolumeGitRepoPtrOutput {
+	return o.ToGroupContainerVolumeGitRepoPtrOutputWithContext(context.Background())
+}
+
+func (o GroupContainerVolumeGitRepoOutput) ToGroupContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupContainerVolumeGitRepoPtrOutput {
+	return o.ApplyT(func(v GroupContainerVolumeGitRepo) *GroupContainerVolumeGitRepo {
+		return &v
+	}).(GroupContainerVolumeGitRepoPtrOutput)
+}
+
+// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+func (o GroupContainerVolumeGitRepoOutput) Directory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupContainerVolumeGitRepo) *string { return v.Directory }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+func (o GroupContainerVolumeGitRepoOutput) Revision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupContainerVolumeGitRepo) *string { return v.Revision }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+func (o GroupContainerVolumeGitRepoOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupContainerVolumeGitRepo) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GroupContainerVolumeGitRepoPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupContainerVolumeGitRepoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupContainerVolumeGitRepo)(nil)).Elem()
+}
+
+func (o GroupContainerVolumeGitRepoPtrOutput) ToGroupContainerVolumeGitRepoPtrOutput() GroupContainerVolumeGitRepoPtrOutput {
+	return o
+}
+
+func (o GroupContainerVolumeGitRepoPtrOutput) ToGroupContainerVolumeGitRepoPtrOutputWithContext(ctx context.Context) GroupContainerVolumeGitRepoPtrOutput {
+	return o
+}
+
+func (o GroupContainerVolumeGitRepoPtrOutput) Elem() GroupContainerVolumeGitRepoOutput {
+	return o.ApplyT(func(v *GroupContainerVolumeGitRepo) GroupContainerVolumeGitRepo { return *v }).(GroupContainerVolumeGitRepoOutput)
+}
+
+// Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+func (o GroupContainerVolumeGitRepoPtrOutput) Directory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupContainerVolumeGitRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Directory
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+func (o GroupContainerVolumeGitRepoPtrOutput) Revision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupContainerVolumeGitRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Revision
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+func (o GroupContainerVolumeGitRepoPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupContainerVolumeGitRepo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
 }
 
 type GroupDiagnostics struct {
@@ -8788,6 +8966,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupContainerReadinessProbeHttpGetArrayOutput{})
 	pulumi.RegisterOutputType(GroupContainerVolumeOutput{})
 	pulumi.RegisterOutputType(GroupContainerVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GroupContainerVolumeGitRepoOutput{})
+	pulumi.RegisterOutputType(GroupContainerVolumeGitRepoPtrOutput{})
 	pulumi.RegisterOutputType(GroupDiagnosticsOutput{})
 	pulumi.RegisterOutputType(GroupDiagnosticsPtrOutput{})
 	pulumi.RegisterOutputType(GroupDiagnosticsLogAnalyticsOutput{})

@@ -92,6 +92,8 @@ __all__ = [
     'VpnServerConfigurationRadiusServerArgs',
     'VpnServerConfigurationRadiusServerClientRootCertificateArgs',
     'VpnServerConfigurationRadiusServerServerRootCertificateArgs',
+    'VpnSiteLinkArgs',
+    'VpnSiteLinkBgpArgs',
 ]
 
 @pulumi.input_type
@@ -6433,5 +6435,160 @@ class VpnServerConfigurationRadiusServerServerRootCertificateArgs:
     @public_cert_data.setter
     def public_cert_data(self, value: pulumi.Input[str]):
         pulumi.set(self, "public_cert_data", value)
+
+
+@pulumi.input_type
+class VpnSiteLinkArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 bgp: Optional[pulumi.Input['VpnSiteLinkBgpArgs']] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 provider_name: Optional[pulumi.Input[str]] = None,
+                 speed_in_mbps: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this VPN Site Link.
+        :param pulumi.Input['VpnSiteLinkBgpArgs'] bgp: A `bgp` block as defined above.
+        :param pulumi.Input[str] fqdn: The FQDN of this VPN Site Link.
+        :param pulumi.Input[str] id: The ID of the VPN Site Link.
+        :param pulumi.Input[str] ip_address: The IP address of this VPN Site Link.
+        :param pulumi.Input[str] provider_name: The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
+        :param pulumi.Input[int] speed_in_mbps: The speed of the VPN device at the branch location in unit of mbps.
+        """
+        pulumi.set(__self__, "name", name)
+        if bgp is not None:
+            pulumi.set(__self__, "bgp", bgp)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if provider_name is not None:
+            pulumi.set(__self__, "provider_name", provider_name)
+        if speed_in_mbps is not None:
+            pulumi.set(__self__, "speed_in_mbps", speed_in_mbps)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this VPN Site Link.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def bgp(self) -> Optional[pulumi.Input['VpnSiteLinkBgpArgs']]:
+        """
+        A `bgp` block as defined above.
+        """
+        return pulumi.get(self, "bgp")
+
+    @bgp.setter
+    def bgp(self, value: Optional[pulumi.Input['VpnSiteLinkBgpArgs']]):
+        pulumi.set(self, "bgp", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The FQDN of this VPN Site Link.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPN Site Link.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address of this VPN Site Link.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
+        """
+        return pulumi.get(self, "provider_name")
+
+    @provider_name.setter
+    def provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provider_name", value)
+
+    @property
+    @pulumi.getter(name="speedInMbps")
+    def speed_in_mbps(self) -> Optional[pulumi.Input[int]]:
+        """
+        The speed of the VPN device at the branch location in unit of mbps.
+        """
+        return pulumi.get(self, "speed_in_mbps")
+
+    @speed_in_mbps.setter
+    def speed_in_mbps(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "speed_in_mbps", value)
+
+
+@pulumi.input_type
+class VpnSiteLinkBgpArgs:
+    def __init__(__self__, *,
+                 asn: pulumi.Input[int],
+                 peering_address: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] asn: The BGP speaker's ASN.
+        :param pulumi.Input[str] peering_address: The BGP peering ip address.
+        """
+        pulumi.set(__self__, "asn", asn)
+        pulumi.set(__self__, "peering_address", peering_address)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> pulumi.Input[int]:
+        """
+        The BGP speaker's ASN.
+        """
+        return pulumi.get(self, "asn")
+
+    @asn.setter
+    def asn(self, value: pulumi.Input[int]):
+        pulumi.set(self, "asn", value)
+
+    @property
+    @pulumi.getter(name="peeringAddress")
+    def peering_address(self) -> pulumi.Input[str]:
+        """
+        The BGP peering ip address.
+        """
+        return pulumi.get(self, "peering_address")
+
+    @peering_address.setter
+    def peering_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "peering_address", value)
 
 

@@ -68,7 +68,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointDeliveryRuleArgs']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGeoFilterArgs']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input[pulumi.InputType['EndpointGlobalDeliveryRuleArgs']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
-        :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled. Defaults to false.
+        :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
         :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -166,7 +166,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGeoFilterArgs']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input[pulumi.InputType['EndpointGlobalDeliveryRuleArgs']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[str] host_name: A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled. Defaults to false.
+        :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
         :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -250,7 +250,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="isCompressionEnabled")
     def is_compression_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether compression is to be enabled. Defaults to false.
+        Indicates whether compression is to be enabled.
         """
         return pulumi.get(self, "is_compression_enabled")
 

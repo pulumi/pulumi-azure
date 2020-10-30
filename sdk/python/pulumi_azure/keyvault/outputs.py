@@ -34,6 +34,7 @@ __all__ = [
     'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames',
     'CertificateIssuerAdmin',
     'KeyVaultAccessPolicy',
+    'KeyVaultContact',
     'KeyVaultNetworkAcls',
     'GetCertificateCertificatePolicyResult',
     'GetCertificateCertificatePolicyIssuerParameterResult',
@@ -1149,6 +1150,51 @@ class KeyVaultAccessPolicy(dict):
         List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
         """
         return pulumi.get(self, "storage_permissions")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class KeyVaultContact(dict):
+    def __init__(__self__, *,
+                 email: str,
+                 name: Optional[str] = None,
+                 phone: Optional[str] = None):
+        """
+        :param str email: E-mail address of the contact.
+        :param str name: Name of the contact.
+        :param str phone: Phone number of the contact.
+        """
+        pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if phone is not None:
+            pulumi.set(__self__, "phone", phone)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        E-mail address of the contact.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the contact.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def phone(self) -> Optional[str]:
+        """
+        Phone number of the contact.
+        """
+        return pulumi.get(self, "phone")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

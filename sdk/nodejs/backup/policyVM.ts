@@ -94,6 +94,10 @@ export class PolicyVM extends pulumi.CustomResource {
      */
     public readonly backup!: pulumi.Output<outputs.backup.PolicyVMBackup>;
     /**
+     * Specifies the instant restore retention range in days.
+     */
+    public readonly instantRestoreRetentionDays!: pulumi.Output<number>;
+    /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -143,6 +147,7 @@ export class PolicyVM extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as PolicyVMState | undefined;
             inputs["backup"] = state ? state.backup : undefined;
+            inputs["instantRestoreRetentionDays"] = state ? state.instantRestoreRetentionDays : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -164,6 +169,7 @@ export class PolicyVM extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backup"] = args ? args.backup : undefined;
+            inputs["instantRestoreRetentionDays"] = args ? args.instantRestoreRetentionDays : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -193,6 +199,10 @@ export interface PolicyVMState {
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     readonly backup?: pulumi.Input<inputs.backup.PolicyVMBackup>;
+    /**
+     * Specifies the instant restore retention range in days.
+     */
+    readonly instantRestoreRetentionDays?: pulumi.Input<number>;
     /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */
@@ -239,6 +249,10 @@ export interface PolicyVMArgs {
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     readonly backup: pulumi.Input<inputs.backup.PolicyVMBackup>;
+    /**
+     * Specifies the instant restore retention range in days.
+     */
+    readonly instantRestoreRetentionDays?: pulumi.Input<number>;
     /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */

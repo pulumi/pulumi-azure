@@ -52,6 +52,8 @@ type LookupAnalyticsWorkspaceArgs struct {
 
 // A collection of values returned by getAnalyticsWorkspace.
 type LookupAnalyticsWorkspaceResult struct {
+	// The workspace daily quota for ingestion in GB.
+	DailyQuotaGb float64 `pulumi:"dailyQuotaGb"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	Location string `pulumi:"location"`

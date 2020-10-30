@@ -36,6 +36,24 @@ class HostPool(pulumi.CustomResource):
         """
         Manages a Virtual Desktop Host Pool.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            friendly_name="pooleddepthfirst",
+            validate_environment=True,
+            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
+            type="Pooled",
+            maximum_sessions_allowed=50,
+            load_balancer_type="DepthFirst")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
@@ -45,12 +63,12 @@ class HostPool(pulumi.CustomResource):
                `Persistent` should be used if the host pool type is `Personal`
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is
                located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[int] maximum_sessions_allowed: A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+        :param pulumi.Input[int] maximum_sessions_allowed: A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
                Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Host Pool. Changing the name
                forces a new resource to be created.
         :param pulumi.Input[str] personal_desktop_assignment_type: `Automatic` assignment – The service will select an available host and assign it to an user.
-               `Direct` Assisnment – Admin selects a specific host to assign to an user.
+               `Direct` Assignment – Admin selects a specific host to assign to an user.
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
                Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
         :param pulumi.Input[pulumi.InputType['HostPoolRegistrationInfoArgs']] registration_info: A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
@@ -134,12 +152,12 @@ class HostPool(pulumi.CustomResource):
                `Persistent` should be used if the host pool type is `Personal`
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is
                located. Changing the location/region forces a new resource to be created.
-        :param pulumi.Input[int] maximum_sessions_allowed: A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+        :param pulumi.Input[int] maximum_sessions_allowed: A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
                Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
         :param pulumi.Input[str] name: The name of the Virtual Desktop Host Pool. Changing the name
                forces a new resource to be created.
         :param pulumi.Input[str] personal_desktop_assignment_type: `Automatic` assignment – The service will select an available host and assign it to an user.
-               `Direct` Assisnment – Admin selects a specific host to assign to an user.
+               `Direct` Assignment – Admin selects a specific host to assign to an user.
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
                Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
         :param pulumi.Input[pulumi.InputType['HostPoolRegistrationInfoArgs']] registration_info: A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
@@ -208,7 +226,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="maximumSessionsAllowed")
     def maximum_sessions_allowed(self) -> pulumi.Output[Optional[int]]:
         """
-        A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+        A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
         Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
         """
         return pulumi.get(self, "maximum_sessions_allowed")
@@ -227,7 +245,7 @@ class HostPool(pulumi.CustomResource):
     def personal_desktop_assignment_type(self) -> pulumi.Output[Optional[str]]:
         """
         `Automatic` assignment – The service will select an available host and assign it to an user.
-        `Direct` Assisnment – Admin selects a specific host to assign to an user.
+        `Direct` Assignment – Admin selects a specific host to assign to an user.
         """
         return pulumi.get(self, "personal_desktop_assignment_type")
 

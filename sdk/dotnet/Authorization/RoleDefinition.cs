@@ -80,9 +80,6 @@ namespace Pulumi.Azure.Authorization
         [Output("roleDefinitionId")]
         public Output<string> RoleDefinitionId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Azure Resource Manager ID for the resource
-        /// </summary>
         [Output("roleDefinitionResourceId")]
         public Output<string> RoleDefinitionResourceId { get; private set; } = null!;
 
@@ -239,9 +236,6 @@ namespace Pulumi.Azure.Authorization
         [Input("roleDefinitionId")]
         public Input<string>? RoleDefinitionId { get; set; }
 
-        /// <summary>
-        /// The Azure Resource Manager ID for the resource
-        /// </summary>
         [Input("roleDefinitionResourceId")]
         public Input<string>? RoleDefinitionResourceId { get; set; }
 

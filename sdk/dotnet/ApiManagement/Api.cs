@@ -158,7 +158,7 @@ namespace Pulumi.Azure.ApiManagement
         /// Should this API require a subscription key?
         /// </summary>
         [Output("subscriptionRequired")]
-        public Output<bool> SubscriptionRequired { get; private set; } = null!;
+        public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
         /// The Version number of this API, if this API is versioned.

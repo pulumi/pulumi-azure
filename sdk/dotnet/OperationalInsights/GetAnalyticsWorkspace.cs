@@ -70,6 +70,10 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class GetAnalyticsWorkspaceResult
     {
         /// <summary>
+        /// The workspace daily quota for ingestion in GB.
+        /// </summary>
+        public readonly double DailyQuotaGb;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -104,6 +108,8 @@ namespace Pulumi.Azure.OperationalInsights
 
         [OutputConstructor]
         private GetAnalyticsWorkspaceResult(
+            double dailyQuotaGb,
+
             string id,
 
             string location,
@@ -126,6 +132,7 @@ namespace Pulumi.Azure.OperationalInsights
 
             string workspaceId)
         {
+            DailyQuotaGb = dailyQuotaGb;
             Id = id;
             Location = location;
             Name = name;

@@ -4,6 +4,7 @@
 // Export members:
 export * from "./firewallRule";
 export * from "./getWorkspace";
+export * from "./roleAssignment";
 export * from "./sparkPool";
 export * from "./sqlPool";
 export * from "./workspace";

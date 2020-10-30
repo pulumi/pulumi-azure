@@ -128,6 +128,9 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     public readonly supportState!: pulumi.Output<boolean | undefined>;
+    /**
+     * A `tokenBodyParameter` block as defined below.
+     */
     public readonly tokenBodyParameters!: pulumi.Output<outputs.apimanagement.AuthorizationServerTokenBodyParameter[] | undefined>;
     /**
      * The OAUTH Token Endpoint.
@@ -294,6 +297,9 @@ export interface AuthorizationServerState {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     readonly supportState?: pulumi.Input<boolean>;
+    /**
+     * A `tokenBodyParameter` block as defined below.
+     */
     readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.AuthorizationServerTokenBodyParameter>[]>;
     /**
      * The OAUTH Token Endpoint.
@@ -373,6 +379,9 @@ export interface AuthorizationServerArgs {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     readonly supportState?: pulumi.Input<boolean>;
+    /**
+     * A `tokenBodyParameter` block as defined below.
+     */
     readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.AuthorizationServerTokenBodyParameter>[]>;
     /**
      * The OAUTH Token Endpoint.

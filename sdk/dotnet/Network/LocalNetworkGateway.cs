@@ -58,11 +58,16 @@ namespace Pulumi.Azure.Network
         public Output<Outputs.LocalNetworkGatewayBgpSettings?> BgpSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address of the gateway to which to
-        /// connect.
+        /// The gateway IP address to connect with.
         /// </summary>
         [Output("gatewayAddress")]
-        public Output<string> GatewayAddress { get; private set; } = null!;
+        public Output<string?> GatewayAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The gateway FQDN to connect with.
+        /// </summary>
+        [Output("gatewayFqdn")]
+        public Output<string?> GatewayFqdn { get; private set; } = null!;
 
         /// <summary>
         /// The location/region where the local network gateway is
@@ -158,11 +163,16 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.LocalNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
 
         /// <summary>
-        /// The IP address of the gateway to which to
-        /// connect.
+        /// The gateway IP address to connect with.
         /// </summary>
-        [Input("gatewayAddress", required: true)]
-        public Input<string> GatewayAddress { get; set; } = null!;
+        [Input("gatewayAddress")]
+        public Input<string>? GatewayAddress { get; set; }
+
+        /// <summary>
+        /// The gateway FQDN to connect with.
+        /// </summary>
+        [Input("gatewayFqdn")]
+        public Input<string>? GatewayFqdn { get; set; }
 
         /// <summary>
         /// The location/region where the local network gateway is
@@ -225,11 +235,16 @@ namespace Pulumi.Azure.Network
         public Input<Inputs.LocalNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
 
         /// <summary>
-        /// The IP address of the gateway to which to
-        /// connect.
+        /// The gateway IP address to connect with.
         /// </summary>
         [Input("gatewayAddress")]
         public Input<string>? GatewayAddress { get; set; }
+
+        /// <summary>
+        /// The gateway FQDN to connect with.
+        /// </summary>
+        [Input("gatewayFqdn")]
+        public Input<string>? GatewayFqdn { get; set; }
 
         /// <summary>
         /// The location/region where the local network gateway is

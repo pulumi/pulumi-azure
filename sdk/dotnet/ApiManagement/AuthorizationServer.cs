@@ -151,6 +151,9 @@ namespace Pulumi.Azure.ApiManagement
         [Output("supportState")]
         public Output<bool?> SupportState { get; private set; } = null!;
 
+        /// <summary>
+        /// A `token_body_parameter` block as defined below.
+        /// </summary>
         [Output("tokenBodyParameters")]
         public Output<ImmutableArray<Outputs.AuthorizationServerTokenBodyParameter>> TokenBodyParameters { get; private set; } = null!;
 
@@ -334,6 +337,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("tokenBodyParameters")]
         private InputList<Inputs.AuthorizationServerTokenBodyParameterArgs>? _tokenBodyParameters;
+
+        /// <summary>
+        /// A `token_body_parameter` block as defined below.
+        /// </summary>
         public InputList<Inputs.AuthorizationServerTokenBodyParameterArgs> TokenBodyParameters
         {
             get => _tokenBodyParameters ?? (_tokenBodyParameters = new InputList<Inputs.AuthorizationServerTokenBodyParameterArgs>());
@@ -481,6 +488,10 @@ namespace Pulumi.Azure.ApiManagement
 
         [Input("tokenBodyParameters")]
         private InputList<Inputs.AuthorizationServerTokenBodyParameterGetArgs>? _tokenBodyParameters;
+
+        /// <summary>
+        /// A `token_body_parameter` block as defined below.
+        /// </summary>
         public InputList<Inputs.AuthorizationServerTokenBodyParameterGetArgs> TokenBodyParameters
         {
             get => _tokenBodyParameters ?? (_tokenBodyParameters = new InputList<Inputs.AuthorizationServerTokenBodyParameterGetArgs>());

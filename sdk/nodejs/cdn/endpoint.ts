@@ -81,7 +81,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
-     * Indicates whether compression is to be enabled. Defaults to false.
+     * Indicates whether compression is to be enabled.
      */
     public readonly isCompressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -235,7 +235,7 @@ export interface EndpointState {
      */
     readonly hostName?: pulumi.Input<string>;
     /**
-     * Indicates whether compression is to be enabled. Defaults to false.
+     * Indicates whether compression is to be enabled.
      */
     readonly isCompressionEnabled?: pulumi.Input<boolean>;
     /**
@@ -313,7 +313,7 @@ export interface EndpointArgs {
      */
     readonly globalDeliveryRule?: pulumi.Input<inputs.cdn.EndpointGlobalDeliveryRule>;
     /**
-     * Indicates whether compression is to be enabled. Defaults to false.
+     * Indicates whether compression is to be enabled.
      */
     readonly isCompressionEnabled?: pulumi.Input<boolean>;
     /**

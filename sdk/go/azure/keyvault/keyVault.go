@@ -56,6 +56,7 @@ import (
 // 					ObjectId: pulumi.String(current.ObjectId),
 // 					KeyPermissions: pulumi.StringArray{
 // 						pulumi.String("get"),
+// 						pulumi.String("ManageContacts"),
 // 					},
 // 					SecretPermissions: pulumi.StringArray{
 // 						pulumi.String("get"),
@@ -68,6 +69,13 @@ import (
 // 			NetworkAcls: &keyvault.KeyVaultNetworkAclsArgs{
 // 				DefaultAction: pulumi.String("Deny"),
 // 				Bypass:        pulumi.String("AzureServices"),
+// 			},
+// 			Contacts: keyvault.KeyVaultContactArray{
+// 				&keyvault.KeyVaultContactArgs{
+// 					Email: pulumi.String("example@example.com"),
+// 					Name:  pulumi.String("example"),
+// 					Phone: pulumi.String("0123456789"),
+// 				},
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"environment": pulumi.String("Testing"),
@@ -85,6 +93,8 @@ type KeyVault struct {
 
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayOutput `pulumi:"accessPolicies"`
+	// One or more `contact` block as defined below.
+	Contacts KeyVaultContactArrayOutput `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
 	EnableRbacAuthorization pulumi.BoolPtrOutput `pulumi:"enableRbacAuthorization"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
@@ -156,6 +166,8 @@ func GetKeyVault(ctx *pulumi.Context,
 type keyVaultState struct {
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
+	// One or more `contact` block as defined below.
+	Contacts []KeyVaultContact `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
 	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
@@ -191,6 +203,8 @@ type keyVaultState struct {
 type KeyVaultState struct {
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
+	// One or more `contact` block as defined below.
+	Contacts KeyVaultContactArrayInput
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
 	EnableRbacAuthorization pulumi.BoolPtrInput
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
@@ -230,6 +244,8 @@ func (KeyVaultState) ElementType() reflect.Type {
 type keyVaultArgs struct {
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
+	// One or more `contact` block as defined below.
+	Contacts []KeyVaultContact `pulumi:"contacts"`
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
 	EnableRbacAuthorization *bool `pulumi:"enableRbacAuthorization"`
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
@@ -264,6 +280,8 @@ type keyVaultArgs struct {
 type KeyVaultArgs struct {
 	// A list of up to 16 objects describing access policies, as described below.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
+	// One or more `contact` block as defined below.
+	Contacts KeyVaultContactArrayInput
 	// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
 	EnableRbacAuthorization pulumi.BoolPtrInput
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.

@@ -89,6 +89,12 @@ namespace Pulumi.Azure.LogAnalytics
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SavedSearch resource with the given unique name, arguments, and options.
@@ -183,6 +189,18 @@ namespace Pulumi.Azure.LogAnalytics
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public SavedSearchArgs()
         {
         }
@@ -237,6 +255,18 @@ namespace Pulumi.Azure.LogAnalytics
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public SavedSearchState()
         {

@@ -1846,7 +1846,7 @@ type FrontdoorFrontendEndpoint struct {
 	//
 	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
 	CustomHttpsProvisioningEnabled *bool `pulumi:"customHttpsProvisioningEnabled"`
-	// Specifies the host name of the `frontendEndpoint`. Must be a domain name.
+	// Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
 	HostName string `pulumi:"hostName"`
 	// The ID of the FrontDoor.
 	Id *string `pulumi:"id"`
@@ -1880,7 +1880,7 @@ type FrontdoorFrontendEndpointArgs struct {
 	//
 	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
 	CustomHttpsProvisioningEnabled pulumi.BoolPtrInput `pulumi:"customHttpsProvisioningEnabled"`
-	// Specifies the host name of the `frontendEndpoint`. Must be a domain name.
+	// Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the FrontDoor.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -1961,7 +1961,7 @@ func (o FrontdoorFrontendEndpointOutput) CustomHttpsProvisioningEnabled() pulumi
 	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *bool { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the host name of the `frontendEndpoint`. Must be a domain name.
+// Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
 func (o FrontdoorFrontendEndpointOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFrontendEndpoint) string { return v.HostName }).(pulumi.StringOutput)
 }

@@ -73,6 +73,10 @@ export class TriggerRecurrence extends pulumi.CustomResource {
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */
     public readonly startTime!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     */
+    public readonly timeZone!: pulumi.Output<string>;
 
     /**
      * Create a TriggerRecurrence resource with the given unique name, arguments, and options.
@@ -91,6 +95,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["startTime"] = state ? state.startTime : undefined;
+            inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as TriggerRecurrenceArgs | undefined;
             if (!args || args.frequency === undefined) {
@@ -107,6 +112,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["timeZone"] = args ? args.timeZone : undefined;
         }
         if (!opts) {
             opts = {}
@@ -143,6 +149,10 @@ export interface TriggerRecurrenceState {
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */
     readonly startTime?: pulumi.Input<string>;
+    /**
+     * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     */
+    readonly timeZone?: pulumi.Input<string>;
 }
 
 /**
@@ -169,4 +179,8 @@ export interface TriggerRecurrenceArgs {
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */
     readonly startTime?: pulumi.Input<string>;
+    /**
+     * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+     */
+    readonly timeZone?: pulumi.Input<string>;
 }

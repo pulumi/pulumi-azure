@@ -18,6 +18,7 @@ class PolicyVM(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
+                 instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -86,6 +87,7 @@ class PolicyVM(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -116,6 +118,7 @@ class PolicyVM(pulumi.CustomResource):
             if backup is None:
                 raise TypeError("Missing required property 'backup'")
             __props__['backup'] = backup
+            __props__['instant_restore_retention_days'] = instant_restore_retention_days
             __props__['name'] = name
             if recovery_vault_name is None:
                 raise TypeError("Missing required property 'recovery_vault_name'")
@@ -140,6 +143,7 @@ class PolicyVM(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
+            instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             recovery_vault_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -157,6 +161,7 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
@@ -172,6 +177,7 @@ class PolicyVM(pulumi.CustomResource):
         __props__ = dict()
 
         __props__["backup"] = backup
+        __props__["instant_restore_retention_days"] = instant_restore_retention_days
         __props__["name"] = name
         __props__["recovery_vault_name"] = recovery_vault_name
         __props__["resource_group_name"] = resource_group_name
@@ -190,6 +196,14 @@ class PolicyVM(pulumi.CustomResource):
         Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         """
         return pulumi.get(self, "backup")
+
+    @property
+    @pulumi.getter(name="instantRestoreRetentionDays")
+    def instant_restore_retention_days(self) -> pulumi.Output[int]:
+        """
+        Specifies the instant restore retention range in days.
+        """
+        return pulumi.get(self, "instant_restore_retention_days")
 
     @property
     @pulumi.getter

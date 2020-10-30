@@ -52,6 +52,7 @@ namespace Pulumi.Azure.KeyVault
     ///                     KeyPermissions = 
     ///                     {
     ///                         "get",
+    ///                         "ManageContacts",
     ///                     },
     ///                     SecretPermissions = 
     ///                     {
@@ -67,6 +68,15 @@ namespace Pulumi.Azure.KeyVault
     ///             {
     ///                 DefaultAction = "Deny",
     ///                 Bypass = "AzureServices",
+    ///             },
+    ///             Contacts = 
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.KeyVaultContactArgs
+    ///                 {
+    ///                     Email = "example@example.com",
+    ///                     Name = "example",
+    ///                     Phone = "0123456789",
+    ///                 },
     ///             },
     ///             Tags = 
     ///             {
@@ -85,6 +95,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Output("accessPolicies")]
         public Output<ImmutableArray<Outputs.KeyVaultAccessPolicy>> AccessPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `contact` block as defined below.
+        /// </summary>
+        [Output("contacts")]
+        public Output<ImmutableArray<Outputs.KeyVaultContact>> Contacts { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
@@ -234,6 +250,18 @@ namespace Pulumi.Azure.KeyVault
             set => _accessPolicies = value;
         }
 
+        [Input("contacts")]
+        private InputList<Inputs.KeyVaultContactArgs>? _contacts;
+
+        /// <summary>
+        /// One or more `contact` block as defined below.
+        /// </summary>
+        public InputList<Inputs.KeyVaultContactArgs> Contacts
+        {
+            get => _contacts ?? (_contacts = new InputList<Inputs.KeyVaultContactArgs>());
+            set => _contacts = value;
+        }
+
         /// <summary>
         /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
         /// </summary>
@@ -341,6 +369,18 @@ namespace Pulumi.Azure.KeyVault
         {
             get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.KeyVaultAccessPolicyGetArgs>());
             set => _accessPolicies = value;
+        }
+
+        [Input("contacts")]
+        private InputList<Inputs.KeyVaultContactGetArgs>? _contacts;
+
+        /// <summary>
+        /// One or more `contact` block as defined below.
+        /// </summary>
+        public InputList<Inputs.KeyVaultContactGetArgs> Contacts
+        {
+            get => _contacts ?? (_contacts = new InputList<Inputs.KeyVaultContactGetArgs>());
+            set => _contacts = value;
         }
 
         /// <summary>

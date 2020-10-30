@@ -86,6 +86,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> SolutionName { get; private set; } = null!;
 
         /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         /// </summary>
         [Output("workspaceName")]
@@ -167,6 +173,18 @@ namespace Pulumi.Azure.OperationalInsights
         [Input("solutionName", required: true)]
         public Input<string> SolutionName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         /// </summary>
@@ -209,6 +227,18 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         [Input("solutionName")]
         public Input<string>? SolutionName { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.

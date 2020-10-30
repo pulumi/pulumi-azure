@@ -11,6 +11,36 @@ namespace Pulumi.Azure.DesktopVirtualization
 {
     /// <summary>
     /// Manages a Virtual Desktop Host Pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new Azure.DesktopVirtualization.HostPoolArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             FriendlyName = "pooleddepthfirst",
+    ///             ValidateEnvironment = true,
+    ///             Description = "Acceptance Test: A pooled host pool - pooleddepthfirst",
+    ///             Type = "Pooled",
+    ///             MaximumSessionsAllowed = 50,
+    ///             LoadBalancerType = "DepthFirst",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class HostPool : Pulumi.CustomResource
     {
@@ -42,7 +72,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+        /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
         /// Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
         /// </summary>
         [Output("maximumSessionsAllowed")]
@@ -57,7 +87,7 @@ namespace Pulumi.Azure.DesktopVirtualization
 
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user.
-        /// `Direct` Assisnment – Admin selects a specific host to assign to an user.
+        /// `Direct` Assignment – Admin selects a specific host to assign to an user.
         /// </summary>
         [Output("personalDesktopAssignmentType")]
         public Output<string?> PersonalDesktopAssignmentType { get; private set; } = null!;
@@ -173,7 +203,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+        /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
         /// Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
         /// </summary>
         [Input("maximumSessionsAllowed")]
@@ -188,7 +218,7 @@ namespace Pulumi.Azure.DesktopVirtualization
 
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user.
-        /// `Direct` Assisnment – Admin selects a specific host to assign to an user.
+        /// `Direct` Assignment – Admin selects a specific host to assign to an user.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
@@ -271,7 +301,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+        /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
         /// Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
         /// </summary>
         [Input("maximumSessionsAllowed")]
@@ -286,7 +316,7 @@ namespace Pulumi.Azure.DesktopVirtualization
 
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user.
-        /// `Direct` Assisnment – Admin selects a specific host to assign to an user.
+        /// `Direct` Assignment – Admin selects a specific host to assign to an user.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }

@@ -20,6 +20,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']]] = None,
                  gateway_address: Optional[pulumi.Input[str]] = None,
+                 gateway_fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -50,8 +51,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
                address spaces the gateway exposes.
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below containing the
                Local Network Gateway's BGP speaker settings.
-        :param pulumi.Input[str] gateway_address: The IP address of the gateway to which to
-               connect.
+        :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
+        :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
         :param pulumi.Input[str] location: The location/region where the local network gateway is
                created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the local network gateway. Changing this
@@ -81,9 +82,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'address_spaces'")
             __props__['address_spaces'] = address_spaces
             __props__['bgp_settings'] = bgp_settings
-            if gateway_address is None:
-                raise TypeError("Missing required property 'gateway_address'")
             __props__['gateway_address'] = gateway_address
+            __props__['gateway_fqdn'] = gateway_fqdn
             __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None:
@@ -103,6 +103,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
             address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']]] = None,
             gateway_address: Optional[pulumi.Input[str]] = None,
+            gateway_fqdn: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -118,8 +119,8 @@ class LocalNetworkGateway(pulumi.CustomResource):
                address spaces the gateway exposes.
         :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below containing the
                Local Network Gateway's BGP speaker settings.
-        :param pulumi.Input[str] gateway_address: The IP address of the gateway to which to
-               connect.
+        :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
+        :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
         :param pulumi.Input[str] location: The location/region where the local network gateway is
                created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the local network gateway. Changing this
@@ -135,6 +136,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         __props__["address_spaces"] = address_spaces
         __props__["bgp_settings"] = bgp_settings
         __props__["gateway_address"] = gateway_address
+        __props__["gateway_fqdn"] = gateway_fqdn
         __props__["location"] = location
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
@@ -161,12 +163,19 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gatewayAddress")
-    def gateway_address(self) -> pulumi.Output[str]:
+    def gateway_address(self) -> pulumi.Output[Optional[str]]:
         """
-        The IP address of the gateway to which to
-        connect.
+        The gateway IP address to connect with.
         """
         return pulumi.get(self, "gateway_address")
+
+    @property
+    @pulumi.getter(name="gatewayFqdn")
+    def gateway_fqdn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The gateway FQDN to connect with.
+        """
+        return pulumi.get(self, "gateway_fqdn")
 
     @property
     @pulumi.getter

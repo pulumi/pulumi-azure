@@ -891,7 +891,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_datasource_windows_performance_counter": {
 				Tok: azureResource(azureLogAnalytics, "DataSourceWindowsPerformanceCounter"),
 			},
-			"azurerm_log_analytics_saved_search": {Tok: azureResource(azureLogAnalytics, "SavedSearch")},
+			"azurerm_log_analytics_saved_search":           {Tok: azureResource(azureLogAnalytics, "SavedSearch")},
+			"azurerm_log_analytics_data_export_rule":       {Tok: azureResource(azureLogAnalytics, "DataExportRule")},
+			"azurerm_log_analytics_linked_storage_account": {Tok: azureResource(azureLogAnalytics, "LinkedStorageAccount")},
 
 			// Logic Apps
 			"azurerm_logic_app_action_custom":        {Tok: azureResource(azureLogicApps, "ActionCustom")},
@@ -1263,6 +1265,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vpn_gateway":                    {Tok: azureResource(azureNetwork, "VpnGateway")},
 			"azurerm_vpn_server_configuration":       {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
 			"azurerm_ip_group":                       {Tok: azureResource(azureNetwork, "IPGroup")},
+			"azurerm_vpn_site":                       {Tok: azureResource(azureNetwork, "VpnSite")},
 
 			// Redis
 			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
@@ -1279,6 +1282,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_security_center_workspace":            {Tok: azureResource(azureSecurityCenter, "Workspace")},
 			"azurerm_advanced_threat_protection":           {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
 			"azurerm_security_center_setting":              {Tok: azureResource(azureSecurityCenter, "Setting")},
+			"azurerm_security_center_auto_provisioning":    {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
 
 			// Service Fabric
 			"azurerm_service_fabric_cluster":            {Tok: azureResource(azureServiceFabric, "Cluster")},
@@ -1563,10 +1567,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_blueprint_assignment": {Tok: azureResource(azureBlueprint, "Assignment")},
 
 			// Synapse
-			"azurerm_synapse_workspace":     {Tok: azureResource(azureSynapse, "Workspace")},
-			"azurerm_synapse_firewall_rule": {Tok: azureResource(azureSynapse, "FirewallRule")},
-			"azurerm_synapse_spark_pool":    {Tok: azureResource(azureSynapse, "SparkPool")},
-			"azurerm_synapse_sql_pool":      {Tok: azureResource(azureSynapse, "SqlPool")},
+			"azurerm_synapse_workspace":       {Tok: azureResource(azureSynapse, "Workspace")},
+			"azurerm_synapse_firewall_rule":   {Tok: azureResource(azureSynapse, "FirewallRule")},
+			"azurerm_synapse_spark_pool":      {Tok: azureResource(azureSynapse, "SparkPool")},
+			"azurerm_synapse_sql_pool":        {Tok: azureResource(azureSynapse, "SqlPool")},
+			"azurerm_synapse_role_assignment": {Tok: azureResource(azureSynapse, "RoleAssignment")},
 
 			// HSM
 			"azurerm_dedicated_hardware_security_module": {Tok: azureResource(azureHsm, "Module")},
@@ -1837,6 +1842,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_attestation_provider":            {Tok: azureDataSource(azureAttestation, "getProvider")},
 			"azurerm_databricks_workspace":            {Tok: azureDataSource(azureDataBricks, "getWorkspace")},
 			"azurerm_mysql_server":                    {Tok: azureDataSource(azureMySQL, "getServer")},
+			"azurerm_cognitive_account":               {Tok: azureDataSource(azureCognitive, "getAccount")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

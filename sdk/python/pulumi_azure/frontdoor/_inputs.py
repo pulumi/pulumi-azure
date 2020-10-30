@@ -1134,7 +1134,7 @@ class FrontdoorFrontendEndpointArgs:
                  session_affinity_ttl_seconds: Optional[pulumi.Input[int]] = None,
                  web_application_firewall_policy_link_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] host_name: Specifies the host name of the `frontend_endpoint`. Must be a domain name.
+        :param pulumi.Input[str] host_name: Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
         :param pulumi.Input[str] name: Specifies the name of the `frontend_endpoint`.
         :param pulumi.Input['FrontdoorFrontendEndpointCustomHttpsConfigurationArgs'] custom_https_configuration: A `custom_https_configuration` block as defined below.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
@@ -1168,7 +1168,7 @@ class FrontdoorFrontendEndpointArgs:
     @pulumi.getter(name="hostName")
     def host_name(self) -> pulumi.Input[str]:
         """
-        Specifies the host name of the `frontend_endpoint`. Must be a domain name.
+        Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
         """
         return pulumi.get(self, "host_name")
 

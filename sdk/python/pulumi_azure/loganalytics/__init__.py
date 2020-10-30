@@ -3,7 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .data_export_rule import *
 from .data_source_windows_event import *
 from .data_source_windows_performance_counter import *
 from .linked_service import *
+from .linked_storage_account import *
 from .saved_search import *

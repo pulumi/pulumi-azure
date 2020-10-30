@@ -35,7 +35,10 @@ import * as utilities from "../utilities";
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
- *         keyPermissions: ["get"],
+ *         keyPermissions: [
+ *             "get",
+ *             "ManageContacts",
+ *         ],
  *         secretPermissions: ["get"],
  *         storagePermissions: ["get"],
  *     }],
@@ -43,6 +46,11 @@ import * as utilities from "../utilities";
  *         defaultAction: "Deny",
  *         bypass: "AzureServices",
  *     },
+ *     contacts: [{
+ *         email: "example@example.com",
+ *         name: "example",
+ *         phone: "0123456789",
+ *     }],
  *     tags: {
  *         environment: "Testing",
  *     },
@@ -81,6 +89,10 @@ export class KeyVault extends pulumi.CustomResource {
      * A list of up to 16 objects describing access policies, as described below.
      */
     public readonly accessPolicies!: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
+    /**
+     * One or more `contact` block as defined below.
+     */
+    public readonly contacts!: pulumi.Output<outputs.keyvault.KeyVaultContact[] | undefined>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
      */
@@ -155,6 +167,7 @@ export class KeyVault extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as KeyVaultState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
+            inputs["contacts"] = state ? state.contacts : undefined;
             inputs["enableRbacAuthorization"] = state ? state.enableRbacAuthorization : undefined;
             inputs["enabledForDeployment"] = state ? state.enabledForDeployment : undefined;
             inputs["enabledForDiskEncryption"] = state ? state.enabledForDiskEncryption : undefined;
@@ -182,6 +195,7 @@ export class KeyVault extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
+            inputs["contacts"] = args ? args.contacts : undefined;
             inputs["enableRbacAuthorization"] = args ? args.enableRbacAuthorization : undefined;
             inputs["enabledForDeployment"] = args ? args.enabledForDeployment : undefined;
             inputs["enabledForDiskEncryption"] = args ? args.enabledForDiskEncryption : undefined;
@@ -217,6 +231,10 @@ export interface KeyVaultState {
      * A list of up to 16 objects describing access policies, as described below.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
+    /**
+     * One or more `contact` block as defined below.
+     */
+    readonly contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
      */
@@ -287,6 +305,10 @@ export interface KeyVaultArgs {
      * A list of up to 16 objects describing access policies, as described below.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
+    /**
+     * One or more `contact` block as defined below.
+     */
+    readonly contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
      */

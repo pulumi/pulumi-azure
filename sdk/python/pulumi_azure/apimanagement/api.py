@@ -345,7 +345,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subscriptionRequired")
-    def subscription_required(self) -> pulumi.Output[bool]:
+    def subscription_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Should this API require a subscription key?
         """

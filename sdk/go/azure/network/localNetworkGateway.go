@@ -55,9 +55,10 @@ type LocalNetworkGateway struct {
 	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
 	BgpSettings LocalNetworkGatewayBgpSettingsPtrOutput `pulumi:"bgpSettings"`
-	// The IP address of the gateway to which to
-	// connect.
-	GatewayAddress pulumi.StringOutput `pulumi:"gatewayAddress"`
+	// The gateway IP address to connect with.
+	GatewayAddress pulumi.StringPtrOutput `pulumi:"gatewayAddress"`
+	// The gateway FQDN to connect with.
+	GatewayFqdn pulumi.StringPtrOutput `pulumi:"gatewayFqdn"`
 	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -76,9 +77,6 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 	name string, args *LocalNetworkGatewayArgs, opts ...pulumi.ResourceOption) (*LocalNetworkGateway, error) {
 	if args == nil || args.AddressSpaces == nil {
 		return nil, errors.New("missing required argument 'AddressSpaces'")
-	}
-	if args == nil || args.GatewayAddress == nil {
-		return nil, errors.New("missing required argument 'GatewayAddress'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -114,9 +112,10 @@ type localNetworkGatewayState struct {
 	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
 	BgpSettings *LocalNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
-	// The IP address of the gateway to which to
-	// connect.
+	// The gateway IP address to connect with.
 	GatewayAddress *string `pulumi:"gatewayAddress"`
+	// The gateway FQDN to connect with.
+	GatewayFqdn *string `pulumi:"gatewayFqdn"`
 	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -137,9 +136,10 @@ type LocalNetworkGatewayState struct {
 	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
 	BgpSettings LocalNetworkGatewayBgpSettingsPtrInput
-	// The IP address of the gateway to which to
-	// connect.
+	// The gateway IP address to connect with.
 	GatewayAddress pulumi.StringPtrInput
+	// The gateway FQDN to connect with.
+	GatewayFqdn pulumi.StringPtrInput
 	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -164,9 +164,10 @@ type localNetworkGatewayArgs struct {
 	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
 	BgpSettings *LocalNetworkGatewayBgpSettings `pulumi:"bgpSettings"`
-	// The IP address of the gateway to which to
-	// connect.
-	GatewayAddress string `pulumi:"gatewayAddress"`
+	// The gateway IP address to connect with.
+	GatewayAddress *string `pulumi:"gatewayAddress"`
+	// The gateway FQDN to connect with.
+	GatewayFqdn *string `pulumi:"gatewayFqdn"`
 	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -188,9 +189,10 @@ type LocalNetworkGatewayArgs struct {
 	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
 	BgpSettings LocalNetworkGatewayBgpSettingsPtrInput
-	// The IP address of the gateway to which to
-	// connect.
-	GatewayAddress pulumi.StringInput
+	// The gateway IP address to connect with.
+	GatewayAddress pulumi.StringPtrInput
+	// The gateway FQDN to connect with.
+	GatewayFqdn pulumi.StringPtrInput
 	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
