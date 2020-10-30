@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .firewall_rule import *
 from .get_workspace import *
+from .role_assignment import *
 from .spark_pool import *
 from .sql_pool import *
 from .workspace import *

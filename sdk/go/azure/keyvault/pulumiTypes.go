@@ -3431,6 +3431,121 @@ func (o KeyVaultAccessPolicyArrayOutput) Index(i pulumi.IntInput) KeyVaultAccess
 	}).(KeyVaultAccessPolicyOutput)
 }
 
+type KeyVaultContact struct {
+	// E-mail address of the contact.
+	Email string `pulumi:"email"`
+	// Name of the contact.
+	Name *string `pulumi:"name"`
+	// Phone number of the contact.
+	Phone *string `pulumi:"phone"`
+}
+
+// KeyVaultContactInput is an input type that accepts KeyVaultContactArgs and KeyVaultContactOutput values.
+// You can construct a concrete instance of `KeyVaultContactInput` via:
+//
+//          KeyVaultContactArgs{...}
+type KeyVaultContactInput interface {
+	pulumi.Input
+
+	ToKeyVaultContactOutput() KeyVaultContactOutput
+	ToKeyVaultContactOutputWithContext(context.Context) KeyVaultContactOutput
+}
+
+type KeyVaultContactArgs struct {
+	// E-mail address of the contact.
+	Email pulumi.StringInput `pulumi:"email"`
+	// Name of the contact.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Phone number of the contact.
+	Phone pulumi.StringPtrInput `pulumi:"phone"`
+}
+
+func (KeyVaultContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultContact)(nil)).Elem()
+}
+
+func (i KeyVaultContactArgs) ToKeyVaultContactOutput() KeyVaultContactOutput {
+	return i.ToKeyVaultContactOutputWithContext(context.Background())
+}
+
+func (i KeyVaultContactArgs) ToKeyVaultContactOutputWithContext(ctx context.Context) KeyVaultContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContactOutput)
+}
+
+// KeyVaultContactArrayInput is an input type that accepts KeyVaultContactArray and KeyVaultContactArrayOutput values.
+// You can construct a concrete instance of `KeyVaultContactArrayInput` via:
+//
+//          KeyVaultContactArray{ KeyVaultContactArgs{...} }
+type KeyVaultContactArrayInput interface {
+	pulumi.Input
+
+	ToKeyVaultContactArrayOutput() KeyVaultContactArrayOutput
+	ToKeyVaultContactArrayOutputWithContext(context.Context) KeyVaultContactArrayOutput
+}
+
+type KeyVaultContactArray []KeyVaultContactInput
+
+func (KeyVaultContactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultContact)(nil)).Elem()
+}
+
+func (i KeyVaultContactArray) ToKeyVaultContactArrayOutput() KeyVaultContactArrayOutput {
+	return i.ToKeyVaultContactArrayOutputWithContext(context.Background())
+}
+
+func (i KeyVaultContactArray) ToKeyVaultContactArrayOutputWithContext(ctx context.Context) KeyVaultContactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContactArrayOutput)
+}
+
+type KeyVaultContactOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultContact)(nil)).Elem()
+}
+
+func (o KeyVaultContactOutput) ToKeyVaultContactOutput() KeyVaultContactOutput {
+	return o
+}
+
+func (o KeyVaultContactOutput) ToKeyVaultContactOutputWithContext(ctx context.Context) KeyVaultContactOutput {
+	return o
+}
+
+// E-mail address of the contact.
+func (o KeyVaultContactOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultContact) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// Name of the contact.
+func (o KeyVaultContactOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultContact) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Phone number of the contact.
+func (o KeyVaultContactOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultContact) *string { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultContactArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultContactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultContact)(nil)).Elem()
+}
+
+func (o KeyVaultContactArrayOutput) ToKeyVaultContactArrayOutput() KeyVaultContactArrayOutput {
+	return o
+}
+
+func (o KeyVaultContactArrayOutput) ToKeyVaultContactArrayOutputWithContext(ctx context.Context) KeyVaultContactArrayOutput {
+	return o
+}
+
+func (o KeyVaultContactArrayOutput) Index(i pulumi.IntInput) KeyVaultContactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultContact {
+		return vs[0].([]KeyVaultContact)[vs[1].(int)]
+	}).(KeyVaultContactOutput)
+}
+
 type KeyVaultNetworkAcls struct {
 	// Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
 	Bypass string `pulumi:"bypass"`
@@ -5081,6 +5196,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateIssuerAdminArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyOutput{})
 	pulumi.RegisterOutputType(KeyVaultAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultContactOutput{})
+	pulumi.RegisterOutputType(KeyVaultContactArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsOutput{})
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyOutput{})

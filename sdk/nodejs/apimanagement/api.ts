@@ -132,7 +132,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * Should this API require a subscription key?
      */
-    public readonly subscriptionRequired!: pulumi.Output<boolean>;
+    public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
      * The Version number of this API, if this API is versioned.
      */

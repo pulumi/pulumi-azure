@@ -98,7 +98,7 @@ type Api struct {
 	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames ApiSubscriptionKeyParameterNamesOutput `pulumi:"subscriptionKeyParameterNames"`
 	// Should this API require a subscription key?
-	SubscriptionRequired pulumi.BoolOutput `pulumi:"subscriptionRequired"`
+	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
 	// The Version number of this API, if this API is versioned.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The ID of the Version Set which this API is associated with.

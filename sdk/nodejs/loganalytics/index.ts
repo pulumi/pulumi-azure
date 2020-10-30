@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./dataExportRule";
 export * from "./dataSourceWindowsEvent";
 export * from "./dataSourceWindowsPerformanceCounter";
 export * from "./linkedService";
+export * from "./linkedStorageAccount";
 export * from "./savedSearch";

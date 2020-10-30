@@ -13,6 +13,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class GroupContainerVolumeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `git_repo` block as defined below.
+        /// </summary>
+        [Input("gitRepo")]
+        public Input<Inputs.GroupContainerVolumeGitRepoGetArgs>? GitRepo { get; set; }
+
+        /// <summary>
         /// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         /// </summary>
         [Input("mountPath", required: true)]
@@ -33,20 +39,20 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("shareName", required: true)]
-        public Input<string> ShareName { get; set; } = null!;
+        [Input("shareName")]
+        public Input<string>? ShareName { get; set; }
 
         /// <summary>
         /// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountKey", required: true)]
-        public Input<string> StorageAccountKey { get; set; } = null!;
+        [Input("storageAccountKey")]
+        public Input<string>? StorageAccountKey { get; set; }
 
         /// <summary>
         /// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         public GroupContainerVolumeGetArgs()
         {

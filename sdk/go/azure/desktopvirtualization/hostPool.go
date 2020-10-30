@@ -11,6 +11,43 @@ import (
 )
 
 // Manages a Virtual Desktop Host Pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/desktopvirtualization"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = desktopvirtualization.NewHostPool(ctx, "exampleHostPool", &desktopvirtualization.HostPoolArgs{
+// 			Location:               exampleResourceGroup.Location,
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			FriendlyName:           pulumi.String("pooleddepthfirst"),
+// 			ValidateEnvironment:    pulumi.Bool(true),
+// 			Description:            pulumi.String("Acceptance Test: A pooled host pool - pooleddepthfirst"),
+// 			Type:                   pulumi.String("Pooled"),
+// 			MaximumSessionsAllowed: pulumi.Int(50),
+// 			LoadBalancerType:       pulumi.String("DepthFirst"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type HostPool struct {
 	pulumi.CustomResourceState
 
@@ -32,7 +69,7 @@ type HostPool struct {
 	// forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// `Automatic` assignment – The service will select an available host and assign it to an user.
-	// `Direct` Assisnment – Admin selects a specific host to assign to an user.
+	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType pulumi.StringPtrOutput `pulumi:"personalDesktopAssignmentType"`
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
@@ -106,7 +143,7 @@ type hostPoolState struct {
 	// forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// `Automatic` assignment – The service will select an available host and assign it to an user.
-	// `Direct` Assisnment – Admin selects a specific host to assign to an user.
+	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
@@ -144,7 +181,7 @@ type HostPoolState struct {
 	// forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// `Automatic` assignment – The service will select an available host and assign it to an user.
-	// `Direct` Assisnment – Admin selects a specific host to assign to an user.
+	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
@@ -186,7 +223,7 @@ type hostPoolArgs struct {
 	// forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// `Automatic` assignment – The service will select an available host and assign it to an user.
-	// `Direct` Assisnment – Admin selects a specific host to assign to an user.
+	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
@@ -225,7 +262,7 @@ type HostPoolArgs struct {
 	// forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// `Automatic` assignment – The service will select an available host and assign it to an user.
-	// `Direct` Assisnment – Admin selects a specific host to assign to an user.
+	// `Direct` Assignment – Admin selects a specific host to assign to an user.
 	PersonalDesktopAssignmentType pulumi.StringPtrInput
 	// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
 	// Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.

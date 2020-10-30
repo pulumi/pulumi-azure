@@ -81,6 +81,7 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_owner_password: The password associated with the Resource Owner.
         :param pulumi.Input[str] resource_owner_username: The username associated with the Resource Owner.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]] token_body_parameters: A `token_body_parameter` block as defined below.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
         """
         if __name__ is not None:
@@ -188,6 +189,7 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_owner_password: The password associated with the Resource Owner.
         :param pulumi.Input[str] resource_owner_username: The username associated with the Resource Owner.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]] token_body_parameters: A `token_body_parameter` block as defined below.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -354,6 +356,9 @@ class AuthorizationServer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tokenBodyParameters")
     def token_body_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.AuthorizationServerTokenBodyParameter']]]:
+        """
+        A `token_body_parameter` block as defined below.
+        """
         return pulumi.get(self, "token_body_parameters")
 
     @property

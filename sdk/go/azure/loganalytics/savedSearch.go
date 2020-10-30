@@ -71,6 +71,8 @@ type SavedSearch struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The query expression for the saved search. Changing this forces a new resource to be created.
 	Query pulumi.StringOutput `pulumi:"query"`
+	// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewSavedSearch registers a new resource with the given unique name, arguments, and options.
@@ -127,6 +129,8 @@ type savedSearchState struct {
 	Name *string `pulumi:"name"`
 	// The query expression for the saved search. Changing this forces a new resource to be created.
 	Query *string `pulumi:"query"`
+	// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type SavedSearchState struct {
@@ -144,6 +148,8 @@ type SavedSearchState struct {
 	Name pulumi.StringPtrInput
 	// The query expression for the saved search. Changing this forces a new resource to be created.
 	Query pulumi.StringPtrInput
+	// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+	Tags pulumi.StringMapInput
 }
 
 func (SavedSearchState) ElementType() reflect.Type {
@@ -165,6 +171,8 @@ type savedSearchArgs struct {
 	Name *string `pulumi:"name"`
 	// The query expression for the saved search. Changing this forces a new resource to be created.
 	Query string `pulumi:"query"`
+	// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SavedSearch resource.
@@ -183,6 +191,8 @@ type SavedSearchArgs struct {
 	Name pulumi.StringPtrInput
 	// The query expression for the saved search. Changing this forces a new resource to be created.
 	Query pulumi.StringInput
+	// A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+	Tags pulumi.StringMapInput
 }
 
 func (SavedSearchArgs) ElementType() reflect.Type {

@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./advancedThreatProtection";
+export * from "./autoProvisioning";
 export * from "./contact";
 export * from "./setting";
 export * from "./subscriptionPricing";

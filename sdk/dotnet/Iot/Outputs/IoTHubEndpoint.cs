@@ -42,6 +42,10 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The resource group in which the endpoint will be created.
+        /// </summary>
+        public readonly string? ResourceGroupName;
+        /// <summary>
         /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         /// </summary>
         public readonly string Type;
@@ -62,6 +66,8 @@ namespace Pulumi.Azure.Iot.Outputs
 
             string name,
 
+            string? resourceGroupName,
+
             string type)
         {
             BatchFrequencyInSeconds = batchFrequencyInSeconds;
@@ -71,6 +77,7 @@ namespace Pulumi.Azure.Iot.Outputs
             FileNameFormat = fileNameFormat;
             MaxChunkSizeInBytes = maxChunkSizeInBytes;
             Name = name;
+            ResourceGroupName = resourceGroupName;
             Type = type;
         }
     }

@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether compression is to be enabled. Defaults to false.
+        /// Indicates whether compression is to be enabled.
         /// </summary>
         [Output("isCompressionEnabled")]
         public Output<bool?> IsCompressionEnabled { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.Cdn
         public Input<Inputs.EndpointGlobalDeliveryRuleArgs>? GlobalDeliveryRule { get; set; }
 
         /// <summary>
-        /// Indicates whether compression is to be enabled. Defaults to false.
+        /// Indicates whether compression is to be enabled.
         /// </summary>
         [Input("isCompressionEnabled")]
         public Input<bool>? IsCompressionEnabled { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? HostName { get; set; }
 
         /// <summary>
-        /// Indicates whether compression is to be enabled. Defaults to false.
+        /// Indicates whether compression is to be enabled.
         /// </summary>
         [Input("isCompressionEnabled")]
         public Input<bool>? IsCompressionEnabled { get; set; }

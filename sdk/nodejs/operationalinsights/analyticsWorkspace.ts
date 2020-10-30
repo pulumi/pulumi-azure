@@ -51,6 +51,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     }
 
     /**
+     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+     */
+    public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AnalyticsWorkspaceState | undefined;
+            inputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
@@ -118,6 +123,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -144,6 +150,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AnalyticsWorkspace resources.
  */
 export interface AnalyticsWorkspaceState {
+    /**
+     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+     */
+    readonly dailyQuotaGb?: pulumi.Input<number>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -190,6 +200,10 @@ export interface AnalyticsWorkspaceState {
  * The set of arguments for constructing a AnalyticsWorkspace resource.
  */
 export interface AnalyticsWorkspaceArgs {
+    /**
+     * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+     */
+    readonly dailyQuotaGb?: pulumi.Input<number>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

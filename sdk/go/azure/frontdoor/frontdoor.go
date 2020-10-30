@@ -128,7 +128,7 @@ type Frontdoor struct {
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -211,7 +211,7 @@ type frontdoorState struct {
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -246,7 +246,7 @@ type FrontdoorState struct {
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -281,7 +281,7 @@ type frontdoorArgs struct {
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -313,7 +313,7 @@ type FrontdoorArgs struct {
 	//
 	// Deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+	// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

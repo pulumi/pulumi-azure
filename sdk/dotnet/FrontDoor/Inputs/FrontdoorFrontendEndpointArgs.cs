@@ -25,7 +25,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<bool>? CustomHttpsProvisioningEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the host name of the `frontend_endpoint`. Must be a domain name.
+        /// Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;

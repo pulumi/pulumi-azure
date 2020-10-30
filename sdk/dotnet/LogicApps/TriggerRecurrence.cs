@@ -74,6 +74,12 @@ namespace Pulumi.Azure.LogicApps
         [Output("startTime")]
         public Output<string?> StartTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string> TimeZone { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a TriggerRecurrence resource with the given unique name, arguments, and options.
@@ -150,6 +156,12 @@ namespace Pulumi.Azure.LogicApps
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
+        /// <summary>
+        /// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
+
         public TriggerRecurrenceArgs()
         {
         }
@@ -186,6 +198,12 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
+
+        /// <summary>
+        /// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
 
         public TriggerRecurrenceState()
         {

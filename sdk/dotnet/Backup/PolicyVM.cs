@@ -102,6 +102,12 @@ namespace Pulumi.Azure.Backup
         public Output<Outputs.PolicyVMBackup> Backup { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the instant restore retention range in days.
+        /// </summary>
+        [Output("instantRestoreRetentionDays")]
+        public Output<int> InstantRestoreRetentionDays { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -208,6 +214,12 @@ namespace Pulumi.Azure.Backup
         public Input<Inputs.PolicyVMBackupArgs> Backup { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the instant restore retention range in days.
+        /// </summary>
+        [Input("instantRestoreRetentionDays")]
+        public Input<int>? InstantRestoreRetentionDays { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -279,6 +291,12 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("backup")]
         public Input<Inputs.PolicyVMBackupGetArgs>? Backup { get; set; }
+
+        /// <summary>
+        /// Specifies the instant restore retention range in days.
+        /// </summary>
+        [Input("instantRestoreRetentionDays")]
+        public Input<int>? InstantRestoreRetentionDays { get; set; }
 
         /// <summary>
         /// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.

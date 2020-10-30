@@ -93,6 +93,8 @@ __all__ = [
     'VpnServerConfigurationRadiusServer',
     'VpnServerConfigurationRadiusServerClientRootCertificate',
     'VpnServerConfigurationRadiusServerServerRootCertificate',
+    'VpnSiteLink',
+    'VpnSiteLinkBgp',
     'GetExpressRouteCircuitPeeringResult',
     'GetExpressRouteCircuitServiceProviderPropertyResult',
     'GetExpressRouteCircuitSkuResult',
@@ -5234,6 +5236,131 @@ class VpnServerConfigurationRadiusServerServerRootCertificate(dict):
         The Public Key Data associated with the Certificate.
         """
         return pulumi.get(self, "public_cert_data")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VpnSiteLink(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 bgp: Optional['outputs.VpnSiteLinkBgp'] = None,
+                 fqdn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 ip_address: Optional[str] = None,
+                 provider_name: Optional[str] = None,
+                 speed_in_mbps: Optional[int] = None):
+        """
+        :param str name: The name which should be used for this VPN Site Link.
+        :param 'VpnSiteLinkBgpArgs' bgp: A `bgp` block as defined above.
+        :param str fqdn: The FQDN of this VPN Site Link.
+        :param str id: The ID of the VPN Site Link.
+        :param str ip_address: The IP address of this VPN Site Link.
+        :param str provider_name: The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
+        :param int speed_in_mbps: The speed of the VPN device at the branch location in unit of mbps.
+        """
+        pulumi.set(__self__, "name", name)
+        if bgp is not None:
+            pulumi.set(__self__, "bgp", bgp)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if provider_name is not None:
+            pulumi.set(__self__, "provider_name", provider_name)
+        if speed_in_mbps is not None:
+            pulumi.set(__self__, "speed_in_mbps", speed_in_mbps)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this VPN Site Link.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def bgp(self) -> Optional['outputs.VpnSiteLinkBgp']:
+        """
+        A `bgp` block as defined above.
+        """
+        return pulumi.get(self, "bgp")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        The FQDN of this VPN Site Link.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the VPN Site Link.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        The IP address of this VPN Site Link.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> Optional[str]:
+        """
+        The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
+        """
+        return pulumi.get(self, "provider_name")
+
+    @property
+    @pulumi.getter(name="speedInMbps")
+    def speed_in_mbps(self) -> Optional[int]:
+        """
+        The speed of the VPN device at the branch location in unit of mbps.
+        """
+        return pulumi.get(self, "speed_in_mbps")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class VpnSiteLinkBgp(dict):
+    def __init__(__self__, *,
+                 asn: int,
+                 peering_address: str):
+        """
+        :param int asn: The BGP speaker's ASN.
+        :param str peering_address: The BGP peering ip address.
+        """
+        pulumi.set(__self__, "asn", asn)
+        pulumi.set(__self__, "peering_address", peering_address)
+
+    @property
+    @pulumi.getter
+    def asn(self) -> int:
+        """
+        The BGP speaker's ASN.
+        """
+        return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter(name="peeringAddress")
+    def peering_address(self) -> str:
+        """
+        The BGP peering ip address.
+        """
+        return pulumi.get(self, "peering_address")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

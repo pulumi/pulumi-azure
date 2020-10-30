@@ -31,7 +31,8 @@ class IoTHubEndpointArgs:
                  container_name: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
                  file_name_format: Optional[pulumi.Input[str]] = None,
-                 max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None):
+                 max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] connection_string: The connection string for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
@@ -41,6 +42,7 @@ class IoTHubEndpointArgs:
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
         :param pulumi.Input[int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        :param pulumi.Input[str] resource_group_name: The resource group in which the endpoint will be created.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "name", name)
@@ -55,6 +57,8 @@ class IoTHubEndpointArgs:
             pulumi.set(__self__, "file_name_format", file_name_format)
         if max_chunk_size_in_bytes is not None:
             pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -151,6 +155,18 @@ class IoTHubEndpointArgs:
     @max_chunk_size_in_bytes.setter
     def max_chunk_size_in_bytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_chunk_size_in_bytes", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource group in which the endpoint will be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
 
 
 @pulumi.input_type

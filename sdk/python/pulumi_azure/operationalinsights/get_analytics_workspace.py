@@ -19,7 +19,10 @@ class GetAnalyticsWorkspaceResult:
     """
     A collection of values returned by getAnalyticsWorkspace.
     """
-    def __init__(__self__, id=None, location=None, name=None, portal_url=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None):
+    def __init__(__self__, daily_quota_gb=None, id=None, location=None, name=None, portal_url=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None):
+        if daily_quota_gb and not isinstance(daily_quota_gb, float):
+            raise TypeError("Expected argument 'daily_quota_gb' to be a float")
+        pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -57,6 +60,14 @@ class GetAnalyticsWorkspaceResult:
         if workspace_id and not isinstance(workspace_id, str):
             raise TypeError("Expected argument 'workspace_id' to be a str")
         pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="dailyQuotaGb")
+    def daily_quota_gb(self) -> float:
+        """
+        The workspace daily quota for ingestion in GB.
+        """
+        return pulumi.get(self, "daily_quota_gb")
 
     @property
     @pulumi.getter
@@ -141,6 +152,7 @@ class AwaitableGetAnalyticsWorkspaceResult(GetAnalyticsWorkspaceResult):
         if False:
             yield self
         return GetAnalyticsWorkspaceResult(
+            daily_quota_gb=self.daily_quota_gb,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -185,6 +197,7 @@ def get_analytics_workspace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace', __args__, opts=opts, typ=GetAnalyticsWorkspaceResult).value
 
     return AwaitableGetAnalyticsWorkspaceResult(
+        daily_quota_gb=__ret__.daily_quota_gb,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

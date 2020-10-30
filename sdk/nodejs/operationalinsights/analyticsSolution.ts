@@ -86,6 +86,10 @@ export class AnalyticsSolution extends pulumi.CustomResource {
      */
     public readonly solutionName!: pulumi.Output<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      */
     public readonly workspaceName!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
             inputs["plan"] = state ? state.plan : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["solutionName"] = state ? state.solutionName : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["workspaceName"] = state ? state.workspaceName : undefined;
             inputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
@@ -133,6 +138,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
             inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["solutionName"] = args ? args.solutionName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
         }
@@ -168,6 +174,10 @@ export interface AnalyticsSolutionState {
      */
     readonly solutionName?: pulumi.Input<string>;
     /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      */
     readonly workspaceName?: pulumi.Input<string>;
@@ -197,6 +207,10 @@ export interface AnalyticsSolutionArgs {
      * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
     readonly solutionName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      */

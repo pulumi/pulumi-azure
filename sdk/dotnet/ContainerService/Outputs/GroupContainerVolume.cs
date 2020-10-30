@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GroupContainerVolume
     {
         /// <summary>
+        /// A `git_repo` block as defined below.
+        /// </summary>
+        public readonly Outputs.GroupContainerVolumeGitRepo? GitRepo;
+        /// <summary>
         /// The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string MountPath;
@@ -28,30 +32,33 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string ShareName;
+        public readonly string? ShareName;
         /// <summary>
         /// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string StorageAccountKey;
+        public readonly string? StorageAccountKey;
         /// <summary>
         /// The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string StorageAccountName;
+        public readonly string? StorageAccountName;
 
         [OutputConstructor]
         private GroupContainerVolume(
+            Outputs.GroupContainerVolumeGitRepo? gitRepo,
+
             string mountPath,
 
             string name,
 
             bool? readOnly,
 
-            string shareName,
+            string? shareName,
 
-            string storageAccountKey,
+            string? storageAccountKey,
 
-            string storageAccountName)
+            string? storageAccountName)
         {
+            GitRepo = gitRepo;
             MountPath = mountPath;
             Name = name;
             ReadOnly = readOnly;

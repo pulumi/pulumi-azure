@@ -15,6 +15,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -43,6 +44,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -67,6 +69,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['daily_quota_gb'] = daily_quota_gb
             __props__['location'] = location
             __props__['name'] = name
             if resource_group_name is None:
@@ -89,6 +92,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            daily_quota_gb: Optional[pulumi.Input[float]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             portal_url: Optional[pulumi.Input[str]] = None,
@@ -106,6 +110,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
@@ -120,6 +125,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["daily_quota_gb"] = daily_quota_gb
         __props__["location"] = location
         __props__["name"] = name
         __props__["portal_url"] = portal_url
@@ -131,6 +137,14 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__["tags"] = tags
         __props__["workspace_id"] = workspace_id
         return AnalyticsWorkspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dailyQuotaGb")
+    def daily_quota_gb(self) -> pulumi.Output[Optional[float]]:
+        """
+        The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+        """
+        return pulumi.get(self, "daily_quota_gb")
 
     @property
     @pulumi.getter

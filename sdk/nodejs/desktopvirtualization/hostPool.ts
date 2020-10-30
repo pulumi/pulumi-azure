@@ -8,6 +8,25 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Virtual Desktop Host Pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleHostPool = new azure.desktopvirtualization.HostPool("exampleHostPool", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     friendlyName: "pooleddepthfirst",
+ *     validateEnvironment: true,
+ *     description: "Acceptance Test: A pooled host pool - pooleddepthfirst",
+ *     type: "Pooled",
+ *     maximumSessionsAllowed: 50,
+ *     loadBalancerType: "DepthFirst",
+ * });
+ * ```
  */
 export class HostPool extends pulumi.CustomResource {
     /**
@@ -57,7 +76,7 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+     * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
      * Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
      */
     public readonly maximumSessionsAllowed!: pulumi.Output<number | undefined>;
@@ -68,7 +87,7 @@ export class HostPool extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user.
-     * `Direct` Assisnment – Admin selects a specific host to assign to an user.
+     * `Direct` Assignment – Admin selects a specific host to assign to an user.
      */
     public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
     /**
@@ -182,7 +201,7 @@ export interface HostPoolState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+     * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
      * Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
      */
     readonly maximumSessionsAllowed?: pulumi.Input<number>;
@@ -193,7 +212,7 @@ export interface HostPoolState {
     readonly name?: pulumi.Input<string>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user.
-     * `Direct` Assisnment – Admin selects a specific host to assign to an user.
+     * `Direct` Assignment – Admin selects a specific host to assign to an user.
      */
     readonly personalDesktopAssignmentType?: pulumi.Input<string>;
     /**
@@ -247,7 +266,7 @@ export interface HostPoolArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. 
+     * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
      * Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
      */
     readonly maximumSessionsAllowed?: pulumi.Input<number>;
@@ -258,7 +277,7 @@ export interface HostPoolArgs {
     readonly name?: pulumi.Input<string>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user.
-     * `Direct` Assisnment – Admin selects a specific host to assign to an user.
+     * `Direct` Assignment – Admin selects a specific host to assign to an user.
      */
     readonly personalDesktopAssignmentType?: pulumi.Input<string>;
     /**

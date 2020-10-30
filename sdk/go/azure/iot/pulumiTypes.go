@@ -25,6 +25,8 @@ type IoTHubEndpoint struct {
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name string `pulumi:"name"`
+	// The resource group in which the endpoint will be created.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type string `pulumi:"type"`
 }
@@ -55,6 +57,8 @@ type IoTHubEndpointArgs struct {
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The resource group in which the endpoint will be created.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -143,6 +147,11 @@ func (o IoTHubEndpointOutput) MaxChunkSizeInBytes() pulumi.IntPtrOutput {
 // The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 func (o IoTHubEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource group in which the endpoint will be created.
+func (o IoTHubEndpointOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.

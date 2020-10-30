@@ -55,6 +55,12 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// The resource group in which the endpoint will be created.
+        /// </summary>
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
         /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         /// </summary>
         [Input("type", required: true)]

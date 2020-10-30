@@ -140,7 +140,7 @@ export class Frontdoor extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -284,7 +284,7 @@ export interface FrontdoorState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -344,7 +344,7 @@ export interface FrontdoorArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Front Door service. Changing this forces a new resource to be created.
+     * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

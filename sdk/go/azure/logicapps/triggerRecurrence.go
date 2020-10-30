@@ -63,6 +63,8 @@ type TriggerRecurrence struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
+	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
 
 // NewTriggerRecurrence registers a new resource with the given unique name, arguments, and options.
@@ -112,6 +114,8 @@ type triggerRecurrenceState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime *string `pulumi:"startTime"`
+	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 type TriggerRecurrenceState struct {
@@ -125,6 +129,8 @@ type TriggerRecurrenceState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrInput
+	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	TimeZone pulumi.StringPtrInput
 }
 
 func (TriggerRecurrenceState) ElementType() reflect.Type {
@@ -142,6 +148,8 @@ type triggerRecurrenceArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime *string `pulumi:"startTime"`
+	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a TriggerRecurrence resource.
@@ -156,6 +164,8 @@ type TriggerRecurrenceArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
 	StartTime pulumi.StringPtrInput
+	// Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+	TimeZone pulumi.StringPtrInput
 }
 
 func (TriggerRecurrenceArgs) ElementType() reflect.Type {

@@ -70,7 +70,7 @@ type Endpoint struct {
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrOutput `pulumi:"globalDeliveryRule"`
 	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Indicates whether compression is to be enabled. Defaults to false.
+	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled pulumi.BoolPtrOutput `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
 	IsHttpAllowed pulumi.BoolPtrOutput `pulumi:"isHttpAllowed"`
@@ -147,7 +147,7 @@ type endpointState struct {
 	GlobalDeliveryRule *EndpointGlobalDeliveryRule `pulumi:"globalDeliveryRule"`
 	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
 	HostName *string `pulumi:"hostName"`
-	// Indicates whether compression is to be enabled. Defaults to false.
+	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
 	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
@@ -188,7 +188,7 @@ type EndpointState struct {
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrInput
 	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
 	HostName pulumi.StringPtrInput
-	// Indicates whether compression is to be enabled. Defaults to false.
+	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled pulumi.BoolPtrInput
 	// Defaults to `true`.
 	IsHttpAllowed pulumi.BoolPtrInput
@@ -231,7 +231,7 @@ type endpointArgs struct {
 	GeoFilters []EndpointGeoFilter `pulumi:"geoFilters"`
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule *EndpointGlobalDeliveryRule `pulumi:"globalDeliveryRule"`
-	// Indicates whether compression is to be enabled. Defaults to false.
+	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Defaults to `true`.
 	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
@@ -271,7 +271,7 @@ type EndpointArgs struct {
 	GeoFilters EndpointGeoFilterArrayInput
 	// Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrInput
-	// Indicates whether compression is to be enabled. Defaults to false.
+	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled pulumi.BoolPtrInput
 	// Defaults to `true`.
 	IsHttpAllowed pulumi.BoolPtrInput

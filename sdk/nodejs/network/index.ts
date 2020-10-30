@@ -75,3 +75,4 @@ export * from "./virtualNetworkPeering";
 export * from "./virtualWan";
 export * from "./vpnGateway";
 export * from "./vpnServerConfiguration";
+export * from "./vpnSite";

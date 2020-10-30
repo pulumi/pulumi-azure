@@ -20,6 +20,7 @@ class TriggerRecurrence(pulumi.CustomResource):
                  logic_app_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -49,6 +50,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,6 +80,7 @@ class TriggerRecurrence(pulumi.CustomResource):
             __props__['logic_app_id'] = logic_app_id
             __props__['name'] = name
             __props__['start_time'] = start_time
+            __props__['time_zone'] = time_zone
         super(TriggerRecurrence, __self__).__init__(
             'azure:logicapps/triggerRecurrence:TriggerRecurrence',
             resource_name,
@@ -92,7 +95,8 @@ class TriggerRecurrence(pulumi.CustomResource):
             interval: Optional[pulumi.Input[int]] = None,
             logic_app_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            start_time: Optional[pulumi.Input[str]] = None) -> 'TriggerRecurrence':
+            start_time: Optional[pulumi.Input[str]] = None,
+            time_zone: Optional[pulumi.Input[str]] = None) -> 'TriggerRecurrence':
         """
         Get an existing TriggerRecurrence resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -105,6 +109,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -115,6 +120,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         __props__["logic_app_id"] = logic_app_id
         __props__["name"] = name
         __props__["start_time"] = start_time
+        __props__["time_zone"] = time_zone
         return TriggerRecurrence(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -156,6 +162,14 @@ class TriggerRecurrence(pulumi.CustomResource):
         Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
         """
         return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Output[str]:
+        """
+        Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        """
+        return pulumi.get(self, "time_zone")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

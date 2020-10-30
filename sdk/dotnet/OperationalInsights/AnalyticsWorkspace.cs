@@ -41,6 +41,12 @@ namespace Pulumi.Azure.OperationalInsights
     public partial class AnalyticsWorkspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+        /// </summary>
+        [Output("dailyQuotaGb")]
+        public Output<double?> DailyQuotaGb { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -144,6 +150,12 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class AnalyticsWorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+        /// </summary>
+        [Input("dailyQuotaGb")]
+        public Input<double>? DailyQuotaGb { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -192,6 +204,12 @@ namespace Pulumi.Azure.OperationalInsights
 
     public sealed class AnalyticsWorkspaceState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+        /// </summary>
+        [Input("dailyQuotaGb")]
+        public Input<double>? DailyQuotaGb { get; set; }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>

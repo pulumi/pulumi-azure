@@ -12629,6 +12629,307 @@ func (o VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput) Inde
 	}).(VpnServerConfigurationRadiusServerServerRootCertificateOutput)
 }
 
+type VpnSiteLink struct {
+	// A `bgp` block as defined above.
+	Bgp *VpnSiteLinkBgp `pulumi:"bgp"`
+	// The FQDN of this VPN Site Link.
+	Fqdn *string `pulumi:"fqdn"`
+	// The ID of the VPN Site Link.
+	Id *string `pulumi:"id"`
+	// The IP address of this VPN Site Link.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The name which should be used for this VPN Site Link.
+	Name string `pulumi:"name"`
+	// The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
+	ProviderName *string `pulumi:"providerName"`
+	// The speed of the VPN device at the branch location in unit of mbps.
+	SpeedInMbps *int `pulumi:"speedInMbps"`
+}
+
+// VpnSiteLinkInput is an input type that accepts VpnSiteLinkArgs and VpnSiteLinkOutput values.
+// You can construct a concrete instance of `VpnSiteLinkInput` via:
+//
+//          VpnSiteLinkArgs{...}
+type VpnSiteLinkInput interface {
+	pulumi.Input
+
+	ToVpnSiteLinkOutput() VpnSiteLinkOutput
+	ToVpnSiteLinkOutputWithContext(context.Context) VpnSiteLinkOutput
+}
+
+type VpnSiteLinkArgs struct {
+	// A `bgp` block as defined above.
+	Bgp VpnSiteLinkBgpPtrInput `pulumi:"bgp"`
+	// The FQDN of this VPN Site Link.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// The ID of the VPN Site Link.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The IP address of this VPN Site Link.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The name which should be used for this VPN Site Link.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
+	ProviderName pulumi.StringPtrInput `pulumi:"providerName"`
+	// The speed of the VPN device at the branch location in unit of mbps.
+	SpeedInMbps pulumi.IntPtrInput `pulumi:"speedInMbps"`
+}
+
+func (VpnSiteLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteLink)(nil)).Elem()
+}
+
+func (i VpnSiteLinkArgs) ToVpnSiteLinkOutput() VpnSiteLinkOutput {
+	return i.ToVpnSiteLinkOutputWithContext(context.Background())
+}
+
+func (i VpnSiteLinkArgs) ToVpnSiteLinkOutputWithContext(ctx context.Context) VpnSiteLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteLinkOutput)
+}
+
+// VpnSiteLinkArrayInput is an input type that accepts VpnSiteLinkArray and VpnSiteLinkArrayOutput values.
+// You can construct a concrete instance of `VpnSiteLinkArrayInput` via:
+//
+//          VpnSiteLinkArray{ VpnSiteLinkArgs{...} }
+type VpnSiteLinkArrayInput interface {
+	pulumi.Input
+
+	ToVpnSiteLinkArrayOutput() VpnSiteLinkArrayOutput
+	ToVpnSiteLinkArrayOutputWithContext(context.Context) VpnSiteLinkArrayOutput
+}
+
+type VpnSiteLinkArray []VpnSiteLinkInput
+
+func (VpnSiteLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnSiteLink)(nil)).Elem()
+}
+
+func (i VpnSiteLinkArray) ToVpnSiteLinkArrayOutput() VpnSiteLinkArrayOutput {
+	return i.ToVpnSiteLinkArrayOutputWithContext(context.Background())
+}
+
+func (i VpnSiteLinkArray) ToVpnSiteLinkArrayOutputWithContext(ctx context.Context) VpnSiteLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteLinkArrayOutput)
+}
+
+type VpnSiteLinkOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteLink)(nil)).Elem()
+}
+
+func (o VpnSiteLinkOutput) ToVpnSiteLinkOutput() VpnSiteLinkOutput {
+	return o
+}
+
+func (o VpnSiteLinkOutput) ToVpnSiteLinkOutputWithContext(ctx context.Context) VpnSiteLinkOutput {
+	return o
+}
+
+// A `bgp` block as defined above.
+func (o VpnSiteLinkOutput) Bgp() VpnSiteLinkBgpPtrOutput {
+	return o.ApplyT(func(v VpnSiteLink) *VpnSiteLinkBgp { return v.Bgp }).(VpnSiteLinkBgpPtrOutput)
+}
+
+// The FQDN of this VPN Site Link.
+func (o VpnSiteLinkOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnSiteLink) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the VPN Site Link.
+func (o VpnSiteLinkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnSiteLink) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The IP address of this VPN Site Link.
+func (o VpnSiteLinkOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnSiteLink) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name which should be used for this VPN Site Link.
+func (o VpnSiteLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnSiteLink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
+func (o VpnSiteLinkOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnSiteLink) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
+}
+
+// The speed of the VPN device at the branch location in unit of mbps.
+func (o VpnSiteLinkOutput) SpeedInMbps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VpnSiteLink) *int { return v.SpeedInMbps }).(pulumi.IntPtrOutput)
+}
+
+type VpnSiteLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnSiteLink)(nil)).Elem()
+}
+
+func (o VpnSiteLinkArrayOutput) ToVpnSiteLinkArrayOutput() VpnSiteLinkArrayOutput {
+	return o
+}
+
+func (o VpnSiteLinkArrayOutput) ToVpnSiteLinkArrayOutputWithContext(ctx context.Context) VpnSiteLinkArrayOutput {
+	return o
+}
+
+func (o VpnSiteLinkArrayOutput) Index(i pulumi.IntInput) VpnSiteLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnSiteLink {
+		return vs[0].([]VpnSiteLink)[vs[1].(int)]
+	}).(VpnSiteLinkOutput)
+}
+
+type VpnSiteLinkBgp struct {
+	// The BGP speaker's ASN.
+	Asn int `pulumi:"asn"`
+	// The BGP peering ip address.
+	PeeringAddress string `pulumi:"peeringAddress"`
+}
+
+// VpnSiteLinkBgpInput is an input type that accepts VpnSiteLinkBgpArgs and VpnSiteLinkBgpOutput values.
+// You can construct a concrete instance of `VpnSiteLinkBgpInput` via:
+//
+//          VpnSiteLinkBgpArgs{...}
+type VpnSiteLinkBgpInput interface {
+	pulumi.Input
+
+	ToVpnSiteLinkBgpOutput() VpnSiteLinkBgpOutput
+	ToVpnSiteLinkBgpOutputWithContext(context.Context) VpnSiteLinkBgpOutput
+}
+
+type VpnSiteLinkBgpArgs struct {
+	// The BGP speaker's ASN.
+	Asn pulumi.IntInput `pulumi:"asn"`
+	// The BGP peering ip address.
+	PeeringAddress pulumi.StringInput `pulumi:"peeringAddress"`
+}
+
+func (VpnSiteLinkBgpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteLinkBgp)(nil)).Elem()
+}
+
+func (i VpnSiteLinkBgpArgs) ToVpnSiteLinkBgpOutput() VpnSiteLinkBgpOutput {
+	return i.ToVpnSiteLinkBgpOutputWithContext(context.Background())
+}
+
+func (i VpnSiteLinkBgpArgs) ToVpnSiteLinkBgpOutputWithContext(ctx context.Context) VpnSiteLinkBgpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteLinkBgpOutput)
+}
+
+func (i VpnSiteLinkBgpArgs) ToVpnSiteLinkBgpPtrOutput() VpnSiteLinkBgpPtrOutput {
+	return i.ToVpnSiteLinkBgpPtrOutputWithContext(context.Background())
+}
+
+func (i VpnSiteLinkBgpArgs) ToVpnSiteLinkBgpPtrOutputWithContext(ctx context.Context) VpnSiteLinkBgpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteLinkBgpOutput).ToVpnSiteLinkBgpPtrOutputWithContext(ctx)
+}
+
+// VpnSiteLinkBgpPtrInput is an input type that accepts VpnSiteLinkBgpArgs, VpnSiteLinkBgpPtr and VpnSiteLinkBgpPtrOutput values.
+// You can construct a concrete instance of `VpnSiteLinkBgpPtrInput` via:
+//
+//          VpnSiteLinkBgpArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnSiteLinkBgpPtrInput interface {
+	pulumi.Input
+
+	ToVpnSiteLinkBgpPtrOutput() VpnSiteLinkBgpPtrOutput
+	ToVpnSiteLinkBgpPtrOutputWithContext(context.Context) VpnSiteLinkBgpPtrOutput
+}
+
+type vpnSiteLinkBgpPtrType VpnSiteLinkBgpArgs
+
+func VpnSiteLinkBgpPtr(v *VpnSiteLinkBgpArgs) VpnSiteLinkBgpPtrInput {
+	return (*vpnSiteLinkBgpPtrType)(v)
+}
+
+func (*vpnSiteLinkBgpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnSiteLinkBgp)(nil)).Elem()
+}
+
+func (i *vpnSiteLinkBgpPtrType) ToVpnSiteLinkBgpPtrOutput() VpnSiteLinkBgpPtrOutput {
+	return i.ToVpnSiteLinkBgpPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnSiteLinkBgpPtrType) ToVpnSiteLinkBgpPtrOutputWithContext(ctx context.Context) VpnSiteLinkBgpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteLinkBgpPtrOutput)
+}
+
+type VpnSiteLinkBgpOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteLinkBgpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnSiteLinkBgp)(nil)).Elem()
+}
+
+func (o VpnSiteLinkBgpOutput) ToVpnSiteLinkBgpOutput() VpnSiteLinkBgpOutput {
+	return o
+}
+
+func (o VpnSiteLinkBgpOutput) ToVpnSiteLinkBgpOutputWithContext(ctx context.Context) VpnSiteLinkBgpOutput {
+	return o
+}
+
+func (o VpnSiteLinkBgpOutput) ToVpnSiteLinkBgpPtrOutput() VpnSiteLinkBgpPtrOutput {
+	return o.ToVpnSiteLinkBgpPtrOutputWithContext(context.Background())
+}
+
+func (o VpnSiteLinkBgpOutput) ToVpnSiteLinkBgpPtrOutputWithContext(ctx context.Context) VpnSiteLinkBgpPtrOutput {
+	return o.ApplyT(func(v VpnSiteLinkBgp) *VpnSiteLinkBgp {
+		return &v
+	}).(VpnSiteLinkBgpPtrOutput)
+}
+
+// The BGP speaker's ASN.
+func (o VpnSiteLinkBgpOutput) Asn() pulumi.IntOutput {
+	return o.ApplyT(func(v VpnSiteLinkBgp) int { return v.Asn }).(pulumi.IntOutput)
+}
+
+// The BGP peering ip address.
+func (o VpnSiteLinkBgpOutput) PeeringAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VpnSiteLinkBgp) string { return v.PeeringAddress }).(pulumi.StringOutput)
+}
+
+type VpnSiteLinkBgpPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnSiteLinkBgpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnSiteLinkBgp)(nil)).Elem()
+}
+
+func (o VpnSiteLinkBgpPtrOutput) ToVpnSiteLinkBgpPtrOutput() VpnSiteLinkBgpPtrOutput {
+	return o
+}
+
+func (o VpnSiteLinkBgpPtrOutput) ToVpnSiteLinkBgpPtrOutputWithContext(ctx context.Context) VpnSiteLinkBgpPtrOutput {
+	return o
+}
+
+func (o VpnSiteLinkBgpPtrOutput) Elem() VpnSiteLinkBgpOutput {
+	return o.ApplyT(func(v *VpnSiteLinkBgp) VpnSiteLinkBgp { return *v }).(VpnSiteLinkBgpOutput)
+}
+
+// The BGP speaker's ASN.
+func (o VpnSiteLinkBgpPtrOutput) Asn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpnSiteLinkBgp) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Asn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The BGP peering ip address.
+func (o VpnSiteLinkBgpPtrOutput) PeeringAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnSiteLinkBgp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PeeringAddress
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetExpressRouteCircuitPeeringType struct {
 	// The Either a 16-bit or a 32-bit ASN for Azure.
 	AzureAsn int `pulumi:"azureAsn"`
@@ -15199,6 +15500,10 @@ func init() {
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerClientRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerServerRootCertificateOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationRadiusServerServerRootCertificateArrayOutput{})
+	pulumi.RegisterOutputType(VpnSiteLinkOutput{})
+	pulumi.RegisterOutputType(VpnSiteLinkArrayOutput{})
+	pulumi.RegisterOutputType(VpnSiteLinkBgpOutput{})
+	pulumi.RegisterOutputType(VpnSiteLinkBgpPtrOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitPeeringTypeOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitPeeringTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitServiceProviderPropertyOutput{})

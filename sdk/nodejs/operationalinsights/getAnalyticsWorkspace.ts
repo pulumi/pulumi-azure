@@ -55,6 +55,10 @@ export interface GetAnalyticsWorkspaceArgs {
  */
 export interface GetAnalyticsWorkspaceResult {
     /**
+     * The workspace daily quota for ingestion in GB.
+     */
+    readonly dailyQuotaGb: number;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

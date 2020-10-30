@@ -84,6 +84,10 @@ export class SavedSearch extends pulumi.CustomResource {
      * The query expression for the saved search. Changing this forces a new resource to be created.
      */
     public readonly query!: pulumi.Output<string>;
+    /**
+     * A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SavedSearch resource with the given unique name, arguments, and options.
@@ -104,6 +108,7 @@ export class SavedSearch extends pulumi.CustomResource {
             inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["query"] = state ? state.query : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SavedSearchArgs | undefined;
             if (!args || args.category === undefined) {
@@ -125,6 +130,7 @@ export class SavedSearch extends pulumi.CustomResource {
             inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["query"] = args ? args.query : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
         }
         if (!opts) {
             opts = {}
@@ -169,6 +175,10 @@ export interface SavedSearchState {
      * The query expression for the saved search. Changing this forces a new resource to be created.
      */
     readonly query?: pulumi.Input<string>;
+    /**
+     * A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -203,4 +213,8 @@ export interface SavedSearchArgs {
      * The query expression for the saved search. Changing this forces a new resource to be created.
      */
     readonly query: pulumi.Input<string>;
+    /**
+     * A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

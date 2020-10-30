@@ -18,6 +18,7 @@ __all__ = [
     'GroupContainerReadinessProbe',
     'GroupContainerReadinessProbeHttpGet',
     'GroupContainerVolume',
+    'GroupContainerVolumeGitRepo',
     'GroupDiagnostics',
     'GroupDiagnosticsLogAnalytics',
     'GroupDnsConfig',
@@ -572,25 +573,32 @@ class GroupContainerVolume(dict):
     def __init__(__self__, *,
                  mount_path: str,
                  name: str,
-                 share_name: str,
-                 storage_account_key: str,
-                 storage_account_name: str,
-                 read_only: Optional[bool] = None):
+                 git_repo: Optional['outputs.GroupContainerVolumeGitRepo'] = None,
+                 read_only: Optional[bool] = None,
+                 share_name: Optional[str] = None,
+                 storage_account_key: Optional[str] = None,
+                 storage_account_name: Optional[str] = None):
         """
         :param str mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         :param str name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param 'GroupContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below.
+        :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param str share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         :param str storage_account_key: The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         :param str storage_account_name: The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
-        :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "mount_path", mount_path)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if git_repo is not None:
+            pulumi.set(__self__, "git_repo", git_repo)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -609,28 +617,12 @@ class GroupContainerVolume(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="shareName")
-    def share_name(self) -> str:
+    @pulumi.getter(name="gitRepo")
+    def git_repo(self) -> Optional['outputs.GroupContainerVolumeGitRepo']:
         """
-        The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+        A `git_repo` block as defined below.
         """
-        return pulumi.get(self, "share_name")
-
-    @property
-    @pulumi.getter(name="storageAccountKey")
-    def storage_account_key(self) -> str:
-        """
-        The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_key")
-
-    @property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> str:
-        """
-        The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_name")
+        return pulumi.get(self, "git_repo")
 
     @property
     @pulumi.getter(name="readOnly")
@@ -639,6 +631,75 @@ class GroupContainerVolume(dict):
         Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> Optional[str]:
+        """
+        The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "share_name")
+
+    @property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[str]:
+        """
+        The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_key")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
+        """
+        The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GroupContainerVolumeGitRepo(dict):
+    def __init__(__self__, *,
+                 url: str,
+                 directory: Optional[str] = None,
+                 revision: Optional[str] = None):
+        """
+        :param str url: Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+        :param str directory: Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+        :param str revision: Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "url", url)
+        if directory is not None:
+            pulumi.set(__self__, "directory", directory)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def directory(self) -> Optional[str]:
+        """
+        Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "directory")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[str]:
+        """
+        Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "revision")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

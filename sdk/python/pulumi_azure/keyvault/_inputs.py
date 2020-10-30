@@ -33,6 +33,7 @@ __all__ = [
     'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs',
     'CertificateIssuerAdminArgs',
     'KeyVaultAccessPolicyArgs',
+    'KeyVaultContactArgs',
     'KeyVaultNetworkAclsArgs',
 ]
 
@@ -1367,6 +1368,60 @@ class KeyVaultAccessPolicyArgs:
     @storage_permissions.setter
     def storage_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "storage_permissions", value)
+
+
+@pulumi.input_type
+class KeyVaultContactArgs:
+    def __init__(__self__, *,
+                 email: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 phone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] email: E-mail address of the contact.
+        :param pulumi.Input[str] name: Name of the contact.
+        :param pulumi.Input[str] phone: Phone number of the contact.
+        """
+        pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if phone is not None:
+            pulumi.set(__self__, "phone", phone)
+
+    @property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[str]:
+        """
+        E-mail address of the contact.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the contact.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def phone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Phone number of the contact.
+        """
+        return pulumi.get(self, "phone")
+
+    @phone.setter
+    def phone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "phone", value)
 
 
 @pulumi.input_type

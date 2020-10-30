@@ -22,6 +22,7 @@ class SavedSearch(pulumi.CustomResource):
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -56,6 +57,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,6 +91,7 @@ class SavedSearch(pulumi.CustomResource):
             if query is None:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
+            __props__['tags'] = tags
         super(SavedSearch, __self__).__init__(
             'azure:loganalytics/savedSearch:SavedSearch',
             resource_name,
@@ -105,7 +108,8 @@ class SavedSearch(pulumi.CustomResource):
             function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            query: Optional[pulumi.Input[str]] = None) -> 'SavedSearch':
+            query: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SavedSearch':
         """
         Get an existing SavedSearch resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -120,6 +124,7 @@ class SavedSearch(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -132,6 +137,7 @@ class SavedSearch(pulumi.CustomResource):
         __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__["name"] = name
         __props__["query"] = query
+        __props__["tags"] = tags
         return SavedSearch(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -189,6 +195,14 @@ class SavedSearch(pulumi.CustomResource):
         The query expression for the saved search. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        """
+        return pulumi.get(self, "tags")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

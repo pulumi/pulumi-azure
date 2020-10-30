@@ -78,6 +78,8 @@ type AnalyticsSolution struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName pulumi.StringOutput `pulumi:"solutionName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringOutput `pulumi:"workspaceName"`
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
@@ -135,6 +137,8 @@ type analyticsSolutionState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName *string `pulumi:"solutionName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName *string `pulumi:"workspaceName"`
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
@@ -150,6 +154,8 @@ type AnalyticsSolutionState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringPtrInput
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
@@ -169,6 +175,8 @@ type analyticsSolutionArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName string `pulumi:"solutionName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName string `pulumi:"workspaceName"`
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
@@ -185,6 +193,8 @@ type AnalyticsSolutionArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName pulumi.StringInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringInput
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.

@@ -63,10 +63,13 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      */
     public readonly bgpSettings!: pulumi.Output<outputs.network.LocalNetworkGatewayBgpSettings | undefined>;
     /**
-     * The IP address of the gateway to which to
-     * connect.
+     * The gateway IP address to connect with.
      */
-    public readonly gatewayAddress!: pulumi.Output<string>;
+    public readonly gatewayAddress!: pulumi.Output<string | undefined>;
+    /**
+     * The gateway FQDN to connect with.
+     */
+    public readonly gatewayFqdn!: pulumi.Output<string | undefined>;
     /**
      * The location/region where the local network gateway is
      * created. Changing this forces a new resource to be created.
@@ -102,6 +105,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             inputs["gatewayAddress"] = state ? state.gatewayAddress : undefined;
+            inputs["gatewayFqdn"] = state ? state.gatewayFqdn : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -111,15 +115,13 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             if (!args || args.addressSpaces === undefined) {
                 throw new Error("Missing required property 'addressSpaces'");
             }
-            if (!args || args.gatewayAddress === undefined) {
-                throw new Error("Missing required property 'gatewayAddress'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressSpaces"] = args ? args.addressSpaces : undefined;
             inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             inputs["gatewayAddress"] = args ? args.gatewayAddress : undefined;
+            inputs["gatewayFqdn"] = args ? args.gatewayFqdn : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -151,10 +153,13 @@ export interface LocalNetworkGatewayState {
      */
     readonly bgpSettings?: pulumi.Input<inputs.network.LocalNetworkGatewayBgpSettings>;
     /**
-     * The IP address of the gateway to which to
-     * connect.
+     * The gateway IP address to connect with.
      */
     readonly gatewayAddress?: pulumi.Input<string>;
+    /**
+     * The gateway FQDN to connect with.
+     */
+    readonly gatewayFqdn?: pulumi.Input<string>;
     /**
      * The location/region where the local network gateway is
      * created. Changing this forces a new resource to be created.
@@ -191,10 +196,13 @@ export interface LocalNetworkGatewayArgs {
      */
     readonly bgpSettings?: pulumi.Input<inputs.network.LocalNetworkGatewayBgpSettings>;
     /**
-     * The IP address of the gateway to which to
-     * connect.
+     * The gateway IP address to connect with.
      */
-    readonly gatewayAddress: pulumi.Input<string>;
+    readonly gatewayAddress?: pulumi.Input<string>;
+    /**
+     * The gateway FQDN to connect with.
+     */
+    readonly gatewayFqdn?: pulumi.Input<string>;
     /**
      * The location/region where the local network gateway is
      * created. Changing this forces a new resource to be created.
