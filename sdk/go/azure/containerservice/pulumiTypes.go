@@ -3641,8 +3641,7 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
-	NodeTaints []string `pulumi:"nodeTaints"`
+	NodeTaints []string          `pulumi:"nodeTaints"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -3686,8 +3685,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `minCount` and `maxCount`.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
-	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
-	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+	NodeLabels pulumi.StringMapInput   `pulumi:"nodeLabels"`
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
@@ -3825,7 +3823,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
-// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
@@ -3968,7 +3965,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMap
 	}).(pulumi.StringMapOutput)
 }
 
-// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
 		if v == nil {
@@ -7429,8 +7425,7 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// The name of the managed Kubernetes Cluster.
 	Name       string            `pulumi:"name"`
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	// The list of Kubernetes taints which are applied to nodes in the agent pool
-	NodeTaints []string `pulumi:"nodeTaints"`
+	NodeTaints []string          `pulumi:"nodeTaints"`
 	// Kubernetes version used for the Agents.
 	OrchestratorVersion string `pulumi:"orchestratorVersion"`
 	// The size of the Agent VM's Operating System Disk in GB.
@@ -7473,9 +7468,8 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name       pulumi.StringInput    `pulumi:"name"`
-	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
-	// The list of Kubernetes taints which are applied to nodes in the agent pool
+	Name       pulumi.StringInput      `pulumi:"name"`
+	NodeLabels pulumi.StringMapInput   `pulumi:"nodeLabels"`
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Kubernetes version used for the Agents.
 	OrchestratorVersion pulumi.StringInput `pulumi:"orchestratorVersion"`
@@ -7587,7 +7581,6 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMa
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
 }
 
-// The list of Kubernetes taints which are applied to nodes in the agent pool
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }

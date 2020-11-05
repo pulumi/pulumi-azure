@@ -81,6 +81,8 @@ import (
 type Firewall struct {
 	pulumi.CustomResourceState
 
+	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// An `ipConfiguration` block as documented below.
 	IpConfigurations FirewallIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -133,6 +135,8 @@ func GetFirewall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Firewall resources.
 type firewallState struct {
+	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+	DnsServers []string `pulumi:"dnsServers"`
 	// An `ipConfiguration` block as documented below.
 	IpConfigurations []FirewallIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -152,6 +156,8 @@ type firewallState struct {
 }
 
 type FirewallState struct {
+	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+	DnsServers pulumi.StringArrayInput
 	// An `ipConfiguration` block as documented below.
 	IpConfigurations FirewallIpConfigurationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -175,6 +181,8 @@ func (FirewallState) ElementType() reflect.Type {
 }
 
 type firewallArgs struct {
+	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+	DnsServers []string `pulumi:"dnsServers"`
 	// An `ipConfiguration` block as documented below.
 	IpConfigurations []FirewallIpConfiguration `pulumi:"ipConfigurations"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -195,6 +203,8 @@ type firewallArgs struct {
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
+	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+	DnsServers pulumi.StringArrayInput
 	// An `ipConfiguration` block as documented below.
 	IpConfigurations FirewallIpConfigurationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

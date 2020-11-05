@@ -1326,7 +1326,6 @@ class KubernetesClusterDefaultNodePool(dict):
         :param int min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100`.
         :param int node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `100` and between `min_count` and `max_count`.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
-        :param Sequence[str] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
@@ -1447,9 +1446,6 @@ class KubernetesClusterDefaultNodePool(dict):
     @property
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[Sequence[str]]:
-        """
-        A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "node_taints")
 
     @property
@@ -2573,7 +2569,6 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         :param int max_pods: The maximum number of pods that can run on each agent.
         :param int min_count: Minimum number of nodes for auto-scaling
         :param str name: The name of the managed Kubernetes Cluster.
-        :param Sequence[str] node_taints: The list of Kubernetes taints which are applied to nodes in the agent pool
         :param str orchestrator_version: Kubernetes version used for the Agents.
         :param int os_disk_size_gb: The size of the Agent VM's Operating System Disk in GB.
         :param str os_type: The Operating System used for the Agents.
@@ -2669,9 +2664,6 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
     @property
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Sequence[str]:
-        """
-        The list of Kubernetes taints which are applied to nodes in the agent pool
-        """
         return pulumi.get(self, "node_taints")
 
     @property

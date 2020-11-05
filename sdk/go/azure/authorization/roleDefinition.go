@@ -63,7 +63,8 @@ type RoleDefinition struct {
 	// A `permissions` block as defined below.
 	Permissions RoleDefinitionPermissionArrayOutput `pulumi:"permissions"`
 	// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
-	RoleDefinitionId         pulumi.StringOutput `pulumi:"roleDefinitionId"`
+	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
+	// The Azure Resource Manager ID for the resource.
 	RoleDefinitionResourceId pulumi.StringOutput `pulumi:"roleDefinitionResourceId"`
 	// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
 	Scope pulumi.StringOutput `pulumi:"scope"`
@@ -118,7 +119,8 @@ type roleDefinitionState struct {
 	// A `permissions` block as defined below.
 	Permissions []RoleDefinitionPermission `pulumi:"permissions"`
 	// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
-	RoleDefinitionId         *string `pulumi:"roleDefinitionId"`
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	// The Azure Resource Manager ID for the resource.
 	RoleDefinitionResourceId *string `pulumi:"roleDefinitionResourceId"`
 	// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
 	Scope *string `pulumi:"scope"`
@@ -134,7 +136,8 @@ type RoleDefinitionState struct {
 	// A `permissions` block as defined below.
 	Permissions RoleDefinitionPermissionArrayInput
 	// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
-	RoleDefinitionId         pulumi.StringPtrInput
+	RoleDefinitionId pulumi.StringPtrInput
+	// The Azure Resource Manager ID for the resource.
 	RoleDefinitionResourceId pulumi.StringPtrInput
 	// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
 	Scope pulumi.StringPtrInput

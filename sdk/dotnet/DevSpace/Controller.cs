@@ -11,6 +11,8 @@ namespace Pulumi.Azure.DevSpace
 {
     /// <summary>
     /// Manages a DevSpace Controller.
+    /// 
+    /// &gt; **NOTE:** Microsoft will be retiring Azure Dev Spaces on 31 October 2023, please see the product [documentation](https://azure.microsoft.com/en-us/updates/azure-dev-spaces-is-retiring-on-31-october-2023/) for more information.
     /// </summary>
     public partial class Controller : Pulumi.CustomResource
     {

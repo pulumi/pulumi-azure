@@ -4686,6 +4686,83 @@ export namespace compute {
         sizeGb: number;
     }
 
+    export interface GetImagesImage {
+        /**
+         * One or more `dataDisk` blocks as defined below.
+         */
+        dataDisks: outputs.compute.GetImagesImageDataDisk[];
+        /**
+         * The supported Azure location where the Image exists.
+         */
+        location: string;
+        /**
+         * The name of the Image.
+         */
+        name: string;
+        /**
+         * An `osDisk` block as defined below.
+         */
+        osDisks: outputs.compute.GetImagesImageOsDisk[];
+        /**
+         * A mapping of tags assigned to the Image.
+         */
+        tags: {[key: string]: string};
+        /**
+         * Is zone resiliency enabled?
+         */
+        zoneResilient: boolean;
+    }
+
+    export interface GetImagesImageDataDisk {
+        /**
+         * the URI in Azure storage of the blob used to create the image.
+         */
+        blobUri: string;
+        /**
+         * the caching mode for the Data Disk.
+         */
+        caching: string;
+        /**
+         * the logical unit number of the data disk.
+         */
+        lun: number;
+        /**
+         * the ID of the Managed Disk used as the Data Disk Image.
+         */
+        managedDiskId: string;
+        /**
+         * the size of this Data Disk in GB.
+         */
+        sizeGb: number;
+    }
+
+    export interface GetImagesImageOsDisk {
+        /**
+         * the URI in Azure storage of the blob used to create the image.
+         */
+        blobUri: string;
+        /**
+         * the caching mode for the Data Disk.
+         */
+        caching: string;
+        /**
+         * the ID of the Managed Disk used as the Data Disk Image.
+         */
+        managedDiskId: string;
+        /**
+         * the State of the OS used in the Image.
+         */
+        osState: string;
+        /**
+         * the type of Operating System used on the OS Disk.
+         */
+        osType: string;
+        /**
+         * the size of this Data Disk in GB.
+         */
+        sizeGb: number;
+    }
+
     export interface GetSharedImageIdentifier {
         /**
          * The Offer Name for this Shared Image.
@@ -6731,9 +6808,6 @@ export namespace containerservice {
          */
         name: string;
         nodeLabels: {[key: string]: string};
-        /**
-         * The list of Kubernetes taints which are applied to nodes in the agent pool
-         */
         nodeTaints: string[];
         /**
          * Kubernetes version used for the Agents.
@@ -7387,9 +7461,6 @@ export namespace containerservice {
          * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
          */
         nodeLabels?: {[key: string]: string};
-        /**
-         * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
-         */
         nodeTaints?: string[];
         /**
          * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -15790,6 +15861,10 @@ export namespace network {
          */
         destinationAddresses?: string[];
         /**
+         * A list of destination FQDNS for the rule.
+         */
+        destinationFqdns?: string[];
+        /**
          * A list of destination IP Group IDs for the rule.
          */
         destinationIpGroups?: string[];
@@ -15828,6 +15903,171 @@ export namespace network {
          * A list of custom DNS servers' IP addresses.
          */
         servers?: string[];
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollection {
+        /**
+         * The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
+         */
+        action: string;
+        /**
+         * The name which should be used for this application rule collection.
+         */
+        name: string;
+        /**
+         * The priority of the application rule collection. The range is `100` - `65000`.
+         */
+        priority: number;
+        /**
+         * One or more `rule` (application rule) blocks as defined below.
+         */
+        rules: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule[];
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
+        /**
+         * Specifies a list of destination FQDN tags.
+         */
+        destinationFqdnTags?: string[];
+        /**
+         * Specifies a list of destination FQDNs.
+         */
+        destinationFqdns?: string[];
+        /**
+         * The name which should be used for this rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         */
+        protocols: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol[];
+        /**
+         * Specifies a list of source IP addresses (including CIDR and `*`).
+         */
+        sourceAddresses?: string[];
+        /**
+         * Specifies a list of source IP groups.
+         */
+        sourceIpGroups?: string[];
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol {
+        /**
+         * Port number of the protocol. Range is 0-64000.
+         */
+        port: number;
+        /**
+         * Protocol type. Possible values are `Http` and `Https`.
+         */
+        type: string;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupNatRuleCollection {
+        /**
+         * The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+         */
+        action: string;
+        /**
+         * The name which should be used for this nat rule collection.
+         */
+        name: string;
+        /**
+         * The priority of the nat rule collection. The range is `100` - `65000`.
+         */
+        priority: number;
+        /**
+         * A `rule` (nat rule) block as defined above.
+         */
+        rules: outputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule[];
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
+        /**
+         * The destination IP address (including CIDR).
+         */
+        destinationAddress?: string;
+        /**
+         * Specifies a list of destination ports.
+         */
+        destinationPorts?: string[];
+        /**
+         * The name which should be used for this rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         */
+        protocols: string[];
+        /**
+         * Specifies a list of source IP addresses (including CIDR and `*`).
+         */
+        sourceAddresses?: string[];
+        /**
+         * Specifies a list of source IP groups.
+         */
+        sourceIpGroups?: string[];
+        /**
+         * Specifies the translated address.
+         */
+        translatedAddress: string;
+        /**
+         * Specifies the translated port.
+         */
+        translatedPort: number;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
+        /**
+         * The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
+         */
+        action: string;
+        /**
+         * The name which should be used for this network rule collection.
+         */
+        name: string;
+        /**
+         * The priority of the network rule collection. The range is `100` - `65000`.
+         */
+        priority: number;
+        /**
+         * One or more `rule` (network rule) blocks as defined above.
+         */
+        rules: outputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule[];
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
+        /**
+         * Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+         */
+        destinationAddresses?: string[];
+        /**
+         * Specifies a list of destination FQDNs.
+         */
+        destinationFqdns?: string[];
+        /**
+         * Specifies a list of destination IP groups.
+         */
+        destinationIpGroups?: string[];
+        /**
+         * Specifies a list of destination ports.
+         */
+        destinationPorts: string[];
+        /**
+         * The name which should be used for this rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         */
+        protocols: string[];
+        /**
+         * Specifies a list of source IP addresses (including CIDR and `*`).
+         */
+        sourceAddresses?: string[];
+        /**
+         * Specifies a list of source IP groups.
+         */
+        sourceIpGroups?: string[];
     }
 
     export interface FirewallPolicyThreatIntelligenceAllowlist {
@@ -16697,6 +16937,47 @@ export namespace network {
         value: string;
     }
 
+    export interface VirtualHubConnectionRouting {
+        /**
+         * The ID of the route table associated with this Virtual Hub connection.
+         */
+        associatedRouteTableId: string;
+        /**
+         * A `propagatedRouteTable` block as defined below.
+         */
+        propagatedRouteTable: outputs.network.VirtualHubConnectionRoutingPropagatedRouteTable;
+        /**
+         * A `staticVnetRoute` block as defined below.
+         */
+        staticVnetRoutes?: outputs.network.VirtualHubConnectionRoutingStaticVnetRoute[];
+    }
+
+    export interface VirtualHubConnectionRoutingPropagatedRouteTable {
+        /**
+         * The list of labels to assign to this route table.
+         */
+        labels: string[];
+        /**
+         * A list of Route Table ID's to associated with this Virtual Hub Connection.
+         */
+        routeTableIds: string[];
+    }
+
+    export interface VirtualHubConnectionRoutingStaticVnetRoute {
+        /**
+         * A list of CIDR Ranges which should be used as Address Prefixes.
+         */
+        addressPrefixes?: string[];
+        /**
+         * The name which should be used for this Static Route.
+         */
+        name?: string;
+        /**
+         * The IP Address which should be used for the Next Hop.
+         */
+        nextHopIpAddress?: string;
+    }
+
     export interface VirtualHubRoute {
         /**
          * A list of Address Prefixes.
@@ -16706,6 +16987,29 @@ export namespace network {
          * The IP Address that Packets should be forwarded to as the Next Hop.
          */
         nextHopIpAddress: string;
+    }
+
+    export interface VirtualHubRouteTableRoute {
+        /**
+         * A list of destination addresses for this route.
+         */
+        destinations: string[];
+        /**
+         * The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
+         */
+        destinationsType: string;
+        /**
+         * The name which should be used for this route.
+         */
+        name: string;
+        /**
+         * The next hop's resource ID.
+         */
+        nextHop: string;
+        /**
+         * The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+         */
+        nextHopType?: string;
     }
 
     export interface VirtualNetworkDdosProtectionPlan {
@@ -17196,7 +17500,7 @@ export namespace policy {
         /**
          * The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
          */
-        parameters: {[key: string]: any};
+        parameters: {[key: string]: string};
         /**
          * The ID of the policy definition or policy set definition that is included in this policy set definition.
          */
@@ -17217,7 +17521,7 @@ export namespace policy {
          *
          * @deprecated Deprecated in favour of `parameter_values`
          */
-        parameters: {[key: string]: any};
+        parameters: {[key: string]: string};
         /**
          * The ID of the policy definition or policy set definition that will be included in this policy set definition.
          */

@@ -86,10 +86,6 @@ class GetKubernetesClusterResult:
         pulumi.set(__self__, "private_fqdn", private_fqdn)
         if private_link_enabled and not isinstance(private_link_enabled, bool):
             raise TypeError("Expected argument 'private_link_enabled' to be a bool")
-        if private_link_enabled is not None:
-            warnings.warn("Deprecated in favor of `private_cluster_enabled`", DeprecationWarning)
-            pulumi.log.warn("private_link_enabled is deprecated: Deprecated in favor of `private_cluster_enabled`")
-
         pulumi.set(__self__, "private_link_enabled", private_link_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")

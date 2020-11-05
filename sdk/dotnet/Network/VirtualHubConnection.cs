@@ -81,6 +81,12 @@ namespace Pulumi.Azure.Network
         public Output<string> RemoteVirtualNetworkId { get; private set; } = null!;
 
         /// <summary>
+        /// A `routing` block as defined below.
+        /// </summary>
+        [Output("routing")]
+        public Output<Outputs.VirtualHubConnectionRouting> Routing { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualHubId")]
@@ -157,6 +163,12 @@ namespace Pulumi.Azure.Network
         public Input<string> RemoteVirtualNetworkId { get; set; } = null!;
 
         /// <summary>
+        /// A `routing` block as defined below.
+        /// </summary>
+        [Input("routing")]
+        public Input<Inputs.VirtualHubConnectionRoutingArgs>? Routing { get; set; }
+
+        /// <summary>
         /// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualHubId", required: true)]
@@ -192,6 +204,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("remoteVirtualNetworkId")]
         public Input<string>? RemoteVirtualNetworkId { get; set; }
+
+        /// <summary>
+        /// A `routing` block as defined below.
+        /// </summary>
+        [Input("routing")]
+        public Input<Inputs.VirtualHubConnectionRoutingGetArgs>? Routing { get; set; }
 
         /// <summary>
         /// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.

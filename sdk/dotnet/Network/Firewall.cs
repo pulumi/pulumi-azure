@@ -73,6 +73,12 @@ namespace Pulumi.Azure.Network
     public partial class Firewall : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        /// </summary>
+        [Output("dnsServers")]
+        public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
+
+        /// <summary>
         /// An `ip_configuration` block as documented below.
         /// </summary>
         [Output("ipConfigurations")]
@@ -166,6 +172,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallArgs : Pulumi.ResourceArgs
     {
+        [Input("dnsServers")]
+        private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        /// </summary>
+        public InputList<string> DnsServers
+        {
+            get => _dnsServers ?? (_dnsServers = new InputList<string>());
+            set => _dnsServers = value;
+        }
+
         [Input("ipConfigurations", required: true)]
         private InputList<Inputs.FirewallIpConfigurationArgs>? _ipConfigurations;
 
@@ -239,6 +257,18 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallState : Pulumi.ResourceArgs
     {
+        [Input("dnsServers")]
+        private InputList<string>? _dnsServers;
+
+        /// <summary>
+        /// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        /// </summary>
+        public InputList<string> DnsServers
+        {
+            get => _dnsServers ?? (_dnsServers = new InputList<string>());
+            set => _dnsServers = value;
+        }
+
         [Input("ipConfigurations")]
         private InputList<Inputs.FirewallIpConfigurationGetArgs>? _ipConfigurations;
 

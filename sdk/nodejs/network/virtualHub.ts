@@ -59,7 +59,7 @@ export class VirtualHub extends pulumi.CustomResource {
     /**
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
      */
-    public readonly addressPrefix!: pulumi.Output<string>;
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
@@ -77,13 +77,17 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly routes!: pulumi.Output<outputs.network.VirtualHubRoute[] | undefined>;
     /**
+     * The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags to assign to the Virtual Hub.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualWanId!: pulumi.Output<string>;
+    public readonly virtualWanId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualHub resource with the given unique name, arguments, and options.
@@ -102,24 +106,20 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["routes"] = state ? state.routes : undefined;
+            inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["virtualWanId"] = state ? state.virtualWanId : undefined;
         } else {
             const args = argsOrState as VirtualHubArgs | undefined;
-            if (!args || args.addressPrefix === undefined) {
-                throw new Error("Missing required property 'addressPrefix'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.virtualWanId === undefined) {
-                throw new Error("Missing required property 'virtualWanId'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routes"] = args ? args.routes : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualWanId"] = args ? args.virtualWanId : undefined;
         }
@@ -159,6 +159,10 @@ export interface VirtualHubState {
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
     /**
+     * The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+     */
+    readonly sku?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the Virtual Hub.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -175,7 +179,7 @@ export interface VirtualHubArgs {
     /**
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
      */
-    readonly addressPrefix: pulumi.Input<string>;
+    readonly addressPrefix?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
@@ -193,11 +197,15 @@ export interface VirtualHubArgs {
      */
     readonly routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
     /**
+     * The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+     */
+    readonly sku?: pulumi.Input<string>;
+    /**
      * A mapping of tags to assign to the Virtual Hub.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualWanId: pulumi.Input<string>;
+    readonly virtualWanId?: pulumi.Input<string>;
 }

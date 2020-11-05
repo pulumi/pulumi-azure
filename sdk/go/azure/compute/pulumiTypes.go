@@ -17287,6 +17287,423 @@ func (o GetImageOsDiskArrayOutput) Index(i pulumi.IntInput) GetImageOsDiskOutput
 	}).(GetImageOsDiskOutput)
 }
 
+type GetImagesImage struct {
+	// One or more `dataDisk` blocks as defined below.
+	DataDisks []GetImagesImageDataDisk `pulumi:"dataDisks"`
+	// The supported Azure location where the Image exists.
+	Location string `pulumi:"location"`
+	// The name of the Image.
+	Name string `pulumi:"name"`
+	// An `osDisk` block as defined below.
+	OsDisks []GetImagesImageOsDisk `pulumi:"osDisks"`
+	// A mapping of tags assigned to the Image.
+	Tags map[string]string `pulumi:"tags"`
+	// Is zone resiliency enabled?
+	ZoneResilient bool `pulumi:"zoneResilient"`
+}
+
+// GetImagesImageInput is an input type that accepts GetImagesImageArgs and GetImagesImageOutput values.
+// You can construct a concrete instance of `GetImagesImageInput` via:
+//
+//          GetImagesImageArgs{...}
+type GetImagesImageInput interface {
+	pulumi.Input
+
+	ToGetImagesImageOutput() GetImagesImageOutput
+	ToGetImagesImageOutputWithContext(context.Context) GetImagesImageOutput
+}
+
+type GetImagesImageArgs struct {
+	// One or more `dataDisk` blocks as defined below.
+	DataDisks GetImagesImageDataDiskArrayInput `pulumi:"dataDisks"`
+	// The supported Azure location where the Image exists.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the Image.
+	Name pulumi.StringInput `pulumi:"name"`
+	// An `osDisk` block as defined below.
+	OsDisks GetImagesImageOsDiskArrayInput `pulumi:"osDisks"`
+	// A mapping of tags assigned to the Image.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Is zone resiliency enabled?
+	ZoneResilient pulumi.BoolInput `pulumi:"zoneResilient"`
+}
+
+func (GetImagesImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImage)(nil)).Elem()
+}
+
+func (i GetImagesImageArgs) ToGetImagesImageOutput() GetImagesImageOutput {
+	return i.ToGetImagesImageOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageArgs) ToGetImagesImageOutputWithContext(ctx context.Context) GetImagesImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageOutput)
+}
+
+// GetImagesImageArrayInput is an input type that accepts GetImagesImageArray and GetImagesImageArrayOutput values.
+// You can construct a concrete instance of `GetImagesImageArrayInput` via:
+//
+//          GetImagesImageArray{ GetImagesImageArgs{...} }
+type GetImagesImageArrayInput interface {
+	pulumi.Input
+
+	ToGetImagesImageArrayOutput() GetImagesImageArrayOutput
+	ToGetImagesImageArrayOutputWithContext(context.Context) GetImagesImageArrayOutput
+}
+
+type GetImagesImageArray []GetImagesImageInput
+
+func (GetImagesImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImage)(nil)).Elem()
+}
+
+func (i GetImagesImageArray) ToGetImagesImageArrayOutput() GetImagesImageArrayOutput {
+	return i.ToGetImagesImageArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageArray) ToGetImagesImageArrayOutputWithContext(ctx context.Context) GetImagesImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageArrayOutput)
+}
+
+type GetImagesImageOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImage)(nil)).Elem()
+}
+
+func (o GetImagesImageOutput) ToGetImagesImageOutput() GetImagesImageOutput {
+	return o
+}
+
+func (o GetImagesImageOutput) ToGetImagesImageOutputWithContext(ctx context.Context) GetImagesImageOutput {
+	return o
+}
+
+// One or more `dataDisk` blocks as defined below.
+func (o GetImagesImageOutput) DataDisks() GetImagesImageDataDiskArrayOutput {
+	return o.ApplyT(func(v GetImagesImage) []GetImagesImageDataDisk { return v.DataDisks }).(GetImagesImageDataDiskArrayOutput)
+}
+
+// The supported Azure location where the Image exists.
+func (o GetImagesImageOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the Image.
+func (o GetImagesImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImage) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// An `osDisk` block as defined below.
+func (o GetImagesImageOutput) OsDisks() GetImagesImageOsDiskArrayOutput {
+	return o.ApplyT(func(v GetImagesImage) []GetImagesImageOsDisk { return v.OsDisks }).(GetImagesImageOsDiskArrayOutput)
+}
+
+// A mapping of tags assigned to the Image.
+func (o GetImagesImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetImagesImage) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Is zone resiliency enabled?
+func (o GetImagesImageOutput) ZoneResilient() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImagesImage) bool { return v.ZoneResilient }).(pulumi.BoolOutput)
+}
+
+type GetImagesImageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImage)(nil)).Elem()
+}
+
+func (o GetImagesImageArrayOutput) ToGetImagesImageArrayOutput() GetImagesImageArrayOutput {
+	return o
+}
+
+func (o GetImagesImageArrayOutput) ToGetImagesImageArrayOutputWithContext(ctx context.Context) GetImagesImageArrayOutput {
+	return o
+}
+
+func (o GetImagesImageArrayOutput) Index(i pulumi.IntInput) GetImagesImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagesImage {
+		return vs[0].([]GetImagesImage)[vs[1].(int)]
+	}).(GetImagesImageOutput)
+}
+
+type GetImagesImageDataDisk struct {
+	// the URI in Azure storage of the blob used to create the image.
+	BlobUri string `pulumi:"blobUri"`
+	// the caching mode for the Data Disk.
+	Caching string `pulumi:"caching"`
+	// the logical unit number of the data disk.
+	Lun int `pulumi:"lun"`
+	// the ID of the Managed Disk used as the Data Disk Image.
+	ManagedDiskId string `pulumi:"managedDiskId"`
+	// the size of this Data Disk in GB.
+	SizeGb int `pulumi:"sizeGb"`
+}
+
+// GetImagesImageDataDiskInput is an input type that accepts GetImagesImageDataDiskArgs and GetImagesImageDataDiskOutput values.
+// You can construct a concrete instance of `GetImagesImageDataDiskInput` via:
+//
+//          GetImagesImageDataDiskArgs{...}
+type GetImagesImageDataDiskInput interface {
+	pulumi.Input
+
+	ToGetImagesImageDataDiskOutput() GetImagesImageDataDiskOutput
+	ToGetImagesImageDataDiskOutputWithContext(context.Context) GetImagesImageDataDiskOutput
+}
+
+type GetImagesImageDataDiskArgs struct {
+	// the URI in Azure storage of the blob used to create the image.
+	BlobUri pulumi.StringInput `pulumi:"blobUri"`
+	// the caching mode for the Data Disk.
+	Caching pulumi.StringInput `pulumi:"caching"`
+	// the logical unit number of the data disk.
+	Lun pulumi.IntInput `pulumi:"lun"`
+	// the ID of the Managed Disk used as the Data Disk Image.
+	ManagedDiskId pulumi.StringInput `pulumi:"managedDiskId"`
+	// the size of this Data Disk in GB.
+	SizeGb pulumi.IntInput `pulumi:"sizeGb"`
+}
+
+func (GetImagesImageDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImageDataDisk)(nil)).Elem()
+}
+
+func (i GetImagesImageDataDiskArgs) ToGetImagesImageDataDiskOutput() GetImagesImageDataDiskOutput {
+	return i.ToGetImagesImageDataDiskOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageDataDiskArgs) ToGetImagesImageDataDiskOutputWithContext(ctx context.Context) GetImagesImageDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageDataDiskOutput)
+}
+
+// GetImagesImageDataDiskArrayInput is an input type that accepts GetImagesImageDataDiskArray and GetImagesImageDataDiskArrayOutput values.
+// You can construct a concrete instance of `GetImagesImageDataDiskArrayInput` via:
+//
+//          GetImagesImageDataDiskArray{ GetImagesImageDataDiskArgs{...} }
+type GetImagesImageDataDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetImagesImageDataDiskArrayOutput() GetImagesImageDataDiskArrayOutput
+	ToGetImagesImageDataDiskArrayOutputWithContext(context.Context) GetImagesImageDataDiskArrayOutput
+}
+
+type GetImagesImageDataDiskArray []GetImagesImageDataDiskInput
+
+func (GetImagesImageDataDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImageDataDisk)(nil)).Elem()
+}
+
+func (i GetImagesImageDataDiskArray) ToGetImagesImageDataDiskArrayOutput() GetImagesImageDataDiskArrayOutput {
+	return i.ToGetImagesImageDataDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageDataDiskArray) ToGetImagesImageDataDiskArrayOutputWithContext(ctx context.Context) GetImagesImageDataDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageDataDiskArrayOutput)
+}
+
+type GetImagesImageDataDiskOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImageDataDisk)(nil)).Elem()
+}
+
+func (o GetImagesImageDataDiskOutput) ToGetImagesImageDataDiskOutput() GetImagesImageDataDiskOutput {
+	return o
+}
+
+func (o GetImagesImageDataDiskOutput) ToGetImagesImageDataDiskOutputWithContext(ctx context.Context) GetImagesImageDataDiskOutput {
+	return o
+}
+
+// the URI in Azure storage of the blob used to create the image.
+func (o GetImagesImageDataDiskOutput) BlobUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageDataDisk) string { return v.BlobUri }).(pulumi.StringOutput)
+}
+
+// the caching mode for the Data Disk.
+func (o GetImagesImageDataDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+// the logical unit number of the data disk.
+func (o GetImagesImageDataDiskOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImagesImageDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+// the ID of the Managed Disk used as the Data Disk Image.
+func (o GetImagesImageDataDiskOutput) ManagedDiskId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageDataDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
+}
+
+// the size of this Data Disk in GB.
+func (o GetImagesImageDataDiskOutput) SizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImagesImageDataDisk) int { return v.SizeGb }).(pulumi.IntOutput)
+}
+
+type GetImagesImageDataDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageDataDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImageDataDisk)(nil)).Elem()
+}
+
+func (o GetImagesImageDataDiskArrayOutput) ToGetImagesImageDataDiskArrayOutput() GetImagesImageDataDiskArrayOutput {
+	return o
+}
+
+func (o GetImagesImageDataDiskArrayOutput) ToGetImagesImageDataDiskArrayOutputWithContext(ctx context.Context) GetImagesImageDataDiskArrayOutput {
+	return o
+}
+
+func (o GetImagesImageDataDiskArrayOutput) Index(i pulumi.IntInput) GetImagesImageDataDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagesImageDataDisk {
+		return vs[0].([]GetImagesImageDataDisk)[vs[1].(int)]
+	}).(GetImagesImageDataDiskOutput)
+}
+
+type GetImagesImageOsDisk struct {
+	// the URI in Azure storage of the blob used to create the image.
+	BlobUri string `pulumi:"blobUri"`
+	// the caching mode for the Data Disk.
+	Caching string `pulumi:"caching"`
+	// the ID of the Managed Disk used as the Data Disk Image.
+	ManagedDiskId string `pulumi:"managedDiskId"`
+	// the State of the OS used in the Image.
+	OsState string `pulumi:"osState"`
+	// the type of Operating System used on the OS Disk.
+	OsType string `pulumi:"osType"`
+	// the size of this Data Disk in GB.
+	SizeGb int `pulumi:"sizeGb"`
+}
+
+// GetImagesImageOsDiskInput is an input type that accepts GetImagesImageOsDiskArgs and GetImagesImageOsDiskOutput values.
+// You can construct a concrete instance of `GetImagesImageOsDiskInput` via:
+//
+//          GetImagesImageOsDiskArgs{...}
+type GetImagesImageOsDiskInput interface {
+	pulumi.Input
+
+	ToGetImagesImageOsDiskOutput() GetImagesImageOsDiskOutput
+	ToGetImagesImageOsDiskOutputWithContext(context.Context) GetImagesImageOsDiskOutput
+}
+
+type GetImagesImageOsDiskArgs struct {
+	// the URI in Azure storage of the blob used to create the image.
+	BlobUri pulumi.StringInput `pulumi:"blobUri"`
+	// the caching mode for the Data Disk.
+	Caching pulumi.StringInput `pulumi:"caching"`
+	// the ID of the Managed Disk used as the Data Disk Image.
+	ManagedDiskId pulumi.StringInput `pulumi:"managedDiskId"`
+	// the State of the OS used in the Image.
+	OsState pulumi.StringInput `pulumi:"osState"`
+	// the type of Operating System used on the OS Disk.
+	OsType pulumi.StringInput `pulumi:"osType"`
+	// the size of this Data Disk in GB.
+	SizeGb pulumi.IntInput `pulumi:"sizeGb"`
+}
+
+func (GetImagesImageOsDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImageOsDisk)(nil)).Elem()
+}
+
+func (i GetImagesImageOsDiskArgs) ToGetImagesImageOsDiskOutput() GetImagesImageOsDiskOutput {
+	return i.ToGetImagesImageOsDiskOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageOsDiskArgs) ToGetImagesImageOsDiskOutputWithContext(ctx context.Context) GetImagesImageOsDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageOsDiskOutput)
+}
+
+// GetImagesImageOsDiskArrayInput is an input type that accepts GetImagesImageOsDiskArray and GetImagesImageOsDiskArrayOutput values.
+// You can construct a concrete instance of `GetImagesImageOsDiskArrayInput` via:
+//
+//          GetImagesImageOsDiskArray{ GetImagesImageOsDiskArgs{...} }
+type GetImagesImageOsDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetImagesImageOsDiskArrayOutput() GetImagesImageOsDiskArrayOutput
+	ToGetImagesImageOsDiskArrayOutputWithContext(context.Context) GetImagesImageOsDiskArrayOutput
+}
+
+type GetImagesImageOsDiskArray []GetImagesImageOsDiskInput
+
+func (GetImagesImageOsDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImageOsDisk)(nil)).Elem()
+}
+
+func (i GetImagesImageOsDiskArray) ToGetImagesImageOsDiskArrayOutput() GetImagesImageOsDiskArrayOutput {
+	return i.ToGetImagesImageOsDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagesImageOsDiskArray) ToGetImagesImageOsDiskArrayOutputWithContext(ctx context.Context) GetImagesImageOsDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagesImageOsDiskArrayOutput)
+}
+
+type GetImagesImageOsDiskOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageOsDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagesImageOsDisk)(nil)).Elem()
+}
+
+func (o GetImagesImageOsDiskOutput) ToGetImagesImageOsDiskOutput() GetImagesImageOsDiskOutput {
+	return o
+}
+
+func (o GetImagesImageOsDiskOutput) ToGetImagesImageOsDiskOutputWithContext(ctx context.Context) GetImagesImageOsDiskOutput {
+	return o
+}
+
+// the URI in Azure storage of the blob used to create the image.
+func (o GetImagesImageOsDiskOutput) BlobUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageOsDisk) string { return v.BlobUri }).(pulumi.StringOutput)
+}
+
+// the caching mode for the Data Disk.
+func (o GetImagesImageOsDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageOsDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+// the ID of the Managed Disk used as the Data Disk Image.
+func (o GetImagesImageOsDiskOutput) ManagedDiskId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageOsDisk) string { return v.ManagedDiskId }).(pulumi.StringOutput)
+}
+
+// the State of the OS used in the Image.
+func (o GetImagesImageOsDiskOutput) OsState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageOsDisk) string { return v.OsState }).(pulumi.StringOutput)
+}
+
+// the type of Operating System used on the OS Disk.
+func (o GetImagesImageOsDiskOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagesImageOsDisk) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// the size of this Data Disk in GB.
+func (o GetImagesImageOsDiskOutput) SizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImagesImageOsDisk) int { return v.SizeGb }).(pulumi.IntOutput)
+}
+
+type GetImagesImageOsDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagesImageOsDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagesImageOsDisk)(nil)).Elem()
+}
+
+func (o GetImagesImageOsDiskArrayOutput) ToGetImagesImageOsDiskArrayOutput() GetImagesImageOsDiskArrayOutput {
+	return o
+}
+
+func (o GetImagesImageOsDiskArrayOutput) ToGetImagesImageOsDiskArrayOutputWithContext(ctx context.Context) GetImagesImageOsDiskArrayOutput {
+	return o
+}
+
+func (o GetImagesImageOsDiskArrayOutput) Index(i pulumi.IntInput) GetImagesImageOsDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagesImageOsDisk {
+		return vs[0].([]GetImagesImageOsDisk)[vs[1].(int)]
+	}).(GetImagesImageOsDiskOutput)
+}
+
 type GetSharedImageIdentifier struct {
 	// The Offer Name for this Shared Image.
 	Offer string `pulumi:"offer"`
@@ -18550,6 +18967,12 @@ func init() {
 	pulumi.RegisterOutputType(GetImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOsDiskOutput{})
 	pulumi.RegisterOutputType(GetImageOsDiskArrayOutput{})
+	pulumi.RegisterOutputType(GetImagesImageOutput{})
+	pulumi.RegisterOutputType(GetImagesImageArrayOutput{})
+	pulumi.RegisterOutputType(GetImagesImageDataDiskOutput{})
+	pulumi.RegisterOutputType(GetImagesImageDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(GetImagesImageOsDiskOutput{})
+	pulumi.RegisterOutputType(GetImagesImageOsDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageVersionTargetRegionOutput{})

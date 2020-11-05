@@ -14,6 +14,7 @@ export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
 export * from "./getDiskEncryptionSet";
 export * from "./getImage";
+export * from "./getImages";
 export * from "./getManagedDisk";
 export * from "./getPlatformImage";
 export * from "./getSharedImage";

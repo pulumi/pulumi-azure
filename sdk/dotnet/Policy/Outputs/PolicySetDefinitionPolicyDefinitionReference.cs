@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Policy.Outputs
         /// <summary>
         /// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// The ID of the policy definition or policy set definition that will be included in this policy set definition.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Policy.Outputs
         private PolicySetDefinitionPolicyDefinitionReference(
             string? parameterValues,
 
-            ImmutableDictionary<string, object>? parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             string policyDefinitionId,
 

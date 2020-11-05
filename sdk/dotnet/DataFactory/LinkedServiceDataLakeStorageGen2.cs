@@ -49,13 +49,13 @@ namespace Pulumi.Azure.DataFactory
     public partial class LinkedServiceDataLakeStorageGen2 : Pulumi.CustomResource
     {
         /// <summary>
-        /// A map of additional properties to associate with the Data Factory Linked Service MySQL.
+        /// A map of additional properties to associate with the Data Factory Linked Service.
         /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
 
         /// <summary>
-        /// List of tags that can be used for describing the Data Factory Linked Service MySQL.
+        /// List of tags that can be used for describing the Data Factory Linked Service.
         /// </summary>
         [Output("annotations")]
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
@@ -67,58 +67,64 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryName { get; private set; } = null!;
 
         /// <summary>
-        /// The description for the Data Factory Linked Service MySQL.
+        /// The description for the Data Factory Linked Service.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
+        /// The integration runtime reference to associate with the Data Factory Linked Service.
         /// </summary>
         [Output("integrationRuntimeName")]
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of parameters to associate with the Data Factory Linked Service MySQL.
+        /// A map of parameters to associate with the Data Factory Linked Service.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
+        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
         /// </summary>
         [Output("servicePrincipalId")]
-        public Output<string> ServicePrincipalId { get; private set; } = null!;
+        public Output<string?> ServicePrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
         /// </summary>
         [Output("servicePrincipalKey")]
-        public Output<string> ServicePrincipalKey { get; private set; } = null!;
+        public Output<string?> ServicePrincipalKey { get; private set; } = null!;
 
         /// <summary>
-        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Output("tenant")]
-        public Output<string> Tenant { get; private set; } = null!;
+        public Output<string?> Tenant { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint for the Azure Data Lake Storage Gen2 service.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// </summary>
+        [Output("useManagedIdentity")]
+        public Output<bool?> UseManagedIdentity { get; private set; } = null!;
 
 
         /// <summary>
@@ -170,7 +176,7 @@ namespace Pulumi.Azure.DataFactory
         private InputMap<string>? _additionalProperties;
 
         /// <summary>
-        /// A map of additional properties to associate with the Data Factory Linked Service MySQL.
+        /// A map of additional properties to associate with the Data Factory Linked Service.
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -182,7 +188,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<string>? _annotations;
 
         /// <summary>
-        /// List of tags that can be used for describing the Data Factory Linked Service MySQL.
+        /// List of tags that can be used for describing the Data Factory Linked Service.
         /// </summary>
         public InputList<string> Annotations
         {
@@ -197,19 +203,19 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> DataFactoryName { get; set; } = null!;
 
         /// <summary>
-        /// The description for the Data Factory Linked Service MySQL.
+        /// The description for the Data Factory Linked Service.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
+        /// The integration runtime reference to associate with the Data Factory Linked Service.
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -218,7 +224,7 @@ namespace Pulumi.Azure.DataFactory
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of parameters to associate with the Data Factory Linked Service MySQL.
+        /// A map of parameters to associate with the Data Factory Linked Service.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -227,34 +233,40 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
+        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
         /// </summary>
-        [Input("servicePrincipalId", required: true)]
-        public Input<string> ServicePrincipalId { get; set; } = null!;
+        [Input("servicePrincipalId")]
+        public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
         /// </summary>
-        [Input("servicePrincipalKey", required: true)]
-        public Input<string> ServicePrincipalKey { get; set; } = null!;
+        [Input("servicePrincipalKey")]
+        public Input<string>? ServicePrincipalKey { get; set; }
 
         /// <summary>
-        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
-        [Input("tenant", required: true)]
-        public Input<string> Tenant { get; set; } = null!;
+        [Input("tenant")]
+        public Input<string>? Tenant { get; set; }
 
         /// <summary>
         /// The endpoint for the Azure Data Lake Storage Gen2 service.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// </summary>
+        [Input("useManagedIdentity")]
+        public Input<bool>? UseManagedIdentity { get; set; }
 
         public LinkedServiceDataLakeStorageGen2Args()
         {
@@ -267,7 +279,7 @@ namespace Pulumi.Azure.DataFactory
         private InputMap<string>? _additionalProperties;
 
         /// <summary>
-        /// A map of additional properties to associate with the Data Factory Linked Service MySQL.
+        /// A map of additional properties to associate with the Data Factory Linked Service.
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -279,7 +291,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<string>? _annotations;
 
         /// <summary>
-        /// List of tags that can be used for describing the Data Factory Linked Service MySQL.
+        /// List of tags that can be used for describing the Data Factory Linked Service.
         /// </summary>
         public InputList<string> Annotations
         {
@@ -294,19 +306,19 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryName { get; set; }
 
         /// <summary>
-        /// The description for the Data Factory Linked Service MySQL.
+        /// The description for the Data Factory Linked Service.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
+        /// The integration runtime reference to associate with the Data Factory Linked Service.
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -315,7 +327,7 @@ namespace Pulumi.Azure.DataFactory
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of parameters to associate with the Data Factory Linked Service MySQL.
+        /// A map of parameters to associate with the Data Factory Linked Service.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -324,25 +336,25 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
+        /// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }
 
         /// <summary>
-        /// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        /// (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("tenant")]
         public Input<string>? Tenant { get; set; }
@@ -352,6 +364,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
+        /// </summary>
+        [Input("useManagedIdentity")]
+        public Input<bool>? UseManagedIdentity { get; set; }
 
         public LinkedServiceDataLakeStorageGen2State()
         {

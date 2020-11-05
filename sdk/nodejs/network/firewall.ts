@@ -72,6 +72,10 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /**
+     * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+     */
+    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    /**
      * An `ipConfiguration` block as documented below.
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.network.FirewallIpConfiguration[]>;
@@ -116,6 +120,7 @@ export class Firewall extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as FirewallState | undefined;
+            inputs["dnsServers"] = state ? state.dnsServers : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managementIpConfiguration"] = state ? state.managementIpConfiguration : undefined;
@@ -132,6 +137,7 @@ export class Firewall extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managementIpConfiguration"] = args ? args.managementIpConfiguration : undefined;
@@ -156,6 +162,10 @@ export class Firewall extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Firewall resources.
  */
 export interface FirewallState {
+    /**
+     * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+     */
+    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `ipConfiguration` block as documented below.
      */
@@ -194,6 +204,10 @@ export interface FirewallState {
  * The set of arguments for constructing a Firewall resource.
  */
 export interface FirewallArgs {
+    /**
+     * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+     */
+    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `ipConfiguration` block as documented below.
      */

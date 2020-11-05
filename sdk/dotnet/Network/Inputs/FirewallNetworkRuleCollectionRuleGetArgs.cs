@@ -30,6 +30,18 @@ namespace Pulumi.Azure.Network.Inputs
             set => _destinationAddresses = value;
         }
 
+        [Input("destinationFqdns")]
+        private InputList<string>? _destinationFqdns;
+
+        /// <summary>
+        /// A list of destination FQDNS for the rule.
+        /// </summary>
+        public InputList<string> DestinationFqdns
+        {
+            get => _destinationFqdns ?? (_destinationFqdns = new InputList<string>());
+            set => _destinationFqdns = value;
+        }
+
         [Input("destinationIpGroups")]
         private InputList<string>? _destinationIpGroups;
 
