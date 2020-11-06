@@ -5997,9 +5997,6 @@ export namespace containerservice {
          * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
          */
         nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-        /**
-         * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
-         */
         nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -13546,6 +13543,10 @@ export namespace network {
          */
         destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * A list of destination FQDNS for the rule.
+         */
+        destinationFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * A list of destination IP Group IDs for the rule.
          */
         destinationIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -13584,6 +13585,171 @@ export namespace network {
          * A list of custom DNS servers' IP addresses.
          */
         servers?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollection {
+        /**
+         * The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The name which should be used for this application rule collection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The priority of the application rule collection. The range is `100` - `65000`.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * One or more `rule` (application rule) blocks as defined below.
+         */
+        rules: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule>[]>;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
+        /**
+         * Specifies a list of destination FQDN tags.
+         */
+        destinationFqdnTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of destination FQDNs.
+         */
+        destinationFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         */
+        protocols: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol>[]>;
+        /**
+         * Specifies a list of source IP addresses (including CIDR and `*`).
+         */
+        sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of source IP groups.
+         */
+        sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol {
+        /**
+         * Port number of the protocol. Range is 0-64000.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * Protocol type. Possible values are `Http` and `Https`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupNatRuleCollection {
+        /**
+         * The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The name which should be used for this nat rule collection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The priority of the nat rule collection. The range is `100` - `65000`.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * A `rule` (nat rule) block as defined above.
+         */
+        rules: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule>[]>;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
+        /**
+         * The destination IP address (including CIDR).
+         */
+        destinationAddress?: pulumi.Input<string>;
+        /**
+         * Specifies a list of destination ports.
+         */
+        destinationPorts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         */
+        protocols: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of source IP addresses (including CIDR and `*`).
+         */
+        sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of source IP groups.
+         */
+        sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the translated address.
+         */
+        translatedAddress: pulumi.Input<string>;
+        /**
+         * Specifies the translated port.
+         */
+        translatedPort: pulumi.Input<number>;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
+        /**
+         * The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The name which should be used for this network rule collection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The priority of the network rule collection. The range is `100` - `65000`.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * One or more `rule` (network rule) blocks as defined above.
+         */
+        rules: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule>[]>;
+    }
+
+    export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
+        /**
+         * Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+         */
+        destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of destination FQDNs.
+         */
+        destinationFqdns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of destination IP groups.
+         */
+        destinationIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of destination ports.
+         */
+        destinationPorts: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+         */
+        protocols: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of source IP addresses (including CIDR and `*`).
+         */
+        sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of source IP groups.
+         */
+        sourceIpGroups?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FirewallPolicyThreatIntelligenceAllowlist {
@@ -14031,6 +14197,47 @@ export namespace network {
         value: pulumi.Input<string>;
     }
 
+    export interface VirtualHubConnectionRouting {
+        /**
+         * The ID of the route table associated with this Virtual Hub connection.
+         */
+        associatedRouteTableId?: pulumi.Input<string>;
+        /**
+         * A `propagatedRouteTable` block as defined below.
+         */
+        propagatedRouteTable?: pulumi.Input<inputs.network.VirtualHubConnectionRoutingPropagatedRouteTable>;
+        /**
+         * A `staticVnetRoute` block as defined below.
+         */
+        staticVnetRoutes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubConnectionRoutingStaticVnetRoute>[]>;
+    }
+
+    export interface VirtualHubConnectionRoutingPropagatedRouteTable {
+        /**
+         * The list of labels to assign to this route table.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of Route Table ID's to associated with this Virtual Hub Connection.
+         */
+        routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface VirtualHubConnectionRoutingStaticVnetRoute {
+        /**
+         * A list of CIDR Ranges which should be used as Address Prefixes.
+         */
+        addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this Static Route.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The IP Address which should be used for the Next Hop.
+         */
+        nextHopIpAddress?: pulumi.Input<string>;
+    }
+
     export interface VirtualHubRoute {
         /**
          * A list of Address Prefixes.
@@ -14040,6 +14247,29 @@ export namespace network {
          * The IP Address that Packets should be forwarded to as the Next Hop.
          */
         nextHopIpAddress: pulumi.Input<string>;
+    }
+
+    export interface VirtualHubRouteTableRoute {
+        /**
+         * A list of destination addresses for this route.
+         */
+        destinations: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
+         */
+        destinationsType: pulumi.Input<string>;
+        /**
+         * The name which should be used for this route.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The next hop's resource ID.
+         */
+        nextHop: pulumi.Input<string>;
+        /**
+         * The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+         */
+        nextHopType?: pulumi.Input<string>;
     }
 
     export interface VirtualNetworkDdosProtectionPlan {
@@ -14495,7 +14725,7 @@ export namespace policy {
          *
          * @deprecated Deprecated in favour of `parameter_values`
          */
-        parameters?: pulumi.Input<{[key: string]: any}>;
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The ID of the policy definition or policy set definition that will be included in this policy set definition.
          */

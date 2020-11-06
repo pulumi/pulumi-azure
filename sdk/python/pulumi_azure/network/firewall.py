@@ -17,6 +17,7 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
@@ -63,6 +64,7 @@ class Firewall(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
@@ -89,6 +91,7 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['dns_servers'] = dns_servers
             if ip_configurations is None:
                 raise TypeError("Missing required property 'ip_configurations'")
             __props__['ip_configurations'] = ip_configurations
@@ -111,6 +114,7 @@ class Firewall(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             management_ip_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']]] = None,
@@ -126,6 +130,7 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FirewallManagementIpConfigurationArgs']] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
@@ -139,6 +144,7 @@ class Firewall(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__["dns_servers"] = dns_servers
         __props__["ip_configurations"] = ip_configurations
         __props__["location"] = location
         __props__["management_ip_configuration"] = management_ip_configuration
@@ -148,6 +154,14 @@ class Firewall(pulumi.CustomResource):
         __props__["threat_intel_mode"] = threat_intel_mode
         __props__["zones"] = zones
         return Firewall(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        """
+        return pulumi.get(self, "dns_servers")
 
     @property
     @pulumi.getter(name="ipConfigurations")

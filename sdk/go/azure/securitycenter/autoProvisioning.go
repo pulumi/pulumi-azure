@@ -10,9 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Enables or disables the Security Center Auto Provisioning feature for the subscription
+//
+// > **NOTE:** There is no resource name required, it will always be "default"
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/securitycenter"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := securitycenter.NewAutoProvisioning(ctx, "example", &securitycenter.AutoProvisioningArgs{
+// 			AutoProvision: pulumi.String("On"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type AutoProvisioning struct {
 	pulumi.CustomResourceState
 
+	// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
 	AutoProvision pulumi.StringOutput `pulumi:"autoProvision"`
 }
 
@@ -47,10 +74,12 @@ func GetAutoProvisioning(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutoProvisioning resources.
 type autoProvisioningState struct {
+	// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
 	AutoProvision *string `pulumi:"autoProvision"`
 }
 
 type AutoProvisioningState struct {
+	// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
 	AutoProvision pulumi.StringPtrInput
 }
 
@@ -59,11 +88,13 @@ func (AutoProvisioningState) ElementType() reflect.Type {
 }
 
 type autoProvisioningArgs struct {
+	// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
 	AutoProvision string `pulumi:"autoProvision"`
 }
 
 // The set of arguments for constructing a AutoProvisioning resource.
 type AutoProvisioningArgs struct {
+	// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
 	AutoProvision pulumi.StringInput
 }
 

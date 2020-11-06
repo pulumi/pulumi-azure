@@ -5685,6 +5685,8 @@ type FirewallNetworkRuleCollectionRule struct {
 	Description *string `pulumi:"description"`
 	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// A list of destination FQDNS for the rule.
+	DestinationFqdns []string `pulumi:"destinationFqdns"`
 	// A list of destination IP Group IDs for the rule.
 	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
 	// A list of destination ports.
@@ -5715,6 +5717,8 @@ type FirewallNetworkRuleCollectionRuleArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// A list of destination FQDNS for the rule.
+	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
 	// A list of destination IP Group IDs for the rule.
 	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
 	// A list of destination ports.
@@ -5788,6 +5792,11 @@ func (o FirewallNetworkRuleCollectionRuleOutput) Description() pulumi.StringPtrO
 // Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
 func (o FirewallNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationAddresses }).(pulumi.StringArrayOutput)
+}
+
+// A list of destination FQDNS for the rule.
+func (o FirewallNetworkRuleCollectionRuleOutput) DestinationFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallNetworkRuleCollectionRule) []string { return v.DestinationFqdns }).(pulumi.StringArrayOutput)
 }
 
 // A list of destination IP Group IDs for the rule.
@@ -6007,6 +6016,966 @@ func (o FirewallPolicyDnsPtrOutput) Servers() pulumi.StringArrayOutput {
 		}
 		return v.Servers
 	}).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollection struct {
+	// The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
+	Action string `pulumi:"action"`
+	// The name which should be used for this application rule collection.
+	Name string `pulumi:"name"`
+	// The priority of the application rule collection. The range is `100` - `65000`.
+	Priority int `pulumi:"priority"`
+	// One or more `rule` (application rule) blocks as defined below.
+	Rules []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule `pulumi:"rules"`
+}
+
+// FirewallPolicyRuleCollectionGroupApplicationRuleCollectionInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupApplicationRuleCollectionInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs{...}
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs struct {
+	// The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The name which should be used for this application rule collection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority of the application rule collection. The range is `100` - `65000`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// One or more `rule` (application rule) blocks as defined below.
+	Rules FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayInput `pulumi:"rules"`
+}
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput)
+}
+
+// FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray{ FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs{...} }
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionInput
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupApplicationRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollection)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput {
+	return o
+}
+
+// The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollection) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name which should be used for this application rule collection.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the application rule collection. The range is `100` - `65000`.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// One or more `rule` (application rule) blocks as defined below.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollection) []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
+		return v.Rules
+	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupApplicationRuleCollection)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupApplicationRuleCollection {
+		return vs[0].([]FirewallPolicyRuleCollectionGroupApplicationRuleCollection)[vs[1].(int)]
+	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
+	// Specifies a list of destination FQDN tags.
+	DestinationFqdnTags []string `pulumi:"destinationFqdnTags"`
+	// Specifies a list of destination FQDNs.
+	DestinationFqdns []string `pulumi:"destinationFqdns"`
+	// The name which should be used for this rule.
+	Name string `pulumi:"name"`
+	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	Protocols []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol `pulumi:"protocols"`
+	// Specifies a list of source IP addresses (including CIDR and `*`).
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// Specifies a list of source IP groups.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+}
+
+// FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs{...}
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
+	// Specifies a list of destination FQDN tags.
+	DestinationFqdnTags pulumi.StringArrayInput `pulumi:"destinationFqdnTags"`
+	// Specifies a list of destination FQDNs.
+	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
+	// The name which should be used for this rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	Protocols FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayInput `pulumi:"protocols"`
+	// Specifies a list of source IP addresses (including CIDR and `*`).
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// Specifies a list of source IP groups.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+}
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput)
+}
+
+// FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArray and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArray{ FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs{...} }
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArray []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArray) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArray) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput {
+	return o
+}
+
+// Specifies a list of destination FQDN tags.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationFqdnTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
+		return v.DestinationFqdnTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of destination FQDNs.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
+		return v.DestinationFqdns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this rule.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) Protocols() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol {
+		return v.Protocols
+	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput)
+}
+
+// Specifies a list of source IP addresses (including CIDR and `*`).
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
+		return v.SourceAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of source IP groups.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
+		return v.SourceIpGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
+		return vs[0].([]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule)[vs[1].(int)]
+	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol struct {
+	// Port number of the protocol. Range is 0-64000.
+	Port int `pulumi:"port"`
+	// Protocol type. Possible values are `Http` and `Https`.
+	Type string `pulumi:"type"`
+}
+
+// FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs{...}
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs struct {
+	// Port number of the protocol. Range is 0-64000.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Protocol type. Possible values are `Http` and `Https`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput)
+}
+
+// FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArray and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArray{ FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs{...} }
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArray []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolInput
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArray) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArray) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput {
+	return o
+}
+
+// Port number of the protocol. Range is 0-64000.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Protocol type. Possible values are `Http` and `Https`.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol {
+		return vs[0].([]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol)[vs[1].(int)]
+	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollection struct {
+	// The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+	Action string `pulumi:"action"`
+	// The name which should be used for this nat rule collection.
+	Name string `pulumi:"name"`
+	// The priority of the nat rule collection. The range is `100` - `65000`.
+	Priority int `pulumi:"priority"`
+	// A `rule` (nat rule) block as defined above.
+	Rules []FirewallPolicyRuleCollectionGroupNatRuleCollectionRule `pulumi:"rules"`
+}
+
+// FirewallPolicyRuleCollectionGroupNatRuleCollectionInput is an input type that accepts FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs and FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupNatRuleCollectionInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs{...}
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupNatRuleCollectionOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput
+	ToFirewallPolicyRuleCollectionGroupNatRuleCollectionOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs struct {
+	// The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The name which should be used for this nat rule collection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority of the nat rule collection. The range is `100` - `65000`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// A `rule` (nat rule) block as defined above.
+	Rules FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayInput `pulumi:"rules"`
+}
+
+func (FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNatRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupNatRuleCollectionOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput)
+}
+
+// FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupNatRuleCollectionArray and FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupNatRuleCollectionArray{ FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs{...} }
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput
+	ToFirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionArray []FirewallPolicyRuleCollectionGroupNatRuleCollectionInput
+
+func (FirewallPolicyRuleCollectionGroupNatRuleCollectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupNatRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupNatRuleCollectionArray) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupNatRuleCollectionArray) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNatRuleCollection)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput {
+	return o
+}
+
+// The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name which should be used for this nat rule collection.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the nat rule collection. The range is `100` - `65000`.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// A `rule` (nat rule) block as defined above.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) []FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
+		return v.Rules
+	}).(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupNatRuleCollection)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupNatRuleCollection {
+		return vs[0].([]FirewallPolicyRuleCollectionGroupNatRuleCollection)[vs[1].(int)]
+	}).(FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
+	// The destination IP address (including CIDR).
+	DestinationAddress *string `pulumi:"destinationAddress"`
+	// Specifies a list of destination ports.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// The name which should be used for this rule.
+	Name string `pulumi:"name"`
+	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	Protocols []string `pulumi:"protocols"`
+	// Specifies a list of source IP addresses (including CIDR and `*`).
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// Specifies a list of source IP groups.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+	// Specifies the translated address.
+	TranslatedAddress string `pulumi:"translatedAddress"`
+	// Specifies the translated port.
+	TranslatedPort int `pulumi:"translatedPort"`
+}
+
+// FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput is an input type that accepts FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs and FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs{...}
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput
+	ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
+	// The destination IP address (including CIDR).
+	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
+	// Specifies a list of destination ports.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// The name which should be used for this rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
+	// Specifies a list of source IP addresses (including CIDR and `*`).
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// Specifies a list of source IP groups.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+	// Specifies the translated address.
+	TranslatedAddress pulumi.StringInput `pulumi:"translatedAddress"`
+	// Specifies the translated port.
+	TranslatedPort pulumi.IntInput `pulumi:"translatedPort"`
+}
+
+func (FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNatRuleCollectionRule)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput)
+}
+
+// FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArray and FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArray{ FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs{...} }
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput
+	ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArray []FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput
+
+func (FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupNatRuleCollectionRule)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArray) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArray) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNatRuleCollectionRule)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput {
+	return o
+}
+
+// The destination IP address (including CIDR).
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of destination ports.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this rule.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of source IP addresses (including CIDR and `*`).
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of source IP groups.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the translated address.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) string { return v.TranslatedAddress }).(pulumi.StringOutput)
+}
+
+// Specifies the translated port.
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedPort() pulumi.IntOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) int { return v.TranslatedPort }).(pulumi.IntOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupNatRuleCollectionRule)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput) ToFirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
+		return vs[0].([]FirewallPolicyRuleCollectionGroupNatRuleCollectionRule)[vs[1].(int)]
+	}).(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollection struct {
+	// The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
+	Action string `pulumi:"action"`
+	// The name which should be used for this network rule collection.
+	Name string `pulumi:"name"`
+	// The priority of the network rule collection. The range is `100` - `65000`.
+	Priority int `pulumi:"priority"`
+	// One or more `rule` (network rule) blocks as defined above.
+	Rules []FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule `pulumi:"rules"`
+}
+
+// FirewallPolicyRuleCollectionGroupNetworkRuleCollectionInput is an input type that accepts FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs and FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupNetworkRuleCollectionInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs{...}
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput
+	ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs struct {
+	// The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The name which should be used for this network rule collection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority of the network rule collection. The range is `100` - `65000`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// One or more `rule` (network rule) blocks as defined above.
+	Rules FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayInput `pulumi:"rules"`
+}
+
+func (FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNetworkRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput)
+}
+
+// FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArray and FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArray{ FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs{...} }
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput
+	ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArray []FirewallPolicyRuleCollectionGroupNetworkRuleCollectionInput
+
+func (FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupNetworkRuleCollection)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArray) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArray) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNetworkRuleCollection)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput {
+	return o
+}
+
+// The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollection) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name which should be used for this network rule collection.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the network rule collection. The range is `100` - `65000`.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// One or more `rule` (network rule) blocks as defined above.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollection) []FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
+		return v.Rules
+	}).(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupNetworkRuleCollection)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
+		return vs[0].([]FirewallPolicyRuleCollectionGroupNetworkRuleCollection)[vs[1].(int)]
+	}).(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule struct {
+	// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// Specifies a list of destination FQDNs.
+	DestinationFqdns []string `pulumi:"destinationFqdns"`
+	// Specifies a list of destination IP groups.
+	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
+	// Specifies a list of destination ports.
+	DestinationPorts []string `pulumi:"destinationPorts"`
+	// The name which should be used for this rule.
+	Name string `pulumi:"name"`
+	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	Protocols []string `pulumi:"protocols"`
+	// Specifies a list of source IP addresses (including CIDR and `*`).
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	// Specifies a list of source IP groups.
+	SourceIpGroups []string `pulumi:"sourceIpGroups"`
+}
+
+// FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleInput is an input type that accepts FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs and FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs{...}
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput
+	ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs struct {
+	// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// Specifies a list of destination FQDNs.
+	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
+	// Specifies a list of destination IP groups.
+	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
+	// Specifies a list of destination ports.
+	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// The name which should be used for this rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
+	// Specifies a list of source IP addresses (including CIDR and `*`).
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	// Specifies a list of source IP groups.
+	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+}
+
+func (FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput)
+}
+
+// FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArray and FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayInput` via:
+//
+//          FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArray{ FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs{...} }
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput
+	ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArray []FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleInput
+
+func (FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArray) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArray) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput {
+	return o
+}
+
+// Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string {
+		return v.DestinationAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of destination FQDNs.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationFqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.DestinationFqdns }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of destination IP groups.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string {
+		return v.DestinationIpGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of destination ports.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this rule.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of source IP addresses (including CIDR and `*`).
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of source IP groups.
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) SourceIpGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput) ToFirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
+		return vs[0].([]FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule)[vs[1].(int)]
+	}).(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput)
 }
 
 type FirewallPolicyThreatIntelligenceAllowlist struct {
@@ -9770,6 +10739,446 @@ func (o TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) Index(i pulum
 	}).(TrafficManagerProfileMonitorConfigCustomHeaderOutput)
 }
 
+type VirtualHubConnectionRouting struct {
+	// The ID of the route table associated with this Virtual Hub connection.
+	AssociatedRouteTableId *string `pulumi:"associatedRouteTableId"`
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTable *VirtualHubConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTable"`
+	// A `staticVnetRoute` block as defined below.
+	StaticVnetRoutes []VirtualHubConnectionRoutingStaticVnetRoute `pulumi:"staticVnetRoutes"`
+}
+
+// VirtualHubConnectionRoutingInput is an input type that accepts VirtualHubConnectionRoutingArgs and VirtualHubConnectionRoutingOutput values.
+// You can construct a concrete instance of `VirtualHubConnectionRoutingInput` via:
+//
+//          VirtualHubConnectionRoutingArgs{...}
+type VirtualHubConnectionRoutingInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionRoutingOutput() VirtualHubConnectionRoutingOutput
+	ToVirtualHubConnectionRoutingOutputWithContext(context.Context) VirtualHubConnectionRoutingOutput
+}
+
+type VirtualHubConnectionRoutingArgs struct {
+	// The ID of the route table associated with this Virtual Hub connection.
+	AssociatedRouteTableId pulumi.StringPtrInput `pulumi:"associatedRouteTableId"`
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTable VirtualHubConnectionRoutingPropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
+	// A `staticVnetRoute` block as defined below.
+	StaticVnetRoutes VirtualHubConnectionRoutingStaticVnetRouteArrayInput `pulumi:"staticVnetRoutes"`
+}
+
+func (VirtualHubConnectionRoutingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubConnectionRouting)(nil)).Elem()
+}
+
+func (i VirtualHubConnectionRoutingArgs) ToVirtualHubConnectionRoutingOutput() VirtualHubConnectionRoutingOutput {
+	return i.ToVirtualHubConnectionRoutingOutputWithContext(context.Background())
+}
+
+func (i VirtualHubConnectionRoutingArgs) ToVirtualHubConnectionRoutingOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionRoutingOutput)
+}
+
+func (i VirtualHubConnectionRoutingArgs) ToVirtualHubConnectionRoutingPtrOutput() VirtualHubConnectionRoutingPtrOutput {
+	return i.ToVirtualHubConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualHubConnectionRoutingArgs) ToVirtualHubConnectionRoutingPtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionRoutingOutput).ToVirtualHubConnectionRoutingPtrOutputWithContext(ctx)
+}
+
+// VirtualHubConnectionRoutingPtrInput is an input type that accepts VirtualHubConnectionRoutingArgs, VirtualHubConnectionRoutingPtr and VirtualHubConnectionRoutingPtrOutput values.
+// You can construct a concrete instance of `VirtualHubConnectionRoutingPtrInput` via:
+//
+//          VirtualHubConnectionRoutingArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualHubConnectionRoutingPtrInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionRoutingPtrOutput() VirtualHubConnectionRoutingPtrOutput
+	ToVirtualHubConnectionRoutingPtrOutputWithContext(context.Context) VirtualHubConnectionRoutingPtrOutput
+}
+
+type virtualHubConnectionRoutingPtrType VirtualHubConnectionRoutingArgs
+
+func VirtualHubConnectionRoutingPtr(v *VirtualHubConnectionRoutingArgs) VirtualHubConnectionRoutingPtrInput {
+	return (*virtualHubConnectionRoutingPtrType)(v)
+}
+
+func (*virtualHubConnectionRoutingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHubConnectionRouting)(nil)).Elem()
+}
+
+func (i *virtualHubConnectionRoutingPtrType) ToVirtualHubConnectionRoutingPtrOutput() VirtualHubConnectionRoutingPtrOutput {
+	return i.ToVirtualHubConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualHubConnectionRoutingPtrType) ToVirtualHubConnectionRoutingPtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionRoutingPtrOutput)
+}
+
+type VirtualHubConnectionRoutingOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubConnectionRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubConnectionRouting)(nil)).Elem()
+}
+
+func (o VirtualHubConnectionRoutingOutput) ToVirtualHubConnectionRoutingOutput() VirtualHubConnectionRoutingOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingOutput) ToVirtualHubConnectionRoutingOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingOutput) ToVirtualHubConnectionRoutingPtrOutput() VirtualHubConnectionRoutingPtrOutput {
+	return o.ToVirtualHubConnectionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualHubConnectionRoutingOutput) ToVirtualHubConnectionRoutingPtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPtrOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRouting) *VirtualHubConnectionRouting {
+		return &v
+	}).(VirtualHubConnectionRoutingPtrOutput)
+}
+
+// The ID of the route table associated with this Virtual Hub connection.
+func (o VirtualHubConnectionRoutingOutput) AssociatedRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRouting) *string { return v.AssociatedRouteTableId }).(pulumi.StringPtrOutput)
+}
+
+// A `propagatedRouteTable` block as defined below.
+func (o VirtualHubConnectionRoutingOutput) PropagatedRouteTable() VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRouting) *VirtualHubConnectionRoutingPropagatedRouteTable {
+		return v.PropagatedRouteTable
+	}).(VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+// A `staticVnetRoute` block as defined below.
+func (o VirtualHubConnectionRoutingOutput) StaticVnetRoutes() VirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRouting) []VirtualHubConnectionRoutingStaticVnetRoute {
+		return v.StaticVnetRoutes
+	}).(VirtualHubConnectionRoutingStaticVnetRouteArrayOutput)
+}
+
+type VirtualHubConnectionRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubConnectionRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHubConnectionRouting)(nil)).Elem()
+}
+
+func (o VirtualHubConnectionRoutingPtrOutput) ToVirtualHubConnectionRoutingPtrOutput() VirtualHubConnectionRoutingPtrOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingPtrOutput) ToVirtualHubConnectionRoutingPtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPtrOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingPtrOutput) Elem() VirtualHubConnectionRoutingOutput {
+	return o.ApplyT(func(v *VirtualHubConnectionRouting) VirtualHubConnectionRouting { return *v }).(VirtualHubConnectionRoutingOutput)
+}
+
+// The ID of the route table associated with this Virtual Hub connection.
+func (o VirtualHubConnectionRoutingPtrOutput) AssociatedRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHubConnectionRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssociatedRouteTableId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `propagatedRouteTable` block as defined below.
+func (o VirtualHubConnectionRoutingPtrOutput) PropagatedRouteTable() VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v *VirtualHubConnectionRouting) *VirtualHubConnectionRoutingPropagatedRouteTable {
+		if v == nil {
+			return nil
+		}
+		return v.PropagatedRouteTable
+	}).(VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+// A `staticVnetRoute` block as defined below.
+func (o VirtualHubConnectionRoutingPtrOutput) StaticVnetRoutes() VirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return o.ApplyT(func(v *VirtualHubConnectionRouting) []VirtualHubConnectionRoutingStaticVnetRoute {
+		if v == nil {
+			return nil
+		}
+		return v.StaticVnetRoutes
+	}).(VirtualHubConnectionRoutingStaticVnetRouteArrayOutput)
+}
+
+type VirtualHubConnectionRoutingPropagatedRouteTable struct {
+	// The list of labels to assign to this route table.
+	Labels []string `pulumi:"labels"`
+	// A list of Route Table ID's to associated with this Virtual Hub Connection.
+	RouteTableIds []string `pulumi:"routeTableIds"`
+}
+
+// VirtualHubConnectionRoutingPropagatedRouteTableInput is an input type that accepts VirtualHubConnectionRoutingPropagatedRouteTableArgs and VirtualHubConnectionRoutingPropagatedRouteTableOutput values.
+// You can construct a concrete instance of `VirtualHubConnectionRoutingPropagatedRouteTableInput` via:
+//
+//          VirtualHubConnectionRoutingPropagatedRouteTableArgs{...}
+type VirtualHubConnectionRoutingPropagatedRouteTableInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionRoutingPropagatedRouteTableOutput() VirtualHubConnectionRoutingPropagatedRouteTableOutput
+	ToVirtualHubConnectionRoutingPropagatedRouteTableOutputWithContext(context.Context) VirtualHubConnectionRoutingPropagatedRouteTableOutput
+}
+
+type VirtualHubConnectionRoutingPropagatedRouteTableArgs struct {
+	// The list of labels to assign to this route table.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+	// A list of Route Table ID's to associated with this Virtual Hub Connection.
+	RouteTableIds pulumi.StringArrayInput `pulumi:"routeTableIds"`
+}
+
+func (VirtualHubConnectionRoutingPropagatedRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (i VirtualHubConnectionRoutingPropagatedRouteTableArgs) ToVirtualHubConnectionRoutingPropagatedRouteTableOutput() VirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return i.ToVirtualHubConnectionRoutingPropagatedRouteTableOutputWithContext(context.Background())
+}
+
+func (i VirtualHubConnectionRoutingPropagatedRouteTableArgs) ToVirtualHubConnectionRoutingPropagatedRouteTableOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionRoutingPropagatedRouteTableOutput)
+}
+
+func (i VirtualHubConnectionRoutingPropagatedRouteTableArgs) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutput() VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return i.ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualHubConnectionRoutingPropagatedRouteTableArgs) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionRoutingPropagatedRouteTableOutput).ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx)
+}
+
+// VirtualHubConnectionRoutingPropagatedRouteTablePtrInput is an input type that accepts VirtualHubConnectionRoutingPropagatedRouteTableArgs, VirtualHubConnectionRoutingPropagatedRouteTablePtr and VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput values.
+// You can construct a concrete instance of `VirtualHubConnectionRoutingPropagatedRouteTablePtrInput` via:
+//
+//          VirtualHubConnectionRoutingPropagatedRouteTableArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualHubConnectionRoutingPropagatedRouteTablePtrInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutput() VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput
+	ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Context) VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput
+}
+
+type virtualHubConnectionRoutingPropagatedRouteTablePtrType VirtualHubConnectionRoutingPropagatedRouteTableArgs
+
+func VirtualHubConnectionRoutingPropagatedRouteTablePtr(v *VirtualHubConnectionRoutingPropagatedRouteTableArgs) VirtualHubConnectionRoutingPropagatedRouteTablePtrInput {
+	return (*virtualHubConnectionRoutingPropagatedRouteTablePtrType)(v)
+}
+
+func (*virtualHubConnectionRoutingPropagatedRouteTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHubConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (i *virtualHubConnectionRoutingPropagatedRouteTablePtrType) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutput() VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return i.ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualHubConnectionRoutingPropagatedRouteTablePtrType) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+type VirtualHubConnectionRoutingPropagatedRouteTableOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubConnectionRoutingPropagatedRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) ToVirtualHubConnectionRoutingPropagatedRouteTableOutput() VirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) ToVirtualHubConnectionRoutingPropagatedRouteTableOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutput() VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRoutingPropagatedRouteTable) *VirtualHubConnectionRoutingPropagatedRouteTable {
+		return &v
+	}).(VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput)
+}
+
+// The list of labels to assign to this route table.
+func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRoutingPropagatedRouteTable) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// A list of Route Table ID's to associated with this Virtual Hub Connection.
+func (o VirtualHubConnectionRoutingPropagatedRouteTableOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRoutingPropagatedRouteTable) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
+}
+
+type VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHubConnectionRoutingPropagatedRouteTable)(nil)).Elem()
+}
+
+func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutput() VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) ToVirtualHubConnectionRoutingPropagatedRouteTablePtrOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) Elem() VirtualHubConnectionRoutingPropagatedRouteTableOutput {
+	return o.ApplyT(func(v *VirtualHubConnectionRoutingPropagatedRouteTable) VirtualHubConnectionRoutingPropagatedRouteTable {
+		return *v
+	}).(VirtualHubConnectionRoutingPropagatedRouteTableOutput)
+}
+
+// The list of labels to assign to this route table.
+func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualHubConnectionRoutingPropagatedRouteTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of Route Table ID's to associated with this Virtual Hub Connection.
+func (o VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualHubConnectionRoutingPropagatedRouteTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RouteTableIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualHubConnectionRoutingStaticVnetRoute struct {
+	// A list of CIDR Ranges which should be used as Address Prefixes.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// The name which should be used for this Static Route.
+	Name *string `pulumi:"name"`
+	// The IP Address which should be used for the Next Hop.
+	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
+}
+
+// VirtualHubConnectionRoutingStaticVnetRouteInput is an input type that accepts VirtualHubConnectionRoutingStaticVnetRouteArgs and VirtualHubConnectionRoutingStaticVnetRouteOutput values.
+// You can construct a concrete instance of `VirtualHubConnectionRoutingStaticVnetRouteInput` via:
+//
+//          VirtualHubConnectionRoutingStaticVnetRouteArgs{...}
+type VirtualHubConnectionRoutingStaticVnetRouteInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionRoutingStaticVnetRouteOutput() VirtualHubConnectionRoutingStaticVnetRouteOutput
+	ToVirtualHubConnectionRoutingStaticVnetRouteOutputWithContext(context.Context) VirtualHubConnectionRoutingStaticVnetRouteOutput
+}
+
+type VirtualHubConnectionRoutingStaticVnetRouteArgs struct {
+	// A list of CIDR Ranges which should be used as Address Prefixes.
+	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
+	// The name which should be used for this Static Route.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The IP Address which should be used for the Next Hop.
+	NextHopIpAddress pulumi.StringPtrInput `pulumi:"nextHopIpAddress"`
+}
+
+func (VirtualHubConnectionRoutingStaticVnetRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubConnectionRoutingStaticVnetRoute)(nil)).Elem()
+}
+
+func (i VirtualHubConnectionRoutingStaticVnetRouteArgs) ToVirtualHubConnectionRoutingStaticVnetRouteOutput() VirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return i.ToVirtualHubConnectionRoutingStaticVnetRouteOutputWithContext(context.Background())
+}
+
+func (i VirtualHubConnectionRoutingStaticVnetRouteArgs) ToVirtualHubConnectionRoutingStaticVnetRouteOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionRoutingStaticVnetRouteOutput)
+}
+
+// VirtualHubConnectionRoutingStaticVnetRouteArrayInput is an input type that accepts VirtualHubConnectionRoutingStaticVnetRouteArray and VirtualHubConnectionRoutingStaticVnetRouteArrayOutput values.
+// You can construct a concrete instance of `VirtualHubConnectionRoutingStaticVnetRouteArrayInput` via:
+//
+//          VirtualHubConnectionRoutingStaticVnetRouteArray{ VirtualHubConnectionRoutingStaticVnetRouteArgs{...} }
+type VirtualHubConnectionRoutingStaticVnetRouteArrayInput interface {
+	pulumi.Input
+
+	ToVirtualHubConnectionRoutingStaticVnetRouteArrayOutput() VirtualHubConnectionRoutingStaticVnetRouteArrayOutput
+	ToVirtualHubConnectionRoutingStaticVnetRouteArrayOutputWithContext(context.Context) VirtualHubConnectionRoutingStaticVnetRouteArrayOutput
+}
+
+type VirtualHubConnectionRoutingStaticVnetRouteArray []VirtualHubConnectionRoutingStaticVnetRouteInput
+
+func (VirtualHubConnectionRoutingStaticVnetRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualHubConnectionRoutingStaticVnetRoute)(nil)).Elem()
+}
+
+func (i VirtualHubConnectionRoutingStaticVnetRouteArray) ToVirtualHubConnectionRoutingStaticVnetRouteArrayOutput() VirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return i.ToVirtualHubConnectionRoutingStaticVnetRouteArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualHubConnectionRoutingStaticVnetRouteArray) ToVirtualHubConnectionRoutingStaticVnetRouteArrayOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionRoutingStaticVnetRouteArrayOutput)
+}
+
+type VirtualHubConnectionRoutingStaticVnetRouteOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubConnectionRoutingStaticVnetRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubConnectionRoutingStaticVnetRoute)(nil)).Elem()
+}
+
+func (o VirtualHubConnectionRoutingStaticVnetRouteOutput) ToVirtualHubConnectionRoutingStaticVnetRouteOutput() VirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingStaticVnetRouteOutput) ToVirtualHubConnectionRoutingStaticVnetRouteOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return o
+}
+
+// A list of CIDR Ranges which should be used as Address Prefixes.
+func (o VirtualHubConnectionRoutingStaticVnetRouteOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRoutingStaticVnetRoute) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this Static Route.
+func (o VirtualHubConnectionRoutingStaticVnetRouteOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRoutingStaticVnetRoute) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The IP Address which should be used for the Next Hop.
+func (o VirtualHubConnectionRoutingStaticVnetRouteOutput) NextHopIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRoutingStaticVnetRoute) *string { return v.NextHopIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type VirtualHubConnectionRoutingStaticVnetRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubConnectionRoutingStaticVnetRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualHubConnectionRoutingStaticVnetRoute)(nil)).Elem()
+}
+
+func (o VirtualHubConnectionRoutingStaticVnetRouteArrayOutput) ToVirtualHubConnectionRoutingStaticVnetRouteArrayOutput() VirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingStaticVnetRouteArrayOutput) ToVirtualHubConnectionRoutingStaticVnetRouteArrayOutputWithContext(ctx context.Context) VirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
+	return o
+}
+
+func (o VirtualHubConnectionRoutingStaticVnetRouteArrayOutput) Index(i pulumi.IntInput) VirtualHubConnectionRoutingStaticVnetRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHubConnectionRoutingStaticVnetRoute {
+		return vs[0].([]VirtualHubConnectionRoutingStaticVnetRoute)[vs[1].(int)]
+	}).(VirtualHubConnectionRoutingStaticVnetRouteOutput)
+}
+
 type VirtualHubRoute struct {
 	// A list of Address Prefixes.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
@@ -9874,6 +11283,139 @@ func (o VirtualHubRouteArrayOutput) Index(i pulumi.IntInput) VirtualHubRouteOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHubRoute {
 		return vs[0].([]VirtualHubRoute)[vs[1].(int)]
 	}).(VirtualHubRouteOutput)
+}
+
+type VirtualHubRouteTableRoute struct {
+	// A list of destination addresses for this route.
+	Destinations []string `pulumi:"destinations"`
+	// The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
+	DestinationsType string `pulumi:"destinationsType"`
+	// The name which should be used for this route.
+	Name string `pulumi:"name"`
+	// The next hop's resource ID.
+	NextHop string `pulumi:"nextHop"`
+	// The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+	NextHopType *string `pulumi:"nextHopType"`
+}
+
+// VirtualHubRouteTableRouteInput is an input type that accepts VirtualHubRouteTableRouteArgs and VirtualHubRouteTableRouteOutput values.
+// You can construct a concrete instance of `VirtualHubRouteTableRouteInput` via:
+//
+//          VirtualHubRouteTableRouteArgs{...}
+type VirtualHubRouteTableRouteInput interface {
+	pulumi.Input
+
+	ToVirtualHubRouteTableRouteOutput() VirtualHubRouteTableRouteOutput
+	ToVirtualHubRouteTableRouteOutputWithContext(context.Context) VirtualHubRouteTableRouteOutput
+}
+
+type VirtualHubRouteTableRouteArgs struct {
+	// A list of destination addresses for this route.
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	// The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
+	DestinationsType pulumi.StringInput `pulumi:"destinationsType"`
+	// The name which should be used for this route.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The next hop's resource ID.
+	NextHop pulumi.StringInput `pulumi:"nextHop"`
+	// The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+	NextHopType pulumi.StringPtrInput `pulumi:"nextHopType"`
+}
+
+func (VirtualHubRouteTableRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubRouteTableRoute)(nil)).Elem()
+}
+
+func (i VirtualHubRouteTableRouteArgs) ToVirtualHubRouteTableRouteOutput() VirtualHubRouteTableRouteOutput {
+	return i.ToVirtualHubRouteTableRouteOutputWithContext(context.Background())
+}
+
+func (i VirtualHubRouteTableRouteArgs) ToVirtualHubRouteTableRouteOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableRouteOutput)
+}
+
+// VirtualHubRouteTableRouteArrayInput is an input type that accepts VirtualHubRouteTableRouteArray and VirtualHubRouteTableRouteArrayOutput values.
+// You can construct a concrete instance of `VirtualHubRouteTableRouteArrayInput` via:
+//
+//          VirtualHubRouteTableRouteArray{ VirtualHubRouteTableRouteArgs{...} }
+type VirtualHubRouteTableRouteArrayInput interface {
+	pulumi.Input
+
+	ToVirtualHubRouteTableRouteArrayOutput() VirtualHubRouteTableRouteArrayOutput
+	ToVirtualHubRouteTableRouteArrayOutputWithContext(context.Context) VirtualHubRouteTableRouteArrayOutput
+}
+
+type VirtualHubRouteTableRouteArray []VirtualHubRouteTableRouteInput
+
+func (VirtualHubRouteTableRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualHubRouteTableRoute)(nil)).Elem()
+}
+
+func (i VirtualHubRouteTableRouteArray) ToVirtualHubRouteTableRouteArrayOutput() VirtualHubRouteTableRouteArrayOutput {
+	return i.ToVirtualHubRouteTableRouteArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualHubRouteTableRouteArray) ToVirtualHubRouteTableRouteArrayOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableRouteArrayOutput)
+}
+
+type VirtualHubRouteTableRouteOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubRouteTableRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHubRouteTableRoute)(nil)).Elem()
+}
+
+func (o VirtualHubRouteTableRouteOutput) ToVirtualHubRouteTableRouteOutput() VirtualHubRouteTableRouteOutput {
+	return o
+}
+
+func (o VirtualHubRouteTableRouteOutput) ToVirtualHubRouteTableRouteOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteOutput {
+	return o
+}
+
+// A list of destination addresses for this route.
+func (o VirtualHubRouteTableRouteOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRoute) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+// The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
+func (o VirtualHubRouteTableRouteOutput) DestinationsType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRoute) string { return v.DestinationsType }).(pulumi.StringOutput)
+}
+
+// The name which should be used for this route.
+func (o VirtualHubRouteTableRouteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRoute) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The next hop's resource ID.
+func (o VirtualHubRouteTableRouteOutput) NextHop() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRoute) string { return v.NextHop }).(pulumi.StringOutput)
+}
+
+// The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+func (o VirtualHubRouteTableRouteOutput) NextHopType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualHubRouteTableRoute) *string { return v.NextHopType }).(pulumi.StringPtrOutput)
+}
+
+type VirtualHubRouteTableRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualHubRouteTableRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualHubRouteTableRoute)(nil)).Elem()
+}
+
+func (o VirtualHubRouteTableRouteArrayOutput) ToVirtualHubRouteTableRouteArrayOutput() VirtualHubRouteTableRouteArrayOutput {
+	return o
+}
+
+func (o VirtualHubRouteTableRouteArrayOutput) ToVirtualHubRouteTableRouteArrayOutputWithContext(ctx context.Context) VirtualHubRouteTableRouteArrayOutput {
+	return o
+}
+
+func (o VirtualHubRouteTableRouteArrayOutput) Index(i pulumi.IntInput) VirtualHubRouteTableRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualHubRouteTableRoute {
+		return vs[0].([]VirtualHubRouteTableRoute)[vs[1].(int)]
+	}).(VirtualHubRouteTableRouteOutput)
 }
 
 type VirtualNetworkDdosProtectionPlan struct {
@@ -15415,6 +16957,20 @@ func init() {
 	pulumi.RegisterOutputType(FirewallNetworkRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDnsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDnsPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelligenceAllowlistOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyThreatIntelligenceAllowlistPtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsOutput{})
@@ -15464,8 +17020,16 @@ func init() {
 	pulumi.RegisterOutputType(TrafficManagerProfileMonitorConfigPtrOutput{})
 	pulumi.RegisterOutputType(TrafficManagerProfileMonitorConfigCustomHeaderOutput{})
 	pulumi.RegisterOutputType(TrafficManagerProfileMonitorConfigCustomHeaderArrayOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionRoutingOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionRoutingPtrOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionRoutingPropagatedRouteTableOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionRoutingPropagatedRouteTablePtrOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionRoutingStaticVnetRouteOutput{})
+	pulumi.RegisterOutputType(VirtualHubConnectionRoutingStaticVnetRouteArrayOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteOutput{})
 	pulumi.RegisterOutputType(VirtualHubRouteArrayOutput{})
+	pulumi.RegisterOutputType(VirtualHubRouteTableRouteOutput{})
+	pulumi.RegisterOutputType(VirtualHubRouteTableRouteArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkDdosProtectionPlanPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayBgpSettingsOutput{})

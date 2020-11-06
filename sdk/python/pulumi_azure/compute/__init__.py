@@ -15,6 +15,7 @@ from .get_dedicated_host import *
 from .get_dedicated_host_group import *
 from .get_disk_encryption_set import *
 from .get_image import *
+from .get_images import *
 from .get_managed_disk import *
 from .get_platform_image import *
 from .get_shared_image import *

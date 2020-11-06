@@ -97,9 +97,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("dnsPrefix")]
         public Output<string> DnsPrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-        /// </summary>
         [Output("enablePodSecurityPolicy")]
         public Output<bool?> EnablePodSecurityPolicy { get; private set; } = null!;
 
@@ -320,9 +317,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("dnsPrefix", required: true)]
         public Input<string> DnsPrefix { get; set; } = null!;
 
-        /// <summary>
-        /// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-        /// </summary>
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
 
@@ -468,9 +462,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("dnsPrefix")]
         public Input<string>? DnsPrefix { get; set; }
 
-        /// <summary>
-        /// Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-        /// </summary>
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
 

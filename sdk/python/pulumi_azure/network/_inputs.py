@@ -49,6 +49,13 @@ __all__ = [
     'FirewallNatRuleCollectionRuleArgs',
     'FirewallNetworkRuleCollectionRuleArgs',
     'FirewallPolicyDnsArgs',
+    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs',
+    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs',
+    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs',
+    'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs',
+    'FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs',
+    'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs',
+    'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs',
     'FirewallPolicyThreatIntelligenceAllowlistArgs',
     'LocalNetworkGatewayBgpSettingsArgs',
     'NetworkConnectionMonitorDestinationArgs',
@@ -74,7 +81,11 @@ __all__ = [
     'TrafficManagerProfileDnsConfigArgs',
     'TrafficManagerProfileMonitorConfigArgs',
     'TrafficManagerProfileMonitorConfigCustomHeaderArgs',
+    'VirtualHubConnectionRoutingArgs',
+    'VirtualHubConnectionRoutingPropagatedRouteTableArgs',
+    'VirtualHubConnectionRoutingStaticVnetRouteArgs',
     'VirtualHubRouteArgs',
+    'VirtualHubRouteTableRouteArgs',
     'VirtualNetworkDdosProtectionPlanArgs',
     'VirtualNetworkGatewayBgpSettingsArgs',
     'VirtualNetworkGatewayConnectionIpsecPolicyArgs',
@@ -3473,6 +3484,7 @@ class FirewallNetworkRuleCollectionRuleArgs:
                  protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
                  description: Optional[pulumi.Input[str]] = None,
                  destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -3482,6 +3494,7 @@ class FirewallNetworkRuleCollectionRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.
         :param pulumi.Input[str] description: Specifies a description for the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: A list of destination FQDNS for the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ip_groups: A list of destination IP Group IDs for the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: A list of source IP addresses and/or IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: A list of IP Group IDs for the rule.
@@ -3493,6 +3506,8 @@ class FirewallNetworkRuleCollectionRuleArgs:
             pulumi.set(__self__, "description", description)
         if destination_addresses is not None:
             pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_fqdns is not None:
+            pulumi.set(__self__, "destination_fqdns", destination_fqdns)
         if destination_ip_groups is not None:
             pulumi.set(__self__, "destination_ip_groups", destination_ip_groups)
         if source_addresses is not None:
@@ -3559,6 +3574,18 @@ class FirewallNetworkRuleCollectionRuleArgs:
     @destination_addresses.setter
     def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "destination_addresses", value)
+
+    @property
+    @pulumi.getter(name="destinationFqdns")
+    def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of destination FQDNS for the rule.
+        """
+        return pulumi.get(self, "destination_fqdns")
+
+    @destination_fqdns.setter
+    def destination_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_fqdns", value)
 
     @property
     @pulumi.getter(name="destinationIpGroups")
@@ -3650,6 +3677,608 @@ class FirewallPolicyDnsArgs:
     @servers.setter
     def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "servers", value)
+
+
+@pulumi.input_type
+class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]]):
+        """
+        :param pulumi.Input[str] action: The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
+        :param pulumi.Input[str] name: The name which should be used for this application rule collection.
+        :param pulumi.Input[int] priority: The priority of the application rule collection. The range is `100` - `65000`.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]] rules: One or more `rule` (application rule) blocks as defined below.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this application rule collection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of the application rule collection. The range is `100` - `65000`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]]:
+        """
+        One or more `rule` (application rule) blocks as defined below.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 protocols: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]],
+                 destination_fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this rule.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdn_tags: Specifies a list of destination FQDN tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocols", protocols)
+        if destination_fqdn_tags is not None:
+            pulumi.set(__self__, "destination_fqdn_tags", destination_fqdn_tags)
+        if destination_fqdns is not None:
+            pulumi.set(__self__, "destination_fqdns", destination_fqdns)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]:
+        """
+        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="destinationFqdnTags")
+    def destination_fqdn_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of destination FQDN tags.
+        """
+        return pulumi.get(self, "destination_fqdn_tags")
+
+    @destination_fqdn_tags.setter
+    def destination_fqdn_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_fqdn_tags", value)
+
+    @property
+    @pulumi.getter(name="destinationFqdns")
+    def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of destination FQDNs.
+        """
+        return pulumi.get(self, "destination_fqdns")
+
+    @destination_fqdns.setter
+    def destination_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_fqdns", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of source IP addresses (including CIDR and `*`).
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of source IP groups.
+        """
+        return pulumi.get(self, "source_ip_groups")
+
+    @source_ip_groups.setter
+    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_ip_groups", value)
+
+
+@pulumi.input_type
+class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] port: Port number of the protocol. Range is 0-64000.
+        :param pulumi.Input[str] type: Protocol type. Possible values are `Http` and `Https`.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        Port number of the protocol. Range is 0-64000.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Protocol type. Possible values are `Http` and `Https`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]):
+        """
+        :param pulumi.Input[str] action: The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+        :param pulumi.Input[str] name: The name which should be used for this nat rule collection.
+        :param pulumi.Input[int] priority: The priority of the nat rule collection. The range is `100` - `65000`.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]] rules: A `rule` (nat rule) block as defined above.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        The action to take for the nat rules in this collection. Currently, the only possible value is `Dnat`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this nat rule collection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of the nat rule collection. The range is `100` - `65000`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]:
+        """
+        A `rule` (nat rule) block as defined above.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 translated_address: pulumi.Input[str],
+                 translated_port: pulumi.Input[int],
+                 destination_address: Optional[pulumi.Input[str]] = None,
+                 destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        :param pulumi.Input[str] translated_address: Specifies the translated address.
+        :param pulumi.Input[int] translated_port: Specifies the translated port.
+        :param pulumi.Input[str] destination_address: The destination IP address (including CIDR).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: Specifies a list of destination ports.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocols", protocols)
+        pulumi.set(__self__, "translated_address", translated_address)
+        pulumi.set(__self__, "translated_port", translated_port)
+        if destination_address is not None:
+            pulumi.set(__self__, "destination_address", destination_address)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="translatedAddress")
+    def translated_address(self) -> pulumi.Input[str]:
+        """
+        Specifies the translated address.
+        """
+        return pulumi.get(self, "translated_address")
+
+    @translated_address.setter
+    def translated_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "translated_address", value)
+
+    @property
+    @pulumi.getter(name="translatedPort")
+    def translated_port(self) -> pulumi.Input[int]:
+        """
+        Specifies the translated port.
+        """
+        return pulumi.get(self, "translated_port")
+
+    @translated_port.setter
+    def translated_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "translated_port", value)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination IP address (including CIDR).
+        """
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_address", value)
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of source IP addresses (including CIDR and `*`).
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of source IP groups.
+        """
+        return pulumi.get(self, "source_ip_groups")
+
+    @source_ip_groups.setter
+    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_ip_groups", value)
+
+
+@pulumi.input_type
+class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]]):
+        """
+        :param pulumi.Input[str] action: The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
+        :param pulumi.Input[str] name: The name which should be used for this network rule collection.
+        :param pulumi.Input[int] priority: The priority of the network rule collection. The range is `100` - `65000`.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]] rules: One or more `rule` (network rule) blocks as defined above.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this network rule collection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The priority of the network rule collection. The range is `100` - `65000`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]]:
+        """
+        One or more `rule` (network rule) blocks as defined above.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
+    def __init__(__self__, *,
+                 destination_ports: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str],
+                 protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: Specifies a list of destination ports.
+        :param pulumi.Input[str] name: The name which should be used for this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ip_groups: Specifies a list of destination IP groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
+        """
+        pulumi.set(__self__, "destination_ports", destination_ports)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocols", protocols)
+        if destination_addresses is not None:
+            pulumi.set(__self__, "destination_addresses", destination_addresses)
+        if destination_fqdns is not None:
+            pulumi.set(__self__, "destination_fqdns", destination_fqdns)
+        if destination_ip_groups is not None:
+            pulumi.set(__self__, "destination_ip_groups", destination_ip_groups)
+        if source_addresses is not None:
+            pulumi.set(__self__, "source_addresses", source_addresses)
+        if source_ip_groups is not None:
+            pulumi.set(__self__, "source_ip_groups", source_ip_groups)
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of destination ports.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="destinationAddresses")
+    def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
+        """
+        return pulumi.get(self, "destination_addresses")
+
+    @destination_addresses.setter
+    def destination_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_addresses", value)
+
+    @property
+    @pulumi.getter(name="destinationFqdns")
+    def destination_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of destination FQDNs.
+        """
+        return pulumi.get(self, "destination_fqdns")
+
+    @destination_fqdns.setter
+    def destination_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_fqdns", value)
+
+    @property
+    @pulumi.getter(name="destinationIpGroups")
+    def destination_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of destination IP groups.
+        """
+        return pulumi.get(self, "destination_ip_groups")
+
+    @destination_ip_groups.setter
+    def destination_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "destination_ip_groups", value)
+
+    @property
+    @pulumi.getter(name="sourceAddresses")
+    def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of source IP addresses (including CIDR and `*`).
+        """
+        return pulumi.get(self, "source_addresses")
+
+    @source_addresses.setter
+    def source_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_addresses", value)
+
+    @property
+    @pulumi.getter(name="sourceIpGroups")
+    def source_ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of source IP groups.
+        """
+        return pulumi.get(self, "source_ip_groups")
+
+    @source_ip_groups.setter
+    def source_ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "source_ip_groups", value)
 
 
 @pulumi.input_type
@@ -5259,6 +5888,155 @@ class TrafficManagerProfileMonitorConfigCustomHeaderArgs:
 
 
 @pulumi.input_type
+class VirtualHubConnectionRoutingArgs:
+    def __init__(__self__, *,
+                 associated_route_table_id: Optional[pulumi.Input[str]] = None,
+                 propagated_route_table: Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']] = None,
+                 static_vnet_routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]] = None):
+        """
+        :param pulumi.Input[str] associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
+        :param pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]] static_vnet_routes: A `static_vnet_route` block as defined below.
+        """
+        if associated_route_table_id is not None:
+            pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
+        if propagated_route_table is not None:
+            pulumi.set(__self__, "propagated_route_table", propagated_route_table)
+        if static_vnet_routes is not None:
+            pulumi.set(__self__, "static_vnet_routes", static_vnet_routes)
+
+    @property
+    @pulumi.getter(name="associatedRouteTableId")
+    def associated_route_table_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the route table associated with this Virtual Hub connection.
+        """
+        return pulumi.get(self, "associated_route_table_id")
+
+    @associated_route_table_id.setter
+    def associated_route_table_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "associated_route_table_id", value)
+
+    @property
+    @pulumi.getter(name="propagatedRouteTable")
+    def propagated_route_table(self) -> Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]:
+        """
+        A `propagated_route_table` block as defined below.
+        """
+        return pulumi.get(self, "propagated_route_table")
+
+    @propagated_route_table.setter
+    def propagated_route_table(self, value: Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]):
+        pulumi.set(self, "propagated_route_table", value)
+
+    @property
+    @pulumi.getter(name="staticVnetRoutes")
+    def static_vnet_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]:
+        """
+        A `static_vnet_route` block as defined below.
+        """
+        return pulumi.get(self, "static_vnet_routes")
+
+    @static_vnet_routes.setter
+    def static_vnet_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]):
+        pulumi.set(self, "static_vnet_routes", value)
+
+
+@pulumi.input_type
+class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
+    def __init__(__self__, *,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: The list of labels to assign to this route table.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: A list of Route Table ID's to associated with this Virtual Hub Connection.
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if route_table_ids is not None:
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of labels to assign to this route table.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter(name="routeTableIds")
+    def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Route Table ID's to associated with this Virtual Hub Connection.
+        """
+        return pulumi.get(self, "route_table_ids")
+
+    @route_table_ids.setter
+    def route_table_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "route_table_ids", value)
+
+
+@pulumi.input_type
+class VirtualHubConnectionRoutingStaticVnetRouteArgs:
+    def __init__(__self__, *,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 next_hop_ip_address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: A list of CIDR Ranges which should be used as Address Prefixes.
+        :param pulumi.Input[str] name: The name which should be used for this Static Route.
+        :param pulumi.Input[str] next_hop_ip_address: The IP Address which should be used for the Next Hop.
+        """
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if next_hop_ip_address is not None:
+            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of CIDR Ranges which should be used as Address Prefixes.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "address_prefixes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Static Route.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nextHopIpAddress")
+    def next_hop_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP Address which should be used for the Next Hop.
+        """
+        return pulumi.get(self, "next_hop_ip_address")
+
+    @next_hop_ip_address.setter
+    def next_hop_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_hop_ip_address", value)
+
+
+@pulumi.input_type
 class VirtualHubRouteArgs:
     def __init__(__self__, *,
                  address_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -5293,6 +6071,89 @@ class VirtualHubRouteArgs:
     @next_hop_ip_address.setter
     def next_hop_ip_address(self, value: pulumi.Input[str]):
         pulumi.set(self, "next_hop_ip_address", value)
+
+
+@pulumi.input_type
+class VirtualHubRouteTableRouteArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 destinations_type: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 next_hop: pulumi.Input[str],
+                 next_hop_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: A list of destination addresses for this route.
+        :param pulumi.Input[str] destinations_type: The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
+        :param pulumi.Input[str] name: The name which should be used for this route.
+        :param pulumi.Input[str] next_hop: The next hop's resource ID.
+        :param pulumi.Input[str] next_hop_type: The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "destinations_type", destinations_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_hop", next_hop)
+        if next_hop_type is not None:
+            pulumi.set(__self__, "next_hop_type", next_hop_type)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of destination addresses for this route.
+        """
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter(name="destinationsType")
+    def destinations_type(self) -> pulumi.Input[str]:
+        """
+        The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
+        """
+        return pulumi.get(self, "destinations_type")
+
+    @destinations_type.setter
+    def destinations_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destinations_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this route.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nextHop")
+    def next_hop(self) -> pulumi.Input[str]:
+        """
+        The next hop's resource ID.
+        """
+        return pulumi.get(self, "next_hop")
+
+    @next_hop.setter
+    def next_hop(self, value: pulumi.Input[str]):
+        pulumi.set(self, "next_hop", value)
+
+    @property
+    @pulumi.getter(name="nextHopType")
+    def next_hop_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+        """
+        return pulumi.get(self, "next_hop_type")
+
+    @next_hop_type.setter
+    def next_hop_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_hop_type", value)
 
 
 @pulumi.input_type

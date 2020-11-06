@@ -185,7 +185,7 @@ type PolicySetDefinitionPolicyDefinitionReference struct {
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	//
 	// Deprecated: Deprecated in favour of `parameter_values`
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition that will be included in this policy set definition.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
 	// A unique ID within this policy set definition for this policy definition reference.
@@ -209,7 +209,7 @@ type PolicySetDefinitionPolicyDefinitionReferenceArgs struct {
 	// Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 	//
 	// Deprecated: Deprecated in favour of `parameter_values`
-	Parameters pulumi.MapInput `pulumi:"parameters"`
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition that will be included in this policy set definition.
 	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
 	// A unique ID within this policy set definition for this policy definition reference.
@@ -275,8 +275,8 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues() pu
 // Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
 //
 // Deprecated: Deprecated in favour of `parameter_values`
-func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // The ID of the policy definition or policy set definition that will be included in this policy set definition.
@@ -313,7 +313,7 @@ type GetPolicySetDefinitionPolicyDefinitionReference struct {
 	// The parameter values for the referenced policy rule. This field is a json object.
 	ParameterValues string `pulumi:"parameterValues"`
 	// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters map[string]interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition that is included in this policy set definition.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
 	// The unique ID within this policy set definition for this policy definition reference.
@@ -335,7 +335,7 @@ type GetPolicySetDefinitionPolicyDefinitionReferenceArgs struct {
 	// The parameter values for the referenced policy rule. This field is a json object.
 	ParameterValues pulumi.StringInput `pulumi:"parameterValues"`
 	// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters pulumi.MapInput `pulumi:"parameters"`
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition that is included in this policy set definition.
 	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
 	// The unique ID within this policy set definition for this policy definition reference.
@@ -399,8 +399,8 @@ func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues()
 }
 
 // The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
-func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.MapOutput {
-	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionReference) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // The ID of the policy definition or policy set definition that is included in this policy set definition.

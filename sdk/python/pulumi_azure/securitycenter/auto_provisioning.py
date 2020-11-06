@@ -20,9 +20,22 @@ class AutoProvisioning(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Create a AutoProvisioning resource with the given unique name, props, and options.
+        Enables or disables the Security Center Auto Provisioning feature for the subscription
+
+        > **NOTE:** There is no resource name required, it will always be "default"
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.AutoProvisioning("example", auto_provision="On")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,6 +75,7 @@ class AutoProvisioning(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -73,6 +87,9 @@ class AutoProvisioning(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoProvision")
     def auto_provision(self) -> pulumi.Output[str]:
+        """
+        Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+        """
         return pulumi.get(self, "auto_provision")
 
     def translate_output_property(self, prop):

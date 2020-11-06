@@ -90,9 +90,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
     public readonly dnsPrefix!: pulumi.Output<string>;
-    /**
-     * Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-     */
     public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -304,9 +301,6 @@ export interface KubernetesClusterState {
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
     readonly dnsPrefix?: pulumi.Input<string>;
-    /**
-     * Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-     */
     readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -426,9 +420,6 @@ export interface KubernetesClusterArgs {
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
     readonly dnsPrefix: pulumi.Input<string>;
-    /**
-     * Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-     */
     readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * A `identity` block as defined below. Changing this forces a new resource to be created.

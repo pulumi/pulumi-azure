@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
 
 __all__ = ['VirtualHubConnection']
 
@@ -19,6 +21,7 @@ class VirtualHubConnection(pulumi.CustomResource):
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 routing: Optional[pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  vitual_network_to_hub_gateways_traffic_allowed: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -56,6 +59,7 @@ class VirtualHubConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -84,6 +88,7 @@ class VirtualHubConnection(pulumi.CustomResource):
             if remote_virtual_network_id is None:
                 raise TypeError("Missing required property 'remote_virtual_network_id'")
             __props__['remote_virtual_network_id'] = remote_virtual_network_id
+            __props__['routing'] = routing
             if virtual_hub_id is None:
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__['virtual_hub_id'] = virtual_hub_id
@@ -105,6 +110,7 @@ class VirtualHubConnection(pulumi.CustomResource):
             internet_security_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+            routing: Optional[pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None,
             vitual_network_to_hub_gateways_traffic_allowed: Optional[pulumi.Input[bool]] = None) -> 'VirtualHubConnection':
         """
@@ -117,6 +123,7 @@ class VirtualHubConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualHubConnectionRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -127,6 +134,7 @@ class VirtualHubConnection(pulumi.CustomResource):
         __props__["internet_security_enabled"] = internet_security_enabled
         __props__["name"] = name
         __props__["remote_virtual_network_id"] = remote_virtual_network_id
+        __props__["routing"] = routing
         __props__["virtual_hub_id"] = virtual_hub_id
         __props__["vitual_network_to_hub_gateways_traffic_allowed"] = vitual_network_to_hub_gateways_traffic_allowed
         return VirtualHubConnection(resource_name, opts=opts, __props__=__props__)
@@ -159,6 +167,14 @@ class VirtualHubConnection(pulumi.CustomResource):
         The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "remote_virtual_network_id")
+
+    @property
+    @pulumi.getter
+    def routing(self) -> pulumi.Output['outputs.VirtualHubConnectionRouting']:
+        """
+        A `routing` block as defined below.
+        """
+        return pulumi.get(self, "routing")
 
     @property
     @pulumi.getter(name="virtualHubId")

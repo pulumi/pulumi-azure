@@ -81,7 +81,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_pod_security_policy: Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
@@ -204,7 +203,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] enable_pod_security_policy: Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: A `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -313,9 +311,6 @@ class KubernetesCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
     def enable_pod_security_policy(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether Pod Security Policies are enabled. Note that this also requires role based access control to be enabled.
-        """
         return pulumi.get(self, "enable_pod_security_policy")
 
     @property

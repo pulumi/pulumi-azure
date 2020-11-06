@@ -43,9 +43,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Name;
         public readonly ImmutableDictionary<string, string> NodeLabels;
-        /// <summary>
-        /// The list of Kubernetes taints which are applied to nodes in the agent pool
-        /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
         /// <summary>
         /// Kubernetes version used for the Agents.

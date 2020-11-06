@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DevSpace Controller.
+ *
+ * > **NOTE:** Microsoft will be retiring Azure Dev Spaces on 31 October 2023, please see the product [documentation](https://azure.microsoft.com/en-us/updates/azure-dev-spaces-is-retiring-on-31-october-2023/) for more information.
  */
 export class Controller extends pulumi.CustomResource {
     /**

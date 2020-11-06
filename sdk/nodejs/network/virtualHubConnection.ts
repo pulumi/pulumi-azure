@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,6 +82,10 @@ export class VirtualHubConnection extends pulumi.CustomResource {
      */
     public readonly remoteVirtualNetworkId!: pulumi.Output<string>;
     /**
+     * A `routing` block as defined below.
+     */
+    public readonly routing!: pulumi.Output<outputs.network.VirtualHubConnectionRouting>;
+    /**
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
     public readonly virtualHubId!: pulumi.Output<string>;
@@ -104,6 +110,7 @@ export class VirtualHubConnection extends pulumi.CustomResource {
             inputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
+            inputs["routing"] = state ? state.routing : undefined;
             inputs["virtualHubId"] = state ? state.virtualHubId : undefined;
             inputs["vitualNetworkToHubGatewaysTrafficAllowed"] = state ? state.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
         } else {
@@ -118,6 +125,7 @@ export class VirtualHubConnection extends pulumi.CustomResource {
             inputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
+            inputs["routing"] = args ? args.routing : undefined;
             inputs["virtualHubId"] = args ? args.virtualHubId : undefined;
             inputs["vitualNetworkToHubGatewaysTrafficAllowed"] = args ? args.vitualNetworkToHubGatewaysTrafficAllowed : undefined;
         }
@@ -153,6 +161,10 @@ export interface VirtualHubConnectionState {
      */
     readonly remoteVirtualNetworkId?: pulumi.Input<string>;
     /**
+     * A `routing` block as defined below.
+     */
+    readonly routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting>;
+    /**
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
     readonly virtualHubId?: pulumi.Input<string>;
@@ -182,6 +194,10 @@ export interface VirtualHubConnectionArgs {
      * The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
      */
     readonly remoteVirtualNetworkId: pulumi.Input<string>;
+    /**
+     * A `routing` block as defined below.
+     */
+    readonly routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting>;
     /**
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */

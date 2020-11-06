@@ -58,11 +58,11 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
     }
 
     /**
-     * A map of additional properties to associate with the Data Factory Linked Service MySQL.
+     * A map of additional properties to associate with the Data Factory Linked Service.
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * List of tags that can be used for describing the Data Factory Linked Service MySQL.
+     * List of tags that can be used for describing the Data Factory Linked Service.
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
@@ -70,41 +70,45 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     public readonly dataFactoryName!: pulumi.Output<string>;
     /**
-     * The description for the Data Factory Linked Service MySQL.
+     * The description for the Data Factory Linked Service.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
+     * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linked Service MySQL.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `useManagedIdentity` is true.
      */
-    public readonly servicePrincipalId!: pulumi.Output<string>;
+    public readonly servicePrincipalId!: pulumi.Output<string | undefined>;
     /**
-     * The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `useManagedIdentity` is true.
      */
-    public readonly servicePrincipalKey!: pulumi.Output<string>;
+    public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
     /**
-     * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
-    public readonly tenant!: pulumi.Output<string>;
+    public readonly tenant!: pulumi.Output<string | undefined>;
     /**
      * The endpoint for the Azure Data Lake Storage Gen2 service.
      */
     public readonly url!: pulumi.Output<string>;
+    /**
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     */
+    public readonly useManagedIdentity!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LinkedServiceDataLakeStorageGen2 resource with the given unique name, arguments, and options.
@@ -130,6 +134,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             inputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
             inputs["tenant"] = state ? state.tenant : undefined;
             inputs["url"] = state ? state.url : undefined;
+            inputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceDataLakeStorageGen2Args | undefined;
             if (!args || args.dataFactoryName === undefined) {
@@ -137,15 +142,6 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.servicePrincipalId === undefined) {
-                throw new Error("Missing required property 'servicePrincipalId'");
-            }
-            if (!args || args.servicePrincipalKey === undefined) {
-                throw new Error("Missing required property 'servicePrincipalKey'");
-            }
-            if (!args || args.tenant === undefined) {
-                throw new Error("Missing required property 'tenant'");
             }
             if (!args || args.url === undefined) {
                 throw new Error("Missing required property 'url'");
@@ -162,6 +158,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             inputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
             inputs["tenant"] = args ? args.tenant : undefined;
             inputs["url"] = args ? args.url : undefined;
+            inputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
         }
         if (!opts) {
             opts = {}
@@ -179,11 +176,11 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
  */
 export interface LinkedServiceDataLakeStorageGen2State {
     /**
-     * A map of additional properties to associate with the Data Factory Linked Service MySQL.
+     * A map of additional properties to associate with the Data Factory Linked Service.
      */
     readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * List of tags that can be used for describing the Data Factory Linked Service MySQL.
+     * List of tags that can be used for describing the Data Factory Linked Service.
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -191,41 +188,45 @@ export interface LinkedServiceDataLakeStorageGen2State {
      */
     readonly dataFactoryName?: pulumi.Input<string>;
     /**
-     * The description for the Data Factory Linked Service MySQL.
+     * The description for the Data Factory Linked Service.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
+     * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linked Service MySQL.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `useManagedIdentity` is true.
      */
     readonly servicePrincipalId?: pulumi.Input<string>;
     /**
-     * The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `useManagedIdentity` is true.
      */
     readonly servicePrincipalKey?: pulumi.Input<string>;
     /**
-     * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
     readonly tenant?: pulumi.Input<string>;
     /**
      * The endpoint for the Azure Data Lake Storage Gen2 service.
      */
     readonly url?: pulumi.Input<string>;
+    /**
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     */
+    readonly useManagedIdentity?: pulumi.Input<boolean>;
 }
 
 /**
@@ -233,11 +234,11 @@ export interface LinkedServiceDataLakeStorageGen2State {
  */
 export interface LinkedServiceDataLakeStorageGen2Args {
     /**
-     * A map of additional properties to associate with the Data Factory Linked Service MySQL.
+     * A map of additional properties to associate with the Data Factory Linked Service.
      */
     readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * List of tags that can be used for describing the Data Factory Linked Service MySQL.
+     * List of tags that can be used for describing the Data Factory Linked Service.
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -245,39 +246,43 @@ export interface LinkedServiceDataLakeStorageGen2Args {
      */
     readonly dataFactoryName: pulumi.Input<string>;
     /**
-     * The description for the Data Factory Linked Service MySQL.
+     * The description for the Data Factory Linked Service.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
+     * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linked Service MySQL.
+     * A map of parameters to associate with the Data Factory Linked Service.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `useManagedIdentity` is true.
      */
-    readonly servicePrincipalId: pulumi.Input<string>;
+    readonly servicePrincipalId?: pulumi.Input<string>;
     /**
-     * The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `useManagedIdentity` is true.
      */
-    readonly servicePrincipalKey: pulumi.Input<string>;
+    readonly servicePrincipalKey?: pulumi.Input<string>;
     /**
-     * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     * (Required) The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
-    readonly tenant: pulumi.Input<string>;
+    readonly tenant?: pulumi.Input<string>;
     /**
      * The endpoint for the Azure Data Lake Storage Gen2 service.
      */
     readonly url: pulumi.Input<string>;
+    /**
+     * Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+     */
+    readonly useManagedIdentity?: pulumi.Input<boolean>;
 }

@@ -2,8 +2,10 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
-
+* Upgrade to v2.35.0 of the AzureRM Terraform Provider 
+  ** PLEASE NOTE:**  
+  `azure.containerservice.KubernetesCluster` deprecates allows setting `enablePodSecurityPolicy` and `nodeTaints` as part of `defaultNodePool` due to
+  it being removed from the AKS API
 ---
 
 ## 3.29.1 (2020-11-05)

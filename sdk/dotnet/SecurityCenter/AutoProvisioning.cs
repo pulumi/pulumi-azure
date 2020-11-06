@@ -9,8 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.SecurityCenter
 {
+    /// <summary>
+    /// Enables or disables the Security Center Auto Provisioning feature for the subscription
+    /// 
+    /// &gt; **NOTE:** There is no resource name required, it will always be "default"
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Azure.SecurityCenter.AutoProvisioning("example", new Azure.SecurityCenter.AutoProvisioningArgs
+    ///         {
+    ///             AutoProvision = "On",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class AutoProvisioning : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+        /// </summary>
         [Output("autoProvision")]
         public Output<string> AutoProvision { get; private set; } = null!;
 
@@ -60,6 +87,9 @@ namespace Pulumi.Azure.SecurityCenter
 
     public sealed class AutoProvisioningArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+        /// </summary>
         [Input("autoProvision", required: true)]
         public Input<string> AutoProvision { get; set; } = null!;
 
@@ -70,6 +100,9 @@ namespace Pulumi.Azure.SecurityCenter
 
     public sealed class AutoProvisioningState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+        /// </summary>
         [Input("autoProvision")]
         public Input<string>? AutoProvision { get; set; }
 

@@ -55,7 +55,7 @@ type VirtualHub struct {
 	pulumi.CustomResourceState
 
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
-	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
+	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -64,23 +64,19 @@ type VirtualHub struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteArrayOutput `pulumi:"routes"`
+	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
-	VirtualWanId pulumi.StringOutput `pulumi:"virtualWanId"`
+	VirtualWanId pulumi.StringPtrOutput `pulumi:"virtualWanId"`
 }
 
 // NewVirtualHub registers a new resource with the given unique name, arguments, and options.
 func NewVirtualHub(ctx *pulumi.Context,
 	name string, args *VirtualHubArgs, opts ...pulumi.ResourceOption) (*VirtualHub, error) {
-	if args == nil || args.AddressPrefix == nil {
-		return nil, errors.New("missing required argument 'AddressPrefix'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualWanId == nil {
-		return nil, errors.New("missing required argument 'VirtualWanId'")
 	}
 	if args == nil {
 		args = &VirtualHubArgs{}
@@ -117,6 +113,8 @@ type virtualHubState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `route` blocks as defined below.
 	Routes []VirtualHubRoute `pulumi:"routes"`
+	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
@@ -134,6 +132,8 @@ type VirtualHubState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteArrayInput
+	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapInput
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
@@ -146,7 +146,7 @@ func (VirtualHubState) ElementType() reflect.Type {
 
 type virtualHubArgs struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
-	AddressPrefix string `pulumi:"addressPrefix"`
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -155,16 +155,18 @@ type virtualHubArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `route` blocks as defined below.
 	Routes []VirtualHubRoute `pulumi:"routes"`
+	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
-	VirtualWanId string `pulumi:"virtualWanId"`
+	VirtualWanId *string `pulumi:"virtualWanId"`
 }
 
 // The set of arguments for constructing a VirtualHub resource.
 type VirtualHubArgs struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
-	AddressPrefix pulumi.StringInput
+	AddressPrefix pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -173,10 +175,12 @@ type VirtualHubArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `route` blocks as defined below.
 	Routes VirtualHubRouteArrayInput
+	// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the Virtual Hub.
 	Tags pulumi.StringMapInput
 	// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
-	VirtualWanId pulumi.StringInput
+	VirtualWanId pulumi.StringPtrInput
 }
 
 func (VirtualHubArgs) ElementType() reflect.Type {

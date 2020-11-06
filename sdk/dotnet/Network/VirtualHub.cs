@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Network
         /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         /// </summary>
         [Output("addressPrefix")]
-        public Output<string> AddressPrefix { get; private set; } = null!;
+        public Output<string?> AddressPrefix { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -76,6 +76,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.VirtualHubRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
+        /// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags to assign to the Virtual Hub.
         /// </summary>
         [Output("tags")]
@@ -85,7 +91,7 @@ namespace Pulumi.Azure.Network
         /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualWanId")]
-        public Output<string> VirtualWanId { get; private set; } = null!;
+        public Output<string?> VirtualWanId { get; private set; } = null!;
 
 
         /// <summary>
@@ -136,8 +142,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("addressPrefix", required: true)]
-        public Input<string> AddressPrefix { get; set; } = null!;
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -169,6 +175,12 @@ namespace Pulumi.Azure.Network
             set => _routes = value;
         }
 
+        /// <summary>
+        /// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -184,8 +196,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("virtualWanId", required: true)]
-        public Input<string> VirtualWanId { get; set; } = null!;
+        [Input("virtualWanId")]
+        public Input<string>? VirtualWanId { get; set; }
 
         public VirtualHubArgs()
         {
@@ -229,6 +241,12 @@ namespace Pulumi.Azure.Network
             get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRouteGetArgs>());
             set => _routes = value;
         }
+
+        /// <summary>
+        /// The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

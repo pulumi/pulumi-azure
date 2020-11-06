@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Enables or disables the Security Center Auto Provisioning feature for the subscription
+ *
+ * > **NOTE:** There is no resource name required, it will always be "default"
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.securitycenter.AutoProvisioning("example", {
+ *     autoProvision: "On",
+ * });
+ * ```
+ */
 export class AutoProvisioning extends pulumi.CustomResource {
     /**
      * Get an existing AutoProvisioning resource's state with the given name, ID, and optional extra
@@ -32,6 +48,9 @@ export class AutoProvisioning extends pulumi.CustomResource {
         return obj['__pulumiType'] === AutoProvisioning.__pulumiType;
     }
 
+    /**
+     * Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+     */
     public readonly autoProvision!: pulumi.Output<string>;
 
     /**
@@ -69,6 +88,9 @@ export class AutoProvisioning extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AutoProvisioning resources.
  */
 export interface AutoProvisioningState {
+    /**
+     * Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+     */
     readonly autoProvision?: pulumi.Input<string>;
 }
 
@@ -76,5 +98,8 @@ export interface AutoProvisioningState {
  * The set of arguments for constructing a AutoProvisioning resource.
  */
 export interface AutoProvisioningArgs {
+    /**
+     * Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+     */
     readonly autoProvision: pulumi.Input<string>;
 }

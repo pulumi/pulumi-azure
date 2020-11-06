@@ -137,9 +137,6 @@ export interface GetKubernetesClusterResult {
      * The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
      */
     readonly privateFqdn: string;
-    /**
-     * @deprecated Deprecated in favor of `private_cluster_enabled`
-     */
     readonly privateLinkEnabled: boolean;
     readonly resourceGroupName: string;
     /**

@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Policy.Outputs
         /// <summary>
         /// The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Parameters;
+        public readonly ImmutableDictionary<string, string> Parameters;
         /// <summary>
         /// The ID of the policy definition or policy set definition that is included in this policy set definition.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Policy.Outputs
         private GetPolicySetDefinitionPolicyDefinitionReferenceResult(
             string parameterValues,
 
-            ImmutableDictionary<string, object> parameters,
+            ImmutableDictionary<string, string> parameters,
 
             string policyDefinitionId,
 

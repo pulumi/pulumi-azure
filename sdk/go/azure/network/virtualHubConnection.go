@@ -79,6 +79,8 @@ type VirtualHubConnection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringOutput `pulumi:"remoteVirtualNetworkId"`
+	// A `routing` block as defined below.
+	Routing VirtualHubConnectionRoutingOutput `pulumi:"routing"`
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringOutput `pulumi:"virtualHubId"`
 	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
@@ -127,6 +129,8 @@ type virtualHubConnectionState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId *string `pulumi:"remoteVirtualNetworkId"`
+	// A `routing` block as defined below.
+	Routing *VirtualHubConnectionRouting `pulumi:"routing"`
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId *string `pulumi:"virtualHubId"`
 	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
@@ -142,6 +146,8 @@ type VirtualHubConnectionState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringPtrInput
+	// A `routing` block as defined below.
+	Routing VirtualHubConnectionRoutingPtrInput
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringPtrInput
 	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
@@ -161,6 +167,8 @@ type virtualHubConnectionArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId string `pulumi:"remoteVirtualNetworkId"`
+	// A `routing` block as defined below.
+	Routing *VirtualHubConnectionRouting `pulumi:"routing"`
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId string `pulumi:"virtualHubId"`
 	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
@@ -177,6 +185,8 @@ type VirtualHubConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
 	RemoteVirtualNetworkId pulumi.StringInput
+	// A `routing` block as defined below.
+	Routing VirtualHubConnectionRoutingPtrInput
 	// The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
 	VirtualHubId pulumi.StringInput
 	// Deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider

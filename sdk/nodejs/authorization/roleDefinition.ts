@@ -75,6 +75,9 @@ export class RoleDefinition extends pulumi.CustomResource {
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
+    /**
+     * The Azure Resource Manager ID for the resource.
+     */
     public /*out*/ readonly roleDefinitionResourceId!: pulumi.Output<string>;
     /**
      * The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
@@ -153,6 +156,9 @@ export interface RoleDefinitionState {
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
+    /**
+     * The Azure Resource Manager ID for the resource.
+     */
     readonly roleDefinitionResourceId?: pulumi.Input<string>;
     /**
      * The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.

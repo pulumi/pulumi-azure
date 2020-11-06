@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
         /// <summary>
+        /// A list of destination FQDNS for the rule.
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationFqdns;
+        /// <summary>
         /// A list of destination IP Group IDs for the rule.
         /// </summary>
         public readonly ImmutableArray<string> DestinationIpGroups;
@@ -52,6 +56,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> destinationAddresses,
 
+            ImmutableArray<string> destinationFqdns,
+
             ImmutableArray<string> destinationIpGroups,
 
             ImmutableArray<string> destinationPorts,
@@ -66,6 +72,7 @@ namespace Pulumi.Azure.Network.Outputs
         {
             Description = description;
             DestinationAddresses = destinationAddresses;
+            DestinationFqdns = destinationFqdns;
             DestinationIpGroups = destinationIpGroups;
             DestinationPorts = destinationPorts;
             Name = name;

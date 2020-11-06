@@ -123,6 +123,9 @@ __all__ = [
     'WindowsVirtualMachineWinrmListener',
     'GetImageDataDiskResult',
     'GetImageOsDiskResult',
+    'GetImagesImageResult',
+    'GetImagesImageDataDiskResult',
+    'GetImagesImageOsDiskResult',
     'GetSharedImageIdentifierResult',
     'GetSharedImageVersionTargetRegionResult',
     'GetSharedImageVersionsImageResult',
@@ -5677,6 +5680,214 @@ class GetImageOsDiskResult(dict):
     def os_type(self) -> str:
         """
         the type of Operating System used on the OS Disk. such as `Linux` or `Windows`.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="sizeGb")
+    def size_gb(self) -> int:
+        """
+        the size of this Data Disk in GB.
+        """
+        return pulumi.get(self, "size_gb")
+
+
+@pulumi.output_type
+class GetImagesImageResult(dict):
+    def __init__(__self__, *,
+                 data_disks: Sequence['outputs.GetImagesImageDataDiskResult'],
+                 location: str,
+                 name: str,
+                 os_disks: Sequence['outputs.GetImagesImageOsDiskResult'],
+                 tags: Mapping[str, str],
+                 zone_resilient: bool):
+        """
+        :param Sequence['GetImagesImageDataDiskArgs'] data_disks: One or more `data_disk` blocks as defined below.
+        :param str location: The supported Azure location where the Image exists.
+        :param str name: The name of the Image.
+        :param Sequence['GetImagesImageOsDiskArgs'] os_disks: An `os_disk` block as defined below.
+        :param Mapping[str, str] tags: A mapping of tags assigned to the Image.
+        :param bool zone_resilient: Is zone resiliency enabled?
+        """
+        pulumi.set(__self__, "data_disks", data_disks)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "os_disks", os_disks)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "zone_resilient", zone_resilient)
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> Sequence['outputs.GetImagesImageDataDiskResult']:
+        """
+        One or more `data_disk` blocks as defined below.
+        """
+        return pulumi.get(self, "data_disks")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The supported Azure location where the Image exists.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Image.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="osDisks")
+    def os_disks(self) -> Sequence['outputs.GetImagesImageOsDiskResult']:
+        """
+        An `os_disk` block as defined below.
+        """
+        return pulumi.get(self, "os_disks")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags assigned to the Image.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="zoneResilient")
+    def zone_resilient(self) -> bool:
+        """
+        Is zone resiliency enabled?
+        """
+        return pulumi.get(self, "zone_resilient")
+
+
+@pulumi.output_type
+class GetImagesImageDataDiskResult(dict):
+    def __init__(__self__, *,
+                 blob_uri: str,
+                 caching: str,
+                 lun: int,
+                 managed_disk_id: str,
+                 size_gb: int):
+        """
+        :param str blob_uri: the URI in Azure storage of the blob used to create the image.
+        :param str caching: the caching mode for the Data Disk.
+        :param int lun: the logical unit number of the data disk.
+        :param str managed_disk_id: the ID of the Managed Disk used as the Data Disk Image.
+        :param int size_gb: the size of this Data Disk in GB.
+        """
+        pulumi.set(__self__, "blob_uri", blob_uri)
+        pulumi.set(__self__, "caching", caching)
+        pulumi.set(__self__, "lun", lun)
+        pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+        pulumi.set(__self__, "size_gb", size_gb)
+
+    @property
+    @pulumi.getter(name="blobUri")
+    def blob_uri(self) -> str:
+        """
+        the URI in Azure storage of the blob used to create the image.
+        """
+        return pulumi.get(self, "blob_uri")
+
+    @property
+    @pulumi.getter
+    def caching(self) -> str:
+        """
+        the caching mode for the Data Disk.
+        """
+        return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter
+    def lun(self) -> int:
+        """
+        the logical unit number of the data disk.
+        """
+        return pulumi.get(self, "lun")
+
+    @property
+    @pulumi.getter(name="managedDiskId")
+    def managed_disk_id(self) -> str:
+        """
+        the ID of the Managed Disk used as the Data Disk Image.
+        """
+        return pulumi.get(self, "managed_disk_id")
+
+    @property
+    @pulumi.getter(name="sizeGb")
+    def size_gb(self) -> int:
+        """
+        the size of this Data Disk in GB.
+        """
+        return pulumi.get(self, "size_gb")
+
+
+@pulumi.output_type
+class GetImagesImageOsDiskResult(dict):
+    def __init__(__self__, *,
+                 blob_uri: str,
+                 caching: str,
+                 managed_disk_id: str,
+                 os_state: str,
+                 os_type: str,
+                 size_gb: int):
+        """
+        :param str blob_uri: the URI in Azure storage of the blob used to create the image.
+        :param str caching: the caching mode for the Data Disk.
+        :param str managed_disk_id: the ID of the Managed Disk used as the Data Disk Image.
+        :param str os_state: the State of the OS used in the Image.
+        :param str os_type: the type of Operating System used on the OS Disk.
+        :param int size_gb: the size of this Data Disk in GB.
+        """
+        pulumi.set(__self__, "blob_uri", blob_uri)
+        pulumi.set(__self__, "caching", caching)
+        pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+        pulumi.set(__self__, "os_state", os_state)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "size_gb", size_gb)
+
+    @property
+    @pulumi.getter(name="blobUri")
+    def blob_uri(self) -> str:
+        """
+        the URI in Azure storage of the blob used to create the image.
+        """
+        return pulumi.get(self, "blob_uri")
+
+    @property
+    @pulumi.getter
+    def caching(self) -> str:
+        """
+        the caching mode for the Data Disk.
+        """
+        return pulumi.get(self, "caching")
+
+    @property
+    @pulumi.getter(name="managedDiskId")
+    def managed_disk_id(self) -> str:
+        """
+        the ID of the Managed Disk used as the Data Disk Image.
+        """
+        return pulumi.get(self, "managed_disk_id")
+
+    @property
+    @pulumi.getter(name="osState")
+    def os_state(self) -> str:
+        """
+        the State of the OS used in the Image.
+        """
+        return pulumi.get(self, "os_state")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        the type of Operating System used on the OS Disk.
         """
         return pulumi.get(self, "os_type")
 

@@ -80,10 +80,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
-
-        /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
-        /// </summary>
         public InputList<string> NodeTaints
         {
             get => _nodeTaints ?? (_nodeTaints = new InputList<string>());

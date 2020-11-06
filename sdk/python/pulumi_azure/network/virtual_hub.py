@@ -22,6 +22,7 @@ class VirtualHub(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -54,6 +55,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[str] sku: The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
@@ -74,8 +76,6 @@ class VirtualHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address_prefix is None:
-                raise TypeError("Missing required property 'address_prefix'")
             __props__['address_prefix'] = address_prefix
             __props__['location'] = location
             __props__['name'] = name
@@ -83,9 +83,8 @@ class VirtualHub(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routes'] = routes
+            __props__['sku'] = sku
             __props__['tags'] = tags
-            if virtual_wan_id is None:
-                raise TypeError("Missing required property 'virtual_wan_id'")
             __props__['virtual_wan_id'] = virtual_wan_id
         super(VirtualHub, __self__).__init__(
             'azure:network/virtualHub:VirtualHub',
@@ -102,6 +101,7 @@ class VirtualHub(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]]] = None,
+            sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_wan_id: Optional[pulumi.Input[str]] = None) -> 'VirtualHub':
         """
@@ -116,6 +116,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteArgs']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[str] sku: The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
@@ -128,13 +129,14 @@ class VirtualHub(pulumi.CustomResource):
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["routes"] = routes
+        __props__["sku"] = sku
         __props__["tags"] = tags
         __props__["virtual_wan_id"] = virtual_wan_id
         return VirtualHub(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="addressPrefix")
-    def address_prefix(self) -> pulumi.Output[str]:
+    def address_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
         """
@@ -174,6 +176,14 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the Virtual Hub.
@@ -182,7 +192,7 @@ class VirtualHub(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="virtualWanId")
-    def virtual_wan_id(self) -> pulumi.Output[str]:
+    def virtual_wan_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
