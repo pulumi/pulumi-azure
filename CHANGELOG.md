@@ -2,20 +2,24 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.35.0 of the AzureRM Terraform Provider 
+_(none)_
+
+---
+
+## 3.30.0 (2020-11-06)
+* Upgrade to v2.35.0 of the AzureRM Terraform Provider
   ** PLEASE NOTE:**  
   `azure.containerservice.KubernetesCluster` deprecates allows setting `enablePodSecurityPolicy` and `nodeTaints` as part of `defaultNodePool` due to
   it being removed from the AKS API
----
 
 ## 3.29.1 (2020-11-05)
 * Upgrade to pulumi-terraform-bridge v2.12.1
 
 ## 3.29.0 (2020-10-30)
-* Upgrade to v2.34.0 of the AzureRM Terraform Provider 
+* Upgrade to v2.34.0 of the AzureRM Terraform Provider
 
 ## 3.28.0 (2020-10-26)
-* Upgrade to v2.33.0 of the AzureRM Terraform Provider 
+* Upgrade to v2.33.0 of the AzureRM Terraform Provider
 
 ## 3.27.0 (2020-10-23)
 * Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
