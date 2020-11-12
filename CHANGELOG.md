@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Relax naming conventions on `cdn.Profile` to allow resource names to be up to 260 characters in length
 
 ---
 
