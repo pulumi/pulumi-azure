@@ -573,7 +573,18 @@ func Provider() tfbridge.ProviderInfo {
 
 			// CDN
 			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
-			"azurerm_cdn_profile":  {Tok: azureResource(azureCDN, "Profile")},
+			"azurerm_cdn_profile": {
+				Tok: azureResource(azureCDN, "Profile"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Max length of a profile name is 260.
+					// Source: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftcdn
+					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
+						Separator: "",
+						Maxlen:    260,
+						Randlen:   8,
+					}),
+				},
+			},
 
 			// Cognitive
 			"azurerm_cognitive_account": {Tok: azureResource(azureCognitive, "Account")},
