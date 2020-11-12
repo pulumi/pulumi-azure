@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Relax naming conventions on `cdn.Profile` to allow resource names to be up to 260 characters in length
+_(none)_
 
 ---
+
+## 3.30.1 (2020-11-12)
+* Relax naming conventions on `cdn.Profile` to allow resource names to be up to 260 characters in length
 
 ## 3.30.0 (2020-11-06)
 * Upgrade to v2.35.0 of the AzureRM Terraform Provider
