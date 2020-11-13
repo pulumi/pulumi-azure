@@ -460,6 +460,125 @@ export namespace apimanagement {
         validateCertificateName?: pulumi.Input<boolean>;
     }
 
+    export interface CustomDomainDeveloperPortal {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: pulumi.Input<string>;
+        /**
+         * The Hostname to use for the corresponding endpoint.
+         */
+        hostName: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: pulumi.Input<string>;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: pulumi.Input<boolean>;
+    }
+
+    export interface CustomDomainManagement {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: pulumi.Input<string>;
+        /**
+         * The Hostname to use for the corresponding endpoint.
+         */
+        hostName: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: pulumi.Input<string>;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: pulumi.Input<boolean>;
+    }
+
+    export interface CustomDomainPortal {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: pulumi.Input<string>;
+        /**
+         * The Hostname to use for the corresponding endpoint.
+         */
+        hostName: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: pulumi.Input<string>;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: pulumi.Input<boolean>;
+    }
+
+    export interface CustomDomainProxy {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: pulumi.Input<string>;
+        /**
+         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+         */
+        defaultSslBinding?: pulumi.Input<boolean>;
+        /**
+         * The Hostname to use for the API Proxy Endpoint.
+         */
+        hostName: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: pulumi.Input<string>;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: pulumi.Input<boolean>;
+    }
+
+    export interface CustomDomainScm {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: pulumi.Input<string>;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: pulumi.Input<string>;
+        /**
+         * The Hostname to use for the corresponding endpoint.
+         */
+        hostName: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: pulumi.Input<string>;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: pulumi.Input<boolean>;
+    }
+
     export interface LoggerApplicationInsights {
         /**
          * The instrumentation key used to push data to Application Insights.
@@ -1304,7 +1423,7 @@ export namespace appservice {
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: pulumi.Input<string>;
         /**
@@ -1711,6 +1830,10 @@ export namespace appservice {
          */
         ftpsState?: pulumi.Input<string>;
         /**
+         * Path which will be checked for this function app health.
+         */
+        healthCheckPath?: pulumi.Input<string>;
+        /**
          * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: pulumi.Input<boolean>;
@@ -2003,6 +2126,7 @@ export namespace appservice {
          * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
          */
         ftpsState?: pulumi.Input<string>;
+        healthCheckPath?: pulumi.Input<string>;
         /**
          * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
          */
@@ -3835,7 +3959,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
-        storageAccountUri: pulumi.Input<string>;
+        storageAccountUri?: pulumi.Input<string>;
     }
 
     export interface LinuxVirtualMachineIdentity {
@@ -3954,7 +4078,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
-        storageAccountUri: pulumi.Input<string>;
+        storageAccountUri?: pulumi.Input<string>;
     }
 
     export interface LinuxVirtualMachineScaleSetDataDisk {
@@ -5060,7 +5184,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
-        storageAccountUri: pulumi.Input<string>;
+        storageAccountUri?: pulumi.Input<string>;
     }
 
     export interface WindowsVirtualMachineIdentity {
@@ -5179,7 +5303,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
-        storageAccountUri: pulumi.Input<string>;
+        storageAccountUri?: pulumi.Input<string>;
     }
 
     export interface WindowsVirtualMachineScaleSetDataDisk {
@@ -5962,7 +6086,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePool {
         /**
-         * A list of Availability Zones across which the Node Pool should be spread.
+         * A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
          */
         availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -6006,6 +6130,7 @@ export namespace containerservice {
          * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
          */
         osDiskSizeGb?: pulumi.Input<number>;
+        proximityPlacementGroupId?: pulumi.Input<string>;
         /**
          * A mapping of tags to assign to the Node Pool.
          */
@@ -6540,7 +6665,7 @@ export namespace cosmosdb {
          */
         order: pulumi.Input<string>;
         /**
-         * Path for which the indexing behavior applies to.
+         * Path for which the indexing behaviour applies to.
          */
         path: pulumi.Input<string>;
     }
@@ -6554,7 +6679,7 @@ export namespace cosmosdb {
 
     export interface SqlContainerIndexingPolicyIncludedPath {
         /**
-         * Path for which the indexing behavior applies to.
+         * Path for which the indexing behaviour applies to.
          */
         path: pulumi.Input<string>;
     }
@@ -8469,7 +8594,7 @@ export namespace frontdoor {
          */
         cacheEnabled?: pulumi.Input<boolean>;
         /**
-         * Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+         * Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
          */
         cacheQueryParameterStripDirective?: pulumi.Input<string>;
         /**
@@ -8477,7 +8602,7 @@ export namespace frontdoor {
          */
         cacheUseDynamicCompression?: pulumi.Input<boolean>;
         /**
-         * Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+         * Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
          */
         customForwardingPath?: pulumi.Input<string>;
         /**
@@ -12211,6 +12336,21 @@ export namespace monitoring {
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
+
+    export interface SmartDetectorAlertRuleActionGroup {
+        /**
+         * Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+         */
+        emailSubject?: pulumi.Input<string>;
+        /**
+         * Specifies the action group ids.
+         */
+        ids: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+         */
+        webhookPayload?: pulumi.Input<string>;
+    }
 }
 
 export namespace mssql {
@@ -13782,28 +13922,204 @@ export namespace network {
 
     export interface NetworkConnectionMonitorDestination {
         /**
-         * The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+         * The IP address or domain name of the Network Connection Monitor endpoint.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
         address?: pulumi.Input<string>;
         /**
-         * The destination port used by connection monitor.
+         * The port for the HTTP connection.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
-        port: pulumi.Input<number>;
+        port?: pulumi.Input<number>;
         /**
-         * The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
         virtualMachineId?: pulumi.Input<string>;
     }
 
+    export interface NetworkConnectionMonitorEndpoint {
+        /**
+         * The IP address or domain name of the Network Connection Monitor endpoint.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * A `filter` block as defined below.
+         */
+        filter?: pulumi.Input<inputs.network.NetworkConnectionMonitorEndpointFilter>;
+        /**
+         * The name of the endpoint for the Network Connection Monitor .
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+         */
+        virtualMachineId?: pulumi.Input<string>;
+    }
+
+    export interface NetworkConnectionMonitorEndpointFilter {
+        /**
+         * A `item` block as defined below.
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpointFilterItem>[]>;
+        /**
+         * The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface NetworkConnectionMonitorEndpointFilterItem {
+        /**
+         * The address of the filter item.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
     export interface NetworkConnectionMonitorSource {
         /**
-         * The source port used by connection monitor.
+         * The port for the HTTP connection.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
         port?: pulumi.Input<number>;
         /**
-         * The ID of the virtual machine used as the source by connection monitor.
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
-        virtualMachineId: pulumi.Input<string>;
+        virtualMachineId?: pulumi.Input<string>;
+    }
+
+    export interface NetworkConnectionMonitorTestConfiguration {
+        /**
+         * A `httpConfiguration` block as defined below.
+         */
+        httpConfiguration?: pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfigurationHttpConfiguration>;
+        /**
+         * A `icmpConfiguration` block as defined below.
+         */
+        icmpConfiguration?: pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfigurationIcmpConfiguration>;
+        /**
+         * The name of test configuration for the Network Connection Monitor.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
+         */
+        preferredIpVersion?: pulumi.Input<string>;
+        /**
+         * The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * A `successThreshold` block as defined below.
+         */
+        successThreshold?: pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfigurationSuccessThreshold>;
+        /**
+         * A `tcpConfiguration` block as defined below.
+         */
+        tcpConfiguration?: pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfigurationTcpConfiguration>;
+        /**
+         * The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
+         */
+        testFrequencyInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationHttpConfiguration {
+        /**
+         * The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
+         */
+        method?: pulumi.Input<string>;
+        /**
+         * The path component of the URI. It only accepts the absolute path.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port for the HTTP connection.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
+         */
+        preferHttps?: pulumi.Input<boolean>;
+        /**
+         * A `requestHeader` block as defined below.
+         */
+        requestHeaders?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader>[]>;
+        /**
+         * The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
+         */
+        validStatusCodeRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader {
+        /**
+         * The name of the HTTP header.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the HTTP header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
+        /**
+         * Should path evaluation with trace route be enabled? Defaults to `true`.
+         */
+        traceRouteEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationSuccessThreshold {
+        /**
+         * The maximum percentage of failed checks permitted for a test to be successful.
+         */
+        checksFailedPercent?: pulumi.Input<number>;
+        /**
+         * The maximum round-trip time in milliseconds permitted for a test to be successful.
+         */
+        roundTripTimeMs?: pulumi.Input<number>;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationTcpConfiguration {
+        /**
+         * The port for the Tcp connection.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * Should path evaluation with trace route be enabled? Defaults to `true`.
+         */
+        traceRouteEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface NetworkConnectionMonitorTestGroup {
+        /**
+         * A list of destination endpoint names.
+         */
+        destinationEndpoints: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the test group be enabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The name of the test group for the Network Connection Monitor.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A list of source endpoint names.
+         */
+        sourceEndpoints: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of test configuration names.
+         */
+        testConfigurationNames: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface NetworkInterfaceIpConfiguration {
@@ -14020,9 +14336,35 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
+         * A `route` block as defined below.
+         */
+        route?: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfigurationRoute>;
+        /**
          * A `vpnClientAddressPool` block as defined below.
          */
         vpnClientAddressPool: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool>;
+    }
+
+    export interface PointToPointVpnGatewayConnectionConfigurationRoute {
+        /**
+         * The Virtual Hub Route Table resource id associated with this Routing Configuration.
+         */
+        associatedRouteTableId: pulumi.Input<string>;
+        /**
+         * A `propagatedRouteTable` block as defined below.
+         */
+        propagatedRouteTable?: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable>;
+    }
+
+    export interface PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
+        /**
+         * The list of Virtual Hub Route Table resource id which the routes will be propagated to.
+         */
+        ids: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
@@ -14478,7 +14820,7 @@ export namespace network {
         securityGroup?: pulumi.Input<string>;
     }
 
-    export interface VpnGatewayBgpSetting {
+    export interface VpnGatewayBgpSettings {
         /**
          * The ASN of the BGP Speaker. Changing this forces a new resource to be created.
          */
@@ -14488,9 +14830,55 @@ export namespace network {
          */
         bgpPeeringAddress?: pulumi.Input<string>;
         /**
+         * An `instanceBgpPeeringAddress` block as defined below.
+         */
+        instance0BgpPeeringAddress?: pulumi.Input<inputs.network.VpnGatewayBgpSettingsInstance0BgpPeeringAddress>;
+        /**
+         * An `instanceBgpPeeringAddress` block as defined below.
+         */
+        instance1BgpPeeringAddress?: pulumi.Input<inputs.network.VpnGatewayBgpSettingsInstance1BgpPeeringAddress>;
+        /**
          * The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
          */
         peerWeight: pulumi.Input<number>;
+    }
+
+    export interface VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
+        /**
+         * A list of custom BGP peering addresses to assign to this instance.
+         */
+        customIps: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        defaultIps?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The pre-defined id of VPN Gateway Ip Configuration.
+         */
+        ipConfigurationId?: pulumi.Input<string>;
+        /**
+         * The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        tunnelIps?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+        /**
+         * A list of custom BGP peering addresses to assign to this instance.
+         */
+        customIps: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        defaultIps?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The pre-defined id of VPN Gateway Ip Configuration.
+         */
+        ipConfigurationId?: pulumi.Input<string>;
+        /**
+         * The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        tunnelIps?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface VpnServerConfigurationAzureActiveDirectoryAuthentication {

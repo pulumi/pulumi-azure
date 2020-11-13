@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of Availability Zones across which the Node Pool should be spread.
+        /// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -97,6 +97,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("osDiskSizeGb")]
         public Input<int>? OsDiskSizeGb { get; set; }
+
+        [Input("proximityPlacementGroupId")]
+        public Input<string>? ProximityPlacementGroupId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

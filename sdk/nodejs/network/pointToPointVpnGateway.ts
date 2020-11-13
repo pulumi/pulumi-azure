@@ -57,6 +57,10 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
      */
     public readonly connectionConfiguration!: pulumi.Output<outputs.network.PointToPointVpnGatewayConnectionConfiguration>;
     /**
+     * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+     */
+    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as PointToPointVpnGatewayState | undefined;
             inputs["connectionConfiguration"] = state ? state.connectionConfiguration : undefined;
+            inputs["dnsServers"] = state ? state.dnsServers : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -123,6 +128,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpnServerConfigurationId'");
             }
             inputs["connectionConfiguration"] = args ? args.connectionConfiguration : undefined;
+            inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -150,6 +156,10 @@ export interface PointToPointVpnGatewayState {
      * A `connectionConfiguration` block as defined below.
      */
     readonly connectionConfiguration?: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>;
+    /**
+     * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+     */
+    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -188,6 +198,10 @@ export interface PointToPointVpnGatewayArgs {
      * A `connectionConfiguration` block as defined below.
      */
     readonly connectionConfiguration: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>;
+    /**
+     * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
+     */
+    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

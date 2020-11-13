@@ -14,7 +14,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class SqlContainerIndexingPolicyIncludedPath
     {
         /// <summary>
-        /// Path for which the indexing behavior applies to.
+        /// Path for which the indexing behaviour applies to.
         /// </summary>
         public readonly string Path;
 

@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class NetworkConnectionMonitorDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+        /// The IP address or domain name of the Network Connection Monitor endpoint.
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// The destination port used by connection monitor.
+        /// The port for the HTTP connection.
         /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
+        [Input("port")]
+        public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
+        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
         /// </summary>
         [Input("virtualMachineId")]
         public Input<string>? VirtualMachineId { get; set; }

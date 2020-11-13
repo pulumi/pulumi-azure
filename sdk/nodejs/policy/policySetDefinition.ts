@@ -106,7 +106,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     /**
      * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
      *
-     * @deprecated Deprecated in favor of `policy_definition_reference`
+     * @deprecated Deprecated in favour of `policy_definition_reference`
      */
     public readonly policyDefinitions!: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export interface PolicySetDefinitionState {
     /**
      * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
      *
-     * @deprecated Deprecated in favor of `policy_definition_reference`
+     * @deprecated Deprecated in favour of `policy_definition_reference`
      */
     readonly policyDefinitions?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface PolicySetDefinitionArgs {
     /**
      * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
      *
-     * @deprecated Deprecated in favor of `policy_definition_reference`
+     * @deprecated Deprecated in favour of `policy_definition_reference`
      */
     readonly policyDefinitions?: pulumi.Input<string>;
     /**

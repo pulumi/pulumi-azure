@@ -4,6 +4,7 @@
 // Export members:
 export * from "./applicationGateway";
 export * from "./applicationSecurityGroup";
+export * from "./bgpConnection";
 export * from "./ddosProtectionPlan";
 export * from "./expressRouteCircuit";
 export * from "./expressRouteCircuitAuthorization";
@@ -34,6 +35,7 @@ export * from "./getRouteTable";
 export * from "./getServiceTags";
 export * from "./getSubnet";
 export * from "./getTrafficManager";
+export * from "./getTrafficManagerProfile";
 export * from "./getVirtualHub";
 export * from "./getVirtualNetwork";
 export * from "./getVirtualNetworkGateway";
@@ -61,6 +63,7 @@ export * from "./publicIpPrefix";
 export * from "./route";
 export * from "./routeFilter";
 export * from "./routeTable";
+export * from "./securityPartnerProvider";
 export * from "./subnet";
 export * from "./subnetNatGatewayAssociation";
 export * from "./subnetNetworkSecurityGroupAssociation";

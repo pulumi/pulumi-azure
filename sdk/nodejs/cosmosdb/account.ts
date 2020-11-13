@@ -125,6 +125,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     */
+    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -215,6 +219,7 @@ export class Account extends pulumi.CustomResource {
             inputs["geoLocations"] = state ? state.geoLocations : undefined;
             inputs["ipRangeFilter"] = state ? state.ipRangeFilter : undefined;
             inputs["isVirtualNetworkFilterEnabled"] = state ? state.isVirtualNetworkFilterEnabled : undefined;
+            inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -254,6 +259,7 @@ export class Account extends pulumi.CustomResource {
             inputs["geoLocations"] = args ? args.geoLocations : undefined;
             inputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
             inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
+            inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -329,6 +335,10 @@ export interface AccountState {
      * Enables virtual network filtering for this Cosmos DB account.
      */
     readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
+    /**
+     * A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     */
+    readonly keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
@@ -435,6 +445,10 @@ export interface AccountArgs {
      * Enables virtual network filtering for this Cosmos DB account.
      */
     readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
+    /**
+     * A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     */
+    readonly keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */

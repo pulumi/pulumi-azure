@@ -126,6 +126,10 @@ export interface GetClusterNodePoolResult {
      * The priority of the Virtual Machines in the Virtual Machine Scale Set backing this Node Pool.
      */
     readonly priority: string;
+    /**
+     * The ID of the Proximity Placement Group where the Virtual Machine Scale Set backing this Node Pool will be placed.
+     */
+    readonly proximityPlacementGroupId: string;
     readonly resourceGroupName: string;
     /**
      * The maximum price being paid for Virtual Machines in this Scale Set. `-1` means the current on-demand price for a Virtual Machine.

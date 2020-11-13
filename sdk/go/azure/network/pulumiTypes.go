@@ -7308,11 +7308,17 @@ func (o LocalNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutpu
 }
 
 type NetworkConnectionMonitorDestination struct {
-	// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+	// The IP address or domain name of the Network Connection Monitor endpoint.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Address *string `pulumi:"address"`
-	// The destination port used by connection monitor.
-	Port int `pulumi:"port"`
-	// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
+	// The port for the HTTP connection.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	Port *int `pulumi:"port"`
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 }
 
@@ -7328,11 +7334,17 @@ type NetworkConnectionMonitorDestinationInput interface {
 }
 
 type NetworkConnectionMonitorDestinationArgs struct {
-	// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+	// The IP address or domain name of the Network Connection Monitor endpoint.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The destination port used by connection monitor.
-	Port pulumi.IntInput `pulumi:"port"`
-	// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
+	// The port for the HTTP connection.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 }
 
@@ -7413,17 +7425,23 @@ func (o NetworkConnectionMonitorDestinationOutput) ToNetworkConnectionMonitorDes
 	}).(NetworkConnectionMonitorDestinationPtrOutput)
 }
 
-// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+// The IP address or domain name of the Network Connection Monitor endpoint.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorDestinationOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The destination port used by connection monitor.
-func (o NetworkConnectionMonitorDestinationOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorDestination) int { return v.Port }).(pulumi.IntOutput)
+// The port for the HTTP connection.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+func (o NetworkConnectionMonitorDestinationOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorDestinationOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
@@ -7446,7 +7464,9 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) Elem() NetworkConnectionMo
 	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) NetworkConnectionMonitorDestination { return *v }).(NetworkConnectionMonitorDestinationOutput)
 }
 
-// The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+// The IP address or domain name of the Network Connection Monitor endpoint.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorDestinationPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *string {
 		if v == nil {
@@ -7456,17 +7476,21 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) Address() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination port used by connection monitor.
+// The port for the HTTP connection.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorDestinationPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.Port
+		return v.Port
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorDestination) *string {
 		if v == nil {
@@ -7476,11 +7500,397 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type NetworkConnectionMonitorEndpoint struct {
+	// The IP address or domain name of the Network Connection Monitor endpoint.
+	Address *string `pulumi:"address"`
+	// A `filter` block as defined below.
+	Filter *NetworkConnectionMonitorEndpointFilter `pulumi:"filter"`
+	// The name of the endpoint for the Network Connection Monitor .
+	Name string `pulumi:"name"`
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+}
+
+// NetworkConnectionMonitorEndpointInput is an input type that accepts NetworkConnectionMonitorEndpointArgs and NetworkConnectionMonitorEndpointOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorEndpointInput` via:
+//
+//          NetworkConnectionMonitorEndpointArgs{...}
+type NetworkConnectionMonitorEndpointInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorEndpointOutput() NetworkConnectionMonitorEndpointOutput
+	ToNetworkConnectionMonitorEndpointOutputWithContext(context.Context) NetworkConnectionMonitorEndpointOutput
+}
+
+type NetworkConnectionMonitorEndpointArgs struct {
+	// The IP address or domain name of the Network Connection Monitor endpoint.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// A `filter` block as defined below.
+	Filter NetworkConnectionMonitorEndpointFilterPtrInput `pulumi:"filter"`
+	// The name of the endpoint for the Network Connection Monitor .
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+}
+
+func (NetworkConnectionMonitorEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorEndpoint)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorEndpointArgs) ToNetworkConnectionMonitorEndpointOutput() NetworkConnectionMonitorEndpointOutput {
+	return i.ToNetworkConnectionMonitorEndpointOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorEndpointArgs) ToNetworkConnectionMonitorEndpointOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorEndpointOutput)
+}
+
+// NetworkConnectionMonitorEndpointArrayInput is an input type that accepts NetworkConnectionMonitorEndpointArray and NetworkConnectionMonitorEndpointArrayOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorEndpointArrayInput` via:
+//
+//          NetworkConnectionMonitorEndpointArray{ NetworkConnectionMonitorEndpointArgs{...} }
+type NetworkConnectionMonitorEndpointArrayInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorEndpointArrayOutput() NetworkConnectionMonitorEndpointArrayOutput
+	ToNetworkConnectionMonitorEndpointArrayOutputWithContext(context.Context) NetworkConnectionMonitorEndpointArrayOutput
+}
+
+type NetworkConnectionMonitorEndpointArray []NetworkConnectionMonitorEndpointInput
+
+func (NetworkConnectionMonitorEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorEndpoint)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorEndpointArray) ToNetworkConnectionMonitorEndpointArrayOutput() NetworkConnectionMonitorEndpointArrayOutput {
+	return i.ToNetworkConnectionMonitorEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorEndpointArray) ToNetworkConnectionMonitorEndpointArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorEndpointArrayOutput)
+}
+
+type NetworkConnectionMonitorEndpointOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorEndpoint)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorEndpointOutput) ToNetworkConnectionMonitorEndpointOutput() NetworkConnectionMonitorEndpointOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointOutput) ToNetworkConnectionMonitorEndpointOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointOutput {
+	return o
+}
+
+// The IP address or domain name of the Network Connection Monitor endpoint.
+func (o NetworkConnectionMonitorEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// A `filter` block as defined below.
+func (o NetworkConnectionMonitorEndpointOutput) Filter() NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *NetworkConnectionMonitorEndpointFilter { return v.Filter }).(NetworkConnectionMonitorEndpointFilterPtrOutput)
+}
+
+// The name of the endpoint for the Network Connection Monitor .
+func (o NetworkConnectionMonitorEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+func (o NetworkConnectionMonitorEndpointOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectionMonitorEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorEndpoint)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorEndpointArrayOutput) ToNetworkConnectionMonitorEndpointArrayOutput() NetworkConnectionMonitorEndpointArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointArrayOutput) ToNetworkConnectionMonitorEndpointArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointArrayOutput) Index(i pulumi.IntInput) NetworkConnectionMonitorEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkConnectionMonitorEndpoint {
+		return vs[0].([]NetworkConnectionMonitorEndpoint)[vs[1].(int)]
+	}).(NetworkConnectionMonitorEndpointOutput)
+}
+
+type NetworkConnectionMonitorEndpointFilter struct {
+	// A `item` block as defined below.
+	Items []NetworkConnectionMonitorEndpointFilterItem `pulumi:"items"`
+	// The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
+	Type *string `pulumi:"type"`
+}
+
+// NetworkConnectionMonitorEndpointFilterInput is an input type that accepts NetworkConnectionMonitorEndpointFilterArgs and NetworkConnectionMonitorEndpointFilterOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorEndpointFilterInput` via:
+//
+//          NetworkConnectionMonitorEndpointFilterArgs{...}
+type NetworkConnectionMonitorEndpointFilterInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorEndpointFilterOutput() NetworkConnectionMonitorEndpointFilterOutput
+	ToNetworkConnectionMonitorEndpointFilterOutputWithContext(context.Context) NetworkConnectionMonitorEndpointFilterOutput
+}
+
+type NetworkConnectionMonitorEndpointFilterArgs struct {
+	// A `item` block as defined below.
+	Items NetworkConnectionMonitorEndpointFilterItemArrayInput `pulumi:"items"`
+	// The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (NetworkConnectionMonitorEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorEndpointFilter)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorEndpointFilterArgs) ToNetworkConnectionMonitorEndpointFilterOutput() NetworkConnectionMonitorEndpointFilterOutput {
+	return i.ToNetworkConnectionMonitorEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorEndpointFilterArgs) ToNetworkConnectionMonitorEndpointFilterOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorEndpointFilterOutput)
+}
+
+func (i NetworkConnectionMonitorEndpointFilterArgs) ToNetworkConnectionMonitorEndpointFilterPtrOutput() NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return i.ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorEndpointFilterArgs) ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorEndpointFilterOutput).ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(ctx)
+}
+
+// NetworkConnectionMonitorEndpointFilterPtrInput is an input type that accepts NetworkConnectionMonitorEndpointFilterArgs, NetworkConnectionMonitorEndpointFilterPtr and NetworkConnectionMonitorEndpointFilterPtrOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorEndpointFilterPtrInput` via:
+//
+//          NetworkConnectionMonitorEndpointFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkConnectionMonitorEndpointFilterPtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorEndpointFilterPtrOutput() NetworkConnectionMonitorEndpointFilterPtrOutput
+	ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(context.Context) NetworkConnectionMonitorEndpointFilterPtrOutput
+}
+
+type networkConnectionMonitorEndpointFilterPtrType NetworkConnectionMonitorEndpointFilterArgs
+
+func NetworkConnectionMonitorEndpointFilterPtr(v *NetworkConnectionMonitorEndpointFilterArgs) NetworkConnectionMonitorEndpointFilterPtrInput {
+	return (*networkConnectionMonitorEndpointFilterPtrType)(v)
+}
+
+func (*networkConnectionMonitorEndpointFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorEndpointFilter)(nil)).Elem()
+}
+
+func (i *networkConnectionMonitorEndpointFilterPtrType) ToNetworkConnectionMonitorEndpointFilterPtrOutput() NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return i.ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *networkConnectionMonitorEndpointFilterPtrType) ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorEndpointFilterPtrOutput)
+}
+
+type NetworkConnectionMonitorEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorEndpointFilter)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorEndpointFilterOutput) ToNetworkConnectionMonitorEndpointFilterOutput() NetworkConnectionMonitorEndpointFilterOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointFilterOutput) ToNetworkConnectionMonitorEndpointFilterOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointFilterOutput) ToNetworkConnectionMonitorEndpointFilterPtrOutput() NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return o.ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectionMonitorEndpointFilterOutput) ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpointFilter) *NetworkConnectionMonitorEndpointFilter {
+		return &v
+	}).(NetworkConnectionMonitorEndpointFilterPtrOutput)
+}
+
+// A `item` block as defined below.
+func (o NetworkConnectionMonitorEndpointFilterOutput) Items() NetworkConnectionMonitorEndpointFilterItemArrayOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpointFilter) []NetworkConnectionMonitorEndpointFilterItem {
+		return v.Items
+	}).(NetworkConnectionMonitorEndpointFilterItemArrayOutput)
+}
+
+// The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
+func (o NetworkConnectionMonitorEndpointFilterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpointFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectionMonitorEndpointFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorEndpointFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorEndpointFilter)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorEndpointFilterPtrOutput) ToNetworkConnectionMonitorEndpointFilterPtrOutput() NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointFilterPtrOutput) ToNetworkConnectionMonitorEndpointFilterPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointFilterPtrOutput) Elem() NetworkConnectionMonitorEndpointFilterOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorEndpointFilter) NetworkConnectionMonitorEndpointFilter { return *v }).(NetworkConnectionMonitorEndpointFilterOutput)
+}
+
+// A `item` block as defined below.
+func (o NetworkConnectionMonitorEndpointFilterPtrOutput) Items() NetworkConnectionMonitorEndpointFilterItemArrayOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorEndpointFilter) []NetworkConnectionMonitorEndpointFilterItem {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(NetworkConnectionMonitorEndpointFilterItemArrayOutput)
+}
+
+// The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
+func (o NetworkConnectionMonitorEndpointFilterPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorEndpointFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectionMonitorEndpointFilterItem struct {
+	// The address of the filter item.
+	Address *string `pulumi:"address"`
+	// The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
+	Type *string `pulumi:"type"`
+}
+
+// NetworkConnectionMonitorEndpointFilterItemInput is an input type that accepts NetworkConnectionMonitorEndpointFilterItemArgs and NetworkConnectionMonitorEndpointFilterItemOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorEndpointFilterItemInput` via:
+//
+//          NetworkConnectionMonitorEndpointFilterItemArgs{...}
+type NetworkConnectionMonitorEndpointFilterItemInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorEndpointFilterItemOutput() NetworkConnectionMonitorEndpointFilterItemOutput
+	ToNetworkConnectionMonitorEndpointFilterItemOutputWithContext(context.Context) NetworkConnectionMonitorEndpointFilterItemOutput
+}
+
+type NetworkConnectionMonitorEndpointFilterItemArgs struct {
+	// The address of the filter item.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (NetworkConnectionMonitorEndpointFilterItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorEndpointFilterItem)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorEndpointFilterItemArgs) ToNetworkConnectionMonitorEndpointFilterItemOutput() NetworkConnectionMonitorEndpointFilterItemOutput {
+	return i.ToNetworkConnectionMonitorEndpointFilterItemOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorEndpointFilterItemArgs) ToNetworkConnectionMonitorEndpointFilterItemOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorEndpointFilterItemOutput)
+}
+
+// NetworkConnectionMonitorEndpointFilterItemArrayInput is an input type that accepts NetworkConnectionMonitorEndpointFilterItemArray and NetworkConnectionMonitorEndpointFilterItemArrayOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorEndpointFilterItemArrayInput` via:
+//
+//          NetworkConnectionMonitorEndpointFilterItemArray{ NetworkConnectionMonitorEndpointFilterItemArgs{...} }
+type NetworkConnectionMonitorEndpointFilterItemArrayInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorEndpointFilterItemArrayOutput() NetworkConnectionMonitorEndpointFilterItemArrayOutput
+	ToNetworkConnectionMonitorEndpointFilterItemArrayOutputWithContext(context.Context) NetworkConnectionMonitorEndpointFilterItemArrayOutput
+}
+
+type NetworkConnectionMonitorEndpointFilterItemArray []NetworkConnectionMonitorEndpointFilterItemInput
+
+func (NetworkConnectionMonitorEndpointFilterItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorEndpointFilterItem)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorEndpointFilterItemArray) ToNetworkConnectionMonitorEndpointFilterItemArrayOutput() NetworkConnectionMonitorEndpointFilterItemArrayOutput {
+	return i.ToNetworkConnectionMonitorEndpointFilterItemArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorEndpointFilterItemArray) ToNetworkConnectionMonitorEndpointFilterItemArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorEndpointFilterItemArrayOutput)
+}
+
+type NetworkConnectionMonitorEndpointFilterItemOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorEndpointFilterItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorEndpointFilterItem)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorEndpointFilterItemOutput) ToNetworkConnectionMonitorEndpointFilterItemOutput() NetworkConnectionMonitorEndpointFilterItemOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointFilterItemOutput) ToNetworkConnectionMonitorEndpointFilterItemOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterItemOutput {
+	return o
+}
+
+// The address of the filter item.
+func (o NetworkConnectionMonitorEndpointFilterItemOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpointFilterItem) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
+func (o NetworkConnectionMonitorEndpointFilterItemOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpointFilterItem) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectionMonitorEndpointFilterItemArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorEndpointFilterItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorEndpointFilterItem)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorEndpointFilterItemArrayOutput) ToNetworkConnectionMonitorEndpointFilterItemArrayOutput() NetworkConnectionMonitorEndpointFilterItemArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointFilterItemArrayOutput) ToNetworkConnectionMonitorEndpointFilterItemArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorEndpointFilterItemArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorEndpointFilterItemArrayOutput) Index(i pulumi.IntInput) NetworkConnectionMonitorEndpointFilterItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkConnectionMonitorEndpointFilterItem {
+		return vs[0].([]NetworkConnectionMonitorEndpointFilterItem)[vs[1].(int)]
+	}).(NetworkConnectionMonitorEndpointFilterItemOutput)
+}
+
 type NetworkConnectionMonitorSource struct {
-	// The source port used by connection monitor.
+	// The port for the HTTP connection.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Port *int `pulumi:"port"`
-	// The ID of the virtual machine used as the source by connection monitor.
-	VirtualMachineId string `pulumi:"virtualMachineId"`
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
 }
 
 // NetworkConnectionMonitorSourceInput is an input type that accepts NetworkConnectionMonitorSourceArgs and NetworkConnectionMonitorSourceOutput values.
@@ -7495,10 +7905,14 @@ type NetworkConnectionMonitorSourceInput interface {
 }
 
 type NetworkConnectionMonitorSourceArgs struct {
-	// The source port used by connection monitor.
+	// The port for the HTTP connection.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ID of the virtual machine used as the source by connection monitor.
-	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	//
+	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 }
 
 func (NetworkConnectionMonitorSourceArgs) ElementType() reflect.Type {
@@ -7578,14 +7992,18 @@ func (o NetworkConnectionMonitorSourceOutput) ToNetworkConnectionMonitorSourcePt
 	}).(NetworkConnectionMonitorSourcePtrOutput)
 }
 
-// The source port used by connection monitor.
+// The port for the HTTP connection.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorSourceOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorSource) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ID of the virtual machine used as the source by connection monitor.
-func (o NetworkConnectionMonitorSourceOutput) VirtualMachineId() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkConnectionMonitorSource) string { return v.VirtualMachineId }).(pulumi.StringOutput)
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+func (o NetworkConnectionMonitorSourceOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorSource) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
 
 type NetworkConnectionMonitorSourcePtrOutput struct{ *pulumi.OutputState }
@@ -7606,7 +8024,9 @@ func (o NetworkConnectionMonitorSourcePtrOutput) Elem() NetworkConnectionMonitor
 	return o.ApplyT(func(v *NetworkConnectionMonitorSource) NetworkConnectionMonitorSource { return *v }).(NetworkConnectionMonitorSourceOutput)
 }
 
-// The source port used by connection monitor.
+// The port for the HTTP connection.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorSourcePtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorSource) *int {
 		if v == nil {
@@ -7616,14 +8036,1092 @@ func (o NetworkConnectionMonitorSourcePtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ID of the virtual machine used as the source by connection monitor.
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+//
+// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorSourcePtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConnectionMonitorSource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.VirtualMachineId
+		return v.VirtualMachineId
 	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfiguration struct {
+	// A `httpConfiguration` block as defined below.
+	HttpConfiguration *NetworkConnectionMonitorTestConfigurationHttpConfiguration `pulumi:"httpConfiguration"`
+	// A `icmpConfiguration` block as defined below.
+	IcmpConfiguration *NetworkConnectionMonitorTestConfigurationIcmpConfiguration `pulumi:"icmpConfiguration"`
+	// The name of test configuration for the Network Connection Monitor.
+	Name string `pulumi:"name"`
+	// The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
+	PreferredIpVersion *string `pulumi:"preferredIpVersion"`
+	// The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
+	Protocol string `pulumi:"protocol"`
+	// A `successThreshold` block as defined below.
+	SuccessThreshold *NetworkConnectionMonitorTestConfigurationSuccessThreshold `pulumi:"successThreshold"`
+	// A `tcpConfiguration` block as defined below.
+	TcpConfiguration *NetworkConnectionMonitorTestConfigurationTcpConfiguration `pulumi:"tcpConfiguration"`
+	// The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
+	TestFrequencyInSeconds *int `pulumi:"testFrequencyInSeconds"`
+}
+
+// NetworkConnectionMonitorTestConfigurationInput is an input type that accepts NetworkConnectionMonitorTestConfigurationArgs and NetworkConnectionMonitorTestConfigurationOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationArgs{...}
+type NetworkConnectionMonitorTestConfigurationInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationOutput() NetworkConnectionMonitorTestConfigurationOutput
+	ToNetworkConnectionMonitorTestConfigurationOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationOutput
+}
+
+type NetworkConnectionMonitorTestConfigurationArgs struct {
+	// A `httpConfiguration` block as defined below.
+	HttpConfiguration NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrInput `pulumi:"httpConfiguration"`
+	// A `icmpConfiguration` block as defined below.
+	IcmpConfiguration NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrInput `pulumi:"icmpConfiguration"`
+	// The name of test configuration for the Network Connection Monitor.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
+	PreferredIpVersion pulumi.StringPtrInput `pulumi:"preferredIpVersion"`
+	// The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// A `successThreshold` block as defined below.
+	SuccessThreshold NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrInput `pulumi:"successThreshold"`
+	// A `tcpConfiguration` block as defined below.
+	TcpConfiguration NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrInput `pulumi:"tcpConfiguration"`
+	// The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
+	TestFrequencyInSeconds pulumi.IntPtrInput `pulumi:"testFrequencyInSeconds"`
+}
+
+func (NetworkConnectionMonitorTestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfiguration)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationOutput() NetworkConnectionMonitorTestConfigurationOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationOutput)
+}
+
+// NetworkConnectionMonitorTestConfigurationArrayInput is an input type that accepts NetworkConnectionMonitorTestConfigurationArray and NetworkConnectionMonitorTestConfigurationArrayOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationArrayInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationArray{ NetworkConnectionMonitorTestConfigurationArgs{...} }
+type NetworkConnectionMonitorTestConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationArrayOutput() NetworkConnectionMonitorTestConfigurationArrayOutput
+	ToNetworkConnectionMonitorTestConfigurationArrayOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationArrayOutput
+}
+
+type NetworkConnectionMonitorTestConfigurationArray []NetworkConnectionMonitorTestConfigurationInput
+
+func (NetworkConnectionMonitorTestConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorTestConfiguration)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestConfigurationArray) ToNetworkConnectionMonitorTestConfigurationArrayOutput() NetworkConnectionMonitorTestConfigurationArrayOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationArray) ToNetworkConnectionMonitorTestConfigurationArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationArrayOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationOutput() NetworkConnectionMonitorTestConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationOutput {
+	return o
+}
+
+// A `httpConfiguration` block as defined below.
+func (o NetworkConnectionMonitorTestConfigurationOutput) HttpConfiguration() NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfiguration) *NetworkConnectionMonitorTestConfigurationHttpConfiguration {
+		return v.HttpConfiguration
+	}).(NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput)
+}
+
+// A `icmpConfiguration` block as defined below.
+func (o NetworkConnectionMonitorTestConfigurationOutput) IcmpConfiguration() NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfiguration) *NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
+		return v.IcmpConfiguration
+	}).(NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput)
+}
+
+// The name of test configuration for the Network Connection Monitor.
+func (o NetworkConnectionMonitorTestConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
+func (o NetworkConnectionMonitorTestConfigurationOutput) PreferredIpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfiguration) *string { return v.PreferredIpVersion }).(pulumi.StringPtrOutput)
+}
+
+// The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
+func (o NetworkConnectionMonitorTestConfigurationOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfiguration) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// A `successThreshold` block as defined below.
+func (o NetworkConnectionMonitorTestConfigurationOutput) SuccessThreshold() NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfiguration) *NetworkConnectionMonitorTestConfigurationSuccessThreshold {
+		return v.SuccessThreshold
+	}).(NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput)
+}
+
+// A `tcpConfiguration` block as defined below.
+func (o NetworkConnectionMonitorTestConfigurationOutput) TcpConfiguration() NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfiguration) *NetworkConnectionMonitorTestConfigurationTcpConfiguration {
+		return v.TcpConfiguration
+	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput)
+}
+
+// The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
+func (o NetworkConnectionMonitorTestConfigurationOutput) TestFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfiguration) *int { return v.TestFrequencyInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorTestConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationArrayOutput) ToNetworkConnectionMonitorTestConfigurationArrayOutput() NetworkConnectionMonitorTestConfigurationArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationArrayOutput) ToNetworkConnectionMonitorTestConfigurationArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationArrayOutput) Index(i pulumi.IntInput) NetworkConnectionMonitorTestConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkConnectionMonitorTestConfiguration {
+		return vs[0].([]NetworkConnectionMonitorTestConfiguration)[vs[1].(int)]
+	}).(NetworkConnectionMonitorTestConfigurationOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfiguration struct {
+	// The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
+	Method *string `pulumi:"method"`
+	// The path component of the URI. It only accepts the absolute path.
+	Path *string `pulumi:"path"`
+	// The port for the HTTP connection.
+	Port *int `pulumi:"port"`
+	// Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
+	PreferHttps *bool `pulumi:"preferHttps"`
+	// A `requestHeader` block as defined below.
+	RequestHeaders []NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader `pulumi:"requestHeaders"`
+	// The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
+	ValidStatusCodeRanges []string `pulumi:"validStatusCodeRanges"`
+}
+
+// NetworkConnectionMonitorTestConfigurationHttpConfigurationInput is an input type that accepts NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs and NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationHttpConfigurationInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs{...}
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationHttpConfigurationOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput
+	ToNetworkConnectionMonitorTestConfigurationHttpConfigurationOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs struct {
+	// The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The path component of the URI. It only accepts the absolute path.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The port for the HTTP connection.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
+	PreferHttps pulumi.BoolPtrInput `pulumi:"preferHttps"`
+	// A `requestHeader` block as defined below.
+	RequestHeaders NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayInput `pulumi:"requestHeaders"`
+	// The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
+	ValidStatusCodeRanges pulumi.StringArrayInput `pulumi:"validStatusCodeRanges"`
+}
+
+func (NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationHttpConfiguration)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationHttpConfigurationOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput)
+}
+
+func (i NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput).ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(ctx)
+}
+
+// NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrInput is an input type that accepts NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs, NetworkConnectionMonitorTestConfigurationHttpConfigurationPtr and NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput
+	ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput
+}
+
+type networkConnectionMonitorTestConfigurationHttpConfigurationPtrType NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs
+
+func NetworkConnectionMonitorTestConfigurationHttpConfigurationPtr(v *NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs) NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrInput {
+	return (*networkConnectionMonitorTestConfigurationHttpConfigurationPtrType)(v)
+}
+
+func (*networkConnectionMonitorTestConfigurationHttpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorTestConfigurationHttpConfiguration)(nil)).Elem()
+}
+
+func (i *networkConnectionMonitorTestConfigurationHttpConfigurationPtrType) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkConnectionMonitorTestConfigurationHttpConfigurationPtrType) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationHttpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return o.ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfiguration) *NetworkConnectionMonitorTestConfigurationHttpConfiguration {
+		return &v
+	}).(NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput)
+}
+
+// The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfiguration) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// The path component of the URI. It only accepts the absolute path.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The port for the HTTP connection.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfiguration) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) PreferHttps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfiguration) *bool { return v.PreferHttps }).(pulumi.BoolPtrOutput)
+}
+
+// A `requestHeader` block as defined below.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) RequestHeaders() NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfiguration) []NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader {
+		return v.RequestHeaders
+	}).(NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput)
+}
+
+// The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput) ValidStatusCodeRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfiguration) []string {
+		return v.ValidStatusCodeRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorTestConfigurationHttpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) Elem() NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationHttpConfiguration) NetworkConnectionMonitorTestConfigurationHttpConfiguration {
+		return *v
+	}).(NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput)
+}
+
+// The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationHttpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path component of the URI. It only accepts the absolute path.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationHttpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port for the HTTP connection.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationHttpConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) PreferHttps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationHttpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreferHttps
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `requestHeader` block as defined below.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) RequestHeaders() NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationHttpConfiguration) []NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader {
+		if v == nil {
+			return nil
+		}
+		return v.RequestHeaders
+	}).(NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput)
+}
+
+// The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput) ValidStatusCodeRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationHttpConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidStatusCodeRanges
+	}).(pulumi.StringArrayOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader struct {
+	// The name of the HTTP header.
+	Name string `pulumi:"name"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderInput is an input type that accepts NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs and NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs{...}
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput
+	ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs struct {
+	// The name of the HTTP header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput)
+}
+
+// NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayInput is an input type that accepts NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArray and NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArray{ NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs{...} }
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput
+	ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArray []NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderInput
+
+func (NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArray) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArray) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput {
+	return o
+}
+
+// The name of the HTTP header.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput() NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput) ToNetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput) Index(i pulumi.IntInput) NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader {
+		return vs[0].([]NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader)[vs[1].(int)]
+	}).(NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationIcmpConfiguration struct {
+	// Should path evaluation with trace route be enabled? Defaults to `true`.
+	TraceRouteEnabled *bool `pulumi:"traceRouteEnabled"`
+}
+
+// NetworkConnectionMonitorTestConfigurationIcmpConfigurationInput is an input type that accepts NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs and NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationIcmpConfigurationInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs{...}
+type NetworkConnectionMonitorTestConfigurationIcmpConfigurationInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput() NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput
+	ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput
+}
+
+type NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs struct {
+	// Should path evaluation with trace route be enabled? Defaults to `true`.
+	TraceRouteEnabled pulumi.BoolPtrInput `pulumi:"traceRouteEnabled"`
+}
+
+func (NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationIcmpConfiguration)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput() NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput)
+}
+
+func (i NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput).ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(ctx)
+}
+
+// NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrInput is an input type that accepts NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs, NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtr and NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput
+	ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput
+}
+
+type networkConnectionMonitorTestConfigurationIcmpConfigurationPtrType NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs
+
+func NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtr(v *NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs) NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrInput {
+	return (*networkConnectionMonitorTestConfigurationIcmpConfigurationPtrType)(v)
+}
+
+func (*networkConnectionMonitorTestConfigurationIcmpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorTestConfigurationIcmpConfiguration)(nil)).Elem()
+}
+
+func (i *networkConnectionMonitorTestConfigurationIcmpConfigurationPtrType) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkConnectionMonitorTestConfigurationIcmpConfigurationPtrType) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationIcmpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput() NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return o.ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationIcmpConfiguration) *NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
+		return &v
+	}).(NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput)
+}
+
+// Should path evaluation with trace route be enabled? Defaults to `true`.
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput) TraceRouteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationIcmpConfiguration) *bool { return v.TraceRouteEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorTestConfigurationIcmpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput) ToNetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput) Elem() NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationIcmpConfiguration) NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
+		return *v
+	}).(NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput)
+}
+
+// Should path evaluation with trace route be enabled? Defaults to `true`.
+func (o NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput) TraceRouteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationIcmpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TraceRouteEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationSuccessThreshold struct {
+	// The maximum percentage of failed checks permitted for a test to be successful.
+	ChecksFailedPercent *int `pulumi:"checksFailedPercent"`
+	// The maximum round-trip time in milliseconds permitted for a test to be successful.
+	RoundTripTimeMs *float64 `pulumi:"roundTripTimeMs"`
+}
+
+// NetworkConnectionMonitorTestConfigurationSuccessThresholdInput is an input type that accepts NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs and NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationSuccessThresholdInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs{...}
+type NetworkConnectionMonitorTestConfigurationSuccessThresholdInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationSuccessThresholdOutput() NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput
+	ToNetworkConnectionMonitorTestConfigurationSuccessThresholdOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput
+}
+
+type NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs struct {
+	// The maximum percentage of failed checks permitted for a test to be successful.
+	ChecksFailedPercent pulumi.IntPtrInput `pulumi:"checksFailedPercent"`
+	// The maximum round-trip time in milliseconds permitted for a test to be successful.
+	RoundTripTimeMs pulumi.Float64PtrInput `pulumi:"roundTripTimeMs"`
+}
+
+func (NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationSuccessThreshold)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdOutput() NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationSuccessThresholdOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput)
+}
+
+func (i NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput() NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput).ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(ctx)
+}
+
+// NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrInput is an input type that accepts NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs, NetworkConnectionMonitorTestConfigurationSuccessThresholdPtr and NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput() NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput
+	ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput
+}
+
+type networkConnectionMonitorTestConfigurationSuccessThresholdPtrType NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs
+
+func NetworkConnectionMonitorTestConfigurationSuccessThresholdPtr(v *NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs) NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrInput {
+	return (*networkConnectionMonitorTestConfigurationSuccessThresholdPtrType)(v)
+}
+
+func (*networkConnectionMonitorTestConfigurationSuccessThresholdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorTestConfigurationSuccessThreshold)(nil)).Elem()
+}
+
+func (i *networkConnectionMonitorTestConfigurationSuccessThresholdPtrType) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput() NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(context.Background())
+}
+
+func (i *networkConnectionMonitorTestConfigurationSuccessThresholdPtrType) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationSuccessThreshold)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdOutput() NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput() NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return o.ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationSuccessThreshold) *NetworkConnectionMonitorTestConfigurationSuccessThreshold {
+		return &v
+	}).(NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput)
+}
+
+// The maximum percentage of failed checks permitted for a test to be successful.
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) ChecksFailedPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationSuccessThreshold) *int { return v.ChecksFailedPercent }).(pulumi.IntPtrOutput)
+}
+
+// The maximum round-trip time in milliseconds permitted for a test to be successful.
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput) RoundTripTimeMs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationSuccessThreshold) *float64 { return v.RoundTripTimeMs }).(pulumi.Float64PtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorTestConfigurationSuccessThreshold)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput() NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) ToNetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) Elem() NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationSuccessThreshold) NetworkConnectionMonitorTestConfigurationSuccessThreshold {
+		return *v
+	}).(NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput)
+}
+
+// The maximum percentage of failed checks permitted for a test to be successful.
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) ChecksFailedPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationSuccessThreshold) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ChecksFailedPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum round-trip time in milliseconds permitted for a test to be successful.
+func (o NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput) RoundTripTimeMs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationSuccessThreshold) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RoundTripTimeMs
+	}).(pulumi.Float64PtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationTcpConfiguration struct {
+	// The port for the Tcp connection.
+	Port int `pulumi:"port"`
+	// Should path evaluation with trace route be enabled? Defaults to `true`.
+	TraceRouteEnabled *bool `pulumi:"traceRouteEnabled"`
+}
+
+// NetworkConnectionMonitorTestConfigurationTcpConfigurationInput is an input type that accepts NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs and NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationTcpConfigurationInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs{...}
+type NetworkConnectionMonitorTestConfigurationTcpConfigurationInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationTcpConfigurationOutput() NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput
+	ToNetworkConnectionMonitorTestConfigurationTcpConfigurationOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput
+}
+
+type NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs struct {
+	// The port for the Tcp connection.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Should path evaluation with trace route be enabled? Defaults to `true`.
+	TraceRouteEnabled pulumi.BoolPtrInput `pulumi:"traceRouteEnabled"`
+}
+
+func (NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationTcpConfiguration)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationOutput() NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationTcpConfigurationOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput)
+}
+
+func (i NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput).ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(ctx)
+}
+
+// NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrInput is an input type that accepts NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs, NetworkConnectionMonitorTestConfigurationTcpConfigurationPtr and NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrInput` via:
+//
+//          NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput
+	ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput
+}
+
+type networkConnectionMonitorTestConfigurationTcpConfigurationPtrType NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs
+
+func NetworkConnectionMonitorTestConfigurationTcpConfigurationPtr(v *NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs) NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrInput {
+	return (*networkConnectionMonitorTestConfigurationTcpConfigurationPtrType)(v)
+}
+
+func (*networkConnectionMonitorTestConfigurationTcpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorTestConfigurationTcpConfiguration)(nil)).Elem()
+}
+
+func (i *networkConnectionMonitorTestConfigurationTcpConfigurationPtrType) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return i.ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkConnectionMonitorTestConfigurationTcpConfigurationPtrType) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestConfigurationTcpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationOutput() NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return o.ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) *NetworkConnectionMonitorTestConfigurationTcpConfiguration {
+		return &v
+	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput)
+}
+
+// The port for the Tcp connection.
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Should path evaluation with trace route be enabled? Defaults to `true`.
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput) TraceRouteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestConfigurationTcpConfiguration) *bool { return v.TraceRouteEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConnectionMonitorTestConfigurationTcpConfiguration)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput() NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) ToNetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) Elem() NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationTcpConfiguration) NetworkConnectionMonitorTestConfigurationTcpConfiguration {
+		return *v
+	}).(NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput)
+}
+
+// The port for the Tcp connection.
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationTcpConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// Should path evaluation with trace route be enabled? Defaults to `true`.
+func (o NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput) TraceRouteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkConnectionMonitorTestConfigurationTcpConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TraceRouteEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type NetworkConnectionMonitorTestGroup struct {
+	// A list of destination endpoint names.
+	DestinationEndpoints []string `pulumi:"destinationEndpoints"`
+	// Should the test group be enabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the test group for the Network Connection Monitor.
+	Name string `pulumi:"name"`
+	// A list of source endpoint names.
+	SourceEndpoints []string `pulumi:"sourceEndpoints"`
+	// A list of test configuration names.
+	TestConfigurationNames []string `pulumi:"testConfigurationNames"`
+}
+
+// NetworkConnectionMonitorTestGroupInput is an input type that accepts NetworkConnectionMonitorTestGroupArgs and NetworkConnectionMonitorTestGroupOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestGroupInput` via:
+//
+//          NetworkConnectionMonitorTestGroupArgs{...}
+type NetworkConnectionMonitorTestGroupInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestGroupOutput() NetworkConnectionMonitorTestGroupOutput
+	ToNetworkConnectionMonitorTestGroupOutputWithContext(context.Context) NetworkConnectionMonitorTestGroupOutput
+}
+
+type NetworkConnectionMonitorTestGroupArgs struct {
+	// A list of destination endpoint names.
+	DestinationEndpoints pulumi.StringArrayInput `pulumi:"destinationEndpoints"`
+	// Should the test group be enabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The name of the test group for the Network Connection Monitor.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of source endpoint names.
+	SourceEndpoints pulumi.StringArrayInput `pulumi:"sourceEndpoints"`
+	// A list of test configuration names.
+	TestConfigurationNames pulumi.StringArrayInput `pulumi:"testConfigurationNames"`
+}
+
+func (NetworkConnectionMonitorTestGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestGroup)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestGroupArgs) ToNetworkConnectionMonitorTestGroupOutput() NetworkConnectionMonitorTestGroupOutput {
+	return i.ToNetworkConnectionMonitorTestGroupOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestGroupArgs) ToNetworkConnectionMonitorTestGroupOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestGroupOutput)
+}
+
+// NetworkConnectionMonitorTestGroupArrayInput is an input type that accepts NetworkConnectionMonitorTestGroupArray and NetworkConnectionMonitorTestGroupArrayOutput values.
+// You can construct a concrete instance of `NetworkConnectionMonitorTestGroupArrayInput` via:
+//
+//          NetworkConnectionMonitorTestGroupArray{ NetworkConnectionMonitorTestGroupArgs{...} }
+type NetworkConnectionMonitorTestGroupArrayInput interface {
+	pulumi.Input
+
+	ToNetworkConnectionMonitorTestGroupArrayOutput() NetworkConnectionMonitorTestGroupArrayOutput
+	ToNetworkConnectionMonitorTestGroupArrayOutputWithContext(context.Context) NetworkConnectionMonitorTestGroupArrayOutput
+}
+
+type NetworkConnectionMonitorTestGroupArray []NetworkConnectionMonitorTestGroupInput
+
+func (NetworkConnectionMonitorTestGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorTestGroup)(nil)).Elem()
+}
+
+func (i NetworkConnectionMonitorTestGroupArray) ToNetworkConnectionMonitorTestGroupArrayOutput() NetworkConnectionMonitorTestGroupArrayOutput {
+	return i.ToNetworkConnectionMonitorTestGroupArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkConnectionMonitorTestGroupArray) ToNetworkConnectionMonitorTestGroupArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorTestGroupArrayOutput)
+}
+
+type NetworkConnectionMonitorTestGroupOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConnectionMonitorTestGroup)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestGroupOutput) ToNetworkConnectionMonitorTestGroupOutput() NetworkConnectionMonitorTestGroupOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestGroupOutput) ToNetworkConnectionMonitorTestGroupOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestGroupOutput {
+	return o
+}
+
+// A list of destination endpoint names.
+func (o NetworkConnectionMonitorTestGroupOutput) DestinationEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestGroup) []string { return v.DestinationEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// Should the test group be enabled? Defaults to `true`.
+func (o NetworkConnectionMonitorTestGroupOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestGroup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the test group for the Network Connection Monitor.
+func (o NetworkConnectionMonitorTestGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of source endpoint names.
+func (o NetworkConnectionMonitorTestGroupOutput) SourceEndpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestGroup) []string { return v.SourceEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// A list of test configuration names.
+func (o NetworkConnectionMonitorTestGroupOutput) TestConfigurationNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorTestGroup) []string { return v.TestConfigurationNames }).(pulumi.StringArrayOutput)
+}
+
+type NetworkConnectionMonitorTestGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkConnectionMonitorTestGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkConnectionMonitorTestGroup)(nil)).Elem()
+}
+
+func (o NetworkConnectionMonitorTestGroupArrayOutput) ToNetworkConnectionMonitorTestGroupArrayOutput() NetworkConnectionMonitorTestGroupArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestGroupArrayOutput) ToNetworkConnectionMonitorTestGroupArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorTestGroupArrayOutput {
+	return o
+}
+
+func (o NetworkConnectionMonitorTestGroupArrayOutput) Index(i pulumi.IntInput) NetworkConnectionMonitorTestGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkConnectionMonitorTestGroup {
+		return vs[0].([]NetworkConnectionMonitorTestGroup)[vs[1].(int)]
+	}).(NetworkConnectionMonitorTestGroupOutput)
 }
 
 type NetworkInterfaceIpConfiguration struct {
@@ -8973,6 +10471,8 @@ func (o PacketCaptureStorageLocationPtrOutput) StoragePath() pulumi.StringPtrOut
 type PointToPointVpnGatewayConnectionConfiguration struct {
 	// The Name which should be used for this Connection Configuration.
 	Name string `pulumi:"name"`
+	// A `route` block as defined below.
+	Route *PointToPointVpnGatewayConnectionConfigurationRoute `pulumi:"route"`
 	// A `vpnClientAddressPool` block as defined below.
 	VpnClientAddressPool PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool `pulumi:"vpnClientAddressPool"`
 }
@@ -8991,6 +10491,8 @@ type PointToPointVpnGatewayConnectionConfigurationInput interface {
 type PointToPointVpnGatewayConnectionConfigurationArgs struct {
 	// The Name which should be used for this Connection Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A `route` block as defined below.
+	Route PointToPointVpnGatewayConnectionConfigurationRoutePtrInput `pulumi:"route"`
 	// A `vpnClientAddressPool` block as defined below.
 	VpnClientAddressPool PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolInput `pulumi:"vpnClientAddressPool"`
 }
@@ -9077,6 +10579,13 @@ func (o PointToPointVpnGatewayConnectionConfigurationOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// A `route` block as defined below.
+func (o PointToPointVpnGatewayConnectionConfigurationOutput) Route() PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfigurationRoute {
+		return v.Route
+	}).(PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput)
+}
+
 // A `vpnClientAddressPool` block as defined below.
 func (o PointToPointVpnGatewayConnectionConfigurationOutput) VpnClientAddressPool() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput {
 	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfiguration) PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
@@ -9114,6 +10623,16 @@ func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Name() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// A `route` block as defined below.
+func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) Route() PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfigurationRoute {
+		if v == nil {
+			return nil
+		}
+		return v.Route
+	}).(PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput)
+}
+
 // A `vpnClientAddressPool` block as defined below.
 func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) VpnClientAddressPool() PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput {
 	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfiguration) *PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
@@ -9122,6 +10641,314 @@ func (o PointToPointVpnGatewayConnectionConfigurationPtrOutput) VpnClientAddress
 		}
 		return &v.VpnClientAddressPool
 	}).(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput)
+}
+
+type PointToPointVpnGatewayConnectionConfigurationRoute struct {
+	// The Virtual Hub Route Table resource id associated with this Routing Configuration.
+	AssociatedRouteTableId string `pulumi:"associatedRouteTableId"`
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTable *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable `pulumi:"propagatedRouteTable"`
+}
+
+// PointToPointVpnGatewayConnectionConfigurationRouteInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationRouteArgs and PointToPointVpnGatewayConnectionConfigurationRouteOutput values.
+// You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationRouteInput` via:
+//
+//          PointToPointVpnGatewayConnectionConfigurationRouteArgs{...}
+type PointToPointVpnGatewayConnectionConfigurationRouteInput interface {
+	pulumi.Input
+
+	ToPointToPointVpnGatewayConnectionConfigurationRouteOutput() PointToPointVpnGatewayConnectionConfigurationRouteOutput
+	ToPointToPointVpnGatewayConnectionConfigurationRouteOutputWithContext(context.Context) PointToPointVpnGatewayConnectionConfigurationRouteOutput
+}
+
+type PointToPointVpnGatewayConnectionConfigurationRouteArgs struct {
+	// The Virtual Hub Route Table resource id associated with this Routing Configuration.
+	AssociatedRouteTableId pulumi.StringInput `pulumi:"associatedRouteTableId"`
+	// A `propagatedRouteTable` block as defined below.
+	PropagatedRouteTable PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
+}
+
+func (PointToPointVpnGatewayConnectionConfigurationRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRoute)(nil)).Elem()
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationRouteArgs) ToPointToPointVpnGatewayConnectionConfigurationRouteOutput() PointToPointVpnGatewayConnectionConfigurationRouteOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationRouteOutputWithContext(context.Background())
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationRouteArgs) ToPointToPointVpnGatewayConnectionConfigurationRouteOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationRouteOutput)
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationRouteArgs) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(context.Background())
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationRouteArgs) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationRouteOutput).ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(ctx)
+}
+
+// PointToPointVpnGatewayConnectionConfigurationRoutePtrInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationRouteArgs, PointToPointVpnGatewayConnectionConfigurationRoutePtr and PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput values.
+// You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationRoutePtrInput` via:
+//
+//          PointToPointVpnGatewayConnectionConfigurationRouteArgs{...}
+//
+//  or:
+//
+//          nil
+type PointToPointVpnGatewayConnectionConfigurationRoutePtrInput interface {
+	pulumi.Input
+
+	ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput
+	ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput
+}
+
+type pointToPointVpnGatewayConnectionConfigurationRoutePtrType PointToPointVpnGatewayConnectionConfigurationRouteArgs
+
+func PointToPointVpnGatewayConnectionConfigurationRoutePtr(v *PointToPointVpnGatewayConnectionConfigurationRouteArgs) PointToPointVpnGatewayConnectionConfigurationRoutePtrInput {
+	return (*pointToPointVpnGatewayConnectionConfigurationRoutePtrType)(v)
+}
+
+func (*pointToPointVpnGatewayConnectionConfigurationRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfigurationRoute)(nil)).Elem()
+}
+
+func (i *pointToPointVpnGatewayConnectionConfigurationRoutePtrType) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *pointToPointVpnGatewayConnectionConfigurationRoutePtrType) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput)
+}
+
+type PointToPointVpnGatewayConnectionConfigurationRouteOutput struct{ *pulumi.OutputState }
+
+func (PointToPointVpnGatewayConnectionConfigurationRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRoute)(nil)).Elem()
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) ToPointToPointVpnGatewayConnectionConfigurationRouteOutput() PointToPointVpnGatewayConnectionConfigurationRouteOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) ToPointToPointVpnGatewayConnectionConfigurationRouteOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRouteOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return o.ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(context.Background())
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoute) *PointToPointVpnGatewayConnectionConfigurationRoute {
+		return &v
+	}).(PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput)
+}
+
+// The Virtual Hub Route Table resource id associated with this Routing Configuration.
+func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) AssociatedRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoute) string { return v.AssociatedRouteTableId }).(pulumi.StringOutput)
+}
+
+// A `propagatedRouteTable` block as defined below.
+func (o PointToPointVpnGatewayConnectionConfigurationRouteOutput) PropagatedRouteTable() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoute) *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
+		return v.PropagatedRouteTable
+	}).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput)
+}
+
+type PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfigurationRoute)(nil)).Elem()
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationRouteOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoute) PointToPointVpnGatewayConnectionConfigurationRoute {
+		return *v
+	}).(PointToPointVpnGatewayConnectionConfigurationRouteOutput)
+}
+
+// The Virtual Hub Route Table resource id associated with this Routing Configuration.
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) AssociatedRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AssociatedRouteTableId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `propagatedRouteTable` block as defined below.
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput) PropagatedRouteTable() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoute) *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
+		if v == nil {
+			return nil
+		}
+		return v.PropagatedRouteTable
+	}).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput)
+}
+
+type PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable struct {
+	// The list of Virtual Hub Route Table resource id which the routes will be propagated to.
+	Ids []string `pulumi:"ids"`
+	// The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
+	Labels []string `pulumi:"labels"`
+}
+
+// PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs and PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput values.
+// You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableInput` via:
+//
+//          PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs{...}
+type PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableInput interface {
+	pulumi.Input
+
+	ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput
+	ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutputWithContext(context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput
+}
+
+type PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs struct {
+	// The list of Virtual Hub Route Table resource id which the routes will be propagated to.
+	Ids pulumi.StringArrayInput `pulumi:"ids"`
+	// The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+}
+
+func (PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable)(nil)).Elem()
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutputWithContext(context.Background())
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput)
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput).ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(ctx)
+}
+
+// PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrInput is an input type that accepts PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs, PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtr and PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput values.
+// You can construct a concrete instance of `PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrInput` via:
+//
+//          PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs{...}
+//
+//  or:
+//
+//          nil
+type PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrInput interface {
+	pulumi.Input
+
+	ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput
+	ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput
+}
+
+type pointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrType PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs
+
+func PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtr(v *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrInput {
+	return (*pointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrType)(v)
+}
+
+func (*pointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable)(nil)).Elem()
+}
+
+func (i *pointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrType) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return i.ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (i *pointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrType) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput)
+}
+
+type PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput struct{ *pulumi.OutputState }
+
+func (PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable)(nil)).Elem()
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return o.ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(context.Background())
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
+		return &v
+	}).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput)
+}
+
+// The list of Virtual Hub Route Table resource id which the routes will be propagated to.
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+// The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) []string {
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
+}
+
+type PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput struct{ *pulumi.OutputState }
+
+func (PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable)(nil)).Elem()
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput) ToPointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutputWithContext(ctx context.Context) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput {
+	return o
+}
+
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput) Elem() PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
+		return *v
+	}).(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput)
+}
+
+// The list of Virtual Hub Route Table resource id which the routes will be propagated to.
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
+func (o PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringArrayOutput)
 }
 
 type PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool struct {
@@ -13061,119 +14888,595 @@ func (o VirtualNetworkSubnetArrayOutput) Index(i pulumi.IntInput) VirtualNetwork
 	}).(VirtualNetworkSubnetOutput)
 }
 
-type VpnGatewayBgpSetting struct {
+type VpnGatewayBgpSettings struct {
 	// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
 	Asn int `pulumi:"asn"`
 	// The Address which should be used for the BGP Peering.
 	BgpPeeringAddress *string `pulumi:"bgpPeeringAddress"`
+	// An `instanceBgpPeeringAddress` block as defined below.
+	Instance0BgpPeeringAddress *VpnGatewayBgpSettingsInstance0BgpPeeringAddress `pulumi:"instance0BgpPeeringAddress"`
+	// An `instanceBgpPeeringAddress` block as defined below.
+	Instance1BgpPeeringAddress *VpnGatewayBgpSettingsInstance1BgpPeeringAddress `pulumi:"instance1BgpPeeringAddress"`
 	// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
 	PeerWeight int `pulumi:"peerWeight"`
 }
 
-// VpnGatewayBgpSettingInput is an input type that accepts VpnGatewayBgpSettingArgs and VpnGatewayBgpSettingOutput values.
-// You can construct a concrete instance of `VpnGatewayBgpSettingInput` via:
+// VpnGatewayBgpSettingsInput is an input type that accepts VpnGatewayBgpSettingsArgs and VpnGatewayBgpSettingsOutput values.
+// You can construct a concrete instance of `VpnGatewayBgpSettingsInput` via:
 //
-//          VpnGatewayBgpSettingArgs{...}
-type VpnGatewayBgpSettingInput interface {
+//          VpnGatewayBgpSettingsArgs{...}
+type VpnGatewayBgpSettingsInput interface {
 	pulumi.Input
 
-	ToVpnGatewayBgpSettingOutput() VpnGatewayBgpSettingOutput
-	ToVpnGatewayBgpSettingOutputWithContext(context.Context) VpnGatewayBgpSettingOutput
+	ToVpnGatewayBgpSettingsOutput() VpnGatewayBgpSettingsOutput
+	ToVpnGatewayBgpSettingsOutputWithContext(context.Context) VpnGatewayBgpSettingsOutput
 }
 
-type VpnGatewayBgpSettingArgs struct {
+type VpnGatewayBgpSettingsArgs struct {
 	// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
 	Asn pulumi.IntInput `pulumi:"asn"`
 	// The Address which should be used for the BGP Peering.
 	BgpPeeringAddress pulumi.StringPtrInput `pulumi:"bgpPeeringAddress"`
+	// An `instanceBgpPeeringAddress` block as defined below.
+	Instance0BgpPeeringAddress VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrInput `pulumi:"instance0BgpPeeringAddress"`
+	// An `instanceBgpPeeringAddress` block as defined below.
+	Instance1BgpPeeringAddress VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrInput `pulumi:"instance1BgpPeeringAddress"`
 	// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
 	PeerWeight pulumi.IntInput `pulumi:"peerWeight"`
 }
 
-func (VpnGatewayBgpSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayBgpSetting)(nil)).Elem()
+func (VpnGatewayBgpSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayBgpSettings)(nil)).Elem()
 }
 
-func (i VpnGatewayBgpSettingArgs) ToVpnGatewayBgpSettingOutput() VpnGatewayBgpSettingOutput {
-	return i.ToVpnGatewayBgpSettingOutputWithContext(context.Background())
+func (i VpnGatewayBgpSettingsArgs) ToVpnGatewayBgpSettingsOutput() VpnGatewayBgpSettingsOutput {
+	return i.ToVpnGatewayBgpSettingsOutputWithContext(context.Background())
 }
 
-func (i VpnGatewayBgpSettingArgs) ToVpnGatewayBgpSettingOutputWithContext(ctx context.Context) VpnGatewayBgpSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingOutput)
+func (i VpnGatewayBgpSettingsArgs) ToVpnGatewayBgpSettingsOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsOutput)
 }
 
-// VpnGatewayBgpSettingArrayInput is an input type that accepts VpnGatewayBgpSettingArray and VpnGatewayBgpSettingArrayOutput values.
-// You can construct a concrete instance of `VpnGatewayBgpSettingArrayInput` via:
+func (i VpnGatewayBgpSettingsArgs) ToVpnGatewayBgpSettingsPtrOutput() VpnGatewayBgpSettingsPtrOutput {
+	return i.ToVpnGatewayBgpSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayBgpSettingsArgs) ToVpnGatewayBgpSettingsPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsOutput).ToVpnGatewayBgpSettingsPtrOutputWithContext(ctx)
+}
+
+// VpnGatewayBgpSettingsPtrInput is an input type that accepts VpnGatewayBgpSettingsArgs, VpnGatewayBgpSettingsPtr and VpnGatewayBgpSettingsPtrOutput values.
+// You can construct a concrete instance of `VpnGatewayBgpSettingsPtrInput` via:
 //
-//          VpnGatewayBgpSettingArray{ VpnGatewayBgpSettingArgs{...} }
-type VpnGatewayBgpSettingArrayInput interface {
+//          VpnGatewayBgpSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnGatewayBgpSettingsPtrInput interface {
 	pulumi.Input
 
-	ToVpnGatewayBgpSettingArrayOutput() VpnGatewayBgpSettingArrayOutput
-	ToVpnGatewayBgpSettingArrayOutputWithContext(context.Context) VpnGatewayBgpSettingArrayOutput
+	ToVpnGatewayBgpSettingsPtrOutput() VpnGatewayBgpSettingsPtrOutput
+	ToVpnGatewayBgpSettingsPtrOutputWithContext(context.Context) VpnGatewayBgpSettingsPtrOutput
 }
 
-type VpnGatewayBgpSettingArray []VpnGatewayBgpSettingInput
+type vpnGatewayBgpSettingsPtrType VpnGatewayBgpSettingsArgs
 
-func (VpnGatewayBgpSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnGatewayBgpSetting)(nil)).Elem()
+func VpnGatewayBgpSettingsPtr(v *VpnGatewayBgpSettingsArgs) VpnGatewayBgpSettingsPtrInput {
+	return (*vpnGatewayBgpSettingsPtrType)(v)
 }
 
-func (i VpnGatewayBgpSettingArray) ToVpnGatewayBgpSettingArrayOutput() VpnGatewayBgpSettingArrayOutput {
-	return i.ToVpnGatewayBgpSettingArrayOutputWithContext(context.Background())
+func (*vpnGatewayBgpSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayBgpSettings)(nil)).Elem()
 }
 
-func (i VpnGatewayBgpSettingArray) ToVpnGatewayBgpSettingArrayOutputWithContext(ctx context.Context) VpnGatewayBgpSettingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingArrayOutput)
+func (i *vpnGatewayBgpSettingsPtrType) ToVpnGatewayBgpSettingsPtrOutput() VpnGatewayBgpSettingsPtrOutput {
+	return i.ToVpnGatewayBgpSettingsPtrOutputWithContext(context.Background())
 }
 
-type VpnGatewayBgpSettingOutput struct{ *pulumi.OutputState }
-
-func (VpnGatewayBgpSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGatewayBgpSetting)(nil)).Elem()
+func (i *vpnGatewayBgpSettingsPtrType) ToVpnGatewayBgpSettingsPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsPtrOutput)
 }
 
-func (o VpnGatewayBgpSettingOutput) ToVpnGatewayBgpSettingOutput() VpnGatewayBgpSettingOutput {
+type VpnGatewayBgpSettingsOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayBgpSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayBgpSettings)(nil)).Elem()
+}
+
+func (o VpnGatewayBgpSettingsOutput) ToVpnGatewayBgpSettingsOutput() VpnGatewayBgpSettingsOutput {
 	return o
 }
 
-func (o VpnGatewayBgpSettingOutput) ToVpnGatewayBgpSettingOutputWithContext(ctx context.Context) VpnGatewayBgpSettingOutput {
+func (o VpnGatewayBgpSettingsOutput) ToVpnGatewayBgpSettingsOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsOutput {
 	return o
+}
+
+func (o VpnGatewayBgpSettingsOutput) ToVpnGatewayBgpSettingsPtrOutput() VpnGatewayBgpSettingsPtrOutput {
+	return o.ToVpnGatewayBgpSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o VpnGatewayBgpSettingsOutput) ToVpnGatewayBgpSettingsPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsPtrOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettings) *VpnGatewayBgpSettings {
+		return &v
+	}).(VpnGatewayBgpSettingsPtrOutput)
 }
 
 // The ASN of the BGP Speaker. Changing this forces a new resource to be created.
-func (o VpnGatewayBgpSettingOutput) Asn() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnGatewayBgpSetting) int { return v.Asn }).(pulumi.IntOutput)
+func (o VpnGatewayBgpSettingsOutput) Asn() pulumi.IntOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettings) int { return v.Asn }).(pulumi.IntOutput)
 }
 
 // The Address which should be used for the BGP Peering.
-func (o VpnGatewayBgpSettingOutput) BgpPeeringAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VpnGatewayBgpSetting) *string { return v.BgpPeeringAddress }).(pulumi.StringPtrOutput)
+func (o VpnGatewayBgpSettingsOutput) BgpPeeringAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettings) *string { return v.BgpPeeringAddress }).(pulumi.StringPtrOutput)
+}
+
+// An `instanceBgpPeeringAddress` block as defined below.
+func (o VpnGatewayBgpSettingsOutput) Instance0BgpPeeringAddress() VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettings) *VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
+		return v.Instance0BgpPeeringAddress
+	}).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput)
+}
+
+// An `instanceBgpPeeringAddress` block as defined below.
+func (o VpnGatewayBgpSettingsOutput) Instance1BgpPeeringAddress() VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettings) *VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+		return v.Instance1BgpPeeringAddress
+	}).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput)
 }
 
 // The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
-func (o VpnGatewayBgpSettingOutput) PeerWeight() pulumi.IntOutput {
-	return o.ApplyT(func(v VpnGatewayBgpSetting) int { return v.PeerWeight }).(pulumi.IntOutput)
+func (o VpnGatewayBgpSettingsOutput) PeerWeight() pulumi.IntOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettings) int { return v.PeerWeight }).(pulumi.IntOutput)
 }
 
-type VpnGatewayBgpSettingArrayOutput struct{ *pulumi.OutputState }
+type VpnGatewayBgpSettingsPtrOutput struct{ *pulumi.OutputState }
 
-func (VpnGatewayBgpSettingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnGatewayBgpSetting)(nil)).Elem()
+func (VpnGatewayBgpSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayBgpSettings)(nil)).Elem()
 }
 
-func (o VpnGatewayBgpSettingArrayOutput) ToVpnGatewayBgpSettingArrayOutput() VpnGatewayBgpSettingArrayOutput {
+func (o VpnGatewayBgpSettingsPtrOutput) ToVpnGatewayBgpSettingsPtrOutput() VpnGatewayBgpSettingsPtrOutput {
 	return o
 }
 
-func (o VpnGatewayBgpSettingArrayOutput) ToVpnGatewayBgpSettingArrayOutputWithContext(ctx context.Context) VpnGatewayBgpSettingArrayOutput {
+func (o VpnGatewayBgpSettingsPtrOutput) ToVpnGatewayBgpSettingsPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsPtrOutput {
 	return o
 }
 
-func (o VpnGatewayBgpSettingArrayOutput) Index(i pulumi.IntInput) VpnGatewayBgpSettingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnGatewayBgpSetting {
-		return vs[0].([]VpnGatewayBgpSetting)[vs[1].(int)]
-	}).(VpnGatewayBgpSettingOutput)
+func (o VpnGatewayBgpSettingsPtrOutput) Elem() VpnGatewayBgpSettingsOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettings) VpnGatewayBgpSettings { return *v }).(VpnGatewayBgpSettingsOutput)
+}
+
+// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
+func (o VpnGatewayBgpSettingsPtrOutput) Asn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Asn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The Address which should be used for the BGP Peering.
+func (o VpnGatewayBgpSettingsPtrOutput) BgpPeeringAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BgpPeeringAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// An `instanceBgpPeeringAddress` block as defined below.
+func (o VpnGatewayBgpSettingsPtrOutput) Instance0BgpPeeringAddress() VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettings) *VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
+		if v == nil {
+			return nil
+		}
+		return v.Instance0BgpPeeringAddress
+	}).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput)
+}
+
+// An `instanceBgpPeeringAddress` block as defined below.
+func (o VpnGatewayBgpSettingsPtrOutput) Instance1BgpPeeringAddress() VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettings) *VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+		if v == nil {
+			return nil
+		}
+		return v.Instance1BgpPeeringAddress
+	}).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput)
+}
+
+// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
+func (o VpnGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PeerWeight
+	}).(pulumi.IntPtrOutput)
+}
+
+type VpnGatewayBgpSettingsInstance0BgpPeeringAddress struct {
+	// A list of custom BGP peering addresses to assign to this instance.
+	CustomIps []string `pulumi:"customIps"`
+	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+	DefaultIps []string `pulumi:"defaultIps"`
+	// The pre-defined id of VPN Gateway Ip Configuration.
+	IpConfigurationId *string `pulumi:"ipConfigurationId"`
+	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+	TunnelIps []string `pulumi:"tunnelIps"`
+}
+
+// VpnGatewayBgpSettingsInstance0BgpPeeringAddressInput is an input type that accepts VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs and VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput values.
+// You can construct a concrete instance of `VpnGatewayBgpSettingsInstance0BgpPeeringAddressInput` via:
+//
+//          VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs{...}
+type VpnGatewayBgpSettingsInstance0BgpPeeringAddressInput interface {
+	pulumi.Input
+
+	ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput() VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput
+	ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressOutputWithContext(context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput
+}
+
+type VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs struct {
+	// A list of custom BGP peering addresses to assign to this instance.
+	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
+	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
+	// The pre-defined id of VPN Gateway Ip Configuration.
+	IpConfigurationId pulumi.StringPtrInput `pulumi:"ipConfigurationId"`
+	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+	TunnelIps pulumi.StringArrayInput `pulumi:"tunnelIps"`
+}
+
+func (VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayBgpSettingsInstance0BgpPeeringAddress)(nil)).Elem()
+}
+
+func (i VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput() VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput {
+	return i.ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput)
+}
+
+func (i VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return i.ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput).ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(ctx)
+}
+
+// VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrInput is an input type that accepts VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs, VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtr and VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput values.
+// You can construct a concrete instance of `VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrInput` via:
+//
+//          VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrInput interface {
+	pulumi.Input
+
+	ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput
+	ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput
+}
+
+type vpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrType VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs
+
+func VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtr(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs) VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrInput {
+	return (*vpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrType)(v)
+}
+
+func (*vpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayBgpSettingsInstance0BgpPeeringAddress)(nil)).Elem()
+}
+
+func (i *vpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrType) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return i.ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrType) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput)
+}
+
+type VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayBgpSettingsInstance0BgpPeeringAddress)(nil)).Elem()
+}
+
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput() VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput {
+	return o
+}
+
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput {
+	return o
+}
+
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return o.ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(context.Background())
+}
+
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) *VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
+		return &v
+	}).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput)
+}
+
+// A list of custom BGP peering addresses to assign to this instance.
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) CustomIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string { return v.CustomIps }).(pulumi.StringArrayOutput)
+}
+
+// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) DefaultIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string { return v.DefaultIps }).(pulumi.StringArrayOutput)
+}
+
+// The pre-defined id of VPN Gateway Ip Configuration.
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) IpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) *string { return v.IpConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) TunnelIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string { return v.TunnelIps }).(pulumi.StringArrayOutput)
+}
+
+type VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayBgpSettingsInstance0BgpPeeringAddress)(nil)).Elem()
+}
+
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return o
+}
+
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) ToVpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput {
+	return o
+}
+
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) Elem() VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddress) VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
+		return *v
+	}).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput)
+}
+
+// A list of custom BGP peering addresses to assign to this instance.
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) CustomIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) DefaultIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The pre-defined id of VPN Gateway Ip Configuration.
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) IpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpConfigurationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) TunnelIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TunnelIps
+	}).(pulumi.StringArrayOutput)
+}
+
+type VpnGatewayBgpSettingsInstance1BgpPeeringAddress struct {
+	// A list of custom BGP peering addresses to assign to this instance.
+	CustomIps []string `pulumi:"customIps"`
+	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+	DefaultIps []string `pulumi:"defaultIps"`
+	// The pre-defined id of VPN Gateway Ip Configuration.
+	IpConfigurationId *string `pulumi:"ipConfigurationId"`
+	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+	TunnelIps []string `pulumi:"tunnelIps"`
+}
+
+// VpnGatewayBgpSettingsInstance1BgpPeeringAddressInput is an input type that accepts VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs and VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput values.
+// You can construct a concrete instance of `VpnGatewayBgpSettingsInstance1BgpPeeringAddressInput` via:
+//
+//          VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs{...}
+type VpnGatewayBgpSettingsInstance1BgpPeeringAddressInput interface {
+	pulumi.Input
+
+	ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput() VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput
+	ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressOutputWithContext(context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput
+}
+
+type VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs struct {
+	// A list of custom BGP peering addresses to assign to this instance.
+	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
+	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
+	// The pre-defined id of VPN Gateway Ip Configuration.
+	IpConfigurationId pulumi.StringPtrInput `pulumi:"ipConfigurationId"`
+	// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+	TunnelIps pulumi.StringArrayInput `pulumi:"tunnelIps"`
+}
+
+func (VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayBgpSettingsInstance1BgpPeeringAddress)(nil)).Elem()
+}
+
+func (i VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput() VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput {
+	return i.ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput)
+}
+
+func (i VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return i.ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(context.Background())
+}
+
+func (i VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput).ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(ctx)
+}
+
+// VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrInput is an input type that accepts VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs, VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtr and VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput values.
+// You can construct a concrete instance of `VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrInput` via:
+//
+//          VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs{...}
+//
+//  or:
+//
+//          nil
+type VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrInput interface {
+	pulumi.Input
+
+	ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput
+	ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput
+}
+
+type vpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrType VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs
+
+func VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtr(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs) VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrInput {
+	return (*vpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrType)(v)
+}
+
+func (*vpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayBgpSettingsInstance1BgpPeeringAddress)(nil)).Elem()
+}
+
+func (i *vpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrType) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return i.ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *vpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrType) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput)
+}
+
+type VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnGatewayBgpSettingsInstance1BgpPeeringAddress)(nil)).Elem()
+}
+
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput() VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput {
+	return o
+}
+
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput {
+	return o
+}
+
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return o.ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(context.Background())
+}
+
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) *VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+		return &v
+	}).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput)
+}
+
+// A list of custom BGP peering addresses to assign to this instance.
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) CustomIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string { return v.CustomIps }).(pulumi.StringArrayOutput)
+}
+
+// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) DefaultIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string { return v.DefaultIps }).(pulumi.StringArrayOutput)
+}
+
+// The pre-defined id of VPN Gateway Ip Configuration.
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) IpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) *string { return v.IpConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) TunnelIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string { return v.TunnelIps }).(pulumi.StringArrayOutput)
+}
+
+type VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnGatewayBgpSettingsInstance1BgpPeeringAddress)(nil)).Elem()
+}
+
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput() VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return o
+}
+
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) ToVpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutputWithContext(ctx context.Context) VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput {
+	return o
+}
+
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) Elem() VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddress) VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+		return *v
+	}).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput)
+}
+
+// A list of custom BGP peering addresses to assign to this instance.
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) CustomIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) DefaultIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The pre-defined id of VPN Gateway Ip Configuration.
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) IpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpConfigurationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) TunnelIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TunnelIps
+	}).(pulumi.StringArrayOutput)
 }
 
 type VpnServerConfigurationAzureActiveDirectoryAuthentication struct {
@@ -15796,7 +18099,8 @@ type GetPublicIPsPublicIp struct {
 	// The FQDN of the Public IP Address
 	Fqdn string `pulumi:"fqdn"`
 	// The ID of the Public IP Address
-	Id        string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The IP address of the Public IP Address
 	IpAddress string `pulumi:"ipAddress"`
 	// The Name of the Public IP Address
 	Name string `pulumi:"name"`
@@ -15819,7 +18123,8 @@ type GetPublicIPsPublicIpArgs struct {
 	// The FQDN of the Public IP Address
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
 	// The ID of the Public IP Address
-	Id        pulumi.StringInput `pulumi:"id"`
+	Id pulumi.StringInput `pulumi:"id"`
+	// The IP address of the Public IP Address
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The Name of the Public IP Address
 	Name pulumi.StringInput `pulumi:"name"`
@@ -15891,6 +18196,7 @@ func (o GetPublicIPsPublicIpOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPsPublicIp) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The IP address of the Public IP Address
 func (o GetPublicIPsPublicIpOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIPsPublicIp) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -16166,6 +18472,380 @@ func (o GetRouteTableRouteArrayOutput) Index(i pulumi.IntInput) GetRouteTableRou
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableRoute {
 		return vs[0].([]GetRouteTableRoute)[vs[1].(int)]
 	}).(GetRouteTableRouteOutput)
+}
+
+type GetTrafficManagerProfileDnsConfig struct {
+	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below.
+	RelativeName string `pulumi:"relativeName"`
+	// The TTL value of the Profile used by Local DNS resolvers and clients.
+	Ttl int `pulumi:"ttl"`
+}
+
+// GetTrafficManagerProfileDnsConfigInput is an input type that accepts GetTrafficManagerProfileDnsConfigArgs and GetTrafficManagerProfileDnsConfigOutput values.
+// You can construct a concrete instance of `GetTrafficManagerProfileDnsConfigInput` via:
+//
+//          GetTrafficManagerProfileDnsConfigArgs{...}
+type GetTrafficManagerProfileDnsConfigInput interface {
+	pulumi.Input
+
+	ToGetTrafficManagerProfileDnsConfigOutput() GetTrafficManagerProfileDnsConfigOutput
+	ToGetTrafficManagerProfileDnsConfigOutputWithContext(context.Context) GetTrafficManagerProfileDnsConfigOutput
+}
+
+type GetTrafficManagerProfileDnsConfigArgs struct {
+	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below.
+	RelativeName pulumi.StringInput `pulumi:"relativeName"`
+	// The TTL value of the Profile used by Local DNS resolvers and clients.
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+}
+
+func (GetTrafficManagerProfileDnsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficManagerProfileDnsConfig)(nil)).Elem()
+}
+
+func (i GetTrafficManagerProfileDnsConfigArgs) ToGetTrafficManagerProfileDnsConfigOutput() GetTrafficManagerProfileDnsConfigOutput {
+	return i.ToGetTrafficManagerProfileDnsConfigOutputWithContext(context.Background())
+}
+
+func (i GetTrafficManagerProfileDnsConfigArgs) ToGetTrafficManagerProfileDnsConfigOutputWithContext(ctx context.Context) GetTrafficManagerProfileDnsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficManagerProfileDnsConfigOutput)
+}
+
+// GetTrafficManagerProfileDnsConfigArrayInput is an input type that accepts GetTrafficManagerProfileDnsConfigArray and GetTrafficManagerProfileDnsConfigArrayOutput values.
+// You can construct a concrete instance of `GetTrafficManagerProfileDnsConfigArrayInput` via:
+//
+//          GetTrafficManagerProfileDnsConfigArray{ GetTrafficManagerProfileDnsConfigArgs{...} }
+type GetTrafficManagerProfileDnsConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficManagerProfileDnsConfigArrayOutput() GetTrafficManagerProfileDnsConfigArrayOutput
+	ToGetTrafficManagerProfileDnsConfigArrayOutputWithContext(context.Context) GetTrafficManagerProfileDnsConfigArrayOutput
+}
+
+type GetTrafficManagerProfileDnsConfigArray []GetTrafficManagerProfileDnsConfigInput
+
+func (GetTrafficManagerProfileDnsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficManagerProfileDnsConfig)(nil)).Elem()
+}
+
+func (i GetTrafficManagerProfileDnsConfigArray) ToGetTrafficManagerProfileDnsConfigArrayOutput() GetTrafficManagerProfileDnsConfigArrayOutput {
+	return i.ToGetTrafficManagerProfileDnsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficManagerProfileDnsConfigArray) ToGetTrafficManagerProfileDnsConfigArrayOutputWithContext(ctx context.Context) GetTrafficManagerProfileDnsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficManagerProfileDnsConfigArrayOutput)
+}
+
+type GetTrafficManagerProfileDnsConfigOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficManagerProfileDnsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficManagerProfileDnsConfig)(nil)).Elem()
+}
+
+func (o GetTrafficManagerProfileDnsConfigOutput) ToGetTrafficManagerProfileDnsConfigOutput() GetTrafficManagerProfileDnsConfigOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileDnsConfigOutput) ToGetTrafficManagerProfileDnsConfigOutputWithContext(ctx context.Context) GetTrafficManagerProfileDnsConfigOutput {
+	return o
+}
+
+// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below.
+func (o GetTrafficManagerProfileDnsConfigOutput) RelativeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileDnsConfig) string { return v.RelativeName }).(pulumi.StringOutput)
+}
+
+// The TTL value of the Profile used by Local DNS resolvers and clients.
+func (o GetTrafficManagerProfileDnsConfigOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileDnsConfig) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+type GetTrafficManagerProfileDnsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficManagerProfileDnsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficManagerProfileDnsConfig)(nil)).Elem()
+}
+
+func (o GetTrafficManagerProfileDnsConfigArrayOutput) ToGetTrafficManagerProfileDnsConfigArrayOutput() GetTrafficManagerProfileDnsConfigArrayOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileDnsConfigArrayOutput) ToGetTrafficManagerProfileDnsConfigArrayOutputWithContext(ctx context.Context) GetTrafficManagerProfileDnsConfigArrayOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileDnsConfigArrayOutput) Index(i pulumi.IntInput) GetTrafficManagerProfileDnsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficManagerProfileDnsConfig {
+		return vs[0].([]GetTrafficManagerProfileDnsConfig)[vs[1].(int)]
+	}).(GetTrafficManagerProfileDnsConfigOutput)
+}
+
+type GetTrafficManagerProfileMonitorConfig struct {
+	// One or more `customHeader` blocks as defined below.
+	CustomHeaders []GetTrafficManagerProfileMonitorConfigCustomHeader `pulumi:"customHeaders"`
+	// A list of status code ranges.
+	ExpectedStatusCodeRanges []string `pulumi:"expectedStatusCodeRanges"`
+	// The interval used to check the endpoint health from a Traffic Manager probing agent.
+	IntervalInSeconds int `pulumi:"intervalInSeconds"`
+	// The path used by the monitoring checks.
+	Path string `pulumi:"path"`
+	// The port number used by the monitoring checks.
+	Port int `pulumi:"port"`
+	// The protocol used by the monitoring checks.
+	Protocol string `pulumi:"protocol"`
+	// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint.
+	TimeoutInSeconds int `pulumi:"timeoutInSeconds"`
+	// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy.
+	ToleratedNumberOfFailures int `pulumi:"toleratedNumberOfFailures"`
+}
+
+// GetTrafficManagerProfileMonitorConfigInput is an input type that accepts GetTrafficManagerProfileMonitorConfigArgs and GetTrafficManagerProfileMonitorConfigOutput values.
+// You can construct a concrete instance of `GetTrafficManagerProfileMonitorConfigInput` via:
+//
+//          GetTrafficManagerProfileMonitorConfigArgs{...}
+type GetTrafficManagerProfileMonitorConfigInput interface {
+	pulumi.Input
+
+	ToGetTrafficManagerProfileMonitorConfigOutput() GetTrafficManagerProfileMonitorConfigOutput
+	ToGetTrafficManagerProfileMonitorConfigOutputWithContext(context.Context) GetTrafficManagerProfileMonitorConfigOutput
+}
+
+type GetTrafficManagerProfileMonitorConfigArgs struct {
+	// One or more `customHeader` blocks as defined below.
+	CustomHeaders GetTrafficManagerProfileMonitorConfigCustomHeaderArrayInput `pulumi:"customHeaders"`
+	// A list of status code ranges.
+	ExpectedStatusCodeRanges pulumi.StringArrayInput `pulumi:"expectedStatusCodeRanges"`
+	// The interval used to check the endpoint health from a Traffic Manager probing agent.
+	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
+	// The path used by the monitoring checks.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The port number used by the monitoring checks.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol used by the monitoring checks.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint.
+	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
+	// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy.
+	ToleratedNumberOfFailures pulumi.IntInput `pulumi:"toleratedNumberOfFailures"`
+}
+
+func (GetTrafficManagerProfileMonitorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficManagerProfileMonitorConfig)(nil)).Elem()
+}
+
+func (i GetTrafficManagerProfileMonitorConfigArgs) ToGetTrafficManagerProfileMonitorConfigOutput() GetTrafficManagerProfileMonitorConfigOutput {
+	return i.ToGetTrafficManagerProfileMonitorConfigOutputWithContext(context.Background())
+}
+
+func (i GetTrafficManagerProfileMonitorConfigArgs) ToGetTrafficManagerProfileMonitorConfigOutputWithContext(ctx context.Context) GetTrafficManagerProfileMonitorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficManagerProfileMonitorConfigOutput)
+}
+
+// GetTrafficManagerProfileMonitorConfigArrayInput is an input type that accepts GetTrafficManagerProfileMonitorConfigArray and GetTrafficManagerProfileMonitorConfigArrayOutput values.
+// You can construct a concrete instance of `GetTrafficManagerProfileMonitorConfigArrayInput` via:
+//
+//          GetTrafficManagerProfileMonitorConfigArray{ GetTrafficManagerProfileMonitorConfigArgs{...} }
+type GetTrafficManagerProfileMonitorConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficManagerProfileMonitorConfigArrayOutput() GetTrafficManagerProfileMonitorConfigArrayOutput
+	ToGetTrafficManagerProfileMonitorConfigArrayOutputWithContext(context.Context) GetTrafficManagerProfileMonitorConfigArrayOutput
+}
+
+type GetTrafficManagerProfileMonitorConfigArray []GetTrafficManagerProfileMonitorConfigInput
+
+func (GetTrafficManagerProfileMonitorConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficManagerProfileMonitorConfig)(nil)).Elem()
+}
+
+func (i GetTrafficManagerProfileMonitorConfigArray) ToGetTrafficManagerProfileMonitorConfigArrayOutput() GetTrafficManagerProfileMonitorConfigArrayOutput {
+	return i.ToGetTrafficManagerProfileMonitorConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficManagerProfileMonitorConfigArray) ToGetTrafficManagerProfileMonitorConfigArrayOutputWithContext(ctx context.Context) GetTrafficManagerProfileMonitorConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficManagerProfileMonitorConfigArrayOutput)
+}
+
+type GetTrafficManagerProfileMonitorConfigOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficManagerProfileMonitorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficManagerProfileMonitorConfig)(nil)).Elem()
+}
+
+func (o GetTrafficManagerProfileMonitorConfigOutput) ToGetTrafficManagerProfileMonitorConfigOutput() GetTrafficManagerProfileMonitorConfigOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileMonitorConfigOutput) ToGetTrafficManagerProfileMonitorConfigOutputWithContext(ctx context.Context) GetTrafficManagerProfileMonitorConfigOutput {
+	return o
+}
+
+// One or more `customHeader` blocks as defined below.
+func (o GetTrafficManagerProfileMonitorConfigOutput) CustomHeaders() GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfig) []GetTrafficManagerProfileMonitorConfigCustomHeader {
+		return v.CustomHeaders
+	}).(GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput)
+}
+
+// A list of status code ranges.
+func (o GetTrafficManagerProfileMonitorConfigOutput) ExpectedStatusCodeRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfig) []string { return v.ExpectedStatusCodeRanges }).(pulumi.StringArrayOutput)
+}
+
+// The interval used to check the endpoint health from a Traffic Manager probing agent.
+func (o GetTrafficManagerProfileMonitorConfigOutput) IntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfig) int { return v.IntervalInSeconds }).(pulumi.IntOutput)
+}
+
+// The path used by the monitoring checks.
+func (o GetTrafficManagerProfileMonitorConfigOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfig) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The port number used by the monitoring checks.
+func (o GetTrafficManagerProfileMonitorConfigOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfig) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The protocol used by the monitoring checks.
+func (o GetTrafficManagerProfileMonitorConfigOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfig) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint.
+func (o GetTrafficManagerProfileMonitorConfigOutput) TimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfig) int { return v.TimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+// The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy.
+func (o GetTrafficManagerProfileMonitorConfigOutput) ToleratedNumberOfFailures() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfig) int { return v.ToleratedNumberOfFailures }).(pulumi.IntOutput)
+}
+
+type GetTrafficManagerProfileMonitorConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficManagerProfileMonitorConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficManagerProfileMonitorConfig)(nil)).Elem()
+}
+
+func (o GetTrafficManagerProfileMonitorConfigArrayOutput) ToGetTrafficManagerProfileMonitorConfigArrayOutput() GetTrafficManagerProfileMonitorConfigArrayOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileMonitorConfigArrayOutput) ToGetTrafficManagerProfileMonitorConfigArrayOutputWithContext(ctx context.Context) GetTrafficManagerProfileMonitorConfigArrayOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileMonitorConfigArrayOutput) Index(i pulumi.IntInput) GetTrafficManagerProfileMonitorConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficManagerProfileMonitorConfig {
+		return vs[0].([]GetTrafficManagerProfileMonitorConfig)[vs[1].(int)]
+	}).(GetTrafficManagerProfileMonitorConfigOutput)
+}
+
+type GetTrafficManagerProfileMonitorConfigCustomHeader struct {
+	// Specifies the name of the Traffic Manager Profile.
+	Name string `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value string `pulumi:"value"`
+}
+
+// GetTrafficManagerProfileMonitorConfigCustomHeaderInput is an input type that accepts GetTrafficManagerProfileMonitorConfigCustomHeaderArgs and GetTrafficManagerProfileMonitorConfigCustomHeaderOutput values.
+// You can construct a concrete instance of `GetTrafficManagerProfileMonitorConfigCustomHeaderInput` via:
+//
+//          GetTrafficManagerProfileMonitorConfigCustomHeaderArgs{...}
+type GetTrafficManagerProfileMonitorConfigCustomHeaderInput interface {
+	pulumi.Input
+
+	ToGetTrafficManagerProfileMonitorConfigCustomHeaderOutput() GetTrafficManagerProfileMonitorConfigCustomHeaderOutput
+	ToGetTrafficManagerProfileMonitorConfigCustomHeaderOutputWithContext(context.Context) GetTrafficManagerProfileMonitorConfigCustomHeaderOutput
+}
+
+type GetTrafficManagerProfileMonitorConfigCustomHeaderArgs struct {
+	// Specifies the name of the Traffic Manager Profile.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of custom header. Applicable for Http and Https protocol.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetTrafficManagerProfileMonitorConfigCustomHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (i GetTrafficManagerProfileMonitorConfigCustomHeaderArgs) ToGetTrafficManagerProfileMonitorConfigCustomHeaderOutput() GetTrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return i.ToGetTrafficManagerProfileMonitorConfigCustomHeaderOutputWithContext(context.Background())
+}
+
+func (i GetTrafficManagerProfileMonitorConfigCustomHeaderArgs) ToGetTrafficManagerProfileMonitorConfigCustomHeaderOutputWithContext(ctx context.Context) GetTrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficManagerProfileMonitorConfigCustomHeaderOutput)
+}
+
+// GetTrafficManagerProfileMonitorConfigCustomHeaderArrayInput is an input type that accepts GetTrafficManagerProfileMonitorConfigCustomHeaderArray and GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput values.
+// You can construct a concrete instance of `GetTrafficManagerProfileMonitorConfigCustomHeaderArrayInput` via:
+//
+//          GetTrafficManagerProfileMonitorConfigCustomHeaderArray{ GetTrafficManagerProfileMonitorConfigCustomHeaderArgs{...} }
+type GetTrafficManagerProfileMonitorConfigCustomHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput() GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput
+	ToGetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutputWithContext(context.Context) GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput
+}
+
+type GetTrafficManagerProfileMonitorConfigCustomHeaderArray []GetTrafficManagerProfileMonitorConfigCustomHeaderInput
+
+func (GetTrafficManagerProfileMonitorConfigCustomHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficManagerProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (i GetTrafficManagerProfileMonitorConfigCustomHeaderArray) ToGetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput() GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return i.ToGetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficManagerProfileMonitorConfigCustomHeaderArray) ToGetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutputWithContext(ctx context.Context) GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput)
+}
+
+type GetTrafficManagerProfileMonitorConfigCustomHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficManagerProfileMonitorConfigCustomHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (o GetTrafficManagerProfileMonitorConfigCustomHeaderOutput) ToGetTrafficManagerProfileMonitorConfigCustomHeaderOutput() GetTrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileMonitorConfigCustomHeaderOutput) ToGetTrafficManagerProfileMonitorConfigCustomHeaderOutputWithContext(ctx context.Context) GetTrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return o
+}
+
+// Specifies the name of the Traffic Manager Profile.
+func (o GetTrafficManagerProfileMonitorConfigCustomHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfigCustomHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of custom header. Applicable for Http and Https protocol.
+func (o GetTrafficManagerProfileMonitorConfigCustomHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficManagerProfileMonitorConfigCustomHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficManagerProfileMonitorConfigCustomHeader)(nil)).Elem()
+}
+
+func (o GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) ToGetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput() GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) ToGetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutputWithContext(ctx context.Context) GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput {
+	return o
+}
+
+func (o GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) Index(i pulumi.IntInput) GetTrafficManagerProfileMonitorConfigCustomHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficManagerProfileMonitorConfigCustomHeader {
+		return vs[0].([]GetTrafficManagerProfileMonitorConfigCustomHeader)[vs[1].(int)]
+	}).(GetTrafficManagerProfileMonitorConfigCustomHeaderOutput)
 }
 
 type GetVirtualNetworkGatewayBgpSetting struct {
@@ -16977,8 +19657,28 @@ func init() {
 	pulumi.RegisterOutputType(LocalNetworkGatewayBgpSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorDestinationOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorDestinationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointArrayOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointFilterOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointFilterPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointFilterItemOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorEndpointFilterItemArrayOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorSourceOutput{})
 	pulumi.RegisterOutputType(NetworkConnectionMonitorSourcePtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationHttpConfigurationOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationHttpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrayOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationIcmpConfigurationOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationIcmpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationSuccessThresholdOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationSuccessThresholdPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationTcpConfigurationOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestConfigurationTcpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestGroupOutput{})
+	pulumi.RegisterOutputType(NetworkConnectionMonitorTestGroupArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkPacketCaptureFilterOutput{})
@@ -16997,6 +19697,10 @@ func init() {
 	pulumi.RegisterOutputType(PacketCaptureStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRouteOutput{})
+	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRoutePtrOutput{})
+	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableOutput{})
+	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTablePtrOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolOutput{})
 	pulumi.RegisterOutputType(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolPtrOutput{})
 	pulumi.RegisterOutputType(ProfileContainerNetworkInterfaceOutput{})
@@ -17048,8 +19752,12 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetArrayOutput{})
-	pulumi.RegisterOutputType(VpnGatewayBgpSettingOutput{})
-	pulumi.RegisterOutputType(VpnGatewayBgpSettingArrayOutput{})
+	pulumi.RegisterOutputType(VpnGatewayBgpSettingsOutput{})
+	pulumi.RegisterOutputType(VpnGatewayBgpSettingsPtrOutput{})
+	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput{})
+	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput{})
+	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput{})
+	pulumi.RegisterOutputType(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationAzureActiveDirectoryAuthenticationOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigurationClientRevokedCertificateOutput{})
@@ -17092,6 +19800,12 @@ func init() {
 	pulumi.RegisterOutputType(GetRouteFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableRouteOutput{})
 	pulumi.RegisterOutputType(GetRouteTableRouteArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficManagerProfileDnsConfigOutput{})
+	pulumi.RegisterOutputType(GetTrafficManagerProfileDnsConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigOutput{})
+	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigCustomHeaderOutput{})
+	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayBgpSettingOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayBgpSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualNetworkGatewayIpConfigurationOutput{})

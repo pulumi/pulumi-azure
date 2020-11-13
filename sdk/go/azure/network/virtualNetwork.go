@@ -95,6 +95,8 @@ type VirtualNetwork struct {
 
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
+	// The BGP community attribute in format `<as-number>:<community-value>`.
+	BgpCommunity pulumi.StringPtrOutput `pulumi:"bgpCommunity"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrOutput `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
@@ -111,6 +113,8 @@ type VirtualNetwork struct {
 	Subnets VirtualNetworkSubnetArrayOutput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	VmProtectionEnabled pulumi.BoolPtrOutput `pulumi:"vmProtectionEnabled"`
 }
 
 // NewVirtualNetwork registers a new resource with the given unique name, arguments, and options.
@@ -149,6 +153,8 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 type virtualNetworkState struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces []string `pulumi:"addressSpaces"`
+	// The BGP community attribute in format `<as-number>:<community-value>`.
+	BgpCommunity *string `pulumi:"bgpCommunity"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
@@ -165,11 +171,15 @@ type virtualNetworkState struct {
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	VmProtectionEnabled *bool `pulumi:"vmProtectionEnabled"`
 }
 
 type VirtualNetworkState struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayInput
+	// The BGP community attribute in format `<as-number>:<community-value>`.
+	BgpCommunity pulumi.StringPtrInput
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
@@ -186,6 +196,8 @@ type VirtualNetworkState struct {
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	VmProtectionEnabled pulumi.BoolPtrInput
 }
 
 func (VirtualNetworkState) ElementType() reflect.Type {
@@ -195,6 +207,8 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 type virtualNetworkArgs struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces []string `pulumi:"addressSpaces"`
+	// The BGP community attribute in format `<as-number>:<community-value>`.
+	BgpCommunity *string `pulumi:"bgpCommunity"`
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan *VirtualNetworkDdosProtectionPlan `pulumi:"ddosProtectionPlan"`
 	// List of IP addresses of DNS servers
@@ -209,12 +223,16 @@ type virtualNetworkArgs struct {
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	VmProtectionEnabled *bool `pulumi:"vmProtectionEnabled"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	AddressSpaces pulumi.StringArrayInput
+	// The BGP community attribute in format `<as-number>:<community-value>`.
+	BgpCommunity pulumi.StringPtrInput
 	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan VirtualNetworkDdosProtectionPlanPtrInput
 	// List of IP addresses of DNS servers
@@ -229,6 +247,8 @@ type VirtualNetworkArgs struct {
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	VmProtectionEnabled pulumi.BoolPtrInput
 }
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {

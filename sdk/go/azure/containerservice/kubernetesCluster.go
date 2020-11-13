@@ -106,7 +106,7 @@ type KubernetesCluster struct {
 	PrivateClusterEnabled pulumi.BoolOutput `pulumi:"privateClusterEnabled"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn pulumi.StringOutput `pulumi:"privateFqdn"`
-	// Deprecated: Deprecated in favor of `private_cluster_enabled`
+	// Deprecated: Deprecated in favour of `private_cluster_enabled`
 	PrivateLinkEnabled pulumi.BoolOutput `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -202,7 +202,7 @@ type kubernetesClusterState struct {
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn *string `pulumi:"privateFqdn"`
-	// Deprecated: Deprecated in favor of `private_cluster_enabled`
+	// Deprecated: Deprecated in favour of `private_cluster_enabled`
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -262,7 +262,7 @@ type KubernetesClusterState struct {
 	PrivateClusterEnabled pulumi.BoolPtrInput
 	// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
 	PrivateFqdn pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of `private_cluster_enabled`
+	// Deprecated: Deprecated in favour of `private_cluster_enabled`
 	PrivateLinkEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -312,7 +312,7 @@ type kubernetesClusterArgs struct {
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled *bool `pulumi:"privateClusterEnabled"`
-	// Deprecated: Deprecated in favor of `private_cluster_enabled`
+	// Deprecated: Deprecated in favour of `private_cluster_enabled`
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -359,7 +359,7 @@ type KubernetesClusterArgs struct {
 	NodeResourceGroup pulumi.StringPtrInput
 	// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateClusterEnabled pulumi.BoolPtrInput
-	// Deprecated: Deprecated in favor of `private_cluster_enabled`
+	// Deprecated: Deprecated in favour of `private_cluster_enabled`
 	PrivateLinkEnabled pulumi.BoolPtrInput
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

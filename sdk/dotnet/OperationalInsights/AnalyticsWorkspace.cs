@@ -41,10 +41,19 @@ namespace Pulumi.Azure.OperationalInsights
     public partial class AnalyticsWorkspace : Pulumi.CustomResource
     {
         /// <summary>
-        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         /// </summary>
         [Output("dailyQuotaGb")]
         public Output<double?> DailyQuotaGb { get; private set; } = null!;
+
+        [Output("internetIngestionEnabled")]
+        public Output<bool?> InternetIngestionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        /// </summary>
+        [Output("internetQueryEnabled")]
+        public Output<bool?> InternetQueryEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -150,10 +159,19 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class AnalyticsWorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         /// </summary>
         [Input("dailyQuotaGb")]
         public Input<double>? DailyQuotaGb { get; set; }
+
+        [Input("internetIngestionEnabled")]
+        public Input<bool>? InternetIngestionEnabled { get; set; }
+
+        /// <summary>
+        /// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        /// </summary>
+        [Input("internetQueryEnabled")]
+        public Input<bool>? InternetQueryEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -205,10 +223,19 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class AnalyticsWorkspaceState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
+        /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         /// </summary>
         [Input("dailyQuotaGb")]
         public Input<double>? DailyQuotaGb { get; set; }
+
+        [Input("internetIngestionEnabled")]
+        public Input<bool>? InternetIngestionEnabled { get; set; }
+
+        /// <summary>
+        /// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        /// </summary>
+        [Input("internetQueryEnabled")]
+        public Input<bool>? InternetQueryEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

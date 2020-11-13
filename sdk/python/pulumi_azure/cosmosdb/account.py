@@ -25,6 +25,7 @@ class Account(pulumi.CustomResource):
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -93,6 +94,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
+        :param pulumi.Input[str] key_vault_key_id: A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -130,6 +132,7 @@ class Account(pulumi.CustomResource):
             __props__['geo_locations'] = geo_locations
             __props__['ip_range_filter'] = ip_range_filter
             __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
+            __props__['key_vault_key_id'] = key_vault_key_id
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['name'] = name
@@ -173,6 +176,7 @@ class Account(pulumi.CustomResource):
             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
             ip_range_filter: Optional[pulumi.Input[str]] = None,
             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+            key_vault_key_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -207,6 +211,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
+        :param pulumi.Input[str] key_vault_key_id: A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -235,6 +240,7 @@ class Account(pulumi.CustomResource):
         __props__["geo_locations"] = geo_locations
         __props__["ip_range_filter"] = ip_range_filter
         __props__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
+        __props__["key_vault_key_id"] = key_vault_key_id
         __props__["kind"] = kind
         __props__["location"] = location
         __props__["name"] = name
@@ -333,6 +339,14 @@ class Account(pulumi.CustomResource):
         Enables virtual network filtering for this Cosmos DB account.
         """
         return pulumi.get(self, "is_virtual_network_filter_enabled")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        A Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_key_id")
 
     @property
     @pulumi.getter

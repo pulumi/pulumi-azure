@@ -47,8 +47,11 @@ import (
 type AnalyticsWorkspace struct {
 	pulumi.CustomResourceState
 
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
-	DailyQuotaGb pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
+	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	DailyQuotaGb             pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
+	InternetIngestionEnabled pulumi.BoolPtrOutput    `pulumi:"internetIngestionEnabled"`
+	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	InternetQueryEnabled pulumi.BoolPtrOutput `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -102,8 +105,11 @@ func GetAnalyticsWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsWorkspace resources.
 type analyticsWorkspaceState struct {
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
-	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
+	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	DailyQuotaGb             *float64 `pulumi:"dailyQuotaGb"`
+	InternetIngestionEnabled *bool    `pulumi:"internetIngestionEnabled"`
+	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -127,8 +133,11 @@ type analyticsWorkspaceState struct {
 }
 
 type AnalyticsWorkspaceState struct {
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
-	DailyQuotaGb pulumi.Float64PtrInput
+	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	DailyQuotaGb             pulumi.Float64PtrInput
+	InternetIngestionEnabled pulumi.BoolPtrInput
+	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	InternetQueryEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -156,8 +165,11 @@ func (AnalyticsWorkspaceState) ElementType() reflect.Type {
 }
 
 type analyticsWorkspaceArgs struct {
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
-	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
+	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	DailyQuotaGb             *float64 `pulumi:"dailyQuotaGb"`
+	InternetIngestionEnabled *bool    `pulumi:"internetIngestionEnabled"`
+	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	InternetQueryEnabled *bool `pulumi:"internetQueryEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
@@ -174,8 +186,11 @@ type analyticsWorkspaceArgs struct {
 
 // The set of arguments for constructing a AnalyticsWorkspace resource.
 type AnalyticsWorkspaceArgs struct {
-	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited).
-	DailyQuotaGb pulumi.Float64PtrInput
+	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+	DailyQuotaGb             pulumi.Float64PtrInput
+	InternetIngestionEnabled pulumi.BoolPtrInput
+	// Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+	InternetQueryEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.

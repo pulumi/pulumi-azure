@@ -16,10 +16,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         /// </summary>
-        public readonly string StorageAccountUri;
+        public readonly string? StorageAccountUri;
 
         [OutputConstructor]
-        private WindowsVirtualMachineBootDiagnostics(string storageAccountUri)
+        private WindowsVirtualMachineBootDiagnostics(string? storageAccountUri)
         {
             StorageAccountUri = storageAccountUri;
         }

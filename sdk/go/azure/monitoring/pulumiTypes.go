@@ -8645,6 +8645,175 @@ func (o ScheduledQueryRulesLogCriteriaDimensionArrayOutput) Index(i pulumi.IntIn
 	}).(ScheduledQueryRulesLogCriteriaDimensionOutput)
 }
 
+type SmartDetectorAlertRuleActionGroup struct {
+	// Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+	EmailSubject *string `pulumi:"emailSubject"`
+	// Specifies the action group ids.
+	Ids []string `pulumi:"ids"`
+	// A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+	WebhookPayload *string `pulumi:"webhookPayload"`
+}
+
+// SmartDetectorAlertRuleActionGroupInput is an input type that accepts SmartDetectorAlertRuleActionGroupArgs and SmartDetectorAlertRuleActionGroupOutput values.
+// You can construct a concrete instance of `SmartDetectorAlertRuleActionGroupInput` via:
+//
+//          SmartDetectorAlertRuleActionGroupArgs{...}
+type SmartDetectorAlertRuleActionGroupInput interface {
+	pulumi.Input
+
+	ToSmartDetectorAlertRuleActionGroupOutput() SmartDetectorAlertRuleActionGroupOutput
+	ToSmartDetectorAlertRuleActionGroupOutputWithContext(context.Context) SmartDetectorAlertRuleActionGroupOutput
+}
+
+type SmartDetectorAlertRuleActionGroupArgs struct {
+	// Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
+	// Specifies the action group ids.
+	Ids pulumi.StringArrayInput `pulumi:"ids"`
+	// A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+	WebhookPayload pulumi.StringPtrInput `pulumi:"webhookPayload"`
+}
+
+func (SmartDetectorAlertRuleActionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmartDetectorAlertRuleActionGroup)(nil)).Elem()
+}
+
+func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGroupOutput() SmartDetectorAlertRuleActionGroupOutput {
+	return i.ToSmartDetectorAlertRuleActionGroupOutputWithContext(context.Background())
+}
+
+func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGroupOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleActionGroupOutput)
+}
+
+func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
+	return i.ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Background())
+}
+
+func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleActionGroupOutput).ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx)
+}
+
+// SmartDetectorAlertRuleActionGroupPtrInput is an input type that accepts SmartDetectorAlertRuleActionGroupArgs, SmartDetectorAlertRuleActionGroupPtr and SmartDetectorAlertRuleActionGroupPtrOutput values.
+// You can construct a concrete instance of `SmartDetectorAlertRuleActionGroupPtrInput` via:
+//
+//          SmartDetectorAlertRuleActionGroupArgs{...}
+//
+//  or:
+//
+//          nil
+type SmartDetectorAlertRuleActionGroupPtrInput interface {
+	pulumi.Input
+
+	ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput
+	ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Context) SmartDetectorAlertRuleActionGroupPtrOutput
+}
+
+type smartDetectorAlertRuleActionGroupPtrType SmartDetectorAlertRuleActionGroupArgs
+
+func SmartDetectorAlertRuleActionGroupPtr(v *SmartDetectorAlertRuleActionGroupArgs) SmartDetectorAlertRuleActionGroupPtrInput {
+	return (*smartDetectorAlertRuleActionGroupPtrType)(v)
+}
+
+func (*smartDetectorAlertRuleActionGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmartDetectorAlertRuleActionGroup)(nil)).Elem()
+}
+
+func (i *smartDetectorAlertRuleActionGroupPtrType) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
+	return i.ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *smartDetectorAlertRuleActionGroupPtrType) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleActionGroupPtrOutput)
+}
+
+type SmartDetectorAlertRuleActionGroupOutput struct{ *pulumi.OutputState }
+
+func (SmartDetectorAlertRuleActionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmartDetectorAlertRuleActionGroup)(nil)).Elem()
+}
+
+func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionGroupOutput() SmartDetectorAlertRuleActionGroupOutput {
+	return o
+}
+
+func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionGroupOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupOutput {
+	return o
+}
+
+func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
+	return o.ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Background())
+}
+
+func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
+	return o.ApplyT(func(v SmartDetectorAlertRuleActionGroup) *SmartDetectorAlertRuleActionGroup {
+		return &v
+	}).(SmartDetectorAlertRuleActionGroupPtrOutput)
+}
+
+// Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+func (o SmartDetectorAlertRuleActionGroupOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmartDetectorAlertRuleActionGroup) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action group ids.
+func (o SmartDetectorAlertRuleActionGroupOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SmartDetectorAlertRuleActionGroup) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+// A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+func (o SmartDetectorAlertRuleActionGroupOutput) WebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmartDetectorAlertRuleActionGroup) *string { return v.WebhookPayload }).(pulumi.StringPtrOutput)
+}
+
+type SmartDetectorAlertRuleActionGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (SmartDetectorAlertRuleActionGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmartDetectorAlertRuleActionGroup)(nil)).Elem()
+}
+
+func (o SmartDetectorAlertRuleActionGroupPtrOutput) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
+	return o
+}
+
+func (o SmartDetectorAlertRuleActionGroupPtrOutput) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
+	return o
+}
+
+func (o SmartDetectorAlertRuleActionGroupPtrOutput) Elem() SmartDetectorAlertRuleActionGroupOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) SmartDetectorAlertRuleActionGroup { return *v }).(SmartDetectorAlertRuleActionGroupOutput)
+}
+
+// Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+func (o SmartDetectorAlertRuleActionGroupPtrOutput) EmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSubject
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action group ids.
+func (o SmartDetectorAlertRuleActionGroupPtrOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+func (o SmartDetectorAlertRuleActionGroupPtrOutput) WebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRuleActionGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebhookPayload
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetActionGroupArmRoleReceiver struct {
 	// Specifies the name of the Action Group.
 	Name string `pulumi:"name"`
@@ -10657,6 +10826,8 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaDimensionOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaDimensionArrayOutput{})
+	pulumi.RegisterOutputType(SmartDetectorAlertRuleActionGroupOutput{})
+	pulumi.RegisterOutputType(SmartDetectorAlertRuleActionGroupPtrOutput{})
 	pulumi.RegisterOutputType(GetActionGroupArmRoleReceiverOutput{})
 	pulumi.RegisterOutputType(GetActionGroupArmRoleReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupAutomationRunbookReceiverOutput{})

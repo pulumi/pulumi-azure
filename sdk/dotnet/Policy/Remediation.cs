@@ -109,6 +109,12 @@ namespace Pulumi.Azure.Policy
         public Output<string?> PolicyDefinitionReferenceId { get; private set; } = null!;
 
         /// <summary>
+        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        /// </summary>
+        [Output("resourceDiscoveryMode")]
+        public Output<string?> ResourceDiscoveryMode { get; private set; } = null!;
+
+        /// <summary>
         /// The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
         /// </summary>
         [Output("scope")]
@@ -191,6 +197,12 @@ namespace Pulumi.Azure.Policy
         public Input<string>? PolicyDefinitionReferenceId { get; set; }
 
         /// <summary>
+        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        /// </summary>
+        [Input("resourceDiscoveryMode")]
+        public Input<string>? ResourceDiscoveryMode { get; set; }
+
+        /// <summary>
         /// The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
         /// </summary>
         [Input("scope", required: true)]
@@ -232,6 +244,12 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("policyDefinitionReferenceId")]
         public Input<string>? PolicyDefinitionReferenceId { get; set; }
+
+        /// <summary>
+        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        /// </summary>
+        [Input("resourceDiscoveryMode")]
+        public Input<string>? ResourceDiscoveryMode { get; set; }
 
         /// <summary>
         /// The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:

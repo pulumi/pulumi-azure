@@ -3623,7 +3623,7 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) ScanInterval() pulumi.Strin
 }
 
 type KubernetesClusterDefaultNodePool struct {
-	// A list of Availability Zones across which the Node Pool should be spread.
+	// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
@@ -3645,7 +3645,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
-	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
+	OsDiskSizeGb              *int    `pulumi:"osDiskSizeGb"`
+	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
@@ -3668,7 +3669,7 @@ type KubernetesClusterDefaultNodePoolInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolArgs struct {
-	// A list of Availability Zones across which the Node Pool should be spread.
+	// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
@@ -3690,7 +3691,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
-	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
+	OsDiskSizeGb              pulumi.IntPtrInput    `pulumi:"osDiskSizeGb"`
+	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
@@ -3778,7 +3780,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 
-// A list of Availability Zones across which the Node Pool should be spread.
+// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -3837,6 +3839,10 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntPtrOutp
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
+func (o KubernetesClusterDefaultNodePoolOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
+}
+
 // A mapping of tags to assign to the Node Pool.
 func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -3875,7 +3881,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefau
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) KubernetesClusterDefaultNodePool { return *v }).(KubernetesClusterDefaultNodePoolOutput)
 }
 
-// A list of Availability Zones across which the Node Pool should be spread.
+// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
 		if v == nil {
@@ -3992,6 +3998,15 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskSizeGb() pulumi.IntPtrO
 		}
 		return v.OsDiskSizeGb
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolPtrOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProximityPlacementGroupId
+	}).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the Node Pool.

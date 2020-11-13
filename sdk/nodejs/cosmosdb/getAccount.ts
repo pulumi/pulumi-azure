@@ -89,6 +89,10 @@ export interface GetAccountResult {
      */
     readonly isVirtualNetworkFilterEnabled: boolean;
     /**
+     * The Key Vault key URI for CMK encryption.
+     */
+    readonly keyVaultKeyId: string;
+    /**
      * The Kind of the CosmosDB account.
      */
     readonly kind: string;

@@ -25,6 +25,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// The ID of the Public IP Address
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The IP address of the Public IP Address
+        /// </summary>
         public readonly string IpAddress;
         /// <summary>
         /// The Name of the Public IP Address

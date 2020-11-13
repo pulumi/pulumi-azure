@@ -34,6 +34,12 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? FtpsState { get; set; }
 
         /// <summary>
+        /// Path which will be checked for this function app health.
+        /// </summary>
+        [Input("healthCheckPath")]
+        public Input<string>? HealthCheckPath { get; set; }
+
+        /// <summary>
         /// Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
         /// </summary>
         [Input("http2Enabled")]

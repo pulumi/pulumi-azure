@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_key=None, primary_master_key=None, primary_readonly_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_master_key=None, secondary_readonly_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, key_vault_key_id=None, kind=None, location=None, name=None, offer_type=None, primary_key=None, primary_master_key=None, primary_readonly_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_master_key=None, secondary_readonly_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
@@ -51,6 +51,9 @@ class GetAccountResult:
         if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
             raise TypeError("Expected argument 'is_virtual_network_filter_enabled' to be a bool")
         pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+        if key_vault_key_id and not isinstance(key_vault_key_id, str):
+            raise TypeError("Expected argument 'key_vault_key_id' to be a str")
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -194,6 +197,14 @@ class GetAccountResult:
         return pulumi.get(self, "is_virtual_network_filter_enabled")
 
     @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        The Key Vault key URI for CMK encryption.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
     @pulumi.getter
     def kind(self) -> str:
         """
@@ -328,6 +339,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             id=self.id,
             ip_range_filter=self.ip_range_filter,
             is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
+            key_vault_key_id=self.key_vault_key_id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -388,6 +400,7 @@ def get_account(name: Optional[str] = None,
         id=__ret__.id,
         ip_range_filter=__ret__.ip_range_filter,
         is_virtual_network_filter_enabled=__ret__.is_virtual_network_filter_enabled,
+        key_vault_key_id=__ret__.key_vault_key_id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

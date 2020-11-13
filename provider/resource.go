@@ -342,6 +342,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_identity_provider_microsoft": {Tok: azureResource(azureAPIManagement, "IdentityProviderMicrosoft")},
 			"azurerm_api_management_named_value":                 {Tok: azureResource(azureAPIManagement, "NamedValue")},
 			"azurerm_api_management_api_diagnostic":              {Tok: azureResource(azureAPIManagement, "ApiDiagnostic")},
+			"azurerm_api_management_custom_domain":               {Tok: azureResource(azureAPIManagement, "CustomDomain")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -752,7 +753,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_share_dataset_data_lake_gen2": {
 				Tok: azureResource(azureDataShare, "DatasetDataLakeGen2"),
 			},
-			"azurerm_data_share_dataset_kusto_cluster": {Tok: azureResource(azureDataShare, "DatasetKustoCluster")},
+			"azurerm_data_share_dataset_kusto_cluster":  {Tok: azureResource(azureDataShare, "DatasetKustoCluster")},
+			"azurerm_data_share_dataset_kusto_database": {Tok: azureResource(azureDataShare, "DatasetKustoDatabase")},
 
 			// DevSpace
 			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
@@ -905,6 +907,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_saved_search":           {Tok: azureResource(azureLogAnalytics, "SavedSearch")},
 			"azurerm_log_analytics_data_export_rule":       {Tok: azureResource(azureLogAnalytics, "DataExportRule")},
 			"azurerm_log_analytics_linked_storage_account": {Tok: azureResource(azureLogAnalytics, "LinkedStorageAccount")},
+			"azurerm_log_analytics_storage_insights":       {Tok: azureResource(azureLogAnalytics, "StorageInsights")},
 
 			// Logic Apps
 			"azurerm_logic_app_action_custom":        {Tok: azureResource(azureLogicApps, "ActionCustom")},
@@ -1017,6 +1020,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_scheduled_query_rules_log":   {Tok: azureResource(azureMonitoring, "ScheduledQueryRulesLog")},
 			"azurerm_monitor_action_rule_action_group":    {Tok: azureResource(azureMonitoring, "ActionRuleActionGroup")},
 			"azurerm_monitor_action_rule_suppression":     {Tok: azureResource(azureMonitoring, "ActionRuleSuppression")},
+			"azurerm_monitor_smart_detector_alert_rule":   {Tok: azureResource(azureMonitoring, "SmartDetectorAlertRule")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -1270,16 +1274,18 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_nat_gateway_public_ip_association": {
 				Tok: azureResource(azureNetwork, "NatGatewayPublicIpAssociation"),
 			},
-			"azurerm_subnet_nat_gateway_association": {Tok: azureResource(azureNetwork, "SubnetNatGatewayAssociation")},
-			"azurerm_point_to_site_vpn_gateway":      {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
-			"azurerm_virtual_hub":                    {Tok: azureResource(azureNetwork, "VirtualHub")},
-			"azurerm_virtual_hub_connection":         {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
-			"azurerm_virtual_hub_ip_configuration":   {Tok: azureResource(azureNetwork, "VirtualHubIpConfiguration")},
-			"azurerm_virtual_hub_route_table":        {Tok: azureResource(azureNetwork, "VirtualHubRouteTable")},
-			"azurerm_vpn_gateway":                    {Tok: azureResource(azureNetwork, "VpnGateway")},
-			"azurerm_vpn_server_configuration":       {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
-			"azurerm_ip_group":                       {Tok: azureResource(azureNetwork, "IPGroup")},
-			"azurerm_vpn_site":                       {Tok: azureResource(azureNetwork, "VpnSite")},
+			"azurerm_subnet_nat_gateway_association":        {Tok: azureResource(azureNetwork, "SubnetNatGatewayAssociation")},
+			"azurerm_point_to_site_vpn_gateway":             {Tok: azureResource(azureNetwork, "PointToPointVpnGateway")},
+			"azurerm_virtual_hub":                           {Tok: azureResource(azureNetwork, "VirtualHub")},
+			"azurerm_virtual_hub_connection":                {Tok: azureResource(azureNetwork, "VirtualHubConnection")},
+			"azurerm_virtual_hub_ip_configuration":          {Tok: azureResource(azureNetwork, "VirtualHubIpConfiguration")},
+			"azurerm_virtual_hub_route_table":               {Tok: azureResource(azureNetwork, "VirtualHubRouteTable")},
+			"azurerm_virtual_hub_security_partner_provider": {Tok: azureResource(azureNetwork, "SecurityPartnerProvider")},
+			"azurerm_virtual_hub_bgp_connection":            {Tok: azureResource(azureNetwork, "BgpConnection")},
+			"azurerm_vpn_gateway":                           {Tok: azureResource(azureNetwork, "VpnGateway")},
+			"azurerm_vpn_server_configuration":              {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
+			"azurerm_ip_group":                              {Tok: azureResource(azureNetwork, "IPGroup")},
+			"azurerm_vpn_site":                              {Tok: azureResource(azureNetwork, "VpnSite")},
 
 			// Redis
 			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
@@ -1654,6 +1660,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_share_dataset_data_lake_gen1": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen1")},
 			"azurerm_data_share_dataset_data_lake_gen2": {Tok: azureDataSource(azureDataShare, "getDatasetDataLakeGen2")},
 			"azurerm_data_share_dataset_kusto_cluster":  {Tok: azureDataSource(azureDataShare, "getDatasetKustoCluster")},
+			"azurerm_data_share_dataset_kusto_database": {Tok: azureDataSource(azureDataShare, "getDatasetKustoDatabase")},
 			"azurerm_dev_test_lab":                      {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_dev_test_virtual_network":          {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 			"azurerm_image":                             {Tok: azureDataSource(azureCompute, "getImage")},
@@ -1811,6 +1818,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_hub":                 {Tok: azureDataSource(azureNetwork, "getVirtualHub")},
 			"azurerm_firewall_policy":             {Tok: azureDataSource(azureNetwork, "getFirewallPolicy")},
 			"azurerm_ip_group":                    {Tok: azureDataSource(azureNetwork, "getIpGroup")},
+			"azurerm_traffic_manager_profile":     {Tok: azureDataSource(azureNetwork, "getTrafficManagerProfile")},
 			"azurerm_signalr_service":             {Tok: azureDataSource(azureSignalr, "getService")},
 			"azurerm_storage_container":           {Tok: azureDataSource(azureStorage, "getStorageContainer")},
 			"azurerm_storage_sync":                {Tok: azureDataSource(azureStorage, "getSync")},

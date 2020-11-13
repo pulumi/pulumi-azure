@@ -9,3 +9,4 @@ from .data_source_windows_performance_counter import *
 from .linked_service import *
 from .linked_storage_account import *
 from .saved_search import *
+from .storage_insights import *

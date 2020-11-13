@@ -8,3 +8,4 @@ export * from "./dataSourceWindowsPerformanceCounter";
 export * from "./linkedService";
 export * from "./linkedStorageAccount";
 export * from "./savedSearch";
+export * from "./storageInsights";

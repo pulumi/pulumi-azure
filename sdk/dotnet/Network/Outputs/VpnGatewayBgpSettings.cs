@@ -11,7 +11,7 @@ namespace Pulumi.Azure.Network.Outputs
 {
 
     [OutputType]
-    public sealed class VpnGatewayBgpSetting
+    public sealed class VpnGatewayBgpSettings
     {
         /// <summary>
         /// The ASN of the BGP Speaker. Changing this forces a new resource to be created.
@@ -22,20 +22,34 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? BgpPeeringAddress;
         /// <summary>
+        /// An `instance_bgp_peering_address` block as defined below.
+        /// </summary>
+        public readonly Outputs.VpnGatewayBgpSettingsInstance0BgpPeeringAddress? Instance0BgpPeeringAddress;
+        /// <summary>
+        /// An `instance_bgp_peering_address` block as defined below.
+        /// </summary>
+        public readonly Outputs.VpnGatewayBgpSettingsInstance1BgpPeeringAddress? Instance1BgpPeeringAddress;
+        /// <summary>
         /// The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int PeerWeight;
 
         [OutputConstructor]
-        private VpnGatewayBgpSetting(
+        private VpnGatewayBgpSettings(
             int asn,
 
             string? bgpPeeringAddress,
+
+            Outputs.VpnGatewayBgpSettingsInstance0BgpPeeringAddress? instance0BgpPeeringAddress,
+
+            Outputs.VpnGatewayBgpSettingsInstance1BgpPeeringAddress? instance1BgpPeeringAddress,
 
             int peerWeight)
         {
             Asn = asn;
             BgpPeeringAddress = bgpPeeringAddress;
+            Instance0BgpPeeringAddress = instance0BgpPeeringAddress;
+            Instance1BgpPeeringAddress = instance1BgpPeeringAddress;
             PeerWeight = peerWeight;
         }
     }

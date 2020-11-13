@@ -51,7 +51,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] partition_key: The name of the event property which will be used to partition data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Standard Environment. It is string consisting of two parts separated by an underscore(\_).The fist part is the `name`, valid values include: `S1` and `S2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `S1_1`). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_limit_exceeded_behavior: Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+        :param pulumi.Input[str] storage_limit_exceeded_behavior: Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -116,7 +116,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] partition_key: The name of the event property which will be used to partition data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Standard Environment.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Standard Environment. It is string consisting of two parts separated by an underscore(\_).The fist part is the `name`, valid values include: `S1` and `S2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `S1_1`). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_limit_exceeded_behavior: Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+        :param pulumi.Input[str] storage_limit_exceeded_behavior: Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -185,7 +185,7 @@ class TimeSeriesInsightsStandardEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="storageLimitExceededBehavior")
     def storage_limit_exceeded_behavior(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+        Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         """
         return pulumi.get(self, "storage_limit_exceeded_behavior")
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterDefaultNodePool
     {
         /// <summary>
-        /// A list of Availability Zones across which the Node Pool should be spread.
+        /// A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
@@ -58,6 +58,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? OsDiskSizeGb;
+        public readonly string? ProximityPlacementGroupId;
         /// <summary>
         /// A mapping of tags to assign to the Node Pool.
         /// </summary>
@@ -101,6 +102,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             int? osDiskSizeGb,
 
+            string? proximityPlacementGroupId,
+
             ImmutableDictionary<string, string>? tags,
 
             string? type,
@@ -121,6 +124,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;
+            ProximityPlacementGroupId = proximityPlacementGroupId;
             Tags = tags;
             Type = type;
             VmSize = vmSize;

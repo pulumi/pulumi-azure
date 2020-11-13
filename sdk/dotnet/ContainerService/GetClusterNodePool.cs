@@ -142,6 +142,10 @@ namespace Pulumi.Azure.ContainerService
         /// The priority of the Virtual Machines in the Virtual Machine Scale Set backing this Node Pool.
         /// </summary>
         public readonly string Priority;
+        /// <summary>
+        /// The ID of the Proximity Placement Group where the Virtual Machine Scale Set backing this Node Pool will be placed.
+        /// </summary>
+        public readonly string ProximityPlacementGroupId;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The maximum price being paid for Virtual Machines in this Scale Set. `-1` means the current on-demand price for a Virtual Machine.
@@ -198,6 +202,8 @@ namespace Pulumi.Azure.ContainerService
 
             string priority,
 
+            string proximityPlacementGroupId,
+
             string resourceGroupName,
 
             double spotMaxPrice,
@@ -226,6 +232,7 @@ namespace Pulumi.Azure.ContainerService
             OsDiskSizeGb = osDiskSizeGb;
             OsType = osType;
             Priority = priority;
+            ProximityPlacementGroupId = proximityPlacementGroupId;
             ResourceGroupName = resourceGroupName;
             SpotMaxPrice = spotMaxPrice;
             Tags = tags;

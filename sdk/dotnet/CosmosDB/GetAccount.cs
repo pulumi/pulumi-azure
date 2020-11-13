@@ -104,6 +104,10 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly bool IsVirtualNetworkFilterEnabled;
         /// <summary>
+        /// The Key Vault key URI for CMK encryption.
+        /// </summary>
+        public readonly string KeyVaultKeyId;
+        /// <summary>
         /// The Kind of the CosmosDB account.
         /// </summary>
         public readonly string Kind;
@@ -176,6 +180,8 @@ namespace Pulumi.Azure.CosmosDB
 
             bool isVirtualNetworkFilterEnabled,
 
+            string keyVaultKeyId,
+
             string kind,
 
             string location,
@@ -220,6 +226,7 @@ namespace Pulumi.Azure.CosmosDB
             Id = id;
             IpRangeFilter = ipRangeFilter;
             IsVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
+            KeyVaultKeyId = keyVaultKeyId;
             Kind = kind;
             Location = location;
             Name = name;

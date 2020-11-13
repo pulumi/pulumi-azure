@@ -3291,6 +3291,680 @@ func (o BackendTlsPtrOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type CustomDomainDeveloperPortal struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate *string `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Hostname to use for the corresponding endpoint.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+
+// CustomDomainDeveloperPortalInput is an input type that accepts CustomDomainDeveloperPortalArgs and CustomDomainDeveloperPortalOutput values.
+// You can construct a concrete instance of `CustomDomainDeveloperPortalInput` via:
+//
+//          CustomDomainDeveloperPortalArgs{...}
+type CustomDomainDeveloperPortalInput interface {
+	pulumi.Input
+
+	ToCustomDomainDeveloperPortalOutput() CustomDomainDeveloperPortalOutput
+	ToCustomDomainDeveloperPortalOutputWithContext(context.Context) CustomDomainDeveloperPortalOutput
+}
+
+type CustomDomainDeveloperPortalArgs struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Hostname to use for the corresponding endpoint.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (CustomDomainDeveloperPortalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainDeveloperPortal)(nil)).Elem()
+}
+
+func (i CustomDomainDeveloperPortalArgs) ToCustomDomainDeveloperPortalOutput() CustomDomainDeveloperPortalOutput {
+	return i.ToCustomDomainDeveloperPortalOutputWithContext(context.Background())
+}
+
+func (i CustomDomainDeveloperPortalArgs) ToCustomDomainDeveloperPortalOutputWithContext(ctx context.Context) CustomDomainDeveloperPortalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainDeveloperPortalOutput)
+}
+
+// CustomDomainDeveloperPortalArrayInput is an input type that accepts CustomDomainDeveloperPortalArray and CustomDomainDeveloperPortalArrayOutput values.
+// You can construct a concrete instance of `CustomDomainDeveloperPortalArrayInput` via:
+//
+//          CustomDomainDeveloperPortalArray{ CustomDomainDeveloperPortalArgs{...} }
+type CustomDomainDeveloperPortalArrayInput interface {
+	pulumi.Input
+
+	ToCustomDomainDeveloperPortalArrayOutput() CustomDomainDeveloperPortalArrayOutput
+	ToCustomDomainDeveloperPortalArrayOutputWithContext(context.Context) CustomDomainDeveloperPortalArrayOutput
+}
+
+type CustomDomainDeveloperPortalArray []CustomDomainDeveloperPortalInput
+
+func (CustomDomainDeveloperPortalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainDeveloperPortal)(nil)).Elem()
+}
+
+func (i CustomDomainDeveloperPortalArray) ToCustomDomainDeveloperPortalArrayOutput() CustomDomainDeveloperPortalArrayOutput {
+	return i.ToCustomDomainDeveloperPortalArrayOutputWithContext(context.Background())
+}
+
+func (i CustomDomainDeveloperPortalArray) ToCustomDomainDeveloperPortalArrayOutputWithContext(ctx context.Context) CustomDomainDeveloperPortalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainDeveloperPortalArrayOutput)
+}
+
+type CustomDomainDeveloperPortalOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainDeveloperPortalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainDeveloperPortal)(nil)).Elem()
+}
+
+func (o CustomDomainDeveloperPortalOutput) ToCustomDomainDeveloperPortalOutput() CustomDomainDeveloperPortalOutput {
+	return o
+}
+
+func (o CustomDomainDeveloperPortalOutput) ToCustomDomainDeveloperPortalOutputWithContext(ctx context.Context) CustomDomainDeveloperPortalOutput {
+	return o
+}
+
+// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+func (o CustomDomainDeveloperPortalOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The password associated with the certificate provided above.
+func (o CustomDomainDeveloperPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// The Hostname to use for the corresponding endpoint.
+func (o CustomDomainDeveloperPortalOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+func (o CustomDomainDeveloperPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+func (o CustomDomainDeveloperPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type CustomDomainDeveloperPortalArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainDeveloperPortalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainDeveloperPortal)(nil)).Elem()
+}
+
+func (o CustomDomainDeveloperPortalArrayOutput) ToCustomDomainDeveloperPortalArrayOutput() CustomDomainDeveloperPortalArrayOutput {
+	return o
+}
+
+func (o CustomDomainDeveloperPortalArrayOutput) ToCustomDomainDeveloperPortalArrayOutputWithContext(ctx context.Context) CustomDomainDeveloperPortalArrayOutput {
+	return o
+}
+
+func (o CustomDomainDeveloperPortalArrayOutput) Index(i pulumi.IntInput) CustomDomainDeveloperPortalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainDeveloperPortal {
+		return vs[0].([]CustomDomainDeveloperPortal)[vs[1].(int)]
+	}).(CustomDomainDeveloperPortalOutput)
+}
+
+type CustomDomainManagement struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate *string `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Hostname to use for the corresponding endpoint.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+
+// CustomDomainManagementInput is an input type that accepts CustomDomainManagementArgs and CustomDomainManagementOutput values.
+// You can construct a concrete instance of `CustomDomainManagementInput` via:
+//
+//          CustomDomainManagementArgs{...}
+type CustomDomainManagementInput interface {
+	pulumi.Input
+
+	ToCustomDomainManagementOutput() CustomDomainManagementOutput
+	ToCustomDomainManagementOutputWithContext(context.Context) CustomDomainManagementOutput
+}
+
+type CustomDomainManagementArgs struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Hostname to use for the corresponding endpoint.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (CustomDomainManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainManagement)(nil)).Elem()
+}
+
+func (i CustomDomainManagementArgs) ToCustomDomainManagementOutput() CustomDomainManagementOutput {
+	return i.ToCustomDomainManagementOutputWithContext(context.Background())
+}
+
+func (i CustomDomainManagementArgs) ToCustomDomainManagementOutputWithContext(ctx context.Context) CustomDomainManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainManagementOutput)
+}
+
+// CustomDomainManagementArrayInput is an input type that accepts CustomDomainManagementArray and CustomDomainManagementArrayOutput values.
+// You can construct a concrete instance of `CustomDomainManagementArrayInput` via:
+//
+//          CustomDomainManagementArray{ CustomDomainManagementArgs{...} }
+type CustomDomainManagementArrayInput interface {
+	pulumi.Input
+
+	ToCustomDomainManagementArrayOutput() CustomDomainManagementArrayOutput
+	ToCustomDomainManagementArrayOutputWithContext(context.Context) CustomDomainManagementArrayOutput
+}
+
+type CustomDomainManagementArray []CustomDomainManagementInput
+
+func (CustomDomainManagementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainManagement)(nil)).Elem()
+}
+
+func (i CustomDomainManagementArray) ToCustomDomainManagementArrayOutput() CustomDomainManagementArrayOutput {
+	return i.ToCustomDomainManagementArrayOutputWithContext(context.Background())
+}
+
+func (i CustomDomainManagementArray) ToCustomDomainManagementArrayOutputWithContext(ctx context.Context) CustomDomainManagementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainManagementArrayOutput)
+}
+
+type CustomDomainManagementOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainManagement)(nil)).Elem()
+}
+
+func (o CustomDomainManagementOutput) ToCustomDomainManagementOutput() CustomDomainManagementOutput {
+	return o
+}
+
+func (o CustomDomainManagementOutput) ToCustomDomainManagementOutputWithContext(ctx context.Context) CustomDomainManagementOutput {
+	return o
+}
+
+// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+func (o CustomDomainManagementOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The password associated with the certificate provided above.
+func (o CustomDomainManagementOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// The Hostname to use for the corresponding endpoint.
+func (o CustomDomainManagementOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDomainManagement) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+func (o CustomDomainManagementOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+func (o CustomDomainManagementOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type CustomDomainManagementArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainManagementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainManagement)(nil)).Elem()
+}
+
+func (o CustomDomainManagementArrayOutput) ToCustomDomainManagementArrayOutput() CustomDomainManagementArrayOutput {
+	return o
+}
+
+func (o CustomDomainManagementArrayOutput) ToCustomDomainManagementArrayOutputWithContext(ctx context.Context) CustomDomainManagementArrayOutput {
+	return o
+}
+
+func (o CustomDomainManagementArrayOutput) Index(i pulumi.IntInput) CustomDomainManagementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainManagement {
+		return vs[0].([]CustomDomainManagement)[vs[1].(int)]
+	}).(CustomDomainManagementOutput)
+}
+
+type CustomDomainPortal struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate *string `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Hostname to use for the corresponding endpoint.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+
+// CustomDomainPortalInput is an input type that accepts CustomDomainPortalArgs and CustomDomainPortalOutput values.
+// You can construct a concrete instance of `CustomDomainPortalInput` via:
+//
+//          CustomDomainPortalArgs{...}
+type CustomDomainPortalInput interface {
+	pulumi.Input
+
+	ToCustomDomainPortalOutput() CustomDomainPortalOutput
+	ToCustomDomainPortalOutputWithContext(context.Context) CustomDomainPortalOutput
+}
+
+type CustomDomainPortalArgs struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Hostname to use for the corresponding endpoint.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (CustomDomainPortalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainPortal)(nil)).Elem()
+}
+
+func (i CustomDomainPortalArgs) ToCustomDomainPortalOutput() CustomDomainPortalOutput {
+	return i.ToCustomDomainPortalOutputWithContext(context.Background())
+}
+
+func (i CustomDomainPortalArgs) ToCustomDomainPortalOutputWithContext(ctx context.Context) CustomDomainPortalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPortalOutput)
+}
+
+// CustomDomainPortalArrayInput is an input type that accepts CustomDomainPortalArray and CustomDomainPortalArrayOutput values.
+// You can construct a concrete instance of `CustomDomainPortalArrayInput` via:
+//
+//          CustomDomainPortalArray{ CustomDomainPortalArgs{...} }
+type CustomDomainPortalArrayInput interface {
+	pulumi.Input
+
+	ToCustomDomainPortalArrayOutput() CustomDomainPortalArrayOutput
+	ToCustomDomainPortalArrayOutputWithContext(context.Context) CustomDomainPortalArrayOutput
+}
+
+type CustomDomainPortalArray []CustomDomainPortalInput
+
+func (CustomDomainPortalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainPortal)(nil)).Elem()
+}
+
+func (i CustomDomainPortalArray) ToCustomDomainPortalArrayOutput() CustomDomainPortalArrayOutput {
+	return i.ToCustomDomainPortalArrayOutputWithContext(context.Background())
+}
+
+func (i CustomDomainPortalArray) ToCustomDomainPortalArrayOutputWithContext(ctx context.Context) CustomDomainPortalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPortalArrayOutput)
+}
+
+type CustomDomainPortalOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainPortalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainPortal)(nil)).Elem()
+}
+
+func (o CustomDomainPortalOutput) ToCustomDomainPortalOutput() CustomDomainPortalOutput {
+	return o
+}
+
+func (o CustomDomainPortalOutput) ToCustomDomainPortalOutputWithContext(ctx context.Context) CustomDomainPortalOutput {
+	return o
+}
+
+// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+func (o CustomDomainPortalOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The password associated with the certificate provided above.
+func (o CustomDomainPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// The Hostname to use for the corresponding endpoint.
+func (o CustomDomainPortalOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDomainPortal) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+func (o CustomDomainPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+func (o CustomDomainPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type CustomDomainPortalArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainPortalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainPortal)(nil)).Elem()
+}
+
+func (o CustomDomainPortalArrayOutput) ToCustomDomainPortalArrayOutput() CustomDomainPortalArrayOutput {
+	return o
+}
+
+func (o CustomDomainPortalArrayOutput) ToCustomDomainPortalArrayOutputWithContext(ctx context.Context) CustomDomainPortalArrayOutput {
+	return o
+}
+
+func (o CustomDomainPortalArrayOutput) Index(i pulumi.IntInput) CustomDomainPortalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainPortal {
+		return vs[0].([]CustomDomainPortal)[vs[1].(int)]
+	}).(CustomDomainPortalOutput)
+}
+
+type CustomDomainProxy struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate *string `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+	DefaultSslBinding *bool `pulumi:"defaultSslBinding"`
+	// The Hostname to use for the API Proxy Endpoint.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+
+// CustomDomainProxyInput is an input type that accepts CustomDomainProxyArgs and CustomDomainProxyOutput values.
+// You can construct a concrete instance of `CustomDomainProxyInput` via:
+//
+//          CustomDomainProxyArgs{...}
+type CustomDomainProxyInput interface {
+	pulumi.Input
+
+	ToCustomDomainProxyOutput() CustomDomainProxyOutput
+	ToCustomDomainProxyOutputWithContext(context.Context) CustomDomainProxyOutput
+}
+
+type CustomDomainProxyArgs struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+	DefaultSslBinding pulumi.BoolPtrInput `pulumi:"defaultSslBinding"`
+	// The Hostname to use for the API Proxy Endpoint.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (CustomDomainProxyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainProxy)(nil)).Elem()
+}
+
+func (i CustomDomainProxyArgs) ToCustomDomainProxyOutput() CustomDomainProxyOutput {
+	return i.ToCustomDomainProxyOutputWithContext(context.Background())
+}
+
+func (i CustomDomainProxyArgs) ToCustomDomainProxyOutputWithContext(ctx context.Context) CustomDomainProxyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainProxyOutput)
+}
+
+// CustomDomainProxyArrayInput is an input type that accepts CustomDomainProxyArray and CustomDomainProxyArrayOutput values.
+// You can construct a concrete instance of `CustomDomainProxyArrayInput` via:
+//
+//          CustomDomainProxyArray{ CustomDomainProxyArgs{...} }
+type CustomDomainProxyArrayInput interface {
+	pulumi.Input
+
+	ToCustomDomainProxyArrayOutput() CustomDomainProxyArrayOutput
+	ToCustomDomainProxyArrayOutputWithContext(context.Context) CustomDomainProxyArrayOutput
+}
+
+type CustomDomainProxyArray []CustomDomainProxyInput
+
+func (CustomDomainProxyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainProxy)(nil)).Elem()
+}
+
+func (i CustomDomainProxyArray) ToCustomDomainProxyArrayOutput() CustomDomainProxyArrayOutput {
+	return i.ToCustomDomainProxyArrayOutputWithContext(context.Background())
+}
+
+func (i CustomDomainProxyArray) ToCustomDomainProxyArrayOutputWithContext(ctx context.Context) CustomDomainProxyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainProxyArrayOutput)
+}
+
+type CustomDomainProxyOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainProxyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainProxy)(nil)).Elem()
+}
+
+func (o CustomDomainProxyOutput) ToCustomDomainProxyOutput() CustomDomainProxyOutput {
+	return o
+}
+
+func (o CustomDomainProxyOutput) ToCustomDomainProxyOutputWithContext(ctx context.Context) CustomDomainProxyOutput {
+	return o
+}
+
+// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+func (o CustomDomainProxyOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The password associated with the certificate provided above.
+func (o CustomDomainProxyOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+func (o CustomDomainProxyOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
+}
+
+// The Hostname to use for the API Proxy Endpoint.
+func (o CustomDomainProxyOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDomainProxy) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+func (o CustomDomainProxyOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+func (o CustomDomainProxyOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainProxy) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type CustomDomainProxyArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainProxyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainProxy)(nil)).Elem()
+}
+
+func (o CustomDomainProxyArrayOutput) ToCustomDomainProxyArrayOutput() CustomDomainProxyArrayOutput {
+	return o
+}
+
+func (o CustomDomainProxyArrayOutput) ToCustomDomainProxyArrayOutputWithContext(ctx context.Context) CustomDomainProxyArrayOutput {
+	return o
+}
+
+func (o CustomDomainProxyArrayOutput) Index(i pulumi.IntInput) CustomDomainProxyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainProxy {
+		return vs[0].([]CustomDomainProxy)[vs[1].(int)]
+	}).(CustomDomainProxyOutput)
+}
+
+type CustomDomainScm struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate *string `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The Hostname to use for the corresponding endpoint.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+}
+
+// CustomDomainScmInput is an input type that accepts CustomDomainScmArgs and CustomDomainScmOutput values.
+// You can construct a concrete instance of `CustomDomainScmInput` via:
+//
+//          CustomDomainScmArgs{...}
+type CustomDomainScmInput interface {
+	pulumi.Input
+
+	ToCustomDomainScmOutput() CustomDomainScmOutput
+	ToCustomDomainScmOutputWithContext(context.Context) CustomDomainScmOutput
+}
+
+type CustomDomainScmArgs struct {
+	// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// The password associated with the certificate provided above.
+	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The Hostname to use for the corresponding endpoint.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
+}
+
+func (CustomDomainScmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainScm)(nil)).Elem()
+}
+
+func (i CustomDomainScmArgs) ToCustomDomainScmOutput() CustomDomainScmOutput {
+	return i.ToCustomDomainScmOutputWithContext(context.Background())
+}
+
+func (i CustomDomainScmArgs) ToCustomDomainScmOutputWithContext(ctx context.Context) CustomDomainScmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainScmOutput)
+}
+
+// CustomDomainScmArrayInput is an input type that accepts CustomDomainScmArray and CustomDomainScmArrayOutput values.
+// You can construct a concrete instance of `CustomDomainScmArrayInput` via:
+//
+//          CustomDomainScmArray{ CustomDomainScmArgs{...} }
+type CustomDomainScmArrayInput interface {
+	pulumi.Input
+
+	ToCustomDomainScmArrayOutput() CustomDomainScmArrayOutput
+	ToCustomDomainScmArrayOutputWithContext(context.Context) CustomDomainScmArrayOutput
+}
+
+type CustomDomainScmArray []CustomDomainScmInput
+
+func (CustomDomainScmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainScm)(nil)).Elem()
+}
+
+func (i CustomDomainScmArray) ToCustomDomainScmArrayOutput() CustomDomainScmArrayOutput {
+	return i.ToCustomDomainScmArrayOutputWithContext(context.Background())
+}
+
+func (i CustomDomainScmArray) ToCustomDomainScmArrayOutputWithContext(ctx context.Context) CustomDomainScmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainScmArrayOutput)
+}
+
+type CustomDomainScmOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainScmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainScm)(nil)).Elem()
+}
+
+func (o CustomDomainScmOutput) ToCustomDomainScmOutput() CustomDomainScmOutput {
+	return o
+}
+
+func (o CustomDomainScmOutput) ToCustomDomainScmOutputWithContext(ctx context.Context) CustomDomainScmOutput {
+	return o
+}
+
+// The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+func (o CustomDomainScmOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// The password associated with the certificate provided above.
+func (o CustomDomainScmOutput) CertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// The Hostname to use for the corresponding endpoint.
+func (o CustomDomainScmOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDomainScm) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+func (o CustomDomainScmOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+func (o CustomDomainScmOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type CustomDomainScmArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainScmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomDomainScm)(nil)).Elem()
+}
+
+func (o CustomDomainScmArrayOutput) ToCustomDomainScmArrayOutput() CustomDomainScmArrayOutput {
+	return o
+}
+
+func (o CustomDomainScmArrayOutput) ToCustomDomainScmArrayOutputWithContext(ctx context.Context) CustomDomainScmArrayOutput {
+	return o
+}
+
+func (o CustomDomainScmArrayOutput) Index(i pulumi.IntInput) CustomDomainScmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomDomainScm {
+		return vs[0].([]CustomDomainScm)[vs[1].(int)]
+	}).(CustomDomainScmOutput)
+}
+
 type LoggerApplicationInsights struct {
 	// The instrumentation key used to push data to Application Insights.
 	InstrumentationKey string `pulumi:"instrumentationKey"`
@@ -7253,6 +7927,16 @@ func init() {
 	pulumi.RegisterOutputType(BackendServiceFabricClusterServerX509NameArrayOutput{})
 	pulumi.RegisterOutputType(BackendTlsOutput{})
 	pulumi.RegisterOutputType(BackendTlsPtrOutput{})
+	pulumi.RegisterOutputType(CustomDomainDeveloperPortalOutput{})
+	pulumi.RegisterOutputType(CustomDomainDeveloperPortalArrayOutput{})
+	pulumi.RegisterOutputType(CustomDomainManagementOutput{})
+	pulumi.RegisterOutputType(CustomDomainManagementArrayOutput{})
+	pulumi.RegisterOutputType(CustomDomainPortalOutput{})
+	pulumi.RegisterOutputType(CustomDomainPortalArrayOutput{})
+	pulumi.RegisterOutputType(CustomDomainProxyOutput{})
+	pulumi.RegisterOutputType(CustomDomainProxyArrayOutput{})
+	pulumi.RegisterOutputType(CustomDomainScmOutput{})
+	pulumi.RegisterOutputType(CustomDomainScmArrayOutput{})
 	pulumi.RegisterOutputType(LoggerApplicationInsightsOutput{})
 	pulumi.RegisterOutputType(LoggerApplicationInsightsPtrOutput{})
 	pulumi.RegisterOutputType(LoggerEventhubOutput{})

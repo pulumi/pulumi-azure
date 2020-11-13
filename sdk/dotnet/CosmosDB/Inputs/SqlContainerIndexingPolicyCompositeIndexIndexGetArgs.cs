@@ -19,7 +19,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<string> Order { get; set; } = null!;
 
         /// <summary>
-        /// Path for which the indexing behavior applies to.
+        /// Path for which the indexing behaviour applies to.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

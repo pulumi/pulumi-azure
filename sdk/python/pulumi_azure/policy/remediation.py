@@ -19,6 +19,7 @@ class Remediation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+                 resource_discovery_mode: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -83,6 +84,7 @@ class Remediation(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
         :param pulumi.Input[str] scope: The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
         """
         if __name__ is not None:
@@ -108,6 +110,7 @@ class Remediation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__['policy_assignment_id'] = policy_assignment_id
             __props__['policy_definition_reference_id'] = policy_definition_reference_id
+            __props__['resource_discovery_mode'] = resource_discovery_mode
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
@@ -125,6 +128,7 @@ class Remediation(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             policy_assignment_id: Optional[pulumi.Input[str]] = None,
             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+            resource_discovery_mode: Optional[pulumi.Input[str]] = None,
             scope: Optional[pulumi.Input[str]] = None) -> 'Remediation':
         """
         Get an existing Remediation resource's state with the given name, id, and optional extra
@@ -137,6 +141,7 @@ class Remediation(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
         :param pulumi.Input[str] scope: The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -147,6 +152,7 @@ class Remediation(pulumi.CustomResource):
         __props__["name"] = name
         __props__["policy_assignment_id"] = policy_assignment_id
         __props__["policy_definition_reference_id"] = policy_definition_reference_id
+        __props__["resource_discovery_mode"] = resource_discovery_mode
         __props__["scope"] = scope
         return Remediation(resource_name, opts=opts, __props__=__props__)
 
@@ -181,6 +187,14 @@ class Remediation(pulumi.CustomResource):
         The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         """
         return pulumi.get(self, "policy_definition_reference_id")
+
+    @property
+    @pulumi.getter(name="resourceDiscoveryMode")
+    def resource_discovery_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        """
+        return pulumi.get(self, "resource_discovery_mode")
 
     @property
     @pulumi.getter

@@ -228,7 +228,7 @@ type FunctionApp struct {
 	StorageAccountAccessKey pulumi.StringOutput `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString pulumi.StringOutput `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -316,7 +316,7 @@ type functionAppState struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString *string `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -371,7 +371,7 @@ type FunctionAppState struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -420,7 +420,7 @@ type functionAppArgs struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString *string `pulumi:"storageConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -466,7 +466,7 @@ type FunctionAppArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// The backend storage account name which will be used by this Function App (such as the dashboard, logs).
 	StorageAccountName pulumi.StringPtrInput
-	// Deprecated: Deprecated in favor of `storage_account_name` and `storage_account_access_key`
+	// Deprecated: Deprecated in favour of `storage_account_name` and `storage_account_access_key`
 	StorageConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput

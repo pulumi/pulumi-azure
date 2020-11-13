@@ -65,7 +65,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class KubernetesClusterNodePool : Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+        /// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -167,6 +167,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> Priority { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("proximityPlacementGroupId")]
+        public Output<string?> ProximityPlacementGroupId { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         /// </summary>
         [Output("spotMaxPrice")]
@@ -240,7 +246,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+        /// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -357,6 +363,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Priority { get; set; }
 
         /// <summary>
+        /// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("proximityPlacementGroupId")]
+        public Input<string>? ProximityPlacementGroupId { get; set; }
+
+        /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         /// </summary>
         [Input("spotMaxPrice")]
@@ -397,7 +409,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// A list of Availability Zones where the Nodes in this Node Pool should be created in.
+        /// A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -512,6 +524,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
+
+        /// <summary>
+        /// The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("proximityPlacementGroupId")]
+        public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.

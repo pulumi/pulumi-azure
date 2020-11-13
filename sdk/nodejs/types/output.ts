@@ -498,6 +498,125 @@ export namespace apimanagement {
         validateCertificateName?: boolean;
     }
 
+    export interface CustomDomainDeveloperPortal {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: string;
+        /**
+         * The Hostname to use for the corresponding endpoint.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: boolean;
+    }
+
+    export interface CustomDomainManagement {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: string;
+        /**
+         * The Hostname to use for the corresponding endpoint.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: boolean;
+    }
+
+    export interface CustomDomainPortal {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: string;
+        /**
+         * The Hostname to use for the corresponding endpoint.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: boolean;
+    }
+
+    export interface CustomDomainProxy {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: string;
+        /**
+         * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
+         */
+        defaultSslBinding: boolean;
+        /**
+         * The Hostname to use for the API Proxy Endpoint.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: boolean;
+    }
+
+    export interface CustomDomainScm {
+        /**
+         * The Base64 Encoded Certificate. (Mutually exlusive with `keyVaultId`.)
+         */
+        certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         */
+        certificatePassword?: string;
+        /**
+         * The Hostname to use for the corresponding endpoint.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+         */
+        keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to false.
+         */
+        negotiateClientCertificate?: boolean;
+    }
+
     export interface GetApiSubscriptionKeyParameterName {
         /**
          * The name of the HTTP Header which should be used for the Subscription Key.
@@ -1670,7 +1789,7 @@ export namespace appservice {
          */
         defaultDocuments?: string[];
         /**
-         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+         * The version of the .net framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`) and `v5.0`. [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
          */
         dotnetFrameworkVersion?: string;
         /**
@@ -2077,6 +2196,10 @@ export namespace appservice {
          */
         ftpsState: string;
         /**
+         * Path which will be checked for this function app health.
+         */
+        healthCheckPath?: string;
+        /**
          * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
          */
         http2Enabled?: boolean;
@@ -2369,6 +2492,7 @@ export namespace appservice {
          * State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
          */
         ftpsState: string;
+        healthCheckPath?: string;
         /**
          * Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
          */
@@ -2788,6 +2912,7 @@ export namespace appservice {
          * State of FTP / FTPS service for this AppService.
          */
         ftpsState: string;
+        healthCheckPath: string;
         /**
          * Is HTTP2 Enabled on this App Service?
          */
@@ -4957,7 +5082,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
-        storageAccountUri: string;
+        storageAccountUri?: string;
     }
 
     export interface LinuxVirtualMachineIdentity {
@@ -5076,7 +5201,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
-        storageAccountUri: string;
+        storageAccountUri?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetDataDisk {
@@ -6182,7 +6307,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
-        storageAccountUri: string;
+        storageAccountUri?: string;
     }
 
     export interface WindowsVirtualMachineIdentity {
@@ -6301,7 +6426,7 @@ export namespace compute {
         /**
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
-        storageAccountUri: string;
+        storageAccountUri?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetDataDisk {
@@ -7426,7 +7551,7 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePool {
         /**
-         * A list of Availability Zones across which the Node Pool should be spread.
+         * A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
          */
         availabilityZones?: string[];
         /**
@@ -7470,6 +7595,7 @@ export namespace containerservice {
          * The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
          */
         osDiskSizeGb: number;
+        proximityPlacementGroupId?: string;
         /**
          * A mapping of tags to assign to the Node Pool.
          */
@@ -8098,7 +8224,7 @@ export namespace cosmosdb {
          */
         order: string;
         /**
-         * Path for which the indexing behavior applies to.
+         * Path for which the indexing behaviour applies to.
          */
         path: string;
     }
@@ -8112,7 +8238,7 @@ export namespace cosmosdb {
 
     export interface SqlContainerIndexingPolicyIncludedPath {
         /**
-         * Path for which the indexing behavior applies to.
+         * Path for which the indexing behaviour applies to.
          */
         path: string;
     }
@@ -10172,7 +10298,7 @@ export namespace frontdoor {
          */
         cacheEnabled?: boolean;
         /**
-         * Defines cache behavior in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
+         * Defines cache behaviour in releation to query string parameters. Valid options are `StripAll` or `StripNone`. Defaults to `StripAll`.
          */
         cacheQueryParameterStripDirective?: string;
         /**
@@ -10180,7 +10306,7 @@ export namespace frontdoor {
          */
         cacheUseDynamicCompression?: boolean;
         /**
-         * Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behavior preserves the URL path.
+         * Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
          */
         customForwardingPath?: string;
         /**
@@ -14467,6 +14593,21 @@ export namespace monitoring {
          */
         values: string[];
     }
+
+    export interface SmartDetectorAlertRuleActionGroup {
+        /**
+         * Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+         */
+        emailSubject?: string;
+        /**
+         * Specifies the action group ids.
+         */
+        ids: string[];
+        /**
+         * A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+         */
+        webhookPayload?: string;
+    }
 }
 
 export namespace mssql {
@@ -16337,6 +16478,9 @@ export namespace network {
          * The ID of the Public IP Address
          */
         id: string;
+        /**
+         * The IP address of the Public IP Address
+         */
         ipAddress: string;
         /**
          * The Name of the Public IP Address
@@ -16380,6 +16524,63 @@ export namespace network {
          * The type of Azure hop the packet should be sent to.
          */
         nextHopType: string;
+    }
+
+    export interface GetTrafficManagerProfileDnsConfig {
+        /**
+         * The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below.
+         */
+        relativeName: string;
+        /**
+         * The TTL value of the Profile used by Local DNS resolvers and clients.
+         */
+        ttl: number;
+    }
+
+    export interface GetTrafficManagerProfileMonitorConfig {
+        /**
+         * One or more `customHeader` blocks as defined below.
+         */
+        customHeaders: outputs.network.GetTrafficManagerProfileMonitorConfigCustomHeader[];
+        /**
+         * A list of status code ranges.
+         */
+        expectedStatusCodeRanges: string[];
+        /**
+         * The interval used to check the endpoint health from a Traffic Manager probing agent.
+         */
+        intervalInSeconds: number;
+        /**
+         * The path used by the monitoring checks.
+         */
+        path: string;
+        /**
+         * The port number used by the monitoring checks.
+         */
+        port: number;
+        /**
+         * The protocol used by the monitoring checks.
+         */
+        protocol: string;
+        /**
+         * The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint.
+         */
+        timeoutInSeconds: number;
+        /**
+         * The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy.
+         */
+        toleratedNumberOfFailures: number;
+    }
+
+    export interface GetTrafficManagerProfileMonitorConfigCustomHeader {
+        /**
+         * Specifies the name of the Traffic Manager Profile.
+         */
+        name: string;
+        /**
+         * The value of custom header. Applicable for Http and Https protocol.
+         */
+        value: string;
     }
 
     export interface GetVirtualNetworkGatewayBgpSetting {
@@ -16522,28 +16723,204 @@ export namespace network {
 
     export interface NetworkConnectionMonitorDestination {
         /**
-         * The address of the connection monitor destination (IP or domain name). Conflicts with `destination.0.virtual_machine_id`
+         * The IP address or domain name of the Network Connection Monitor endpoint.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
-        address?: string;
+        address: string;
         /**
-         * The destination port used by connection monitor.
+         * The port for the HTTP connection.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
         port: number;
         /**
-         * The ID of the virtual machine used as the destination by connection monitor. Conflicts with `destination.0.address`
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+         */
+        virtualMachineId: string;
+    }
+
+    export interface NetworkConnectionMonitorEndpoint {
+        /**
+         * The IP address or domain name of the Network Connection Monitor endpoint.
+         */
+        address?: string;
+        /**
+         * A `filter` block as defined below.
+         */
+        filter?: outputs.network.NetworkConnectionMonitorEndpointFilter;
+        /**
+         * The name of the endpoint for the Network Connection Monitor .
+         */
+        name: string;
+        /**
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
          */
         virtualMachineId?: string;
     }
 
+    export interface NetworkConnectionMonitorEndpointFilter {
+        /**
+         * A `item` block as defined below.
+         */
+        items?: outputs.network.NetworkConnectionMonitorEndpointFilterItem[];
+        /**
+         * The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
+         */
+        type?: string;
+    }
+
+    export interface NetworkConnectionMonitorEndpointFilterItem {
+        /**
+         * The address of the filter item.
+         */
+        address?: string;
+        /**
+         * The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
+         */
+        type?: string;
+    }
+
     export interface NetworkConnectionMonitorSource {
         /**
-         * The source port used by connection monitor.
+         * The port for the HTTP connection.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+         */
+        port: number;
+        /**
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+         *
+         * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
+         */
+        virtualMachineId: string;
+    }
+
+    export interface NetworkConnectionMonitorTestConfiguration {
+        /**
+         * A `httpConfiguration` block as defined below.
+         */
+        httpConfiguration?: outputs.network.NetworkConnectionMonitorTestConfigurationHttpConfiguration;
+        /**
+         * A `icmpConfiguration` block as defined below.
+         */
+        icmpConfiguration?: outputs.network.NetworkConnectionMonitorTestConfigurationIcmpConfiguration;
+        /**
+         * The name of test configuration for the Network Connection Monitor.
+         */
+        name: string;
+        /**
+         * The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
+         */
+        preferredIpVersion?: string;
+        /**
+         * The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
+         */
+        protocol: string;
+        /**
+         * A `successThreshold` block as defined below.
+         */
+        successThreshold?: outputs.network.NetworkConnectionMonitorTestConfigurationSuccessThreshold;
+        /**
+         * A `tcpConfiguration` block as defined below.
+         */
+        tcpConfiguration?: outputs.network.NetworkConnectionMonitorTestConfigurationTcpConfiguration;
+        /**
+         * The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
+         */
+        testFrequencyInSeconds?: number;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationHttpConfiguration {
+        /**
+         * The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
+         */
+        method?: string;
+        /**
+         * The path component of the URI. It only accepts the absolute path.
+         */
+        path?: string;
+        /**
+         * The port for the HTTP connection.
          */
         port?: number;
         /**
-         * The ID of the virtual machine used as the source by connection monitor.
+         * Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
          */
-        virtualMachineId: string;
+        preferHttps?: boolean;
+        /**
+         * A `requestHeader` block as defined below.
+         */
+        requestHeaders?: outputs.network.NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader[];
+        /**
+         * The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
+         */
+        validStatusCodeRanges?: string[];
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader {
+        /**
+         * The name of the HTTP header.
+         */
+        name: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
+        /**
+         * Should path evaluation with trace route be enabled? Defaults to `true`.
+         */
+        traceRouteEnabled?: boolean;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationSuccessThreshold {
+        /**
+         * The maximum percentage of failed checks permitted for a test to be successful.
+         */
+        checksFailedPercent?: number;
+        /**
+         * The maximum round-trip time in milliseconds permitted for a test to be successful.
+         */
+        roundTripTimeMs?: number;
+    }
+
+    export interface NetworkConnectionMonitorTestConfigurationTcpConfiguration {
+        /**
+         * The port for the Tcp connection.
+         */
+        port: number;
+        /**
+         * Should path evaluation with trace route be enabled? Defaults to `true`.
+         */
+        traceRouteEnabled?: boolean;
+    }
+
+    export interface NetworkConnectionMonitorTestGroup {
+        /**
+         * A list of destination endpoint names.
+         */
+        destinationEndpoints: string[];
+        /**
+         * Should the test group be enabled? Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
+         * The name of the test group for the Network Connection Monitor.
+         */
+        name: string;
+        /**
+         * A list of source endpoint names.
+         */
+        sourceEndpoints: string[];
+        /**
+         * A list of test configuration names.
+         */
+        testConfigurationNames: string[];
     }
 
     export interface NetworkInterfaceIpConfiguration {
@@ -16760,9 +17137,35 @@ export namespace network {
          */
         name: string;
         /**
+         * A `route` block as defined below.
+         */
+        route: outputs.network.PointToPointVpnGatewayConnectionConfigurationRoute;
+        /**
          * A `vpnClientAddressPool` block as defined below.
          */
         vpnClientAddressPool: outputs.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool;
+    }
+
+    export interface PointToPointVpnGatewayConnectionConfigurationRoute {
+        /**
+         * The Virtual Hub Route Table resource id associated with this Routing Configuration.
+         */
+        associatedRouteTableId: string;
+        /**
+         * A `propagatedRouteTable` block as defined below.
+         */
+        propagatedRouteTable?: outputs.network.PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable;
+    }
+
+    export interface PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable {
+        /**
+         * The list of Virtual Hub Route Table resource id which the routes will be propagated to.
+         */
+        ids: string[];
+        /**
+         * The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
+         */
+        labels?: string[];
     }
 
     export interface PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool {
@@ -17218,7 +17621,7 @@ export namespace network {
         securityGroup?: string;
     }
 
-    export interface VpnGatewayBgpSetting {
+    export interface VpnGatewayBgpSettings {
         /**
          * The ASN of the BGP Speaker. Changing this forces a new resource to be created.
          */
@@ -17228,9 +17631,55 @@ export namespace network {
          */
         bgpPeeringAddress: string;
         /**
+         * An `instanceBgpPeeringAddress` block as defined below.
+         */
+        instance0BgpPeeringAddress: outputs.network.VpnGatewayBgpSettingsInstance0BgpPeeringAddress;
+        /**
+         * An `instanceBgpPeeringAddress` block as defined below.
+         */
+        instance1BgpPeeringAddress: outputs.network.VpnGatewayBgpSettingsInstance1BgpPeeringAddress;
+        /**
          * The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
          */
         peerWeight: number;
+    }
+
+    export interface VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
+        /**
+         * A list of custom BGP peering addresses to assign to this instance.
+         */
+        customIps: string[];
+        /**
+         * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        defaultIps: string[];
+        /**
+         * The pre-defined id of VPN Gateway Ip Configuration.
+         */
+        ipConfigurationId: string;
+        /**
+         * The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        tunnelIps: string[];
+    }
+
+    export interface VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+        /**
+         * A list of custom BGP peering addresses to assign to this instance.
+         */
+        customIps: string[];
+        /**
+         * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        defaultIps: string[];
+        /**
+         * The pre-defined id of VPN Gateway Ip Configuration.
+         */
+        ipConfigurationId: string;
+        /**
+         * The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
+         */
+        tunnelIps: string[];
     }
 
     export interface VpnServerConfigurationAzureActiveDirectoryAuthentication {

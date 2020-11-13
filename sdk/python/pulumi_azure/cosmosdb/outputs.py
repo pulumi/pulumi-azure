@@ -614,7 +614,7 @@ class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
                  path: str):
         """
         :param str order: Order of the index. Possible values are `Ascending` or `Descending`.
-        :param str path: Path for which the indexing behavior applies to.
+        :param str path: Path for which the indexing behaviour applies to.
         """
         pulumi.set(__self__, "order", order)
         pulumi.set(__self__, "path", path)
@@ -631,7 +631,7 @@ class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        Path for which the indexing behavior applies to.
+        Path for which the indexing behaviour applies to.
         """
         return pulumi.get(self, "path")
 
@@ -665,7 +665,7 @@ class SqlContainerIndexingPolicyIncludedPath(dict):
     def __init__(__self__, *,
                  path: str):
         """
-        :param str path: Path for which the indexing behavior applies to.
+        :param str path: Path for which the indexing behaviour applies to.
         """
         pulumi.set(__self__, "path", path)
 
@@ -673,7 +673,7 @@ class SqlContainerIndexingPolicyIncludedPath(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        Path for which the indexing behavior applies to.
+        Path for which the indexing behaviour applies to.
         """
         return pulumi.get(self, "path")
 

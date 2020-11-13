@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+        /// Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         /// </summary>
         [Output("storageLimitExceededBehavior")]
         public Output<string?> StorageLimitExceededBehavior { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+        /// Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         /// </summary>
         [Input("storageLimitExceededBehavior")]
         public Input<string>? StorageLimitExceededBehavior { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the behavior the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
+        /// Specifies the behaviour the IoT Time Series Insights service should take when the environment's capacity has been exceeded. Valid values include `PauseIngress` and `PurgeOldData`. Defaults to `PurgeOldData`.
         /// </summary>
         [Input("storageLimitExceededBehavior")]
         public Input<string>? StorageLimitExceededBehavior { get; set; }
